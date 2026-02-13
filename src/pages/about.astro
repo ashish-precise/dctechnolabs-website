@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="About Us - Leading Digital Agency in Ahmedabad | DC technolabs"
+  description="Learn about DC technolabs - Ahmedabad's trusted digital marketing agency. Expert web design, development, SEO, and PPC services since 2019."
+>
+  <Header />
+  <div style="height: 80px;"></div>
+  
+  <section class="page-hero">
+    <div class="container">
+      <h1>About DC technolabs</h1>
+      <p class="hero-subtitle">Your trusted partner for digital success in Ahmedabad</p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <h2>Who We Are</h2>
+      <p>DC technolabs is a leading digital marketing agency based in Ahmedabad, Gujarat. We specialize in creating powerful online experiences that help businesses grow and thrive in the digital landscape.</p>
+      
+      <h2>Our Mission</h2>
+      <p>To empower businesses across Gujarat with cutting-edge digital solutions that drive measurable results and sustainable growth.</p>
+      
+      <h2>Why Choose Us</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1rem;">✓ <strong>Local Expertise:</strong> Deep understanding of the Ahmedabad and Gujarat market</li>
+        <li style="margin-bottom: 1rem;">✓ <strong>Proven Results:</strong> Track record of successful projects and happy clients</li>
+        <li style="margin-bottom: 1rem;">✓ <strong>Expert Team:</strong> Skilled professionals dedicated to your success</li>
+        <li style="margin-bottom: 1rem;">✓ <strong>Latest Technology:</strong> Modern tools and frameworks for optimal performance</li>
+      </ul>
+      
+      <div style="margin-top: 3rem; text-align: center;">
+        <a href="/contact" class="btn btn-primary">Work With Us</a>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
+    color: white;
+    text-align: center;
+  }
+  
+  .page-hero h1 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
+</style>
