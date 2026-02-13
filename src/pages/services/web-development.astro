@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Web Development Services in Ahmedabad | DC technolabs"
+  description="Custom web development services in Ahmedabad. E-commerce, WordPress, and custom web applications. Secure, scalable solutions for your business."
+>
+  <Header />
+  <div style="height: 80px;"></div>
+  
+  <section class="page-hero">
+    <div class="container">
+      <h1>Web Development Services in Ahmedabad</h1>
+      <p class="hero-subtitle">Powerful, scalable web applications built with the latest technologies</p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <h2>Build Robust Web Solutions That Scale</h2>
+      <p>From simple brochure websites to complex web applications, DC technolabs builds secure, fast, and scalable solutions using cutting-edge technologies. Based in Ahmedabad, we deliver world-class development services to businesses across Gujarat and beyond.</p>
+      
+      <h3>What's Included</h3>
+      <ul class="feature-list">
+        <li>Custom web application development tailored to your needs</li>
+        <li>E-commerce solutions (Shopify, WooCommerce, custom)</li>
+        <li>WordPress CMS development and customization</li>
+        <li>API integration and development</li>
+        <li>Database design and optimization</li>
+        <li>Progressive Web Apps (PWAs)</li>
+        <li>Payment gateway integration</li>
+        <li>Security implementation and SSL setup</li>
+        <li>Performance optimization</li>
+        <li>Ongoing maintenance and support</li>
+      </ul>
+      
+      <h3>Technologies We Use</h3>
+      <p><strong>Frontend:</strong> React, Vue.js, Astro, HTML5, CSS3, JavaScript</p>
+      <p><strong>Backend:</strong> Node.js, PHP, Python</p>
+      <p><strong>CMS:</strong> WordPress, Shopify, Custom Solutions</p>
+      <p><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB</p>
+      <p><strong>Hosting:</strong> AWS, Vercel, Cloudflare, cPanel</p>
+      
+      <h3>Our Services</h3>
+      <ul class="feature-list">
+        <li><strong>E-commerce Development:</strong> Build online stores that convert</li>
+        <li><strong>WordPress Development:</strong> Custom themes, plugins, and functionality</li>
+        <li><strong>Custom Web Applications:</strong> Tailored solutions for unique business needs</li>
+        <li><strong>API Development & Integration:</strong> Connect your systems seamlessly</li>
+        <li><strong>Website Migration:</strong> Move your site safely to a new platform</li>
+        <li><strong>Performance Optimization:</strong> Make your existing site lightning fast</li>
+      </ul>
+      
+      <h3>Pricing</h3>
+      <p>Web development projects start from ₹35,000. Complex applications and e-commerce sites are custom-quoted based on requirements.</p>
+      
+      <div class="cta-box">
+        <h3>Ready to Build Your Web Solution?</h3>
+        <p>Get a free consultation and detailed project estimate</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/contact" class="btn btn-primary btn-large">Get Free Quote</a>
+          <a href="tel:+919662608986" class="btn btn-secondary btn-large">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
+    color: white;
+    text-align: center;
+  }
+  
+  .page-hero h1 {
+    color: white;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+  
+  .feature-list li {
+    padding: 1rem 0;
+    padding-left: 2.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .cta-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  
+  .cta-box h3 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+</style>
