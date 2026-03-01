@@ -9,6 +9,7 @@ interface Props {
 const { title, description, canonical, ogImage } = Astro.props;
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const currentYear = new Date().getFullYear();
+import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
@@ -154,7 +155,6 @@ const currentYear = new Date().getFullYear();
   </script>
   
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/src/styles/global.css">
 </head>
 <body>
   <slot />
