@@ -1,334 +1,678 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import CtaBanner from '../components/CtaBanner.astro';
 ---
 
-<Layout 
-  title="Contact Us - Get a Free Consultation | DC technolabs Ahmedabad"
-  description="Get in touch with DC technolabs for web design, development, SEO, and PPC services in Ahmedabad. Call +91 96626-08986 or email hello@dctechnolabs.com"
+<PageLayout
+  title="Contact DC technolabs — Get a Free Quote | Ahmedabad Digital Agency"
+  description="Contact DC technolabs for a free project consultation. Call +91 9662608986, email hello@dctechnolabs.com, or fill out our form. Based in Ahmedabad, serving Gujarat & beyond."
+  canonical="https://dctechnolabs.in/contact"
 >
-  <Header />
-  
-  <div style="height: 80px;"></div>
-  
-  <!-- Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <h1>Get In Touch</h1>
-      <p class="hero-subtitle">Let's discuss how we can help grow your business online</p>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact DC technolabs",
+  "url": "https://dctechnolabs.in/contact",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "telephone": "+919662608986",
+    "email": "hello@dctechnolabs.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "postalCode": "382445",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Sa 09:00-19:00"
+  }
+}
+</script>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1: HERO + CONTACT METHOD CARDS
+════════════════════════════════════════════════ -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="contact-hero-inner">
+      <span class="section-label">Contact Us</span>
+      <h1>Let's <span class="highlight">Start a Conversation</span></h1>
+      <p>Whether you need a new website, want to rank higher on Google, or need more leads — we're here to help. Reach out through any channel below.</p>
     </div>
-  </section>
-  
-  <!-- Contact Section -->
-  <section class="section contact-section">
-    <div class="container">
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <div class="contact-form-wrapper">
-          <h2>Send Us a Message</h2>
-          <p>Fill out the form below and we'll get back to you within 24 hours.</p>
-          
-          <form class="contact-form" action="https://formspree.io/f/xlgwbgdj" method="POST">
+
+    <div class="contact-methods">
+      <!-- Call Us -->
+      <a href="tel:+919662608986" class="contact-method">
+        <div class="contact-method-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h3>Call Us</h3>
+        <p>Talk to us directly</p>
+        <span class="contact-method-link">+91 9662608986</span>
+      </a>
+
+      <!-- Email Us -->
+      <a href="mailto:hello@dctechnolabs.com" class="contact-method">
+        <div class="contact-method-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h3>Email Us</h3>
+        <p>We reply within 24hrs</p>
+        <span class="contact-method-link">hello@dctechnolabs.com</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/919662608986" target="_blank" class="contact-method">
+        <div class="contact-method-icon" style="background:#dcfce7;color:#16a34a">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>Chat with us instantly</p>
+        <span class="contact-method-link">Send a message →</span>
+      </a>
+
+      <!-- Visit Us (not a link) -->
+      <div class="contact-method">
+        <div class="contact-method-icon" style="background:#fef3c7;color:var(--accent-dark)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h3>Visit Us</h3>
+        <p>Mon-Sat, 9AM-7PM</p>
+        <span class="contact-method-link contact-method-office">Ahmedabad Office</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2: RESPONSE PROMISE BAR
+════════════════════════════════════════════════ -->
+<section class="response-bar reveal">
+  <div class="container">
+    <div class="response-grid">
+      <div class="response-item">
+        <div class="response-item-icon">⚡</div>
+        <h3>24-Hour Response</h3>
+        <p>Every inquiry gets a reply within one business day</p>
+      </div>
+      <div class="response-item">
+        <div class="response-item-icon">📋</div>
+        <h3>Free Consultation</h3>
+        <p>No-obligation project discussion and proposal</p>
+      </div>
+      <div class="response-item">
+        <div class="response-item-icon">🔒</div>
+        <h3>100% Confidential</h3>
+        <p>Your project details are always kept private</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3: CONTACT FORM + MAP + INFO
+════════════════════════════════════════════════ -->
+<section class="contact-main reveal">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: Form Card -->
+      <div class="contact-form-card">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form below and we'll get back to you within 24 hours with a detailed proposal.</p>
+
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xlgwbgdj" method="POST">
+          <div class="form-row">
             <div class="form-group">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" required>
+              <label>Full Name *</label>
+              <input type="text" name="name" class="form-input" placeholder="Your full name" required>
             </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone">
-              </div>
-            </div>
-            
             <div class="form-group">
-              <label for="service">Service Interested In *</label>
-              <select id="service" name="service" required>
-                <option value="">Select a service</option>
-                <option value="web-design">Web Design</option>
-                <option value="web-development">Web Development</option>
-                <option value="seo">SEO Services</option>
-                <option value="ppc">PPC Management</option>
-                <option value="ecommerce">E-commerce Development</option>
-                <option value="other">Other</option>
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+91 9876543210" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" name="company" class="form-input" placeholder="Your company (optional)">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Service Interested In *</label>
+            <select name="service" class="form-input" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Web Design</option>
+              <option>Web Development</option>
+              <option>SEO Services</option>
+              <option>PPC / Google Ads</option>
+              <option>E-commerce Development</option>
+              <option>WordPress Development</option>
+              <option>Shopify Development</option>
+              <option>Social Media Marketing</option>
+              <option>Multiple Services</option>
+              <option>Not Sure — Need Guidance</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Estimated Budget</label>
+              <select name="budget" class="form-input">
+                <option value="" disabled selected>Select range (optional)</option>
+                <option>Under ₹25,000</option>
+                <option>₹25,000 - ₹50,000</option>
+                <option>₹50,000 - ₹1,00,000</option>
+                <option>₹1,00,000 - ₹3,00,000</option>
+                <option>₹3,00,000+</option>
               </select>
             </div>
-            
             <div class="form-group">
-              <label for="message">Tell Us About Your Project *</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
+              <label>Timeline</label>
+              <select name="timeline" class="form-input">
+                <option value="" disabled selected>When do you need it? (optional)</option>
+                <option>ASAP</option>
+                <option>Within 2 weeks</option>
+                <option>Within 1 month</option>
+                <option>Within 3 months</option>
+                <option>Just exploring</option>
+              </select>
             </div>
-            
-            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-          </form>
+          </div>
+
+          <div class="form-group">
+            <label>Project Details *</label>
+            <textarea name="message" class="form-input" placeholder="Tell us about your project, goals, and any specific requirements..." rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+          <p class="form-note">We respond within 24 hours. No spam, no obligation.</p>
+        </form>
+      </div>
+
+      <!-- RIGHT: Map + Info Sidebar -->
+      <div class="contact-sidebar">
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0!2d72.629!3d22.969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzA4LjQiTiA3MsKwMzcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="DC technolabs Office"
+          ></iframe>
         </div>
-        
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <div class="info-card">
-            <div class="info-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </div>
-            <h3>Call Us</h3>
-            <p>Mon-Sat, 9 AM - 6 PM</p>
-            <a href="tel:+919662608986" class="contact-link">+91 96626-08986</a>
+
+        <div class="contact-info-card">
+          <h3>Office Details</h3>
+
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <p>
+              <strong>Address</strong>
+              B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445, Gujarat, India
+            </p>
           </div>
-          
-          <div class="info-card">
-            <div class="info-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <h3>Email Us</h3>
-            <p>We'll respond within 24 hours</p>
-            <a href="mailto:hello@dctechnolabs.com" class="contact-link">hello@dctechnolabs.com</a>
+
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <p>
+              <strong>Phone</strong>
+              <a href="tel:+919662608986">+91 9662608986</a>
+            </p>
           </div>
-          
-          <div class="info-card">
-            <div class="info-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <h3>Visit Us</h3>
-            <p>Sanik Society, B-18, Vinzol Rd<br>near Urmi Jeevan Society<br>Vatva, Ahmedabad<br>Gujarat 382445</p>
+
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <p>
+              <strong>Email</strong>
+              <a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a>
+            </p>
           </div>
-          
-          <div class="info-card whatsapp-card">
-            <div class="info-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-            </div>
-            <h3>WhatsApp</h3>
-            <p>Quick response guaranteed</p>
-            <a href="https://wa.me/919662608986" class="contact-link" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <p>
+              <strong>Working Hours</strong>
+              Monday — Saturday<br>9:00 AM — 7:00 PM IST
+            </p>
           </div>
         </div>
       </div>
+
     </div>
-  </section>
-  
-  <!-- Map Section -->
-  <section class="map-section">
-    <div class="container">
-      <h2 class="section-title">Find Us on Map</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.4962867890945!2d72.63224931496788!3d22.97341918500796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85da5e577777%3A0x0!2zMjLCsDU4JzI0LjMiTiA3MsKwMzgnMDQuNyJF!5e0!3m2!1sen!2sin!4v1234567890123"
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          title="DC technolabs Location">
-        </iframe>
-      </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4: FAQ (single-column)
+════════════════════════════════════════════════ -->
+<section class="contact-faq reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Before You Reach Out</h2>
+      <p class="section-subtitle">Quick answers to the questions most people ask before contacting us.</p>
     </div>
-  </section>
-  
-  <Footer />
-</Layout>
+
+    <div class="faq-grid contact-faq-grid">
+      {[
+        {
+          q: "What happens after I submit the form?",
+          a: "Within 24 hours, you'll receive a reply from our team. We'll schedule a brief discovery call (15-20 minutes) to understand your goals, then follow up with a detailed proposal including scope, timeline, and pricing."
+        },
+        {
+          q: "Is the consultation really free?",
+          a: "Yes — 100% free with no obligation. We believe in earning your trust before earning your business. You'll get genuine advice even if you decide not to work with us."
+        },
+        {
+          q: "Do I need to visit your office?",
+          a: "Not at all. We work with clients across Gujarat and internationally — everything can be done via calls, video meetings, and email. You're welcome to visit, but it's never required."
+        },
+        {
+          q: "I'm not sure what service I need. Can you help?",
+          a: "Absolutely. Select \"Not Sure — Need Guidance\" in the form. During our discovery call, we'll assess your business goals and recommend the right services. No upselling — just honest advice."
+        },
+        {
+          q: "How quickly can you start my project?",
+          a: "Most projects kick off within 3-5 business days of agreement. Rush projects can sometimes start within 24-48 hours depending on scope and team availability."
+        },
+        {
+          q: "Do you sign an NDA?",
+          a: "Yes. We're happy to sign a mutual NDA before any project discussion. Your ideas, data, and business information are always treated as confidential."
+        }
+      ].map(item => (
+        <div class="faq-item">
+          <button class="faq-question">
+            {item.q}
+            <span class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">{item.a}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5: FINAL CTA (custom — phone + WA)
+════════════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Prefer a Quick Chat Instead?</h2>
+    <p>Skip the form. Call us directly or send a WhatsApp message — we're available Monday through Saturday, 9 AM to 7 PM.</p>
+    <div class="final-cta-actions">
+      <a href="tel:+919662608986" class="btn btn-accent">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Call +91 9662608986
+      </a>
+      <a href="https://wa.me/919662608986" target="_blank" class="btn btn-outline-light" style="border:2px solid rgba(255,255,255,.3);color:var(--white);background:transparent">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
 
 <style>
-  .page-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
-    color: white;
-    text-align: center;
-  }
-  
-  .page-hero h1 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-  }
-  
-  .contact-section {
-    padding: 5rem 0;
-  }
-  
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  
-  .contact-form-wrapper h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .contact-form-wrapper > p {
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-  }
-  
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .form-group label {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: 0.95rem;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 0.875rem 1rem;
-    border: 2px solid var(--border);
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
-  }
-  
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-  }
-  
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .info-card {
-    background: var(--bg-secondary);
-    padding: 2rem;
-    border-radius: 1rem;
-    border-left: 4px solid var(--primary);
-  }
-  
-  .whatsapp-card {
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    color: white;
-    border-left-color: white;
-  }
-  
-  .info-icon {
-    width: 60px;
-    height: 60px;
-    background: white;
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    color: var(--primary);
-  }
-  
-  .whatsapp-card .info-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-  }
-  
-  .info-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .whatsapp-card h3 {
-    color: white;
-  }
-  
-  .info-card p {
-    color: var(--text-secondary);
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
-  }
-  
-  .whatsapp-card p {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .contact-link {
-    display: inline-block;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 1.125rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .whatsapp-card .contact-link {
-    color: white;
-  }
-  
-  .contact-link:hover {
-    color: var(--primary-dark);
-  }
-  
-  .whatsapp-card .contact-link:hover {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .map-section {
-    padding: 3rem 0 5rem;
-    background: var(--bg-secondary);
-  }
-  
-  .section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .map-container {
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  }
-  
-  @media (max-width: 968px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-  }
+/* ══════════════════════════════════════════════
+   SECTION 1: HERO
+══════════════════════════════════════════════ */
+.contact-hero {
+  padding: 120px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.contact-hero-inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-hero h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.contact-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.contact-hero p {
+  font-size: 1.15rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Contact Method Cards ─── */
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.contact-method {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  border: 1.5px solid var(--gray-100);
+  text-align: center;
+  transition: all .3s var(--ease);
+  display: block;
+  color: inherit;
+}
+.contact-method:hover {
+  border-color: var(--blue-200);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.06);
+}
+.contact-method-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--blue-50);
+  color: var(--blue-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+.contact-method h3 {
+  font-size: 1.05rem;
+  margin-bottom: .4rem;
+  color: var(--gray-900);
+}
+.contact-method p {
+  font-size: .95rem;
+  color: var(--gray-500);
+  margin-bottom: .75rem;
+}
+.contact-method-link {
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--blue-600);
+}
+.contact-method-office {
+  color: var(--blue-600);
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 2: RESPONSE PROMISE BAR
+══════════════════════════════════════════════ */
+.response-bar {
+  padding: 3rem 0;
+  background: var(--blue-50);
+  border-top: 1px solid var(--blue-100);
+  border-bottom: 1px solid var(--blue-100);
+}
+.response-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.response-item { text-align: center; }
+.response-item-icon { font-size: 1.75rem; margin-bottom: .75rem; }
+.response-item h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+.response-item p { font-size: .9rem; color: var(--gray-500); }
+
+/* ══════════════════════════════════════════════
+   SECTION 3: FORM + SIDEBAR
+══════════════════════════════════════════════ */
+.contact-main { padding: var(--section-pad) 0; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Form card */
+.contact-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.06);
+  border: 1px solid var(--gray-100);
+}
+.contact-form-card h2 { font-size: 1.5rem; margin-bottom: .5rem; }
+.contact-form-card > p {
+  font-size: .95rem;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+.contact-form .form-group { margin-bottom: 1.25rem; }
+.contact-form .form-group label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 6px;
+}
+.contact-form .form-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--gray-800);
+  background: var(--gray-50);
+  transition: all .2s var(--ease);
+}
+.contact-form .form-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(59,130,246,.1);
+}
+.contact-form .form-input::placeholder { color: var(--gray-400); }
+.contact-form textarea.form-input { resize: vertical; min-height: 120px; }
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.contact-form .form-submit {
+  width: 100%;
+  padding: 15px;
+  margin-top: .5rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.form-note {
+  text-align: center;
+  font-size: .85rem;
+  color: var(--gray-400);
+  margin-top: .75rem;
+}
+
+/* Sidebar */
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.contact-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 280px;
+  border: 1px solid var(--gray-200);
+}
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.contact-info-card {
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--gray-100);
+}
+.contact-info-card h3 { font-size: 1.15rem; margin-bottom: 1.25rem; }
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+.contact-info-item:last-child { margin-bottom: 0; }
+.contact-info-item svg { color: var(--blue-600); flex-shrink: 0; margin-top: 3px; }
+.contact-info-item p { font-size: .95rem; color: var(--gray-600); line-height: 1.6; margin: 0; }
+.contact-info-item strong {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--gray-800);
+  margin-bottom: 2px;
+}
+.contact-info-item a { color: var(--blue-600); font-weight: 500; }
+.contact-info-item a:hover { color: var(--blue-700); }
+
+/* ══════════════════════════════════════════════
+   SECTION 4: FAQ (single-column override)
+══════════════════════════════════════════════ */
+.contact-faq { padding: var(--section-pad) 0; background: var(--gray-50); }
+.contact-faq-grid {
+  grid-template-columns: 1fr !important;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .contact-hero { padding: 110px 0 var(--section-pad); }
+  .contact-methods { grid-template-columns: repeat(2, 1fr); }
+  .response-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .contact-form .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .contact-methods { grid-template-columns: 1fr; }
+}
 </style>
+
+<script>
+  function init() {
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (!btn || !answer) return;
+      btn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          const a = i.querySelector('.faq-answer') as HTMLElement | null;
+          if (a) a.style.maxHeight = '0px';
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          (answer as HTMLElement).style.maxHeight = (answer as HTMLElement).scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Scroll Reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+</PageLayout>

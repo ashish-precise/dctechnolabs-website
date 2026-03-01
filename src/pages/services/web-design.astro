@@ -1,526 +1,272 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+// ── SCHEMA ────────────────────────────────────────────────────────────────────
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Web Design Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "telephone": "+919662608986"
+  },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Custom web design services starting ₹25,000. Mobile-first, conversion-focused websites.",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "price": "25000",
+    "priceSpecification": { "@type": "PriceSpecification", "minPrice": "25000" }
+  }
+});
+
+// ── SECTION 2: FEATURE CARDS ─────────────────────────────────────────────────
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: "Custom Design",
+    desc: "Every page designed from scratch to match your brand. No templates, no cookie-cutter layouts."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+    title: "Mobile-First Design",
+    desc: "70%+ of Indian traffic is mobile. Your site is designed for phones first, then scaled up to desktop."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Conversion Optimized",
+    desc: "Strategic CTA placement, contact forms, and lead capture built into every page to maximize inquiries."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: "SEO Foundation",
+    desc: "Proper meta tags, schema markup, fast loading, and clean code so Google can find and rank your site."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+    title: "Fast Loading",
+    desc: "Optimized images, clean code, and modern hosting. Your site loads in under 3 seconds — guaranteed."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "SSL & Security",
+    desc: "Free SSL certificate, security headers, and regular backups. Your visitors see the padlock icon — trust established."
+  },
+];
+
+// ── SECTION 3: PROBLEM CARDS ──────────────────────────────────────────────────
+const problemCards: ProblemCard[] = [
+  { problem: "My website looks outdated", solution: "We replace old, dated designs with modern, professional sites that make visitors trust your business instantly." },
+  { problem: "It doesn't work on phones", solution: "Every site we build is mobile-first. Thumb-friendly navigation, readable text, fast loading — perfect on every screen." },
+  { problem: "I get no leads from my site", solution: "We add strategic contact forms, click-to-call buttons, and CTAs throughout your site so visitors become customers." },
+  { problem: "My site loads too slowly", solution: "We build with clean code and optimized assets. Under 3-second load times. Fast sites rank higher and convert more." },
+  { problem: "I can't update it myself", solution: "We build on WordPress or Shopify with full admin access. Update text, images, and pages without touching code." },
+  { problem: "Google can't find us", solution: "Every site includes SEO foundations — meta tags, schema markup, sitemap, page speed optimization — so Google indexes you properly." },
+];
+
+// ── SECTION 4: PROCESS STEPS ──────────────────────────────────────────────────
+const processSteps: ProcessStep[] = [
+  { title: "Discovery Call", desc: "We learn about your business, audience, goals, and competition. You share what you like and dislike. 30 minutes, no obligation." },
+  { title: "Wireframes & Design", desc: "We create page layouts and a design mockup for your approval. You see exactly what your site will look like before we write a single line of code." },
+  { title: "Development", desc: "We build the site — responsive, fast, SEO-ready. You get a staging link to review and request changes at every stage." },
+  { title: "Launch & Support", desc: "We test everything, connect your domain, and go live. Post-launch support included for 30 days. We don't disappear after launch." },
+];
+
+// ── SECTION 5: DELIVERABLES ───────────────────────────────────────────────────
+const deliverables: Deliverable[] = [
+  { title: "Up to 8 custom-designed pages", desc: "Home, About, Services, Contact, and more — each designed specifically for your business." },
+  { title: "Mobile-responsive design", desc: "Perfect on phones, tablets, laptops, and desktops. Tested across all major browsers." },
+  { title: "Contact forms & lead capture", desc: "Forms on every key page, connected to your email. Never miss a lead." },
+  { title: "SEO setup & Google indexing", desc: "Meta tags, sitemap, robots.txt, schema markup, and Google Search Console submission." },
+  { title: "SSL certificate & security", desc: "Free HTTPS, security headers, and malware protection included." },
+  { title: "Speed optimization", desc: "Image compression, code minification, lazy loading — sub-3-second load times." },
+  { title: "CMS admin access", desc: "Full WordPress or Shopify admin panel. Update content yourself anytime." },
+  { title: "30 days post-launch support", desc: "Bug fixes, minor changes, and technical support for a full month after launch." },
+];
+
+// ── SECTION 6: COMPARISON ROWS ────────────────────────────────────────────────
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Custom design (no templates)", us: "✓", usClass: "check", agency: "✓", agencyClass: "check", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Mobile-first approach",        us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "SEO foundations included",     us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Transparent fixed pricing",    us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+  { feature: "Post-launch support",          us: "30 days free", usClass: "check", agency: "Paid", agencyClass: "cross", freelancer: "None", freelancerClass: "cross" },
+  { feature: "Dedicated project manager",    us: "✓", usClass: "check", agency: "✓", agencyClass: "check", freelancer: "✗", freelancerClass: "cross" },
+];
+
+// ── SECTION 7: PRICING TIERS ─────────────────────────────────────────────────
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For small businesses & startups",
+    price: "₹25,000",
+    priceSuffix: "one-time",
+    note: "Best for: New businesses needing online presence",
+    features: ["Up to 5 pages", "Mobile-responsive", "Contact form", "Basic SEO setup", "SSL certificate", "15 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Professional",
+    desc: "For growing businesses",
+    price: "₹50,000",
+    priceSuffix: "one-time",
+    note: "Best for: Businesses wanting to generate leads",
+    features: ["Up to 10 pages", "Custom UI/UX design", "Advanced forms & CTAs", "Full SEO foundation", "Speed optimization", "CMS (WordPress/Shopify)", "30 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    desc: "For established businesses",
+    price: "₹1,00,000",
+    priceSuffix: "+",
+    note: "Best for: Complex sites with custom features",
+    features: ["Unlimited pages", "Custom functionality", "E-commerce integration", "Advanced animations", "Priority support", "Performance guarantee", "60 days support"],
+    btnLabel: "Contact Us",
+    btnClass: "btn-secondary",
+  },
+];
+
+// ── SECTION 8: PORTFOLIO ─────────────────────────────────────────────────────
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#1e3a5f,#2563eb)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="10" width="160" height="90" rx="8" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)"/><rect x="30" y="20" width="60" height="8" rx="4" fill="rgba(255,255,255,.3)"/><rect x="30" y="35" width="40" height="6" rx="3" fill="rgba(255,255,255,.15)"/><rect x="30" y="50" width="140" height="40" rx="6" fill="rgba(255,255,255,.08)"/><circle cx="50" cy="70" r="12" fill="rgba(96,165,250,.4)"/></svg>`,
+    tag: "Real Estate · Custom Design",
+    title: "CRONA Group",
+    desc: "Property developer website with modern design and integrated property listings. Built on Webflow.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1d4ed8)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="10" y="10" width="80" height="100" rx="6" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)"/><rect x="20" y="20" width="60" height="30" rx="4" fill="rgba(59,130,246,.3)"/><rect x="100" y="10" width="90" height="45" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><circle cx="145" cy="32" r="10" fill="rgba(245,158,11,.3)"/></svg>`,
+    tag: "Healthcare · Branding",
+    title: "Medivis",
+    desc: "Medical technology company rebrand and website. Modern design reflecting AR/AI innovation.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e293b,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="15" width="160" height="90" rx="8" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)"/><rect x="30" y="25" width="50" height="7" rx="3.5" fill="rgba(255,255,255,.25)"/><rect x="30" y="42" width="140" height="50" rx="6" fill="rgba(255,255,255,.06)"/><circle cx="60" cy="67" r="15" fill="rgba(167,139,250,.3)"/><rect x="85" y="55" width="70" height="6" rx="3" fill="rgba(255,255,255,.12)"/></svg>`,
+    tag: "Consulting · Web Design",
+    title: "National Innovation Service",
+    desc: "Complete website redesign with storytelling-driven design and web animations.",
+  },
+];
+
+// ── SECTION 9: TESTIMONIALS ───────────────────────────────────────────────────
+const testimonials: Testimonial[] = [
+  {
+    text: "Our new website is not only visually stunning but also incredibly functional, thanks to your talented design and development team.",
+    initials: "CG",
+    name: "CRONA Group",
+    role: "Real Estate, Cyprus",
+  },
+  {
+    text: "The redesigned website received highly positive feedback, particularly for its meaningful design that resonated with staff and stakeholders.",
+    initials: "NI",
+    name: "NIS",
+    role: "Consulting, USA",
+  },
+  {
+    text: "DC Technolab stands out as a beacon of excellence. Their team consistently produces outstanding work, demonstrating a commitment to surpassing expectations.",
+    initials: "DR",
+    name: "DesignRush Review",
+    role: "Verified Agency Review",
+  },
+];
+
+// ── SECTION 10: FAQ ──────────────────────────────────────────────────────────
+const faqItems: FaqItem[] = [
+  { q: "How much does a website cost?", a: "Our web design starts at ₹25,000 for a 5-page site. Most businesses invest ₹50,000–₹1,00,000 for a full custom site with CMS, forms, and SEO. We provide exact pricing after understanding your needs." },
+  { q: "How long does it take?", a: "Simple sites: 2 weeks. Full business sites: 3–4 weeks. E-commerce: 4–6 weeks. We provide a detailed timeline in our proposal." },
+  { q: "Do you use templates?", a: "No. Every site is custom designed from scratch. We don't use pre-made templates. Your site will be unique to your brand and business goals." },
+  { q: "Can I update the site myself?", a: "Yes. We build on WordPress or Shopify with full admin access. We provide training and documentation so you can update text, images, and pages without any coding knowledge." },
+  { q: "Do you provide hosting?", a: "We can set up hosting for you or work with your existing hosting. We recommend reliable providers and handle the full technical setup." },
+  { q: "What if I need changes after launch?", a: "All packages include post-launch support (15–60 days depending on plan). After that, we offer affordable monthly maintenance packages or you can request one-time changes." },
+  { q: "Will my site rank on Google?", a: "Every site includes SEO foundations — proper structure, meta tags, fast loading, mobile-friendliness. For ongoing ranking improvements, we recommend our SEO services starting at ₹30,000/month." },
+  { q: "Do you redesign existing websites?", a: "Absolutely. Many of our clients come to us with outdated sites. We redesign from scratch while preserving your existing content, SEO rankings, and domain authority." },
+];
+
+// ── SECTION 11: RELATED SERVICES ─────────────────────────────────────────────
+const relatedServices: RelatedService[] = [
+  { href: "/services/seo", title: "SEO Services", desc: "Get your new website ranking on Google. Local SEO, technical optimization, and content strategy starting ₹30,000/month." },
+  { href: "/services/ppc", title: "PPC / Google Ads", desc: "Drive immediate traffic to your new site with targeted Google Ads campaigns. Starting ₹35,000/month." },
+  { href: "/services/ecommerce", title: "E-commerce Development", desc: "Turn your website into an online store. Shopify, WooCommerce, or custom — with payment integration." },
+];
 ---
 
-<Layout 
-  title="Web Design Services in Ahmedabad | DC technolabs"
-  description="Professional web design services in Ahmedabad. Custom, responsive websites that engage visitors and drive conversions. Get a free quote today!"
->
-  <Header />
-  
-  <div style="height: 80px;"></div>
-  
-  <section class="page-hero">
-    <div class="container">
-      <h1>Web Design Services in Ahmedabad</h1>
-      <p class="hero-subtitle">Beautiful, user-friendly designs that convert visitors into customers</p>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container content-wrapper">
-      <div class="main-content">
-        <h2>Transform Your Online Presence with Professional Web Design</h2>
-        <p>Your website is often the first impression potential customers have of your business. At DC technolabs, we create stunning, modern websites that not only look great but are strategically designed to convert visitors into customers.</p>
-        
-        <p>Based in Ahmedabad, we understand the local market and create designs that resonate with your target audience while maintaining international quality standards.</p>
-        
-        <h3>What's Included in Our Web Design Service</h3>
-        <ul class="feature-list">
-          <li><strong>Custom Responsive Design:</strong> Your website will look perfect on all devices - desktop, tablet, and mobile</li>
-          <li><strong>User Experience (UX) Optimization:</strong> Intuitive navigation and layouts that guide visitors to take action</li>
-          <li><strong>Brand-Aligned Visual Identity:</strong> Colors, fonts, and imagery that reflect your brand personality</li>
-          <li><strong>Interactive Elements:</strong> Engaging animations and micro-interactions that delight users</li>
-          <li><strong>Mobile-First Approach:</strong> Designed for the way modern users browse on their phones</li>
-          <li><strong>Fast Loading Times:</strong> Optimized images and code for lightning-fast performance</li>
-          <li><strong>Conversion-Focused Design:</strong> Strategic placement of CTAs and trust signals</li>
-          <li><strong>SEO-Friendly Structure:</strong> Built with search engines in mind from day one</li>
-        </ul>
-        
-        <h3>Our Web Design Process</h3>
-        <div class="process-steps">
-          <div class="step">
-            <div class="step-number">01</div>
-            <h4>Discovery & Research</h4>
-            <p>We learn about your business, goals, target audience, and competitors</p>
-          </div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <h4>Strategy & Planning</h4>
-            <p>Create sitemap, wireframes, and design strategy aligned with your goals</p>
-          </div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <h4>Design Creation</h4>
-            <p>Develop visual designs with your brand colors, fonts, and imagery</p>
-          </div>
-          <div class="step">
-            <div class="step-number">04</div>
-            <h4>Review & Refinement</h4>
-            <p>You review designs, provide feedback, and we refine until perfect</p>
-          </div>
-          <div class="step">
-            <div class="step-number">05</div>
-            <h4>Development & Launch</h4>
-            <p>Convert designs to code, test thoroughly, and launch your site</p>
-          </div>
-        </div>
-        
-        <h3>Common Problems We Solve</h3>
-        <ul class="problems-list">
-          <li>Outdated website that doesn't reflect your current business</li>
-          <li>Poor mobile experience driving away potential customers</li>
-          <li>Confusing navigation that makes it hard to find information</li>
-          <li>Slow loading times affecting your Google rankings</li>
-          <li>Generic template design that looks like everyone else</li>
-          <li>Low conversion rates despite getting decent traffic</li>
-          <li>Unprofessional appearance hurting your brand credibility</li>
-        </ul>
-        
-        <h3>Why Choose DC technolabs for Web Design?</h3>
-        <ul class="feature-list">
-          <li><strong>Local Expertise:</strong> We understand Ahmedabad market and audience preferences</li>
-          <li><strong>Custom Solutions:</strong> No cookie-cutter templates - every design is unique to your business</li>
-          <li><strong>Conversion Focus:</strong> We design to achieve your business goals, not just look pretty</li>
-          <li><strong>Fast Turnaround:</strong> Most projects completed in 2-4 weeks</li>
-          <li><strong>Transparent Pricing:</strong> Clear quotes with no hidden fees</li>
-          <li><strong>Ongoing Support:</strong> We're here to help even after launch</li>
-        </ul>
-        
-        <h3>Pricing & Packages</h3>
-        <p>Our web design services start from ₹25,000 for small business websites. Enterprise solutions are custom-quoted based on your specific requirements.</p>
-        
-        <div class="packages-grid">
-          <div class="package-card">
-            <h4>Starter Package</h4>
-            <p class="price">Starting at ₹25,000</p>
-            <ul>
-              <li>5-page responsive website</li>
-              <li>Mobile-optimized design</li>
-              <li>Contact form integration</li>
-              <li>Social media links</li>
-              <li>2 rounds of revisions</li>
-            </ul>
-          </div>
-          
-          <div class="package-card featured">
-            <div class="badge">Most Popular</div>
-            <h4>Professional Package</h4>
-            <p class="price">Starting at ₹50,000</p>
-            <ul>
-              <li>10-page responsive website</li>
-              <li>Custom design & branding</li>
-              <li>Advanced animations</li>
-              <li>SEO optimization</li>
-              <li>Google Analytics setup</li>
-              <li>3 rounds of revisions</li>
-            </ul>
-          </div>
-          
-          <div class="package-card">
-            <h4>Enterprise Package</h4>
-            <p class="price">Custom Quote</p>
-            <ul>
-              <li>Unlimited pages</li>
-              <li>Advanced functionality</li>
-              <li>Custom integrations</li>
-              <li>Priority support</li>
-              <li>Dedicated project manager</li>
-              <li>Unlimited revisions</li>
-            </ul>
-          </div>
-        </div>
-        
-        <h3>Frequently Asked Questions</h3>
-        <div class="faq">
-          <div class="faq-item">
-            <h4>How long does it take to design a website?</h4>
-            <p>Most small to medium websites take 2-4 weeks from start to launch. Larger projects may take 6-8 weeks depending on complexity.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Will my website work on mobile phones?</h4>
-            <p>Absolutely! All our designs are mobile-responsive and tested on various devices to ensure perfect functionality.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Can I update the website myself after launch?</h4>
-            <p>Yes! We can build your site on a CMS like WordPress, making it easy for you to update content without coding knowledge.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Do you provide website hosting?</h4>
-            <p>We can recommend reliable hosting providers and help with setup. We also offer managed hosting as an add-on service.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>What if I don't like the initial design?</h4>
-            <p>We include multiple revision rounds in all packages. We work with you until you're completely satisfied with the design.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Do you redesign existing websites?</h4>
-            <p>Yes! We specialize in website redesigns and can modernize your existing site while preserving your SEO rankings.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Will my website be SEO-friendly?</h4>
-            <p>Yes, we build all websites with SEO best practices including proper heading structure, fast loading, and mobile optimization.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Can you integrate third-party tools and services?</h4>
-            <p>Absolutely! We can integrate payment gateways, CRM systems, email marketing tools, and more.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>What areas in Ahmedabad do you serve?</h4>
-            <p>We serve all areas of Ahmedabad including Satellite, Vastrapur, SG Highway, Bodakdev, Prahlad Nagar, and surrounding areas.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h4>Do you provide maintenance after launch?</h4>
-            <p>Yes! We offer ongoing maintenance packages to keep your website secure, updated, and running smoothly.</p>
-          </div>
-        </div>
-        
-        <div class="cta-box">
-          <h3>Ready to Get Started?</h3>
-          <p>Get a free consultation and custom quote for your web design project</p>
-          <div class="cta-buttons">
-            <a href="/contact" class="btn btn-primary btn-large">Get Free Quote</a>
-            <a href="tel:+919662608986" class="btn btn-secondary btn-large">Call +91 96626-08986</a>
-          </div>
-        </div>
-      </div>
-      
-      <aside class="sidebar">
-        <div class="sidebar-card">
-          <h3>Quick Contact</h3>
-          <p><strong>Phone:</strong><br><a href="tel:+919662608986">+91 96626-08986</a></p>
-          <p><strong>Email:</strong><br><a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a></p>
-          <a href="/contact" class="btn btn-accent" style="width: 100%; margin-top: 1rem;">Get Free Quote</a>
-        </div>
-        
-        <div class="sidebar-card">
-          <h3>Other Services</h3>
-          <ul class="service-links">
-            <li><a href="/services/web-development">Web Development</a></li>
-            <li><a href="/services/seo">SEO Services</a></li>
-            <li><a href="/services/ppc">PPC Management</a></li>
-          </ul>
-        </div>
-        
-        <div class="sidebar-card">
-          <h3>Service Areas</h3>
-          <p>Proudly serving businesses across:</p>
-          <ul class="area-links">
-            <li><a href="/locations/ahmedabad">Ahmedabad</a></li>
-            <li><a href="/locations/gandhinagar">Gandhinagar</a></li>
-            <li><a href="/locations/surat">Surat</a></li>
-            <li><a href="/locations/vadodara">Vadodara</a></li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-  </section>
-  
-  <Footer />
-</Layout>
+<ServicePageLayout
+  title="Web Design Services in Ahmedabad — Starting ₹25,000 | DC technolabs"
+  description="Professional web design services in Ahmedabad starting ₹25,000. Mobile-first, conversion-focused websites. 500+ sites built. Free quote from DC technolabs."
+  canonical="https://dctechnolabs.in/services/web-design"
+  schemaJson={schemaJson}
 
-<style>
-  .page-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
-    color: white;
-    text-align: center;
-  }
-  
-  .page-hero h1 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-  }
-  
-  .content-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 3rem;
-    align-items: start;
-  }
-  
-  .main-content h2 {
-    margin-bottom: 1.5rem;
-  }
-  
-  .main-content h3 {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .main-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-  }
-  
-  .feature-list,
-  .problems-list {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-  }
-  
-  .feature-list li,
-  .problems-list li {
-    padding: 1rem 0;
-    padding-left: 2.5rem;
-    position: relative;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .problems-list li::before {
-    content: '✗';
-    position: absolute;
-    left: 0;
-    color: #ef4444;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .process-steps {
-    display: grid;
-    gap: 2rem;
-    margin: 2rem 0;
-  }
-  
-  .step {
-    display: flex;
-    gap: 1.5rem;
-    align-items: start;
-  }
-  
-  .step-number {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .step h4 {
-    margin-bottom: 0.5rem;
-  }
-  
-  .step p {
-    margin: 0;
-    color: var(--text-secondary);
-  }
-  
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0 3rem;
-  }
-  
-  .package-card {
-    background: var(--bg-secondary);
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 2px solid var(--border);
-    position: relative;
-  }
-  
-  .package-card.featured {
-    border-color: var(--primary);
-    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.15);
-  }
-  
-  .badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: var(--primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
-  
-  .package-card h4 {
-    margin-bottom: 1rem;
-  }
-  
-  .price {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-  }
-  
-  .package-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .package-card li {
-    padding: 0.75rem 0;
-    padding-left: 1.75rem;
-    position: relative;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .package-card li:last-child {
-    border-bottom: none;
-  }
-  
-  .package-card li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-  }
-  
-  .faq {
-    margin: 2rem 0;
-  }
-  
-  .faq-item {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  
-  .faq-item h4 {
-    margin-bottom: 0.75rem;
-    color: var(--text-primary);
-  }
-  
-  .faq-item p {
-    margin: 0;
-    color: var(--text-secondary);
-  }
-  
-  .cta-box {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    padding: 3rem;
-    border-radius: 1rem;
-    text-align: center;
-    margin: 3rem 0;
-  }
-  
-  .cta-box h3 {
-    color: white;
-    margin: 0 0 1rem 0;
-  }
-  
-  .cta-box p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-  }
-  
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .sidebar {
-    position: sticky;
-    top: 100px;
-  }
-  
-  .sidebar-card {
-    background: var(--bg-secondary);
-    padding: 2rem;
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .sidebar-card h3 {
-    margin: 0 0 1.5rem 0;
-    font-size: 1.25rem;
-  }
-  
-  .sidebar-card p {
-    margin-bottom: 0.5rem;
-  }
-  
-  .sidebar-card a {
-    color: var(--primary);
-    font-weight: 600;
-  }
-  
-  .service-links,
-  .area-links {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0 0;
-  }
-  
-  .service-links li,
-  .area-links li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .service-links li:last-child,
-  .area-links li:last-child {
-    border-bottom: none;
-  }
-  
-  .service-links a,
-  .area-links a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .service-links a:hover,
-  .area-links a:hover {
-    color: var(--primary);
-  }
-  
-  @media (max-width: 968px) {
-    .content-wrapper {
-      grid-template-columns: 1fr;
-    }
-    
-    .sidebar {
-      position: static;
-    }
-    
-    .cta-buttons {
-      flex-direction: column;
-    }
-    
-    .cta-buttons .btn {
-      width: 100%;
-    }
-  }
-</style>
+  badge="🎨 Web Design Services"
+  heroH1="Websites That"
+  heroHighlight="Convert Visitors Into Customers"
+  heroDesc="Custom, mobile-first web design for Ahmedabad businesses. Not templates — every site is built from scratch to match your brand, impress your customers, and generate leads. Starting at ₹25,000."
+  heroStats={[
+    { value: "500+", label: "Websites Built" },
+    { value: "₹25K",  label: "Starting Price"  },
+    { value: "2-4",   label: "Weeks Delivery"  },
+  ]}
+  formTitle="Get a Free Web Design Quote"
+  formSub="Describe your project. We'll reply with a proposal in 24hrs."
+  formTypeLabel="What do you need?"
+  formTypeOptions={["New website from scratch", "Website redesign", "Landing page", "E-commerce store", "WordPress site", "Other"]}
+
+  s2Title="Everything You Get With Our Web Design"
+  s2Subtitle="A complete website package — not just a pretty homepage."
+
+  s3Title="Problems We Solve Every Day"
+  s3Subtitle="If any of these describe your current situation, we can help."
+
+  s4Title="Our Web Design Process"
+  s4Subtitle="From first call to live website in 2–4 weeks."
+
+  s5Title="Your Complete Deliverables"
+  s5Subtitle="Everything that's included when you work with us."
+
+  s6Title="How We Compare"
+  s6Subtitle="Here's what you actually get versus typical agencies and freelancers."
+
+  s7Title="Web Design Packages"
+  s7Subtitle="Clear pricing. No hidden fees. Pick what fits your business."
+
+  s8Title="Web Design Projects"
+  s8Subtitle="A selection from 500+ websites we've designed and built."
+
+  s9Title="What Clients Say About Our Web Design"
+
+  s10Title="Web Design Questions"
+
+  s11Title="Goes Great With Web Design"
+  s11Subtitle="Maximize your website investment with these complementary services."
+
+  comparisonStartingUs="₹25,000"
+  comparisonStartingAgency="₹75,000+"
+  comparisonStartingFreelancer="₹10–15K (template)"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready for a Website That Actually Works?"
+  ctaSubtitle="Get a free, no-obligation web design quote. We'll review your current site (if you have one) and propose exactly what you need."
+  ctaAccentLabel="Get Your Free Quote"
+  ctaAccentHref="#hero-form"
+/>

@@ -1,0 +1,221 @@
+---
+import LocationPageLayout from '../../layouts/LocationPageLayout.astro';
+import type {
+  Neighborhood, Challenge, Hub, WhyCard, Stat,
+  ResponseCard, Testimonial, FaqItem, MapInfo, OverviewParagraphs
+} from '../../layouts/LocationPageLayout.astro';
+
+// ── SCHEMA ────────────────────────────────────────────────────────────────────
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "DC technolabs",
+      "description": "Digital marketing agency serving Gandhinagar — web design, SEO, PPC, and e-commerce for GIFT City, Infocity, and state government sector businesses.",
+      "url": "https://dctechnolabs.in/locations/gandhinagar",
+      "telephone": "+919662608986",
+      "email": "hello@dctechnolabs.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "382445",
+        "addressCountry": "IN"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "22.969", "longitude": "72.629" },
+      "openingHours": "Mo-Sa 09:00-19:00",
+      "priceRange": "₹25,000 - ₹3,00,000+",
+      "areaServed": [
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "Place", "name": "GIFT City, Gandhinagar" },
+        { "@type": "Place", "name": "Infocity, Gandhinagar" },
+        { "@type": "Place", "name": "Sector 21, Gandhinagar" },
+        { "@type": "Place", "name": "Sector 7, Gandhinagar" },
+        { "@type": "Place", "name": "Kudasan, Gandhinagar" },
+        { "@type": "Place", "name": "Sargasan, Gandhinagar" },
+        { "@type": "Place", "name": "Adalaj, Gandhinagar" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do you serve Gandhinagar businesses from your Ahmedabad office?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Ahmedabad office is roughly 30 minutes from central Gandhinagar. We serve Gandhinagar businesses with the same priority response as Ahmedabad clients, and can meet in person at your Gandhinagar location." } },
+        { "@type": "Question", "name": "Do you work with GIFT City companies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with fintech startups, financial services firms, and IT companies based in GIFT City. We understand the compliance-aware, professional marketing tone these businesses need." } },
+        { "@type": "Question", "name": "How much does digital marketing cost for a Gandhinagar business?", "acceptedAnswer": { "@type": "Answer", "text": "Web design starts at ₹25,000, SEO from ₹30,000/month, PPC from ₹35,000/month. Pricing is the same for Gandhinagar clients as Ahmedabad." } }
+      ]
+    }
+  ]
+});
+
+// ── §2 OVERVIEW SVG ──────────────────────────────────────────────────────────
+const overviewSvg = `<svg viewBox="0 0 300 240" fill="none">
+  <rect x="20" y="20" width="260" height="200" rx="16" fill="rgba(37,99,235,.05)" stroke="rgba(37,99,235,.12)"/>
+  <circle cx="150" cy="115" r="55" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.15)" stroke-width="1.5"/>
+  <circle cx="150" cy="115" r="28" fill="rgba(37,99,235,.1)"/>
+  <circle cx="105" cy="165" r="4" fill="#2563EB"/>
+  <text x="105" y="179" text-anchor="middle" font-family="system-ui" font-weight="700" font-size="7.5" fill="rgba(37,99,235,.7)">OUR OFFICE</text>
+  <text x="112" y="188" text-anchor="middle" font-family="system-ui" font-size="6.5" fill="rgba(37,99,235,.45)">(Ahmedabad)</text>
+  <circle cx="185" cy="75" r="4.5" fill="rgba(37,99,235,.5)"/>
+  <text x="185" y="65" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.6)">GIFT City</text>
+  <circle cx="148" cy="60" r="4" fill="rgba(37,99,235,.35)"/>
+  <text x="148" y="50" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Infocity</text>
+  <circle cx="215" cy="110" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="215" y="100" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.45)">Sector 21</text>
+  <circle cx="110" cy="85" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="110" y="75" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.45)">Kudasan</text>
+  <circle cx="220" cy="148" r="4" fill="rgba(37,99,235,.25)"/>
+  <text x="220" y="163" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.4)">Adalaj</text>
+  <line x1="105" y1="162" x2="148" y2="115" stroke="rgba(37,99,235,.15)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="150" y="228" text-anchor="middle" font-family="system-ui" font-weight="600" font-size="10" fill="rgba(37,99,235,.35)">Serving All of Gandhinagar</text>
+</svg>`;
+
+// ── §2 OVERVIEW PARAGRAPHS ────────────────────────────────────────────────────
+const overviewParagraphs: OverviewParagraphs = {
+  p1: "Gandhinagar is Gujarat's seat of government and a rapidly growing hub for IT, fintech, and institutional businesses. DC technolabs has been serving Gandhinagar clients from our Ahmedabad base since 2017 — a 30-minute drive that we make regularly for client meetings, strategy sessions, and on-site reviews.",
+  p2: "Gandhinagar's business landscape is distinct from Ahmedabad's. GIFT City and Infocity host tech companies and financial services firms that need polished, compliance-aware digital presence. The government sectors and institutional areas around Sectors 5–30 serve a professional audience that expects credibility and authority from every touchpoint online.",
+  p3: "We understand these nuances. Whether you're a fintech startup in GIFT City's tower blocks, an IT firm in Infocity, or a professional services business in Sector 21, we bring the same local knowledge and face-to-face accountability that Gandhinagar businesses deserve.",
+};
+
+// ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
+const neighborhoods: Neighborhood[] = [
+  { name: "GIFT City",      types: "Fintech, banking, financial services" },
+  { name: "Infocity",       types: "IT companies, BPO, tech startups" },
+  { name: "Sector 21",      types: "Restaurants, retail, professional services" },
+  { name: "Sector 7",       types: "Government offices, education, NGOs" },
+  { name: "Kudasan",        types: "Residential services, clinics, coaching" },
+  { name: "Sargasan",       types: "Logistics, light manufacturing, retail" },
+  { name: "Raysan",         types: "Industrial estates, warehousing" },
+  { name: "Adalaj",         types: "Tourism, hospitality, residential services" },
+  { name: "Sector 11",      types: "Educational institutions, research" },
+  { name: "Sector 16",      types: "Government corporates, public sector" },
+  { name: "Randesan",       types: "Pharma, industrial, institutional" },
+  { name: "Koba Circle",    types: "Commercial, food & beverage, auto" },
+];
+
+// ── §4 CHALLENGES ─────────────────────────────────────────────────────────────
+const challenges: Challenge[] = [
+  { emoji: "🏛️", problem: "Our institutional website looks outdated",      solution: "We redesign professional websites that convey authority, compliance awareness, and credibility — everything Gandhinagar's institutional and government-adjacent clients expect." },
+  { emoji: "📱", problem: "Our site isn't optimized for mobile executives",  solution: "C-suite visitors and government officials browse on high-end mobile devices. We ensure your site is flawless on every screen, loads in under 3 seconds, and reflects your professional stature." },
+  { emoji: "🏙️", problem: "We compete with Mumbai and Bangalore firms online", solution: "GIFT City businesses often compete nationally. We build SEO authority and run targeted campaigns that position your Gandhinagar firm alongside tier-1 city competitors." },
+  { emoji: "📊", problem: "No leads from our digital presence",               solution: "Many Gandhinagar businesses have a presence but no strategy behind it. We add conversion-focused CTAs, lead capture forms, and targeted PPC so your digital assets actually generate enquiries." },
+  { emoji: "🤝", problem: "B2B marketing is very different here",             solution: "Gandhinagar's B2B market — government suppliers, IT services, financial products — needs LinkedIn marketing, thought leadership content, and professional trust signals. We build all of this." },
+  { emoji: "🔍", problem: "We don't appear in local Gandhinagar searches",    solution: "We optimize your Google Business Profile, build Gandhinagar-specific local citations, and create geo-targeted content so businesses searching for your service find you first." },
+];
+
+// ── §5 BUSINESS HUBS ──────────────────────────────────────────────────────────
+const hubs: Hub[] = [
+  { tag: "Fintech & IT",       title: "GIFT City",     desc: "India's first smart city and international financial services hub. We help GIFT City companies build the premium digital presence their institutional and global clients expect." },
+  { tag: "Tech Park",          title: "Infocity",      desc: "Gandhinagar's established IT corridor. IT firms, BPOs, and software companies here need professional websites, LinkedIn authority, and B2B lead generation campaigns." },
+  { tag: "Government & Civic", title: "Capital Sectors", desc: "Professional services, NGOs, and institutional businesses operating near the secretariat and government campuses. Authority-building SEO and trust-focused web design." },
+];
+
+// ── §6 WHY US ─────────────────────────────────────────────────────────────────
+const whyCards: WhyCard[] = [
+  { emoji: "🚗", title: "30 Minutes Away",              desc: "Our Ahmedabad office is a 30-minute drive from central Gandhinagar. Face-to-face meetings, design reviews, and site visits are always possible." },
+  { emoji: "🏛️", title: "Institutional Market Expertise", desc: "We understand the formal, compliance-aware communication style that GIFT City, Infocity, and government-adjacent businesses require." },
+  { emoji: "⚡", title: "Same-Day Response",             desc: "No timezone delays. Your enquiry gets a detailed reply the same business day, with a full proposal within 24 hours." },
+  { emoji: "🏆", title: "100+ Gujarat Projects",         desc: "We've delivered successful projects for IT firms, fintech companies, and professional services businesses across Gujarat." },
+  { emoji: "💰", title: "Transparent Pricing",           desc: "Fixed-price projects with no hidden fees. Web design from ₹25,000, SEO from ₹30,000/month. Clear scope, clear cost." },
+  { emoji: "📍", title: "Gandhinagar SEO Expertise",     desc: "We know which Gandhinagar-specific keywords drive qualified traffic and how to rank your business for terms your ideal clients actually search." },
+];
+
+// ── §7 STATS ──────────────────────────────────────────────────────────────────
+const stats: Stat[] = [
+  { target: 100, suffix: "+", label: "Gandhinagar Projects" },
+  { target: 8,   suffix: "+", label: "Years Serving Gujarat" },
+  { target: 30,  suffix: " min", label: "From Our Office" },
+  { target: 945, suffix: "+", label: "Total Gujarat Projects" },
+];
+
+// ── §8 RESPONSE TIMES ────────────────────────────────────────────────────────
+const responseTimes: ResponseCard[] = [
+  { time: "< 4 hrs", title: "Quote Response",     desc: "Your enquiry gets a detailed reply within 4 business hours, same day" },
+  { time: "24 hrs",  title: "Proposal Delivery",  desc: "Full scope, timeline, and fixed pricing delivered the next business day" },
+  { time: "30 min",  title: "Drive From Office",  desc: "We can be at your Gandhinagar location within 30 minutes for any in-person meeting" },
+];
+
+// ── §9 TESTIMONIALS ───────────────────────────────────────────────────────────
+const testimonials: Testimonial[] = [
+  { text: "DC technolabs built our GIFT City fintech company a website that genuinely competes with Mumbai and Bangalore firms. Clients remark on how professional it looks. Game-changer for credibility.",          initials: "NK", name: "Nirav Kapadia",   role: "Fintech Startup, GIFT City" },
+  { text: "We needed LinkedIn marketing that resonated with government and institutional buyers. The team understood our tone immediately and the results speak for themselves — 3 major contracts in 6 months.", initials: "SD", name: "Sonal Desai",     role: "IT Consulting Firm, Infocity" },
+  { text: "As an NGO working near the secretariat, credibility is everything. DC technolabs built us a website that reflects our mission perfectly and helped us rank locally in Gandhinagar searches.",         initials: "MR", name: "Manish Rajput",   role: "Development NGO, Gandhinagar" },
+];
+
+// ── §10 FAQ ───────────────────────────────────────────────────────────────────
+const faqItems: FaqItem[] = [
+  { q: "Do you serve Gandhinagar businesses from your Ahmedabad office?",   a: "Yes. Our Vatva office is roughly 30 minutes from central Gandhinagar. We visit Gandhinagar regularly for client meetings and consider it part of our primary service area — same priority response as Ahmedabad clients." },
+  { q: "Do you work with GIFT City companies?",                              a: "Yes. We work with fintech startups, financial services firms, and IT companies based in GIFT City. We understand the compliance-conscious, globally-oriented tone these businesses need and can build websites and campaigns that reflect their positioning." },
+  { q: "Do you handle government or institutional projects?",                a: "Yes. We've worked with NGOs, educational institutions, and professional services firms operating in Gandhinagar's government and civic sectors. We understand the approval process and formal communication requirements." },
+  { q: "Can you help us compete with Mumbai and Bangalore firms digitally?", a: "Absolutely. Many Gandhinagar businesses — especially in GIFT City and Infocity — compete nationally for clients. We build SEO authority, professional websites, and LinkedIn strategies that position you as a credible national player." },
+  { q: "What industries do you serve in Gandhinagar?",                       a: "Fintech, IT services, BPO, government supply, professional services, legal, education, healthcare, NGOs, hospitality, and residential services across Gandhinagar's sectors." },
+  { q: "How is B2B marketing different in Gandhinagar vs Ahmedabad?",        a: "Gandhinagar's market has a heavier government and institutional influence. B2B decisions here often involve formal evaluation processes. We focus on thought leadership, LinkedIn presence, credibility signals, and professional website experiences that satisfy institutional procurement criteria." },
+  { q: "How much does digital marketing cost for a Gandhinagar business?",  a: "The same as Ahmedabad. Web design from ₹25,000, SEO from ₹30,000/month, PPC from ₹35,000/month. Transparent pricing, no travel surcharges for Gandhinagar clients." },
+  { q: "Can we have meetings in Gandhinagar?",                               a: "Yes. We come to you. Whether you're in GIFT City, Infocity, Sector 21, or anywhere else in Gandhinagar, we schedule in-person meetings at your location. No extra charge." },
+];
+
+// ── §11 MAP INFO ─────────────────────────────────────────────────────────────
+const mapInfo: MapInfo = {
+  title:          "DC technolabs — Serving Gandhinagar from Ahmedabad",
+  address:        "B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445 (30 min from Gandhinagar)",
+  phone:          "+91 9662608986",
+  email:          "hello@dctechnolabs.com",
+  hours:          "Monday — Saturday, 9:00 AM — 7:00 PM",
+  mapsEmbedSrc:   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0!2d72.629!3d22.969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzA4LjQiTiA3MsKwMzcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1",
+  directionsHref: "https://maps.google.com/?q=B-18+Sainik+Society+Vatva+Ahmedabad",
+};
+---
+
+<LocationPageLayout
+  title="Digital Marketing Agency in Gandhinagar — Web Design, SEO & PPC | DC technolabs"
+  description="DC technolabs serves Gandhinagar businesses from our Ahmedabad office — 30 minutes away. Web design, SEO, PPC for GIFT City, Infocity, and Gandhinagar sectors. 100+ projects. Free quote."
+  canonical="https://dctechnolabs.in/locations/gandhinagar"
+  schemaJson={schemaJson}
+
+  badge="📍 Gandhinagar"
+  cityName="Gandhinagar"
+  heroDesc="Gujarat's capital city deserves a capital-class digital strategy. From GIFT City fintech firms to Infocity IT companies and government-sector service providers — DC technolabs brings Ahmedabad-level expertise to Gandhinagar, just 30 minutes away."
+  heroStats={[
+    { value: "100+", label: "Gandhinagar Projects" },
+    { value: "30",   label: "Min From Office" },
+    { value: "8+",   label: "Years in Gujarat" },
+  ]}
+  formTitle="Get a Free Gandhinagar Quote"
+  formSub="Gandhinagar businesses get same-day response and in-person meetings."
+
+  s2Label="Our Gandhinagar Presence"
+  s2Title="30 Minutes Away. Fully Committed."
+  overviewParagraphs={overviewParagraphs}
+  overviewSvg={overviewSvg}
+
+  s3Title="Every Corner of Gandhinagar"
+  neighborhoods={neighborhoods}
+
+  s4Title="Gandhinagar Business Problems We Solve"
+  challenges={challenges}
+
+  s5Title="Gandhinagar's Key Business Areas"
+  hubs={hubs}
+
+  s6Title="Why Gandhinagar Businesses Choose Us"
+  s6Subtitle="Proximity, expertise, and accountability — the local agency advantage."
+  whyCards={whyCards}
+
+  stats={stats}
+
+  s8Title="Response Times for Gandhinagar"
+  responseTimes={responseTimes}
+
+  s9Title="What Gandhinagar Businesses Say"
+  testimonials={testimonials}
+
+  s10Title="Gandhinagar-Specific Questions"
+  faqItems={faqItems}
+
+  s11Title="Our Base — 30 Minutes From Gandhinagar"
+  mapInfo={mapInfo}
+
+  ctaTitle="Ready to Grow Your Gandhinagar Business Online?"
+  ctaSubtitle="Get a free consultation from a team that knows Gandhinagar's market. We respond the same day and can meet at your location."
+/>

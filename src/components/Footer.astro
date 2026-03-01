@@ -1,263 +1,310 @@
 ---
+// Footer component - 5-col grid + contact row + social + dynamic year
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="footer bg-dark">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Company Info -->
-      <div class="footer-col">
-        <h3 class="footer-title">DC technolabs</h3>
-        <p class="footer-desc">
-          Leading digital marketing agency in Ahmedabad, specializing in web design, development, SEO, and PPC services for businesses across Gujarat.
-        </p>
-        <div class="social-links">
-          <a href="https://www.facebook.com/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/company/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
-          <a href="https://twitter.com/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-            </svg>
-          </a>
+<footer class="footer">
+  <!-- Main Footer Grid -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span>DC </span><span class="logo-accent">technolabs</span>
+          </div>
+          <p>Ahmedabad's trusted digital marketing agency. 8+ years helping businesses grow with web design, SEO, PPC, and more.</p>
+          
+          <!-- Social Links -->
+          <div class="footer-social">
+            <a href="https://www.facebook.com/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://twitter.com/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/dctechnolabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Services Column -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/services/web-design">Web Design</a>
+          <a href="/services/web-development">Web Development</a>
+          <a href="/services/seo">SEO Services</a>
+          <a href="/services/ppc">PPC / Google Ads</a>
+          <a href="/services/ecommerce">E-commerce</a>
+          <a href="/services/shopify">Shopify</a>
+          <a href="/services/wordpress">WordPress</a>
+        </div>
+        
+        <!-- Company Column -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about">About Us</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/blog">Blog</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        
+        <!-- Locations Column -->
+        <div class="footer-col">
+          <h4>Locations</h4>
+          <a href="/locations/ahmedabad">Ahmedabad</a>
+          <a href="/locations/gandhinagar">Gandhinagar</a>
+          <a href="/locations/surat">Surat</a>
+          <a href="/locations/vadodara">Vadodara</a>
+        </div>
+        
+        <!-- Industries Column -->
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <a href="/industries/healthcare">Healthcare</a>
+          <a href="/industries/real-estate">Real Estate</a>
+          <a href="/industries/ecommerce">E-commerce</a>
+          <a href="/industries/education">Education</a>
+          <a href="/industries/saas">SaaS & Tech</a>
+          <a href="/industries/manufacturing">Manufacturing</a>
         </div>
       </div>
-      
-      <!-- Services -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Services</h4>
-        <ul class="footer-links">
-          <li><a href="/services/web-design">Web Design</a></li>
-          <li><a href="/services/web-development">Web Development</a></li>
-          <li><a href="/services/seo">SEO Services</a></li>
-          <li><a href="/services/ppc">PPC Management</a></li>
-          <li><a href="/services/ecommerce">E-commerce Development</a></li>
-          <li><a href="/services/wordpress">WordPress Development</a></li>
-        </ul>
-      </div>
-      
-      <!-- Quick Links -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Company</h4>
-        <ul class="footer-links">
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/locations">Locations</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/free-audit">Free Website Audit</a></li>
-        </ul>
-      </div>
-      
-      <!-- Contact Info -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Contact Us</h4>
-        <ul class="footer-contact">
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span>Sanik Society, B-18, Vinzol Rd<br>Vatva, Ahmedabad, Gujarat 382445</span>
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <a href="tel:+919662608986">+91 96626-08986</a>
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a>
-          </li>
-        </ul>
+    </div>
+  </div>
+  
+  <!-- Contact Info Row -->
+  <div class="footer-contact">
+    <div class="container">
+      <div class="contact-row">
+        <div class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>B-18, Sainik Society, Vinzol Road, Vatva, Ahmedabad - 382445</span>
+        </div>
+        <div class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:+919662608986">+91 9662608986</a>
+        </div>
+        <div class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a>
+        </div>
       </div>
     </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; {currentYear} DC technolabs. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="/privacy-policy">Privacy Policy</a>
-        <span>•</span>
-        <a href="/terms-of-service">Terms of Service</a>
+  </div>
+  
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="bottom-row">
+        <span>© <span id="currentYear">{currentYear}</span> DC technolabs. All rights reserved.</span>
+        <span>Built with ❤️ in Ahmedabad, Gujarat</span>
+        <span>
+          <a href="/privacy-policy">Privacy Policy</a> · <a href="/terms">Terms</a>
+        </span>
       </div>
     </div>
   </div>
 </footer>
 
 <style>
+  /* Footer Styles from Approved HTML */
   .footer {
-    color: rgba(255, 255, 255, 0.8);
-    padding: 4rem 0 2rem;
+    background: var(--gray-900);
+    color: var(--gray-400);
+  }
+  
+  .footer-main {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   
   .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
   }
   
-  .footer-title {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Brand Column */
+  .footer-brand {
+    max-width: 280px;
   }
   
-  .footer-desc {
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-size: 0.95rem;
-  }
-  
-  .social-links {
+  .footer-logo {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 1rem;
   }
   
-  .social-links a {
+  .logo-accent {
+    color: var(--blue-400);
+  }
+  
+  .footer-brand p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Social Links */
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.3s ease;
+    color: var(--gray-400);
+    transition: all 0.3s var(--ease);
   }
   
-  .social-links a:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-3px);
+  .footer-social a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--blue-400);
+    color: var(--blue-400);
   }
   
-  .footer-heading {
-    color: white;
-    font-size: 1.125rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+  /* Footer Columns */
+  .footer-col h4 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
   }
   
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .footer-col a {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--gray-400);
+    padding: 4px 0;
+    transition: color 0.3s var(--ease);
   }
   
-  .footer-links li {
-    margin-bottom: 0.75rem;
+  .footer-col a:hover {
+    color: var(--blue-400);
   }
   
-  .footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-  }
-  
-  .footer-links a:hover {
-    color: var(--primary-light);
-    padding-left: 5px;
-  }
-  
+  /* Contact Info Row */
   .footer-contact {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   
-  .footer-contact li {
+  .contact-row {
     display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 0.95rem;
   }
   
-  .footer-contact svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-    color: var(--primary-light);
+  .contact-item a {
+    color: var(--gray-300);
+    transition: color 0.3s var(--ease);
   }
   
-  .footer-contact a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  .contact-item a:hover {
+    color: var(--blue-400);
   }
   
-  .footer-contact a:hover {
-    color: var(--primary-light);
-  }
-  
+  /* Bottom Bar */
   .footer-bottom {
+    padding: 1.5rem 0;
+  }
+  
+  .bottom-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: space-between;
+    font-size: 0.9rem;
     flex-wrap: wrap;
     gap: 1rem;
   }
   
-  .footer-bottom p {
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-    font-size: 0.9rem;
+  .bottom-row a {
+    color: var(--gray-400);
+    transition: color 0.3s var(--ease);
   }
   
-  .footer-bottom-links {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    font-size: 0.9rem;
+  .bottom-row a:hover {
+    color: var(--blue-400);
   }
   
-  .footer-bottom-links a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-bottom-links a:hover {
-    color: var(--primary-light);
-  }
-  
-  .footer-bottom-links span {
-    color: rgba(255, 255, 255, 0.3);
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .footer-brand {
+      grid-column: span 2;
+      max-width: none;
+    }
   }
   
   @media (max-width: 768px) {
-    .footer {
-      padding: 3rem 0 1.5rem;
-    }
-    
     .footer-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
     
-    .footer-bottom {
+    .footer-brand {
+      grid-column: span 1;
+    }
+    
+    .contact-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .bottom-row {
       flex-direction: column;
       text-align: center;
       gap: 0.5rem;
     }
   }
 </style>
+
+<script>
+  // Dynamic year update - client-side only
+  if (typeof window !== 'undefined') {
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear().toString();
+    }
+  }
+</script>

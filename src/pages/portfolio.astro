@@ -1,0 +1,1293 @@
+---
+// src/pages/portfolio.astro
+// DC technolabs - Portfolio Page
+// 12 sections: Hero, Filters, Grid, Case Study, Stats, Industries, Process, Results, Testimonials, CTA, FAQ, Final CTA
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Our Work & Case Studies | DC technolabs Ahmedabad</title>
+  <meta name="description" content="See real results from 945+ projects. Web design, SEO, PPC, and e-commerce case studies from DC technolabs Ahmedabad." />
+  <link rel="canonical" href="https://dctechnolabs.in/portfolio" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563EB'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='800' font-size='14' fill='white'%3EDC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --blue-50: #EFF6FF;
+      --blue-100: #DBEAFE;
+      --blue-200: #BFDBFE;
+      --blue-300: #93C5FD;
+      --blue-400: #60A5FA;
+      --blue-500: #3B82F6;
+      --blue-600: #2563EB;
+      --blue-700: #1D4ED8;
+      --blue-800: #1E40AF;
+      --blue-900: #1E3A5F;
+      --blue-950: #0F1D35;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-400: #94A3B8;
+      --gray-500: #64748B;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1E293B;
+      --gray-900: #0F172A;
+      --accent: #F59E0B;
+      --accent-dark: #D97706;
+      --success: #10B981;
+      --white: #FFF;
+      --black: #0A0A0A;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --section-pad: clamp(4rem, 8vw, 7rem);
+      --container: 1200px;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.7; font-size: 17px; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: all .3s var(--ease); }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul, ol { list-style: none; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2rem); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; color: var(--gray-900); }
+
+    /* ============================================================
+       SHARED COMPONENTS
+    ============================================================ */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: .85rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--blue-600); margin-bottom: 1rem;
+    }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--blue-500); border-radius: 2px; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; letter-spacing: -.02em; }
+    .section-subtitle { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--gray-500); max-width: 640px; line-height: 1.7; }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-family: var(--font-display); font-size: .95rem; font-weight: 600;
+      border-radius: var(--radius-full); transition: all .3s var(--ease); white-space: nowrap;
+    }
+    .btn-primary { background: var(--blue-600); color: var(--white); box-shadow: 0 4px 14px rgba(37,99,235,.35); }
+    .btn-primary:hover { background: var(--blue-700); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,.4); }
+    .btn-secondary { background: var(--white); color: var(--blue-700); border: 2px solid var(--blue-200); }
+    .btn-secondary:hover { border-color: var(--blue-500); background: var(--blue-50); transform: translateY(-2px); }
+    .btn-accent { background: var(--accent); color: var(--black); box-shadow: 0 4px 14px rgba(245,158,11,.35); }
+    .btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+    /* Highlight gradient text */
+    .highlight {
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,.92); backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid transparent;
+      transition: all .3s var(--ease);
+    }
+    .header.scrolled { border-bottom: 1px solid var(--gray-200); box-shadow: 0 1px 12px rgba(0,0,0,.06); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--gray-900); }
+    .logo-icon {
+      width: 38px; height: 38px; background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 800; font-size: .9rem; position: relative; overflow: hidden;
+    }
+    .logo-icon::after {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,.12) 50%, transparent 60%);
+      animation: logoSheen 4s ease-in-out infinite;
+    }
+    @keyframes logoSheen { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }
+    .logo span { color: var(--blue-600); }
+    .nav-desktop { display: flex; align-items: center; gap: 2rem; }
+    .nav-desktop a {
+      font-family: var(--font-display); font-size: .9rem; font-weight: 500;
+      color: var(--gray-600); position: relative; padding: 4px 0;
+    }
+    .nav-desktop a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
+      background: var(--blue-600); border-radius: 2px; transition: width .3s var(--ease);
+    }
+    .nav-desktop a:hover { color: var(--blue-700); }
+    .nav-desktop a:hover::after { width: 100%; }
+    .nav-desktop a.active { color: var(--blue-600); }
+    .nav-desktop a.active::after { width: 100%; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .header-phone { display: flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: .9rem; color: var(--gray-700); }
+    .header-phone svg { color: var(--blue-600); }
+    .header-phone:hover { color: var(--blue-600); }
+    .btn-header-cta { padding: 10px 24px; font-size: .9rem; }
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; z-index: 1001; }
+    .menu-toggle span { width: 24px; height: 2px; background: var(--gray-800); border-radius: 2px; transition: all .3s var(--ease); transform-origin: center; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu {
+      position: fixed; inset: 0; background: var(--white); z-index: 999;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 1.5rem; opacity: 0; visibility: hidden; transition: all .4s var(--ease);
+    }
+    .mobile-menu.active { opacity: 1; visibility: visible; }
+    .mobile-menu a {
+      font-family: var(--font-display); font-size: 1.75rem; font-weight: 700;
+      color: var(--gray-900); opacity: 0; transform: translateY(20px); transition: all .3s var(--ease);
+    }
+    .mobile-menu.active a { opacity: 1; transform: translateY(0); }
+    .mobile-menu.active a:nth-child(1) { transition-delay: .1s; }
+    .mobile-menu.active a:nth-child(2) { transition-delay: .15s; }
+    .mobile-menu.active a:nth-child(3) { transition-delay: .2s; }
+    .mobile-menu.active a:nth-child(4) { transition-delay: .25s; }
+    .mobile-menu.active a:nth-child(5) { transition-delay: .3s; }
+    .mobile-menu a:hover { color: var(--blue-600); }
+    .mobile-menu-cta { margin-top: 2rem; opacity: 0; transform: translateY(20px); transition: all .3s var(--ease) .4s; }
+    .mobile-menu.active .mobile-menu-cta { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       SECTION 1: HERO (LEFT-ALIGNED)
+    ============================================================ */
+    .pf-hero {
+      padding: 120px 0 clamp(2.5rem, 5vw, 4rem);
+      background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+      position: relative; overflow: hidden;
+    }
+    .pf-hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .pf-hero-inner { position: relative; z-index: 1; max-width: 700px; }
+    .pf-hero h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); letter-spacing: -.03em; line-height: 1.1; margin-bottom: 1.25rem; }
+    .pf-hero-desc { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--gray-500); line-height: 1.75; max-width: 580px; margin-bottom: 2rem; }
+    .pf-hero-stats { display: flex; gap: 0; margin-top: 2rem; }
+    .pf-hero-stat {
+      border-right: 1.5px solid var(--gray-200);
+      padding-right: 2.5rem;
+      margin-right: 2.5rem;
+    }
+    .pf-hero-stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .pf-hero-stat strong { display: block; color: var(--blue-600); font-size: 1.5rem; font-weight: 800; font-family: var(--font-display); margin-bottom: .25rem; }
+    .pf-hero-stat span { font-size: .9rem; color: var(--gray-400); }
+
+    /* ============================================================
+       SECTION 2: FILTER TABS
+    ============================================================ */
+    .pf-filters-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 1.25rem 0;
+    }
+    .pf-tabs { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .75rem; }
+    .pf-tab {
+      padding: 8px 20px; border-radius: var(--radius-full);
+      font-family: var(--font-display); font-size: .88rem; font-weight: 600;
+      color: var(--gray-600); border: 1.5px solid var(--gray-200);
+      background: var(--white); cursor: pointer;
+      transition: all .25s var(--ease);
+    }
+    .pf-tab:hover { border-color: var(--blue-400); color: var(--blue-600); }
+    .pf-tab.active { background: var(--blue-600); color: var(--white); border-color: var(--blue-600); }
+
+    /* ============================================================
+       SECTION 3: PROJECT GRID
+    ============================================================ */
+    .pf-projects { padding: var(--section-pad) 0; }
+    .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .pf-card {
+      border-radius: var(--radius-lg); border: 1.5px solid var(--gray-100);
+      background: var(--white); overflow: hidden;
+      transition: all .35s var(--ease);
+    }
+    .pf-card:hover { transform: translateY(-6px); border-color: var(--blue-300); box-shadow: 0 16px 48px rgba(37,99,235,.12); }
+
+    .pf-card-img {
+      height: 220px; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pf-card-img-placeholder { font-size: 3rem; line-height: 1; }
+    .pf-card-tag {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--white); color: var(--blue-700);
+      font-family: var(--font-display); font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      padding: 5px 12px; border-radius: var(--radius-full);
+    }
+    .pf-card-body { padding: 1.25rem 1.5rem 1.5rem; }
+    .pf-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem; }
+    .pf-card-meta { font-size: .82rem; color: var(--gray-400); font-weight: 500; margin-bottom: .75rem; }
+    .pf-card-body p { font-size: .9rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 1rem; }
+    .pf-card-results { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .pf-result {
+      background: var(--blue-50); color: var(--blue-700);
+      font-family: var(--font-display); font-size: .78rem; font-weight: 600;
+      padding: 4px 10px; border-radius: var(--radius-full);
+    }
+
+    /* ============================================================
+       SECTION 4: FEATURED CASE STUDY
+    ============================================================ */
+    .pf-featured {
+      background: var(--gray-50);
+      padding: var(--section-pad) 0;
+    }
+    .pf-featured-grid {
+      display: grid; grid-template-columns: 360px 1fr; gap: 4rem; align-items: center;
+    }
+    .pf-featured-img {
+      height: 360px; background: linear-gradient(135deg, #1e3a5f, #2563eb);
+      border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+    }
+    .pf-featured-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: .35rem; }
+    .pf-featured-content .pf-card-meta { margin-bottom: 1.25rem; }
+    .pf-featured-content p { color: var(--gray-600); line-height: 1.75; margin-bottom: 1rem; }
+    .pf-featured-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin: 1.75rem 0 2rem;
+    }
+    .pf-featured-stat {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius); padding: 1.25rem 1rem; text-align: center;
+    }
+    .pf-featured-stat strong {
+      display: block; font-family: var(--font-display); font-size: 1.5rem;
+      font-weight: 800; color: var(--blue-600); margin-bottom: .25rem;
+    }
+    .pf-featured-stat span { font-size: .85rem; color: var(--gray-500); }
+
+    /* ============================================================
+       SECTION 5: STATS BAR
+    ============================================================ */
+    .stats-bar {
+      background: linear-gradient(135deg, #0f1d35 0%, #1e293b 50%, #0f172a 100%);
+      padding: 4rem 0;
+    }
+    .stats-bar .stat-number { color: var(--white); }
+    .stats-bar .stat-label { color: var(--gray-400); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; color: var(--gray-900); line-height: 1; margin-bottom: .5rem; }
+    .stat-number .accent { color: var(--blue-600); }
+    .stat-label { font-size: .95rem; color: var(--gray-500); font-weight: 500; }
+
+    /* ============================================================
+       SECTION 6: INDUSTRIES
+    ============================================================ */
+    .pf-industries { background: var(--gray-50); padding: var(--section-pad) 0; }
+    .pf-industry-tags { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; max-width: 900px; margin: 0 auto; }
+    .pf-industry-tag {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-full); padding: 8px 18px;
+      font-family: var(--font-display); font-size: .9rem; font-weight: 600;
+      color: var(--gray-700); transition: all .25s var(--ease);
+    }
+    .pf-industry-tag:hover { border-color: var(--blue-300); color: var(--blue-700); background: var(--blue-50); }
+
+    /* ============================================================
+       SECTION 7: PROCESS STEPS
+    ============================================================ */
+    .pf-process { padding: var(--section-pad) 0; }
+    .pf-process-steps { position: relative; }
+    .pf-process-line {
+      position: absolute; top: 30px; left: 12.5%; right: 12.5%; height: 1px;
+      background: var(--blue-300);
+      z-index: 0;
+    }
+    .pf-process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+      position: relative; z-index: 1;
+    }
+    .pf-process-grid > div { text-align: center; }
+    .pf-process-num {
+      width: 60px; height: 60px; background: #2563eb;
+      border: none; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 800; color: var(--white);
+      font-family: var(--font-display); margin: 0 auto 1rem;
+      box-shadow: 0 4px 16px rgba(37,99,235,.35);
+    }
+    .pf-process-grid h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+    .pf-process-grid p { font-size: .9rem; color: var(--gray-500); line-height: 1.65; }
+
+    /* ============================================================
+       SECTION 8: RESULTS PROOF (DARK)
+    ============================================================ */
+    .pf-guarantees {
+      background: var(--gray-900);
+      padding: var(--section-pad) 0;
+    }
+    .pf-guarantees .section-label,
+    .pf-guarantees .section-title { color: var(--white); }
+    .pf-guarantees .section-subtitle { color: var(--gray-400); }
+    .pf-guar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .pf-guar-card {
+      text-align: center; padding: 2rem 1.5rem;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg);
+    }
+    .pf-guar-card strong {
+      display: block; font-family: var(--font-display); font-size: 1.75rem;
+      font-weight: 800; color: var(--blue-300); margin-bottom: .5rem;
+    }
+    .pf-guar-card span { font-size: .9rem; color: var(--gray-400); }
+
+    /* ============================================================
+       SECTION 9: TESTIMONIALS
+    ============================================================ */
+    .testimonials { padding: var(--section-pad) 0; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testimonial-card {
+      background: var(--white); border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: all .3s var(--ease);
+    }
+    .testimonial-card:hover { border-color: var(--blue-200); box-shadow: 0 8px 30px rgba(37,99,235,.08); }
+    .testimonial-stars { display: flex; gap: 3px; color: var(--accent); margin-bottom: 1rem; }
+    .testimonial-text { font-size: .95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: .8rem; font-weight: 700; color: var(--white);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-family: var(--font-display); font-size: .9rem; font-weight: 700; color: var(--gray-900); }
+    .testimonial-role { font-size: .8rem; color: var(--gray-400); }
+
+    /* ============================================================
+       SECTION 10: CTA MID
+    ============================================================ */
+    .pf-cta-mid {
+      background: var(--blue-50);
+      padding: var(--section-pad) 0;
+    }
+    .pf-cta-mid-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+    .pf-cta-mid-inner .section-label { display: flex; justify-content: center; }
+    .pf-cta-mid-inner h2 { font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+    .pf-cta-mid-inner p { color: var(--gray-500); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7; }
+    .pf-cta-btns { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* ============================================================
+       SECTION 11: FAQ
+    ============================================================ */
+    .faq { padding: var(--section-pad) 0; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .faq-item { border: 1.5px solid var(--gray-100); border-radius: var(--radius); overflow: hidden; }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem; font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+      color: var(--gray-800); text-align: left; transition: all .25s var(--ease);
+    }
+    .faq-question:hover { color: var(--blue-700); background: var(--gray-50); }
+    .faq-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; color: var(--gray-500); transition: all .25s var(--ease); }
+    .faq-item.active .faq-icon { background: var(--blue-600); color: var(--white); transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease); }
+    .faq-answer-inner { padding: 0 1.5rem 1.25rem; font-size: .95rem; color: var(--gray-600); line-height: 1.75; }
+
+    /* ============================================================
+       SECTION 12: FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: #121f3a;
+      padding: var(--section-pad) 0;
+      text-align: center;
+    }
+    .final-cta h2 { font-size: clamp(2rem, 4vw, 2.75rem); color: var(--white); margin-bottom: 1rem; }
+    .final-cta p { font-size: 1.1rem; color: var(--gray-400); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .final-cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-outline-light {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,.3);
+    }
+    .btn-outline-light:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); transform: translateY(-2px); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer { background: var(--gray-900); color: var(--gray-300); font-size: .95rem; }
+    .footer-col h4 { font-family: var(--font-display); font-size: .9rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; }
+    .footer-col a { display: block; color: var(--gray-400); margin-bottom: .6rem; font-size: .9rem; transition: color .2s var(--ease); }
+    .footer-col a:hover { color: var(--blue-300); }
+
+    /* ============================================================
+       FLOATING BUTTONS
+    ============================================================ */
+    .mobile-call-btn {
+      display: none; position: fixed; bottom: 5rem; right: 1.5rem; z-index: 900;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--blue-600); color: var(--white);
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,99,235,.4);
+    }
+    .whatsapp-btn {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 900;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366; color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .3s var(--ease);
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .pf-grid { grid-template-columns: repeat(2, 1fr); }
+      .pf-featured-grid { grid-template-columns: 1fr; }
+      .pf-featured-img { height: 260px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .pf-guar-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .pf-process-line { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .header-phone { display: none; }
+      .menu-toggle { display: flex; }
+      .mobile-call-btn { display: flex; }
+      .pf-grid { grid-template-columns: 1fr; }
+      .pf-tabs { justify-content: flex-start; overflow-x: auto; padding-bottom: .5rem; flex-wrap: nowrap; }
+      .pf-featured-stats { grid-template-columns: 1fr; }
+      .pf-process-grid { grid-template-columns: repeat(2, 1fr); }
+      .faq-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .pf-guar-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .pf-hero-stats { flex-direction: column; gap: 1.25rem; }
+      .pf-hero-stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--gray-200); padding-bottom: 1.25rem; }
+      .pf-hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+      .pf-guar-grid { grid-template-columns: 1fr; }
+      .pf-process-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      DC <span>technolabs</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="/services">Services</a>
+      <a href="/portfolio" class="active">Portfolio</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/locations">Locations</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+919662608986" class="header-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 9662608986
+      </a>
+      <a href="/contact" class="btn btn-primary btn-header-cta">Get Free Quote</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/services" onclick="closeMobileMenu()">Services</a>
+  <a href="/portfolio" onclick="closeMobileMenu()">Portfolio</a>
+  <a href="/pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="/faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="/contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="tel:+919662608986" style="font-size:1.1rem!important;color:var(--blue-600)!important;display:flex;align-items:center;gap:8px" onclick="closeMobileMenu()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    +91 9662608986
+  </a>
+  <div class="mobile-menu-cta">
+    <a href="/contact" class="btn btn-primary" onclick="closeMobileMenu()">Get Free Quote</a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 1: HERO (LEFT-ALIGNED)
+============================================================ -->
+<section class="pf-hero">
+  <div class="container">
+    <div class="pf-hero-inner">
+      <span class="section-label">Our Work</span>
+      <h1>Real Projects. <span class="highlight">Real Results.</span></h1>
+      <p class="pf-hero-desc">Every project here is a business we helped grow. Not mockups, not concepts. Real websites, real rankings, real revenue.</p>
+      <div class="pf-hero-stats">
+        <div class="pf-hero-stat">
+          <strong>945+</strong>
+          <span>Projects Delivered</span>
+        </div>
+        <div class="pf-hero-stat">
+          <strong>16+</strong>
+          <span>Industries Served</span>
+        </div>
+        <div class="pf-hero-stat">
+          <strong>4</strong>
+          <span>Cities in Gujarat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2: FILTER TABS (NOT STICKY, CENTERED)
+============================================================ -->
+<section class="pf-filters-section">
+  <div class="container">
+    <div class="pf-tabs">
+      <button class="pf-tab active" data-filter="all">All Projects</button>
+      <button class="pf-tab" data-filter="web-design">Web Design</button>
+      <button class="pf-tab" data-filter="seo">SEO</button>
+      <button class="pf-tab" data-filter="ppc">PPC / Ads</button>
+      <button class="pf-tab" data-filter="ecommerce">E-commerce</button>
+      <button class="pf-tab" data-filter="social">Social Media</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 3: PROJECT GRID (9 CARDS, 3x3)
+============================================================ -->
+<section class="pf-projects reveal">
+  <div class="container">
+    <div class="pf-grid">
+
+      <!-- Card 1: CRONA Group -->
+      <div class="pf-card" data-cat="web-design">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#1e3a5f,#2563eb)">
+          <span class="pf-card-img-placeholder">🏢</span>
+          <span class="pf-card-tag">Web Design</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>CRONA Group</h3>
+          <div class="pf-card-meta">Real Estate, Cyprus</div>
+          <p>Complete corporate website redesign with property listings, virtual tours, and multi-language support for a leading Cyprus real estate company.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">5x Lead Increase</span>
+            <span class="pf-result">90+ PageSpeed</span>
+            <span class="pf-result">3 Languages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: NIS Consulting -->
+      <div class="pf-card" data-cat="web-design seo">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#0f172a,#3b82f6)">
+          <span class="pf-card-img-placeholder">💼</span>
+          <span class="pf-card-tag">Web Design + SEO</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>NIS Consulting</h3>
+          <div class="pf-card-meta">IT Consulting, USA</div>
+          <p>Professional services website with case study system, team profiles, and full SEO implementation targeting US market keywords.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">Page 1 Rankings</span>
+            <span class="pf-result">200% Traffic</span>
+            <span class="pf-result">45% More Leads</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: LifeCare Clinic -->
+      <div class="pf-card" data-cat="web-design">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#065f46,#059669)">
+          <span class="pf-card-img-placeholder">🏥</span>
+          <span class="pf-card-tag">Web Design</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>LifeCare Clinic</h3>
+          <div class="pf-card-meta">Healthcare, Ahmedabad</div>
+          <p>Patient-focused healthcare website with appointment booking, doctor profiles, and service pages optimized for local search.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">3x Appointments</span>
+            <span class="pf-result">#1 Local SEO</span>
+            <span class="pf-result">Mobile-First</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Gujarat Gems -->
+      <div class="pf-card" data-cat="ecommerce">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#4a1d96,#8b5cf6)">
+          <span class="pf-card-img-placeholder">💎</span>
+          <span class="pf-card-tag">E-commerce</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>Gujarat Gems</h3>
+          <div class="pf-card-meta">Jewellery, Surat</div>
+          <p>Custom Shopify store with 500+ products, Razorpay integration, and shipping automation for a Surat-based jewellery brand.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">₹15L Revenue/mo</span>
+            <span class="pf-result">500+ Products</span>
+            <span class="pf-result">2.5% Conv. Rate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: BuildRight Infra -->
+      <div class="pf-card" data-cat="seo ppc">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#7c2d12,#ea580c)">
+          <span class="pf-card-img-placeholder">🏗️</span>
+          <span class="pf-card-tag">SEO + PPC</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>BuildRight Infra</h3>
+          <div class="pf-card-meta">Construction, Gandhinagar</div>
+          <p>Full digital marketing campaign combining local SEO with Google Ads for a Gandhinagar-based construction company.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">8x ROI on Ads</span>
+            <span class="pf-result">#1 for 12 Keywords</span>
+            <span class="pf-result">60% Cost Reduction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: EduPro Academy -->
+      <div class="pf-card" data-cat="web-design">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#312e81,#7c3aed)">
+          <span class="pf-card-img-placeholder">🎓</span>
+          <span class="pf-card-tag">Web Design</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>EduPro Academy</h3>
+          <div class="pf-card-meta">Education, Vadodara</div>
+          <p>Modern education platform with course catalog, online enrollment, and student portal for a growing Vadodara coaching institute.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">2x Enrollments</span>
+            <span class="pf-result">40% Bounce Drop</span>
+            <span class="pf-result">Mobile Traffic +85%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: FreshBasket -->
+      <div class="pf-card" data-cat="ecommerce">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#065f46,#10b981)">
+          <span class="pf-card-img-placeholder">🛒</span>
+          <span class="pf-card-tag">E-commerce</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>FreshBasket</h3>
+          <div class="pf-card-meta">Grocery Delivery, Ahmedabad</div>
+          <p>WooCommerce grocery store with real-time inventory, delivery zone management, and UPI payment integration.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">1,200+ Orders/mo</span>
+            <span class="pf-result">₹8L Revenue</span>
+            <span class="pf-result">4.8 App Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: CloudSync Solutions -->
+      <div class="pf-card" data-cat="ppc">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#1e293b,#0ea5e9)">
+          <span class="pf-card-img-placeholder">📊</span>
+          <span class="pf-card-tag">PPC / Google Ads</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>CloudSync Solutions</h3>
+          <div class="pf-card-meta">SaaS, Ahmedabad</div>
+          <p>Performance Max campaign with landing page optimization for a B2B SaaS company targeting India and Southeast Asia.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">12x ROAS</span>
+            <span class="pf-result">₹2.5L Ad Spend</span>
+            <span class="pf-result">300+ Qualified Leads</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9: Taste of Gujarat -->
+      <div class="pf-card" data-cat="social">
+        <div class="pf-card-img" style="background:linear-gradient(135deg,#831843,#ec4899)">
+          <span class="pf-card-img-placeholder">📱</span>
+          <span class="pf-card-tag">Social Media</span>
+        </div>
+        <div class="pf-card-body">
+          <h3>Taste of Gujarat</h3>
+          <div class="pf-card-meta">Restaurant Chain, Gujarat</div>
+          <p>Instagram and Facebook management with food photography, Reels content, and influencer partnerships across 4 locations.</p>
+          <div class="pf-card-results">
+            <span class="pf-result">25K Followers</span>
+            <span class="pf-result">4.2% Engagement</span>
+            <span class="pf-result">2x Footfall</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 4: FEATURED CASE STUDY
+============================================================ -->
+<section class="pf-featured reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Featured Case Study</span>
+      <h2 class="section-title">How We Helped CRONA Group 5x Their Leads</h2>
+    </div>
+    <div class="pf-featured-grid">
+      <div class="pf-featured-img">🏢</div>
+      <div class="pf-featured-content">
+        <h3>CRONA Group</h3>
+        <div class="pf-card-meta">Real Estate, Cyprus | Web Design + SEO</div>
+        <p>CRONA Group needed a website that could compete with major international real estate portals. We built a custom, multi-language site with property search, virtual tours, and a lead capture system optimized for Google.</p>
+        <p>Within 6 months, organic traffic increased by 340%, and the new website generated 5x more qualified leads compared to the previous site.</p>
+        <div class="pf-featured-stats">
+          <div class="pf-featured-stat">
+            <strong>5x</strong>
+            <span>More Leads</span>
+          </div>
+          <div class="pf-featured-stat">
+            <strong>340%</strong>
+            <span>Traffic Growth</span>
+          </div>
+          <div class="pf-featured-stat">
+            <strong>90+</strong>
+            <span>PageSpeed Score</span>
+          </div>
+        </div>
+        <a href="/contact" class="btn btn-primary">Start Your Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 5: STATS BAR
+============================================================ -->
+<section class="stats-bar reveal">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="945">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="8">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="100">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Clutch Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="20">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Team Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 6: INDUSTRIES
+============================================================ -->
+<section class="pf-industries reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Industries</span>
+      <h2 class="section-title">Industries We've Delivered For</h2>
+      <p class="section-subtitle">Real projects across every major sector in Gujarat and beyond.</p>
+    </div>
+    <div class="pf-industry-tags">
+      <span class="pf-industry-tag">🏥 Healthcare</span>
+      <span class="pf-industry-tag">🏗️ Real Estate</span>
+      <span class="pf-industry-tag">🎓 Education</span>
+      <span class="pf-industry-tag">🛒 E-commerce</span>
+      <span class="pf-industry-tag">🏭 Manufacturing</span>
+      <span class="pf-industry-tag">🏨 Hospitality</span>
+      <span class="pf-industry-tag">⚖️ Legal Services</span>
+      <span class="pf-industry-tag">💎 Jewellery &amp; Retail</span>
+      <span class="pf-industry-tag">💻 SaaS &amp; IT</span>
+      <span class="pf-industry-tag">👔 Textile &amp; Garments</span>
+      <span class="pf-industry-tag">💰 Finance &amp; Fintech</span>
+      <span class="pf-industry-tag">🚗 Automotive</span>
+      <span class="pf-industry-tag">💊 Pharma &amp; Chemicals</span>
+      <span class="pf-industry-tag">💪 Health &amp; Fitness</span>
+      <span class="pf-industry-tag">📚 Coaching &amp; Training</span>
+      <span class="pf-industry-tag">🍽️ Food &amp; FMCG</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 7: OUR PROCESS
+============================================================ -->
+<section class="pf-process reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">How Every Project Gets Delivered</h2>
+      <p class="section-subtitle">The same proven process behind every project in our portfolio.</p>
+    </div>
+    <div class="pf-process-steps">
+      <div class="pf-process-line"></div>
+      <div class="pf-process-grid">
+        <div>
+          <div class="pf-process-num">01</div>
+          <h3>Discovery</h3>
+          <p>We learn your business, goals, and audience. 30-minute call, no fluff.</p>
+        </div>
+        <div>
+          <div class="pf-process-num">02</div>
+          <h3>Strategy</h3>
+          <p>Fixed-price proposal with scope, timeline, and deliverables within 24 hours.</p>
+        </div>
+        <div>
+          <div class="pf-process-num">03</div>
+          <h3>Execution</h3>
+          <p>Regular updates, staging links for review, and feedback at every milestone.</p>
+        </div>
+        <div>
+          <div class="pf-process-num">04</div>
+          <h3>Results</h3>
+          <p>Launch, tracking setup, and ongoing support. We measure what matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 8: RESULTS PROOF (DARK)
+============================================================ -->
+<section class="pf-guarantees reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Results Proof</span>
+      <h2 class="section-title">Numbers From Real Projects</h2>
+      <p class="section-subtitle">Aggregated results across our client portfolio.</p>
+    </div>
+    <div class="pf-guar-grid">
+      <div class="pf-guar-card">
+        <strong>5x</strong>
+        <span>Average Lead Increase</span>
+      </div>
+      <div class="pf-guar-card">
+        <strong>340%</strong>
+        <span>Average Traffic Growth</span>
+      </div>
+      <div class="pf-guar-card">
+        <strong>90+</strong>
+        <span>Average PageSpeed Score</span>
+      </div>
+      <div class="pf-guar-card">
+        <strong>8x</strong>
+        <span>Average PPC ROI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 9: TESTIMONIALS
+============================================================ -->
+<section class="testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Our new website is not only visually stunning but also incredibly functional, thanks to your talented design and development team."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CG</div>
+          <div>
+            <div class="testimonial-name">CRONA Group</div>
+            <div class="testimonial-role">Real Estate, Cyprus</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"The redesigned website received highly positive feedback, particularly for its meaningful design that resonated with staff and stakeholders."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">NI</div>
+          <div>
+            <div class="testimonial-name">NIS Consulting</div>
+            <div class="testimonial-role">IT Consulting, USA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"DC technolabs stands out as a beacon of excellence. Their team consistently produces outstanding work, demonstrating a commitment to surpassing expectations."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DR</div>
+          <div>
+            <div class="testimonial-name">DesignRush Review</div>
+            <div class="testimonial-role">Verified Agency Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 10: CTA MID
+============================================================ -->
+<section class="pf-cta-mid reveal">
+  <div class="container">
+    <div class="pf-cta-mid-inner">
+      <span class="section-label">Ready to Join Our Portfolio?</span>
+      <h2>Let's Build Something Worth Showing Off</h2>
+      <p>Every project in our portfolio started with a conversation. Tell us about your business and goals, and we'll show you exactly how we can help.</p>
+      <div class="pf-cta-btns">
+        <a href="/contact" class="btn btn-primary">Start Your Project</a>
+        <a href="tel:+919662608986" class="btn btn-secondary">Call +91 9662608986</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 11: FAQ
+============================================================ -->
+<section class="faq reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Portfolio Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I see live websites you've built?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. During your consultation, we'll share live URLs of relevant projects in your industry so you can see the quality of our work firsthand.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you have experience in my industry?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">We've worked across 16+ industries including healthcare, real estate, education, e-commerce, manufacturing, and SaaS. Chances are we've already built for your sector.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What results can I expect for my project?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Results vary by project type and industry. During our consultation, we'll share relevant benchmarks from similar projects so you have realistic expectations before we start.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does a typical project take?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Web design: 2 to 8 weeks. SEO: results in 3 to 6 months. PPC: leads within 48 hours of launch. E-commerce: 3 to 7 weeks. We'll give you an exact timeline in your proposal.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can you replicate a design from your portfolio for me?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Every project is custom-built for your business. We don't copy designs between clients. However, if you like a specific style or feature, we can incorporate similar elements into your unique design.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you provide case studies with detailed data?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. For qualified prospects, we share detailed case studies with before/after metrics, timelines, and strategies used. These are shared during the consultation to protect client confidentiality.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 12: FINAL CTA
+============================================================ -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Ready to Be Our Next Success Story?</h2>
+    <p>Join 945+ businesses that chose DC technolabs. Get a free consultation and project proposal within 24 hours.</p>
+    <div class="final-cta-actions">
+      <a href="/contact" class="btn btn-accent">Get Your Free Quote</a>
+      <a href="tel:+919662608986" class="btn btn-outline-light">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call +91 9662608986
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div style="padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:2.5rem">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--white);margin-bottom:1rem">
+            DC <span style="color:var(--blue-400)">technolabs</span>
+          </div>
+          <p style="font-size:.95rem;line-height:1.7;margin-bottom:1.5rem;max-width:280px;color:var(--gray-400)">Ahmedabad's trusted digital marketing agency. 8+ years helping businesses grow with web design, SEO, PPC, and more.</p>
+          <div style="display:flex;gap:10px">
+            <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--gray-400)" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--gray-400)" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--gray-400)" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/services/web-design">Web Design</a>
+          <a href="/services/web-development">Web Development</a>
+          <a href="/services/seo">SEO Services</a>
+          <a href="/services/ppc">PPC / Google Ads</a>
+          <a href="/services/ecommerce">E-commerce</a>
+          <a href="/services/shopify">Shopify</a>
+          <a href="/services/wordpress">WordPress</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about">About Us</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/blog">Blog</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Locations</h4>
+          <a href="/locations/ahmedabad">Ahmedabad</a>
+          <a href="/locations/gandhinagar">Gandhinagar</a>
+          <a href="/locations/surat">Surat</a>
+          <a href="/locations/vadodara">Vadodara</a>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <a href="#">Healthcare</a>
+          <a href="#">Real Estate</a>
+          <a href="#">E-commerce</a>
+          <a href="#">Education</a>
+          <a href="#">SaaS &amp; Tech</a>
+          <a href="#">Manufacturing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:2rem 0;border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem">
+        <div style="display:flex;align-items:center;gap:10px;font-size:.95rem;color:var(--gray-400)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          B-18, Sainik Society, Vinzol Road, Vatva, Ahmedabad - 382445
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.95rem;color:var(--gray-400)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919662608986" style="color:var(--gray-300)">+91 9662608986</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.95rem;color:var(--gray-400)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:hello@dctechnolabs.in" style="color:var(--gray-300)">hello@dctechnolabs.in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:1.5rem 0">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:.9rem;flex-wrap:wrap;gap:1rem;color:var(--gray-500)">
+        <span>© <span id="currentYear"></span> DC technolabs. All rights reserved.</span>
+        <span>Built with love in Ahmedabad, Gujarat</span>
+        <span><a href="/privacy" style="color:var(--gray-400)">Privacy Policy</a> · <a href="/terms" style="color:var(--gray-400)">Terms</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- FLOATING BUTTONS -->
+<a href="tel:+919662608986" class="mobile-call-btn" aria-label="Call us">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+<a href="https://wa.me/919662608986" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // Dynamic year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Header scroll effect
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    toggle.classList.remove('active');
+    menu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Portfolio filter tabs
+  const pfTabs = document.querySelectorAll('.pf-tab');
+  const pfCards = document.querySelectorAll('.pf-card');
+  pfTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter;
+      pfTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      pfCards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const ans = item.querySelector('.faq-answer');
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.counter').forEach(c => {
+      const target = +c.dataset.target;
+      const duration = 2000;
+      const step = target / duration * 16;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          c.textContent = target;
+          clearInterval(timer);
+        } else {
+          c.textContent = Math.floor(current);
+        }
+      }, 16);
+    });
+  }
+
+  // Scroll reveal + counter trigger
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.classList.contains('stats-bar')) {
+          animateCounters();
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

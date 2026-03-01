@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Shopify Development Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Shopify development in Ahmedabad — custom themes, app integrations, Indian payment gateways, and Shopify migrations. 80+ stores built.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`,
+    title: "Custom Shopify Themes",
+    desc: "Pixel-perfect Shopify storefronts built from scratch — not a purchased theme everyone else is using. Your brand, your design."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
+    title: "Indian Payment Gateways",
+    desc: "Razorpay, Paytm, PhonePe, and UPI natively integrated. COD, EMI, and bank transfer options for Indian shoppers."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>`,
+    title: "Shopify App Development",
+    desc: "Custom Shopify apps when existing apps fall short — private apps, public app submissions, and admin extensions."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>`,
+    title: "Shopify Migrations",
+    desc: "Migrate from WooCommerce, Magento, Wix, or any platform to Shopify — products, orders, customers, and SEO all preserved."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: "Shipping & Logistics",
+    desc: "Shiprocket, Delhivery, and Bluedart integrations. Automated shipping rate calculation, label generation, and tracking."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Conversion Rate Optimization",
+    desc: "Product page, cart, and checkout optimization — reducing abandonment and increasing average order value for your store."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "My Shopify store uses a generic theme everyone else has", solution: "We build a custom Shopify theme that's uniquely yours — matching your brand perfectly and designed specifically to convert your customers." },
+  { problem: "Indian customers can't pay how they prefer", solution: "We integrate Razorpay, Paytm, PhonePe, UPI, and COD — all the payment methods Indian shoppers trust and actually use." },
+  { problem: "My store loads slowly and customers leave", solution: "We audit your theme code, remove bloated apps, optimize images with lazy loading, and implement Shopify's native performance tools." },
+  { problem: "I need a feature no Shopify app provides", solution: "Custom Shopify app development is our speciality — we build exactly the functionality you need, integrated natively into your admin." },
+  { problem: "My WooCommerce store is becoming a maintenance nightmare", solution: "We migrate your entire WooCommerce store to Shopify — products, customers, orders, SEO URLs — and you're free from server management forever." },
+  { problem: "My checkout has high drop-off", solution: "We redesign the cart and checkout experience, add trust badges, enable one-click checkout via Shopify Pay, and reduce the steps between browsing and buying." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Store Audit & Strategy", desc: "We review your current store (or scope your new one), analyze competitors, and create a Shopify development plan with a fixed price and timeline." },
+  { title: "Design & Theme Build", desc: "Custom theme design in Figma, then coded in Shopify Liquid. Product pages, collections, cart, and checkout all designed for conversion." },
+  { title: "Apps, Integrations & Content", desc: "Payment gateways, shipping, inventory apps, product data, and third-party integrations. Full staging environment for review." },
+  { title: "Launch & Optimize", desc: "Go live, Google Shopping setup, analytics configuration, and post-launch monitoring. 30-day support window included." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Custom Shopify theme (Liquid)", desc: "Hand-coded theme — homepage, collections, product pages, cart, and checkout — all built to your brand." },
+  { title: "Mobile-first responsive design", desc: "Optimized for Indian mobile shoppers on Android and iOS. Tested on all major screen sizes." },
+  { title: "Indian payment gateway integration", desc: "Razorpay, Paytm, PhonePe, UPI, COD — every payment method your customers expect." },
+  { title: "Shipping & logistics setup", desc: "Shiprocket or Delhivery integrated with automated rate calculation and tracking notifications." },
+  { title: "GST invoice automation", desc: "Auto-generated GST-compliant invoices on every order with correct state tax split." },
+  { title: "Product catalog setup", desc: "We upload and configure your products, variants, collections, and metafields." },
+  { title: "Google Analytics & pixels", desc: "GA4, Meta Pixel, and Google Ads conversion tracking all wired up correctly from day one." },
+  { title: "30 days post-launch support", desc: "App issues, theme tweaks, and product additions covered for a full month after launch." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Custom Shopify Liquid theme",          us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "Indian payment gateway expertise",     us: "✓", usClass: "check", agency: "Generic", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "GST compliance built-in",              us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Shiprocket / logistics integration",   us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "CRO & checkout optimization",          us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Transparent fixed pricing",            us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Store",
+    desc: "New Shopify stores",
+    price: "₹35,000",
+    priceSuffix: "one-time",
+    note: "Best for: First-time Shopify stores, small catalogs",
+    features: ["Custom Shopify theme", "Up to 100 products", "Razorpay / COD setup", "Shiprocket integration", "GST invoicing", "Mobile-responsive", "20 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth Store",
+    desc: "Established brands scaling up",
+    price: "₹80,000",
+    priceSuffix: "one-time",
+    note: "Best for: Brands wanting a premium Shopify presence",
+    features: ["Full custom theme", "Unlimited products", "All payment gateways", "Advanced shipping rules", "Custom metafields", "Google Shopping setup", "Analytics & pixels", "30 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Enterprise / Custom App",
+    desc: "Complex Shopify requirements",
+    price: "₹1,50,000",
+    priceSuffix: "starting",
+    note: "Best for: B2B stores, custom apps, Shopify Plus",
+    features: ["Shopify Plus setup", "Custom app development", "ERP / WMS integration", "B2B wholesale portal", "Multi-currency & language", "Advanced analytics", "Priority support SLA"],
+    btnLabel: "Talk to Us",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e40af)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="25" y="20" width="45" height="70" rx="6" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)"/><rect x="80" y="20" width="45" height="70" rx="6" fill="rgba(59,130,246,.08)"/><rect x="135" y="20" width="45" height="70" rx="6" fill="rgba(59,130,246,.06)"/></svg>`,
+    tag: "Jewellery · Custom Shopify Theme",
+    title: "Diamond Jewellery Brand, Surat",
+    desc: "Luxury Shopify store with custom product configurator, Razorpay EMI, and whatsapp enquiry. 5x online revenue in 3 months.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="10" y="10" width="180" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="20" y="20" width="80" height="80" rx="6" fill="rgba(16,185,129,.08)"/><rect x="110" y="20" width="70" height="35" rx="4" fill="rgba(255,255,255,.06)"/><rect x="110" y="62" width="70" height="38" rx="4" fill="rgba(16,185,129,.1)"/></svg>`,
+    tag: "Health & Wellness · Shopify Migration",
+    title: "Ayurvedic Brand, Ahmedabad",
+    desc: "Migrated from WooCommerce to Shopify. Zero data loss, SEO preserved. 60% faster load time, 28% uplift in conversion rate.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e1b4b,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="25" y="18" width="150" height="15" rx="7.5" fill="rgba(167,139,250,.2)"/><rect x="25" y="42" width="50" height="58" rx="4" fill="rgba(167,139,250,.08)"/><rect x="85" y="42" width="50" height="58" rx="4" fill="rgba(167,139,250,.06)"/><rect x="145" y="42" width="30" height="58" rx="4" fill="rgba(167,139,250,.04)"/></svg>`,
+    tag: "Apparel · Shopify Plus",
+    title: "Fashion D2C Brand, Gujarat",
+    desc: "Shopify Plus store with subscription boxes, loyalty programme, and custom size recommender app. Scaled to ₹1Cr/month GMV.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We finally have a Shopify store that looks as premium as our products. Indian customers love the Razorpay UPI checkout. Sales doubled in the first month.",
+    initials: "KS",
+    name: "Kiran Shah",
+    role: "Jewellery Brand, Surat",
+  },
+  {
+    text: "Migration from WooCommerce was seamless. Every product, every order, every customer — all transferred perfectly. And the new store is so much faster.",
+    initials: "PV",
+    name: "Priyanka Vora",
+    role: "Ayurvedic Brand, Ahmedabad",
+  },
+  {
+    text: "The custom app they built for our subscription boxes was exactly what no off-the-shelf Shopify app could do. Built quickly, works perfectly, zero issues in 8 months.",
+    initials: "RM",
+    name: "Ronak Modi",
+    role: "Fashion Brand, Gujarat",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Should I use Shopify or WooCommerce?", a: "Shopify is better if you want a hosted, reliable platform you don't need to maintain — no servers, no updates, no security patches. WooCommerce is better if you want full code control or are deeply integrated with WordPress. We'll recommend the right platform after understanding your needs." },
+  { q: "Can you integrate Razorpay with Shopify?", a: "Yes. We integrate Razorpay, Paytm, PhonePe, UPI, and all major Indian payment gateways with Shopify. This includes EMI options, UPI QR codes, and COD with automated reconciliation." },
+  { q: "Can you migrate my WooCommerce store to Shopify?", a: "Yes — products, customers, orders, and SEO all migrate with zero data loss. We set up 301 redirects for all old URLs so you don't lose Google rankings. Most migrations complete in 1–2 weeks." },
+  { q: "Do you build custom Shopify themes or use paid themes?", a: "We build custom themes in Shopify Liquid. Paid themes are fast to launch but they're shared by thousands of stores and can't be customized without workarounds. For a brand that wants to stand out, custom is always better." },
+  { q: "Can you handle GST on Shopify?", a: "Yes. We configure Shopify's tax settings for Indian GST, connect it to an invoice app (like Sufio or a custom solution), and ensure every order generates a GST-compliant invoice with the correct CGST/SGST/IGST split." },
+  { q: "What Shopify apps do you recommend for Indian stores?", a: "Razorpay for payments, Shiprocket for shipping, Instamojo or PayU as backup gateway, Loox or Judge.me for reviews, Klaviyo for email, and custom apps where needed. We configure all of these as part of the build." },
+  { q: "Can you build a B2B wholesale portal on Shopify?", a: "Yes, using Shopify Plus or the Shopify B2B features on regular plans. Customer-specific pricing, bulk ordering, purchase order workflows, credit terms, and company-level accounts are all supported." },
+  { q: "How is Shopify Plus different from regular Shopify?", a: "Shopify Plus removes transaction fees, allows deeper checkout customization (Checkout Extensibility), supports B2B natively, and includes dedicated support. We recommend it for stores doing ₹50 lakh+ per month in revenue." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/ecommerce", title: "E-commerce Development", desc: "Full e-commerce strategy beyond Shopify — WooCommerce, custom platforms, and marketplace builds. Starting ₹50,000." },
+  { href: "/services/ppc", title: "PPC / Google Ads", desc: "Drive immediate traffic to your Shopify store with Google Shopping and Search ads. Average 6x ROAS. Starting ₹35,000/month." },
+  { href: "/services/web-design", title: "Web Design", desc: "Need a brand identity and design system before building your Shopify store? We design first, then develop. Starting ₹25,000." },
+];
+---
+
+<ServicePageLayout
+  title="Shopify Development in Ahmedabad — Custom Themes & Indian Payments | DC technolabs"
+  description="Shopify development in Ahmedabad. Custom themes, Razorpay integration, WooCommerce migration, and Shopify Plus. 80+ stores. Starting ₹35,000 from DC technolabs."
+  canonical="https://dctechnolabs.in/services/shopify"
+  schemaJson={schemaJson}
+
+  badge="🏪 Shopify Development"
+  heroH1="Shopify Stores Built"
+  heroHighlight="For Indian Customers and Indian Business"
+  heroDesc="Custom Shopify themes, Indian payment gateways, GST compliance, and shipping integrations — all built specifically for the Indian market. 80+ Shopify stores launched. Average 2x revenue within 3 months. Starting ₹35,000."
+  heroStats={[
+    { value: "80+", label: "Shopify Stores" },
+    { value: "2x", label: "Avg Revenue Lift" },
+    { value: "₹35K", label: "Starting Price" },
+  ]}
+  formTitle="Get a Free Shopify Consultation"
+  formSub="New store, migration, or upgrade? Tell us what you need."
+  formTypeLabel="What do you need?"
+  formTypeOptions={["New Shopify store", "Migrate to Shopify", "Shopify redesign", "Custom Shopify app", "Shopify Plus setup", "Fix existing Shopify store"]}
+
+  s2Title="What We Do With Shopify"
+  s2Subtitle="End-to-end Shopify development built for the Indian market."
+
+  s3Title="Shopify Problems We Solve"
+  s3Subtitle="The most common Shopify challenges Ahmedabad businesses bring to us."
+
+  s4Title="Our Shopify Build Process"
+  s4Subtitle="From brief to live store in 3–5 weeks."
+
+  s5Title="What Every Shopify Build Includes"
+  s5Subtitle="Everything included — no à la carte add-ons."
+
+  s6Title="How We Compare"
+  s6Subtitle="What sets our Shopify development apart from generic agencies."
+
+  s7Title="Shopify Development Packages"
+  s7Subtitle="Transparent pricing for every stage of Shopify growth."
+
+  s8Title="Shopify Projects"
+  s8Subtitle="Stores we've built and the results they've achieved."
+
+  s9Title="What Shopify Clients Say"
+
+  s10Title="Shopify FAQs"
+
+  s11Title="Grow Your Shopify Store With"
+  s11Subtitle="These services work best alongside a great Shopify store."
+
+  comparisonStartingUs="₹35,000"
+  comparisonStartingAgency="₹1,00,000+"
+  comparisonStartingFreelancer="₹15–30K"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Build a Shopify Store That Sells?"
+  ctaSubtitle="Get a free Shopify consultation. We'll review your requirements and give you a clear scope, fixed price, and timeline — no obligation."
+  ctaAccentLabel="Get Your Free Shopify Quote"
+  ctaAccentHref="#hero-form"
+/>

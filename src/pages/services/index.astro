@@ -1,0 +1,965 @@
+---
+// src/pages/services/index.astro
+import PageLayout from '../../layouts/PageLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const title = 'Digital Marketing Services in Ahmedabad | Web Design, SEO, PPC | DC technolabs';
+const description = 'Full-service digital marketing in Ahmedabad. Web design, SEO, PPC, e-commerce, social media. 945+ projects. Starting Rs 20,000.';
+
+const services = [
+  {
+    href: '/services/web-design',
+    gradient: 'linear-gradient(135deg,#1e3a5f,#2563eb)',
+    emoji: '🎨',
+    title: 'Web Design',
+    desc: 'Custom, mobile-first websites that convert visitors into customers. No templates.',
+    price: 'From Rs 25,000',
+    linkText: 'View Web Design',
+  },
+  {
+    href: '/services/web-development',
+    gradient: 'linear-gradient(135deg,#0f172a,#3b82f6)',
+    emoji: '💻',
+    title: 'Web Development',
+    desc: 'Custom web applications, portals, and complex sites built with modern frameworks.',
+    price: 'Custom Quote',
+    linkText: 'View Development',
+  },
+  {
+    href: '/services/seo',
+    gradient: 'linear-gradient(135deg,#1e293b,#0d9488)',
+    emoji: '🔍',
+    title: 'SEO Services',
+    desc: 'Rank higher on Google. Local SEO, technical optimization, and content strategy.',
+    price: 'From Rs 30,000/mo',
+    linkText: 'View SEO',
+  },
+  {
+    href: '/services/ppc',
+    gradient: 'linear-gradient(135deg,#312e81,#7c3aed)',
+    emoji: '📊',
+    title: 'PPC / Google Ads',
+    desc: 'Targeted ad campaigns that generate leads from day one. Full tracking and reporting.',
+    price: 'From Rs 35,000/mo',
+    linkText: 'View PPC',
+  },
+  {
+    href: '/services/ecommerce',
+    gradient: 'linear-gradient(135deg,#065f46,#059669)',
+    emoji: '🛒',
+    title: 'E-commerce',
+    desc: 'Online stores on Shopify or WooCommerce with payments and inventory management.',
+    price: 'From Rs 50,000',
+    linkText: 'View E-commerce',
+  },
+  {
+    href: '/services/wordpress',
+    gradient: 'linear-gradient(135deg,#7c2d12,#ea580c)',
+    emoji: '🔧',
+    title: 'WordPress',
+    desc: 'Custom WordPress themes, plugins, and maintenance. Full admin access included.',
+    price: 'From Rs 25,000',
+    linkText: 'View WordPress',
+  },
+  {
+    href: '/services/shopify',
+    gradient: 'linear-gradient(135deg,#4a1d96,#8b5cf6)',
+    emoji: '🏪',
+    title: 'Shopify',
+    desc: 'Custom Shopify stores with themes, apps, and payment setup. Launch in 2 weeks.',
+    price: 'From Rs 35,000',
+    linkText: 'View Shopify',
+  },
+  {
+    href: '/services/social-media',
+    gradient: 'linear-gradient(135deg,#831843,#ec4899)',
+    emoji: '📱',
+    title: 'Social Media',
+    desc: 'Content creation, scheduling, community management, and paid social campaigns.',
+    price: 'From Rs 20,000/mo',
+    linkText: 'View Social Media',
+  },
+];
+
+const whyPoints = [
+  {
+    title: 'No agency handoffs or briefing conflicts',
+    desc: 'One strategy session covers every channel. No repeating yourself to three different agencies.',
+  },
+  {
+    title: 'Shared data, shared insights',
+    desc: 'Your SEO team sees what\'s converting in PPC. Your web team knows what keywords your content targets.',
+  },
+  {
+    title: 'One monthly report covering everything',
+    desc: 'Traffic, leads, rankings, social, and ad spend, one dashboard, one conversation.',
+  },
+  {
+    title: 'Consistent brand voice across all channels',
+    desc: 'Your website, your ads, your social posts, and your email, they all sound like you.',
+  },
+  {
+    title: 'Single point of contact who knows your business',
+    desc: 'Your account manager understands your entire digital presence, not just one slice of it.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Discovery Call',
+    desc: 'We learn your business, your goals, and your current digital presence. 30 minutes, no sales pressure, just listening and asking the right questions.',
+  },
+  {
+    num: '02',
+    title: 'Strategy & Proposal',
+    desc: 'Within 24 hours, we send a detailed proposal with fixed price, clear scope, realistic timeline. No vague "starting from" estimates.',
+  },
+  {
+    num: '03',
+    title: 'Build & Execute',
+    desc: 'We get to work. You get regular progress updates, staging links for review, and the ability to give feedback at every milestone.',
+  },
+  {
+    num: '04',
+    title: 'Launch & Grow',
+    desc: 'Go live, set up tracking, and start measuring results. Post-launch support included. For ongoing services, we become a permanent part of your growth team.',
+  },
+];
+
+const industries = [
+  '🏥 Healthcare', '🏗️ Real Estate', '🎓 Education', '🛒 E-commerce', '🏭 Manufacturing', '🏨 Hospitality',
+  '⚖️ Legal Services', '💎 Jewellery & Retail', '💻 SaaS & IT', '👔 Textile & Garments', '💰 Finance & Fintech', '🚗 Automotive',
+  '💊 Pharma & Chemicals', '💪 Health & Fitness', '📚 Coaching & Training', '🍽️ Food & FMCG',
+];
+
+const combos = [
+  {
+    badge: '🚀 Most Popular',
+    badgeColor: 'var(--blue-700)',
+    title: 'Web Design + SEO',
+    desc: 'Build a site designed for search from day one. Technical SEO baked into the structure, content optimized for your keywords, and a fast-loading foundation that Google rewards.',
+    result: 'Page 1 rankings within 3 to 5 months of launch',
+  },
+  {
+    badge: '⚡ Fastest Leads',
+    badgeColor: 'var(--accent-dark)',
+    title: 'Web Design + PPC',
+    desc: 'A high-converting website paired with targeted Google Ads means leads can start the same day your campaigns go live. The site handles trust, the ads handle traffic.',
+    result: 'First leads within 48 hours of campaign launch',
+  },
+  {
+    badge: '👑 Complete System',
+    badgeColor: '#7c3aed',
+    title: 'SEO + PPC + Social',
+    desc: 'Cover all three channels simultaneously. PPC delivers immediate leads while SEO builds organic authority. Social media amplifies both and builds brand recall in between searches.',
+    result: '3x lead volume vs single-channel strategy',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Do you offer discounts for bundling multiple services?',
+    a: 'Yes. Two or more services receive bundled pricing. Web Design + SEO together costs less than separately. Exact savings in proposal.',
+  },
+  {
+    q: 'Can I start with one service and add more later?',
+    a: 'Absolutely. Many start with web design, then add SEO or PPC. Every project designed with future scalability in mind.',
+  },
+  {
+    q: 'Do you work with businesses outside Ahmedabad?',
+    a: 'Yes. Serve clients across Gujarat and internationally (Canada, USA, Cyprus). Remote delivery produces identical results.',
+  },
+  {
+    q: 'How quickly can you start on a new project?',
+    a: 'Most projects kick off within 3 to 5 business days. Rush option starts within 24 to 48 hours.',
+  },
+  {
+    q: 'Do you require long-term contracts for ongoing services?',
+    a: 'No. Monthly services billed monthly. Recommend minimum 3 months for meaningful results, but no lock-in.',
+  },
+  {
+    q: "What's the smallest budget you work with?",
+    a: 'Services start at Rs 20,000/month for social media and Rs 25,000 one-time for web design. Solo founders to enterprise.',
+  },
+  {
+    q: 'How do you measure and report results?',
+    a: 'Monthly report covering traffic, leads, rankings, conversions, ad performance. Google Analytics, Search Console, custom dashboards.',
+  },
+  {
+    q: 'Who will I be working with day-to-day?',
+    a: 'Dedicated project manager as single point of contact. They coordinate with designers, developers, SEO specialists, content team.',
+  },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <!-- SCHEMA MARKUP -->
+  <script type="application/ld+json" is:inline>{
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Digital Marketing Services",
+      "description": "Full-service digital marketing agency offering 8 specialized services",
+      "numberOfItems": 8,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Web Design", "url": "https://dctechnolabs.in/services/web-design" },
+        { "@type": "ListItem", "position": 2, "name": "Web Development", "url": "https://dctechnolabs.in/services/web-development" },
+        { "@type": "ListItem", "position": 3, "name": "SEO Services", "url": "https://dctechnolabs.in/services/seo" },
+        { "@type": "ListItem", "position": 4, "name": "PPC / Google Ads", "url": "https://dctechnolabs.in/services/ppc" },
+        { "@type": "ListItem", "position": 5, "name": "E-commerce Development", "url": "https://dctechnolabs.in/services/ecommerce" },
+        { "@type": "ListItem", "position": 6, "name": "WordPress Development", "url": "https://dctechnolabs.in/services/wordpress" },
+        { "@type": "ListItem", "position": 7, "name": "Shopify Development", "url": "https://dctechnolabs.in/services/shopify" },
+        { "@type": "ListItem", "position": 8, "name": "Social Media Marketing", "url": "https://dctechnolabs.in/services/social-media" }
+      ]
+    })
+  }</script>
+
+  <!-- ===================== SECTION 1: HERO ===================== -->
+  <section class="svc-hub-hero">
+    <div class="container">
+      <div class="svc-hub-hero-inner">
+        <div class="section-label">Our Services</div>
+        <h1>Everything Your Business Needs to <span class="highlight">Grow Online</span></h1>
+        <p>From your first website to dominating Google search results. Eight specialized services, one team, one point of contact. Every service starts with understanding your business, not selling you a package.</p>
+        <div class="svc-hub-hero-stats">
+          <div class="svc-hub-hero-stat">
+            <strong>945+</strong>
+            <span>Projects Delivered</span>
+          </div>
+          <div class="svc-hub-hero-stat">
+            <strong>8</strong>
+            <span>Specialized Services</span>
+          </div>
+          <div class="svc-hub-hero-stat">
+            <strong>100+</strong>
+            <span>Clutch Reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 2: SERVICE CARDS ===================== -->
+  <section class="svc-hub-cards reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">8 Services. One Accountable Team.</h2>
+        <p class="section-subtitle">Every service is tailored to your business, your market, and your goals. No cookie-cutter packages.</p>
+      </div>
+      <div class="svc-hub-grid">
+        {services.map((s) => (
+          <a href={s.href} class="svc-hub-card">
+            <div class="svc-hub-card-visual" style={`background:${s.gradient}`}>
+              <span style="font-size:3rem">{s.emoji}</span>
+            </div>
+            <div class="svc-hub-card-body">
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <div class="svc-hub-card-price">{s.price}</div>
+              <span class="svc-hub-card-link">
+                {s.linkText}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3: STATS BAR ===================== -->
+  <StatsBar />
+
+  <!-- ===================== SECTION 4: WHY IT MATTERS ===================== -->
+  <section class="approach reveal">
+    <div class="container">
+      <div class="approach-grid">
+        <!-- Left column -->
+        <div>
+          <div class="section-label">Why It Matters</div>
+          <h2 class="section-title">One Agency. Full Accountability.</h2>
+          <p style="font-size:1rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.25rem">
+            When your SEO team doesn't talk to your web team, your website has content that's never been optimised. When your PPC agency doesn't know your best-converting pages, your ad spend goes to the wrong landing pages. When your social media person has never seen your analytics, they post what looks good, not what converts.
+          </p>
+          <p style="font-size:1rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.5rem">
+            At DC technolabs, every service is managed by one team that shares your data, your goals, and your clients. Web design informs SEO structure. PPC data informs which service pages to improve. Social media content reinforces what's working in organic search. This is how joined-up digital strategy actually works.
+          </p>
+          <a href="/contact" class="btn btn-primary">Talk to One Team &rarr;</a>
+        </div>
+        <!-- Right column: blue checkmark circles -->
+        <div class="approach-points">
+          {whyPoints.map((point) => (
+            <div class="approach-point">
+              <div class="check-circle" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div>
+                <h3>{point.title}</h3>
+                <p>{point.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 5: HOW EVERY ENGAGEMENT WORKS ===================== -->
+  <section class="svc-process reveal" style="padding:var(--section-pad) 0;background:var(--white)">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Our Approach</div>
+        <h2 class="section-title">How Every Engagement Works</h2>
+        <p class="section-subtitle">From the first call to long-term partnership, here's exactly what to expect.</p>
+      </div>
+      <div class="engagement-steps">
+        <div class="engagement-line" aria-hidden="true"></div>
+        <div class="engagement-grid">
+          {steps.map((step) => (
+            <div class="engagement-step">
+              <div class="engagement-num">{step.num}</div>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 6: INDUSTRIES ===================== -->
+  <section class="svc-industries reveal" style="padding:var(--section-pad) 0;background:var(--gray-50)">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Industries</div>
+        <h2 class="section-title">We Know Your Industry</h2>
+        <p class="section-subtitle">We've worked across virtually every sector in Ahmedabad. This means faster onboarding and strategies that reflect your market's realities.</p>
+      </div>
+      <div class="industry-tags">
+        {industries.map((tag) => (
+          <span class="industry-tag">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 7: COMBOS ===================== -->
+  <section class="svc-combos reveal" style="padding:var(--section-pad) 0;background:var(--white)">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Most Effective Combos</div>
+        <h2 class="section-title">Services That Work Better Together</h2>
+        <p class="section-subtitle">Some combinations deliver results faster than any single service alone.</p>
+      </div>
+      <div class="combos-grid">
+        {combos.map((c) => (
+          <div class="combo-card">
+            <div class="combo-badge" style={`color:${c.badgeColor}`}>{c.badge}</div>
+            <h3>{c.title}</h3>
+            <p>{c.desc}</p>
+            <div class="combo-result">
+              <strong>Typical result:</strong> {c.result}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 8: TESTIMONIALS ===================== -->
+  <section style="padding:var(--section-pad) 0;background:var(--white)">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Client Results</div>
+        <h2 class="section-title">What Businesses Say After Working With Us</h2>
+      </div>
+      <div class="testimonials-grid">
+        <TestimonialCard
+          text="DC technolabs rebuilt our entire website and handled our SEO from scratch. Within four months we were ranking on page one for our main keywords. The team is responsive, professional, and actually understands business, not just tech."
+          name="Rahul Mehta"
+          role="Director, CRONA Group"
+          initials="RM"
+        />
+        <TestimonialCard
+          text="We needed a complete digital overhaul, web design, SEO, and Google Ads, all coordinated together. DC technolabs delivered everything on time and our lead volume tripled within six months. One team, one point of contact, no confusion."
+          name="Priya Shah"
+          role="Marketing Head, NIS"
+          initials="PS"
+        />
+        <TestimonialCard
+          text="As a design review platform we evaluate agencies constantly. DC technolabs stands out for their strategic thinking and execution quality. Their integrated approach to digital marketing is exactly what growing businesses need."
+          name="James Carter"
+          role="Reviewer, DesignRush"
+          initials="JC"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 9: NOT SURE ===================== -->
+  <section class="not-sure reveal" style="background:var(--blue-50)">
+    <div class="container">
+      <div class="not-sure-inner">
+        <div class="section-label" style="justify-content:center">Not Sure Where to Start?</div>
+        <h2>We'll Help You Pick the Right Service</h2>
+        <p>Many of our clients come to us unsure about what they need. That's perfectly fine. Book a free 30-minute consultation and we'll assess your current situation, identify quick wins, and recommend the right services for your budget and goals.</p>
+        <div class="not-sure-options">
+          <a href="/contact" class="btn btn-primary">Book Free Consultation</a>
+          <a href="tel:+919662608986" class="btn btn-secondary">Call +91 9662608986</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 10: FAQ ===================== -->
+  <section class="svc-faq reveal" style="padding:var(--section-pad) 0;background:var(--white)">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-title">Questions About Our Services</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" aria-controls={`faq-ans-${i}`}>
+              {faq.q}
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id={`faq-ans-${i}`}>
+              <div class="faq-answer-inner">{faq.a}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 11: FINAL CTA ===================== -->
+  <CtaBanner
+    title="Ready to Grow Your Business Online?"
+    subtitle="Tell us which services interest you and we'll put together a custom plan that fits your budget and your goals."
+  />
+</PageLayout>
+
+<style>
+/* ---- HERO ---- */
+.svc-hub-hero {
+  padding: 120px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.svc-hub-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.svc-hub-hero-inner {
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+}
+.svc-hub-hero h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  margin-top: .75rem;
+}
+.svc-hub-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.svc-hub-hero p {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+  max-width: 560px;
+}
+.svc-hub-hero-stats {
+  display: flex;
+  gap: 0;
+  margin-top: 2rem;
+  align-items: center;
+}
+.svc-hub-hero-stat {
+  border-right: 1.5px solid var(--gray-200);
+  padding-right: 2.5rem;
+  margin-right: 2.5rem;
+}
+.svc-hub-hero-stat:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+.svc-hub-hero-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue-600);
+  display: block;
+}
+.svc-hub-hero-stat span {
+  font-size: .9rem;
+  color: var(--gray-400);
+}
+
+/* ---- SERVICE CARDS ---- */
+.svc-hub-cards {
+  padding: var(--section-pad) 0;
+  background: var(--white);
+}
+.svc-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.svc-hub-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--gray-100);
+  background: var(--white);
+  transition: all .4s var(--ease);
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+.svc-hub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,.08);
+  border-color: var(--blue-200);
+}
+.svc-hub-card-visual {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svc-hub-card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.svc-hub-card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: .35rem;
+}
+.svc-hub-card-body > p {
+  font-size: .9rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: .75rem;
+  flex: 1;
+}
+.svc-hub-card-price {
+  font-family: var(--font-display);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  margin-bottom: 1rem;
+}
+.svc-hub-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  transition: gap .3s var(--ease);
+}
+.svc-hub-card:hover .svc-hub-card-link {
+  gap: 12px;
+}
+
+/* ---- WHY IT MATTERS ---- */
+.approach {
+  padding: var(--section-pad) 0;
+  background: var(--white);
+}
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.approach-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.approach-point {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.check-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue-600);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.approach-point h3 {
+  font-size: 1.05rem;
+  margin-bottom: .3rem;
+}
+.approach-point p {
+  font-size: .95rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+}
+
+/* ---- ENGAGEMENT STEPS ---- */
+.engagement-steps {
+  position: relative;
+  padding-top: 2rem;
+}
+.engagement-line {
+  position: absolute;
+  top: calc(2rem + 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-200), var(--blue-400), var(--blue-200));
+  z-index: 0;
+}
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.engagement-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--blue-600);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 4px 16px rgba(37,99,235,.25);
+  position: relative;
+  z-index: 2;
+}
+.engagement-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+}
+.engagement-step p {
+  font-size: .9rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+}
+
+/* ---- INDUSTRIES ---- */
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.industry-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all .2s var(--ease);
+}
+.industry-tag:hover {
+  border-color: var(--blue-300);
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+
+/* ---- COMBOS ---- */
+.combos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.combo-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1.5px solid var(--gray-100);
+  transition: all .3s var(--ease);
+}
+.combo-card:hover {
+  border-color: var(--blue-200);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.06);
+}
+.combo-badge {
+  display: inline-flex;
+  padding: 4px 14px;
+  background: var(--blue-50);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: .8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.combo-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: .75rem;
+}
+.combo-card > p {
+  font-size: .95rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+.combo-result {
+  padding: 12px 16px;
+  border-left: 3px solid var(--blue-600);
+  background: var(--blue-50);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: .9rem;
+  color: var(--blue-700);
+}
+.combo-result strong {
+  font-weight: 700;
+}
+
+/* ---- NOT SURE ---- */
+.not-sure {
+  padding: var(--section-pad) 0;
+}
+.not-sure-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.not-sure-inner h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+.not-sure-inner p {
+  font-size: 1rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.not-sure-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- FAQ ---- */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.faq-item {
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all .3s var(--ease);
+}
+.faq-item.active {
+  border-color: var(--blue-200);
+  box-shadow: 0 4px 16px rgba(37,99,235,.06);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  gap: 1rem;
+}
+.faq-question:hover {
+  color: var(--blue-700);
+}
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all .3s var(--ease);
+  color: var(--blue-600);
+}
+.faq-item.active .faq-icon {
+  background: var(--blue-600);
+  color: var(--white);
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s var(--ease);
+}
+.faq-answer-inner {
+  padding: 0 1.5rem 1.25rem;
+  font-size: .9rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+}
+
+/* ---- TESTIMONIALS GRID ---- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .svc-hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .engagement-grid,
+  .combos-grid {
+    grid-template-columns: 1fr;
+  }
+  .engagement-line {
+    display: none;
+  }
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .svc-hub-grid {
+    grid-template-columns: 1fr;
+  }
+  .svc-hub-hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .svc-hub-hero-stat {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+    border-bottom: 1.5px solid var(--gray-200);
+    padding-bottom: 1rem;
+  }
+  .svc-hub-hero-stat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+</style>
+
+<script>
+// Counter animation
+const counters = document.querySelectorAll<HTMLElement>('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target as HTMLElement;
+      const target = parseInt(el.dataset.target || '0', 10);
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = Math.floor(current).toString();
+      }, 16);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+counters.forEach(el => counterObserver.observe(el));
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// FAQ accordion
+document.querySelectorAll<HTMLElement>('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item') as HTMLElement;
+    const answer = item.querySelector<HTMLElement>('.faq-answer')!;
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll<HTMLElement>('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      const a = i.querySelector<HTMLElement>('.faq-answer')!;
+      a.style.maxHeight = '0';
+      i.querySelector<HTMLElement>('.faq-question')!.setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked if was closed
+    if (!isActive) {
+      item.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>

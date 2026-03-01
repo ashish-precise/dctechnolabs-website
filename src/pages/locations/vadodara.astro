@@ -1,0 +1,219 @@
+---
+import LocationPageLayout from '../../layouts/LocationPageLayout.astro';
+import type {
+  Neighborhood, Challenge, Hub, WhyCard, Stat,
+  ResponseCard, Testimonial, FaqItem, MapInfo, OverviewParagraphs
+} from '../../layouts/LocationPageLayout.astro';
+
+// ── SCHEMA ────────────────────────────────────────────────────────────────────
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "DC technolabs",
+      "description": "Digital marketing agency serving Vadodara — web design, SEO, PPC, and e-commerce for manufacturing, education, and professional services businesses across Baroda.",
+      "url": "https://dctechnolabs.in/locations/vadodara",
+      "telephone": "+919662608986",
+      "email": "hello@dctechnolabs.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "382445",
+        "addressCountry": "IN"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "22.969", "longitude": "72.629" },
+      "openingHours": "Mo-Sa 09:00-19:00",
+      "priceRange": "₹25,000 - ₹3,00,000+",
+      "areaServed": [
+        { "@type": "City", "name": "Vadodara" },
+        { "@type": "Place", "name": "Alkapuri, Vadodara" },
+        { "@type": "Place", "name": "Gotri, Vadodara" },
+        { "@type": "Place", "name": "Manjalpur, Vadodara" },
+        { "@type": "Place", "name": "Fatehgunj, Vadodara" },
+        { "@type": "Place", "name": "Sayajigunj, Vadodara" },
+        { "@type": "Place", "name": "Waghodia Road, Vadodara" },
+        { "@type": "Place", "name": "Makarpura GIDC, Vadodara" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do you serve Vadodara businesses remotely?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most Vadodara projects are delivered remotely with video calls, shared dashboards, and WhatsApp for quick communication. We visit Vadodara quarterly for clients who prefer in-person meetings." } },
+        { "@type": "Question", "name": "Do you have experience with Vadodara's manufacturing sector?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We've worked with industrial manufacturers, engineering firms, and chemical companies from Makarpura GIDC and Waghodia Road. We understand B2B industrial marketing and how to generate qualified leads for manufacturing businesses." } },
+        { "@type": "Question", "name": "How much does digital marketing cost for a Vadodara business?", "acceptedAnswer": { "@type": "Answer", "text": "Web design starts at ₹25,000, SEO from ₹30,000/month, PPC from ₹35,000/month. Same pricing as Ahmedabad — no out-of-city premium." } }
+      ]
+    }
+  ]
+});
+
+// ── §2 OVERVIEW SVG ──────────────────────────────────────────────────────────
+const overviewSvg = `<svg viewBox="0 0 300 240" fill="none">
+  <rect x="20" y="20" width="260" height="200" rx="16" fill="rgba(37,99,235,.05)" stroke="rgba(37,99,235,.12)"/>
+  <circle cx="150" cy="115" r="55" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.15)" stroke-width="1.5"/>
+  <circle cx="150" cy="115" r="28" fill="rgba(37,99,235,.1)"/>
+  <circle cx="100" cy="75" r="5" fill="rgba(37,99,235,.5)"/>
+  <text x="100" y="65" text-anchor="middle" font-family="system-ui" font-size="7.5" fill="rgba(37,99,235,.65)">Alkapuri</text>
+  <circle cx="195" cy="85" r="4.5" fill="rgba(37,99,235,.4)"/>
+  <text x="195" y="75" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.55)">Fatehgunj</text>
+  <circle cx="80" cy="140" r="4" fill="rgba(37,99,235,.35)"/>
+  <text x="80" y="155" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Makarpura</text>
+  <circle cx="210" cy="145" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="210" y="160" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.45)">Gotri</text>
+  <circle cx="155" cy="170" r="4" fill="rgba(37,99,235,.25)"/>
+  <text x="155" y="184" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.4)">Manjalpur</text>
+  <circle cx="225" cy="112" r="4" fill="rgba(37,99,235,.25)"/>
+  <text x="225" y="102" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.4)">Sayajigunj</text>
+  <text x="150" y="228" text-anchor="middle" font-family="system-ui" font-weight="600" font-size="10" fill="rgba(37,99,235,.35)">Serving All of Vadodara</text>
+</svg>`;
+
+// ── §2 OVERVIEW PARAGRAPHS ────────────────────────────────────────────────────
+const overviewParagraphs: OverviewParagraphs = {
+  p1: "Vadodara — Gujarat's cultural capital — is also one of the state's most important industrial, educational, and professional hubs. Home to Makarpura GIDC's manufacturing corridor, Maharaja Sayajirao University, and a thriving professional services ecosystem, Baroda businesses operate in a market that blends heritage with modern ambition. DC technolabs has been serving Vadodara clients since 2018.",
+  p2: "We understand what makes Vadodara's market distinct. Industrial manufacturers on Waghodia Road need B2B websites and lead generation strategies very different from the coaching institutes near MS University or the premium retailers in Alkapuri. We bring specific knowledge of each of these segments — and the digital strategies that actually work in each one.",
+  p3: "Our Vadodara work is primarily remote — seamless video calls, shared dashboards, and responsive WhatsApp communication. We also visit Vadodara quarterly for clients who value face-to-face strategy sessions. Many of our longest Vadodara relationships have been built entirely over video calls, with results that made the distance irrelevant.",
+};
+
+// ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
+const neighborhoods: Neighborhood[] = [
+  { name: "Alkapuri",        types: "Premium retail, showrooms, professionals" },
+  { name: "Gotri",           types: "Healthcare, education, residential services" },
+  { name: "Manjalpur",       types: "Retail, food & beverage, mid-market services" },
+  { name: "Fatehgunj",       types: "Coaching institutes, education, banks" },
+  { name: "Sayajigunj",      types: "Heritage district, hospitality, culture" },
+  { name: "Waghodia Road",   types: "Logistics, industrial, auto dealers" },
+  { name: "Makarpura GIDC",  types: "Engineering, chemical, heavy manufacturing" },
+  { name: "Harni",           types: "Residential services, clinics, retail" },
+  { name: "Subhanpura",      types: "Real estate, residential, new developments" },
+  { name: "Old Padra Road",  types: "Pharma, labs, professional services" },
+  { name: "Sama",            types: "Mixed commercial, logistics, food" },
+  { name: "Kalali",          types: "IT parks, new commercial, startups" },
+];
+
+// ── §4 CHALLENGES ─────────────────────────────────────────────────────────────
+const challenges: Challenge[] = [
+  { emoji: "🏭", problem: "Our manufacturing business has no B2B digital presence",   solution: "We build professional B2B websites and lead generation systems for Vadodara's industrial sector — engineering firms, chemical companies, and manufacturers who need to be found by procurement managers online." },
+  { emoji: "🎓", problem: "Competing for students against bigger coaching brands",     solution: "We help Vadodara's coaching institutes, schools, and educational businesses with local SEO, Google Ads, and social media strategies that bring prospective students to you instead of your bigger competitors." },
+  { emoji: "📱", problem: "Our site is outdated and reflects poorly on us",            solution: "Many Vadodara businesses still use template sites from 2015. We design modern, professional websites that reflect the quality of your service and convert visitors into enquiries." },
+  { emoji: "🔍", problem: "We're invisible in local Vadodara search results",         solution: "We optimize for Vadodara-specific keywords, build your Google Business Profile, and create local citations that help you appear when customers in Alkapuri, Gotri, and Manjalpur search for your service." },
+  { emoji: "🌍", problem: "We want to sell to buyers outside Vadodara",               solution: "Whether you're a manufacturer targeting pan-India procurement or a service firm wanting national clients, we build SEO and PPC campaigns that extend your reach well beyond Baroda." },
+  { emoji: "📊", problem: "We have no visibility into our marketing performance",      solution: "We implement proper Google Analytics 4, Search Console, and conversion tracking so you know exactly how customers find you and what's driving real enquiries." },
+];
+
+// ── §5 BUSINESS HUBS ──────────────────────────────────────────────────────────
+const hubs: Hub[] = [
+  { tag: "Industrial & Manufacturing", title: "Makarpura GIDC & Waghodia Road",   desc: "Gujarat's industrial heartland. Chemical plants, engineering firms, and heavy manufacturing need credible B2B websites, LinkedIn marketing, and lead generation targeting procurement and sourcing professionals." },
+  { tag: "Education Hub",              title: "MS University & Fatehgunj Area",   desc: "Vadodara's educational belt. Coaching institutes, private schools, colleges, and test prep centres compete for students. Local SEO, Google Ads, and social media are the decisive channels here." },
+  { tag: "Premium Retail & Services",  title: "Alkapuri & Sayajigunj",            desc: "Vadodara's most prestigious commercial and retail corridor. Showrooms, professional services, healthcare, and hospitality here need strong local visibility, polished websites, and brand authority." },
+];
+
+// ── §6 WHY US ─────────────────────────────────────────────────────────────────
+const whyCards: WhyCard[] = [
+  { emoji: "🌐", title: "Remote-First, Visit-Ready",           desc: "Seamless remote delivery — video calls, shared dashboards, quick WhatsApp responses. Quarterly Vadodara visits for clients who want in-person strategy sessions." },
+  { emoji: "🏭", title: "Industrial B2B Marketing Expertise",  desc: "We've marketed manufacturing and engineering businesses from Makarpura GIDC. We know what B2B industrial buyers look for online and how to generate qualified leads." },
+  { emoji: "⚡", title: "Same-Day Response",                   desc: "Your enquiry gets a reply the same business day, every time. Urgent projects move immediately." },
+  { emoji: "🏆", title: "945+ Gujarat Projects",               desc: "Proven results across Gujarat's industries — manufacturing, education, healthcare, retail, and professional services alike." },
+  { emoji: "💰", title: "Transparent Pricing",                 desc: "No premium for Vadodara clients. Same fixed prices as Ahmedabad — web design from ₹25,000, SEO from ₹30,000/month." },
+  { emoji: "📍", title: "Vadodara-Specific SEO",               desc: "We target Vadodara and Baroda keywords, know which local directories matter, and understand how to rank in a market where heritage brand names still carry weight." },
+];
+
+// ── §7 STATS ──────────────────────────────────────────────────────────────────
+const stats: Stat[] = [
+  { target: 40,  suffix: "+", label: "Vadodara Projects" },
+  { target: 8,   suffix: "+", label: "Years in Gujarat" },
+  { target: 945, suffix: "+", label: "Total Gujarat Projects" },
+  { target: 12,  suffix: "+", label: "Vadodara Areas Served" },
+];
+
+// ── §8 RESPONSE TIMES ────────────────────────────────────────────────────────
+const responseTimes: ResponseCard[] = [
+  { time: "< 4 hrs",   title: "Quote Response",    desc: "Your enquiry gets a detailed reply within 4 business hours, same day" },
+  { time: "24 hrs",    title: "Proposal Delivery", desc: "Full project scope, timeline, and fixed pricing delivered the next business day" },
+  { time: "Quarterly", title: "In-Person Visits",  desc: "We visit Vadodara every quarter for strategy sessions, design reviews, and client meetings" },
+];
+
+// ── §9 TESTIMONIALS ───────────────────────────────────────────────────────────
+const testimonials: Testimonial[] = [
+  { text: "We're a chemical manufacturer from Makarpura and had zero online presence. DC technolabs built us a B2B website and SEO strategy that now generates 8–10 qualified procurement enquiries every month. The ROI is extraordinary.",    initials: "AS", name: "Arvind Shah",    role: "Chemical Manufacturer, Makarpura GIDC" },
+  { text: "Our coaching institute was losing students to bigger brands with better online visibility. After 5 months of SEO and Google Ads with DC technolabs, we're in the top 3 for every key Vadodara coaching search term.",              initials: "PP", name: "Pooja Patel",    role: "Coaching Institute, Fatehgunj" },
+  { text: "Remote didn't mean disconnected. Video calls every fortnight, quick WhatsApp for approvals, and they visited us in Alkapuri twice for strategy sessions. The website they built is consistently complimented by our clients.",    initials: "VD", name: "Vishal Desai",   role: "Architecture Firm, Alkapuri" },
+];
+
+// ── §10 FAQ ───────────────────────────────────────────────────────────────────
+const faqItems: FaqItem[] = [
+  { q: "Do you serve Vadodara businesses remotely?",                       a: "Yes. Almost all our Vadodara projects are delivered remotely — video strategy calls, shared project dashboards, and WhatsApp for quick communication. We also visit Vadodara quarterly for clients who prefer in-person reviews. Distance is simply not a barrier to great work." },
+  { q: "Do you have experience with Vadodara's manufacturing sector?",     a: "Yes. We've worked with industrial manufacturers, engineering firms, and chemical companies from Makarpura GIDC and Waghodia Road. We understand procurement-focused B2B marketing, industrial website design, and how to position Vadodara manufacturers for national and international buyers." },
+  { q: "Can you help our educational institution in Vadodara?",             a: "Absolutely. We've worked with coaching institutes, private schools, and colleges across Vadodara's educational corridor. Local SEO, Google Ads for admissions, and social media strategies tailored to student audiences are our speciality for education businesses." },
+  { q: "What industries do you serve in Vadodara?",                         a: "Manufacturing, engineering, chemicals, pharma, education, coaching, healthcare, real estate, retail, professional services, hospitality, and heritage tourism across Vadodara's diverse economy." },
+  { q: "Can you help us with heritage tourism or cultural businesses?",     a: "Yes. Vadodara's heritage — Lakshmi Vilas Palace, museums, heritage walks — and its cultural institutions are a distinct segment we understand. We build tourism-oriented websites, Google Business profiles, and local SEO for this space." },
+  { q: "How do you understand Vadodara's market without a local office?",   a: "Through years of working with Vadodara businesses across multiple industries, we've built genuine knowledge of the local market — the competitive dynamics in each sector, what local customers search for, and what digital strategies actually produce results here." },
+  { q: "How much does digital marketing cost for a Vadodara business?",    a: "Identical to our Ahmedabad pricing. Web design from ₹25,000, SEO from ₹30,000/month, PPC from ₹35,000/month. No out-of-city premium, no travel surcharge." },
+  { q: "How long until we see results in Vadodara's market?",              a: "PPC campaigns can start delivering leads within 48 hours of launch. SEO shows meaningful keyword movement in 60–90 days with significant traffic growth by month 4–6. Local SEO and Google Maps rankings for Vadodara searches improve within 6–8 weeks of starting." },
+];
+
+// ── §11 MAP INFO ─────────────────────────────────────────────────────────────
+const mapInfo: MapInfo = {
+  title:          "DC technolabs — Serving Vadodara Remotely + Quarterly Visits",
+  address:        "B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445",
+  phone:          "+91 9662608986",
+  email:          "hello@dctechnolabs.com",
+  hours:          "Monday — Saturday, 9:00 AM — 7:00 PM",
+  mapsEmbedSrc:   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0!2d72.629!3d22.969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzA4LjQiTiA3MsKwMzcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1",
+  directionsHref: "https://maps.google.com/?q=B-18+Sainik+Society+Vatva+Ahmedabad",
+};
+---
+
+<LocationPageLayout
+  title="Digital Marketing Agency in Vadodara — Web Design, SEO & PPC | DC technolabs"
+  description="DC technolabs serves Vadodara's manufacturing, education, and professional services businesses with web design, SEO, and PPC. 40+ Vadodara projects. Remote delivery with quarterly visits. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara"
+  schemaJson={schemaJson}
+
+  badge="📍 Vadodara"
+  cityName="Vadodara"
+  heroDesc="Gujarat's cultural capital has a business community as ambitious as its heritage. From Makarpura GIDC manufacturers to Fatehgunj coaching institutes and Alkapuri's premium services — DC technolabs has been serving Vadodara's diverse market since 2018, delivering results that bridge the distance."
+  heroStats={[
+    { value: "40+",  label: "Vadodara Projects" },
+    { value: "8+",   label: "Years in Gujarat" },
+    { value: "3+",   label: "Industries Served" },
+  ]}
+  formTitle="Get a Free Vadodara Quote"
+  formSub="Remote-friendly process. Quarterly visits available. Same-day response."
+
+  s2Label="Our Vadodara Presence"
+  s2Title="Baroda's Market. Our Expertise."
+  overviewParagraphs={overviewParagraphs}
+  overviewSvg={overviewSvg}
+
+  s3Title="Every Corner of Vadodara"
+  neighborhoods={neighborhoods}
+
+  s4Title="Vadodara Business Problems We Solve"
+  challenges={challenges}
+
+  s5Title="Vadodara's Key Business Areas"
+  hubs={hubs}
+
+  s6Title="Why Vadodara Businesses Choose Us"
+  s6Subtitle="Remote delivery done right — accountable, responsive, and results-focused."
+  whyCards={whyCards}
+
+  stats={stats}
+
+  s8Title="How We Work With Vadodara Clients"
+  responseTimes={responseTimes}
+
+  s9Title="What Vadodara Businesses Say"
+  testimonials={testimonials}
+
+  s10Title="Vadodara-Specific Questions"
+  faqItems={faqItems}
+
+  s11Title="Our Office — Remote Delivery for Vadodara"
+  mapInfo={mapInfo}
+
+  ctaTitle="Ready to Grow Your Vadodara Business Online?"
+  ctaSubtitle="Get a free consultation from a team that knows Baroda's market. We respond the same day and have the track record to prove what we can deliver."
+/>

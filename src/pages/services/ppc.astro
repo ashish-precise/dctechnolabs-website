@@ -1,158 +1,252 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "PPC and Google Ads Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Google Ads and PPC management for Ahmedabad businesses. 6x average ROI. Campaigns live within 48 hours.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: "Search Ads (Google)",
+    desc: "Show up at the top of Google for high-intent searches the moment someone looks for your product or service."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: "Display & Remarketing",
+    desc: "Re-engage visitors who left your site with targeted banner ads across millions of websites. Stay top of mind."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`,
+    title: "Performance Max Campaigns",
+    desc: "AI-powered campaigns that automatically show ads across Search, Display, YouTube, Gmail, and Maps to maximize conversions."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Conversion Tracking",
+    desc: "Every call, form fill, and purchase tracked back to the exact keyword and ad. You know exactly what's working."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: "Local & Geo-Targeted Ads",
+    desc: "Target Ahmedabad neighbourhoods, pin codes, or a custom radius around your business. Spend only where your customers are."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+    title: "Landing Page Optimization",
+    desc: "Dedicated landing pages built for each campaign. High relevance score, low CPC, and maximum conversion rate."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "We're spending on ads but getting no leads", solution: "We audit your campaigns top-to-bottom — keywords, match types, bids, landing pages. Most inherited accounts waste 40–60% of budget on irrelevant clicks." },
+  { problem: "Our cost-per-lead is too high", solution: "We tighten targeting, improve Quality Scores, and create dedicated landing pages — reducing CPL by an average of 35% within 60 days." },
+  { problem: "We don't know if ads are actually working", solution: "We set up full conversion tracking — every call, form, and purchase attributed to the exact ad. No more guessing." },
+  { problem: "Our competitors' ads are always above ours", solution: "Ad position isn't just budget — it's Quality Score. We improve ad relevance, landing page experience, and CTR to outrank competitors without outspending them." },
+  { problem: "We tried Google Ads and wasted money", solution: "Most businesses waste money because campaigns aren't set up correctly. We start fresh with proper structure, negative keywords, and conversion-focused landing pages." },
+  { problem: "We need leads immediately, not in 6 months", solution: "That's exactly what PPC is for. Campaigns go live within 48 hours. Leads can start the same day. Unlike SEO, PPC delivers instant, measurable results." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Audit & Research", desc: "We audit your account (or start fresh), research your competitors' ads, and identify the highest-ROI keywords for your business and budget." },
+  { title: "Campaign Build", desc: "We structure campaigns by service/product, write compelling ads, build dedicated landing pages, and set up conversion tracking — everything before going live." },
+  { title: "Launch & Monitor", desc: "Campaigns go live within 48 hours. First two weeks, we monitor daily — bids, search terms, negative keywords — to eliminate waste fast." },
+  { title: "Optimise & Scale", desc: "Monthly optimization: pause losers, scale winners, test new ad copy and audiences. Your CPL drops as campaigns mature. ROI compounds." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Full account setup & campaign structure", desc: "Campaigns organized by service, match types set correctly, ad groups structured for maximum Quality Score." },
+  { title: "Keyword research & negative keyword list", desc: "High-intent keywords targeted, irrelevant searches blocked. We typically start with 200+ negative keywords." },
+  { title: "Ad copywriting (3 variations per ad group)", desc: "Compelling, benefit-driven ad copy tested continuously to improve CTR and conversion rate." },
+  { title: "Dedicated landing pages", desc: "High-converting pages built for each campaign — not your homepage. Matched messaging = higher Quality Score + lower CPC." },
+  { title: "Conversion tracking setup", desc: "Every call, form, and purchase tracked back to the exact keyword. GA4 + Google Tag Manager + call tracking." },
+  { title: "Competitor ad analysis", desc: "We monitor what your competitors are bidding on and how to position against them." },
+  { title: "Weekly spend & leads summary", desc: "Quick weekly snapshot of spend, leads, and CPL so you're always informed." },
+  { title: "Monthly deep-dive report", desc: "Full performance report — impressions, clicks, conversions, CPL, ROAS, and next month's strategy." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Google Partner certified",      us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "Rarely", freelancerClass: "cross" },
+  { feature: "Dedicated landing pages",       us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Full conversion tracking",      us: "✓", usClass: "check", agency: "Basic", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Transparent spend reporting",   us: "✓", usClass: "check", agency: "Monthly", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "No long-term lock-in",          us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+  { feature: "Industry specialization",       us: "✓", usClass: "check", agency: "Generic", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For local businesses & small budgets",
+    price: "₹35,000",
+    priceSuffix: "/month",
+    note: "Ad spend: ₹30,000–₹75,000/month",
+    features: ["Google Search campaigns", "Up to 2 campaigns", "Basic conversion tracking", "Weekly performance email", "Monthly report", "Negative keyword management"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth",
+    desc: "For businesses serious about leads",
+    price: "₹60,000",
+    priceSuffix: "/month",
+    note: "Ad spend: ₹75,000–₹2,00,000/month",
+    features: ["Search + Display + Remarketing", "Dedicated landing pages (2)", "Full conversion tracking", "Competitor ad monitoring", "A/B ad copy testing", "Call tracking", "Weekly reports + monthly strategy"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Performance Max",
+    desc: "For high-volume lead generation",
+    price: "₹1,20,000",
+    priceSuffix: "/month",
+    note: "Ad spend: ₹2,00,000+/month",
+    features: ["All campaign types", "Performance Max campaigns", "Multiple landing pages", "CRO testing", "YouTube ads", "Shopping ads", "Dedicated account manager", "Daily monitoring"],
+    btnLabel: "Talk to Us",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="15" width="160" height="90" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="30" y="25" width="80" height="10" rx="5" fill="rgba(16,185,129,.3)"/><rect x="30" y="45" width="140" height="8" rx="4" fill="rgba(255,255,255,.08)"/><rect x="30" y="62" width="60" height="30" rx="4" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.3)"/><text x="60" y="81" text-anchor="middle" font-size="10" fill="rgba(16,185,129,.9)" font-family="system-ui">6.2x ROI</text><rect x="100" y="62" width="70" height="30" rx="4" fill="rgba(255,255,255,.05)"/></svg>`,
+    tag: "Real Estate · Search Ads",
+    title: "Property Developer, SG Highway",
+    desc: "₹80,000/month ad spend generating ₹5,00,000+ in broker fees monthly. 6.2x ROAS within 90 days.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#1d4ed8)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><path d="M20 90 L45 55 L70 68 L95 35 L120 48 L145 18 L170 28" stroke="rgba(59,130,246,.7)" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="145" cy="18" r="6" fill="rgba(59,130,246,.9)"/><rect x="20" y="95" width="160" height="1" fill="rgba(255,255,255,.1)"/><text x="100" y="112" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">Cost per lead: -48% in 60 days</text></svg>`,
+    tag: "Healthcare · Local Ads",
+    title: "Multi-Speciality Clinic, Ahmedabad",
+    desc: "Cost per appointment dropped from ₹850 to ₹440 in 60 days. Now generating 80+ qualified appointments/month.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e1b4b,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="15" width="170" height="90" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="25" y="25" width="70" height="70" rx="6" fill="rgba(167,139,250,.1)" stroke="rgba(167,139,250,.25)"/><rect x="105" y="25" width="70" height="30" rx="4" fill="rgba(167,139,250,.08)"/><rect x="105" y="62" width="70" height="33" rx="4" fill="rgba(255,255,255,.04)"/><text x="60" y="65" text-anchor="middle" font-size="9" fill="rgba(167,139,250,.8)" font-family="system-ui">Performance</text><text x="60" y="77" text-anchor="middle" font-size="9" fill="rgba(167,139,250,.8)" font-family="system-ui">Max</text></svg>`,
+    tag: "E-commerce · Performance Max",
+    title: "Fashion Brand, Ahmedabad",
+    desc: "Performance Max campaign achieving 8.4x ROAS on ₹1.5L/month spend across Search, Display, and Shopping.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "What I appreciate most is their honesty. They told us exactly what would work and why. Our Google Ads campaign now generates 6x returns consistently, every month.",
+    initials: "AM",
+    name: "Amit Mehta",
+    role: "SaaS Startup, SG Highway",
+  },
+  {
+    text: "We tried managing Google Ads ourselves and burned ₹40,000 with zero leads. DC technolabs fixed everything in two weeks and we had 12 leads that same month.",
+    initials: "NK",
+    name: "Nisha Kapoor",
+    role: "Interior Design Studio, Ahmedabad",
+  },
+  {
+    text: "Cost per lead dropped by 48% in 60 days. The landing pages they built are so much better than our website. Clear attribution, no smoke and mirrors.",
+    initials: "RP",
+    name: "Raj Patel",
+    role: "Multi-Speciality Clinic, Ahmedabad",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "How quickly can my ads go live?", a: "Campaigns are typically live within 48 hours of onboarding. This includes keyword research, ad copy, campaign structure, and conversion tracking setup. Leads can start the same day campaigns go live." },
+  { q: "What's the minimum ad budget I need?", a: "We recommend a minimum monthly ad spend of ₹30,000 for Search campaigns in most Ahmedabad industries. Competitive niches (real estate, healthcare) typically need ₹75,000+ to generate meaningful volume. Our management fee is separate from your ad spend." },
+  { q: "Do I own my Google Ads account?", a: "Yes. Always. We work inside your account, not ours. If you ever leave, you take everything with you — campaign history, data, audiences. We don't hold accounts hostage." },
+  { q: "What's your management fee?", a: "Our management fees start at ₹35,000/month. This covers strategy, campaign management, optimization, landing pages, and reporting. Ad spend is billed directly to your Google account — we never mark up your media spend." },
+  { q: "Can you take over my existing Google Ads account?", a: "Yes. We start with a full account audit, identify where money is being wasted, fix the campaign structure, and typically reduce cost-per-lead by 30–50% within 60 days." },
+  { q: "What industries do you specialize in?", a: "Real estate, healthcare, legal, education, e-commerce, SaaS, hospitality, and manufacturing. We have proven campaign templates and landing pages for each vertical that dramatically cut the 'learning curve.'" },
+  { q: "How do you track results?", a: "We set up Google Analytics 4, conversion tracking for forms and calls, and a custom reporting dashboard. You see spend, leads, cost-per-lead, and ROAS in real time — not just at end of month." },
+  { q: "Do you run Facebook Ads too?", a: "Yes. We manage Meta Ads (Facebook + Instagram) as an add-on. For most Ahmedabad businesses, Google Search delivers higher-intent leads, so we recommend starting there." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/seo", title: "SEO Services", desc: "While PPC delivers immediate leads, SEO builds long-term organic traffic. Run both for maximum lead flow. Starting ₹30,000/month." },
+  { href: "/services/web-design", title: "Web Design", desc: "Great ads need great landing pages. We design high-converting pages that turn your ad clicks into customers. Starting ₹25,000." },
+  { href: "/services/social-media", title: "Social Media Marketing", desc: "Complement PPC with brand awareness on Instagram and Facebook. Starting ₹20,000/month." },
+];
 ---
 
-<Layout 
-  title="PPC Management Services in Ahmedabad | Google Ads Expert | DC technolabs"
-  description="Expert PPC management in Ahmedabad. Google Ads, Facebook Ads, and more. Maximize ROI with data-driven campaigns. Get immediate results!"
->
-  <Header />
-  <div style="height: 80px;"></div>
-  
-  <section class="page-hero">
-    <div class="container">
-      <h1>PPC Management Services in Ahmedabad</h1>
-      <p class="hero-subtitle">Maximize ROI with expertly managed advertising campaigns</p>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <h2>Get Immediate Results with Professional PPC Management</h2>
-      <p>Stop wasting money on poorly optimized ads. DC technolabs creates, manages, and optimizes Google Ads and social media campaigns that deliver measurable ROI. Based in Ahmedabad, we help businesses across Gujarat achieve their advertising goals.</p>
-      
-      <h3>What's Included in Our PPC Service</h3>
-      <ul class="feature-list">
-        <li><strong>Google Ads Campaign Setup & Management:</strong> Search, Display, Shopping, and Video ads</li>
-        <li><strong>Facebook & Instagram Advertising:</strong> Targeted campaigns on social platforms</li>
-        <li><strong>LinkedIn Ads:</strong> B2B advertising for professional services</li>
-        <li><strong>Keyword Research & Selection:</strong> Find profitable keywords with buying intent</li>
-        <li><strong>Ad Copy Creation:</strong> Compelling ads that drive clicks and conversions</li>
-        <li><strong>Landing Page Optimization:</strong> Ensure your pages convert traffic</li>
-        <li><strong>A/B Testing:</strong> Continuously test and improve ad performance</li>
-        <li><strong>Bid Management:</strong> Optimize bids to maximize ROI</li>
-        <li><strong>Conversion Tracking:</strong> Track every lead and sale accurately</li>
-        <li><strong>Detailed Reporting:</strong> See exactly where your money goes and what it generates</li>
-      </ul>
-      
-      <h3>Platforms We Manage</h3>
-      <ul style="margin: 2rem 0; line-height: 2;">
-        <li><strong>Google Ads:</strong> Search, Display, Shopping, YouTube</li>
-        <li><strong>Facebook Ads:</strong> Facebook & Instagram campaigns</li>
-        <li><strong>LinkedIn Ads:</strong> Professional B2B advertising</li>
-        <li><strong>Microsoft Ads:</strong> Bing search advertising</li>
-      </ul>
-      
-      <h3>Our PPC Process</h3>
-      <ol style="margin: 2rem 0; padding-left: 1.5rem; line-height: 2;">
-        <li><strong>Discovery & Goals:</strong> Understand your business and advertising objectives</li>
-        <li><strong>Strategy Development:</strong> Create campaign structure and targeting plan</li>
-        <li><strong>Campaign Setup:</strong> Build campaigns with optimized keywords and ads</li>
-        <li><strong>Launch & Monitor:</strong> Go live and track performance closely</li>
-        <li><strong>Optimize Daily:</strong> Adjust bids, pause poor performers, scale winners</li>
-        <li><strong>Monthly Reporting:</strong> Review results and plan next month's strategy</li>
-      </ol>
-      
-      <h3>Why Choose DC technolabs for PPC?</h3>
-      <ul class="feature-list">
-        <li><strong>Google Ads Certified:</strong> Official certification from Google</li>
-        <li><strong>Data-Driven Decisions:</strong> We let numbers guide our strategy, not guesses</li>
-        <li><strong>Transparent Reporting:</strong> Full access to your accounts and detailed reports</li>
-        <li><strong>Proven ROI:</strong> Track record of profitable campaigns across industries</li>
-        <li><strong>Continuous Optimization:</strong> We never "set and forget" your campaigns</li>
-        <li><strong>Local Market Knowledge:</strong> Understanding of Ahmedabad and Gujarat audience</li>
-      </ul>
-      
-      <h3>PPC Management Pricing</h3>
-      <p><strong>Starter Package:</strong> ₹10,000/month management fee + your ad spend</p>
-      <p><strong>Professional Package:</strong> ₹20,000/month management fee + your ad spend</p>
-      <p><strong>Enterprise Package:</strong> Custom pricing for large budgets</p>
-      <p style="font-size: 0.95rem; color: var(--text-light);">*Ad spend is paid directly to Google/Facebook. We manage it for you.</p>
-      
-      <h3>Common PPC Questions</h3>
-      <div style="margin: 2rem 0;">
-        <h4>How much should I spend on ads?</h4>
-        <p>We recommend starting with ₹20,000-50,000/month in ad spend for most small businesses. This can be scaled up or down based on results.</p>
-        
-        <h4>How quickly will I see results?</h4>
-        <p>Unlike SEO, PPC delivers immediate traffic. You'll start seeing clicks within hours of launching campaigns.</p>
-        
-        <h4>What's the difference between your fee and ad spend?</h4>
-        <p>Our management fee covers our time and expertise. Ad spend goes directly to the platforms (Google, Facebook). Both are separate costs.</p>
-      </div>
-      
-      <div class="cta-box">
-        <h3>Ready to Start Getting Leads Today?</h3>
-        <p>Get a free PPC audit and custom campaign strategy</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="/contact" class="btn btn-primary btn-large">Get Free PPC Audit</a>
-          <a href="tel:+919662608986" class="btn btn-secondary btn-large">Call +91 96626-08986</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <Footer />
-</Layout>
+<ServicePageLayout
+  title="PPC & Google Ads Management in Ahmedabad — Starting ₹35,000/mo | DC technolabs"
+  description="Google Ads management in Ahmedabad. 150+ campaigns, 6x average ROI, campaigns live in 48 hours. Starting ₹35,000/month from DC technolabs."
+  canonical="https://dctechnolabs.in/services/ppc"
+  schemaJson={schemaJson}
 
-<style>
-  .page-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
-    color: white;
-    text-align: center;
-  }
-  
-  .page-hero h1 {
-    color: white;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-  }
-  
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-  }
-  
-  .feature-list li {
-    padding: 1rem 0;
-    padding-left: 2.5rem;
-    position: relative;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .cta-box {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    padding: 3rem;
-    border-radius: 1rem;
-    text-align: center;
-    margin: 3rem 0;
-  }
-  
-  .cta-box h3 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .cta-box p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-  }
-</style>
+  badge="📊 PPC / Google Ads"
+  heroH1="Google Ads That Generate"
+  heroHighlight="Leads From Day One"
+  heroDesc="Targeted Google Ads campaigns for Ahmedabad businesses — set up, managed, and optimized by certified specialists. 150+ campaigns managed. Average 6x ROI. Leads can start within 48 hours of launch. Starting ₹35,000/month."
+  heroStats={[
+    { value: "150+", label: "Campaigns Managed" },
+    { value: "6x",   label: "Avg. ROI" },
+    { value: "48hr", label: "To Go Live" },
+  ]}
+  formTitle="Get a Free PPC Audit"
+  formSub="Already running ads? We'll show you where money is being wasted."
+  formTypeLabel="What do you need?"
+  formTypeOptions={["Start Google Ads from scratch", "Fix my existing campaigns", "Reduce cost per lead", "E-commerce / Shopping ads", "Remarketing campaigns", "Meta Ads (Facebook/Instagram)"]}
+
+  s2Title="What's Included in Our PPC Management"
+  s2Subtitle="Every campaign type, every platform — one accountable team."
+
+  s3Title="PPC Problems We Solve"
+  s3Subtitle="Stop burning budget. These are the most common issues we fix."
+
+  s4Title="Our PPC Process"
+  s4Subtitle="From audit to leads in 48 hours. Then continuous improvement."
+
+  s5Title="Your Monthly PPC Deliverables"
+  s5Subtitle="Everything we do for your campaigns, every month."
+
+  s6Title="How We Compare"
+  s6Subtitle="What you actually get versus typical PPC agencies and freelancers."
+
+  s7Title="PPC Management Packages"
+  s7Subtitle="Management fee is separate from your ad spend — full transparency."
+
+  s8Title="PPC Campaign Results"
+  s8Subtitle="Real numbers from real Ahmedabad campaigns."
+
+  s9Title="What Our PPC Clients Say"
+
+  s10Title="Google Ads FAQs"
+
+  s11Title="Amplify Your PPC With"
+  s11Subtitle="PPC works best alongside these services."
+
+  comparisonStartingUs="₹35,000/mo"
+  comparisonStartingAgency="₹75,000+/mo"
+  comparisonStartingFreelancer="₹10–15K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Get Leads From Google Tomorrow?"
+  ctaSubtitle="Get a free PPC audit or a proposal for a new campaign. We'll show you exactly what we'll do, what it'll cost, and what results to expect."
+  ctaAccentLabel="Get Your Free PPC Audit"
+  ctaAccentHref="#hero-form"
+/>

@@ -1,0 +1,1493 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const title = "Pricing & Packages | Transparent Digital Marketing Prices | DC technolabs Ahmedabad";
+const description = "Transparent pricing for web design, SEO, PPC, and e-commerce services. No hidden fees, no vague 'contact us for pricing'. Fixed prices for every package.";
+const canonical = "https://dctechnolabs.in/pricing";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these prices all-inclusive or are there additional costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The prices listed are our management/delivery fees. For PPC, ad spend is paid directly to Google. For Social Media Authority package, Meta Ads spend is separate. No hidden setup fees or onboarding charges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer discounts for bundling multiple services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Clients taking 2 or more services get bundled pricing with shared onboarding and unified reporting. Ask us for a bundled quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I upgrade or downgrade my package?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Upgrade anytime (effective next billing month). Downgrade with 30 days notice once your minimum commitment period is complete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment terms do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One-time projects: 50% upfront, 50% on delivery. Monthly retainers: full month in advance, due on the 1st. Bank transfer and UPI accepted. GST invoice provided immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer a money-back guarantee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For one-time projects, unlimited revisions within agreed scope. For monthly services, if we don't deliver what's promised, next month is at 50% fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are prices the same for Surat and Vadodara clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. No out-of-city premium, no travel surcharge. Same price regardless of your city."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the post-launch support period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bug fixes, minor content updates (text changes, image swaps), and technical questions. Major new features or pages are scoped separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pay in installments for larger projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Projects above Rs. 1 lakh get 3-part payment: 40% on start, 30% at design approval, 30% on delivery."
+      }
+    }
+  ]
+};
+---
+
+<PageLayout title={title} description={description} canonical={canonical}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <style>
+    /* PRICING PAGE v3 */
+    .pricing-hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+    }
+    .pricing-hero-inner {
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
+    }
+    .pricing-hero h1 {
+      font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .pricing-hero h1 .highlight {
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .pricing-hero p {
+      font-size: 1.15rem;
+      color: var(--gray-500);
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+    .pricing-hero-trust span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pricing-hero-trust svg { color: var(--blue-600); }
+
+    /* TABS SECTION */
+    .pricing-tabs-section {
+      padding: 1.5rem 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .pricing-tabs {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .ptab {
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      font-family: var(--font-display);
+    }
+    .ptab:hover,
+    .ptab.active {
+      border-color: var(--blue-600);
+      background: var(--blue-600);
+      color: var(--white);
+    }
+
+    /* PRICING TIERS SECTION */
+    .pricing-tiers-section { padding: var(--section-pad) 0; }
+    .pricing-panel { display: none; }
+    .pricing-panel.active { display: block; }
+    .pricing-panel-header { max-width: 640px; margin-bottom: 3rem; }
+    .pricing-panel-header h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
+    .pricing-panel-header p { font-size: 1rem; color: var(--gray-500); line-height: 1.7; }
+
+    /* TIERS */
+    .pricing-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .pricing-tier {
+      background: var(--white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s var(--ease);
+    }
+    .pricing-tier:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.06); }
+    .pricing-tier--featured {
+      border-color: var(--blue-400);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.06);
+    }
+    .pricing-tier--featured:hover {
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.08), 0 20px 60px rgba(37,99,235,0.12);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .tier-header { margin-bottom: 1rem; }
+    .tier-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-400);
+    }
+    .tier-price {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gray-900);
+      line-height: 1.1;
+      margin: 0.4rem 0 0.25rem;
+    }
+    .tier-slash { font-size: 1.1rem; font-weight: 500; color: var(--gray-500); }
+    .tier-period { font-size: 0.8rem; color: var(--gray-400); }
+    .tier-best-for {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      background: var(--gray-50);
+      border-radius: var(--radius-sm, 8px);
+      padding: 0.6rem 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .tier-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      flex: 1;
+    }
+    .tier-features li {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--gray-50);
+      line-height: 1.5;
+    }
+    .tier-features li:last-child { border-bottom: none; }
+    .pricing-tier .btn { width: 100%; text-align: center; margin-top: auto; }
+
+    /* ALWAYS INCLUDED CARDS */
+    .always-included { padding: var(--section-pad) 0; background: var(--blue-50); }
+    .ai-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .ai-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--blue-100);
+      text-align: center;
+      transition: all 0.3s var(--ease);
+    }
+    .ai-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.06); }
+    .ai-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .ai-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .ai-card p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.65; }
+
+    /* COMPARISON TABLE */
+    .comparison { padding: var(--section-pad) 0; }
+    .comparison-table-wrap { overflow-x: auto; }
+    .comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .comparison-table th {
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-500);
+      background: var(--gray-50);
+    }
+    .comparison-table .col-us { background: rgba(37,99,235,0.04); }
+    .comparison-table th.col-us { color: var(--blue-700); background: rgba(37,99,235,0.08); }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table tbody tr:hover td { background: var(--gray-50); }
+    .comparison-table tbody tr:hover .col-us { background: rgba(37,99,235,0.06); }
+
+    /* BUNDLES */
+    .bundles { padding: var(--section-pad) 0; background: var(--gray-50); }
+    .bundles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .bundle-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1.5px solid var(--gray-100);
+      transition: all 0.3s var(--ease);
+    }
+    .bundle-card:hover { border-color: var(--blue-200); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.06); }
+    .bundle-badge {
+      display: inline-flex;
+      padding: 4px 14px;
+      background: var(--blue-50);
+      border-radius: var(--radius-full);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue-700);
+      margin-bottom: 1rem;
+    }
+    .bundle-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .bundle-card-services { font-size: 0.9rem; color: var(--gray-400); margin-bottom: 1rem; }
+    .bundle-card-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--blue-600); margin-bottom: 0.15rem; }
+    .bundle-card-savings { font-size: 0.85rem; color: #16a34a; font-weight: 600; margin-bottom: 1.25rem; }
+    .bundle-result {
+      padding: 10px 14px;
+      border-left: 3px solid var(--blue-600);
+      background: var(--blue-50);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.85rem;
+      color: var(--blue-700);
+    }
+
+    /* INCLUDED FREE LIST */
+    .included-section { padding: var(--section-pad) 0; }
+    .included-list { max-width: 800px; margin: 0 auto; }
+    .il-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .il-item:last-child { border-bottom: none; }
+    .il-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--blue-600);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .il-item h3 { font-size: 1rem; margin-bottom: 0.15rem; }
+    .il-item p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* GUARANTEES DARK */
+    .guarantees { padding: var(--section-pad) 0; background: var(--gray-900); color: var(--white); }
+    .guarantees .section-label { color: var(--blue-300); }
+    .guarantees .section-label::before { background: var(--blue-400); }
+    .guarantees .section-title { color: var(--white); }
+    .guarantees .section-subtitle { color: var(--gray-400); }
+    .guarantees-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .guarantee-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s var(--ease);
+    }
+    .guarantee-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+    .guarantee-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .guarantee-card h3 { font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem; }
+    .guarantee-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.65; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testimonial-card {
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--gray-100);
+      transition: all 0.3s var(--ease);
+    }
+    .testimonial-card:hover { border-color: var(--blue-200); box-shadow: 0 8px 30px rgba(0,0,0,0.05); }
+    .testimonial-stars { display: flex; gap: 2px; margin-bottom: 1rem; }
+    .testimonial-stars svg { width: 18px; height: 18px; color: var(--accent); }
+    .testimonial-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-200), var(--blue-400));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--white);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--gray-900); }
+    .testimonial-role { font-size: 0.85rem; color: var(--gray-400); }
+
+    /* NOT SURE */
+    .pns-inner { max-width: 700px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .pns-inner h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; }
+    .pns-inner p { font-size: 1rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 2rem; }
+    .pns-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 960px; margin: 0 auto; }
+    .faq-item {
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s var(--ease);
+    }
+    .faq-item.active { border-color: var(--blue-200); box-shadow: 0 4px 16px rgba(37,99,235,0.06); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      text-align: left;
+      background: transparent;
+      cursor: pointer;
+    }
+    .faq-question:hover { color: var(--blue-700); }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--blue-50);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s var(--ease);
+    }
+    .faq-item.active .faq-icon { background: var(--blue-600); color: var(--white); transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
+    .faq-answer-inner { padding: 0 1.5rem 1.25rem; font-size: 0.9rem; color: var(--gray-500); line-height: 1.75; }
+
+    /* FINAL CTA */
+    .final-cta {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(135deg, var(--gray-900) 0%, var(--blue-950) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.08) 0%, transparent 50%);
+    }
+    .final-cta .container { position: relative; z-index: 1; }
+    .final-cta h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .final-cta p { font-size: 1.1rem; color: var(--gray-400); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .final-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* STATS */
+    .stats-bar { padding: 4rem 0; background: var(--gray-900); position: relative; overflow: hidden; }
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, transparent 50%, rgba(245,158,11,0.05) 100%);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; position: relative; z-index: 1; }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.25rem); font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-number .accent { color: var(--blue-400); }
+    .stat-label { font-size: 0.9rem; color: var(--gray-400); font-weight: 500; }
+
+    /* PHILOSOPHY */
+    .philosophy { padding: var(--section-pad) 0; background: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .pricing-tiers { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .ai-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .bundles-grid, .guarantees-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .ai-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .pricing-hero-trust { flex-direction: column; gap: 0.75rem; }
+    }
+  </style>
+
+  <!-- SECTION 1: HERO -->
+  <section class="pricing-hero">
+    <div class="container">
+      <div class="pricing-hero-inner">
+        <span class="section-label">Transparent Pricing</span>
+        <h1>No Hidden Fees. <span class="highlight">No Surprises.</span></h1>
+        <p>Every package is fixed-price. You know exactly what you're paying, what you're getting, and when you'll get it, before you sign anything.</p>
+        <div class="pricing-hero-trust">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Fixed-price projects
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            No lock-in contracts beyond 3 months
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            No hidden "setup fees"
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            GST invoices included
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PRICING PHILOSOPHY -->
+  <section class="philosophy reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Our Pricing Philosophy</span>
+        <h2 class="section-title">How We Price Our Work</h2>
+        <p class="section-subtitle">Three principles that guide every quote we send.</p>
+      </div>
+      <div class="ai-grid">
+        <div class="ai-card">
+          <div class="ai-card-icon">🎯</div>
+          <h3>Fixed Price, Not Hourly</h3>
+          <p>Every project gets a fixed quote before we start. No tracking hours, no surprise invoices.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">📋</div>
+          <h3>Scope Before Payment</h3>
+          <p>Detailed proposal with exact deliverables, timeline, and price. You see everything first.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🤝</div>
+          <h3>Pay in Milestones</h3>
+          <p>Large projects are split into milestones. You pay as we deliver, not all upfront.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SERVICE PRICING TABS -->
+  <section class="pricing-tabs-section reveal">
+    <div class="container">
+      <div class="section-header centered" style="margin-bottom: 1.5rem;">
+        <span class="section-label">Service Pricing</span>
+        <h2 class="section-title">What Every Service Costs</h2>
+        <p class="section-subtitle">Starting prices shown below. Exact pricing depends on your specific requirements.</p>
+      </div>
+      <div class="pricing-tabs">
+        <button class="ptab active" data-tab="web-design">Web Design</button>
+        <button class="ptab" data-tab="seo">SEO</button>
+        <button class="ptab" data-tab="ppc">PPC / Ads</button>
+        <button class="ptab" data-tab="ecommerce">E-commerce</button>
+        <button class="ptab" data-tab="web-dev">Web Dev</button>
+        <button class="ptab" data-tab="social">Social Media</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-tiers-section reveal">
+    <div class="container">
+
+      <!-- WEB DESIGN PANEL -->
+      <div class="pricing-panel active" id="tab-web-design">
+        <div class="pricing-panel-header">
+          <h2>Web Design Pricing</h2>
+          <p>Fixed-price websites. Mobile-first. Built in Astro or custom HTML/CSS, no bloated page builders.</p>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Starter</span>
+              <div class="tier-price">&#8377;25,000</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: Small businesses, professionals, solo practitioners</div>
+            <ul class="tier-features">
+              <li>&#10003; 5 custom pages</li>
+              <li>&#10003; Mobile-responsive design</li>
+              <li>&#10003; Contact form with email delivery</li>
+              <li>&#10003; Basic SEO setup (meta tags, sitemap)</li>
+              <li>&#10003; Google Analytics 4 setup</li>
+              <li>&#10003; 2 rounds of revisions</li>
+              <li>&#10003; 2-week delivery</li>
+              <li>&#10003; 30 days post-launch support</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier pricing-tier--featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-header">
+              <span class="tier-name">Professional</span>
+              <div class="tier-price">&#8377;55,000</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: Growing businesses, clinics, agencies, service companies</div>
+            <ul class="tier-features">
+              <li>&#10003; Up to 12 custom pages</li>
+              <li>&#10003; Advanced mobile + speed optimization</li>
+              <li>&#10003; Blog system setup</li>
+              <li>&#10003; Full on-page SEO (all pages)</li>
+              <li>&#10003; GA4 + Search Console setup</li>
+              <li>&#10003; WhatsApp chat integration</li>
+              <li>&#10003; Social media meta tags</li>
+              <li>&#10003; 3 rounds of revisions</li>
+              <li>&#10003; 3 to 4 week delivery</li>
+              <li>&#10003; 60 days post-launch support</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Premium</span>
+              <div class="tier-price">&#8377;1,20,000+</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: Large businesses, multi-location brands, enterprises</div>
+            <ul class="tier-features">
+              <li>&#10003; Unlimited pages</li>
+              <li>&#10003; Custom animations &amp; interactions</li>
+              <li>&#10003; Multi-language support</li>
+              <li>&#10003; Advanced integrations (CRM, booking, payments)</li>
+              <li>&#10003; Custom admin panel</li>
+              <li>&#10003; Full technical SEO audit + implementation</li>
+              <li>&#10003; Page speed guarantee (90+ score)</li>
+              <li>&#10003; Unlimited revisions</li>
+              <li>&#10003; 6 to 8 week delivery</li>
+              <li>&#10003; 90 days post-launch support</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Contact for Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO PANEL -->
+      <div class="pricing-panel" id="tab-seo">
+        <div class="pricing-panel-header">
+          <h2>SEO Pricing</h2>
+          <p>Monthly retainers. Minimum 3-month engagement (results take time). Month-to-month after that.</p>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Local SEO</span>
+              <div class="tier-price">&#8377;30,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">3-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Local businesses, single-location clinics, retail, hospitality</div>
+            <ul class="tier-features">
+              <li>&#10003; Google Business Profile optimization</li>
+              <li>&#10003; 10 target keywords</li>
+              <li>&#10003; Local citation building (15 directories)</li>
+              <li>&#10003; On-page SEO (up to 5 pages)</li>
+              <li>&#10003; Monthly reporting</li>
+              <li>&#10003; Technical SEO audit</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier pricing-tier--featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-header">
+              <span class="tier-name">Growth SEO</span>
+              <div class="tier-price">&#8377;55,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">3-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Multi-service businesses, competitive niches, city-wide presence</div>
+            <ul class="tier-features">
+              <li>&#10003; Everything in Local SEO</li>
+              <li>&#10003; 25 target keywords</li>
+              <li>&#10003; Full on-page SEO (all pages)</li>
+              <li>&#10003; 2 SEO blog posts/month</li>
+              <li>&#10003; Link building (5 quality backlinks/mo)</li>
+              <li>&#10003; Competitor gap analysis monthly</li>
+              <li>&#10003; Schema markup implementation</li>
+              <li>&#10003; Weekly rank tracking report</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Authority SEO</span>
+              <div class="tier-price">&#8377;1,00,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">3-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Multi-city presence, national rankings, competitive industries</div>
+            <ul class="tier-features">
+              <li>&#10003; Everything in Growth SEO</li>
+              <li>&#10003; 50+ target keywords</li>
+              <li>&#10003; 4 SEO blog posts/month</li>
+              <li>&#10003; 15 quality backlinks/month</li>
+              <li>&#10003; Content strategy &amp; calendar</li>
+              <li>&#10003; Digital PR outreach</li>
+              <li>&#10003; Dedicated SEO strategist</li>
+              <li>&#10003; Bi-weekly strategy calls</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Contact for Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PPC PANEL -->
+      <div class="pricing-panel" id="tab-ppc">
+        <div class="pricing-panel-header">
+          <h2>PPC / Google Ads Pricing</h2>
+          <p>Management fees only. Ad spend is paid directly to Google. You own the account, always.</p>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Starter</span>
+              <div class="tier-price">&#8377;35,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">2-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Local service businesses, first-time PPC advertisers</div>
+            <ul class="tier-features">
+              <li>&#10003; 1 campaign (Search)</li>
+              <li>&#10003; Up to 5 ad groups</li>
+              <li>&#10003; Keyword research &amp; setup</li>
+              <li>&#10003; Conversion tracking setup</li>
+              <li>&#10003; Monthly performance report</li>
+              <li>&#10003; Recommended ad spend: &#8377;30K to &#8377;60K/mo</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier pricing-tier--featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-header">
+              <span class="tier-name">Growth</span>
+              <div class="tier-price">&#8377;60,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">2-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Businesses ready to scale leads and revenue</div>
+            <ul class="tier-features">
+              <li>&#10003; 3 campaigns (Search + Display + Remarketing)</li>
+              <li>&#10003; Up to 15 ad groups</li>
+              <li>&#10003; Dedicated landing page per campaign</li>
+              <li>&#10003; A/B testing (2 variants per ad group)</li>
+              <li>&#10003; GA4 + Search Console integration</li>
+              <li>&#10003; Weekly performance updates</li>
+              <li>&#10003; Monthly strategy call</li>
+              <li>&#10003; Recommended ad spend: &#8377;60K to &#8377;1.5L/mo</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Performance Max</span>
+              <div class="tier-price">&#8377;1,20,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">2-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: E-commerce brands, multi-product businesses, national scale</div>
+            <ul class="tier-features">
+              <li>&#10003; Full Performance Max campaigns</li>
+              <li>&#10003; Shopping campaigns (if applicable)</li>
+              <li>&#10003; Advanced audience segmentation</li>
+              <li>&#10003; Creative asset strategy &amp; production</li>
+              <li>&#10003; Multi-channel attribution setup</li>
+              <li>&#10003; Bi-weekly strategy calls</li>
+              <li>&#10003; Dedicated PPC strategist</li>
+              <li>&#10003; Recommended ad spend: &#8377;1.5L+/mo</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Contact for Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-COMMERCE PANEL -->
+      <div class="pricing-panel" id="tab-ecommerce">
+        <div class="pricing-panel-header">
+          <h2>E-commerce Development Pricing</h2>
+          <p>Shopify, WooCommerce, and custom stores. Indian payment gateways, GST invoicing, and shipping integrations included.</p>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Starter Store</span>
+              <div class="tier-price">&#8377;50,000</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: First-time online sellers, small product catalogues (up to 50 SKUs)</div>
+            <ul class="tier-features">
+              <li>&#10003; Shopify or WooCommerce setup</li>
+              <li>&#10003; Up to 50 products</li>
+              <li>&#10003; Razorpay / PayU gateway</li>
+              <li>&#10003; Mobile-responsive theme customization</li>
+              <li>&#10003; Basic SEO setup</li>
+              <li>&#10003; Shipping zones setup</li>
+              <li>&#10003; 3 to 4 week delivery</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier pricing-tier--featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-header">
+              <span class="tier-name">Business Store</span>
+              <div class="tier-price">&#8377;1,25,000</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: Established brands, 50 to 500 SKUs, conversion-focused stores</div>
+            <ul class="tier-features">
+              <li>&#10003; Custom Shopify or WooCommerce theme</li>
+              <li>&#10003; Up to 500 products with bulk import</li>
+              <li>&#10003; Multiple payment gateways + UPI</li>
+              <li>&#10003; Shiprocket / Delhivery integration</li>
+              <li>&#10003; Abandoned cart recovery</li>
+              <li>&#10003; Discount engine &amp; coupons</li>
+              <li>&#10003; Full on-page SEO</li>
+              <li>&#10003; Customer accounts &amp; order tracking</li>
+              <li>&#10003; 5 to 7 week delivery</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Enterprise / Marketplace</span>
+              <div class="tier-price">&#8377;3,00,000+</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: Multi-vendor marketplaces, B2B portals, enterprise e-commerce</div>
+            <ul class="tier-features">
+              <li>&#10003; Multi-vendor marketplace setup</li>
+              <li>&#10003; Unlimited products &amp; vendors</li>
+              <li>&#10003; Custom vendor dashboard</li>
+              <li>&#10003; Commission &amp; payout management</li>
+              <li>&#10003; ERP / CRM integrations</li>
+              <li>&#10003; Custom features to your specification</li>
+              <li>&#10003; Dedicated project manager</li>
+              <li>&#10003; Timeline: per project scope</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Contact for Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEB DEV PANEL -->
+      <div class="pricing-panel" id="tab-web-dev">
+        <div class="pricing-panel-header">
+          <h2>Web Development Pricing</h2>
+          <p>Custom web applications, SaaS platforms, APIs, and portals. You own all code outright.</p>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Starter App</span>
+              <div class="tier-price">&#8377;50,000</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: Simple web apps, internal tools, MVP builds</div>
+            <ul class="tier-features">
+              <li>&#10003; Up to 5 core features</li>
+              <li>&#10003; React or Next.js frontend</li>
+              <li>&#10003; Node.js or Laravel backend</li>
+              <li>&#10003; Basic admin panel</li>
+              <li>&#10003; Deployment to cloud</li>
+              <li>&#10003; 4 to 6 week delivery</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier pricing-tier--featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-header">
+              <span class="tier-name">Business App</span>
+              <div class="tier-price">&#8377;1,50,000</div>
+              <div class="tier-period">one-time</div>
+            </div>
+            <div class="tier-best-for">Best for: SaaS products, portals, complex internal systems</div>
+            <ul class="tier-features">
+              <li>&#10003; Unlimited features (agreed scope)</li>
+              <li>&#10003; User auth + roles + permissions</li>
+              <li>&#10003; API development + documentation</li>
+              <li>&#10003; Third-party integrations</li>
+              <li>&#10003; Admin dashboard</li>
+              <li>&#10003; Automated testing</li>
+              <li>&#10003; CI/CD deployment pipeline</li>
+              <li>&#10003; 6 to 10 week delivery</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Enterprise</span>
+              <div class="tier-price">Custom</div>
+              <div class="tier-period">scoped per project</div>
+            </div>
+            <div class="tier-best-for">Best for: Large-scale applications, microservices, regulated industries</div>
+            <ul class="tier-features">
+              <li>&#10003; Architecture consulting included</li>
+              <li>&#10003; Microservices or monolith, your choice</li>
+              <li>&#10003; Security audit &amp; compliance</li>
+              <li>&#10003; Scalability design for growth</li>
+              <li>&#10003; Dedicated development team</li>
+              <li>&#10003; Ongoing maintenance retainer option</li>
+              <li>&#10003; SLA available</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Contact for Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA PANEL -->
+      <div class="pricing-panel" id="tab-social">
+        <div class="pricing-panel-header">
+          <h2>Social Media Marketing Pricing</h2>
+          <p>Instagram, Facebook, and LinkedIn management. Content creation included in all packages.</p>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Starter</span>
+              <div class="tier-price">&#8377;20,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">3-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Businesses needing consistent posting and basic engagement</div>
+            <ul class="tier-features">
+              <li>&#10003; 1 platform (Instagram or Facebook)</li>
+              <li>&#10003; 12 posts/month</li>
+              <li>&#10003; Basic graphic design</li>
+              <li>&#10003; Caption writing</li>
+              <li>&#10003; Monthly content calendar</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier pricing-tier--featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-header">
+              <span class="tier-name">Growth</span>
+              <div class="tier-price">&#8377;40,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">3-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Brands wanting real engagement growth and lead generation</div>
+            <ul class="tier-features">
+              <li>&#10003; 2 platforms (Instagram + Facebook)</li>
+              <li>&#10003; 20 posts/month + 8 Reels/Stories</li>
+              <li>&#10003; Professional graphic design</li>
+              <li>&#10003; Community management (DMs + comments)</li>
+              <li>&#10003; Monthly analytics report</li>
+              <li>&#10003; Hashtag strategy</li>
+              <li>&#10003; Profile optimization</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary">Get Started &rarr;</a>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-header">
+              <span class="tier-name">Authority</span>
+              <div class="tier-price">&#8377;80,000<span class="tier-slash">/mo</span></div>
+              <div class="tier-period">3-month minimum</div>
+            </div>
+            <div class="tier-best-for">Best for: Brands serious about social as a revenue channel</div>
+            <ul class="tier-features">
+              <li>&#10003; 3 platforms + LinkedIn</li>
+              <li>&#10003; 30 posts + 12 Reels + LinkedIn articles</li>
+              <li>&#10003; Meta Ads management (separate ad spend)</li>
+              <li>&#10003; Influencer outreach (Ahmedabad micro-influencers)</li>
+              <li>&#10003; Video content direction</li>
+              <li>&#10003; Bi-weekly strategy calls</li>
+              <li>&#10003; Monthly ROI reporting</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary">Contact for Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: STATS BAR -->
+  <section class="stats-bar reveal">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="945">0</span><span class="accent">+</span></div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="8">0</span><span class="accent">+</span></div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="100">0</span><span class="accent">+</span></div>
+          <div class="stat-label">Clutch Reviews</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="20">0</span><span class="accent">+</span></div>
+          <div class="stat-label">Team Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: WHAT'S ALWAYS INCLUDED (CARDS) -->
+  <section class="always-included reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Every Engagement</span>
+        <h2 class="section-title">What's Always Included, Regardless of Package</h2>
+      </div>
+      <div class="ai-grid">
+        <div class="ai-card">
+          <div class="ai-card-icon">🧾</div>
+          <h3>GST Invoice</h3>
+          <p>Proper GST invoice for every payment. Fully tax-compliant, claim input credit.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">📊</div>
+          <h3>Monthly Reporting</h3>
+          <p>Plain-language report showing exactly what happened and what's happening next month.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🔒</div>
+          <h3>You Own Everything</h3>
+          <p>Your website, your Google Ads account, your content, your data, it all stays yours.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">⚡</div>
+          <h3>Same-Day Response</h3>
+          <p>Your calls and messages get replied to the same business day, always.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🤝</div>
+          <h3>No Lock-in Surprises</h3>
+          <p>3-month minimum for ongoing services, then month-to-month. Cancel with 30 days notice.</p>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🔧</div>
+          <h3>Post-Delivery Support</h3>
+          <p>Every project includes a post-delivery support window. You're never left alone after handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: COMPARISON TABLE -->
+  <section class="comparison reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">How We Compare</span>
+        <h2 class="section-title">DC technolabs vs Other Options</h2>
+      </div>
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-us">DC technolabs</th>
+              <th>Large Agency</th>
+              <th>Freelancer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price transparency</td>
+              <td class="col-us">&#10003; Fixed pricing</td>
+              <td>&#9888; Variable</td>
+              <td>&#9888; Variable</td>
+            </tr>
+            <tr>
+              <td>Face-to-face available</td>
+              <td class="col-us">&#10003; Ahmedabad &amp; Gandhinagar</td>
+              <td>&#10007; Rarely</td>
+              <td>&#9888; Sometimes</td>
+            </tr>
+            <tr>
+              <td>Full-service (all channels)</td>
+              <td class="col-us">&#10003; 8 services in-house</td>
+              <td>&#10003; Often outsourced</td>
+              <td>&#10007; Usually 1 to 2 skills</td>
+            </tr>
+            <tr>
+              <td>Dedicated account manager</td>
+              <td class="col-us">&#10003; From Day 1</td>
+              <td>&#9888; Changes frequently</td>
+              <td>&#10003; Direct access</td>
+            </tr>
+            <tr>
+              <td>Contract lock-in</td>
+              <td class="col-us">&#10003; 3 months only</td>
+              <td>&#10007; Often 12 months</td>
+              <td>&#10003; Flexible</td>
+            </tr>
+            <tr>
+              <td>You own all assets</td>
+              <td class="col-us">&#10003; Always</td>
+              <td>&#9888; Sometimes</td>
+              <td>&#10003; Usually</td>
+            </tr>
+            <tr>
+              <td>GST invoices</td>
+              <td class="col-us">&#10003; Every payment</td>
+              <td>&#10003; Yes</td>
+              <td>&#10007; Often unregistered</td>
+            </tr>
+            <tr>
+              <td>Local Gujarat market knowledge</td>
+              <td class="col-us">&#10003; 8+ years</td>
+              <td>&#10007; Generic</td>
+              <td>&#9888; Depends</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: BUNDLE DEALS -->
+  <section class="bundles reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Save With Bundles</span>
+        <h2 class="section-title">Services That Work Better Together</h2>
+        <p class="section-subtitle">Combine services and save. These are our most popular combinations.</p>
+      </div>
+      <div class="bundles-grid">
+        <div class="bundle-card">
+          <div class="bundle-badge">🚀 Most Popular</div>
+          <h3>Web Design + SEO</h3>
+          <div class="bundle-card-services">Website built for search from day one</div>
+          <div class="bundle-card-price">&#8377;50,000 + &#8377;25,000/mo</div>
+          <div class="bundle-card-savings">Save &#8377;5,000 on web design</div>
+          <div class="bundle-result"><strong>Typical result:</strong> Page 1 rankings within 3 to 5 months</div>
+        </div>
+        <div class="bundle-card">
+          <div class="bundle-badge">⚡ Fastest Leads</div>
+          <h3>Web Design + PPC</h3>
+          <div class="bundle-card-services">High-converting site + targeted ads</div>
+          <div class="bundle-card-price">&#8377;50,000 + &#8377;30,000/mo</div>
+          <div class="bundle-card-savings">Save &#8377;5,000 on web design</div>
+          <div class="bundle-result"><strong>Typical result:</strong> First leads within 48 hours of campaign launch</div>
+        </div>
+        <div class="bundle-card">
+          <div class="bundle-badge">👑 Complete System</div>
+          <h3>SEO + PPC + Social</h3>
+          <div class="bundle-card-services">Cover all three channels simultaneously</div>
+          <div class="bundle-card-price">&#8377;75,000/mo</div>
+          <div class="bundle-card-savings">Save &#8377;10,000/mo vs individual pricing</div>
+          <div class="bundle-result"><strong>Typical result:</strong> 3x lead volume vs single-channel strategy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: INCLUDED FREE (LIST) -->
+  <section class="included-section reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Included Free</span>
+        <h2 class="section-title">What's Always Included</h2>
+        <p class="section-subtitle">Every project and retainer includes these at no extra charge.</p>
+      </div>
+      <div class="included-list">
+        <div class="il-item">
+          <div class="il-check">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Dedicated project manager</h3>
+            <p>One point of contact who knows your business and coordinates everything.</p>
+          </div>
+        </div>
+        <div class="il-item">
+          <div class="il-check">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Free initial consultation</h3>
+            <p>30-minute discovery call to understand your goals before any commitment.</p>
+          </div>
+        </div>
+        <div class="il-item">
+          <div class="il-check">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Detailed proposal with fixed pricing</h3>
+            <p>Full scope, timeline, and exact cost. No vague estimates.</p>
+          </div>
+        </div>
+        <div class="il-item">
+          <div class="il-check">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Regular progress updates</h3>
+            <p>Weekly updates for project work, monthly reports for ongoing services.</p>
+          </div>
+        </div>
+        <div class="il-item">
+          <div class="il-check">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Post-launch or post-delivery support</h3>
+            <p>15 to 60 days of support included depending on the service.</p>
+          </div>
+        </div>
+        <div class="il-item">
+          <div class="il-check">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>No lock-in contracts</h3>
+            <p>Monthly services billed monthly. Cancel anytime with 30 days notice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: GUARANTEES (DARK) -->
+  <section class="guarantees reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Our Guarantees</span>
+        <h2 class="section-title">Your Investment is Protected</h2>
+        <p class="section-subtitle">We stand behind our work with real guarantees, not just promises.</p>
+      </div>
+      <div class="guarantees-grid">
+        <div class="guarantee-card">
+          <div class="guarantee-card-icon">🔒</div>
+          <h3>Fixed Price Guarantee</h3>
+          <p>The price in your proposal is the price you pay. No scope creep charges, no surprise invoices.</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-card-icon">🔄</div>
+          <h3>Unlimited Revisions</h3>
+          <p>During the design phase, request as many revisions as you need until you're 100% satisfied.</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-card-icon">📊</div>
+          <h3>Performance Reporting</h3>
+          <p>For ongoing services, clear monthly reports with real metrics. If results aren't on track, we adjust at no extra cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: TESTIMONIALS -->
+  <section class="reveal" style="padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Client Reviews</span>
+        <h2 class="section-title">What Clients Say About Our Value</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Our new website is not only visually stunning but also incredibly functional, thanks to your talented design and development team."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CG</div>
+            <div>
+              <div class="testimonial-name">CRONA Group</div>
+              <div class="testimonial-role">Real Estate, Cyprus</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"The redesigned website received highly positive feedback, particularly for its meaningful design that resonated with staff and stakeholders."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">NI</div>
+            <div>
+              <div class="testimonial-name">NIS</div>
+              <div class="testimonial-role">Consulting, USA</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"DC technolabs stands out as a beacon of excellence. Their team consistently produces outstanding work, demonstrating a commitment to surpassing expectations."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DR</div>
+            <div>
+              <div class="testimonial-name">DesignRush Review</div>
+              <div class="testimonial-role">Verified Agency Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: NOT SURE -->
+  <section style="background: var(--blue-50); padding: var(--section-pad) 0;" class="reveal">
+    <div class="container">
+      <div class="pns-inner">
+        <span class="section-label">Need Help Choosing?</span>
+        <h2>Not Sure What You Need?</h2>
+        <p>Tell us about your business and goals. We'll recommend the right services and give you an exact quote within 24 hours. No commitment required.</p>
+        <div class="pns-btns">
+          <a href="/contact" class="btn btn-primary">Get a Custom Quote</a>
+          <a href="tel:+919662608986" class="btn btn-secondary">Call +91 9662608986</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 12: FAQ -->
+  <section class="reveal" style="padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Pricing Questions</span>
+        <h2 class="section-title">Common Pricing Questions</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question">
+            Are these prices all-inclusive or are there additional costs?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The prices listed are our management/delivery fees. For PPC, ad spend is paid directly to Google. For Social Media Authority package, Meta Ads spend is separate. No hidden setup fees or onboarding charges.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer discounts for bundling multiple services?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Clients taking 2 or more services get bundled pricing with shared onboarding and unified reporting. Ask us for a bundled quote.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I upgrade or downgrade my package?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Upgrade anytime (effective next billing month). Downgrade with 30 days notice once your minimum commitment period is complete.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What payment terms do you offer?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">One-time projects: 50% upfront, 50% on delivery. Monthly retainers: full month in advance, due on the 1st. Bank transfer and UPI accepted. GST invoice provided immediately.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer a money-back guarantee?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">For one-time projects, unlimited revisions within agreed scope. For monthly services, if we don't deliver what's promised, next month is at 50% fee.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Are prices the same for Surat and Vadodara clients?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. No out-of-city premium, no travel surcharge. Same price regardless of your city.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What's included in the post-launch support period?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Bug fixes, minor content updates (text changes, image swaps), and technical questions. Major new features or pages are scoped separately.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I pay in installments for larger projects?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Projects above &#8377;1 lakh get 3-part payment: 40% on start, 30% at design approval, 30% on delivery.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 13: FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Get an exact, fixed-price quote for your project within 24 hours. No obligation, no pressure.</p>
+      <div class="final-cta-actions">
+        <a href="/contact" class="btn btn-accent">Get Your Free Quote</a>
+        <a href="tel:+919662608986" class="btn" style="border: 2px solid rgba(255,255,255,0.3); color: var(--white); background: transparent;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call +91 9662608986
+        </a>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<script>
+  // Pricing tab switching
+  const ptabs = document.querySelectorAll('.ptab');
+  const ppanels = document.querySelectorAll('.pricing-panel');
+
+  ptabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = (tab as HTMLElement).dataset.tab;
+      ptabs.forEach(t => t.classList.remove('active'));
+      ppanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById('tab-' + target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement!;
+      const ans = item.querySelector('.faq-answer') as HTMLElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const a = i.querySelector('.faq-answer') as HTMLElement;
+        if (a) a.style.maxHeight = '';
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.counter').forEach(c => {
+      const el = c as HTMLElement;
+      const target = +(el.dataset.target || 0);
+      const duration = 2000;
+      const step = target / duration * 16;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = String(target);
+          clearInterval(timer);
+        } else {
+          el.textContent = String(Math.floor(current));
+        }
+      }, 16);
+    });
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.classList.contains('stats-bar')) {
+          animateCounters();
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
+</script>

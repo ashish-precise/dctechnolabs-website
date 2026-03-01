@@ -1,0 +1,1100 @@
+---
+/**
+ * ServicePageLayout.astro
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Reusable 12-section layout for all DC technolabs service pages.
+ * Usage: import and pass props + slot content. See web-design.astro for example.
+ *
+ * REQUIRED PROPS
+ * ──────────────
+ * title          string   — <title> tag
+ * description    string   — meta description
+ * canonical      string   — canonical URL
+ * schemaJson     string   — JSON-LD Service schema (stringified JSON)
+ *
+ * HERO PROPS (Section 1)
+ * ──────────────────────
+ * badge          string   — e.g. "🎨 Web Design Services"
+ * heroH1         string   — plain text part of h1 (before highlight)
+ * heroHighlight  string   — gradient text part
+ * heroDesc       string   — paragraph under h1
+ * heroStats      { value: string; label: string }[]  — 3 inline stats
+ * formTitle      string   — mini form card title
+ * formSub        string   — mini form card subtitle
+ * formTypeLabel  string   — label for the type select (default "What do you need?")
+ * formTypeOptions string[] — options for the type select
+ *
+ * SECTION LABELS / TITLES (Sections 2-12)
+ * ────────────────────────────────────────
+ * All accept default slot children via named slots for maximum flexibility.
+ * Fixed section labels/titles are passed as props.
+ *
+ * SECTION 2 — featureCards: FeatureCard[]
+ * SECTION 3 — problemCards: ProblemCard[]
+ * SECTION 4 — processSteps: ProcessStep[]
+ * SECTION 5 — deliverables: Deliverable[]
+ * SECTION 6 — comparisonRows: ComparisonRow[]  (table rows)
+ * SECTION 7 — pricingTiers: PricingTier[]
+ * SECTION 8 — portfolioCards: PortfolioCard[]
+ * SECTION 9 — testimonials: Testimonial[]
+ * SECTION 10 — faqItems: FaqItem[]
+ * SECTION 11 — relatedServices: RelatedService[]
+ * SECTION 12 — ctaTitle, ctaSubtitle, ctaAccentLabel, ctaAccentHref
+ *
+ * Section heading strings (label + title + subtitle):
+ *   s2Label, s2Title, s2Subtitle
+ *   s3Label, s3Title, s3Subtitle
+ *   ... etc up to s11
+ */
+
+export interface FeatureCard {
+  iconPath: string;   // SVG path(s) as HTML string
+  title: string;
+  desc: string;
+}
+
+export interface ProblemCard {
+  problem: string;   // quoted problem text e.g. "My site looks outdated"
+  solution: string;
+}
+
+export interface ProcessStep {
+  title: string;
+  desc: string;
+}
+
+export interface Deliverable {
+  title: string;
+  desc: string;
+}
+
+export interface ComparisonRow {
+  feature: string;
+  us: string;          // text for DC technolabs column
+  usClass?: string;    // "check" | "cross" | "" (default "check")
+  agency: string;
+  agencyClass?: string;
+  freelancer: string;
+  freelancerClass?: string;
+}
+
+export interface PricingFeature { text: string }
+
+export interface PricingTier {
+  name: string;
+  desc: string;
+  price: string;
+  priceSuffix: string;
+  note: string;
+  features: string[];
+  btnLabel: string;
+  btnClass: string;   // "btn-secondary" | "btn-primary"
+  featured?: boolean;
+}
+
+export interface PortfolioCard {
+  thumbBg: string;     // inline CSS gradient
+  thumbSvg: string;    // SVG HTML string
+  tag: string;
+  title: string;
+  desc: string;
+}
+
+export interface Testimonial {
+  text: string;
+  initials: string;
+  name: string;
+  role: string;
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export interface RelatedService {
+  href: string;
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  // SEO
+  title: string;
+  description: string;
+  canonical: string;
+  schemaJson: string;
+
+  // Hero
+  badge: string;
+  heroH1: string;
+  heroHighlight: string;
+  heroDesc: string;
+  heroStats: { value: string; label: string }[];
+  formTitle: string;
+  formSub: string;
+  formTypeLabel?: string;
+  formTypeOptions: string[];
+
+  // Section labels/titles/subtitles
+  s2Label?: string; s2Title: string; s2Subtitle?: string;
+  s3Label?: string; s3Title: string; s3Subtitle?: string;
+  s4Label?: string; s4Title: string; s4Subtitle?: string;
+  s5Label?: string; s5Title: string; s5Subtitle?: string;
+  s6Label?: string; s6Title: string; s6Subtitle?: string;
+  s7Label?: string; s7Title: string; s7Subtitle?: string;
+  s8Label?: string; s8Title: string; s8Subtitle?: string;
+  s9Label?: string; s9Title: string;
+  s10Label?: string; s10Title: string;
+  s11Label?: string; s11Title: string; s11Subtitle?: string;
+
+  // Comparison table extra row for starting price
+  comparisonStartingUs: string;
+  comparisonStartingAgency: string;
+  comparisonStartingFreelancer: string;
+
+  // Section data
+  featureCards: FeatureCard[];
+  problemCards: ProblemCard[];
+  processSteps: ProcessStep[];
+  deliverables: Deliverable[];
+  comparisonRows: ComparisonRow[];
+  pricingTiers: PricingTier[];
+  portfolioCards: PortfolioCard[];
+  testimonials: Testimonial[];
+  faqItems: FaqItem[];
+  relatedServices: RelatedService[];
+
+  // CTA
+  ctaTitle: string;
+  ctaSubtitle: string;
+  ctaAccentLabel: string;
+  ctaAccentHref: string;
+}
+
+const {
+  title, description, canonical, schemaJson,
+  badge, heroH1, heroHighlight, heroDesc, heroStats,
+  formTitle, formSub, formTypeOptions, formTypeLabel = "What do you need?",
+  s2Label = "What's Included", s2Title, s2Subtitle = "",
+  s3Label = "Sound Familiar?", s3Title, s3Subtitle = "",
+  s4Label = "How It Works", s4Title, s4Subtitle = "",
+  s5Label = "What You Receive", s5Title, s5Subtitle = "",
+  s6Label = "Why DC technolabs", s6Title, s6Subtitle = "",
+  s7Label = "Pricing", s7Title, s7Subtitle = "",
+  s8Label = "Our Work", s8Title, s8Subtitle = "",
+  s9Label = "Client Reviews", s9Title,
+  s10Label = "FAQ", s10Title,
+  s11Label = "Related Services", s11Title, s11Subtitle = "",
+  comparisonStartingUs, comparisonStartingAgency, comparisonStartingFreelancer,
+  featureCards, problemCards, processSteps, deliverables,
+  comparisonRows, pricingTiers, portfolioCards, testimonials,
+  faqItems, relatedServices,
+  ctaTitle, ctaSubtitle, ctaAccentLabel, ctaAccentHref,
+} = Astro.props;
+
+// Star SVG helper
+const star = `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+const checkSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>`;
+const arrowSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+const plusSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonical}>
+<link rel="canonical" href={canonical}>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563EB'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='800' font-size='14' fill='white'%3EDC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json" set:html={schemaJson}></script>
+<style>
+/* ── DESIGN TOKENS ─────────────────────────────── */
+:root{
+  --blue-50:#EFF6FF;--blue-100:#DBEAFE;--blue-200:#BFDBFE;
+  --blue-300:#93C5FD;--blue-400:#60A5FA;--blue-500:#3B82F6;
+  --blue-600:#2563EB;--blue-700:#1D4ED8;--blue-800:#1E40AF;
+  --blue-900:#1E3A5F;--blue-950:#0F1D35;
+  --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;
+  --gray-300:#CBD5E1;--gray-400:#94A3B8;--gray-500:#64748B;
+  --gray-600:#475569;--gray-700:#334155;--gray-800:#1E293B;--gray-900:#0F172A;
+  --accent:#F59E0B;--accent-dark:#D97706;--success:#10B981;
+  --white:#FFF;--black:#0A0A0A;
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+  --section-pad:clamp(4rem,8vw,7rem);
+  --container:1200px;--radius:12px;--radius-lg:20px;--radius-full:9999px;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+
+/* ── RESET ─────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);color:var(--gray-800);background:var(--white);line-height:1.7;font-size:17px;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit;transition:all .3s var(--ease)}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul,ol{list-style:none}
+
+/* ── LAYOUT ────────────────────────────────────── */
+.container{max-width:var(--container);margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.15;color:var(--gray-900)}
+
+/* ── GLOBAL SECTION PATTERNS ───────────────────── */
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--blue-600);margin-bottom:1rem}
+.section-label::before{content:'';width:24px;height:2px;background:var(--blue-500);border-radius:2px}
+.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;letter-spacing:-.02em}
+.section-subtitle{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--gray-500);max-width:640px;line-height:1.7}
+.section-header{margin-bottom:3.5rem}
+.section-header.centered{text-align:center}
+.section-header.centered .section-subtitle{margin:0 auto}
+
+/* ── BUTTONS ───────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;font-family:var(--font-display);font-size:.95rem;font-weight:600;border-radius:var(--radius-full);transition:all .3s var(--ease);white-space:nowrap}
+.btn-primary{background:var(--blue-600);color:var(--white);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+.btn-primary:hover{background:var(--blue-700);transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,.4)}
+.btn-secondary{background:var(--white);color:var(--blue-700);border:2px solid var(--blue-200)}
+.btn-secondary:hover{border-color:var(--blue-500);background:var(--blue-50);transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--black);box-shadow:0 4px 14px rgba(245,158,11,.35)}
+.btn-accent:hover{background:var(--accent-dark);transform:translateY(-2px)}
+
+/* ── HEADER ────────────────────────────────────── */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:all .3s var(--ease)}
+.header.scrolled{border-bottom:1px solid var(--gray-200);box-shadow:0 1px 12px rgba(0,0,0,.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--gray-900)}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:.9rem;position:relative;overflow:hidden}
+.logo-icon::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);animation:logoSheen 4s ease-in-out infinite}
+@keyframes logoSheen{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+.logo span{color:var(--blue-600)}
+.nav-desktop{display:flex;align-items:center;gap:2rem}
+.nav-desktop a{font-family:var(--font-display);font-size:.9rem;font-weight:500;color:var(--gray-600);position:relative;padding:4px 0}
+.nav-desktop a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--blue-600);border-radius:2px;transition:width .3s var(--ease)}
+.nav-desktop a:hover{color:var(--blue-700)}
+.nav-desktop a:hover::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:12px}
+.header-phone{display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:600;font-size:.9rem;color:var(--gray-700)}
+.header-phone svg{color:var(--blue-600)}
+.header-phone:hover{color:var(--blue-600)}
+.btn-header-cta{padding:10px 24px;font-size:.9rem}
+.menu-toggle{display:none;flex-direction:column;gap:5px;padding:8px;z-index:1001}
+.menu-toggle span{width:24px;height:2px;background:var(--gray-800);border-radius:2px;transition:all .3s var(--ease);transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{position:fixed;inset:0;background:var(--white);z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;opacity:0;visibility:hidden;transition:all .4s var(--ease)}
+.mobile-menu.active{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--gray-900);opacity:0;transform:translateY(20px);transition:all .3s var(--ease)}
+.mobile-menu.active a{opacity:1;transform:translateY(0)}
+.mobile-menu.active a:nth-child(1){transition-delay:.1s}
+.mobile-menu.active a:nth-child(2){transition-delay:.15s}
+.mobile-menu.active a:nth-child(3){transition-delay:.2s}
+.mobile-menu.active a:nth-child(4){transition-delay:.25s}
+.mobile-menu.active a:nth-child(5){transition-delay:.3s}
+.mobile-menu a:hover{color:var(--blue-600)}
+.mobile-menu-cta{margin-top:2rem;opacity:0;transform:translateY(20px);transition:all .3s var(--ease) .4s}
+.mobile-menu.active .mobile-menu-cta{opacity:1;transform:translateY(0)}
+
+/* ── ANIMATIONS ────────────────────────────────── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ══════════════════════════════════════════════════
+   SECTION 1: SERVICE HERO
+══════════════════════════════════════════════════ */
+.svc-hero{padding:120px 0 clamp(3rem,6vw,5rem);background:linear-gradient(170deg,var(--white) 0%,var(--blue-50) 50%,var(--white) 100%);position:relative;overflow:hidden}
+.svc-hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.06) 0%,transparent 70%);border-radius:50%}
+.svc-hero-grid{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;align-items:center;position:relative;z-index:1}
+.svc-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--blue-50);border:1px solid var(--blue-200);border-radius:var(--radius-full);font-family:var(--font-display);font-size:.9rem;font-weight:600;color:var(--blue-700);margin-bottom:1.25rem}
+.svc-hero h1{font-size:clamp(2.25rem,4.5vw,3.25rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.svc-hero h1 .highlight{background:linear-gradient(135deg,var(--blue-600),var(--blue-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.svc-hero-desc{font-size:1.1rem;color:var(--gray-500);line-height:1.75;margin-bottom:1.5rem;max-width:540px}
+.svc-hero-stats{display:flex;gap:2rem}
+.svc-hero-stat strong{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--gray-900);display:block}
+.svc-hero-stat span{font-size:.9rem;color:var(--gray-400)}
+
+/* Hero mini form */
+.hero-form-card{background:var(--white);border-radius:var(--radius-lg);padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.05);border:1px solid var(--gray-100)}
+.hero-form-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:.25rem;color:var(--gray-900)}
+.hero-form-sub{font-size:.9rem;color:var(--gray-400);margin-bottom:1.5rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-family:var(--font-display);font-size:.85rem;font-weight:600;color:var(--gray-600);margin-bottom:6px}
+.form-input{width:100%;padding:12px 16px;border:1.5px solid var(--gray-200);border-radius:var(--radius);font-family:var(--font-body);font-size:.95rem;color:var(--gray-800);transition:all .2s var(--ease);background:var(--gray-50)}
+.form-input:focus{outline:none;border-color:var(--blue-500);background:var(--white);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.form-input::placeholder{color:var(--gray-400)}
+textarea.form-input{resize:vertical;min-height:80px}
+.form-submit{width:100%;padding:14px;margin-top:.5rem;display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* ══════════════════════════════════════════════════
+   SECTION 2: FEATURES
+══════════════════════════════════════════════════ */
+.features{padding:var(--section-pad) 0}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.feature-card{padding:2rem;border-radius:var(--radius-lg);border:1.5px solid var(--gray-100);background:var(--white);transition:all .3s var(--ease);position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue-500),var(--blue-300));opacity:0;transition:opacity .3s var(--ease)}
+.feature-card:hover{border-color:var(--blue-200);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.06)}
+.feature-card:hover::before{opacity:1}
+.feature-card-icon{width:48px;height:48px;border-radius:12px;background:var(--blue-50);color:var(--blue-600);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.feature-card h3{font-size:1.1rem;margin-bottom:.5rem}
+.feature-card p{font-size:.95rem;color:var(--gray-500);line-height:1.7}
+
+/* ══════════════════════════════════════════════════
+   SECTION 3: PROBLEMS (DARK)
+══════════════════════════════════════════════════ */
+.problems{padding:var(--section-pad) 0;background:var(--gray-900);color:var(--white)}
+.problems .section-label{color:var(--blue-300)}
+.problems .section-label::before{background:var(--blue-400)}
+.problems .section-title{color:var(--white)}
+.problems .section-subtitle{color:var(--gray-400)}
+.problems-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.problem-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:2rem;transition:all .3s var(--ease)}
+.problem-card:hover{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.08)}
+.problem-card h3{font-size:1.05rem;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
+.problem-card h3 .x-mark{color:var(--accent);flex-shrink:0}
+.problem-card p{font-size:.95rem;color:var(--gray-400);line-height:1.7}
+
+/* ══════════════════════════════════════════════════
+   SECTION 4: PROCESS
+══════════════════════════════════════════════════ */
+.process{padding:var(--section-pad) 0}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-step{text-align:center;padding:0 1.5rem;position:relative}
+.process-step:not(:last-child)::after{content:'';position:absolute;top:28px;right:0;width:calc(100% - 56px);height:2px;background:var(--blue-200);transform:translateX(50%)}
+.process-number{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--blue-600),var(--blue-500));color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;font-weight:800;margin:0 auto 1.25rem;position:relative;z-index:1;box-shadow:0 4px 12px rgba(37,99,235,.3)}
+.process-step h3{font-size:1.05rem;margin-bottom:.5rem}
+.process-step p{font-size:.95rem;color:var(--gray-500);line-height:1.65}
+
+/* ══════════════════════════════════════════════════
+   SECTION 5: DELIVERABLES
+══════════════════════════════════════════════════ */
+.deliverables{padding:var(--section-pad) 0;background:var(--blue-50)}
+.deliverables-list{max-width:800px;margin:0 auto}
+.deliverable-item{display:flex;align-items:flex-start;gap:16px;padding:1.25rem 0;border-bottom:1px solid var(--blue-100)}
+.deliverable-item:last-child{border-bottom:none}
+.deliverable-check{width:28px;height:28px;border-radius:50%;background:var(--blue-600);color:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.deliverable-item h3{font-size:1.05rem;margin-bottom:.25rem}
+.deliverable-item p{font-size:.95rem;color:var(--gray-500);line-height:1.6;margin:0}
+
+/* ══════════════════════════════════════════════════
+   SECTION 6: COMPARISON TABLE
+══════════════════════════════════════════════════ */
+.comparison{padding:var(--section-pad) 0}
+.comparison-wrap{max-width:800px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;border:1.5px solid var(--gray-200)}
+.comparison-wrap table{width:100%;border-collapse:collapse}
+.comparison-wrap th{font-family:var(--font-display);font-size:.95rem;font-weight:700;padding:1rem 1.5rem;text-align:left;background:var(--gray-50);border-bottom:1.5px solid var(--gray-200)}
+.comparison-wrap td{padding:1rem 1.5rem;font-size:.95rem;border-bottom:1px solid var(--gray-100)}
+.comparison-wrap tr:last-child td{border-bottom:none}
+.comparison-wrap tr:hover td{background:var(--gray-50)}
+.check{color:var(--success);font-weight:700}
+.cross{color:var(--gray-400)}
+.us-price{font-weight:700;color:var(--blue-600)}
+.th-us{color:var(--blue-600) !important}
+
+/* ══════════════════════════════════════════════════
+   SECTION 7: PRICING
+══════════════════════════════════════════════════ */
+.svc-pricing{padding:var(--section-pad) 0;background:var(--blue-50)}
+.svc-pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pricing-card{background:var(--white);border-radius:var(--radius-lg);padding:2.5rem 2rem;border:1.5px solid var(--gray-200);transition:all .4s var(--ease);position:relative}
+.pricing-card.featured{border-color:var(--blue-500);box-shadow:0 16px 48px rgba(37,99,235,.12)}
+.pricing-card.featured::before{content:'Most Popular';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue-600);color:var(--white);font-family:var(--font-display);font-size:.82rem;font-weight:700;padding:4px 16px;border-radius:var(--radius-full)}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.pricing-card h3{font-size:1.15rem;margin-bottom:.5rem}
+.pricing-desc{font-size:.95rem;color:var(--gray-500);margin-bottom:1.5rem}
+.pricing-price{font-family:var(--font-display);font-size:2.25rem;font-weight:800;color:var(--gray-900);margin-bottom:.25rem}
+.pricing-price span{font-size:.9rem;font-weight:500;color:var(--gray-400)}
+.pricing-note{font-size:.85rem;color:var(--gray-400);margin-bottom:2rem}
+.pricing-features{margin-bottom:2rem}
+.pricing-features li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.9rem;color:var(--gray-600)}
+.pricing-features li svg{flex-shrink:0;color:var(--success);margin-top:2px}
+.pricing-card .btn{width:100%}
+
+/* ══════════════════════════════════════════════════
+   SECTION 8: PORTFOLIO (DARK)
+══════════════════════════════════════════════════ */
+.portfolio{padding:var(--section-pad) 0;background:var(--gray-900);color:var(--white)}
+.portfolio .section-label{color:var(--blue-300)}
+.portfolio .section-label::before{background:var(--blue-400)}
+.portfolio .section-title{color:var(--white)}
+.portfolio .section-subtitle{color:var(--gray-400)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.portfolio-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);overflow:hidden;transition:all .4s var(--ease)}
+.portfolio-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.15);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.portfolio-thumb{height:200px;display:flex;align-items:center;justify-content:center;padding:2rem}
+.portfolio-thumb svg{width:100%;max-width:200px}
+.portfolio-info{padding:1.5rem}
+.portfolio-tag{font-family:var(--font-display);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--blue-400);margin-bottom:.5rem}
+.portfolio-info h3{font-size:1.1rem;color:var(--white);margin-bottom:.5rem}
+.portfolio-info p{font-size:.9rem;color:var(--gray-400);line-height:1.6}
+
+/* ══════════════════════════════════════════════════
+   SECTION 9: TESTIMONIALS
+══════════════════════════════════════════════════ */
+.testimonials{padding:var(--section-pad) 0}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.testimonial-card{background:var(--gray-50);border-radius:var(--radius-lg);padding:2rem;border:1px solid var(--gray-100);transition:all .3s var(--ease)}
+.testimonial-card:hover{border-color:var(--blue-200);box-shadow:0 8px 30px rgba(0,0,0,.05)}
+.testimonial-stars{display:flex;gap:2px;margin-bottom:1rem;color:var(--accent)}
+.testimonial-text{font-size:.95rem;color:var(--gray-600);line-height:1.75;margin-bottom:1.5rem;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue-200),var(--blue-400));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:.9rem;color:var(--white);flex-shrink:0}
+.testimonial-name{font-family:var(--font-display);font-weight:700;font-size:.9rem;color:var(--gray-900)}
+.testimonial-role{font-size:.85rem;color:var(--gray-400)}
+
+/* ══════════════════════════════════════════════════
+   SECTION 10: FAQ
+══════════════════════════════════════════════════ */
+.faq{padding:var(--section-pad) 0;background:var(--gray-50)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:960px;margin:0 auto}
+.faq-item{border:1.5px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;transition:all .3s var(--ease)}
+.faq-item.active{border-color:var(--blue-200);box-shadow:0 4px 16px rgba(37,99,235,.06)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;font-family:var(--font-display);font-size:.95rem;font-weight:600;color:var(--gray-800);text-align:left;background:transparent;cursor:pointer}
+.faq-question:hover{color:var(--blue-700)}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--blue-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s var(--ease)}
+.faq-item.active .faq-icon{background:var(--blue-600);color:var(--white);transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-answer-inner{padding:0 1.5rem 1.25rem;font-size:.9rem;color:var(--gray-500);line-height:1.75}
+
+/* ══════════════════════════════════════════════════
+   SECTION 11: RELATED SERVICES
+══════════════════════════════════════════════════ */
+.related{padding:var(--section-pad) 0;background:var(--gray-50)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.related-card{background:var(--white);border-radius:var(--radius-lg);padding:2rem;border:1.5px solid var(--gray-100);transition:all .3s var(--ease);display:block;color:inherit}
+.related-card:hover{border-color:var(--blue-200);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.06)}
+.related-card h3{font-size:1.1rem;margin-bottom:.5rem}
+.related-card p{font-size:.95rem;color:var(--gray-500);line-height:1.65;margin-bottom:1rem}
+.service-link{font-family:var(--font-display);font-size:.95rem;font-weight:600;color:var(--blue-600);display:inline-flex;align-items:center;gap:6px}
+.service-link svg{transition:transform .3s var(--ease)}
+.related-card:hover .service-link svg{transform:translateX(4px)}
+
+/* ══════════════════════════════════════════════════
+   SECTION 12: FINAL CTA
+══════════════════════════════════════════════════ */
+.final-cta{padding:var(--section-pad) 0;background:linear-gradient(135deg,var(--gray-900) 0%,var(--blue-950) 100%);text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(59,130,246,.08) 0%,transparent 50%)}
+.final-cta .container{position:relative;z-index:1}
+.final-cta h2{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1rem;letter-spacing:-.02em}
+.final-cta p{font-size:1.1rem;color:var(--gray-400);max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
+.final-cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-outline-light{border:2px solid rgba(255,255,255,.3);color:var(--white);background:transparent}
+.btn-outline-light:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+/* ── FOOTER ────────────────────────────────────── */
+.footer{background:var(--gray-900);color:var(--gray-400)}
+.footer-top{padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:2.5rem}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--white);margin-bottom:1rem}
+.footer-brand p{font-size:.95rem;line-height:1.7;margin-bottom:1.5rem;max-width:280px}
+.footer-socials{display:flex;gap:10px}
+.footer-social{width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--gray-400);transition:all .3s var(--ease)}
+.footer-social:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
+.footer-col h4{font-family:var(--font-display);font-size:.9rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.25rem}
+.footer-col a{display:block;font-size:.9rem;color:var(--gray-400);padding:4px 0}
+.footer-col a:hover{color:var(--blue-400)}
+.footer-mid{padding:2rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-mid-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;font-size:.95rem}
+.footer-contact-item{display:flex;align-items:center;gap:10px}
+.footer-contact-item a{color:var(--gray-300)}
+.footer-contact-item a:hover{color:var(--blue-400)}
+.footer-bottom{padding:1.5rem 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;font-size:.9rem;flex-wrap:wrap;gap:1rem}
+.footer-bottom a{color:var(--gray-400)}
+.footer-bottom a:hover{color:var(--blue-400)}
+
+/* ── FLOATING BUTTONS ──────────────────────────── */
+.mobile-call-btn{display:none;position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;background:var(--blue-600);color:var(--white);align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,99,235,.4);z-index:900;animation:pulse 2.5s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}70%{box-shadow:0 0 0 15px rgba(37,99,235,0)}100%{box-shadow:0 0 0 0 rgba(37,99,235,0)}}
+.whatsapp-btn{display:flex;position:fixed;bottom:20px;left:20px;width:60px;height:60px;border-radius:50%;background:#25D366;color:var(--white);align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.3);z-index:900;transition:all .3s var(--ease)}
+.whatsapp-btn:hover{transform:scale(1.1)}
+
+/* ── RESPONSIVE ────────────────────────────────── */
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr 1fr;gap:2rem}
+  .footer-grid>div:first-child{grid-column:1/-1}
+}
+@media(max-width:768px){
+  .nav-desktop,.header-phone,.btn-header-cta{display:none}
+  .menu-toggle{display:flex}
+  .svc-hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .svc-hero{padding:100px 0 var(--section-pad)}
+  .features-grid,.problems-grid,.svc-pricing-grid,.related-grid,.testimonials-grid,.portfolio-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .process-step:not(:last-child)::after{display:none}
+  .svc-hero-stats{flex-wrap:wrap}
+  .comparison-wrap{overflow-x:auto}
+  .faq-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-mid-inner{flex-direction:column;align-items:flex-start}
+  .final-cta-actions{flex-direction:column;align-items:center}
+  .mobile-call-btn{display:flex}
+  .whatsapp-btn{bottom:90px}
+}
+@media(max-width:480px){
+  .svc-pricing-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">DC</div>
+      DC <span>technolabs</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="/services">Services</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/locations">Locations</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+919662608986" class="header-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 9662608986
+      </a>
+      <a href="#hero-form" class="btn btn-primary btn-header-cta">Get Free Quote</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/services" onclick="closeMobileMenu()">Services</a>
+  <a href="/portfolio" onclick="closeMobileMenu()">Portfolio</a>
+  <a href="/pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="/contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="tel:+919662608986" style="font-size:1.1rem!important;color:var(--blue-600)!important;display:flex;align-items:center;gap:8px" onclick="closeMobileMenu()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    +91 9662608986
+  </a>
+  <div class="mobile-menu-cta">
+    <a href="#hero-form" class="btn btn-primary" onclick="closeMobileMenu()">Get Free Quote</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1: HERO + MINI FORM
+════════════════════════════════════════════════ -->
+<section class="svc-hero" id="hero-form">
+  <div class="container">
+    <div class="svc-hero-grid">
+      <!-- Left: content -->
+      <div>
+        <div class="svc-hero-badge">{badge}</div>
+        <h1>{heroH1} <span class="highlight">{heroHighlight}</span></h1>
+        <p class="svc-hero-desc">{heroDesc}</p>
+        <div class="svc-hero-stats">
+          {heroStats.map(s => (
+            <div class="svc-hero-stat">
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <!-- Right: mini form -->
+      <div class="hero-form-card">
+        <h3 class="hero-form-title">{formTitle}</h3>
+        <p class="hero-form-sub">{formSub}</p>
+        <form id="heroForm" action="https://formspree.io/f/xlgwbgdj" method="POST">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="name" class="form-input" placeholder="John Patel" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" class="form-input" placeholder="+91 9662608986" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-input" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>{formTypeLabel}</label>
+            <select name="type" class="form-input" required>
+              <option value="" disabled selected>Select type</option>
+              {formTypeOptions.map(opt => <option>{opt}</option>)}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Brief description</label>
+            <textarea name="message" class="form-input" placeholder="Tell us about your project..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            Get My Free Quote
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2: WHAT'S INCLUDED
+════════════════════════════════════════════════ -->
+<section class="features reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s2Label}</span>
+      <h2 class="section-title">{s2Title}</h2>
+      {s2Subtitle && <p class="section-subtitle">{s2Subtitle}</p>}
+    </div>
+    <div class="features-grid">
+      {featureCards.map(card => (
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <Fragment set:html={card.iconPath} />
+          </div>
+          <h3>{card.title}</h3>
+          <p>{card.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3: PROBLEMS WE SOLVE (DARK)
+════════════════════════════════════════════════ -->
+<section class="problems reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s3Label}</span>
+      <h2 class="section-title">{s3Title}</h2>
+      {s3Subtitle && <p class="section-subtitle">{s3Subtitle}</p>}
+    </div>
+    <div class="problems-grid">
+      {problemCards.map(card => (
+        <div class="problem-card">
+          <h3><span class="x-mark">✗</span> "{card.problem}"</h3>
+          <p>{card.solution}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4: PROCESS
+════════════════════════════════════════════════ -->
+<section class="process reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s4Label}</span>
+      <h2 class="section-title">{s4Title}</h2>
+      {s4Subtitle && <p class="section-subtitle">{s4Subtitle}</p>}
+    </div>
+    <div class="process-steps">
+      {processSteps.map((step, i) => (
+        <div class="process-step">
+          <div class="process-number">{i + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5: DELIVERABLES
+════════════════════════════════════════════════ -->
+<section class="deliverables reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s5Label}</span>
+      <h2 class="section-title">{s5Title}</h2>
+      {s5Subtitle && <p class="section-subtitle">{s5Subtitle}</p>}
+    </div>
+    <div class="deliverables-list">
+      {deliverables.map(item => (
+        <div class="deliverable-item">
+          <div class="deliverable-check">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6: COMPARISON TABLE
+════════════════════════════════════════════════ -->
+<section class="comparison reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s6Label}</span>
+      <h2 class="section-title">{s6Title}</h2>
+      {s6Subtitle && <p class="section-subtitle">{s6Subtitle}</p>}
+    </div>
+    <div class="comparison-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="th-us">DC technolabs</th>
+            <th>Typical Agency</th>
+            <th>Freelancer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonRows.map(row => (
+            <tr>
+              <td>{row.feature}</td>
+              <td class={row.usClass ?? "check"}>{row.us}</td>
+              <td class={row.agencyClass ?? "cross"}>{row.agency}</td>
+              <td class={row.freelancerClass ?? "cross"}>{row.freelancer}</td>
+            </tr>
+          ))}
+          <tr>
+            <td>Starting price</td>
+            <td class="us-price">{comparisonStartingUs}</td>
+            <td>{comparisonStartingAgency}</td>
+            <td>{comparisonStartingFreelancer}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7: PRICING
+════════════════════════════════════════════════ -->
+<section class="svc-pricing reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s7Label}</span>
+      <h2 class="section-title">{s7Title}</h2>
+      {s7Subtitle && <p class="section-subtitle">{s7Subtitle}</p>}
+    </div>
+    <div class="svc-pricing-grid">
+      {pricingTiers.map(tier => (
+        <div class={`pricing-card${tier.featured ? " featured" : ""}`}>
+          <h3>{tier.name}</h3>
+          <p class="pricing-desc">{tier.desc}</p>
+          <div class="pricing-price">{tier.price} <span>{tier.priceSuffix}</span></div>
+          <p class="pricing-note">{tier.note}</p>
+          <ul class="pricing-features">
+            {tier.features.map(f => (
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="#hero-form" class={`btn ${tier.btnClass}`}>{tier.btnLabel}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 8: PORTFOLIO (DARK)
+════════════════════════════════════════════════ -->
+<section class="portfolio reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s8Label}</span>
+      <h2 class="section-title">{s8Title}</h2>
+      {s8Subtitle && <p class="section-subtitle">{s8Subtitle}</p>}
+    </div>
+    <div class="portfolio-grid">
+      {portfolioCards.map(card => (
+        <div class="portfolio-card">
+          <div class="portfolio-thumb" style={`background:${card.thumbBg}`}>
+            <Fragment set:html={card.thumbSvg} />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">{card.tag}</div>
+            <h3>{card.title}</h3>
+            <p>{card.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 9: TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section class="testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s9Label}</span>
+      <h2 class="section-title">{s9Title}</h2>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map(t => (
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            {Array(5).fill(null).map(() => (
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="testimonial-text">"{t.text}"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">{t.initials}</div>
+            <div>
+              <div class="testimonial-name">{t.name}</div>
+              <div class="testimonial-role">{t.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 10: FAQ
+════════════════════════════════════════════════ -->
+<section class="faq reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s10Label}</span>
+      <h2 class="section-title">{s10Title}</h2>
+    </div>
+    <div class="faq-grid">
+      {faqItems.map(item => (
+        <div class="faq-item">
+          <button class="faq-question">
+            {item.q}
+            <span class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">{item.a}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 11: RELATED SERVICES
+════════════════════════════════════════════════ -->
+<section class="related reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">{s11Label}</span>
+      <h2 class="section-title">{s11Title}</h2>
+      {s11Subtitle && <p class="section-subtitle">{s11Subtitle}</p>}
+    </div>
+    <div class="related-grid">
+      {relatedServices.map(svc => (
+        <a href={svc.href} class="related-card">
+          <h3>{svc.title}</h3>
+          <p>{svc.desc}</p>
+          <span class="service-link">
+            Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 12: FINAL CTA
+════════════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <h2>{ctaTitle}</h2>
+    <p>{ctaSubtitle}</p>
+    <div class="final-cta-actions">
+      <a href={ctaAccentHref} class="btn btn-accent">{ctaAccentLabel}</a>
+      <a href="tel:+919662608986" class="btn btn-outline-light">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call +91 9662608986
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-logo">DC <span style="color:var(--blue-400)">technolabs</span></div>
+          <p>Ahmedabad's trusted digital marketing agency. 8+ years helping businesses grow with web design, SEO, PPC, and more.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="footer-social" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/services/web-design">Web Design</a>
+          <a href="/services/web-development">Web Development</a>
+          <a href="/services/seo">SEO Services</a>
+          <a href="/services/ppc">PPC / Google Ads</a>
+          <a href="/services/ecommerce">E-commerce</a>
+          <a href="/services/shopify">Shopify</a>
+          <a href="/services/wordpress">WordPress</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about">About Us</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/blog">Blog</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Locations</h4>
+          <a href="/locations/ahmedabad">Ahmedabad</a>
+          <a href="/locations/gandhinagar">Gandhinagar</a>
+          <a href="/locations/surat">Surat</a>
+          <a href="/locations/vadodara">Vadodara</a>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <a href="#">Healthcare</a>
+          <a href="#">Real Estate</a>
+          <a href="#">E-commerce</a>
+          <a href="#">Education</a>
+          <a href="#">SaaS & Tech</a>
+          <a href="#">Manufacturing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-mid">
+    <div class="container">
+      <div class="footer-mid-inner">
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>B-18, Sainik Society, Vinzol Road, Vatva, Ahmedabad - 382445</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919662608986">+91 9662608986</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <span>© <span id="currentYear"></span> DC technolabs. All rights reserved.</span>
+        <span>Built with ❤️ in Ahmedabad, Gujarat</span>
+        <span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="tel:+919662608986" class="mobile-call-btn" aria-label="Call us">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+<a href="https://wa.me/919662608986" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header')!;
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle')!;
+  const menu = document.getElementById('mobileMenu')!;
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    toggle.classList.remove('active');
+    menu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  (window as any).closeMobileMenu = closeMobileMenu;
+
+  // Dynamic year
+  const yearEl = document.getElementById('currentYear');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement!;
+      const ans = item.querySelector('.faq-answer') as HTMLElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        (i.querySelector('.faq-answer') as HTMLElement).style.maxHeight = '0px';
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // Form submit (client-side alert)
+  document.getElementById('heroForm')?.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you! We\'ll get back to you within 24 hours with a proposal.');
+    (e.target as HTMLFormElement).reset();
+  });
+</script>
+</body>
+</html>

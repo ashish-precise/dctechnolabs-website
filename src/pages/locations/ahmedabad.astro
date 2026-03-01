@@ -1,0 +1,219 @@
+---
+import LocationPageLayout from '../../layouts/LocationPageLayout.astro';
+import type {
+  Neighborhood, Challenge, Hub, WhyCard, Stat,
+  ResponseCard, Testimonial, FaqItem, MapInfo, OverviewParagraphs
+} from '../../layouts/LocationPageLayout.astro';
+
+// ── SCHEMA ────────────────────────────────────────────────────────────────────
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "DC technolabs",
+      "description": "Digital marketing agency in Ahmedabad offering web design, SEO, PPC, and e-commerce services.",
+      "url": "https://dctechnolabs.in/locations/ahmedabad",
+      "telephone": "+919662608986",
+      "email": "hello@dctechnolabs.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "382445",
+        "addressCountry": "IN"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "22.969", "longitude": "72.629" },
+      "openingHours": "Mo-Sa 09:00-19:00",
+      "priceRange": "₹25,000 - ₹3,00,000+",
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "Place", "name": "Satellite, Ahmedabad" },
+        { "@type": "Place", "name": "SG Highway, Ahmedabad" },
+        { "@type": "Place", "name": "Prahlad Nagar, Ahmedabad" },
+        { "@type": "Place", "name": "Vastrapur, Ahmedabad" },
+        { "@type": "Place", "name": "Bodakdev, Ahmedabad" },
+        { "@type": "Place", "name": "Maninagar, Ahmedabad" },
+        { "@type": "Place", "name": "GIFT City, Gandhinagar" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Where is your office located?", "acceptedAnswer": { "@type": "Answer", "text": "B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445." } },
+        { "@type": "Question", "name": "Do you only work with Ahmedabad businesses?", "acceptedAnswer": { "@type": "Answer", "text": "No — we serve clients across Gujarat and internationally. Ahmedabad businesses get priority response times and in-person meetings." } },
+        { "@type": "Question", "name": "How much does a website cost?", "acceptedAnswer": { "@type": "Answer", "text": "Web design starts at ₹25,000 for a professional 5-page site. SEO starts at ₹30,000/month, PPC at ₹35,000/month." } }
+      ]
+    }
+  ]
+});
+
+// ── §2 OVERVIEW SVG ──────────────────────────────────────────────────────────
+const overviewSvg = `<svg viewBox="0 0 300 240" fill="none">
+  <rect x="20" y="20" width="260" height="200" rx="16" fill="rgba(37,99,235,.05)" stroke="rgba(37,99,235,.12)"/>
+  <circle cx="150" cy="110" r="60" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.15)" stroke-width="1.5"/>
+  <circle cx="150" cy="110" r="30" fill="rgba(37,99,235,.1)"/>
+  <circle cx="150" cy="110" r="5" fill="#2563EB"/>
+  <text x="150" y="124" text-anchor="middle" font-family="system-ui" font-weight="700" font-size="8" fill="rgba(37,99,235,.6)">OFFICE</text>
+  <circle cx="90" cy="70" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="90" y="60" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Satellite</text>
+  <circle cx="210" cy="80" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="210" y="70" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">SG Hwy</text>
+  <circle cx="80" cy="150" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="80" y="165" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Maninagar</text>
+  <circle cx="220" cy="145" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="220" y="160" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Prahlad Ngr</text>
+  <circle cx="150" cy="180" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="150" y="195" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Vastrapur</text>
+  <text x="150" y="228" text-anchor="middle" font-family="system-ui" font-weight="600" font-size="10" fill="rgba(37,99,235,.35)">Serving All of Ahmedabad</text>
+</svg>`;
+
+// ── §2 OVERVIEW PARAGRAPHS ────────────────────────────────────────────────────
+const overviewParagraphs: OverviewParagraphs = {
+  p1: "DC technolabs was founded in Ahmedabad in 2017. Our office is in Vatva, but our clients span every corner of the city — from the textile businesses of Maninagar to the tech startups of GIFT City.",
+  p2: "We understand Ahmedabad's business landscape because we live it. We know that a dental clinic in Satellite needs different marketing than a construction company in Naroda. We know that SG Highway businesses face different competition than Maninagar retailers. This local knowledge is something no outsourced agency can replicate.",
+  p3: "Being local also means you can meet us face-to-face, visit our office, or grab chai while we discuss your project. Many of our longest client relationships started with a simple in-person meeting.",
+};
+
+// ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
+const neighborhoods: Neighborhood[] = [
+  { name: "Satellite",          types: "Clinics, retail, professional services" },
+  { name: "SG Highway",         types: "IT companies, startups, coworking" },
+  { name: "Prahlad Nagar",      types: "Restaurants, boutiques, agencies" },
+  { name: "Vastrapur",          types: "Education, fitness, real estate" },
+  { name: "Bodakdev",           types: "Healthcare, luxury retail, finance" },
+  { name: "Navrangpura",        types: "Law firms, coaching, hospitality" },
+  { name: "Maninagar",          types: "Textile, wholesale, manufacturing" },
+  { name: "Naroda / Vatva",     types: "Industrial, logistics, engineering" },
+  { name: "CG Road",            types: "Fashion, jewelry, showrooms" },
+  { name: "Ashram Road",        types: "Banking, corporate offices, media" },
+  { name: "Bopal / South Bopal",types: "New developments, schools, clinics" },
+  { name: "GIFT City",          types: "Fintech, IT services, consulting" },
+];
+
+// ── §4 CHALLENGES ─────────────────────────────────────────────────────────────
+const challenges: Challenge[] = [
+  { emoji: "🏪", problem: "Customers can't find us on Google",         solution: "Most Ahmedabad businesses don't appear in local search results. We fix your Google Business Profile, build local citations, and optimize your site so customers in your area find you first." },
+  { emoji: "📱", problem: "Our website looks bad on mobile",           solution: "Over 75% of Ahmedabad's internet users browse on phones. We redesign your site mobile-first so it looks perfect on every device and loads in under 3 seconds." },
+  { emoji: "💰", problem: "We're spending on ads but getting no leads", solution: "Poorly targeted Google Ads waste money. We audit your campaigns, fix targeting for Ahmedabad audiences, improve landing pages, and track every rupee spent." },
+  { emoji: "🏗️", problem: "Our competitors rank above us",             solution: "Whether you're competing with other clinics on Satellite or construction firms in Naroda, we analyze your competitors and build an SEO strategy that outranks them." },
+  { emoji: "🛒", problem: "We need to sell online but don't know how", solution: "From textile businesses to handicraft sellers, we build e-commerce stores on Shopify or WooCommerce that let you sell to customers across Gujarat and India." },
+  { emoji: "📊", problem: "We have no idea what's working",            solution: "We set up proper analytics, conversion tracking, and monthly reporting. You'll know exactly where your customers come from and what's driving revenue." },
+];
+
+// ── §5 BUSINESS HUBS ──────────────────────────────────────────────────────────
+const hubs: Hub[] = [
+  { tag: "Tech & Startups",          title: "SG Highway & GIFT City",    desc: "Home to Ahmedabad's IT boom. We help SaaS companies, tech startups, and IT firms build authority online with modern websites, content marketing, and targeted PPC campaigns." },
+  { tag: "Retail & Services",        title: "Satellite & CG Road",       desc: "Ahmedabad's premium retail belt. From dental clinics to jewelry stores — we drive foot traffic with local SEO, Google Maps optimization, and conversion-focused web design." },
+  { tag: "Industrial & Manufacturing",title: "Vatva, Naroda & Odhav",    desc: "Gujarat's industrial backbone. We help manufacturers, chemical companies, and industrial suppliers build B2B websites and LinkedIn marketing strategies that generate quality leads." },
+];
+
+// ── §6 WHY US ─────────────────────────────────────────────────────────────────
+const whyCards: WhyCard[] = [
+  { emoji: "🗣️", title: "We Speak Your Language",      desc: "We understand Gujarati business culture, local buying patterns, and what Ahmedabad customers expect online. No cultural mismatch." },
+  { emoji: "🤝", title: "Meet Face-to-Face",           desc: "Visit our Vatva office, meet the team, review designs in person. Real relationships, not just email threads." },
+  { emoji: "⚡", title: "Same-Day Response",           desc: "No timezone issues. Your call gets answered the same day. Urgent changes? We're 30 minutes away." },
+  { emoji: "🏆", title: "945+ Gujarat Projects",       desc: "We've worked with businesses across every Ahmedabad neighborhood. We know what works here because we've done it hundreds of times." },
+  { emoji: "💰", title: "Ahmedabad-Friendly Pricing",  desc: "Premium quality at prices that make sense for Ahmedabad businesses. Web design from ₹25,000, SEO from ₹30,000/month." },
+  { emoji: "📍", title: "Hyperlocal SEO Experts",      desc: "We know which Ahmedabad keywords matter, which directories to list on, and how to dominate Google Maps for your specific area." },
+];
+
+// ── §7 STATS ──────────────────────────────────────────────────────────────────
+const stats: Stat[] = [
+  { target: 945, suffix: "+", label: "Projects in Gujarat" },
+  { target: 8,   suffix: "+", label: "Years in Ahmedabad" },
+  { target: 100, suffix: "+", label: "Clutch Awards" },
+  { target: 12,  suffix: "+", label: "Ahmedabad Areas Served" },
+];
+
+// ── §8 RESPONSE TIMES ────────────────────────────────────────────────────────
+const responseTimes: ResponseCard[] = [
+  { time: "< 4 hrs", title: "Quote Response",    desc: "Your inquiry gets a detailed reply within 4 business hours" },
+  { time: "24 hrs",  title: "Proposal Delivery", desc: "Full project proposal with scope, timeline, and pricing" },
+  { time: "30 min",  title: "In-Person Meeting", desc: "We can meet you anywhere in Ahmedabad within 30 minutes" },
+];
+
+// ── §9 TESTIMONIALS ───────────────────────────────────────────────────────────
+const testimonials: Testimonial[] = [
+  { text: "DC technolabs completely transformed our online presence. Our website went from zero inquiries to 15+ leads per week. Best investment we've made.",                     initials: "RP", name: "Rajesh Patel",  role: "Construction Company, Ahmedabad" },
+  { text: "Their SEO work took us from page 5 to page 1 in 4 months. We now get calls from customers who found us on Google. Incredible team.",                                  initials: "PS", name: "Priya Shah",    role: "Dental Clinic, Satellite" },
+  { text: "What I appreciate most is their honesty. They told us exactly what would work. Our Google Ads campaign generates 6x returns consistently.",                            initials: "AM", name: "Amit Mehta",    role: "SaaS Startup, SG Highway" },
+];
+
+// ── §10 FAQ ───────────────────────────────────────────────────────────────────
+const faqItems: FaqItem[] = [
+  { q: "Where is your office located?",                  a: "B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445. We're easily accessible from Vatva GIDC, Maninagar, and the ring road." },
+  { q: "Do you only work with Ahmedabad businesses?",    a: "No — we serve clients across Gujarat (Gandhinagar, Surat, Vadodara) and internationally (Canada, USA, Cyprus). But Ahmedabad businesses get priority response times and the option for in-person meetings." },
+  { q: "Can we meet in person to discuss our project?",  a: "Absolutely. You can visit our Vatva office or we can meet you at your location anywhere in Ahmedabad. Many of our best client relationships started over chai." },
+  { q: "What industries do you serve in Ahmedabad?",     a: "Healthcare, real estate, education, e-commerce, manufacturing, restaurants, legal services, construction, finance, automotive, SaaS, fashion — we've worked with businesses across every major industry in the city." },
+  { q: "How much does a website cost?",                  a: "Web design starts at ₹25,000 for a professional 5-page site. SEO starts at ₹30,000/month, PPC at ₹35,000/month. We price competitively for the Ahmedabad market while delivering premium quality." },
+  { q: "Do you help with Google Business Profile?",      a: "Yes. Google Business Profile optimization is included in our SEO packages. We also offer it as a standalone service. For local Ahmedabad businesses, this is often the single highest-impact thing we do." },
+  { q: "How long until I see results?",                  a: "Websites: 2–4 weeks to launch. SEO: ranking improvements in 60–90 days, significant traffic by month 4–6. PPC: leads can start within 48 hours of campaign launch." },
+  { q: "Do you support Gujarati language websites?",     a: "Yes. We can build bilingual websites (English + Gujarati) or fully Gujarati sites. This is especially effective for local businesses targeting Gujarati-speaking customers." },
+];
+
+// ── §11 MAP INFO ─────────────────────────────────────────────────────────────
+const mapInfo: MapInfo = {
+  title:          "DC technolabs — Ahmedabad Office",
+  address:        "B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445",
+  phone:          "+91 9662608986",
+  email:          "hello@dctechnolabs.com",
+  hours:          "Monday — Saturday, 9:00 AM — 7:00 PM",
+  mapsEmbedSrc:   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0!2d72.629!3d22.969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzA4LjQiTiA3MsKwMzcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1",
+  directionsHref: "https://maps.google.com/?q=B-18+Sainik+Society+Vatva+Ahmedabad",
+};
+---
+
+<LocationPageLayout
+  title="Digital Marketing Agency in Ahmedabad — Web Design, SEO & PPC | DC technolabs"
+  description="DC technolabs is Ahmedabad's trusted digital marketing agency. Web design, SEO, PPC for businesses in Satellite, SG Highway, Prahlad Nagar, Vastrapur & across the city. 945+ projects. Get a free quote today."
+  canonical="https://dctechnolabs.in/locations/ahmedabad"
+  schemaJson={schemaJson}
+
+  badge="📍 Ahmedabad"
+  cityName="Ahmedabad"
+  heroDesc="We're based here. We know the market. From Satellite Road startups to SG Highway enterprises — DC technolabs has been Ahmedabad's go-to digital partner for 8+ years and 945+ projects."
+  heroStats={[
+    { value: "945+", label: "Projects in Gujarat"  },
+    { value: "8+",   label: "Years in Ahmedabad"   },
+    { value: "50+",  label: "Ahmedabad Clients"    },
+  ]}
+  formTitle="Get a Free Quote"
+  formSub="Ahmedabad businesses get priority response."
+
+  s2Label="Our Ahmedabad Presence"
+  s2Title="Born in Ahmedabad. Built for Ahmedabad."
+  overviewParagraphs={overviewParagraphs}
+  overviewSvg={overviewSvg}
+
+  s3Title="Every Corner of Ahmedabad"
+  neighborhoods={neighborhoods}
+
+  s4Title="Ahmedabad Business Problems We Solve"
+  challenges={challenges}
+
+  s5Title="Ahmedabad's Key Business Areas"
+  hubs={hubs}
+
+  s6Title="The Ahmedabad Advantage"
+  s6Subtitle="What makes working with a local agency different from outsourcing."
+  whyCards={whyCards}
+
+  stats={stats}
+
+  s8Title="Response Times for Ahmedabad"
+  responseTimes={responseTimes}
+
+  s9Title="What Ahmedabad Businesses Say"
+  testimonials={testimonials}
+
+  s10Title="Ahmedabad-Specific Questions"
+  faqItems={faqItems}
+
+  s11Title="Visit Our Ahmedabad Office"
+  mapInfo={mapInfo}
+
+  ctaTitle="Ready to Grow Your Ahmedabad Business Online?"
+  ctaSubtitle="Get a free consultation from Ahmedabad's most trusted digital agency. We respond within 4 hours for local businesses."
+/>

@@ -1,0 +1,579 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+---
+
+<PageLayout
+  title="Free SEO Audit — Find Out Why You're Not Ranking on Google | DC technolabs"
+  description="Get a free SEO audit from DC technolabs. We analyse your keyword rankings, backlinks, technical SEO, and local visibility. Free report in 48 hours. No obligation."
+  canonical="https://dctechnolabs.in/free-seo-audit"
+>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1: HERO + FORM
+════════════════════════════════════════════════ -->
+<section class="seo-audit-hero">
+  <div class="container">
+    <div class="seo-audit-grid">
+
+      <!-- Left: Content -->
+      <div class="seo-audit-content">
+        <span class="section-label">Free SEO Audit</span>
+        <h1>Find Out Exactly <span class="highlight">Why You're Not on Page 1</span></h1>
+        <p>Your competitors are ranking above you. There's a specific reason why — and it's fixable. We'll find it, explain it in plain language, and show you exactly what needs to change. Completely free.</p>
+
+        <div class="seo-audit-includes">
+          <div class="seo-include-item">
+            <div class="seo-include-icon">📊</div>
+            <div>
+              <strong>Keyword Rankings Report</strong>
+              <p>Where you currently rank for your most important business keywords</p>
+            </div>
+          </div>
+          <div class="seo-include-item">
+            <div class="seo-include-icon">🔗</div>
+            <div>
+              <strong>Backlink Profile Analysis</strong>
+              <p>The quality and quantity of sites linking to you vs your top competitors</p>
+            </div>
+          </div>
+          <div class="seo-include-item">
+            <div class="seo-include-icon">⚙️</div>
+            <div>
+              <strong>Technical SEO Health Check</strong>
+              <p>Crawl errors, indexing issues, site structure, and Core Web Vitals</p>
+            </div>
+          </div>
+          <div class="seo-include-item">
+            <div class="seo-include-icon">📍</div>
+            <div>
+              <strong>Local SEO Assessment</strong>
+              <p>Google Business Profile, local citations, and Google Maps ranking potential</p>
+            </div>
+          </div>
+          <div class="seo-include-item">
+            <div class="seo-include-icon">🏆</div>
+            <div>
+              <strong>Competitor Gap Analysis</strong>
+              <p>What your top 3 competitors are doing that you're not — and how to close the gap</p>
+            </div>
+          </div>
+          <div class="seo-include-item">
+            <div class="seo-include-icon">📋</div>
+            <div>
+              <strong>Priority Action Plan</strong>
+              <p>The top 5 things to fix first, ranked by impact on your rankings</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="seo-proof-bar">
+          <span>✓ 945+ audits completed</span>
+          <span>✓ Delivered within 48 hours</span>
+          <span>✓ No obligation, no sales pressure</span>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="seo-audit-form-card">
+        <h2>Get Your Free SEO Audit</h2>
+        <p>Fill in your details and we'll send a complete SEO report within 48 hours.</p>
+        <form
+          class="seo-audit-form"
+          action="https://formspree.io/f/xbjvpqon"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Free SEO Audit Request — DC technolabs" />
+          <input type="hidden" name="form_type" value="seo_audit" />
+
+          <div class="form-group">
+            <label for="seo-name">Your Name *</label>
+            <input type="text" id="seo-name" name="name" placeholder="Priya Shah" required />
+          </div>
+          <div class="form-group">
+            <label for="seo-phone">WhatsApp / Phone *</label>
+            <input type="tel" id="seo-phone" name="phone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label for="seo-email">Email Address *</label>
+            <input type="email" id="seo-email" name="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="seo-website">Website URL *</label>
+            <input type="url" id="seo-website" name="website" placeholder="https://yourwebsite.com" required />
+          </div>
+          <div class="form-group">
+            <label for="seo-city">Your City *</label>
+            <select id="seo-city" name="city" required>
+              <option value="">Select your city</option>
+              <option>Ahmedabad</option>
+              <option>Gandhinagar</option>
+              <option>Surat</option>
+              <option>Vadodara</option>
+              <option>Rajkot</option>
+              <option>Other Gujarat city</option>
+              <option>Outside Gujarat</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="seo-keywords">3 Keywords You Want to Rank For</label>
+            <input type="text" id="seo-keywords" name="target_keywords" placeholder="e.g. dental clinic Satellite, dentist Ahmedabad" />
+          </div>
+          <div class="form-group">
+            <label for="seo-competitor">Your Main Competitor Website (optional)</label>
+            <input type="url" id="seo-competitor" name="competitor" placeholder="https://competitorwebsite.com" />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Get My Free SEO Audit →
+          </button>
+          <p class="form-reassurance">Report delivered to your email in 48 hours. Zero obligation.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2: THE SEO AUDIT COVERS
+════════════════════════════════════════════════ -->
+<section class="seo-covers reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Full Coverage</span>
+      <h2 class="section-title">Every Component of Your SEO Analysed</h2>
+    </div>
+    <div class="seo-covers-grid">
+
+      <div class="seo-cover-card">
+        <div class="seo-cover-icon">📈</div>
+        <h3>Keyword Ranking Analysis</h3>
+        <p>We check your current ranking positions for your industry's most valuable keywords — both the ones you're targeting and the ones you should be.</p>
+        <ul>
+          <li>Current keyword positions</li>
+          <li>Traffic potential per keyword</li>
+          <li>Ranking vs competitors comparison</li>
+          <li>Quick-win keywords (position 5–20)</li>
+        </ul>
+      </div>
+
+      <div class="seo-cover-card">
+        <div class="seo-cover-icon">⚙️</div>
+        <h3>Technical SEO Audit</h3>
+        <p>The invisible factors that either help or hurt your rankings — site structure, crawlability, indexing, and the signals Google looks at before ranking any page.</p>
+        <ul>
+          <li>Crawl errors and blocked pages</li>
+          <li>Indexing status report</li>
+          <li>Canonical tag issues</li>
+          <li>Site speed (Core Web Vitals)</li>
+          <li>XML sitemap quality</li>
+          <li>Schema markup presence</li>
+        </ul>
+      </div>
+
+      <div class="seo-cover-card">
+        <div class="seo-cover-icon">📝</div>
+        <h3>On-Page SEO Review</h3>
+        <p>How well each page is optimized for its target keyword — the factors you can control directly on your website.</p>
+        <ul>
+          <li>Title tag quality per page</li>
+          <li>Meta description optimization</li>
+          <li>Header tag hierarchy</li>
+          <li>Content depth and keyword coverage</li>
+          <li>Internal linking structure</li>
+          <li>Image optimization</li>
+        </ul>
+      </div>
+
+      <div class="seo-cover-card">
+        <div class="seo-cover-icon">🔗</div>
+        <h3>Backlink Profile</h3>
+        <p>The strength and quality of your off-page authority — who links to you and whether those links help or hurt your rankings.</p>
+        <ul>
+          <li>Total backlinks and referring domains</li>
+          <li>Domain authority score</li>
+          <li>Toxic or spammy backlinks</li>
+          <li>Competitor backlink comparison</li>
+          <li>Link building opportunities identified</li>
+        </ul>
+      </div>
+
+      <div class="seo-cover-card">
+        <div class="seo-cover-icon">📍</div>
+        <h3>Local SEO (Google Maps)</h3>
+        <p>Your visibility in Google Maps and local search — critical for any business serving a specific city or area.</p>
+        <ul>
+          <li>Google Business Profile completeness score</li>
+          <li>Local citation consistency</li>
+          <li>NAP (Name, Address, Phone) accuracy</li>
+          <li>Google Maps ranking estimate</li>
+          <li>Review count and response rate</li>
+        </ul>
+      </div>
+
+      <div class="seo-cover-card">
+        <div class="seo-cover-icon">🏆</div>
+        <h3>Competitor Intelligence</h3>
+        <p>What your top 3 ranking competitors are doing that you're not — specific, actionable gaps you can close.</p>
+        <ul>
+          <li>Competitor keyword advantage</li>
+          <li>Content gap analysis</li>
+          <li>Backlink advantage comparison</li>
+          <li>Technical SEO comparison</li>
+          <li>Opportunities they've missed</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3: BEFORE / AFTER
+════════════════════════════════════════════════ -->
+<section class="seo-results reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">After Acting on the Audit</span>
+      <h2 class="section-title">What Happens When Businesses Fix the Issues We Find</h2>
+    </div>
+    <div class="before-after-grid">
+      <div class="ba-card">
+        <div class="ba-label">Before Audit</div>
+        <div class="ba-business">Dental Clinic · Satellite, Ahmedabad</div>
+        <div class="ba-metrics">
+          <div class="ba-metric ba-metric--bad">
+            <strong>Page 5+</strong>
+            <span>Google ranking</span>
+          </div>
+          <div class="ba-metric ba-metric--bad">
+            <strong>3</strong>
+            <span>Monthly leads</span>
+          </div>
+          <div class="ba-metric ba-metric--bad">
+            <strong>42</strong>
+            <span>SEO score</span>
+          </div>
+        </div>
+        <div class="ba-issues">
+          <p>Key issues found: GBP not claimed, homepage noindex tag from plugin, no keyword-optimized service pages, 14 broken image alt tags, 0 local citations</p>
+        </div>
+      </div>
+
+      <div class="ba-arrow">→</div>
+
+      <div class="ba-card ba-card--after">
+        <div class="ba-label">6 Months After</div>
+        <div class="ba-business">Same Clinic · Post-Implementation</div>
+        <div class="ba-metrics">
+          <div class="ba-metric ba-metric--good">
+            <strong>Page 1</strong>
+            <span>Google ranking</span>
+          </div>
+          <div class="ba-metric ba-metric--good">
+            <strong>28</strong>
+            <span>Monthly leads</span>
+          </div>
+          <div class="ba-metric ba-metric--good">
+            <strong>87</strong>
+            <span>SEO score</span>
+          </div>
+        </div>
+        <div class="ba-outcome">
+          <p>"The audit identified 11 issues. We fixed 8 ourselves and hired DC technolabs for the rest. Best business decision we made this year."</p>
+          <span>— Dr. Kruti Patel, Bodakdev</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4: TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section class="seo-audit-testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What Business Owners Say</span>
+      <h2 class="section-title">After Receiving Their SEO Audit</h2>
+    </div>
+    <div class="seo-test-grid">
+      <div class="seo-tcard">
+        <div class="seo-stars">★★★★★</div>
+        <p>"The SEO audit found that our agency had been building spammy backlinks for 2 years — links that were actively hurting our rankings. DC technolabs showed us exactly which ones to disavow."</p>
+        <div class="seo-author"><div class="seo-initials">MG</div><div><strong>Manav Gandhi</strong><span>IT Services, GIFT City</span></div></div>
+      </div>
+      <div class="seo-tcard">
+        <div class="seo-stars">★★★★★</div>
+        <p>"We learned more about our SEO situation in one free audit report than in 12 months of vague 'reporting' from our previous agency. The competitor gap analysis alone was worth gold."</p>
+        <div class="seo-author"><div class="seo-initials">NP</div><div><strong>Nisha Patel</strong><span>E-commerce, Surat</span></div></div>
+      </div>
+      <div class="seo-tcard">
+        <div class="seo-stars">★★★★★</div>
+        <p>"Turns out our entire service area wasn't ranking because all our service pages had duplicate meta titles. Fixed in a day. Traffic went up 60% in the next 30 days."</p>
+        <div class="seo-author"><div class="seo-initials">HS</div><div><strong>Harish Shah</strong><span>Construction Company, Naroda</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5: FAQ
+════════════════════════════════════════════════ -->
+<section class="seo-audit-faq reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">About the Free SEO Audit</h2>
+    </div>
+    <div class="seo-faq-grid">
+      <details class="faq-item">
+        <summary>How is this different from a free tool like Semrush or Ubersuggest?</summary>
+        <p>Free tools give you raw data — numbers without context. Our audit is a human-reviewed analysis that explains what the numbers mean for your specific business, in your specific market (Ahmedabad / Gujarat), and prioritizes what to fix first. We also include competitor analysis specific to your industry and location.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you need my Google Analytics or Search Console access?</summary>
+        <p>If you're willing to share view access to GA4 and Search Console, the audit will be more accurate — especially for traffic data. But it's not required. We can run a thorough audit using third-party tools and public data alone.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this really free or is there a paid version?</summary>
+        <p>The audit report is completely free. We do offer a deeper "SEO Strategy Session" (paid) where we walk through the findings together and build a 6-month roadmap — but the audit itself is always free.</p>
+      </details>
+      <details class="faq-item">
+        <summary>My website is brand new. Is an SEO audit useful?</summary>
+        <p>Very. New sites benefit most because we can identify structural issues before Google has indexed incorrect signals. We'll flag what you need to set up correctly from day one to give yourself the best possible start.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will the audit show me why a competitor is ranking above me?</summary>
+        <p>Yes, if you provide their URL. The competitor gap analysis is one of the most valuable parts of the audit — it shows you specifically what they have (links, content, technical setup) that's giving them the ranking advantage.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How detailed is the report?</summary>
+        <p>Typically 10–18 pages covering every component listed above. Each finding is categorised by severity (critical / important / minor), explained in plain language, and given a specific recommendation. No filler, no vague advice.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<CtaBanner
+  title="Ready to Find Out Why You're Not Ranking?"
+  subtitle="Submit the form above for your free SEO audit — delivered within 48 hours. No sales pressure, just genuine insights."
+  ctaLabel="Get My Free SEO Audit →"
+  ctaHref="#seo-audit-form"
+/>
+
+</PageLayout>
+
+<style>
+/* HERO */
+.seo-audit-hero {
+  padding: 100px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 60%, var(--white) 100%);
+}
+.seo-audit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.seo-audit-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.seo-audit-content h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.seo-audit-content > p { font-size: 1.05rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 2rem; }
+.seo-audit-includes { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem; }
+.seo-include-item { display: flex; gap: 1rem; align-items: flex-start; }
+.seo-include-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+.seo-include-item strong { display: block; font-size: .9rem; margin-bottom: .2rem; }
+.seo-include-item p { font-size: .85rem; color: var(--gray-500); line-height: 1.6; margin: 0; }
+.seo-proof-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: .85rem;
+  color: var(--blue-700);
+  font-weight: 600;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-100);
+}
+
+/* FORM CARD */
+.seo-audit-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1.5px solid var(--blue-100);
+  box-shadow: 0 20px 60px rgba(37,99,235,.08);
+  position: sticky;
+  top: 100px;
+}
+.seo-audit-form-card h2 { font-size: 1.3rem; margin-bottom: .4rem; }
+.seo-audit-form-card > p { font-size: .875rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+.seo-audit-form { display: flex; flex-direction: column; gap: .9rem; }
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+.form-group label { font-size: .8rem; font-weight: 600; color: var(--gray-700); }
+.form-group input, .form-group select {
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  background: var(--white);
+  color: var(--gray-900);
+  transition: border-color .2s;
+  font-family: var(--font-body);
+}
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.08);
+}
+.btn-full { width: 100%; text-align: center; }
+.form-reassurance { font-size: .78rem; color: var(--gray-400); text-align: center; margin: .5rem 0 0; }
+
+/* COVERS */
+.seo-covers { padding: var(--section-pad) 0; }
+.seo-covers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.seo-cover-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all .3s var(--ease);
+}
+.seo-cover-card:hover { border-color: var(--blue-200); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(37,99,235,.08); }
+.seo-cover-icon { font-size: 2rem; margin-bottom: 1rem; }
+.seo-cover-card h3 { font-size: 1rem; margin-bottom: .5rem; }
+.seo-cover-card > p { font-size: .875rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem; }
+.seo-cover-card ul { list-style: none; padding: 0; margin: 0; }
+.seo-cover-card li {
+  font-size: .83rem;
+  color: var(--gray-600);
+  padding: .4rem 0;
+  border-bottom: 1px solid var(--gray-50);
+}
+.seo-cover-card li::before { content: '✓ '; color: var(--blue-600); font-weight: 700; }
+.seo-cover-card li:last-child { border-bottom: none; }
+
+/* BEFORE / AFTER */
+.seo-results { padding: var(--section-pad) 0; background: var(--blue-50); }
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.ba-arrow { font-size: 2.5rem; color: var(--blue-400); text-align: center; }
+.ba-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.ba-card--after { border-color: var(--blue-300); background: linear-gradient(135deg, var(--white), rgba(219,234,254,.2)); }
+.ba-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-400); margin-bottom: .5rem; }
+.ba-card--after .ba-label { color: var(--blue-600); }
+.ba-business { font-size: .85rem; color: var(--gray-600); margin-bottom: 1.25rem; }
+.ba-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.25rem; }
+.ba-metric { text-align: center; padding: .75rem .5rem; border-radius: var(--radius-sm); }
+.ba-metric--bad { background: rgba(239,68,68,.06); }
+.ba-metric--bad strong { color: #dc2626; }
+.ba-metric--good { background: rgba(16,185,129,.06); }
+.ba-metric--good strong { color: #065f46; }
+.ba-metric strong { display: block; font-size: 1.1rem; font-family: var(--font-display); font-weight: 800; line-height: 1; margin-bottom: .25rem; }
+.ba-metric span { font-size: .72rem; color: var(--gray-500); }
+.ba-issues, .ba-outcome { font-size: .83rem; color: var(--gray-500); line-height: 1.65; padding: .75rem 1rem; border-radius: var(--radius-sm); background: var(--gray-50); }
+.ba-outcome p { margin-bottom: .4rem; font-style: italic; color: var(--gray-600); }
+.ba-outcome span { font-size: .8rem; color: var(--blue-700); font-weight: 600; }
+
+/* TESTIMONIALS */
+.seo-audit-testimonials { padding: var(--section-pad) 0; }
+.seo-test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.seo-tcard {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.seo-stars { color: #f59e0b; margin-bottom: 1rem; }
+.seo-tcard p { font-size: .9rem; color: var(--gray-600); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+.seo-author { display: flex; gap: 1rem; align-items: center; }
+.seo-initials {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-100), var(--blue-300));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--blue-700);
+  flex-shrink: 0;
+}
+.seo-author strong { display: block; font-size: .9rem; }
+.seo-author span { font-size: .8rem; color: var(--gray-500); }
+
+/* FAQ */
+.seo-audit-faq { padding: var(--section-pad) 0; background: var(--gray-50); }
+.seo-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.faq-item[open] { border-color: var(--blue-200); }
+.faq-item summary {
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 1.25rem; font-weight: 400; color: var(--blue-600); flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 1.5rem 1.25rem; font-size: .875rem; color: var(--gray-500); line-height: 1.7; margin: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .seo-audit-grid { grid-template-columns: 1fr; }
+  .seo-audit-form-card { position: static; }
+  .seo-covers-grid { grid-template-columns: repeat(2, 1fr); }
+  .seo-test-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .seo-covers-grid { grid-template-columns: 1fr; }
+  .before-after-grid { grid-template-columns: 1fr; }
+  .ba-arrow { transform: rotate(90deg); }
+  .seo-faq-grid { grid-template-columns: 1fr; }
+}
+</style>

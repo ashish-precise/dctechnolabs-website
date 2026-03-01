@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "E-commerce Development Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "E-commerce development in Ahmedabad — Shopify, WooCommerce, custom stores. 100+ stores built. Average 40% sales lift.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "50000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,
+    title: "Shopify & WooCommerce",
+    desc: "Expert development on India's most trusted e-commerce platforms. Custom themes, apps, and integrations."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
+    title: "Payment Gateway Integration",
+    desc: "Razorpay, Paytm, PhonePe, Stripe, PayPal, COD — all major Indian and international payment methods."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>`,
+    title: "Inventory & Order Management",
+    desc: "Real-time inventory tracking, automated low-stock alerts, order fulfilment workflows, and multi-warehouse support."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: "Shipping & Logistics",
+    desc: "Shiprocket, Delhivery, Bluedart, and custom courier integrations. Automated tracking updates to customers."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Conversion Optimized Design",
+    desc: "Checkout flow, product pages, and cart designed specifically to minimize abandonment and maximize sales."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Multi-Vendor Marketplace",
+    desc: "Build a marketplace like Amazon or Flipkart with seller onboarding, commission management, and vendor dashboards."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "We sell on Instagram/WhatsApp but can't scale", solution: "We build a proper e-commerce store that automates orders, payments, and shipping — freeing you to focus on growth instead of manual fulfilment." },
+  { problem: "Our checkout has too much drop-off", solution: "We audit your funnel, simplify checkout, add trust signals, and implement Razorpay's optimized payment sheet. Most clients see 25–40% conversion lift." },
+  { problem: "We can't manage inventory across channels", solution: "We integrate your store with inventory management tools and sync stock across your website, Flipkart, Amazon, and other channels automatically." },
+  { problem: "Our store looks unprofessional", solution: "We design custom Shopify themes or WooCommerce storefronts that match your brand and convert visitors — not default templates shared by thousands of stores." },
+  { problem: "We need to sell to B2B clients too", solution: "We build B2B functionality — bulk pricing, customer-specific catalogs, credit terms, purchase orders, and GST invoicing — alongside your retail store." },
+  { problem: "Our store is slow and losing Google rankings", solution: "We optimize images, eliminate unnecessary apps, implement lazy loading, and move to fast hosting. Speed directly impacts both rankings and conversion rate." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Store Strategy", desc: "We map your product catalog, customer journey, payment needs, and shipping requirements. Platform recommendation (Shopify vs WooCommerce vs custom) with clear rationale." },
+  { title: "Design & Theme", desc: "Custom store design — homepage, category pages, product pages, and checkout — all optimized for mobile conversion. You approve the design before development." },
+  { title: "Development & Integrations", desc: "We build the store, integrate payments and shipping, connect your warehouse or ERP, and test every flow on mobile and desktop." },
+  { title: "Launch & Optimize", desc: "We go live, submit to Google Shopping, set up analytics, and monitor the first 30 days. Post-launch optimizations included." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Full custom e-commerce store", desc: "Shopify, WooCommerce, or custom — built to your exact catalog and brand." },
+  { title: "Mobile-first product & category pages", desc: "Conversion-optimized layouts tested across Android and iOS browsers." },
+  { title: "Payment gateway integration", desc: "Razorpay, Paytm, Stripe, COD — all major Indian and international payment methods." },
+  { title: "Shipping integration", desc: "Shiprocket, Delhivery, or your courier — automatic label generation and tracking updates." },
+  { title: "GST & invoice automation", desc: "GST-compliant invoices generated automatically on every order." },
+  { title: "Admin panel & inventory management", desc: "Add products, manage orders, track inventory, and process refunds without a developer." },
+  { title: "Google Shopping & SEO setup", desc: "Product schema, Google Merchant Center, and sitemap for organic product visibility." },
+  { title: "45 days post-launch support", desc: "Bug fixes, stock updates, and technical support for six weeks after launch." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Custom design (no default themes)",    us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "Rarely", freelancerClass: "cross" },
+  { feature: "Indian payment gateway expertise",     us: "✓", usClass: "check", agency: "✓", agencyClass: "check", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "GST & Indian compliance built-in",     us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Shiprocket / logistics integration",   us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Conversion rate optimization",         us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Post-launch growth support",           us: "45 days free", usClass: "check", agency: "Paid", agencyClass: "cross", freelancer: "None", freelancerClass: "cross" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Store",
+    desc: "For small product catalogs",
+    price: "₹50,000",
+    priceSuffix: "one-time",
+    note: "Best for: Under 100 products, single category",
+    features: ["Up to 100 products", "Custom homepage design", "Razorpay / COD integration", "Basic shipping setup", "GST invoicing", "Mobile-responsive", "30 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Business Store",
+    desc: "For growing e-commerce brands",
+    price: "₹1,25,000",
+    priceSuffix: "one-time",
+    note: "Best for: 100–5,000 products, multi-category",
+    features: ["Unlimited products", "Custom theme design", "All payment gateways", "Shiprocket / Delhivery", "Inventory management", "Discount & coupon engine", "Google Shopping setup", "45 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Marketplace / Enterprise",
+    desc: "Multi-vendor or high-volume stores",
+    price: "₹3,00,000",
+    priceSuffix: "starting",
+    note: "Best for: Marketplaces, B2B portals, D2C brands",
+    features: ["Multi-vendor marketplace", "Custom ERP/WMS integration", "Advanced product configurator", "B2B pricing & catalog", "Subscription & recurring billing", "Dedicated server & CDN", "Priority support SLA"],
+    btnLabel: "Talk to Us",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e40af)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="25" y="20" width="50" height="70" rx="6" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)"/><rect x="85" y="20" width="90" height="30" rx="4" fill="rgba(255,255,255,.06)"/><rect x="85" y="58" width="90" height="32" rx="4" fill="rgba(59,130,246,.15)"/><rect x="95" y="68" width="50" height="8" rx="4" fill="rgba(255,255,255,.15)"/></svg>`,
+    tag: "Fashion · Shopify Custom Theme",
+    title: "Textile Brand, Ahmedabad",
+    desc: "Custom Shopify store with 2,000+ SKUs, Razorpay, Shiprocket, and GST invoicing. 3x sales in 6 months.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="10" y="10" width="180" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="20" y="20" width="40" height="40" rx="4" fill="rgba(16,185,129,.15)"/><rect x="70" y="20" width="40" height="40" rx="4" fill="rgba(16,185,129,.1)"/><rect x="120" y="20" width="60" height="40" rx="4" fill="rgba(16,185,129,.08)"/><rect x="20" y="70" width="160" height="30" rx="4" fill="rgba(255,255,255,.04)"/></svg>`,
+    tag: "Food & FMCG · WooCommerce",
+    title: "Organic Foods Brand, Gujarat",
+    desc: "D2C WooCommerce store with subscription billing, WhatsApp order updates, and pan-India shipping. 40% MoM growth.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e1b4b,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><circle cx="50" cy="50" r="25" fill="rgba(167,139,250,.1)" stroke="rgba(167,139,250,.2)"/><rect x="90" y="25" width="80" height="10" rx="5" fill="rgba(255,255,255,.1)"/><rect x="90" y="45" width="60" height="8" rx="4" fill="rgba(167,139,250,.2)"/><rect x="90" y="65" width="80" height="25" rx="4" fill="rgba(167,139,250,.15)"/></svg>`,
+    tag: "Handicrafts · Multi-Vendor Marketplace",
+    title: "Artisan Marketplace, Gujarat",
+    desc: "Multi-vendor marketplace connecting 80+ Gujarat artisans with buyers across India. Custom commission engine.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We went from selling on Instagram DMs to a proper Shopify store. Orders tripled in 4 months and we no longer spend all day manually processing. Life-changing.",
+    initials: "MV",
+    name: "Mehul Vora",
+    role: "Fashion Brand, Ahmedabad",
+  },
+  {
+    text: "The checkout they built converts so much better than our old site. Cart abandonment dropped by 35% and we're doing 40% more revenue on the same traffic.",
+    initials: "SP",
+    name: "Smita Patel",
+    role: "Organic Foods, Gujarat",
+  },
+  {
+    text: "Building a marketplace seemed impossibly complex. DC technolabs delivered exactly what we needed — vendor onboarding, commissions, and payouts — on time and on budget.",
+    initials: "AK",
+    name: "Arjun Kukadia",
+    role: "Founder, Artisan Marketplace",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Should I use Shopify or WooCommerce?", a: "Shopify is better for straightforward product stores — faster to launch, easier to manage, and hosted. WooCommerce is better if you need tight WordPress integration, more customization, or want to avoid Shopify's transaction fees. We'll recommend the right fit after understanding your catalog and technical requirements." },
+  { q: "Can you migrate my existing store?", a: "Yes. We migrate stores from Wix, Squarespace, Magento, or any other platform — including all products, customer data, order history, and SEO redirects — with zero data loss." },
+  { q: "Do you integrate with Indian payment gateways?", a: "Yes. Razorpay, Paytm, PhonePe, BillDesk, CCAvenue, Cashfree — we've integrated them all. We also set up EMI options, UPI QR codes, and COD with automated reconciliation." },
+  { q: "Can you connect my store to Amazon / Flipkart?", a: "Yes. We integrate your store inventory with Amazon Seller Central and Flipkart Seller Hub so stock syncs automatically and you don't oversell across channels." },
+  { q: "How do you handle GST compliance?", a: "All our stores generate GST-compliant invoices automatically on every order, with correct CGST/SGST/IGST split based on shipping destination. We also integrate with Tally or Zoho Books on request." },
+  { q: "Can you build a B2B store with custom pricing?", a: "Yes. Customer-specific pricing, bulk discount tiers, credit terms, purchase order workflows, and GST invoice generation for business buyers — all supported." },
+  { q: "How long does an e-commerce build take?", a: "Starter stores: 3–4 weeks. Business stores: 5–7 weeks. Marketplace projects: 10–14 weeks. Timeline depends on catalog size, custom features, and how quickly you provide product content." },
+  { q: "Do you provide ongoing store management?", a: "Yes. We offer monthly maintenance plans that include product uploads, banner updates, new feature development, and performance monitoring. Many clients use us as their ongoing e-commerce tech team." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/ppc", title: "PPC / Google Ads", desc: "Drive immediate traffic to your new store with Google Shopping ads. Average 6x ROAS. Starting ₹35,000/month." },
+  { href: "/services/seo", title: "SEO Services", desc: "Rank your product pages organically for high-intent search queries. Long-term free traffic. Starting ₹30,000/month." },
+  { href: "/services/shopify", title: "Shopify Development", desc: "Expert Shopify customization — custom themes, app development, and complex integrations. Starting ₹35,000." },
+];
+---
+
+<ServicePageLayout
+  title="E-commerce Development in Ahmedabad — Shopify, WooCommerce | DC technolabs"
+  description="E-commerce development in Ahmedabad. Shopify, WooCommerce, custom stores. 100+ stores built. 40% avg sales lift. Starting ₹50,000 from DC technolabs."
+  canonical="https://dctechnolabs.in/services/ecommerce"
+  schemaJson={schemaJson}
+
+  badge="🛒 E-commerce Development"
+  heroH1="E-commerce Stores That"
+  heroHighlight="Turn Browsers Into Buyers"
+  heroDesc="Custom Shopify, WooCommerce, and marketplace development for Ahmedabad businesses. Payment gateways, shipping integrations, GST compliance — all built in. 100+ stores launched. Average 40% sales lift. Starting ₹50,000."
+  heroStats={[
+    { value: "100+", label: "Stores Launched" },
+    { value: "40%", label: "Avg Sales Lift" },
+    { value: "₹50K", label: "Starting Price" },
+  ]}
+  formTitle="Get a Free Store Consultation"
+  formSub="Tell us about your products. We'll recommend the right platform and approach."
+  formTypeLabel="What are you building?"
+  formTypeOptions={["New Shopify store", "New WooCommerce store", "Migrate existing store", "Multi-vendor marketplace", "B2B e-commerce portal", "Custom e-commerce platform"]}
+
+  s2Title="Everything Your Store Needs to Sell"
+  s2Subtitle="End-to-end e-commerce — from catalog to checkout to shipping."
+
+  s3Title="E-commerce Problems We Solve"
+  s3Subtitle="If any of these sound like your store right now, we can help."
+
+  s4Title="Our E-commerce Build Process"
+  s4Subtitle="From product catalog to live store in 3–7 weeks."
+
+  s5Title="What We Deliver With Every Store"
+  s5Subtitle="Everything included — no à la carte surprises."
+
+  s6Title="How We Compare"
+  s6Subtitle="What you actually get versus typical e-commerce agencies."
+
+  s7Title="E-commerce Packages"
+  s7Subtitle="Transparent one-time pricing. Ongoing support available."
+
+  s8Title="E-commerce Projects"
+  s8Subtitle="Stores we've built and the results they've achieved."
+
+  s9Title="What E-commerce Clients Say"
+
+  s10Title="E-commerce FAQs"
+
+  s11Title="Grow Your Store With"
+  s11Subtitle="Drive traffic and sales to your new store with these services."
+
+  comparisonStartingUs="₹50,000"
+  comparisonStartingAgency="₹1,50,000+"
+  comparisonStartingFreelancer="₹20–40K"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Launch Your Online Store?"
+  ctaSubtitle="Get a free e-commerce consultation. We'll scope your store, recommend the right platform, and give you a fixed-price quote — no obligation."
+  ctaAccentLabel="Get Your Free Store Quote"
+  ctaAccentHref="#hero-form"
+/>

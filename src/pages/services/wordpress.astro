@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "WordPress Development Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "WordPress development in Ahmedabad — custom themes, plugins, WooCommerce, and migrations. 300+ WordPress sites built.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "25000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: "Custom WordPress Themes",
+    desc: "Hand-coded themes built to your exact design — not a pre-built theme with 200 unused features slowing your site down."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    title: "Custom Plugin Development",
+    desc: "Need a feature that no plugin provides? We build bespoke WordPress plugins — booking systems, directories, calculators, portals."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,
+    title: "WooCommerce Development",
+    desc: "Custom WooCommerce stores — product pages, checkout flows, payment gateways, and shipping for Indian businesses."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+    title: "WordPress Speed Optimization",
+    desc: "Slow WordPress sites fixed — image optimization, caching, CDN, database cleanup. Sub-3-second load times guaranteed."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "WordPress Security & Hardening",
+    desc: "Malware removal, security hardening, two-factor auth, login protection, and regular security scans. Fort Knox for your site."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+    title: "WordPress Migration",
+    desc: "Move from any platform to WordPress — Wix, Squarespace, Joomla, Drupal — with all content, SEO, and URLs preserved."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "My WordPress site is painfully slow", solution: "We audit every performance bottleneck — bloated plugins, unoptimized images, no caching, bad hosting. Most sites see 3–5x speed improvement within a week." },
+  { problem: "My site got hacked", solution: "We remove all malware, close the entry point, harden security settings, and set up ongoing monitoring so it never happens again." },
+  { problem: "I can't update my site without breaking things", solution: "We clean up your theme, remove conflicting plugins, and document exactly how to make updates safely. No more scary update buttons." },
+  { problem: "My WordPress theme is a customized template I can't change", solution: "We build a clean custom child theme or full theme from scratch. No more fighting with a theme that doesn't want to cooperate." },
+  { problem: "We need a custom feature WordPress can't do out of the box", solution: "Custom plugin development is our specialty — booking systems, calculators, membership portals, directory listings, anything you need." },
+  { problem: "My developer disappeared and I'm stuck", solution: "We pick up abandoned WordPress projects every week. We audit the existing code, document what's there, and take it forward professionally." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Audit & Plan", desc: "We audit your existing site (or scope your new one), identify all requirements, and create a detailed technical plan with timeline and fixed price." },
+  { title: "Design & Prototype", desc: "Custom design mockups in Figma — homepage and key pages — approved by you before any WordPress development begins." },
+  { title: "Theme & Plugin Build", desc: "Custom theme development, plugin integration, content migration, and staging site for your review at every milestone." },
+  { title: "Test, Secure & Launch", desc: "Speed optimization, security hardening, cross-browser testing, SEO setup, and live deployment. Training session included." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Custom WordPress theme", desc: "Hand-coded, lightweight theme — no bloated page builders unless you specifically want Elementor or Gutenberg blocks." },
+  { title: "Mobile-responsive on all devices", desc: "Tested on iPhone, Android, iPad, and major browsers. Pixel-perfect on every screen size." },
+  { title: "Essential plugin setup & configuration", desc: "SEO (Yoast/RankMath), security (Wordfence), caching (WP Rocket), forms (Gravity Forms) — configured correctly." },
+  { title: "Contact forms & lead capture", desc: "Inquiry forms, callback requests, and newsletter signup connected to your email and CRM." },
+  { title: "WordPress training session", desc: "1-hour live Zoom session showing you how to add pages, update content, manage products, and use key plugins." },
+  { title: "Speed optimization", desc: "Image compression, caching, CDN setup, database optimization. Sub-3-second page loads." },
+  { title: "Basic SEO setup", desc: "Meta tags, schema markup, sitemap, robots.txt, Google Search Console submission." },
+  { title: "30 days post-launch support", desc: "Bug fixes, plugin conflicts, minor changes — we're on call for a full month after launch." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Custom theme (no pre-built)",      us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "Speed optimization included",      us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Security hardening included",      us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Training session included",        us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Post-launch support",              us: "30 days free", usClass: "check", agency: "Paid", agencyClass: "cross", freelancer: "None", freelancerClass: "cross" },
+  { feature: "Transparent fixed pricing",        us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "Simple business websites",
+    price: "₹25,000",
+    priceSuffix: "one-time",
+    note: "Best for: Service businesses, professionals, portfolios",
+    features: ["5 custom pages", "Mobile-responsive theme", "Contact form", "SEO plugin setup", "Speed optimization", "Security basics", "15 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Professional",
+    desc: "Full business site with CMS",
+    price: "₹50,000",
+    priceSuffix: "one-time",
+    note: "Best for: Businesses needing full content control",
+    features: ["10 pages + blog", "Custom Gutenberg blocks", "Advanced forms & CTAs", "Full SEO setup", "WP Rocket caching", "Wordfence security", "Admin training session", "30 days support"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Custom / WooCommerce",
+    desc: "Complex sites & online stores",
+    price: "₹1,00,000",
+    priceSuffix: "starting",
+    note: "Best for: WooCommerce stores, membership sites, custom plugins",
+    features: ["Unlimited pages", "WooCommerce or membership", "Custom plugin development", "Payment gateway integration", "Advanced security", "Priority support", "60 days support"],
+    btnLabel: "Get a Quote",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e40af)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="25" y="20" width="150" height="18" rx="4" fill="rgba(59,130,246,.2)"/><rect x="25" y="48" width="70" height="50" rx="4" fill="rgba(255,255,255,.06)"/><rect x="105" y="48" width="70" height="22" rx="4" fill="rgba(59,130,246,.12)"/><rect x="105" y="76" width="70" height="22" rx="4" fill="rgba(255,255,255,.05)"/></svg>`,
+    tag: "Education · Custom WordPress",
+    title: "Training Institute, Ahmedabad",
+    desc: "Multi-branch education website with course catalog, online enquiry system, and student portal. Fully editable by staff.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="10" y="10" width="180" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="20" y="20" width="160" height="30" rx="4" fill="rgba(16,185,129,.1)"/><rect x="20" y="60" width="45" height="40" rx="4" fill="rgba(16,185,129,.08)"/><rect x="75" y="60" width="45" height="40" rx="4" fill="rgba(16,185,129,.06)"/><rect x="130" y="60" width="50" height="40" rx="4" fill="rgba(16,185,129,.04)"/></svg>`,
+    tag: "Healthcare · WordPress + Custom Plugin",
+    title: "Hospital Group, Gujarat",
+    desc: "Hospital website with department pages, doctor profiles, appointment booking plugin, and multilingual support.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e1b4b,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="25" y="20" width="60" height="80" rx="6" fill="rgba(167,139,250,.1)" stroke="rgba(167,139,250,.2)"/><rect x="95" y="20" width="80" height="35" rx="4" fill="rgba(255,255,255,.06)"/><rect x="95" y="62" width="80" height="38" rx="4" fill="rgba(167,139,250,.08)"/></svg>`,
+    tag: "Manufacturing · WordPress Redesign",
+    title: "Industrial Equipment, Vatva GIDC",
+    desc: "Complete rebrand and WordPress rebuild. 4x increase in enquiry form submissions within 60 days of launch.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our old WordPress site took 9 seconds to load. DC technolabs cut it to under 2 seconds and fixed a dozen security issues. Should have done this years ago.",
+    initials: "HJ",
+    name: "Harish Joshi",
+    role: "Manufacturing Company, Vatva",
+  },
+  {
+    text: "The training session was exactly what we needed. Our team can now update the site, add blog posts, and manage enquiries without calling a developer.",
+    initials: "AV",
+    name: "Anita Verma",
+    role: "Training Institute, Ahmedabad",
+  },
+  {
+    text: "We needed a custom booking plugin that no off-the-shelf solution covered. They built exactly what we needed in 3 weeks. Clean code, well documented.",
+    initials: "NS",
+    name: "Dr. Nitin Shah",
+    role: "Multi-Speciality Clinic, Ahmedabad",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Do you use page builders like Elementor?", a: "Only if you specifically want Elementor for easy self-editing. For performance, we prefer custom Gutenberg blocks or hand-coded themes — they're significantly faster and cleaner than page builders. We'll recommend the right approach for your needs." },
+  { q: "Can you fix my hacked WordPress site?", a: "Yes. We remove all malware, identify and close the entry point, clean the database, harden security settings, and set up Wordfence monitoring. Most cleanups are done within 24–48 hours." },
+  { q: "Why is my WordPress site so slow?", a: "Usually: too many plugins, unoptimized images, no caching, shared hosting, or a bloated theme. We audit all of these and implement WP Rocket, Cloudflare CDN, image optimization, and database cleanup. Sub-3-second loads guaranteed." },
+  { q: "Can you migrate my site from Wix / Squarespace?", a: "Yes. We migrate all pages, posts, images, and forms to WordPress while preserving your URLs, meta tags, and SEO value. We set up 301 redirects for any changed URLs so you don't lose Google rankings." },
+  { q: "Will I be able to update the site myself?", a: "Yes — that's a core goal of every build. We set up a clean admin panel, configure sensible user roles, and include a training session so your team can update content, add blog posts, and manage basic settings independently." },
+  { q: "Do you work with multisite WordPress networks?", a: "Yes. We've built and maintained WordPress multisite networks for businesses with multiple branches or brands. Network setup, sub-site theming, and centralized plugin management are all supported." },
+  { q: "Can you build a membership or LMS site on WordPress?", a: "Yes. We build membership sites using MemberPress or Restrict Content Pro, and LMS platforms using LearnDash or TutorLMS. Video courses, quizzes, certificates, and subscriptions are all supported." },
+  { q: "What hosting do you recommend for WordPress?", a: "For most Ahmedabad businesses, we recommend Cloudways (DigitalOcean) or WPX Hosting — fast, reliable, and reasonably priced. We handle full server setup, SSL, and CDN configuration as part of the build." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/seo", title: "SEO Services", desc: "Rank your WordPress site on Google. Technical SEO, content strategy, and local optimization for Ahmedabad. Starting ₹30,000/month." },
+  { href: "/services/ecommerce", title: "E-commerce Development", desc: "Add WooCommerce to your WordPress site and start selling online. Full payment and shipping integration. Starting ₹50,000." },
+  { href: "/services/web-design", title: "Web Design", desc: "Need a completely new design before rebuilding in WordPress? We design first, then develop. Starting ₹25,000." },
+];
+---
+
+<ServicePageLayout
+  title="WordPress Development in Ahmedabad — Custom Themes & Plugins | DC technolabs"
+  description="WordPress development in Ahmedabad. Custom themes, plugins, WooCommerce, speed fixes, and migrations. 300+ WordPress sites built. Starting ₹25,000 from DC technolabs."
+  canonical="https://dctechnolabs.in/services/wordpress"
+  schemaJson={schemaJson}
+
+  badge="🔧 WordPress Development"
+  heroH1="WordPress Sites That Are"
+  heroHighlight="Fast, Secure, and Easy to Manage"
+  heroDesc="Custom WordPress development for Ahmedabad businesses — hand-coded themes, bespoke plugins, WooCommerce stores, and speed optimization. 300+ WordPress sites built. You'll be able to manage it yourself from day one. Starting ₹25,000."
+  heroStats={[
+    { value: "300+", label: "WP Sites Built" },
+    { value: "Sub-3s", label: "Load Time" },
+    { value: "₹25K", label: "Starting Price" },
+  ]}
+  formTitle="Get a Free WordPress Quote"
+  formSub="New site, redesign, or fix? Tell us what you need."
+  formTypeLabel="What do you need?"
+  formTypeOptions={["New WordPress site", "WordPress redesign", "Speed optimization", "Security fix / malware removal", "Custom plugin development", "Migration to WordPress"]}
+
+  s2Title="What We Do With WordPress"
+  s2Subtitle="From simple business sites to complex custom applications — all on WordPress."
+
+  s3Title="WordPress Problems We Fix"
+  s3Subtitle="The most common issues Ahmedabad businesses come to us with."
+
+  s4Title="Our WordPress Process"
+  s4Subtitle="From brief to live site in 2–4 weeks."
+
+  s5Title="What You Get With Every Build"
+  s5Subtitle="All included — no extras, no surprises."
+
+  s6Title="How We Compare"
+  s6Subtitle="What sets our WordPress development apart."
+
+  s7Title="WordPress Packages"
+  s7Subtitle="Fixed pricing. Full transparency."
+
+  s8Title="WordPress Projects"
+  s8Subtitle="A selection from 300+ WordPress sites we've built."
+
+  s9Title="What WordPress Clients Say"
+
+  s10Title="WordPress Development FAQs"
+
+  s11Title="Get More From Your WordPress Site"
+  s11Subtitle="These services pair perfectly with a new WordPress build."
+
+  comparisonStartingUs="₹25,000"
+  comparisonStartingAgency="₹60,000+"
+  comparisonStartingFreelancer="₹8–15K"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Need a Better WordPress Site?"
+  ctaSubtitle="Get a free quote for your WordPress project. New build, redesign, speed fix, or custom plugin — we'll scope it and price it clearly."
+  ctaAccentLabel="Get Your Free WordPress Quote"
+  ctaAccentHref="#hero-form"
+/>

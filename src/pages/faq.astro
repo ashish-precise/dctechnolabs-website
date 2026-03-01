@@ -1,0 +1,1055 @@
+---
+// src/pages/faq.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallButton from '../components/MobileCallButton.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import StatsBar from '../components/StatsBar.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+---
+
+<BaseLayout
+  title="FAQ | Frequently Asked Questions | DC technolabs Ahmedabad"
+  description="Answers to common questions about web design, SEO, PPC, pricing, timelines, and working with DC technolabs Ahmedabad."
+  canonical="https://dctechnolabs.in/faq"
+>
+
+<Header />
+
+<!-- FAQPage Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does DC technolabs do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're a full-service digital marketing agency based in Ahmedabad, Gujarat. We offer 8 specialized services: web design, web development, SEO, PPC/Google Ads, e-commerce development, WordPress, Shopify, and social media marketing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are you located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our office is at B-48, Saral Society, Wood Road, Vesu, Ahmedabad, 380015. We serve clients across Ahmedabad, Gandhinagar, Surat, Vadodara, and internationally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long have you been in business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Over 8 years. We've delivered 945+ projects across 16 industries for clients in Gujarat, India, and internationally including Canada, USA, and Cyprus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with businesses outside Ahmedabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We serve clients across Gujarat and internationally. Our remote delivery workflow is proven and produces identical results to in-person collaboration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industries do you specialize in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We've worked across healthcare, real estate, education, e-commerce, manufacturing, hospitality, legal, jewellery, SaaS, textile, finance, automotive, pharma, fitness, coaching, and food/FMCG."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Book a free 30-minute consultation through our contact page or call +91 9662608986. We'll discuss your goals and send a detailed proposal within 24 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do your services cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Web design starts at Rs. 25,000. SEO starts at Rs. 30,000/month. PPC management starts at Rs. 35,000/month. E-commerce starts at Rs. 50,000. Social media starts at Rs. 20,000/month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer fixed pricing or hourly billing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fixed pricing only. Every project gets a detailed proposal with exact cost before we start. No tracking hours, no surprise invoices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's your payment schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One-time projects: 50% upfront, 50% on completion. Larger projects: 3 milestones (40/30/30). Monthly services: billed at the start of each month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer discounts for multiple services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Bundling two or more services gets you reduced pricing. For example, Web Design + SEO together saves Rs. 5,000 on the web design component."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do prices include GST?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prices shown are exclusive of GST (18%). GST is added to your invoice per Indian tax regulations. International clients are exempt from GST."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum project size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our smallest engagement is Rs. 20,000 for social media management. For web design, the minimum is Rs. 25,000 for a 5-page site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a website take to build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Starter sites (5 pages): 2 weeks. Professional sites (12 pages): 3 to 4 weeks. Premium/enterprise: 6 to 8 weeks. We give you an exact timeline in your proposal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long before I see SEO results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients see measurable ranking improvements within 3 months. Significant traffic growth typically happens between months 4 and 6. We provide monthly reports so you can track progress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can PPC start generating leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Within 48 hours of campaign launch. Google Ads can start driving qualified traffic the same day your campaigns go live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many revisions do I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Starter packages include 2 to 3 rounds. Professional packages include 3 or more. Premium packages include unlimited revisions during the design phase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I get regular updates during the project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Weekly progress updates for project work. Monthly detailed reports for ongoing services like SEO, PPC, and social media."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide post-launch support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every project includes 15 to 90 days of post-launch support depending on the package. This covers bug fixes, minor content updates, and technical questions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies do you use for web design?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We build with Astro, custom HTML/CSS, and React for performance-critical sites. No bloated page builders like WordPress Elementor or Wix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I own my website code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You own 100% of the code, content, design files, and domain. We never hold websites hostage. Full access from day one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you build on WordPress?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, when it makes sense for the project. We build custom WordPress themes and plugins. We also offer WordPress maintenance and speed optimization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which e-commerce platform do you recommend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shopify for most businesses (easier to manage, reliable hosting). WooCommerce for businesses that need more customization or already use WordPress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle website hosting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We help you set up hosting on reliable providers (Vercel, Netlify, or managed WordPress hosting). You own the hosting account directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you integrate third-party tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We integrate CRMs, payment gateways (Razorpay, PayU), email marketing platforms, WhatsApp Business, Google Analytics, and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you require long-term contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No lock-in contracts. Monthly services (SEO, PPC, Social) are billed monthly. We recommend a 3-month minimum for meaningful results, but you can cancel with 30 days notice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I'm not satisfied with the work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer unlimited revisions during the design phase. For ongoing services, if results aren't on track, we adjust strategy at no extra cost. We also offer a performance guarantee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel a monthly service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cancel anytime with 30 days written notice. No penalties, no exit fees. Your accounts, data, and content remain yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sign an NDA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if required. We're happy to sign non-disclosure agreements before discussing your project details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need to pause a project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Projects can be paused for up to 30 days. Beyond that, we may need to reschedule based on our capacity. We'll work with you to find a solution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who owns the Google Ads account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You do. We create and manage campaigns in your own Google Ads account. If you ever switch agencies, you keep everything."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- SECTION 1: HERO (CENTERED) -->
+<section class="faq-hero">
+  <div class="container">
+    <div class="faq-hero-inner">
+      <div class="hero-label-wrap"><span class="section-label">FAQ</span></div>
+      <h1>Got Questions? <span class="highlight">We've Got Answers.</span></h1>
+      <p>Everything you need to know about working with DC technolabs. Can't find what you're looking for? Contact us directly.</p>
+      <div class="faq-hero-search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="faq-search" placeholder="Search questions..." aria-label="Search FAQ">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CATEGORY TABS -->
+<section class="faq-cat-section">
+  <div class="container">
+    <div class="faq-cat-tabs">
+      <button class="faq-cat-tab active" data-faqfilter="all">All Questions</button>
+      <button class="faq-cat-tab" data-faqfilter="general">General</button>
+      <button class="faq-cat-tab" data-faqfilter="pricing">Pricing</button>
+      <button class="faq-cat-tab" data-faqfilter="process">Process &amp; Timelines</button>
+      <button class="faq-cat-tab" data-faqfilter="tech">Technology</button>
+      <button class="faq-cat-tab" data-faqfilter="contracts">Contracts &amp; Ownership</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: FAQ GROUPS -->
+<section class="faq-groups">
+  <div class="container">
+
+    <!-- General Questions -->
+    <div class="faq-group" data-group="general">
+      <h2 class="faq-group-title"><span>💬</span> General Questions</h2>
+      <div class="faq-group-grid">
+        <div class="faq-item" data-faqcat="general">
+          <button class="faq-question">What does DC technolabs do?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We're a full-service digital marketing agency based in Ahmedabad, Gujarat. We offer 8 specialized services: web design, web development, SEO, PPC/Google Ads, e-commerce development, WordPress, Shopify, and social media marketing.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="general">
+          <button class="faq-question">Where are you located?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Our office is at B-48, Saral Society, Wood Road, Vesu, Ahmedabad, 380015. We serve clients across Ahmedabad, Gandhinagar, Surat, Vadodara, and internationally.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="general">
+          <button class="faq-question">How long have you been in business?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Over 8 years. We've delivered 945+ projects across 16 industries for clients in Gujarat, India, and internationally including Canada, USA, and Cyprus.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="general">
+          <button class="faq-question">Do you work with businesses outside Ahmedabad?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. We serve clients across Gujarat and internationally. Our remote delivery workflow is proven and produces identical results to in-person collaboration.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="general">
+          <button class="faq-question">What industries do you specialize in?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We've worked across healthcare, real estate, education, e-commerce, manufacturing, hospitality, legal, jewellery, SaaS, textile, finance, automotive, pharma, fitness, coaching, and food/FMCG.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="general">
+          <button class="faq-question">How do I get started?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Book a free 30-minute consultation through our contact page or call +91 9662608986. We'll discuss your goals and send a detailed proposal within 24 hours.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing & Payments -->
+    <div class="faq-group" data-group="pricing">
+      <h2 class="faq-group-title"><span>💰</span> Pricing &amp; Payments</h2>
+      <div class="faq-group-grid">
+        <div class="faq-item" data-faqcat="pricing">
+          <button class="faq-question">How much do your services cost?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Web design starts at ₹25,000. SEO starts at ₹30,000/month. PPC management starts at ₹35,000/month. E-commerce starts at ₹50,000. Social media starts at ₹20,000/month. Visit our pricing page for detailed packages.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="pricing">
+          <button class="faq-question">Do you offer fixed pricing or hourly billing?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Fixed pricing only. Every project gets a detailed proposal with exact cost before we start. No tracking hours, no surprise invoices.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="pricing">
+          <button class="faq-question">What's your payment schedule?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">One-time projects: 50% upfront, 50% on completion. Larger projects: 3 milestones (40/30/30). Monthly services: billed at the start of each month.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="pricing">
+          <button class="faq-question">Do you offer discounts for multiple services?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. Bundling two or more services gets you reduced pricing. For example, Web Design + SEO together saves ₹5,000 on the web design component.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="pricing">
+          <button class="faq-question">Do prices include GST?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Prices shown are exclusive of GST (18%). GST is added to your invoice per Indian tax regulations. International clients are exempt from GST.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="pricing">
+          <button class="faq-question">Is there a minimum project size?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Our smallest engagement is ₹20,000 for social media management. For web design, the minimum is ₹25,000 for a 5-page site.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process & Timelines -->
+    <div class="faq-group" data-group="process">
+      <h2 class="faq-group-title"><span>⚙️</span> Process &amp; Timelines</h2>
+      <div class="faq-group-grid">
+        <div class="faq-item" data-faqcat="process">
+          <button class="faq-question">How long does a website take to build?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Starter sites (5 pages): 2 weeks. Professional sites (12 pages): 3 to 4 weeks. Premium/enterprise: 6 to 8 weeks. We give you an exact timeline in your proposal.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="process">
+          <button class="faq-question">How long before I see SEO results?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Most clients see measurable ranking improvements within 3 months. Significant traffic growth typically happens between months 4 and 6. We provide monthly reports so you can track progress.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="process">
+          <button class="faq-question">How quickly can PPC start generating leads?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Within 48 hours of campaign launch. Google Ads can start driving qualified traffic the same day your campaigns go live.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="process">
+          <button class="faq-question">How many revisions do I get?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Starter packages include 2 to 3 rounds. Professional packages include 3 or more. Premium packages include unlimited revisions during the design phase.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="process">
+          <button class="faq-question">Will I get regular updates during the project?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. Weekly progress updates for project work. Monthly detailed reports for ongoing services like SEO, PPC, and social media.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="process">
+          <button class="faq-question">Do you provide post-launch support?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. Every project includes 15 to 90 days of post-launch support depending on the package. This covers bug fixes, minor content updates, and technical questions.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology & Platforms -->
+    <div class="faq-group" data-group="tech">
+      <h2 class="faq-group-title"><span>💻</span> Technology &amp; Platforms</h2>
+      <div class="faq-group-grid">
+        <div class="faq-item" data-faqcat="tech">
+          <button class="faq-question">What technologies do you use for web design?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We build with Astro, custom HTML/CSS, and React for performance-critical sites. No bloated page builders like WordPress Elementor or Wix.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="tech">
+          <button class="faq-question">Will I own my website code?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. You own 100% of the code, content, design files, and domain. We never hold websites hostage. Full access from day one.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="tech">
+          <button class="faq-question">Do you build on WordPress?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes, when it makes sense for the project. We build custom WordPress themes and plugins. We also offer WordPress maintenance and speed optimization.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="tech">
+          <button class="faq-question">Which e-commerce platform do you recommend?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Shopify for most businesses (easier to manage, reliable hosting). WooCommerce for businesses that need more customization or already use WordPress.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="tech">
+          <button class="faq-question">Do you handle website hosting?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We help you set up hosting on reliable providers (Vercel, Netlify, or managed WordPress hosting). You own the hosting account directly.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="tech">
+          <button class="faq-question">Can you integrate third-party tools?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. We integrate CRMs, payment gateways (Razorpay, PayU), email marketing platforms, WhatsApp Business, Google Analytics, and more.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contracts & Ownership -->
+    <div class="faq-group" data-group="contracts">
+      <h2 class="faq-group-title"><span>📋</span> Contracts &amp; Ownership</h2>
+      <div class="faq-group-grid">
+        <div class="faq-item" data-faqcat="contracts">
+          <button class="faq-question">Do you require long-term contracts?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">No lock-in contracts. Monthly services (SEO, PPC, Social) are billed monthly. We recommend a 3-month minimum for meaningful results, but you can cancel with 30 days notice.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="contracts">
+          <button class="faq-question">What happens if I'm not satisfied with the work?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We offer unlimited revisions during the design phase. For ongoing services, if results aren't on track, we adjust strategy at no extra cost. We also offer a performance guarantee.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="contracts">
+          <button class="faq-question">Can I cancel a monthly service?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. Cancel anytime with 30 days written notice. No penalties, no exit fees. Your accounts, data, and content remain yours.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="contracts">
+          <button class="faq-question">Do you sign an NDA?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes, if required. We're happy to sign non-disclosure agreements before discussing your project details.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="contracts">
+          <button class="faq-question">What if I need to pause a project?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Projects can be paused for up to 30 days. Beyond that, we may need to reschedule based on our capacity. We'll work with you to find a solution.</div></div>
+        </div>
+        <div class="faq-item" data-faqcat="contracts">
+          <button class="faq-question">Who owns the Google Ads account?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">You do. We create and manage campaigns in your own Google Ads account. If you ever switch agencies, you keep everything.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4: QUICK LINKS -->
+<section class="faq-quick">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Explore More</span>
+      <h2 class="section-title">Helpful Resources</h2>
+    </div>
+    <div class="faq-quick-grid">
+      <a href="/pricing" class="faq-quick-card">
+        <div class="faq-quick-card-icon">💰</div>
+        <h3>View Pricing</h3>
+        <p>Detailed packages and prices for all 8 services.</p>
+      </a>
+      <a href="/portfolio" class="faq-quick-card">
+        <div class="faq-quick-card-icon">📁</div>
+        <h3>See Our Work</h3>
+        <p>945+ projects with real results and case studies.</p>
+      </a>
+      <a href="/services" class="faq-quick-card">
+        <div class="faq-quick-card-icon">🛠️</div>
+        <h3>Our Services</h3>
+        <p>Web design, SEO, PPC, e-commerce, and more.</p>
+      </a>
+      <a href="/about" class="faq-quick-card">
+        <div class="faq-quick-card-icon">👥</div>
+        <h3>About Us</h3>
+        <p>Our story, team, values, and mission.</p>
+      </a>
+      <a href="/blog" class="faq-quick-card">
+        <div class="faq-quick-card-icon">📝</div>
+        <h3>Read Our Blog</h3>
+        <p>Tips, guides, and insights for growing online.</p>
+      </a>
+      <a href="/contact" class="faq-quick-card">
+        <div class="faq-quick-card-icon">📞</div>
+        <h3>Contact Us</h3>
+        <p>Get in touch for a free consultation.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: STATS BAR -->
+<StatsBar />
+
+<!-- SECTION 6: TESTIMONIALS -->
+<section class="testimonials" style="padding:var(--section-pad) 0">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Our new website is not only visually stunning but also incredibly functional, thanks to your talented design and development team."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CG</div>
+          <div>
+            <div class="testimonial-name">CRONA Group</div>
+            <div class="testimonial-role">Real Estate, Cyprus</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"The redesigned website received highly positive feedback, particularly for its meaningful design that resonated with staff and stakeholders."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">NI</div>
+          <div>
+            <div class="testimonial-name">NIS</div>
+            <div class="testimonial-role">Consulting, USA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"DC technolabs stands out as a beacon of excellence. Their team consistently produces outstanding work, demonstrating a commitment to surpassing expectations."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DR</div>
+          <div>
+            <div class="testimonial-name">DesignRush Review</div>
+            <div class="testimonial-role">Verified Agency Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: STILL HAVE QUESTIONS? -->
+<section class="faq-still">
+  <div class="container">
+    <div class="faq-still-inner">
+      <div class="hero-label-wrap"><span class="section-label">Still Have Questions?</span></div>
+      <h2>We're Here to Help</h2>
+      <p>Can't find the answer you're looking for? Our team responds within the same business day.</p>
+      <div class="faq-still-btns">
+        <a href="/contact" class="btn btn-primary">Send Us a Message</a>
+        <a href="tel:+919662608986" class="btn btn-secondary">Call +91 9662608986</a>
+      </div>
+      <div class="faq-still-options">
+        <div class="faq-still-opt">
+          <strong>📞 Phone</strong>
+          +91 9662608986
+        </div>
+        <div class="faq-still-opt">
+          <strong>💬 WhatsApp</strong>
+          Same number, instant reply
+        </div>
+        <div class="faq-still-opt">
+          <strong>📧 Email</strong>
+          hello@dctechnolabs.com
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: FINAL CTA -->
+<CtaBanner />
+<Footer />
+<MobileCallButton />
+<WhatsAppButton />
+
+</BaseLayout>
+
+<style>
+/* ============================================
+   FAQ PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* SECTION 1: HERO */
+.hero-label-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.hero-label-wrap .section-label {
+  margin-bottom: 0;
+}
+.faq-hero {
+  padding: 120px 0 80px;
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.faq-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.faq-hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-hero h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.6s var(--ease) 0.1s both;
+}
+
+.faq-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-hero p {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s var(--ease) 0.2s both;
+}
+
+.faq-hero-search {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  animation: fadeInUp 0.6s var(--ease) 0.3s both;
+}
+
+.faq-hero-search input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--white);
+  color: var(--gray-800);
+}
+
+.faq-hero-search input:focus {
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.faq-hero-search input::placeholder {
+  color: var(--gray-400);
+}
+
+.faq-hero-search svg {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  pointer-events: none;
+}
+
+/* SECTION 2: CATEGORY TABS */
+.faq-cat-section {
+  padding: 1.5rem 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.faq-cat-tabs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.faq-cat-tab {
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  font-family: var(--font-display);
+}
+
+.faq-cat-tab:hover,
+.faq-cat-tab.active {
+  border-color: var(--blue-600);
+  background: var(--blue-600);
+  color: var(--white);
+}
+
+/* SECTION 3: FAQ GROUPS */
+.faq-groups {
+  padding: var(--section-pad) 0;
+  background: var(--white);
+}
+
+.faq-group {
+  margin-bottom: 3rem;
+}
+
+.faq-group:last-child {
+  margin-bottom: 0;
+}
+
+.faq-group-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-group-title span {
+  font-size: 1.25rem;
+}
+
+.faq-group-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* FAQ ITEM / ACCORDION */
+.faq-item {
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s var(--ease);
+}
+
+.faq-item.active {
+  border-color: var(--blue-200);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.faq-question:hover {
+  color: var(--blue-700);
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s var(--ease);
+  color: var(--blue-600);
+}
+
+.faq-item.active .faq-icon {
+  background: var(--blue-600);
+  color: var(--white);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease);
+}
+
+.faq-answer-inner {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+}
+
+/* SECTION 4: QUICK LINKS */
+.faq-quick {
+  padding: var(--section-pad) 0;
+  background: var(--gray-50);
+}
+
+.faq-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.faq-quick-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  display: block;
+}
+
+.faq-quick-card:hover {
+  border-color: var(--blue-200);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+}
+
+.faq-quick-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.faq-quick-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--gray-900);
+}
+
+.faq-quick-card p {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+/* SECTION 7: STILL HAVE QUESTIONS? */
+.faq-still {
+  padding: var(--section-pad) 0;
+  background: var(--blue-50);
+}
+
+.faq-still-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faq-still-inner h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.faq-still-inner p {
+  font-size: 1rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.faq-still-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.faq-still-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-still-opt {
+  padding: 1rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  border: 1px solid var(--blue-100);
+}
+
+.faq-still-opt strong {
+  display: block;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .faq-group-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-still-options {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+// FAQ category filtering
+const fctabs = document.querySelectorAll('.faq-cat-tab');
+const fgroups = document.querySelectorAll<HTMLElement>('.faq-group');
+
+fctabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const filter = (tab as HTMLElement).dataset.faqfilter;
+    fctabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    fgroups.forEach(g => {
+      g.style.display = (filter === 'all' || g.dataset.group === filter) ? '' : 'none';
+    });
+  });
+});
+
+// FAQ search
+const searchInput = document.getElementById('faq-search') as HTMLInputElement;
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    // Reset category tabs to "all"
+    fctabs.forEach(t => t.classList.remove('active'));
+    fctabs[0].classList.add('active');
+    fgroups.forEach(g => (g.style.display = ''));
+
+    const allItems = document.querySelectorAll<HTMLElement>('.faq-item');
+    if (!query) {
+      allItems.forEach(item => (item.style.display = ''));
+      return;
+    }
+    allItems.forEach(item => {
+      const text = item.textContent?.toLowerCase() ?? '';
+      item.style.display = text.includes(query) ? '' : 'none';
+    });
+    // Hide empty groups
+    fgroups.forEach(g => {
+      const visible = g.querySelectorAll('.faq-item:not([style*="display: none"])');
+      g.style.display = visible.length ? '' : 'none';
+    });
+  });
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement as HTMLElement;
+    const ans = item.querySelector('.faq-answer') as HTMLElement;
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll<HTMLElement>('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      const a = i.querySelector<HTMLElement>('.faq-answer');
+      if (a) a.style.maxHeight = '';
+    });
+    if (!isActive) {
+      item.classList.add('active');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll<HTMLElement>('.counter').forEach(c => {
+    const target = +(c.dataset.target || 0);
+    const duration = 2000;
+    const step = (target / duration) * 16;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        c.textContent = String(target);
+        clearInterval(timer);
+      } else {
+        c.textContent = String(Math.floor(current));
+      }
+    }, 16);
+  });
+}
+
+// Scroll reveal + trigger counters when stats bar is visible
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      if (entry.target.classList.contains('stats-bar')) {
+        animateCounters();
+      }
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>

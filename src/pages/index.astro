@@ -1,540 +1,1167 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<Layout 
-  title="DC technolabs - Web Design, Development, SEO & PPC Services in Ahmedabad"
-  description="Leading digital marketing agency in Ahmedabad specializing in professional web design, development, SEO, and PPC services. Transform your online presence with DC technolabs."
+<PageLayout 
+  title="DC technolabs — Web Design, SEO & Digital Marketing Agency in Ahmedabad"
+  description="DC technolabs is Ahmedabad's leading digital marketing agency. 945+ projects delivered. Web Design, SEO, PPC & E-commerce solutions starting ₹25,000. Get a free quote today."
 >
-  <Header />
-  
-  <!-- Add spacing for fixed header -->
-  <div style="height: 80px;"></div>
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>Transform Your Digital Presence in <span class="highlight">Ahmedabad</span></h1>
-          <p class="hero-subtitle">
-            Professional web design, development, SEO, and PPC services that drive real results for your business. Trusted by leading companies across Gujarat.
-          </p>
-          <div class="hero-cta">
-            <a href="/contact" class="btn btn-primary btn-large">Get Free Consultation</a>
-            <a href="/services" class="btn btn-secondary btn-large">View Our Services</a>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          100+ Clutch Awards · Trusted by 945+ Businesses
+        </div>
+        <h1>We Build Websites That <span class="highlight">Grow Your Business</span></h1>
+        <p class="hero-description">Ahmedabad's trusted digital marketing agency. From web design to SEO to PPC — we help local businesses get found online, generate leads, and increase revenue. 8+ years of proven results.</p>
+        <div class="hero-stats-row">
+          <div class="hero-stat">
+            <div class="hero-stat-number">945+</div>
+            <div class="hero-stat-label">Projects Delivered</div>
           </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>100+</strong>
-              <span>Projects Completed</span>
-            </div>
-            <div class="stat">
-              <strong>50+</strong>
-              <span>Happy Clients</span>
-            </div>
-            <div class="stat">
-              <strong>5+</strong>
-              <span>Years Experience</span>
-            </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">8+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">100+</div>
+            <div class="hero-stat-label">Clutch Awards</div>
           </div>
         </div>
-        <div class="hero-image">
-          <div class="hero-card">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M47.1,-57.1C59.9,-45.6,68.4,-29.2,71.8,-11.8C75.2,5.6,73.5,24,64.3,38.7C55.1,53.4,38.4,64.4,20.3,69.2C2.2,74,-17.3,72.6,-34.6,65.4C-51.9,58.2,-67,45.2,-74.4,28.6C-81.8,12,-81.5,-8.2,-74.8,-25.5C-68.1,-42.8,-55,-57.2,-39.8,-68.1C-24.6,-79,-12.3,-86.4,2.3,-89.2C16.9,-92,34.3,-68.6,47.1,-57.1Z" transform="translate(100 100)" />
+      </div>
+      <div class="hero-form-card" id="hero-form">
+        <h3 class="hero-form-title">Get Your Free Quote</h3>
+        <p class="hero-form-sub">Tell us about your project. We respond within 24 hours.</p>
+        <form action="https://formspree.io/f/xlgwbgdj" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" class="form-input" placeholder="John Patel" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" class="form-input" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>Service Interested In</label>
+            <select name="service" class="form-input" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Web Design</option>
+              <option>Web Development</option>
+              <option>SEO Services</option>
+              <option>PPC / Google Ads</option>
+              <option>E-commerce Development</option>
+              <option>WordPress Development</option>
+              <option>Shopify Development</option>
+              <option>Social Media Marketing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Brief Message</label>
+            <textarea name="message" class="form-input" placeholder="Tell us about your project..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            Send My Free Quote Request
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
             </svg>
-            <div class="card-content">
-              <h3>🚀 Ready to Grow?</h3>
-              <p>Let's build something amazing together</p>
-            </div>
-          </div>
-        </div>
+          </button>
+          <p class="form-note">No spam. No obligation. Just a conversation about growing your business.</p>
+        </form>
       </div>
     </div>
-  </section>
-  
-  <!-- Services Section -->
-  <section class="section services bg-secondary">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Services</h2>
-        <p>Comprehensive digital solutions tailored to your business needs</p>
-      </div>
+  </div>
+</section>
+
+<!-- CLIENTS BAR -->
+<section class="logos-bar">
+  <div class="container">
+    <div class="logos-bar-inner">
+      <span class="logos-bar-label">Trusted by</span>
+      <span class="client-name">Apollo Scooters</span>
+      <span class="client-name">Medivis</span>
+      <span class="client-name">Edunova</span>
+      <span class="client-name">CRONA Group</span>
+      <span class="client-name">NIS</span>
+      <span class="client-name">Idea Nuova</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services reveal" id="services">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Digital Services That Drive Real Results</h2>
+      <p class="section-subtitle">From stunning websites to dominant search rankings — everything your business needs to thrive online.</p>
+    </div>
+    
+    <div class="services-grid">
+      <!-- Web Design -->
+      <a href="/services/web-design" class="service-card">
+        <div class="service-icon blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Web Design</h3>
+        <p>Custom, conversion-focused websites that look stunning and drive leads. Mobile-first, fast-loading.</p>
+        <span class="service-link">
+          Starting ₹25,000
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
       
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-          </div>
-          <h3>Web Design</h3>
-          <p>Beautiful, responsive websites that engage your visitors and convert them into customers.</p>
-          <a href="/services/web-design" class="service-link">Learn More →</a>
+      <!-- Web Development -->
+      <a href="/services/web-development" class="service-card">
+        <div class="service-icon purple">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
         </div>
-        
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-          </div>
-          <h3>Web Development</h3>
-          <p>Custom web applications built with the latest technologies for optimal performance.</p>
-          <a href="/services/web-development" class="service-link">Learn More →</a>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
-          </div>
-          <h3>SEO Services</h3>
-          <p>Rank higher on Google and drive organic traffic to your website with proven SEO strategies.</p>
-          <a href="/services/seo" class="service-link">Learn More →</a>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="1" x2="12" y2="23"></line>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
-          <h3>PPC Management</h3>
-          <p>Maximize ROI with expertly managed Google Ads and Facebook advertising campaigns.</p>
-          <a href="/services/ppc" class="service-link">Learn More →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Why Choose Us Section -->
-  <section class="section why-choose">
-    <div class="container">
-      <div class="section-title">
-        <h2>Why Choose DC technolabs?</h2>
-        <p>We're more than just a digital agency - we're your growth partner</p>
-      </div>
+        <h3>Web Development</h3>
+        <p>Scalable, secure web applications built with modern technologies. Landing pages to complex platforms.</p>
+        <span class="service-link">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
       
-      <div class="features-grid">
-        <div class="feature">
-          <div class="feature-number">01</div>
-          <h3>Local Expertise</h3>
-          <p>Deep understanding of the Ahmedabad and Gujarat market with proven results for local businesses.</p>
+      <!-- SEO Services -->
+      <a href="/services/seo" class="service-card">
+        <div class="service-icon green">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
         </div>
-        
-        <div class="feature">
-          <div class="feature-number">02</div>
-          <h3>Proven Results</h3>
-          <p>Track record of delivering measurable improvements in traffic, rankings, and conversions.</p>
-        </div>
-        
-        <div class="feature">
-          <div class="feature-number">03</div>
-          <h3>Transparent Pricing</h3>
-          <p>No hidden fees. Clear, upfront pricing with packages designed for every budget.</p>
-        </div>
-        
-        <div class="feature">
-          <div class="feature-number">04</div>
-          <h3>Dedicated Support</h3>
-          <p>Direct access to your project team with quick response times and proactive communication.</p>
-        </div>
-        
-        <div class="feature">
-          <div class="feature-number">05</div>
-          <h3>Latest Technology</h3>
-          <p>We use cutting-edge tools and frameworks to build fast, secure, and scalable solutions.</p>
-        </div>
-        
-        <div class="feature">
-          <div class="feature-number">06</div>
-          <h3>Long-term Partnership</h3>
-          <p>We focus on sustainable growth strategies that deliver results month after month, year after year.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Service Areas Section -->
-  <section class="section service-areas bg-secondary">
-    <div class="container">
-      <div class="section-title">
-        <h2>Serving Businesses Across Gujarat</h2>
-        <p>Proudly providing digital marketing services throughout Gujarat</p>
-      </div>
+        <h3>SEO Services</h3>
+        <p>Get found on Google. Local SEO, technical audits, content strategy, and link building that ranks.</p>
+        <span class="service-link">
+          Starting ₹30,000/mo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
       
-      <div class="locations-grid">
-        <div class="location-card">
-          <h3>Ahmedabad</h3>
-          <p>Our home base, serving businesses across Satellite, Vastrapur, SG Highway, and all of Ahmedabad.</p>
-          <a href="/locations/ahmedabad" class="location-link">Learn More →</a>
+      <!-- PPC / Google Ads -->
+      <a href="/services/ppc" class="service-card">
+        <div class="service-icon amber">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
         </div>
-        
-        <div class="location-card">
-          <h3>Gandhinagar</h3>
-          <p>Supporting the capital city's growing business community with comprehensive digital solutions.</p>
-          <a href="/locations/gandhinagar" class="location-link">Learn More →</a>
+        <h3>PPC / Google Ads</h3>
+        <p>Targeted ad campaigns that bring ready-to-buy customers. Maximum ROI with transparent reporting.</p>
+        <span class="service-link">
+          Starting ₹35,000/mo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
+      
+      <!-- E-commerce -->
+      <a href="/services/ecommerce" class="service-card">
+        <div class="service-icon rose">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
         </div>
-        
-        <div class="location-card">
-          <h3>Surat</h3>
-          <p>Helping Surat businesses establish strong online presence and reach more customers.</p>
-          <a href="/locations/surat" class="location-link">Learn More →</a>
+        <h3>E-commerce Development</h3>
+        <p>Online stores that sell. Shopify, WooCommerce, or custom — with payment and inventory management.</p>
+        <span class="service-link">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
+      
+      <!-- WordPress -->
+      <a href="/services/wordpress" class="service-card">
+        <div class="service-icon teal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
         </div>
-        
-        <div class="location-card">
-          <h3>Vadodara</h3>
-          <p>Delivering exceptional web and marketing services to Vadodara's diverse business landscape.</p>
-          <a href="/locations/vadodara" class="location-link">Learn More →</a>
+        <h3>WordPress Development</h3>
+        <p>Custom WordPress sites you can update yourself. Plugins, themes, and performance optimization.</p>
+        <span class="service-link">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
+      
+      <!-- Shopify -->
+      <a href="/services/shopify" class="service-card">
+        <div class="service-icon indigo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <h3>Shopify Development</h3>
+        <p>Professional Shopify stores with custom themes, app integrations, and conversion optimization.</p>
+        <span class="service-link">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
+      
+      <!-- Social Media -->
+      <a href="/services/social-media" class="service-card">
+        <div class="service-icon orange">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </div>
+        <h3>Social Media Marketing</h3>
+        <p>Strategic social media campaigns that build your brand and drive engagement across all platforms.</p>
+        <span class="service-link">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+{/* SECTION 4: STATS COUNTER BAR */}
+<section class="stats-bar reveal">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="945">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="8">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="100">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Clutch Awards</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="20">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Team Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 5: WHY CHOOSE US */}
+<section class="why-us reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Why DC technolabs</span>
+      <h2 class="section-title">Why Ahmedabad Businesses Choose Us</h2>
+      <p class="section-subtitle">We're not just another agency. Here's what makes working with us different.</p>
+    </div>
+    <div class="why-us-grid">
+      <div class="why-card">
+        <div class="why-card-icon">🏠</div>
+        <h3>Local Business Expertise</h3>
+        <p>We understand Ahmedabad's market. From SG Highway startups to Satellite Road enterprises — we know what works for Gujarat businesses because we've done it 945+ times.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">💰</div>
+        <h3>Cost-Effective Services</h3>
+        <p>Premium quality without premium prices. Our web design starts at ₹25,000 — a fraction of what most agencies charge for the same quality. No hidden fees, ever.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">✅</div>
+        <h3>Value-Backed Guarantee</h3>
+        <p>We stand behind our work. If we don't deliver what we promise, we make it right. That's not a marketing line — it's how we've kept clients for 8+ years.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">⚡</div>
+        <h3>Fast Turnaround</h3>
+        <p>While other agencies take months, we deliver in weeks. Your website, SEO campaign, or ads — launched faster without cutting corners.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">📊</div>
+        <h3>Transparent Reporting</h3>
+        <p>No vague monthly reports. You see exactly where your money goes, what's working, and what we're doing next. Full access to all data, all the time.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🤝</div>
+        <h3>Dedicated Team</h3>
+        <p>You get a dedicated project manager and a team that knows your business. Not a revolving door of freelancers — the same faces who understand your goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 6: PROCESS */}
+<section class="process reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">How We Work</span>
+      <h2 class="section-title">Our Simple 4-Step Process</h2>
+      <p class="section-subtitle">No complexity, no jargon. Here's how we take you from idea to results.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <h3>Discovery Call</h3>
+        <p>We learn about your business, goals, and competition. No pressure, just a genuine conversation about how we can help.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <h3>Strategy & Proposal</h3>
+        <p>Within 24 hours, you receive a detailed plan with timelines, deliverables, and transparent pricing.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <h3>Build & Review</h3>
+        <p>Our team builds while you review. You see progress at every stage and approve before we move forward.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">4</div>
+        <h3>Launch & Grow</h3>
+        <p>We launch, monitor, and optimize. Ongoing support ensures your investment keeps delivering returns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 7: PORTFOLIO */}
+<section class="portfolio reveal" id="portfolio">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Projects That Speak For Themselves</h2>
+      <p class="section-subtitle">A selection from 945+ completed projects across web design, SEO, and digital marketing.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);padding:2rem">
+          <svg viewBox="0 0 200 120" fill="none">
+            <rect x="20" y="10" width="160" height="90" rx="8" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)"/>
+            <rect x="30" y="20" width="60" height="8" rx="4" fill="rgba(255,255,255,.3)"/>
+            <rect x="30" y="35" width="40" height="6" rx="3" fill="rgba(255,255,255,.15)"/>
+            <rect x="30" y="50" width="140" height="40" rx="6" fill="rgba(255,255,255,.08)"/>
+            <circle cx="50" cy="70" r="12" fill="rgba(96,165,250,.4)"/>
+            <rect x="70" y="62" width="80" height="6" rx="3" fill="rgba(255,255,255,.15)"/>
+            <rect x="70" y="74" width="50" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/>
+          </svg>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">E-commerce · Shopify</div>
+          <h3>Fashion Retail Store</h3>
+          <p>Complete Shopify store with custom theme and 40% increase in online sales.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#0f172a,#1d4ed8);padding:2rem">
+          <svg viewBox="0 0 200 120" fill="none">
+            <rect x="10" y="10" width="80" height="100" rx="6" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)"/>
+            <rect x="20" y="20" width="60" height="30" rx="4" fill="rgba(59,130,246,.3)"/>
+            <rect x="20" y="58" width="40" height="5" rx="2.5" fill="rgba(255,255,255,.2)"/>
+            <rect x="100" y="10" width="90" height="45" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+            <rect x="100" y="65" width="90" height="45" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+            <circle cx="145" cy="32" r="10" fill="rgba(245,158,11,.3)"/>
+          </svg>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Web Design · SEO</div>
+          <h3>Real Estate Agency</h3>
+          <p>Custom website with property listings and local SEO that tripled organic inquiries.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#1e293b,#0d9488);padding:2rem">
+          <svg viewBox="0 0 200 120" fill="none">
+            <rect x="20" y="15" width="160" height="90" rx="8" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)"/>
+            <path d="M40 85 L70 55 L100 65 L130 35 L160 45" stroke="rgba(16,185,129,.6)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="70" cy="55" r="4" fill="#10B981"/>
+            <circle cx="130" cy="35" r="4" fill="#10B981"/>
+            <rect x="30" y="20" width="50" height="7" rx="3.5" fill="rgba(255,255,255,.25)"/>
+          </svg>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">PPC · Landing Pages</div>
+          <h3>Healthcare Clinic</h3>
+          <p>Google Ads campaign with landing pages achieving 8.5x return on ad spend.</p>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!-- CTA Section -->
-  <section class="section cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Ready to Grow Your Business Online?</h2>
-        <p>Get a free consultation and discover how we can help you dominate your market in Ahmedabad.</p>
-        <div class="cta-buttons">
-          <a href="/contact" class="btn btn-accent btn-large">Get Free Consultation</a>
-          <a href="tel:+919662608986" class="btn btn-secondary btn-large">Call +91 96626-08986</a>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="/portfolio" class="btn btn-secondary" style="border:2px solid rgba(255,255,255,.3);color:var(--white);background:transparent">View All Projects →</a>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 8: TESTIMONIALS */}
+<section class="testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Don't take our word for it. Here's what business owners across Ahmedabad say.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          {[...Array(5)].map(() => (
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          ))}
         </div>
-        <p class="cta-note">⚡ Quick response • 💯 No obligation • 🎯 Tailored solutions</p>
+        <p class="testimonial-text">"DC technolabs completely transformed our online presence. Our website went from zero inquiries to 15+ leads per week. Best investment we've made."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RP</div>
+          <div>
+            <div class="testimonial-name">Rajesh Patel</div>
+            <div class="testimonial-role">CEO, Construction Company</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          {[...Array(5)].map(() => (
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          ))}
+        </div>
+        <p class="testimonial-text">"Their SEO work took us from page 5 to page 1 in 4 months. We now get calls from customers who found us on Google. Incredible team."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PS</div>
+          <div>
+            <div class="testimonial-name">Priya Shah</div>
+            <div class="testimonial-role">Owner, Dental Clinic</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          {[...Array(5)].map(() => (
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          ))}
+        </div>
+        <p class="testimonial-text">"What I appreciate most is their honesty. They told us exactly what would work. Our Google Ads campaign generates 6x returns consistently."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AM</div>
+          <div>
+            <div class="testimonial-name">Amit Mehta</div>
+            <div class="testimonial-role">Founder, SaaS Startup</div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-  
-  <Footer />
-</Layout>
+  </div>
+</section>
+
+{/* SECTION 9: INDUSTRIES */}
+<section class="industries reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Industries We Serve</span>
+      <h2 class="section-title">Experience Across Every Industry</h2>
+      <p class="section-subtitle">Results for businesses of all sizes, across all major industries in Gujarat.</p>
+    </div>
+    <div class="industries-flex">
+      {["Healthcare","Real Estate","E-commerce","Education","Manufacturing","Restaurants","Legal Services","Construction","Finance","Travel","Automotive","SaaS & Tech","Fashion","Non-Profit"].map(tag => (
+        <span class="industry-tag">{tag}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* SECTION 10: PRICING PREVIEW */}
+<section class="pricing reveal" id="pricing">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Transparent Pricing</span>
+      <h2 class="section-title">Simple, Honest Pricing</h2>
+      <p class="section-subtitle">No hidden fees. No long-term contracts. Just clear value for your investment.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Web Design</h3>
+        <p class="pricing-desc">Perfect for businesses that need a professional online presence.</p>
+        <div class="pricing-price">₹25,000 <span>starting</span></div>
+        <p class="pricing-note">One-time investment</p>
+        <ul class="pricing-features">
+          {["Custom responsive design","Up to 8 pages","Mobile-first design","SEO foundation","Contact forms & CTAs"].map(f => (
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <a href="#hero-form" class="btn btn-secondary">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <h3>SEO Services</h3>
+        <p class="pricing-desc">For businesses ready to dominate local search and get found.</p>
+        <div class="pricing-price">₹30,000 <span>/month</span></div>
+        <p class="pricing-note">Minimum 3-month commitment</p>
+        <ul class="pricing-features">
+          {["Full technical SEO audit","On-page optimization","Content creation (4 pages/mo)","Local SEO & Google Business","Monthly reporting & calls"].map(f => (
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <a href="#hero-form" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <h3>PPC / Google Ads</h3>
+        <p class="pricing-desc">For businesses that want leads immediately.</p>
+        <div class="pricing-price">₹35,000 <span>/month</span></div>
+        <p class="pricing-note">+ ad spend (managed separately)</p>
+        <ul class="pricing-features">
+          {["Campaign setup & management","Keyword research & targeting","Ad copy & landing pages","A/B testing & optimization","Weekly performance reports"].map(f => (
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <a href="#hero-form" class="btn btn-secondary">Get Started</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:.9rem;color:var(--gray-400)">Need a custom package? <a href="#hero-form" style="color:var(--blue-600);font-weight:600">Contact us</a> for a tailored proposal.</p>
+  </div>
+</section>
+
+{/* SECTION 11: BLOG PREVIEW */}
+<section class="blog-preview reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Insights & Resources</span>
+      <h2 class="section-title">Latest From Our Blog</h2>
+      <p class="section-subtitle">Practical guides to help your business grow online.</p>
+    </div>
+    <div class="blog-grid">
+      <a href="/blog/website-cost-ahmedabad" class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);padding:1.5rem">
+          <svg viewBox="0 0 200 120" fill="none">
+            <rect x="30" y="20" width="50" height="50" rx="6" fill="rgba(37,99,235,.15)"/>
+            <circle cx="55" cy="45" r="12" fill="rgba(37,99,235,.12)"/>
+            <rect x="100" y="20" width="70" height="8" rx="4" fill="rgba(37,99,235,.2)"/>
+            <rect x="100" y="36" width="60" height="6" rx="3" fill="rgba(37,99,235,.1)"/>
+            <rect x="100" y="50" width="70" height="6" rx="3" fill="rgba(37,99,235,.1)"/>
+            <rect x="100" y="64" width="45" height="6" rx="3" fill="rgba(37,99,235,.08)"/>
+          </svg>
+        </div>
+        <div class="blog-content">
+          <div class="blog-tag">Web Design</div>
+          <h3>How Much Does a Website Cost in Ahmedabad? [2025 Guide]</h3>
+          <p>A transparent breakdown of website costs for Ahmedabad businesses.</p>
+          <span class="blog-meta">8 min read</span>
+        </div>
+      </a>
+      <a href="/blog/ahmedabad-seo" class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#dbeafe,#e0e7ff);padding:1.5rem">
+          <svg viewBox="0 0 200 120" fill="none">
+            <circle cx="100" cy="55" r="35" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.2)" stroke-width="2"/>
+            <circle cx="100" cy="55" r="20" fill="rgba(37,99,235,.12)"/>
+            <line x1="125" y1="78" x2="145" y2="98" stroke="rgba(37,99,235,.3)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="blog-content">
+          <div class="blog-tag">SEO</div>
+          <h3>10 Reasons Your Ahmedabad Business Needs SEO in 2025</h3>
+          <p>Why search engine optimization isn't optional anymore.</p>
+          <span class="blog-meta">6 min read</span>
+        </div>
+      </a>
+      <a href="/blog/choose-web-design-company" class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#e0e7ff,#dbeafe);padding:1.5rem">
+          <svg viewBox="0 0 200 120" fill="none">
+            <rect x="40" y="15" width="120" height="80" rx="8" fill="rgba(67,56,202,.06)" stroke="rgba(67,56,202,.15)"/>
+            <rect x="55" y="30" width="90" height="8" rx="4" fill="rgba(67,56,202,.15)"/>
+            <rect x="55" y="48" width="70" height="5" rx="2.5" fill="rgba(67,56,202,.1)"/>
+            <rect x="55" y="60" width="80" height="5" rx="2.5" fill="rgba(67,56,202,.1)"/>
+            <rect x="55" y="72" width="50" height="5" rx="2.5" fill="rgba(67,56,202,.08)"/>
+          </svg>
+        </div>
+        <div class="blog-content">
+          <div class="blog-tag">Guide</div>
+          <h3>How to Choose a Web Design Company in Ahmedabad</h3>
+          <p>The 7 things to check before hiring a web design agency.</p>
+          <span class="blog-meta">10 min read</span>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="/blog" class="btn btn-secondary">View All Blog Posts →</a>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 12: FAQ */}
+<section class="faq reveal" id="faq">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Got questions? Straight answers. No jargon.</p>
+    </div>
+    <div class="faq-grid">
+      {[
+        { q: "How long does it take to build a website?", a: "Most websites are designed and launched within 2-4 weeks depending on complexity. Simple business sites can go live in 10 days. E-commerce takes 4-6 weeks." },
+        { q: "How much does SEO cost per month?", a: "SEO starts at ₹30,000/month. Exact cost depends on competition, target keywords, and aggressiveness. We recommend a plan during our discovery call." },
+        { q: "How long until I see SEO results?", a: "Ranking improvements typically appear within 60-90 days. Significant traffic increases by month 4-6. SEO compounds — the longer you invest, the stronger the returns." },
+        { q: "Do you work with small businesses?", a: "Absolutely. Small and medium businesses are our specialty. We've helped hundreds of Ahmedabad SMBs establish their online presence. Pricing is designed to be accessible." },
+        { q: "Can I update the website myself?", a: "Yes! WordPress and Shopify builds come with full access. We provide training and documentation. For custom builds, we offer affordable maintenance packages." },
+        { q: "What makes you different from others?", a: "Three things: We're local (Ahmedabad-based, understand Gujarat market), cost-effective (premium work at fair prices), and we guarantee our work. 100+ Clutch awards don't lie." },
+        { q: "Do you require long-term contracts?", a: "Web design is one-time, no obligation. SEO/PPC: minimum 3-month commitment because results take time. No year-long contracts — our work keeps you, not a contract." },
+        { q: "Will my website be mobile-friendly?", a: "Every website is mobile-first — designed for phones first, then scaled up. Over 70% of Indian web traffic is mobile. Your site will look perfect on every screen." },
+      ].map(item => (
+        <div class="faq-item">
+          <button class="faq-question">
+            {item.q}
+            <span class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">{item.a}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* SECTION 13: SERVICE AREA */}
+<section class="service-area reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Service Area</span>
+      <h2 class="section-title">Serving Businesses Across Gujarat</h2>
+      <p class="section-subtitle">Based in Ahmedabad, delivering results across the state.</p>
+    </div>
+    <div class="area-grid">
+      <a href="/locations/ahmedabad" class="area-card">
+        <div class="area-card-icon">📍</div>
+        <h3>Ahmedabad</h3>
+        <p>Our home base. Satellite, SG Highway, Prahlad Nagar, Vastrapur, Bodakdev, and every corner of the city.</p>
+        <span style="color:var(--blue-600);font-family:var(--font-display);font-weight:600;font-size:.9rem">Explore →</span>
+      </a>
+      <a href="/locations/gandhinagar" class="area-card">
+        <div class="area-card-icon">🏛️</div>
+        <h3>Gandhinagar</h3>
+        <p>Gujarat's capital. GIFT City, Infocity, and Sector 21 businesses trust us for their digital growth.</p>
+        <span style="color:var(--blue-600);font-family:var(--font-display);font-weight:600;font-size:.9rem">Explore →</span>
+      </a>
+      <a href="/locations/surat" class="area-card">
+        <div class="area-card-icon">💎</div>
+        <h3>Surat</h3>
+        <p>India's diamond city. Vesu, Adajan, and Athwa businesses growing online with us.</p>
+        <span style="color:var(--blue-600);font-family:var(--font-display);font-weight:600;font-size:.9rem">Explore →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 14: FINAL CTA */}
+<section class="final-cta" id="contact">
+  <div class="container">
+    <h2>Ready to Grow Your Business Online?</h2>
+    <p>Get a free, no-obligation quote. We respond within 24 hours with a detailed proposal and timeline.</p>
+    <div class="final-cta-actions">
+      <a href="#hero-form" class="btn btn-accent">Get Your Free Quote</a>
+      <a href="tel:+919662608986" class="btn btn-outline-light">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Call +91 9662608986
+      </a>
+    </div>
+  </div>
+</section>
 
 <style>
-  .hero {
-    padding: 4rem 0 5rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
-    position: relative;
-    overflow: hidden;
+/* Hero Section - From Approved HTML */
+.hero {
+  padding: 120px 0 clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue-700);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s var(--ease) both;
+}
+
+.hero-badge svg {
+  color: var(--blue-600);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.6s var(--ease) 0.1s both;
+}
+
+.hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--gray-500);
+  line-height: 1.75;
+  max-width: 540px;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s var(--ease) 0.2s both;
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: 2.5rem;
+  animation: fadeInUp 0.6s var(--ease) 0.3s both;
+}
+
+.hero-stat-number {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.hero-stat-label {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* Hero Form */
+.hero-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--gray-100);
+  animation: fadeInUp 0.6s var(--ease) 0.2s both;
+}
+
+.hero-form-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.hero-form-sub {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gray-800);
+  transition: all 0.2s var(--ease);
+  background: var(--gray-50);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--gray-400);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  margin-top: 0.75rem;
+}
+
+/* Logos Bar */
+.logos-bar {
+  padding: 3rem 0;
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--gray-50);
+}
+
+.logos-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.logos-bar-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.client-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  padding: 8px 20px;
+  border: 1px solid var(--gray-200);
+  border-radius: 9999px;
+  white-space: nowrap;
+  transition: all 0.3s var(--ease);
+}
+
+.client-name:hover {
+  color: var(--blue-600);
+  border-color: var(--blue-300);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
   }
-  
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .hero-text h1 {
-    font-size: clamp(2.5rem, 5vw, 3.75rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-  
-  .highlight {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-  
-  .btn-large {
-    padding: 1rem 2.5rem;
-    font-size: 1.125rem;
-  }
-  
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--border);
-  }
-  
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  
-  .stat strong {
-    font-size: 2rem;
-    color: var(--primary);
-    font-weight: 700;
-  }
-  
-  .stat span {
-    font-size: 0.875rem;
-    color: var(--text-light);
-  }
-  
-  .hero-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .hero-card {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1;
-  }
-  
-  .hero-card svg {
-    width: 100%;
-    height: 100%;
-    color: var(--primary);
-    opacity: 0.1;
-  }
-  
-  .card-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-content p {
-    color: var(--text-secondary);
-    margin: 0;
-  }
-  
+}
+
+/* Services Section */
+.services {
+  padding: var(--section-pad) 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  display: block;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--gray-100);
+  background: var(--white);
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-500), var(--blue-300));
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.service-card:hover {
+  border-color: var(--blue-200);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.08);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+}
+
+.service-icon.blue { background: var(--blue-50); color: var(--blue-600); }
+.service-icon.amber { background: #FEF3C7; color: var(--accent-dark); }
+.service-icon.green { background: #D1FAE5; color: #059669; }
+.service-icon.purple { background: #EDE9FE; color: #7C3AED; }
+.service-icon.rose { background: #FFE4E6; color: #E11D48; }
+.service-icon.teal { background: #CCFBF1; color: #0D9488; }
+.service-icon.indigo { background: #E0E7FF; color: #4338CA; }
+.service-icon.orange { background: #FFF7ED; color: #EA580C; }
+
+.service-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--gray-900);
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.service-link {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.service-link svg {
+  transition: transform 0.3s var(--ease);
+}
+
+.service-card:hover .service-link svg {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 110px 0 var(--section-pad);
   }
   
-  .service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-  }
-  
-  .service-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    color: white;
-  }
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .service-card p {
-    margin-bottom: 1.5rem;
-    color: var(--text-secondary);
-  }
-  
-  .service-link {
-    color: var(--primary);
-    font-weight: 600;
-    text-decoration: none;
-    transition: gap 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .service-link:hover {
-    gap: 0.75rem;
-  }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .hero-grid {
+    grid-template-columns: 1fr;
     gap: 2.5rem;
   }
   
-  .feature {
-    position: relative;
-    padding-left: 4rem;
+  .form-row {
+    grid-template-columns: 1fr;
   }
   
-  .feature-number {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary);
-    opacity: 0.2;
-  }
-  
-  .feature h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .feature p {
-    color: var(--text-secondary);
-    margin: 0;
-  }
-  
-  .locations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .location-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    border-left: 4px solid var(--primary);
-    transition: all 0.3s ease;
-  }
-  
-  .location-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .location-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--primary);
-  }
-  
-  .location-card p {
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
-  }
-  
-  .location-link {
-    color: var(--primary);
-    font-weight: 600;
-    text-decoration: none;
-    transition: gap 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .location-link:hover {
-    gap: 0.75rem;
-  }
-  
-  .cta-section {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-  }
-  
-  .cta-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .cta-content h2 {
-    color: white;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1rem;
-  }
-  
-  .cta-content > p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-  }
-  
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+  .hero-stats-row {
     flex-wrap: wrap;
   }
   
-  .cta-note {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    margin: 0;
+  .logos-bar-inner {
+    gap: 1.5rem;
   }
   
-  @media (max-width: 768px) {
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    .hero-image {
-      order: -1;
-    }
-    
-    .hero-stats {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    
-    .hero-cta,
-    .cta-buttons {
-      flex-direction: column;
-    }
-    
-    .btn-large {
-      width: 100%;
-    }
+  .services-grid {
+    grid-template-columns: 1fr;
   }
+}
 </style>
+<script>
+  function init() {
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (!btn || !answer) return;
+
+      btn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          const a = i.querySelector('.faq-answer');
+          if (a) a.style.maxHeight = '0px';
+        });
+
+        // Open this one if it was closed
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Counter Animation
+    let countersAnimated = false;
+    function animateCounters() {
+      if (countersAnimated) return;
+      countersAnimated = true;
+      document.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt(el.dataset.target, 10);
+        if (isNaN(target)) return;
+        const increment = target / (2000 / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            el.textContent = target;
+            clearInterval(timer);
+          } else {
+            el.textContent = Math.floor(current);
+          }
+        }, 16);
+      });
+    }
+
+    // Scroll Reveal + Stats trigger
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            if (e.target.classList.contains('stats-bar')) animateCounters();
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+      animateCounters();
+    }
+
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+</PageLayout>

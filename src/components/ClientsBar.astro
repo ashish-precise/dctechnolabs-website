@@ -1,0 +1,57 @@
+---
+// ClientsBar.astro — Reusable trusted clients logo bar
+// Usage: <ClientsBar />
+---
+
+<section class="clients-bar">
+  <div class="container">
+    <div class="clients-bar-inner">
+      <span class="clients-bar-label">Trusted by</span>
+      <span class="client-name">Apollo Scooters</span>
+      <span class="client-name">Medivis</span>
+      <span class="client-name">Edunova</span>
+      <span class="client-name">CRONA Group</span>
+      <span class="client-name">NIS</span>
+      <span class="client-name">Idea Nuova</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.clients-bar {
+  background: var(--white);
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 2.5rem 0;
+}
+.clients-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.clients-bar-label {
+  font-family: var(--font-display);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.client-name {
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  padding: 8px 20px;
+  border: 1px solid var(--gray-200);
+  border-radius: 9999px;
+  white-space: nowrap;
+  transition: all .3s var(--ease);
+}
+.client-name:hover {
+  color: var(--blue-600);
+  border-color: var(--blue-300);
+}
+</style>

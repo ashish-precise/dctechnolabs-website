@@ -1,132 +1,252 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Web Development Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Custom web development services in Ahmedabad — React, Node.js, Laravel, APIs, SaaS apps and portals.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "50000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    title: "Custom Web Applications",
+    desc: "Bespoke web apps built to your exact requirements — dashboards, portals, booking systems, SaaS products."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>`,
+    title: "Scalable Architecture",
+    desc: "Built to grow with your business. Clean, modular code that scales from 100 to 100,000 users without rebuilding."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: "API Development & Integration",
+    desc: "RESTful APIs, third-party integrations — payment gateways, CRMs, ERP systems, WhatsApp, Google services."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "Security & Performance",
+    desc: "OWASP-compliant security, encrypted data, optimized queries, CDN delivery. Fast and protected by default."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>`,
+    title: "Cloud Deployment",
+    desc: "Deployed on AWS, Google Cloud, or Vercel. CI/CD pipelines, auto-scaling, 99.9% uptime SLA."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Admin Panels & CMS",
+    desc: "Custom admin dashboards, role-based access, content management — full control without developer dependency."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "Our software idea has no technical co-founder", solution: "We act as your technical team. From architecture to deployment — we build your vision end to end." },
+  { problem: "Our current system can't handle growth", solution: "We audit your existing codebase and either refactor or rebuild with scalability as the primary goal." },
+  { problem: "We need integrations our developer can't figure out", solution: "Stripe, Razorpay, Shiprocket, Zoho, Salesforce — we've integrated them all and know every API quirk." },
+  { problem: "Our app crashes under load", solution: "We implement proper caching, load balancing, database indexing, and cloud auto-scaling to handle traffic spikes." },
+  { problem: "We can't update the app without a developer", solution: "We build admin panels so your team can manage users, content, orders, and settings without touching code." },
+  { problem: "Security concerns are blocking enterprise deals", solution: "We implement HTTPS, data encryption, audit logs, role-based permissions, and prepare SOC2/ISO documentation." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery & Scoping", desc: "We map every feature, user flow, and integration you need. Detailed scope document delivered within 48 hours of the call." },
+  { title: "Architecture & Design", desc: "Database schema, API design, tech stack selection, and UI wireframes. You approve the blueprint before we write a line of code." },
+  { title: "Sprints & Review", desc: "We build in 2-week sprints with a demo at each milestone. You see progress continuously, not just at the end." },
+  { title: "Launch & Handover", desc: "Deployment, stress testing, documentation, and knowledge transfer. Your team owns the codebase from day one." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Full source code & IP ownership", desc: "You own everything — no lock-in, no monthly ransom." },
+  { title: "Responsive frontend (React / Next.js)", desc: "Mobile-first, fast, accessible UI across all devices and browsers." },
+  { title: "Backend API & database", desc: "Node.js / Laravel / Python backend with PostgreSQL or MySQL." },
+  { title: "Admin panel & CMS", desc: "Role-based dashboard so your team can manage the product independently." },
+  { title: "Third-party integrations", desc: "Payment gateways, CRMs, shipping APIs, auth providers — fully connected." },
+  { title: "Cloud deployment & CI/CD", desc: "Live on AWS / GCP / Vercel with automated deployments on every push." },
+  { title: "Test coverage & documentation", desc: "Unit tests, API documentation (Postman/Swagger), and architecture docs." },
+  { title: "60 days post-launch support", desc: "Bug fixes, performance monitoring, and priority response for two months." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Source code ownership",        us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+  { feature: "Scalable architecture",        us: "✓", usClass: "check", agency: "✓", agencyClass: "check", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Dedicated project manager",    us: "✓", usClass: "check", agency: "✓", agencyClass: "check", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Transparent sprint billing",   us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+  { feature: "Post-launch support",          us: "60 days free", usClass: "check", agency: "Paid retainer", agencyClass: "cross", freelancer: "None", freelancerClass: "cross" },
+  { feature: "Full-stack capability",        us: "✓", usClass: "check", agency: "✓", agencyClass: "check", freelancer: "Varies", freelancerClass: "cross" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter App",
+    desc: "MVPs & simple web apps",
+    price: "₹50,000",
+    priceSuffix: "starting",
+    note: "Best for: Proof of concept, MVPs, internal tools",
+    features: ["Up to 5 core features", "Basic admin panel", "1 third-party integration", "Responsive frontend", "Cloud deployment", "30 days support"],
+    btnLabel: "Get a Quote",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Business App",
+    desc: "Full-featured web applications",
+    price: "₹1,50,000",
+    priceSuffix: "starting",
+    note: "Best for: B2B SaaS, booking platforms, portals",
+    features: ["Unlimited features (scoped)", "Custom admin dashboard", "Multiple integrations", "Role-based access control", "CI/CD pipeline", "API documentation", "60 days support"],
+    btnLabel: "Get a Quote",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    desc: "Complex platforms & SaaS products",
+    price: "Custom",
+    priceSuffix: "quote",
+    note: "Best for: Multi-tenant SaaS, enterprise systems",
+    features: ["End-to-end product development", "Microservices architecture", "SOC2 compliance prep", "Load testing & auto-scaling", "Dedicated tech lead", "Priority SLA", "Ongoing retainer available"],
+    btnLabel: "Talk to Us",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e40af)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="10" y="15" width="180" height="90" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><rect x="20" y="25" width="40" height="70" rx="4" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.3)"/><rect x="70" y="25" width="110" height="30" rx="4" fill="rgba(255,255,255,.08)"/><rect x="70" y="65" width="50" height="30" rx="4" fill="rgba(59,130,246,.2)"/><rect x="130" y="65" width="50" height="30" rx="4" fill="rgba(255,255,255,.05)"/></svg>`,
+    tag: "SaaS · React / Node.js",
+    title: "Project Management Platform",
+    desc: "Multi-tenant SaaS with task boards, time tracking, invoicing, and client portal. Scaled to 2,000+ users.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><circle cx="100" cy="60" r="40" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.3)" stroke-width="1.5"/><circle cx="100" cy="60" r="20" fill="rgba(16,185,129,.15)"/><rect x="20" y="20" width="50" height="8" rx="4" fill="rgba(255,255,255,.12)"/><rect x="130" y="90" width="50" height="8" rx="4" fill="rgba(255,255,255,.12)"/><line x1="60" y1="60" x2="80" y2="60" stroke="rgba(16,185,129,.5)" stroke-width="1.5"/><line x1="120" y1="60" x2="140" y2="60" stroke="rgba(16,185,129,.5)" stroke-width="1.5"/></svg>`,
+    tag: "Fintech · API Integration",
+    title: "Payment & Lending Portal",
+    desc: "NBFC lending platform with Razorpay, NACH mandates, credit scoring API, and real-time dashboards.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e1b4b,#4338ca)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="25" y="20" width="150" height="20" rx="4" fill="rgba(99,102,241,.2)"/><rect x="25" y="50" width="70" height="50" rx="4" fill="rgba(255,255,255,.05)"/><rect x="105" y="50" width="70" height="22" rx="4" fill="rgba(99,102,241,.15)"/><rect x="105" y="78" width="70" height="22" rx="4" fill="rgba(255,255,255,.05)"/></svg>`,
+    tag: "E-learning · Laravel / Vue",
+    title: "Online Training Platform",
+    desc: "LMS with video courses, quizzes, certificates, and instructor dashboards for a Gujarat-based training firm.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "The team delivered our entire SaaS MVP in 8 weeks. The code quality was excellent and they handed over full documentation. Couldn't ask for more.",
+    initials: "RK",
+    name: "Rohan Kapadia",
+    role: "Founder, SaaS Startup, Ahmedabad",
+  },
+  {
+    text: "We had a freelancer abandon our project halfway. DC technolabs picked it up, cleaned the mess, and delivered in 6 weeks. Absolute lifesavers.",
+    initials: "DM",
+    name: "Deepa Mehta",
+    role: "Director, EdTech Company",
+  },
+  {
+    text: "Our platform now handles 10,000 concurrent users without breaking a sweat. The architecture they designed is solid and scalable.",
+    initials: "SJ",
+    name: "Suresh Joshi",
+    role: "CTO, Fintech Startup, GIFT City",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "How much does custom web development cost?", a: "Projects start at ₹50,000 for simple apps and go up to ₹5,00,000+ for complex SaaS platforms. We scope every project individually and provide a fixed-price quote so there are no surprises." },
+  { q: "What tech stack do you use?", a: "Frontend: React, Next.js, Vue. Backend: Node.js, Laravel, Python/Django. Database: PostgreSQL, MySQL, MongoDB. Cloud: AWS, GCP, Vercel. We choose the best fit for your specific project." },
+  { q: "How long does development take?", a: "MVPs take 6–10 weeks. Full business apps take 12–20 weeks. Enterprise platforms are scoped individually. We use 2-week sprints so you see progress continuously." },
+  { q: "Do I own the source code?", a: "Yes, 100%. You own all code, databases, and IP from day one. No lock-in, no monthly ransom. We also provide full handover documentation." },
+  { q: "Can you take over an existing project?", a: "Yes. We frequently rescue abandoned or messy projects. We start with a code audit, create a remediation plan, and take it forward. It costs less than starting over." },
+  { q: "Do you work with non-technical founders?", a: "Absolutely — most of our clients are non-technical. We translate your business requirements into technical specs and keep communication jargon-free throughout." },
+  { q: "Can you build mobile apps too?", a: "We specialize in web apps that are mobile-responsive. For native iOS/Android apps, we build using React Native, which shares code between platforms and reduces cost." },
+  { q: "What happens after launch?", a: "60 days of free post-launch support is included. After that, we offer monthly maintenance retainers or per-request billing. We don't disappear after go-live." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/web-design", title: "Web Design", desc: "Need a beautiful frontend for your application? Our design team creates pixel-perfect, conversion-focused UI from scratch." },
+  { href: "/services/ecommerce", title: "E-commerce Development", desc: "Build a full online store on Shopify, WooCommerce, or custom stack with payment gateway and inventory management." },
+  { href: "/services/seo", title: "SEO Services", desc: "Once your app is live, get it ranking. Technical SEO, content strategy, and local optimization starting ₹30,000/month." },
+];
 ---
 
-<Layout 
-  title="Web Development Services in Ahmedabad | DC technolabs"
-  description="Custom web development services in Ahmedabad. E-commerce, WordPress, and custom web applications. Secure, scalable solutions for your business."
->
-  <Header />
-  <div style="height: 80px;"></div>
-  
-  <section class="page-hero">
-    <div class="container">
-      <h1>Web Development Services in Ahmedabad</h1>
-      <p class="hero-subtitle">Powerful, scalable web applications built with the latest technologies</p>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <h2>Build Robust Web Solutions That Scale</h2>
-      <p>From simple brochure websites to complex web applications, DC technolabs builds secure, fast, and scalable solutions using cutting-edge technologies. Based in Ahmedabad, we deliver world-class development services to businesses across Gujarat and beyond.</p>
-      
-      <h3>What's Included</h3>
-      <ul class="feature-list">
-        <li>Custom web application development tailored to your needs</li>
-        <li>E-commerce solutions (Shopify, WooCommerce, custom)</li>
-        <li>WordPress CMS development and customization</li>
-        <li>API integration and development</li>
-        <li>Database design and optimization</li>
-        <li>Progressive Web Apps (PWAs)</li>
-        <li>Payment gateway integration</li>
-        <li>Security implementation and SSL setup</li>
-        <li>Performance optimization</li>
-        <li>Ongoing maintenance and support</li>
-      </ul>
-      
-      <h3>Technologies We Use</h3>
-      <p><strong>Frontend:</strong> React, Vue.js, Astro, HTML5, CSS3, JavaScript</p>
-      <p><strong>Backend:</strong> Node.js, PHP, Python</p>
-      <p><strong>CMS:</strong> WordPress, Shopify, Custom Solutions</p>
-      <p><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB</p>
-      <p><strong>Hosting:</strong> AWS, Vercel, Cloudflare, cPanel</p>
-      
-      <h3>Our Services</h3>
-      <ul class="feature-list">
-        <li><strong>E-commerce Development:</strong> Build online stores that convert</li>
-        <li><strong>WordPress Development:</strong> Custom themes, plugins, and functionality</li>
-        <li><strong>Custom Web Applications:</strong> Tailored solutions for unique business needs</li>
-        <li><strong>API Development & Integration:</strong> Connect your systems seamlessly</li>
-        <li><strong>Website Migration:</strong> Move your site safely to a new platform</li>
-        <li><strong>Performance Optimization:</strong> Make your existing site lightning fast</li>
-      </ul>
-      
-      <h3>Pricing</h3>
-      <p>Web development projects start from ₹35,000. Complex applications and e-commerce sites are custom-quoted based on requirements.</p>
-      
-      <div class="cta-box">
-        <h3>Ready to Build Your Web Solution?</h3>
-        <p>Get a free consultation and detailed project estimate</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="/contact" class="btn btn-primary btn-large">Get Free Quote</a>
-          <a href="tel:+919662608986" class="btn btn-secondary btn-large">Call Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <Footer />
-</Layout>
+<ServicePageLayout
+  title="Web Development Services in Ahmedabad — Custom Apps & SaaS | DC technolabs"
+  description="Custom web development in Ahmedabad — React, Node.js, Laravel, SaaS apps, portals, APIs. 300+ projects delivered. Get a fixed-price quote from DC technolabs."
+  canonical="https://dctechnolabs.in/services/web-development"
+  schemaJson={schemaJson}
 
-<style>
-  .page-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
-    color: white;
-    text-align: center;
-  }
-  
-  .page-hero h1 {
-    color: white;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-  }
-  
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-  }
-  
-  .feature-list li {
-    padding: 1rem 0;
-    padding-left: 2.5rem;
-    position: relative;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .cta-box {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    padding: 3rem;
-    border-radius: 1rem;
-    text-align: center;
-    margin: 3rem 0;
-  }
-  
-  .cta-box h3 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .cta-box p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-  }
-</style>
+  badge="💻 Web Development Services"
+  heroH1="Custom Web Applications"
+  heroHighlight="Built to Scale Your Business"
+  heroDesc="From MVPs to enterprise SaaS platforms — we design, build, and deploy custom web applications for Ahmedabad businesses and startups. Full-stack development. You own the code. Starting at ₹50,000."
+  heroStats={[
+    { value: "300+", label: "Apps Delivered" },
+    { value: "100%", label: "Code Ownership" },
+    { value: "4–8",  label: "Weeks Delivery" },
+  ]}
+  formTitle="Get a Free Development Quote"
+  formSub="Describe your app. We'll scope it and reply in 24hrs."
+  formTypeLabel="What are you building?"
+  formTypeOptions={["Web application / SaaS", "API / backend system", "Admin panel / dashboard", "E-commerce platform", "Mobile app (React Native)", "Other"]}
+
+  s2Title="Everything You Get With Our Development"
+  s2Subtitle="End-to-end web development — from database to deployment."
+
+  s3Title="Development Problems We Solve"
+  s3Subtitle="If any of these sound familiar, we can help."
+
+  s4Title="Our Development Process"
+  s4Subtitle="Transparent sprints. No surprises. Working software every two weeks."
+
+  s5Title="What We Deliver"
+  s5Subtitle="Every engagement includes these deliverables as standard."
+
+  s6Title="How We Compare"
+  s6Subtitle="What sets us apart from typical agencies and freelancers."
+
+  s7Title="Development Packages"
+  s7Subtitle="Fixed-price scoping. No hourly ambiguity. No surprise invoices."
+
+  s8Title="Development Projects"
+  s8Subtitle="A selection from 300+ applications we've shipped."
+
+  s9Title="What Clients Say About Our Development"
+
+  s10Title="Web Development FAQs"
+
+  s11Title="Pair Development With"
+  s11Subtitle="Get more from your application with these complementary services."
+
+  comparisonStartingUs="₹50,000"
+  comparisonStartingAgency="₹1,50,000+"
+  comparisonStartingFreelancer="₹20–40K (risky)"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Build Something Great?"
+  ctaSubtitle="Get a free, fixed-price quote for your web application. We'll scope your project and tell you exactly what it will cost and how long it will take."
+  ctaAccentLabel="Get Your Free Quote"
+  ctaAccentHref="#hero-form"
+/>

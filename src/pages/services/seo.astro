@@ -1,151 +1,252 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "SEO Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "SEO services in Ahmedabad — local SEO, technical SEO, content strategy. Page 1 rankings for Ahmedabad businesses.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "30000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: "Local SEO & Google Maps",
+    desc: "Dominate 'near me' searches in Ahmedabad. Google Business Profile optimization, local citations, and map pack rankings."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Keyword Research & Strategy",
+    desc: "We find the exact phrases your customers type — commercial intent keywords that drive inquiries, not just traffic."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    title: "Technical SEO",
+    desc: "Site speed, crawlability, Core Web Vitals, schema markup, canonical tags — the technical foundation that lets you rank."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+    title: "Content Strategy & Writing",
+    desc: "SEO-optimized service pages, blogs, and landing pages that rank for valuable keywords and convert visitors into leads."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
+    title: "Link Building",
+    desc: "High-quality backlinks from Indian business directories, industry publications, and relevant local websites."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>`,
+    title: "Monthly Reporting",
+    desc: "Transparent dashboards showing keyword rankings, organic traffic, leads generated, and ROI — every single month."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "We're invisible on Google", solution: "We build a full SEO foundation — technical fixes, keyword targeting, and content — that gets you found by customers who are actively searching." },
+  { problem: "Our competitors are always above us", solution: "We analyse every competitor ranking above you, identify exactly why, and build a systematic strategy to overtake them within 3–6 months." },
+  { problem: "We get traffic but no leads", solution: "Traffic without conversions means wrong keywords or weak pages. We fix both — targeting commercial-intent keywords and optimizing landing pages." },
+  { problem: "We don't know what's working", solution: "Every campaign includes Google Analytics 4, Search Console setup, rank tracking, and a monthly report that shows exactly where your money is going." },
+  { problem: "Our old SEO agency disappeared", solution: "We've audited hundreds of sites 'optimised' by other agencies. We clean up penalties, recover lost rankings, and build a strategy that actually lasts." },
+  { problem: "We need more local customers", solution: "Local SEO and Google Maps optimization are our speciality. We've ranked dozens of Ahmedabad businesses in the map pack for high-intent local searches." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "SEO Audit", desc: "Complete technical audit, competitor analysis, and keyword research. You get a detailed report showing exactly what needs fixing and why." },
+  { title: "Strategy & Roadmap", desc: "We build a month-by-month SEO roadmap — technical fixes first, then content, then link building. Priorities based on maximum ROI." },
+  { title: "Execution", desc: "On-page optimization, technical fixes, content publishing, and link acquisition. Systematic, month-by-month execution against the plan." },
+  { title: "Track & Refine", desc: "Monthly rank tracking, traffic analysis, and strategy refinement. SEO compounds — results improve every month we work together." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Full SEO audit report", desc: "Technical issues, keyword gaps, competitor analysis — 50+ point audit." },
+  { title: "Keyword research & mapping", desc: "Primary, secondary, and local keywords mapped to every page." },
+  { title: "On-page optimization", desc: "Title tags, meta descriptions, headings, internal links, schema markup." },
+  { title: "Technical SEO fixes", desc: "Speed, Core Web Vitals, crawlability, mobile issues, canonical tags." },
+  { title: "Google Business Profile management", desc: "Profile optimization, posts, review responses, and local citation building." },
+  { title: "SEO content (2 pieces/month)", desc: "Service pages or blog posts targeting high-value keywords for your industry." },
+  { title: "Link building (5 links/month)", desc: "Quality backlinks from relevant Indian directories and industry publications." },
+  { title: "Monthly ranking & traffic report", desc: "Keyword positions, traffic growth, leads, and next-month priorities." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Local Ahmedabad SEO expertise", us: "✓", usClass: "check", agency: "Generic", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "Technical SEO included",        us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Content writing included",      us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Monthly transparent reporting", us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "No 12-month lock-in contract",  us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+  { feature: "Proven page 1 results",         us: "✓", usClass: "check", agency: "Varies", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Local SEO",
+    desc: "For local Ahmedabad businesses",
+    price: "₹30,000",
+    priceSuffix: "/month",
+    note: "Best for: Clinics, restaurants, shops, professionals",
+    features: ["Google Business Profile", "10 local keywords", "On-page optimization", "Local citation building", "Monthly report", "3-month minimum"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth SEO",
+    desc: "For competitive industries",
+    price: "₹55,000",
+    priceSuffix: "/month",
+    note: "Best for: E-commerce, SaaS, multi-service businesses",
+    features: ["30+ keywords tracked", "Technical SEO", "2 content pieces/month", "5 backlinks/month", "Competitor tracking", "Quarterly strategy calls", "Full monthly dashboard"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Authority SEO",
+    desc: "For market leaders",
+    price: "₹1,00,000",
+    priceSuffix: "/month",
+    note: "Best for: Enterprises, high-competition niches",
+    features: ["Unlimited keywords", "Full technical audit monthly", "4+ content pieces", "10+ backlinks", "PR & digital outreach", "Dedicated SEO strategist", "Weekly reports"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e3a5f)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="20" width="170" height="80" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="25" y="30" width="60" height="8" rx="4" fill="rgba(59,130,246,.4)"/><rect x="25" y="48" width="150" height="6" rx="3" fill="rgba(255,255,255,.1)"/><rect x="25" y="62" width="130" height="6" rx="3" fill="rgba(255,255,255,.08)"/><rect x="25" y="76" width="90" height="6" rx="3" fill="rgba(255,255,255,.06)"/><rect x="130" y="28" width="45" height="20" rx="4" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.4)"/><text x="152" y="42" text-anchor="middle" font-size="8" fill="rgba(16,185,129,.8)" font-family="system-ui">#1</text></svg>`,
+    tag: "Healthcare · Local SEO",
+    title: "Dental Clinic, Satellite",
+    desc: "From page 5 to #1 in 4 months for 'dentist in Satellite Ahmedabad'. 12x increase in appointment inquiries.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#1d4ed8)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><path d="M30 90 L50 60 L70 70 L90 40 L110 50 L130 20 L150 35 L170 25" stroke="rgba(59,130,246,.6)" stroke-width="2" fill="none"/><circle cx="130" cy="20" r="5" fill="rgba(59,130,246,.8)"/><rect x="15" y="95" width="170" height="1" fill="rgba(255,255,255,.1)"/></svg>`,
+    tag: "E-commerce · National SEO",
+    title: "Textile Exporter, Ahmedabad",
+    desc: "350% increase in organic traffic in 6 months. Ranking page 1 for 45 product keywords across India.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><circle cx="100" cy="60" r="35" fill="rgba(167,139,250,.08)" stroke="rgba(167,139,250,.3)" stroke-width="1.5"/><circle cx="100" cy="60" r="20" fill="rgba(167,139,250,.12)"/><circle cx="100" cy="60" r="8" fill="rgba(167,139,250,.4)"/><text x="100" y="64" text-anchor="middle" font-size="7" fill="rgba(167,139,250,.9)" font-family="system-ui">LOCAL</text></svg>`,
+    tag: "Legal · Google Maps SEO",
+    title: "Law Firm, Navrangpura",
+    desc: "Ranked in Google Maps top 3 for 'lawyer in Ahmedabad'. 200% more consultation calls within 90 days.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Their SEO took us from page 5 to page 1 in 4 months. We now get 15 new patient inquiries per week from Google alone. Best investment we've made.",
+    initials: "PS",
+    name: "Priya Shah",
+    role: "Dental Clinic, Satellite, Ahmedabad",
+  },
+  {
+    text: "We were spending lakhs on Google Ads because organic wasn't working. After 6 months with DC technolabs, organic now brings 60% of our leads.",
+    initials: "VB",
+    name: "Vijay Banker",
+    role: "Textile Export, Ahmedabad",
+  },
+  {
+    text: "Transparent reporting every month. I know exactly which keywords moved, how much traffic increased, and what's planned next. No other agency gave us this.",
+    initials: "SP",
+    name: "Sunita Patel",
+    role: "Real Estate Agency, SG Highway",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "How long does SEO take to show results?", a: "Technical fixes and on-page improvements show results in 4–8 weeks. Competitive keyword rankings typically take 3–6 months. Local SEO (Google Maps) is faster — often 6–10 weeks. SEO compounds over time — the longer we work together, the stronger your results." },
+  { q: "What's included in your monthly SEO retainer?", a: "Keyword tracking, on-page optimization, technical audits, content creation (2 pieces), link building (5 links), Google Business Profile management, and a detailed monthly report. Everything is included — no à la carte surprises." },
+  { q: "Do you guarantee page 1 rankings?", a: "No ethical SEO agency guarantees rankings — Google controls that. What we guarantee is best-practice execution, transparent reporting, and measurable progress month-over-month. We have a strong track record of page 1 results across dozens of Ahmedabad businesses." },
+  { q: "What's the minimum commitment?", a: "3 months for Local SEO, 6 months for Growth and Authority plans. SEO is a compounding investment — results take time to build. We don't do month-to-month because it's not enough time to show meaningful results." },
+  { q: "Can you fix a Google penalty?", a: "Yes. We've recovered sites from both manual and algorithmic penalties. We start with a full backlink audit, disavow toxic links, fix on-page violations, and submit a reconsideration request to Google where needed." },
+  { q: "Do you do e-commerce SEO?", a: "Absolutely. Product page optimization, category SEO, structured data for products, and national keyword targeting for Indian e-commerce are all part of our Growth and Authority plans." },
+  { q: "Can you handle multilingual SEO (Gujarati + English)?", a: "Yes. For businesses targeting Gujarati-speaking customers locally, we optimize for Gujarati language queries and set up hreflang correctly so Google serves the right language version." },
+  { q: "How is your SEO different from what I've tried before?", a: "Most agencies do surface-level keyword stuffing. We build SEO from the technical foundation up — fixing crawlability, improving site speed, creating genuinely useful content, and earning real backlinks. It takes longer but the results are permanent." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/web-design", title: "Web Design", desc: "SEO works best with a fast, well-structured website. We build sites optimized for Google from the ground up. Starting ₹25,000." },
+  { href: "/services/ppc", title: "PPC / Google Ads", desc: "While SEO builds, PPC delivers immediate traffic. Run both together for maximum lead flow. Starting ₹35,000/month." },
+  { href: "/services/social-media", title: "Social Media Marketing", desc: "Amplify your content and build brand awareness alongside your organic search growth. Starting ₹20,000/month." },
+];
 ---
 
-<Layout 
-  title="SEO Services in Ahmedabad | Rank Higher on Google | DC technolabs"
-  description="Professional SEO services in Ahmedabad. Rank higher on Google, drive organic traffic, and grow your business. Local SEO experts with proven results."
->
-  <Header />
-  <div style="height: 80px;"></div>
-  
-  <section class="page-hero">
-    <div class="container">
-      <h1>SEO Services in Ahmedabad</h1>
-      <p class="hero-subtitle">Rank higher on Google and get more customers organically</p>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <h2>Drive Organic Traffic with Proven SEO Strategies</h2>
-      <p>Get found by customers actively searching for your services in Ahmedabad and across Gujarat. Our data-driven SEO strategies help you rank higher on Google, increase organic traffic, and generate qualified leads consistently.</p>
-      
-      <h3>What's Included in Our SEO Service</h3>
-      <ul class="feature-list">
-        <li><strong>Comprehensive SEO Audit:</strong> In-depth analysis of your current rankings and opportunities</li>
-        <li><strong>Keyword Research & Strategy:</strong> Identify high-value keywords your customers are searching</li>
-        <li><strong>On-Page Optimization:</strong> Optimize titles, meta descriptions, headings, and content</li>
-        <li><strong>Local SEO for Ahmedabad:</strong> Dominate local search results and Google Maps</li>
-        <li><strong>Content Optimization:</strong> SEO-friendly content that ranks and converts</li>
-        <li><strong>Technical SEO:</strong> Fix crawl errors, improve site speed, mobile optimization</li>
-        <li><strong>Link Building:</strong> Build high-quality backlinks to increase authority</li>
-        <li><strong>Google Business Profile Optimization:</strong> Maximize local visibility</li>
-        <li><strong>Competitor Analysis:</strong> Learn from and outrank your competition</li>
-        <li><strong>Monthly Reporting:</strong> Detailed analytics showing your progress</li>
-      </ul>
-      
-      <h3>Our SEO Process</h3>
-      <ol style="margin: 2rem 0; padding-left: 1.5rem; line-height: 2;">
-        <li><strong>Website Audit:</strong> Identify technical issues and opportunities</li>
-        <li><strong>Keyword Research:</strong> Find profitable keywords in your niche</li>
-        <li><strong>Strategy Development:</strong> Create custom roadmap for your business</li>
-        <li><strong>On-Page Optimization:</strong> Optimize existing content and structure</li>
-        <li><strong>Content Creation:</strong> Publish SEO-optimized content regularly</li>
-        <li><strong>Link Building:</strong> Earn quality backlinks to boost authority</li>
-        <li><strong>Track & Refine:</strong> Monitor results and continuously improve</li>
-      </ol>
-      
-      <h3>Why Choose DC technolabs for SEO?</h3>
-      <ul class="feature-list">
-        <li><strong>Local Market Expertise:</strong> Deep understanding of Ahmedabad and Gujarat market</li>
-        <li><strong>Proven Track Record:</strong> Consistent results for clients across industries</li>
-        <li><strong>White Hat Techniques:</strong> Only ethical, Google-approved strategies</li>
-        <li><strong>Transparent Reporting:</strong> See exactly what we're doing and results achieved</li>
-        <li><strong>Long-term Focus:</strong> Build sustainable rankings, not quick fixes</li>
-        <li><strong>Dedicated SEO Team:</strong> Experienced specialists managing your campaign</li>
-      </ul>
-      
-      <h3>SEO Pricing</h3>
-      <p><strong>Local SEO Package:</strong> Starting from ₹15,000/month</p>
-      <p><strong>Standard SEO Package:</strong> Starting from ₹25,000/month</p>
-      <p><strong>Enterprise SEO:</strong> Custom pricing for large-scale campaigns</p>
-      <p style="font-size: 0.95rem; color: var(--text-light);">*Prices vary based on competition level, target keywords, and market size</p>
-      
-      <h3>Common Questions About SEO</h3>
-      <div style="margin: 2rem 0;">
-        <h4>How long does SEO take to show results?</h4>
-        <p>Typically 3-6 months to see significant improvements. SEO is a long-term investment that compounds over time.</p>
-        
-        <h4>Do you guarantee #1 rankings?</h4>
-        <p>No ethical SEO company can guarantee specific rankings. We focus on improving visibility, traffic, and conversions through proven strategies.</p>
-        
-        <h4>What's the difference between local and standard SEO?</h4>
-        <p>Local SEO focuses on ranking in Ahmedabad and nearby areas. Standard SEO targets broader, national keywords.</p>
-      </div>
-      
-      <div class="cta-box">
-        <h3>Ready to Rank Higher on Google?</h3>
-        <p>Get a free SEO audit and custom strategy for your business</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="/contact" class="btn btn-primary btn-large">Get Free SEO Audit</a>
-          <a href="tel:+919662608986" class="btn btn-secondary btn-large">Call +91 96626-08986</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <Footer />
-</Layout>
+<ServicePageLayout
+  title="SEO Services in Ahmedabad — Page 1 Rankings | DC technolabs"
+  description="SEO services in Ahmedabad starting ₹30,000/month. Local SEO, technical SEO, content, link building. 200+ campaigns. Page 1 results for Ahmedabad businesses."
+  canonical="https://dctechnolabs.in/services/seo"
+  schemaJson={schemaJson}
 
-<style>
-  .page-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
-    color: white;
-    text-align: center;
-  }
-  
-  .page-hero h1 {
-    color: white;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-  }
-  
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-  }
-  
-  .feature-list li {
-    padding: 1rem 0;
-    padding-left: 2.5rem;
-    position: relative;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .cta-box {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    padding: 3rem;
-    border-radius: 1rem;
-    text-align: center;
-    margin: 3rem 0;
-  }
-  
-  .cta-box h3 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .cta-box p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-  }
-</style>
+  badge="🔍 SEO Services"
+  heroH1="Rank on Page 1."
+  heroHighlight="Get Found by Customers Who Are Already Searching."
+  heroDesc="Local SEO, technical optimization, and content strategy for Ahmedabad businesses. We've taken 200+ campaigns to page 1. If your customers can't find you on Google, your competitors are getting those leads. Starting ₹30,000/month."
+  heroStats={[
+    { value: "200+", label: "Campaigns Managed" },
+    { value: "Page 1", label: "Avg. Outcome" },
+    { value: "3–6", label: "Months to Results" },
+  ]}
+  formTitle="Get a Free SEO Audit"
+  formSub="We'll analyse your site and tell you exactly what's holding you back."
+  formTypeLabel="What do you need?"
+  formTypeOptions={["Local SEO (Ahmedabad area)", "National / e-commerce SEO", "Technical SEO audit", "Google Maps ranking", "Content strategy", "Penalty recovery"]}
+
+  s2Title="What's Included in Our SEO Service"
+  s2Subtitle="Full-spectrum SEO — not just keywords, but the complete picture."
+
+  s3Title="SEO Problems We Fix Every Day"
+  s3Subtitle="If any of these sound like your situation, we can help."
+
+  s4Title="Our SEO Process"
+  s4Subtitle="Systematic execution, not guesswork. Results compound month by month."
+
+  s5Title="Your Monthly SEO Deliverables"
+  s5Subtitle="Everything you receive every month, without hidden extras."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why Ahmedabad businesses choose DC technolabs over other SEO providers."
+
+  s7Title="SEO Packages"
+  s7Subtitle="Transparent monthly pricing. No lock-in beyond minimum commitment."
+
+  s8Title="SEO Results"
+  s8Subtitle="Real results for real Ahmedabad businesses."
+
+  s9Title="What Our SEO Clients Say"
+
+  s10Title="SEO Questions Answered"
+
+  s11Title="Supercharge Your SEO With"
+  s11Subtitle="SEO works best alongside these complementary services."
+
+  comparisonStartingUs="₹30,000/mo"
+  comparisonStartingAgency="₹60,000+/mo"
+  comparisonStartingFreelancer="₹8–15K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Rank on Page 1?"
+  ctaSubtitle="Get a free SEO audit for your website. We'll show you exactly what's holding you back and what it'll take to reach page 1 — no obligation."
+  ctaAccentLabel="Get Your Free SEO Audit"
+  ctaAccentHref="#hero-form"
+/>

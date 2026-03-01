@@ -1,0 +1,1120 @@
+---
+// src/pages/blog/index.astro
+// DC technolabs v2 — Blog Listing Page
+// 10 sections: Hero, Filters, Featured Post, Blog Grid, Newsletter,
+//               Topics, Stats Bar, CTA Dark, FAQ, Final CTA
+
+import PageLayout from '../../layouts/PageLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+---
+
+<PageLayout
+  title="Blog | Digital Marketing Tips & Insights | DC technolabs"
+  description="Expert tips on web design, SEO, PPC, social media, and e-commerce from DC technolabs Ahmedabad. Actionable guides for Gujarat businesses."
+  canonical="https://dctechnolabs.in/blog"
+>
+
+<!-- ========================================================
+  SECTION 1: HERO (LEFT-ALIGNED, no stats)
+======================================================== -->
+<section class="blog-hero">
+  <div class="container">
+    <span class="section-label">Blog</span>
+    <h1>Insights That <span class="highlight">Actually Help.</span></h1>
+    <p class="blog-hero-desc">
+      Practical digital marketing advice for businesses in Ahmedabad and beyond.
+      No jargon, no fluff. Just strategies that work, written by the team that
+      implements them every day.
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 2: FILTER TABS (centered, NOT sticky)
+======================================================== -->
+<section class="blog-filters-section">
+  <div class="container">
+    <div class="blog-filters">
+      <button class="blog-tab active" data-filter="all">All Posts</button>
+      <button class="blog-tab" data-filter="seo">SEO</button>
+      <button class="blog-tab" data-filter="web-design">Web Design</button>
+      <button class="blog-tab" data-filter="ppc">PPC</button>
+      <button class="blog-tab" data-filter="ecommerce">E-commerce</button>
+      <button class="blog-tab" data-filter="social">Social Media</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 3: FEATURED POST (2-column: image left, content right)
+======================================================== -->
+<section class="blog-featured-section">
+  <div class="container">
+    <a
+      href="/blog/seo-mistakes-ahmedabad-businesses-2025"
+      class="blog-featured"
+      data-cat="seo"
+    >
+      <div
+        class="featured-image"
+        style="background: linear-gradient(135deg, #1e293b 0%, #0d9488 100%);"
+      >
+        <span class="featured-badge">Latest Post</span>
+        <span class="blog-emoji">🔍</span>
+      </div>
+
+      <div class="featured-content">
+        <span class="featured-cat">SEO</span>
+        <h2>10 SEO Mistakes Ahmedabad Businesses Still Make in 2025</h2>
+        <p>
+          Most local businesses lose rankings because of these common errors.
+          Here's how to fix each one and start climbing Google.
+        </p>
+        <div class="featured-meta">
+          <span>📅 Feb 20, 2025</span>
+          <span>⏱️ 8 min read</span>
+        </div>
+        <span class="btn btn-primary">Read Article →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 4: BLOG GRID (8 cards, 3-column)
+======================================================== -->
+<section class="blog-grid-section">
+  <div class="container">
+    <div class="blog-grid">
+
+      <!-- Card 1: Web Design -->
+      <a href="/blog/website-cost-india-2025" class="blog-card" data-cat="web-design">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);">
+          <span class="blog-emoji">🎨</span>
+          <span class="blog-cat-pill">Web Design</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>How Much Does a Website Cost in India? 2025 Guide</h3>
+          <p class="blog-desc">Complete breakdown of website development costs in India, from basic landing pages to complex e-commerce platforms.</p>
+          <div class="blog-meta">
+            <span>📅 Feb 15</span>
+            <span>⏱️ 12 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: PPC -->
+      <a href="/blog/google-ads-vs-facebook-ads-gujarat" class="blog-card" data-cat="ppc">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #312e81 0%, #7c3aed 100%);">
+          <span class="blog-emoji">📊</span>
+          <span class="blog-cat-pill">PPC</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>Google Ads vs Facebook Ads: Which Works Better for Gujarat Businesses?</h3>
+          <p class="blog-desc">Data-backed comparison of both platforms for local businesses, with real ROI numbers from Gujarat campaigns.</p>
+          <div class="blog-meta">
+            <span>📅 Feb 10</span>
+            <span>⏱️ 10 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: E-commerce -->
+      <a href="/blog/shopify-vs-woocommerce-2025" class="blog-card" data-cat="ecommerce">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #065f46 0%, #059669 100%);">
+          <span class="blog-emoji">🛒</span>
+          <span class="blog-cat-pill">E-commerce</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>Shopify vs WooCommerce: Which Platform Is Right for Your Store?</h3>
+          <p class="blog-desc">Detailed comparison covering pricing, features, ease of use, and which platform suits Indian businesses better.</p>
+          <div class="blog-meta">
+            <span>📅 Feb 5</span>
+            <span>⏱️ 9 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4: Social Media -->
+      <a href="/blog/instagram-reels-strategy-2025" class="blog-card" data-cat="social">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #831843 0%, #ec4899 100%);">
+          <span class="blog-emoji">📱</span>
+          <span class="blog-cat-pill">Social Media</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>Instagram Reels Strategy for Small Businesses in 2025</h3>
+          <p class="blog-desc">Step-by-step guide to creating Reels that actually drive traffic and sales for local Gujarat businesses.</p>
+          <div class="blog-meta">
+            <span>📅 Jan 28</span>
+            <span>⏱️ 7 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 5: Web Design -->
+      <a href="/blog/fix-slow-website-loading" class="blog-card" data-cat="web-design">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%);">
+          <span class="blog-emoji">🔧</span>
+          <span class="blog-cat-pill">Web Design</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>Why Your Website Loads Slowly (And How to Fix It Today)</h3>
+          <p class="blog-desc">Common causes of slow websites and practical fixes you can implement today to improve loading speed and Core Web Vitals.</p>
+          <div class="blog-meta">
+            <span>📅 Jan 22</span>
+            <span>⏱️ 6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 6: SEO -->
+      <a href="/blog/local-seo-checklist-ahmedabad" class="blog-card" data-cat="seo">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);">
+          <span class="blog-emoji">📈</span>
+          <span class="blog-cat-pill">SEO</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>Local SEO Checklist: How to Rank #1 in Ahmedabad</h3>
+          <p class="blog-desc">Complete checklist for dominating local search results in Ahmedabad, from Google My Business to local link building.</p>
+          <div class="blog-meta">
+            <span>📅 Jan 15</span>
+            <span>⏱️ 11 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 7: PPC -->
+      <a href="/blog/reduce-google-ads-cost-per-lead" class="blog-card" data-cat="ppc">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #4a1d96 0%, #8b5cf6 100%);">
+          <span class="blog-emoji">💰</span>
+          <span class="blog-cat-pill">PPC</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>How to Reduce Google Ads Cost Per Lead by 40%</h3>
+          <p class="blog-desc">Proven strategies to cut your Google Ads costs while maintaining or improving lead quality and conversion rates.</p>
+          <div class="blog-meta">
+            <span>📅 Jan 10</span>
+            <span>⏱️ 8 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 8: E-commerce -->
+      <a href="/blog/razorpay-shopify-setup-guide" class="blog-card" data-cat="ecommerce">
+        <div class="blog-card-image" style="background: linear-gradient(135deg, #065f46 0%, #10b981 100%);">
+          <span class="blog-emoji">🏪</span>
+          <span class="blog-cat-pill">E-commerce</span>
+        </div>
+        <div class="blog-card-body">
+          <h3>Setting Up Razorpay on Your Shopify Store: Complete Guide</h3>
+          <p class="blog-desc">Step-by-step tutorial for integrating Razorpay payment gateway on Shopify for Indian e-commerce stores.</p>
+          <div class="blog-meta">
+            <span>📅 Jan 5</span>
+            <span>⏱️ 7 min</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 5: STATS BAR (moved here — breaks white sections,
+  dark CTA later stays visually distinct)
+======================================================== -->
+<StatsBar />
+
+
+<!-- ========================================================
+  SECTION 6: NEWSLETTER SIGNUP
+======================================================== -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Stay Updated</span>
+      <h2 class="section-title">Get Digital Marketing Tips in Your Inbox</h2>
+      <p class="section-subtitle">
+        One email per week with actionable tips, case studies, and industry
+        updates. No spam, unsubscribe anytime.
+      </p>
+    </div>
+
+    <form
+      class="newsletter-form"
+      onsubmit="event.preventDefault(); alert('Newsletter signup coming soon!');"
+    >
+      <input
+        type="email"
+        class="newsletter-input"
+        placeholder="Enter your email address"
+        required
+      />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 6: TOPICS WE COVER
+======================================================== -->
+<section class="topics-section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Topics We Cover</span>
+      <h2 class="section-title">Explore by Category</h2>
+    </div>
+
+    <div class="topics-grid">
+      <a href="/blog?cat=seo" class="topic-card">
+        <div class="topic-icon">🔍</div>
+        <h3>SEO</h3>
+        <p>Rankings, keywords, local SEO</p>
+      </a>
+
+      <a href="/blog?cat=web-design" class="topic-card">
+        <div class="topic-icon">🎨</div>
+        <h3>Web Design</h3>
+        <p>Design, UX, speed, conversions</p>
+      </a>
+
+      <a href="/blog?cat=ppc" class="topic-card">
+        <div class="topic-icon">📊</div>
+        <h3>PPC / Google Ads</h3>
+        <p>Ad strategy, ROAS, campaigns</p>
+      </a>
+
+      <a href="/blog?cat=ecommerce" class="topic-card">
+        <div class="topic-icon">🛒</div>
+        <h3>E-commerce</h3>
+        <p>Shopify, WooCommerce, payments</p>
+      </a>
+
+      <a href="/blog?cat=social" class="topic-card">
+        <div class="topic-icon">📱</div>
+        <h3>Social Media</h3>
+        <p>Instagram, Facebook, content</p>
+      </a>
+
+      <a href="/blog?cat=business" class="topic-card">
+        <div class="topic-icon">💼</div>
+        <h3>Business Growth</h3>
+        <p>Strategy, scaling, operations</p>
+      </a>
+
+      <a href="/blog?cat=tools" class="topic-card">
+        <div class="topic-icon">🔧</div>
+        <h3>Tools &amp; Tech</h3>
+        <p>Analytics, platforms, tutorials</p>
+      </a>
+
+      <a href="/blog?cat=case-studies" class="topic-card">
+        <div class="topic-icon">📈</div>
+        <h3>Case Studies</h3>
+        <p>Real results, client stories</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 8: CTA DARK
+======================================================== -->
+<section class="cta-dark">
+  <div class="container">
+    <div class="cta-dark-inner">
+      <div class="cta-dark-label-wrap">
+        <span class="section-label light">Need Expert Help?</span>
+      </div>
+      <h2>Reading Is Good. Results Are Better.</h2>
+      <p>Our blog gives you the knowledge. Our team gives you the execution.</p>
+      <div class="cta-dark-actions">
+        <a href="/contact" class="btn btn-accent">Get a Free Consultation</a>
+        <a href="/portfolio" class="btn btn-outline-light">See Our Work →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 9: FAQ
+======================================================== -->
+<section class="blog-faq-section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Blog Questions</span>
+      <h2 class="section-title">About Our Blog</h2>
+    </div>
+
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>How often do you publish new articles?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body">
+          <p>We publish new articles every week, usually on Tuesdays. Our team covers a mix of SEO, web design, PPC, e-commerce, and social media topics to keep your digital marketing knowledge fresh and relevant.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Can I suggest a topic for the blog?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body">
+          <p>Absolutely. We love hearing from readers. If you have a topic you'd like us to cover, send us a message through the contact page. We prioritize topics that our audience asks for most frequently.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Are these strategies specific to Gujarat businesses?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body">
+          <p>Many of our articles have a local Ahmedabad or Gujarat focus, but the strategies themselves apply to businesses across India. We draw examples from local markets because that's where we have the most first-hand data.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Can I republish your articles on my website?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body">
+          <p>Our content is original and copyrighted. You're welcome to quote short excerpts with a link back to the original article, but full republishing requires written permission from our team. Contact us to discuss syndication options.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Do you offer guest posting opportunities?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body">
+          <p>We selectively accept guest contributions from established digital marketing professionals. Articles must be original, practical, and relevant to our audience. Reach out with your topic idea and writing samples for consideration.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Will implementing these tips guarantee results?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body">
+          <p>No strategy guarantees results because every business, market, and competitive landscape is different. Our tips are based on real campaigns we've run, but results will vary. For guaranteed execution with accountability, consider working with our team directly.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================
+  SECTION 10: FINAL CTA (reuse CtaBanner component)
+======================================================== -->
+<CtaBanner
+  title="Ready to Grow Your Business Online?"
+  subtitle="Stop reading about digital marketing and start seeing results. Get a free strategy consultation within 24 hours."
+  ctaLabel="Get Your Free Quote"
+  ctaHref="/contact"
+/>
+
+
+</PageLayout>
+
+
+<!-- ========================================================
+  PAGE STYLES
+======================================================== -->
+<style>
+
+/* ---- SECTION 1: HERO ---- */
+.blog-hero {
+  padding: 120px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.blog-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.blog-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.6s var(--ease) 0.1s both;
+}
+
+.blog-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blog-hero .section-label {
+  animation: fadeInUp 0.6s var(--ease) both;
+}
+
+.blog-hero-desc {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--gray-500);
+  line-height: 1.75;
+  max-width: 580px;
+  animation: fadeInUp 0.6s var(--ease) 0.2s both;
+}
+
+
+/* ---- SECTION 2: FILTER TABS ---- */
+.blog-filters-section {
+  background: white;
+  border-bottom: 1px solid var(--gray-100);
+  padding: 1.5rem 0;
+}
+
+.blog-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-tab {
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--gray-200);
+  background: white;
+  color: var(--gray-600);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+
+.blog-tab:hover {
+  border-color: var(--blue-400);
+  color: var(--blue-600);
+}
+
+.blog-tab.active {
+  background: var(--blue-600);
+  color: white;
+  border-color: var(--blue-600);
+}
+
+
+/* ---- SECTION 3: FEATURED POST ---- */
+.blog-featured-section {
+  padding: 3rem 0;
+  background: white;
+}
+
+.blog-featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s var(--ease);
+}
+
+.blog-featured:hover .featured-content h2 {
+  color: var(--blue-600);
+}
+
+.featured-image {
+  position: relative;
+  height: 340px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-emoji {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: var(--blue-600);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+
+.featured-cat {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.featured-content h2 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  transition: color 0.3s var(--ease);
+}
+
+.featured-content p {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.featured-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-bottom: 1.5rem;
+}
+
+
+/* ---- SECTION 4: BLOG GRID ---- */
+.blog-grid-section {
+  padding: 0 0 var(--section-pad);
+  background: white;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.blog-card {
+  display: block;
+  background: white;
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s var(--ease);
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-200);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.08);
+}
+
+.blog-card-image {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-card .blog-emoji {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+}
+
+.blog-cat-pill {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: white;
+  color: var(--blue-700);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+
+.blog-card-body {
+  padding: 1.5rem;
+}
+
+.blog-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  color: var(--gray-900);
+  transition: color 0.3s var(--ease);
+}
+
+.blog-card:hover h3 {
+  color: var(--blue-600);
+}
+
+.blog-desc {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+
+/* ---- SECTION 5: NEWSLETTER ---- */
+.newsletter-section {
+  padding: var(--section-pad) 0;
+  background: var(--blue-50);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 460px;
+  margin: 2rem auto 0;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: white;
+  color: var(--gray-800);
+  transition: all 0.2s var(--ease);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: var(--gray-400);
+}
+
+
+/* ---- SECTION 6: TOPICS ---- */
+.topics-section {
+  padding: var(--section-pad) 0;
+  background: white;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.topic-card {
+  display: block;
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s var(--ease);
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue-200);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.topic-icon {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.topic-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.topic-card p {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+
+/* ---- SECTION 8: CTA DARK ---- */
+.cta-dark {
+  padding: var(--section-pad) 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1d4ed8 100%);
+  text-align: center;
+}
+
+.cta-dark-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-dark-label-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cta-dark h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.cta-dark p {
+  font-size: 1.1rem;
+  color: var(--gray-400);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.section-label.light {
+  color: var(--blue-400);
+}
+
+.section-label.light::before {
+  background: var(--blue-400);
+}
+
+.cta-dark-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline-light:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+
+/* ---- SECTION 9: FAQ ---- */
+.blog-faq-section {
+  padding: var(--section-pad) 0;
+  background: white;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: left;
+  transition: color 0.2s var(--ease);
+}
+
+.faq-trigger:hover {
+  color: var(--blue-600);
+}
+
+.faq-trigger svg {
+  flex-shrink: 0;
+  color: var(--gray-400);
+  transition: transform 0.3s var(--ease);
+}
+
+.faq-trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.faq-trigger[aria-expanded="true"] {
+  color: var(--blue-600);
+}
+
+.faq-body {
+  display: none;
+  padding: 0 1.5rem 1.25rem;
+}
+
+.faq-body p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-body {
+  display: block;
+}
+
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-image {
+    height: 260px;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-filters {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .blog-tab {
+    white-space: nowrap;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .cta-dark-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+</style>
+
+
+<!-- ========================================================
+  FILTER JAVASCRIPT
+======================================================== -->
+<script>
+  // ---- COUNTER ANIMATION (for StatsBar) ----
+  let countersAnimated = false;
+
+  function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+    document.querySelectorAll('.counter').forEach(el => {
+      const target = parseInt((el as HTMLElement).dataset.target || '0', 10);
+      if (isNaN(target)) return;
+      const increment = target / (2000 / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          el.textContent = String(target);
+          clearInterval(timer);
+        } else {
+          el.textContent = String(Math.floor(current));
+        }
+      }, 16);
+    });
+  }
+
+  // Trigger counter when stats-bar scrolls into view
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) {
+    if ('IntersectionObserver' in window) {
+      const statsObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      statsObserver.observe(statsBar);
+    } else {
+      animateCounters();
+    }
+  }
+
+  // Blog filtering system
+  const btabs     = document.querySelectorAll<HTMLButtonElement>('.blog-tab');
+  const bcards    = document.querySelectorAll<HTMLElement>('.blog-card');
+  const bfeatured = document.querySelector<HTMLElement>('.blog-featured');
+
+  btabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter;
+
+      // Update active tab
+      btabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Filter blog cards
+      bcards.forEach(card => {
+        const category = card.dataset.cat;
+        if (filter === 'all' || category === filter) {
+          card.style.display = '';
+          card.style.animation = 'fadeIn 0.4s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show/hide featured post (it's SEO category)
+      if (bfeatured) {
+        const featuredCat = bfeatured.dataset.cat;
+        bfeatured.style.display =
+          (filter === 'all' || filter === featuredCat) ? '' : 'none';
+        // Hide the entire featured section wrapper when no featured shown
+        const featuredSection = document.querySelector<HTMLElement>('.blog-featured-section');
+        if (featuredSection) {
+          featuredSection.style.display =
+            (filter === 'all' || filter === featuredCat) ? '' : 'none';
+        }
+      }
+    });
+  });
+
+
+  // FAQ accordion
+  const faqTriggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+  faqTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item') as HTMLElement;
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      faqTriggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+      // Open clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

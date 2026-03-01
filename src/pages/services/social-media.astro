@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Social Media Marketing Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Social media marketing in Ahmedabad — Instagram, Facebook, LinkedIn content and paid campaigns. 50+ brands managed. Starting ₹20,000/month.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "20000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+    title: "Instagram & Facebook Management",
+    desc: "Consistent, on-brand content posted at optimal times. Feed posts, Reels, Stories, and carousel posts — all created for you."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+    title: "LinkedIn Marketing",
+    desc: "B2B content strategy, company page management, thought leadership posts, and LinkedIn ads for professional services."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+    title: "Reels & Video Content",
+    desc: "Short-form video scripts, editing, and posting — the highest-reach format on Instagram, Facebook, and YouTube Shorts."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    title: "Meta Ads (Paid Social)",
+    desc: "Facebook and Instagram ad campaigns — traffic, leads, conversions, and retargeting — targeted to your ideal Ahmedabad customer."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Community Management",
+    desc: "Comments replied to, DMs managed, and brand voice maintained consistently across every platform."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Analytics & Reporting",
+    desc: "Monthly performance reports — reach, engagement, follower growth, leads, and what content your audience responds to most."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "Our social media is inconsistent — we post when we remember", solution: "We build a monthly content calendar, create all posts in advance, and schedule them at peak engagement times. Your pages stay active without you lifting a finger." },
+  { problem: "We have followers but no leads or sales", solution: "Followers are vanity — conversions are the goal. We add CTAs, lead magnets, and direct-response content that moves people from liking to enquiring." },
+  { problem: "Our Instagram looks unprofessional", solution: "We design a consistent visual identity — colours, fonts, templates — so your feed looks polished and instantly recognizable. First impressions matter." },
+  { problem: "We don't have time to create content", solution: "We handle everything — writing, design, video editing, posting, and replying. You review and approve a calendar once a month. That's your only job." },
+  { problem: "Our ads are spending but not generating leads", solution: "Most social ad problems come from wrong audiences, weak creatives, or pages that don't convert. We fix all three — new ad creative, tighter targeting, and dedicated landing pages." },
+  { problem: "We don't know what's working", solution: "Every month you receive a clear report showing reach, engagement, leads, and cost per result. You'll know exactly which posts and campaigns are driving real business value." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Brand & Audience Audit", desc: "We review your existing social presence, analyse your audience and competitors, and define your brand voice, visual style, and content pillars." },
+  { title: "Content Strategy & Calendar", desc: "Monthly content plan — post types, themes, key dates, and campaign ideas — presented for your approval before anything goes live." },
+  { title: "Content Creation & Scheduling", desc: "We write, design, and edit all content. You get a preview for approval, then we schedule and post at optimal times across all platforms." },
+  { title: "Community, Ads & Reporting", desc: "Daily community management, paid campaign optimization, and a monthly performance report with insights and next month's strategy." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Monthly content calendar (20+ posts)", desc: "Planned and approved before the month starts — no last-minute scrambling." },
+  { title: "Designed static posts & carousels", desc: "On-brand graphics for every post, designed in your visual identity." },
+  { title: "Reels / short-form video (4/month)", desc: "Scripted, edited, and captioned Reels for maximum organic reach." },
+  { title: "Story content", desc: "Daily or weekly Stories to keep your brand top of mind and engage active followers." },
+  { title: "Community management", desc: "Comment replies, DM responses, and brand voice maintained across all platforms." },
+  { title: "Hashtag and caption strategy", desc: "Researched hashtag sets and SEO-friendly captions for each platform." },
+  { title: "Meta Ads management (Growth plans)", desc: "Audience targeting, creative testing, and budget optimization for paid campaigns." },
+  { title: "Monthly analytics report", desc: "Reach, impressions, engagement, follower growth, leads, and content performance." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Custom visual identity maintained",  us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "Reels & video included",             us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Community management included",      us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Meta Ads management included",       us: "Growth+", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Monthly strategy + reporting",       us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "✗", freelancerClass: "cross" },
+  { feature: "Transparent pricing, no lock-in",   us: "✓", usClass: "check", agency: "✗", agencyClass: "cross", freelancer: "✓", freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For businesses just getting started",
+    price: "₹20,000",
+    priceSuffix: "/month",
+    note: "Best for: Local businesses, professionals, clinics",
+    features: ["2 platforms (Instagram + Facebook)", "12 posts / month", "Basic Reels (2/month)", "Content calendar", "Caption & hashtag writing", "Monthly report"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth",
+    desc: "For brands wanting real engagement",
+    price: "₹40,000",
+    priceSuffix: "/month",
+    note: "Best for: Retail, e-commerce, hospitality, education",
+    features: ["3 platforms", "20 posts / month", "Reels (4/month)", "Community management", "Story content", "Meta Ads (up to ₹20K spend)", "Monthly strategy call", "Performance dashboard"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Authority",
+    desc: "For brands dominating their niche",
+    price: "₹80,000",
+    priceSuffix: "/month",
+    note: "Best for: Premium brands, D2C, enterprise",
+    features: ["All platforms + LinkedIn", "30+ posts / month", "Reels + YouTube Shorts", "Influencer coordination", "Meta + LinkedIn Ads", "Dedicated social media manager", "Weekly reports", "Quarterly brand audit"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#1a0a2e,#c026d3)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/><rect x="25" y="20" width="45" height="80" rx="6" fill="rgba(192,38,211,.15)" stroke="rgba(192,38,211,.3)"/><rect x="80" y="20" width="45" height="80" rx="6" fill="rgba(192,38,211,.1)"/><rect x="135" y="20" width="45" height="80" rx="6" fill="rgba(192,38,211,.08)"/></svg>`,
+    tag: "F&B · Instagram + Reels",
+    title: "Restaurant Chain, Ahmedabad",
+    desc: "3 locations. Grew from 2,000 to 28,000 followers in 8 months. Reels averaging 50,000+ views. Table bookings up 70%.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#0e7490)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="10" y="10" width="180" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><rect x="20" y="20" width="80" height="50" rx="4" fill="rgba(14,116,144,.15)" stroke="rgba(14,116,144,.25)"/><rect x="110" y="20" width="70" height="20" rx="4" fill="rgba(255,255,255,.06)"/><rect x="110" y="48" width="70" height="22" rx="4" fill="rgba(14,116,144,.1)"/><rect x="20" y="78" width="160" height="22" rx="4" fill="rgba(255,255,255,.04)"/></svg>`,
+    tag: "B2B Services · LinkedIn",
+    title: "IT Consulting Firm, GIFT City",
+    desc: "LinkedIn content strategy generating 15+ enterprise enquiries per month. Company page grew from 400 to 5,200 followers.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1e1b4b,#db2777)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="10" width="170" height="100" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)"/><circle cx="60" cy="55" r="30" fill="rgba(219,39,119,.1)" stroke="rgba(219,39,119,.2)"/><rect x="100" y="25" width="75" height="12" rx="6" fill="rgba(255,255,255,.08)"/><rect x="100" y="46" width="55" height="10" rx="5" fill="rgba(219,39,119,.2)"/><rect x="100" y="65" width="75" height="10" rx="5" fill="rgba(255,255,255,.05)"/><rect x="100" y="82" width="45" height="18" rx="4" fill="rgba(219,39,119,.25)"/></svg>`,
+    tag: "Fashion D2C · Meta Ads + Organic",
+    title: "Clothing Brand, Ahmedabad",
+    desc: "Meta Ads achieving 4.8x ROAS on ₹80K/month spend. Organic reach up 320%. Instagram DMs become 30% of total sales.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We went from posting whenever we remembered to a consistent, professional presence. Our Instagram now brings more enquiries than our walk-ins. The Reels they create get tens of thousands of views.",
+    initials: "FO",
+    name: "Farhan Osman",
+    role: "Restaurant Group, Ahmedabad",
+  },
+  {
+    text: "Our LinkedIn content positions us as thought leaders in our space. We close enterprise deals citing our LinkedIn posts as what made them reach out. The ROI is enormous.",
+    initials: "VN",
+    name: "Vivek Nair",
+    role: "IT Consulting, GIFT City",
+  },
+  {
+    text: "The content calendar means I review everything once a month and then forget about it. They handle the rest. Our brand looks amazing and we're getting real enquiries.",
+    initials: "ZK",
+    name: "Zara Khan",
+    role: "Fashion Brand, Ahmedabad",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Which social media platforms should I be on?", a: "Depends on your business. Instagram and Facebook work for almost every B2C business in Ahmedabad. LinkedIn is essential for B2B services. YouTube Shorts is growing fast for reach. We recommend starting with 2 platforms done well rather than 5 done poorly." },
+  { q: "How many posts per month do I get?", a: "Starter: 12 posts across 2 platforms. Growth: 20 posts across 3 platforms plus 4 Reels and Stories. Authority: 30+ posts across all platforms plus video content. All plans include a monthly content calendar submitted for your approval." },
+  { q: "Do I need to provide photos and videos?", a: "For most industries, we design static posts using graphics. For Reels and video, we work with your existing footage or shoot concepts you can film easily on your phone. For premium clients, we can arrange professional photo/video shoots." },
+  { q: "How do you measure results?", a: "We track reach, impressions, follower growth, engagement rate, link clicks, and DM enquiries. For paid campaigns, we track leads, cost per lead, and ROAS. Every metric is in your monthly report." },
+  { q: "Can you run Meta Ads (Facebook / Instagram Ads)?", a: "Yes. Paid social is included in Growth and Authority plans. We handle audience targeting, creative design, ad copy, A/B testing, and daily monitoring. You set the ad budget — we manage the campaigns." },
+  { q: "Will the content match our brand voice and visual identity?", a: "Yes — this is non-negotiable for us. We start with a brand audit, document your tone of voice, create a visual template set, and get your approval before publishing anything. Your pages will look and sound consistently like you." },
+  { q: "Do you reply to our comments and DMs?", a: "Yes. Community management is included in all plans. We reply to comments and DMs in your brand voice, escalate sales enquiries to you immediately, and manage negative comments professionally." },
+  { q: "How long before we see results?", a: "Organic reach and follower growth typically show meaningful results in 60–90 days of consistent posting. Meta Ads can generate leads from week one. We set realistic expectations upfront and share a growth forecast based on your industry benchmarks." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/seo", title: "SEO Services", desc: "Pair social media with organic search to cover every channel your customers use. Page 1 rankings. Starting ₹30,000/month." },
+  { href: "/services/ppc", title: "PPC / Google Ads", desc: "Social media builds brand awareness — Google Ads captures purchase intent. Both together maximize lead flow. Starting ₹35,000/month." },
+  { href: "/services/web-design", title: "Web Design", desc: "Social media drives traffic. Make sure it lands on a website that converts. Starting ₹25,000." },
+];
+---
+
+<ServicePageLayout
+  title="Social Media Marketing in Ahmedabad — Instagram, Facebook & LinkedIn | DC technolabs"
+  description="Social media marketing in Ahmedabad. Instagram, Facebook, LinkedIn content and Meta Ads for 50+ brands. Starting ₹20,000/month from DC technolabs."
+  canonical="https://dctechnolabs.in/services/social-media"
+  schemaJson={schemaJson}
+
+  badge="📱 Social Media Marketing"
+  heroH1="Social Media That Builds"
+  heroHighlight="Brand, Audience, and Real Enquiries"
+  heroDesc="Monthly content creation, posting, community management, and paid campaigns for Ahmedabad businesses. We handle everything — strategy, design, Reels, captions, and ads. You focus on your business. 50+ brands managed. Starting ₹20,000/month."
+  heroStats={[
+    { value: "50+", label: "Brands Managed" },
+    { value: "10x", label: "Avg Engagement Lift" },
+    { value: "₹20K", label: "Starting Price" },
+  ]}
+  formTitle="Get a Free Social Media Audit"
+  formSub="We'll review your current presence and tell you what to fix first."
+  formTypeLabel="What do you need?"
+  formTypeOptions={["Organic content management", "Instagram & Reels growth", "LinkedIn B2B strategy", "Meta Ads (Facebook/Instagram)", "Full social media management", "One-time strategy consultation"]}
+
+  s2Title="What's Included in Social Media Management"
+  s2Subtitle="Everything from strategy to posting to paid ads — one accountable team."
+
+  s3Title="Social Media Problems We Solve"
+  s3Subtitle="The most common issues Ahmedabad businesses face with social media."
+
+  s4Title="Our Social Media Process"
+  s4Subtitle="Strategy first. Consistent execution. Measurable results."
+
+  s5Title="Your Monthly Social Media Deliverables"
+  s5Subtitle="Everything we create and manage for you, every single month."
+
+  s6Title="How We Compare"
+  s6Subtitle="What you actually get versus typical social media agencies."
+
+  s7Title="Social Media Packages"
+  s7Subtitle="Monthly retainers with full content creation included."
+
+  s8Title="Social Media Results"
+  s8Subtitle="Real growth for real Ahmedabad brands."
+
+  s9Title="What Our Social Media Clients Say"
+
+  s10Title="Social Media FAQs"
+
+  s11Title="Combine Social Media With"
+  s11Subtitle="Social media works best as part of a complete digital strategy."
+
+  comparisonStartingUs="₹20,000/mo"
+  comparisonStartingAgency="₹50,000+/mo"
+  comparisonStartingFreelancer="₹5–10K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready for Social Media That Actually Works?"
+  ctaSubtitle="Get a free social media audit. We'll review your current pages, identify what's holding you back, and propose a content strategy — no obligation."
+  ctaAccentLabel="Get Your Free Social Media Audit"
+  ctaAccentHref="#hero-form"
+/>

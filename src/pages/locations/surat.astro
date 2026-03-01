@@ -1,0 +1,219 @@
+---
+import LocationPageLayout from '../../layouts/LocationPageLayout.astro';
+import type {
+  Neighborhood, Challenge, Hub, WhyCard, Stat,
+  ResponseCard, Testimonial, FaqItem, MapInfo, OverviewParagraphs
+} from '../../layouts/LocationPageLayout.astro';
+
+// ── SCHEMA ────────────────────────────────────────────────────────────────────
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "DC technolabs",
+      "description": "Digital marketing agency serving Surat — web design, SEO, PPC, and e-commerce for diamond, textile, and IT businesses across Surat.",
+      "url": "https://dctechnolabs.in/locations/surat",
+      "telephone": "+919662608986",
+      "email": "hello@dctechnolabs.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "382445",
+        "addressCountry": "IN"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "22.969", "longitude": "72.629" },
+      "openingHours": "Mo-Sa 09:00-19:00",
+      "priceRange": "₹25,000 - ₹3,00,000+",
+      "areaServed": [
+        { "@type": "City", "name": "Surat" },
+        { "@type": "Place", "name": "Vesu, Surat" },
+        { "@type": "Place", "name": "Adajan, Surat" },
+        { "@type": "Place", "name": "Athwa, Surat" },
+        { "@type": "Place", "name": "Varachha, Surat" },
+        { "@type": "Place", "name": "Katargam, Surat" },
+        { "@type": "Place", "name": "Ring Road, Surat" },
+        { "@type": "Place", "name": "Piplod, Surat" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do you work with Surat businesses remotely?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most of our Surat client work is delivered remotely with video calls, screen shares, and online approvals. We also make quarterly visits to Surat for key client meetings and project reviews." } },
+        { "@type": "Question", "name": "Do you have experience with diamond or textile industry marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We've worked with diamond trading firms, textile manufacturers, and fabric exporters in Surat. We understand these industries' B2B selling cycles, export-oriented audiences, and trust-first buying culture." } },
+        { "@type": "Question", "name": "How much does digital marketing cost for a Surat business?", "acceptedAnswer": { "@type": "Answer", "text": "Web design starts at ₹25,000, SEO from ₹30,000/month, and PPC from ₹35,000/month. Pricing is the same regardless of city — no travel surcharge for Surat clients." } }
+      ]
+    }
+  ]
+});
+
+// ── §2 OVERVIEW SVG ──────────────────────────────────────────────────────────
+const overviewSvg = `<svg viewBox="0 0 300 240" fill="none">
+  <rect x="20" y="20" width="260" height="200" rx="16" fill="rgba(37,99,235,.05)" stroke="rgba(37,99,235,.12)"/>
+  <circle cx="150" cy="115" r="55" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.15)" stroke-width="1.5"/>
+  <circle cx="150" cy="115" r="28" fill="rgba(37,99,235,.1)"/>
+  <circle cx="85" cy="88" r="5" fill="rgba(37,99,235,.5)"/>
+  <text x="85" y="78" text-anchor="middle" font-family="system-ui" font-size="7.5" fill="rgba(37,99,235,.65)">Varachha</text>
+  <circle cx="185" cy="80" r="4.5" fill="rgba(37,99,235,.4)"/>
+  <text x="185" y="70" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.55)">Adajan</text>
+  <circle cx="210" cy="130" r="4" fill="rgba(37,99,235,.35)"/>
+  <text x="210" y="120" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.5)">Vesu</text>
+  <circle cx="115" cy="155" r="4" fill="rgba(37,99,235,.3)"/>
+  <text x="115" y="170" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.45)">Athwa</text>
+  <circle cx="165" cy="160" r="4" fill="rgba(37,99,235,.25)"/>
+  <text x="165" y="174" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.4)">Ring Road</text>
+  <circle cx="75" cy="148" r="4" fill="rgba(37,99,235,.25)"/>
+  <text x="75" y="163" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(37,99,235,.4)">Katargam</text>
+  <text x="150" y="228" text-anchor="middle" font-family="system-ui" font-weight="600" font-size="10" fill="rgba(37,99,235,.35)">Serving All of Surat</text>
+</svg>`;
+
+// ── §2 OVERVIEW PARAGRAPHS ────────────────────────────────────────────────────
+const overviewParagraphs: OverviewParagraphs = {
+  p1: "Surat is one of India's fastest-growing cities — the diamond capital of the world, a global textile powerhouse, and an increasingly significant IT and service hub. DC technolabs has been serving Surat businesses since 2019, delivering digital marketing strategies built specifically for the Surti business mindset: results-oriented, trust-first, and growth-focused.",
+  p2: "We understand that Surat's industries are unique. A diamond trading firm in Varachha needs a website that projects global credibility to international buyers. A textile manufacturer on Ring Road needs SEO and B2B lead generation that reaches fabric importers across India and abroad. A restaurant in Vesu needs local Google Maps visibility and Instagram content that fills tables every weekend.",
+  p3: "Most of our Surat work is delivered remotely with seamless communication — video calls, shared project dashboards, and quick WhatsApp responses. We also make quarterly visits to Surat so clients who prefer in-person meetings can maintain that relationship. Distance has never been a barrier to delivering excellent work.",
+};
+
+// ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
+const neighborhoods: Neighborhood[] = [
+  { name: "Varachha",       types: "Diamond industry, trading, wholesale" },
+  { name: "Ring Road",      types: "Textile markets, fabric, garments" },
+  { name: "Vesu",           types: "IT/BPO, restaurants, premium retail" },
+  { name: "Adajan",         types: "Residential services, clinics, education" },
+  { name: "Athwa",          types: "Banks, showrooms, professional services" },
+  { name: "Katargam",       types: "Textile weaving, power loom, manufacturing" },
+  { name: "Piplod",         types: "Healthcare, luxury residential, schools" },
+  { name: "Dumas Road",     types: "Hospitality, tourism, waterfront dining" },
+  { name: "Althan",         types: "Pharma, chemical, industrial estates" },
+  { name: "Udhna",          types: "Dyeing & printing, industrial, export" },
+  { name: "Majura Gate",    types: "Commercial markets, wholesale trade" },
+  { name: "Sarthana",       types: "Retail, education, residential services" },
+];
+
+// ── §4 CHALLENGES ─────────────────────────────────────────────────────────────
+const challenges: Challenge[] = [
+  { emoji: "💎", problem: "Our diamond / textile business has no online presence",  solution: "Many Surat trade businesses still rely entirely on word-of-mouth. We build professional websites and digital presence that attract new buyers, including international importers who search online before calling." },
+  { emoji: "🌍", problem: "We want to reach international buyers",                  solution: "We build export-oriented websites with multilingual options, international SEO targeting, and professional design that signals world-class quality to overseas buyers." },
+  { emoji: "📱", problem: "Our website doesn't reflect our business quality",        solution: "Many Surat businesses have outdated or template sites that undermine trust. We design custom sites that match the caliber of the product or service you actually deliver." },
+  { emoji: "🔍", problem: "We don't appear in Surat local search results",          solution: "We optimize your Google Business Profile, build Surat-specific citations, and create geo-targeted content so customers in Vesu, Adajan, and Varachha find you first." },
+  { emoji: "📦", problem: "We want to sell textiles or products online",             solution: "We build B2B e-commerce portals and D2C online stores for Surat's textile and product businesses — with bulk ordering, custom pricing, and Razorpay integration." },
+  { emoji: "📊", problem: "Our digital spend has zero measurable return",            solution: "We audit every digital channel, eliminate wasteful spend, and implement proper attribution tracking so every rupee you invest is accountable to real business outcomes." },
+];
+
+// ── §5 BUSINESS HUBS ──────────────────────────────────────────────────────────
+const hubs: Hub[] = [
+  { tag: "Diamond Industry",  title: "Varachha & Surat Diamond Bourse",  desc: "The world's diamond hub. We help diamond trading firms, manufacturers, and exporters build authoritative digital presence that impresses international buyers and positions them globally." },
+  { tag: "Textile Markets",   title: "Ring Road & Katargam",             desc: "India's textile capital. Fabric manufacturers, wholesale traders, and garment exporters use our B2B web presence, trade portal development, and export-focused SEO." },
+  { tag: "IT & Services",     title: "Vesu & Adajan",                    desc: "Surat's growing service economy. IT firms, BPOs, professional services, and premium retail in the city's upmarket residential corridors benefit from local SEO and lead generation." },
+];
+
+// ── §6 WHY US ─────────────────────────────────────────────────────────────────
+const whyCards: WhyCard[] = [
+  { emoji: "🌐", title: "Remote-First, Visit-Ready",        desc: "Seamless remote delivery with video calls and shared dashboards. We also visit Surat quarterly for clients who value in-person reviews." },
+  { emoji: "💎", title: "Diamond & Textile Industry Know-How", desc: "We've marketed trade businesses in Surat's unique B2B ecosystem. We know the buying culture, the export angle, and how trust is built in these industries." },
+  { emoji: "⚡", title: "Same-Day Response",                desc: "WhatsApp, phone, or email — your message gets a reply the same business day. Urgent projects get urgent attention." },
+  { emoji: "🏆", title: "945+ Gujarat Projects",             desc: "A proven track record across Gujarat's diverse industries, including Surat's trade, manufacturing, and services sectors." },
+  { emoji: "💰", title: "Transparent Pricing",              desc: "No travel surcharge for Surat clients. Same fixed-price projects as Ahmedabad. Web design from ₹25,000, SEO from ₹30,000/month." },
+  { emoji: "📍", title: "Surat-Specific SEO",               desc: "We know which Surat keywords and directories matter, how to rank for Varachha diamond searches and Ring Road textile terms." },
+];
+
+// ── §7 STATS ──────────────────────────────────────────────────────────────────
+const stats: Stat[] = [
+  { target: 50,  suffix: "+", label: "Surat Projects" },
+  { target: 8,   suffix: "+", label: "Years in Gujarat" },
+  { target: 945, suffix: "+", label: "Total Gujarat Projects" },
+  { target: 12,  suffix: "+", label: "Surat Industries Served" },
+];
+
+// ── §8 RESPONSE TIMES ────────────────────────────────────────────────────────
+const responseTimes: ResponseCard[] = [
+  { time: "< 4 hrs", title: "Quote Response",     desc: "Your enquiry gets a detailed reply within 4 business hours, every time" },
+  { time: "24 hrs",  title: "Proposal Delivery",  desc: "Full project scope, timeline, and fixed pricing delivered the next day" },
+  { time: "Quarterly", title: "In-Person Visits", desc: "We visit Surat every quarter for client meetings, strategy sessions, and reviews" },
+];
+
+// ── §9 TESTIMONIALS ───────────────────────────────────────────────────────────
+const testimonials: Testimonial[] = [
+  { text: "Our diamond firm now has a website that international buyers trust on first sight. We've received enquiries from buyers in Belgium and Dubai who found us on Google. DC technolabs delivered this in just 6 weeks.",           initials: "HV", name: "Hiren Vora",      role: "Diamond Export Firm, Varachha" },
+  { text: "We export fabric to buyers across India and were invisible online. After 4 months of SEO with DC technolabs, we rank for our key textile categories and get 20+ new buyer enquiries every month.",                          initials: "RK", name: "Ravi Khatri",     role: "Textile Manufacturer, Ring Road" },
+  { text: "Being remote was no barrier at all. Video calls, quick approvals on WhatsApp, and a beautifully delivered project on schedule. Our Vesu restaurant's Instagram now has 15,000 followers and we're booked every weekend.", initials: "FD", name: "Fatima Diwan",    role: "Restaurant Owner, Vesu, Surat" },
+];
+
+// ── §10 FAQ ───────────────────────────────────────────────────────────────────
+const faqItems: FaqItem[] = [
+  { q: "Do you work with Surat businesses remotely?",                       a: "Yes. Most of our Surat projects are delivered entirely remotely — video strategy calls, shared project dashboards, WhatsApp for quick approvals, and email for formal sign-offs. The process is seamless and most clients prefer it. We also visit Surat quarterly for clients who want in-person sessions." },
+  { q: "Do you have experience with diamond or textile industry marketing?", a: "Yes. We've worked with diamond trading firms, polished diamond exporters, textile manufacturers, and fabric wholesalers in Surat. We understand B2B trade marketing, export-audience SEO, and how to communicate credibility to international buyers." },
+  { q: "Can you build an export-oriented website for our Surat business?",  a: "Absolutely. We design websites targeted at international buyers — English-first content, professional design standards, global trust signals, and SEO targeting international search queries relevant to your product." },
+  { q: "Can you help us sell textiles or products online?",                  a: "Yes. We build B2B trade portals with bulk ordering and custom pricing, as well as D2C online stores on Shopify or WooCommerce. Razorpay, international payment gateways, and GST invoicing are all included." },
+  { q: "What industries do you serve in Surat?",                             a: "Diamond and gems, textiles and garments, dyeing and printing, chemicals and pharma, IT and BPO, healthcare, hospitality, real estate, retail, and professional services across Surat's diverse economy." },
+  { q: "How do you understand Surat's market without being based there?",   a: "We've been working with Surat businesses since 2019. Through dozens of client relationships across the diamond, textile, and services sectors, we've built genuine market knowledge — the buying culture, the competitive landscape, and what digital strategies actually work here." },
+  { q: "How much does digital marketing cost for a Surat business?",        a: "Identical to Ahmedabad pricing. Web design from ₹25,000, SEO from ₹30,000/month, PPC from ₹35,000/month. No travel surcharge, no out-of-city premium." },
+  { q: "How long before we see results in Surat's market?",                 a: "PPC campaigns can generate leads within 48 hours of launch. SEO shows meaningful movement in 60–90 days and significant traffic growth by month 4–6. Local SEO and Google Maps rankings for Surat searches typically improve within 6–8 weeks." },
+];
+
+// ── §11 MAP INFO ─────────────────────────────────────────────────────────────
+const mapInfo: MapInfo = {
+  title:          "DC technolabs — Serving Surat Remotely + Quarterly Visits",
+  address:        "B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445",
+  phone:          "+91 9662608986",
+  email:          "hello@dctechnolabs.com",
+  hours:          "Monday — Saturday, 9:00 AM — 7:00 PM",
+  mapsEmbedSrc:   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0!2d72.629!3d22.969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzA4LjQiTiA3MsKwMzcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1",
+  directionsHref: "https://maps.google.com/?q=B-18+Sainik+Society+Vatva+Ahmedabad",
+};
+---
+
+<LocationPageLayout
+  title="Digital Marketing Agency in Surat — Web Design, SEO & PPC | DC technolabs"
+  description="DC technolabs serves Surat's diamond, textile, and IT businesses with web design, SEO, and PPC. 50+ Surat projects. Remote delivery with quarterly visits. Free quote."
+  canonical="https://dctechnolabs.in/locations/surat"
+  schemaJson={schemaJson}
+
+  badge="📍 Surat"
+  cityName="Surat"
+  heroDesc="India's diamond capital and textile hub deserves a digital strategy as ambitious as its business community. DC technolabs has been serving Surat's trade businesses, IT firms, and service brands since 2019 — remotely, seamlessly, and with results that speak for themselves."
+  heroStats={[
+    { value: "50+",  label: "Surat Projects" },
+    { value: "💎🧵", label: "Diamond & Textile" },
+    { value: "8+",   label: "Years in Gujarat" },
+  ]}
+  formTitle="Get a Free Surat Quote"
+  formSub="Remote-friendly process. Quarterly visits. Same-day response."
+
+  s2Label="Our Surat Presence"
+  s2Title="Remote Expertise. Real Results."
+  overviewParagraphs={overviewParagraphs}
+  overviewSvg={overviewSvg}
+
+  s3Title="Every Corner of Surat"
+  neighborhoods={neighborhoods}
+
+  s4Title="Surat Business Problems We Solve"
+  challenges={challenges}
+
+  s5Title="Surat's Key Business Areas"
+  hubs={hubs}
+
+  s6Title="Why Surat Businesses Choose Us"
+  s6Subtitle="Distance doesn't matter when the process is seamless and the results are real."
+  whyCards={whyCards}
+
+  stats={stats}
+
+  s8Title="How We Work With Surat Clients"
+  responseTimes={responseTimes}
+
+  s9Title="What Surat Businesses Say"
+  testimonials={testimonials}
+
+  s10Title="Surat-Specific Questions"
+  faqItems={faqItems}
+
+  s11Title="Our Office — Remote Delivery for Surat"
+  mapInfo={mapInfo}
+
+  ctaTitle="Ready to Grow Your Surat Business Online?"
+  ctaSubtitle="Get a free consultation. We understand Surat's market, we've delivered results here, and we respond the same day — no matter where you are."
+/>

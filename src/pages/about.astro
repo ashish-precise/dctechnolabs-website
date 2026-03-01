@@ -1,64 +1,642 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import StatsBar from '../components/StatsBar.astro';
+import ClientsBar from '../components/ClientsBar.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CtaBanner from '../components/CtaBanner.astro';
 ---
 
-<Layout 
-  title="About Us - Leading Digital Agency in Ahmedabad | DC technolabs"
-  description="Learn about DC technolabs - Ahmedabad's trusted digital marketing agency. Expert web design, development, SEO, and PPC services since 2019."
+<PageLayout
+  title="About DC technolabs — Our Story, Team & Mission | Ahmedabad Digital Agency"
+  description="Learn about DC technolabs — Ahmedabad's trusted digital marketing agency with 8+ years of experience, 945+ projects, and 100+ Clutch awards. Meet our team and discover our story."
+  canonical="https://dctechnolabs.in/about"
 >
-  <Header />
-  <div style="height: 80px;"></div>
-  
-  <section class="page-hero">
-    <div class="container">
-      <h1>About DC technolabs</h1>
-      <p class="hero-subtitle">Your trusted partner for digital success in Ahmedabad</p>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1: HERO
+════════════════════════════════════════════════ -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+      <span class="section-label">About Us</span>
+      <h1>The Team Behind <span class="highlight">945+ Successful Projects</span></h1>
+      <p>We're not a faceless agency. We're a team of designers, developers, and digital strategists based in Ahmedabad who genuinely care about helping businesses grow online. For 8+ years, that's been our only mission.</p>
     </div>
-  </section>
-  
-  <section class="section">
-    <div class="container" style="max-width: 800px;">
-      <h2>Who We Are</h2>
-      <p>DC technolabs is a leading digital marketing agency based in Ahmedabad, Gujarat. We specialize in creating powerful online experiences that help businesses grow and thrive in the digital landscape.</p>
-      
-      <h2>Our Mission</h2>
-      <p>To empower businesses across Gujarat with cutting-edge digital solutions that drive measurable results and sustainable growth.</p>
-      
-      <h2>Why Choose Us</h2>
-      <ul style="list-style: none; padding: 0;">
-        <li style="margin-bottom: 1rem;">✓ <strong>Local Expertise:</strong> Deep understanding of the Ahmedabad and Gujarat market</li>
-        <li style="margin-bottom: 1rem;">✓ <strong>Proven Results:</strong> Track record of successful projects and happy clients</li>
-        <li style="margin-bottom: 1rem;">✓ <strong>Expert Team:</strong> Skilled professionals dedicated to your success</li>
-        <li style="margin-bottom: 1rem;">✓ <strong>Latest Technology:</strong> Modern tools and frameworks for optimal performance</li>
-      </ul>
-      
-      <div style="margin-top: 3rem; text-align: center;">
-        <a href="/contact" class="btn btn-primary">Work With Us</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2: OUR STORY
+════════════════════════════════════════════════ -->
+<section class="story reveal">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-content">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">Started Small. Stayed Hungry.</h2>
+        <p>DC technolabs was founded in 2017 in Ahmedabad with a simple belief: every business — no matter how small — deserves a website that actually works. Not just looks pretty, but generates leads, builds trust, and grows revenue.</p>
+        <p>We started with a team of three, working with local businesses in Vatva and Maninagar. Word spread. Clients told their friends. A dental clinic in Satellite referred a construction company in SG Highway, who referred a startup in GIFT City. That's how we grew — not through ads, but through results.</p>
+        <p>Eight years and 945+ projects later, we now work with clients across Gujarat and internationally — from Apollo Scooters in Canada to Medivis in New York. But our approach hasn't changed: understand the business first, then build something that moves the needle.</p>
+      </div>
+      <div class="story-visual">
+        <svg viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="30" width="260" height="160" rx="12" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.15)" stroke-width="1.5"/>
+          <rect x="40" y="50" width="100" height="60" rx="8" fill="rgba(37,99,235,.12)"/>
+          <rect x="160" y="50" width="100" height="25" rx="6" fill="rgba(37,99,235,.1)"/>
+          <rect x="160" y="85" width="80" height="25" rx="6" fill="rgba(37,99,235,.07)"/>
+          <rect x="40" y="130" width="220" height="8" rx="4" fill="rgba(37,99,235,.08)"/>
+          <rect x="40" y="148" width="160" height="8" rx="4" fill="rgba(37,99,235,.06)"/>
+          <circle cx="90" cy="80" r="18" fill="rgba(37,99,235,.15)"/>
+          <text x="90" y="85" text-anchor="middle" font-family="system-ui" font-weight="700" font-size="12" fill="rgba(37,99,235,.4)">DC</text>
+          <text x="150" y="220" text-anchor="middle" font-family="system-ui" font-weight="600" font-size="11" fill="rgba(37,99,235,.3)">Est. 2017 · Ahmedabad</text>
+        </svg>
       </div>
     </div>
-  </section>
-  
-  <Footer />
-</Layout>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3: MISSION, VISION & VALUES
+════════════════════════════════════════════════ -->
+<section class="mission reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What Drives Us</span>
+      <h2 class="section-title">Mission, Vision & Values</h2>
+      <p class="section-subtitle">The principles behind every project we take on.</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="mission-card-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>To make professional digital marketing accessible and affordable for every business in Gujarat — and deliver measurable results, not just deliverables.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-icon">🔭</div>
+        <h3>Our Vision</h3>
+        <p>To become the most trusted digital agency in Gujarat — the one businesses recommend by name, not the one they find through ads.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-icon">⚖️</div>
+        <h3>Our Values</h3>
+        <p>Transparency over jargon. Results over promises. Long-term partnerships over quick projects. We say what we'll do, then we do it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4: TEAM
+════════════════════════════════════════════════ -->
+<section class="team reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Our Team</span>
+      <h2 class="section-title">The People Behind the Work</h2>
+      <p class="section-subtitle">A dedicated team of specialists who know your business by name, not by ticket number.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">AD</div>
+        <h3>Ashish D.</h3>
+        <p>Founder & Lead Strategist</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">UI</div>
+        <h3>UI/UX Team</h3>
+        <p>Design & User Experience</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">DV</div>
+        <h3>Dev Team</h3>
+        <p>Frontend & Backend Development</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">MK</div>
+        <h3>Marketing Team</h3>
+        <p>SEO, PPC & Content Strategy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5: STATS BAR (shared component)
+════════════════════════════════════════════════ -->
+<StatsBar />
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6: CLIENTS BAR (shared component)
+════════════════════════════════════════════════ -->
+<ClientsBar />
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7: JOURNEY TIMELINE
+════════════════════════════════════════════════ -->
+<section class="timeline reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Our Journey</span>
+      <h2 class="section-title">8 Years of Growth</h2>
+      <p class="section-subtitle">Key milestones that shaped who we are today.</p>
+    </div>
+    <div class="timeline-items">
+      <div class="timeline-item">
+        <div class="timeline-dot">'17</div>
+        <div class="timeline-content">
+          <h3>Founded in Ahmedabad</h3>
+          <p>Started with 3 team members and a focus on web design for local businesses in Vatva and Maninagar.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">'19</div>
+        <div class="timeline-content">
+          <h3>100+ Projects Milestone</h3>
+          <p>Expanded into SEO and digital marketing. Began working with businesses across Ahmedabad — Satellite, SG Highway, Prahlad Nagar.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">'21</div>
+        <div class="timeline-content">
+          <h3>International Clients</h3>
+          <p>First international projects — Apollo Scooters (Canada), Medivis (New York). Grew team to 10+ members.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">'23</div>
+        <div class="timeline-content">
+          <h3>500+ Projects & Clutch Recognition</h3>
+          <p>Crossed 500 completed projects. Started receiving Clutch awards and badges for excellence in web development.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">'25</div>
+        <div class="timeline-content">
+          <h3>945+ Projects & 100+ Awards</h3>
+          <p>Team of 20+. Serving clients across Gujarat and internationally. 100+ Clutch awards. Building the agency Ahmedabad businesses trust most.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 8: AWARDS & CERTIFICATIONS
+════════════════════════════════════════════════ -->
+<section class="awards reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Recognition</span>
+      <h2 class="section-title">Awards & Certifications</h2>
+      <p class="section-subtitle">Industry recognition that reflects our commitment to quality.</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-card-icon">🏆</div>
+        <h3>100+ Clutch Awards</h3>
+        <p>Recognized as a top web development and digital marketing agency on Clutch.co</p>
+      </div>
+      <div class="award-card">
+        <div class="award-card-icon">⭐</div>
+        <h3>DesignRush Verified</h3>
+        <p>Listed and verified agency on DesignRush with 4.5+ star rating</p>
+      </div>
+      <div class="award-card">
+        <div class="award-card-icon">🎖️</div>
+        <h3>GoodFirms Top Agency</h3>
+        <p>Ranked among top web development companies in Ahmedabad</p>
+      </div>
+      <div class="award-card">
+        <div class="award-card-icon">📊</div>
+        <h3>Google Partner</h3>
+        <p>Certified Google Ads partner delivering high-ROI PPC campaigns</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 9: OFFICE (dark)
+════════════════════════════════════════════════ -->
+<section class="office reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Visit Us</span>
+      <h2 class="section-title">Our Office</h2>
+      <p class="section-subtitle">Based in Ahmedabad, serving clients across Gujarat and beyond.</p>
+    </div>
+    <div class="office-grid">
+      <div class="office-details">
+        <div class="office-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <p><strong>Address</strong>B-18, Sainik Society, Near Urmijeevan Society, Vinzol Road, Vatva, Ahmedabad - 382445</p>
+        </div>
+        <div class="office-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <p><strong>Phone</strong><a href="tel:+919662608986">+91 9662608986</a></p>
+        </div>
+        <div class="office-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <p><strong>Email</strong><a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a></p>
+        </div>
+        <div class="office-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <p><strong>Working Hours</strong>Monday - Saturday, 9:00 AM - 7:00 PM</p>
+        </div>
+      </div>
+      <div class="office-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0!2d72.629!3d22.969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzA4LjQiTiA3MsKwMzcnNDQuNCJF!5e0!3m2!1sen!2sin!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="DC technolabs Office Location"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 10: TESTIMONIALS (shared component)
+════════════════════════════════════════════════ -->
+<section class="testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">What People Say About Working With Us</h2>
+      <p class="section-subtitle">Real feedback from real business owners.</p>
+    </div>
+    <div class="testimonials-grid">
+      <TestimonialCard
+        text="The web application developed by your team has transformed our operations and increased efficiency. Excellent work!"
+        name="Keybridge Compliance"
+        role="Financial Services, USA"
+        initials="KC"
+      />
+      <TestimonialCard
+        text="Thanks to your innovative eCommerce solutions, our online sales have doubled. Your team truly understands our needs."
+        name="Apollo Scooters"
+        role="E-commerce, Canada"
+        initials="AS"
+      />
+      <TestimonialCard
+        text="Your strategic approach to SEO and digital marketing has provided us with incredible visibility and growth. Thank you!"
+        name="NIS"
+        role="Consulting, USA"
+        initials="NI"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 11: FINAL CTA (shared component)
+════════════════════════════════════════════════ -->
+<CtaBanner
+  title="Want to Work With Us?"
+  subtitle="Let's talk about your project. No pressure, no jargon — just a genuine conversation about how we can help your business grow."
+  ctaLabel="Get Your Free Quote"
+  ctaHref="/contact"
+/>
 
 <style>
-  .page-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary-light) 100%);
-    color: white;
-    text-align: center;
-  }
-  
-  .page-hero h1 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-  }
+/* ══════════════════════════════════════════════
+   SECTION 1: HERO
+══════════════════════════════════════════════ */
+.about-hero {
+  padding: 120px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.about-hero-inner {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+}
+.about-hero h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.about-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-hero p {
+  font-size: 1.15rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 2: STORY
+══════════════════════════════════════════════ */
+.story { padding: var(--section-pad) 0; }
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.story-content p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.story-content p:last-child { margin-bottom: 0; }
+.story-visual {
+  background: linear-gradient(135deg, var(--blue-50), var(--blue-100));
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+.story-visual svg { width: 100%; max-width: 300px; }
+
+/* ══════════════════════════════════════════════
+   SECTION 3: MISSION
+══════════════════════════════════════════════ */
+.mission { padding: var(--section-pad) 0; background: var(--blue-50); }
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.mission-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1px solid var(--blue-100);
+  text-align: center;
+  transition: all .3s var(--ease);
+}
+.mission-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.06); }
+.mission-card-icon { font-size: 2.5rem; margin-bottom: 1.25rem; }
+.mission-card h3 { font-size: 1.2rem; margin-bottom: .75rem; }
+.mission-card p { font-size: .95rem; color: var(--gray-500); line-height: 1.7; }
+
+/* ══════════════════════════════════════════════
+   SECTION 4: TEAM
+══════════════════════════════════════════════ */
+.team { padding: var(--section-pad) 0; }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.team-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--gray-100);
+  transition: all .3s var(--ease);
+}
+.team-card:hover {
+  border-color: var(--blue-200);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.06);
+}
+.team-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-100), var(--blue-300));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--blue-700);
+}
+.team-card h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+.team-card p { font-size: .9rem; color: var(--gray-500); }
+
+/* ══════════════════════════════════════════════
+   SECTION 7: TIMELINE
+══════════════════════════════════════════════ */
+.timeline { padding: var(--section-pad) 0; }
+.timeline-items {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 24px;
+  width: 2px;
+  background: var(--blue-200);
+}
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: .8rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(37,99,235,.3);
+}
+.timeline-content { padding-top: .75rem; }
+.timeline-content h3 { font-size: 1.1rem; margin-bottom: .4rem; }
+.timeline-content p { font-size: .95rem; color: var(--gray-500); line-height: 1.7; }
+
+/* ══════════════════════════════════════════════
+   SECTION 8: AWARDS
+══════════════════════════════════════════════ */
+.awards { padding: var(--section-pad) 0; background: var(--blue-50); }
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.award-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--blue-100);
+  transition: all .3s var(--ease);
+}
+.award-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.06); }
+.award-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+.award-card h3 { font-size: 1.1rem; margin-bottom: .5rem; }
+.award-card p { font-size: .9rem; color: var(--gray-500); }
+
+/* ══════════════════════════════════════════════
+   SECTION 9: OFFICE (dark)
+══════════════════════════════════════════════ */
+.office {
+  padding: var(--section-pad) 0;
+  background: var(--gray-900);
+  color: var(--white);
+}
+.office .section-label { color: var(--blue-300); }
+.office .section-label::before { background: var(--blue-400); }
+.office .section-title { color: var(--white); }
+.office .section-subtitle { color: var(--gray-400); }
+.office-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.office-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.office-detail svg {
+  color: var(--blue-400);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.office-detail p {
+  font-size: .95rem;
+  color: var(--gray-300);
+  line-height: 1.7;
+  margin: 0;
+}
+.office-detail strong {
+  color: var(--white);
+  display: block;
+  font-family: var(--font-display);
+  margin-bottom: 2px;
+}
+.office-detail a { color: var(--blue-400); }
+.office-detail a:hover { color: var(--blue-300); }
+.office-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 320px;
+  background: var(--gray-800);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.office-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .awards-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .about-hero { padding: 110px 0 var(--section-pad); }
+  .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .story-visual { min-height: 240px; padding: 2rem; }
+  .mission-grid { grid-template-columns: 1fr; }
+  .office-grid { grid-template-columns: 1fr; }
+  .office-map { height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .awards-grid { grid-template-columns: 1fr; }
+}
 </style>
+
+<script>
+  function init() {
+    // Counter Animation
+    let countersAnimated = false;
+    function animateCounters() {
+      if (countersAnimated) return;
+      countersAnimated = true;
+      document.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt((el as HTMLElement).dataset.target || '0', 10);
+        if (isNaN(target)) return;
+        const increment = target / (2000 / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            el.textContent = String(target);
+            clearInterval(timer);
+          } else {
+            el.textContent = String(Math.floor(current));
+          }
+        }, 16);
+      });
+    }
+
+    // Scroll Reveal + Stats trigger
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            if (e.target.classList.contains('stats-bar')) animateCounters();
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+      animateCounters();
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+</PageLayout>

@@ -1,0 +1,637 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+---
+
+<PageLayout
+  title="Free Website Audit — Get a Detailed Analysis of Your Website | DC technolabs"
+  description="Get a free, detailed website audit from DC technolabs. We analyse your site's SEO, speed, mobile experience, and conversion potential. No obligation. Ahmedabad-based agency."
+  canonical="https://dctechnolabs.in/free-website-audit"
+>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1: HERO + FORM
+════════════════════════════════════════════════ -->
+<section class="audit-hero">
+  <div class="container">
+    <div class="audit-hero-grid">
+
+      <!-- Left: Content -->
+      <div class="audit-hero-content">
+        <span class="section-label">Free Website Audit</span>
+        <h1>Find Out <span class="highlight">What's Holding Your Website Back</span></h1>
+        <p>Most Ahmedabad business websites have at least 5 critical issues costing them leads every day. We'll identify every one of them — completely free, no obligation, no sales pitch.</p>
+
+        <div class="audit-what-you-get">
+          <div class="audit-get-item">
+            <span class="audit-get-icon">🔍</span>
+            <div>
+              <strong>Full SEO Analysis</strong>
+              <p>Keyword rankings, on-page issues, technical errors, and missed opportunities</p>
+            </div>
+          </div>
+          <div class="audit-get-item">
+            <span class="audit-get-icon">⚡</span>
+            <div>
+              <strong>Page Speed Report</strong>
+              <p>Mobile and desktop load times with specific improvements identified</p>
+            </div>
+          </div>
+          <div class="audit-get-item">
+            <span class="audit-get-icon">📱</span>
+            <div>
+              <strong>Mobile Experience Review</strong>
+              <p>How your site performs for mobile users — 75% of India's internet traffic</p>
+            </div>
+          </div>
+          <div class="audit-get-item">
+            <span class="audit-get-icon">🎯</span>
+            <div>
+              <strong>Conversion Analysis</strong>
+              <p>Why visitors leave without contacting you, and what to fix first</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="audit-proof">
+          <div class="audit-proof-stat"><strong>945+</strong><span>Audits Completed</span></div>
+          <div class="audit-proof-stat"><strong>48 hrs</strong><span>Delivery Time</span></div>
+          <div class="audit-proof-stat"><strong>100%</strong><span>Free — No Catch</span></div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="audit-form-card">
+        <h2>Request Your Free Audit</h2>
+        <p>Fill in the form and we'll send your audit report within 48 hours.</p>
+        <form
+          class="audit-form"
+          action="https://formspree.io/f/xbjvpqon"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Free Website Audit Request — DC technolabs" />
+          <input type="hidden" name="form_type" value="website_audit" />
+
+          <div class="form-group">
+            <label for="audit-name">Your Name *</label>
+            <input type="text" id="audit-name" name="name" placeholder="Rajesh Patel" required />
+          </div>
+          <div class="form-group">
+            <label for="audit-phone">WhatsApp / Phone *</label>
+            <input type="tel" id="audit-phone" name="phone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label for="audit-email">Email Address *</label>
+            <input type="email" id="audit-email" name="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="audit-website">Your Website URL *</label>
+            <input type="url" id="audit-website" name="website" placeholder="https://yourwebsite.com" required />
+          </div>
+          <div class="form-group">
+            <label for="audit-business">Type of Business</label>
+            <select id="audit-business" name="business_type">
+              <option value="">Select your industry</option>
+              <option>Healthcare / Clinic</option>
+              <option>Real Estate / Construction</option>
+              <option>Education / Coaching</option>
+              <option>E-commerce / Retail</option>
+              <option>Manufacturing / Industrial</option>
+              <option>Restaurant / Hospitality</option>
+              <option>Professional Services (Law, Finance, CA)</option>
+              <option>SaaS / Technology</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="audit-goal">What's your main goal?</label>
+            <select id="audit-goal" name="goal">
+              <option value="">Select a goal</option>
+              <option>Get more leads from my website</option>
+              <option>Rank higher on Google</option>
+              <option>Improve website speed</option>
+              <option>Understand what's wrong with my current site</option>
+              <option>Just curious to see how it scores</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Get My Free Website Audit →
+          </button>
+          <p class="form-reassurance">You'll receive your audit report within 48 hours. No sales call, no obligation.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2: WHAT WE CHECK
+════════════════════════════════════════════════ -->
+<section class="audit-checks reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What's Covered</span>
+      <h2 class="section-title">25-Point Website Audit Checklist</h2>
+      <p class="section-subtitle">Every audit covers all of these. You receive a plain-language report explaining each finding and what to do about it.</p>
+    </div>
+    <div class="audit-checks-grid">
+
+      <div class="audit-check-group">
+        <div class="audit-check-group-title">
+          <span>🔍</span> SEO & Visibility
+        </div>
+        <ul>
+          <li>Google indexing status</li>
+          <li>Title tags and meta descriptions</li>
+          <li>Header structure (H1, H2, H3)</li>
+          <li>Image alt text</li>
+          <li>Local SEO signals</li>
+          <li>Google Business Profile linkage</li>
+          <li>XML sitemap presence and quality</li>
+        </ul>
+      </div>
+
+      <div class="audit-check-group">
+        <div class="audit-check-group-title">
+          <span>⚡</span> Speed & Performance
+        </div>
+        <ul>
+          <li>Google PageSpeed Insights score (mobile + desktop)</li>
+          <li>Core Web Vitals (LCP, FID, CLS)</li>
+          <li>Image sizes and formats</li>
+          <li>JavaScript and CSS bloat</li>
+          <li>Hosting performance check</li>
+          <li>Caching setup</li>
+        </ul>
+      </div>
+
+      <div class="audit-check-group">
+        <div class="audit-check-group-title">
+          <span>📱</span> Mobile Experience
+        </div>
+        <ul>
+          <li>Mobile responsiveness (all breakpoints)</li>
+          <li>Touch target sizes (tap friendliness)</li>
+          <li>Mobile load time</li>
+          <li>Text readability on small screens</li>
+          <li>Mobile CTA visibility</li>
+        </ul>
+      </div>
+
+      <div class="audit-check-group">
+        <div class="audit-check-group-title">
+          <span>🎯</span> Conversions & UX
+        </div>
+        <ul>
+          <li>Above-the-fold clarity (what do you do?)</li>
+          <li>Call-to-action visibility and placement</li>
+          <li>Contact form presence and functionality</li>
+          <li>Trust signals (testimonials, awards, about)</li>
+          <li>Navigation logic and ease of use</li>
+          <li>Bounce rate estimate and causes</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3: WHAT YOU'LL RECEIVE
+════════════════════════════════════════════════ -->
+<section class="audit-deliverable reveal">
+  <div class="container">
+    <div class="audit-deliverable-grid">
+      <div class="audit-deliverable-content">
+        <span class="section-label">The Deliverable</span>
+        <h2 class="section-title">What Your Audit Report Looks Like</h2>
+        <p>We send a clear, jargon-free PDF report covering every finding. Each issue is explained in plain language, rated by severity (critical, important, minor), and given a specific recommendation for what to do about it.</p>
+        <p>You'll know exactly what's working, what's broken, and — most importantly — what to fix first for maximum impact on your visibility and lead generation.</p>
+        <p>There's no obligation to hire us. Many businesses use our audit report to brief their existing web team or agency. That's fine with us.</p>
+      </div>
+      <div class="audit-deliverable-preview">
+        <div class="audit-report-mockup">
+          <div class="report-header">
+            <div class="report-logo">DC technolabs</div>
+            <div class="report-title">Website Audit Report</div>
+            <div class="report-domain">yourwebsite.com</div>
+          </div>
+          <div class="report-score-row">
+            <div class="report-score-item">
+              <div class="score-circle score-bad">42</div>
+              <span>SEO Score</span>
+            </div>
+            <div class="report-score-item">
+              <div class="score-circle score-mid">61</div>
+              <span>Speed</span>
+            </div>
+            <div class="report-score-item">
+              <div class="score-circle score-bad">38</div>
+              <span>Mobile</span>
+            </div>
+            <div class="report-score-item">
+              <div class="score-circle score-mid">55</div>
+              <span>Conversions</span>
+            </div>
+          </div>
+          <div class="report-issues">
+            <div class="report-issue report-issue--critical">🔴 3 Critical Issues Found</div>
+            <div class="report-issue report-issue--warning">🟡 8 Important Improvements</div>
+            <div class="report-issue report-issue--info">🟢 4 Minor Enhancements</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4: COMMON ISSUES WE FIND
+════════════════════════════════════════════════ -->
+<section class="common-issues reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What We Typically Find</span>
+      <h2 class="section-title">The 6 Most Common Issues in Ahmedabad Business Websites</h2>
+    </div>
+    <div class="issues-grid">
+      <div class="issue-card">
+        <div class="issue-num">01</div>
+        <h3>No Google Business Profile (or an unclaimed one)</h3>
+        <p>Over 60% of local business websites we audit are either not connected to a GBP at all, or have a GBP with incorrect information. This is the single fastest fix with the biggest local SEO impact.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">02</div>
+        <h3>Failing mobile performance (below 50 PageSpeed score)</h3>
+        <p>Templates and WordPress sites loaded with plugins routinely score 30–50 on mobile. With 75%+ of Gujarat's internet traffic on phones, this is an invisible lead killer.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">03</div>
+        <h3>Missing or weak call-to-action</h3>
+        <p>Most business websites say what they do but never explicitly tell the visitor what to do next. No "Call Now", no "Book a Consultation", no "Get a Quote" — just text and a footer phone number.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">04</div>
+        <h3>Generic title tags (same title on every page)</h3>
+        <p>"Home — XYZ Company" as the title tag on every single page. This means Google has no signal to rank your individual pages for specific keywords. Simple to fix, significant impact.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">05</div>
+        <h3>No trust signals above the fold</h3>
+        <p>Visitors decide in 5 seconds whether to trust your site. Most business websites bury their experience, testimonials, and credentials at the bottom of the page — if they have them at all.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">06</div>
+        <h3>Missing or broken Google Analytics setup</h3>
+        <p>Over 70% of websites we audit have either no analytics, a misconfigured setup, or duplicate tracking that inflates numbers. Without accurate data, there's no way to improve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5: TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section class="audit-testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">After Getting Their Audit</span>
+      <h2 class="section-title">What Business Owners Said</h2>
+    </div>
+    <div class="audit-test-grid">
+      <div class="audit-tcard">
+        <div class="audit-stars">★★★★★</div>
+        <p>"I got the audit expecting a generic report. It was 14 pages of specific issues with exact recommendations. We implemented 5 of the fixes ourselves and saw a 40% increase in organic traffic within 6 weeks."</p>
+        <div class="audit-tcard-author">
+          <div class="audit-initials">SM</div>
+          <div><strong>Suresh Mehta</strong><span>Coaching Institute, Vadodara</span></div>
+        </div>
+      </div>
+      <div class="audit-tcard">
+        <div class="audit-stars">★★★★★</div>
+        <p>"The audit found 3 critical issues I didn't know existed — including a noindex tag on my homepage from a plugin that was blocking Google from indexing my whole site. No wonder I wasn't ranking!"</p>
+        <div class="audit-tcard-author">
+          <div class="audit-initials">KP</div>
+          <div><strong>Kruti Patel</strong><span>Dental Clinic, Bodakdev</span></div>
+        </div>
+      </div>
+      <div class="audit-tcard">
+        <div class="audit-stars">★★★★★</div>
+        <p>"We had a web agency claiming everything was fine. DC technolabs' free audit found 11 SEO issues they'd been ignoring for 2 years. The report was more valuable than 6 months of 'reporting' from the old agency."</p>
+        <div class="audit-tcard-author">
+          <div class="audit-initials">RB</div>
+          <div><strong>Rohan Bhatt</strong><span>Textile Manufacturer, Surat</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6: FAQ
+════════════════════════════════════════════════ -->
+<section class="audit-faq reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Questions</span>
+      <h2 class="section-title">About the Free Audit</h2>
+    </div>
+    <div class="audit-faq-grid">
+      <details class="faq-item">
+        <summary>Is this really free? What's the catch?</summary>
+        <p>It's completely free. No catch, no credit card, no obligation to hire us. We offer free audits because it builds trust — businesses that receive an honest, useful audit are more likely to work with us later. But many businesses just use the report and that's fine too.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does the audit take?</summary>
+        <p>You'll receive your audit report within 48 business hours of submitting the form. For most websites, it's done within 24 hours.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to give you access to my website?</summary>
+        <p>No. We run the audit using publicly available tools — Google PageSpeed, Search Console public data, manual review, and SEO analysis tools. No passwords, no login access required.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if my website is new?</summary>
+        <p>New websites benefit most from audits — it's the ideal time to catch structural SEO issues before Google has already indexed the wrong signals. We'll identify what to set up correctly from the start.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will you try to sell me something after sending the audit?</summary>
+        <p>We'll send the report without any sales pressure. If you have questions about specific issues or want to know what fixing them would cost, you can ask us — but we won't follow up with sales calls if you don't want them.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I get an audit if I'm not in Ahmedabad?</summary>
+        <p>Yes. We audit websites from anywhere in India and internationally. Location doesn't affect the quality or scope of the website audit.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<CtaBanner
+  title="Ready to Find Out What's Holding Your Website Back?"
+  subtitle="Submit your website URL above and receive your free 25-point audit report within 48 hours."
+  ctaLabel="Get My Free Audit →"
+  ctaHref="#audit-form"
+/>
+
+</PageLayout>
+
+<style>
+/* HERO */
+.audit-hero {
+  padding: 100px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 60%, var(--white) 100%);
+}
+.audit-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.audit-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.audit-hero-content h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.audit-hero-content > p { font-size: 1.05rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 2rem; }
+.audit-what-you-get { margin-bottom: 2rem; }
+.audit-get-item { display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start; }
+.audit-get-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
+.audit-get-item strong { display: block; font-size: .9rem; margin-bottom: .2rem; }
+.audit-get-item p { font-size: .85rem; color: var(--gray-500); line-height: 1.6; margin: 0; }
+.audit-proof { display: flex; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-100); }
+.audit-proof-stat { display: flex; flex-direction: column; }
+.audit-proof-stat strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--blue-600); line-height: 1; }
+.audit-proof-stat span { font-size: .75rem; color: var(--gray-500); margin-top: .25rem; }
+
+/* FORM CARD */
+.audit-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1.5px solid var(--blue-100);
+  box-shadow: 0 20px 60px rgba(37,99,235,.08);
+  position: sticky;
+  top: 100px;
+}
+.audit-form-card h2 { font-size: 1.3rem; margin-bottom: .4rem; }
+.audit-form-card > p { font-size: .875rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+.audit-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+.form-group label { font-size: .8rem; font-weight: 600; color: var(--gray-700); }
+.form-group input, .form-group select, .form-group textarea {
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  background: var(--white);
+  color: var(--gray-900);
+  transition: border-color .2s;
+  font-family: var(--font-body);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.08);
+}
+.btn-full { width: 100%; text-align: center; }
+.form-reassurance { font-size: .78rem; color: var(--gray-400); text-align: center; margin: .5rem 0 0; }
+
+/* CHECKS */
+.audit-checks { padding: var(--section-pad) 0; }
+.audit-checks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.audit-check-group {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.audit-check-group-title {
+  font-weight: 700;
+  font-size: .9rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.audit-check-group ul { list-style: none; padding: 0; margin: 0; }
+.audit-check-group li {
+  font-size: .85rem;
+  color: var(--gray-600);
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--gray-50);
+  line-height: 1.5;
+}
+.audit-check-group li::before { content: '✓ '; color: var(--blue-600); font-weight: 700; }
+.audit-check-group li:last-child { border-bottom: none; }
+
+/* DELIVERABLE */
+.audit-deliverable { padding: var(--section-pad) 0; background: var(--blue-50); }
+.audit-deliverable-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.audit-deliverable-content p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.audit-report-mockup {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--blue-100);
+  box-shadow: 0 24px 64px rgba(37,99,235,.1);
+}
+.report-header {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: var(--white);
+  padding: 2rem;
+}
+.report-logo { font-weight: 800; font-size: .85rem; opacity: .7; margin-bottom: .5rem; }
+.report-title { font-size: 1.1rem; font-weight: 700; margin-bottom: .25rem; }
+.report-domain { font-size: .8rem; opacity: .7; }
+.report-score-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.report-score-item { text-align: center; }
+.score-circle {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  margin: 0 auto .5rem;
+}
+.score-bad { background: rgba(239,68,68,.1); color: #dc2626; border: 2px solid rgba(239,68,68,.3); }
+.score-mid { background: rgba(245,158,11,.1); color: #d97706; border: 2px solid rgba(245,158,11,.3); }
+.report-score-item span { font-size: .72rem; color: var(--gray-500); }
+.report-issues { padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
+.report-issue {
+  padding: .6rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: .85rem;
+  font-weight: 600;
+}
+.report-issue--critical { background: rgba(239,68,68,.06); color: #dc2626; }
+.report-issue--warning { background: rgba(245,158,11,.06); color: #d97706; }
+.report-issue--info { background: rgba(16,185,129,.06); color: #065f46; }
+
+/* COMMON ISSUES */
+.common-issues { padding: var(--section-pad) 0; }
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.issue-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all .3s var(--ease);
+}
+.issue-card:hover { border-color: var(--blue-200); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(37,99,235,.08); }
+.issue-num { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--blue-100); line-height: 1; margin-bottom: .75rem; }
+.issue-card h3 { font-size: 1rem; margin-bottom: .5rem; }
+.issue-card p { font-size: .875rem; color: var(--gray-500); line-height: 1.7; margin: 0; }
+
+/* TESTIMONIALS */
+.audit-testimonials { padding: var(--section-pad) 0; background: var(--gray-50); }
+.audit-test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.audit-tcard {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--gray-100);
+}
+.audit-stars { color: #f59e0b; margin-bottom: 1rem; }
+.audit-tcard p { font-size: .9rem; color: var(--gray-600); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+.audit-tcard-author { display: flex; gap: 1rem; align-items: center; }
+.audit-initials {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-100), var(--blue-300));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--blue-700);
+  flex-shrink: 0;
+}
+.audit-tcard-author strong { display: block; font-size: .9rem; }
+.audit-tcard-author span { font-size: .8rem; color: var(--gray-500); }
+
+/* FAQ */
+.audit-faq { padding: var(--section-pad) 0; }
+.audit-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.faq-item[open] { border-color: var(--blue-200); }
+.faq-item summary {
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 1.25rem; font-weight: 400; color: var(--blue-600); flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 1.5rem 1.25rem; font-size: .875rem; color: var(--gray-500); line-height: 1.7; margin: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .audit-hero-grid { grid-template-columns: 1fr; }
+  .audit-form-card { position: static; }
+  .audit-checks-grid { grid-template-columns: repeat(2, 1fr); }
+  .audit-deliverable-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .issues-grid { grid-template-columns: repeat(2, 1fr); }
+  .audit-test-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .audit-checks-grid { grid-template-columns: 1fr; }
+  .issues-grid { grid-template-columns: 1fr; }
+  .report-score-row { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .audit-faq-grid { grid-template-columns: 1fr; }
+}
+</style>
