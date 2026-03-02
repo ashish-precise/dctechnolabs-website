@@ -76,7 +76,7 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 
 ### DEPLOYMENT STATUS
 
-- Forms: Migrating from Formspree to **Web3Forms** (see form rules below)
+- Forms: Migrated to **Web3Forms** on all pages (March 2026)
 - GitHub repo: Ready
 - Vercel: Connected
 - Deployment to replace live dctechnolabs.in: Pending
@@ -300,7 +300,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 
 ## Upcoming Next Steps (in order)
 
-1. Replace all Formspree form code with Web3Forms across all pages
+1. ✅ Replace all Formspree form code with Web3Forms across all pages — DONE (March 2026)
 2. Build individual blog post page template (with sticky TOC sidebar)
 3. Build individual portfolio/case study detail page template
 4. Build Free Website Audit landing page
