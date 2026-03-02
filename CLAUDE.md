@@ -301,7 +301,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 ## Upcoming Next Steps (in order)
 
 1. ✅ Replace all Formspree form code with Web3Forms across all pages — DONE (March 2026)
-2. Build individual blog post page template (with sticky TOC sidebar)
+2. ✅ Build individual blog post page template (with sticky TOC sidebar) — DONE (March 2026) — see seo-mistakes-ahmedabad-businesses-2025.astro as the template
 3. Build individual portfolio/case study detail page template
 4. Build Free Website Audit landing page
 5. Build Free SEO Audit landing page
