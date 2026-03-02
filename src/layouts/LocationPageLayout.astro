@@ -116,10 +116,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:all .3s var(--ease)}
 .header.scrolled{border-bottom:1px solid var(--gray-200);box-shadow:0 1px 12px rgba(0,0,0,.06)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--gray-900)}
-.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:.9rem;position:relative;overflow:hidden}
-.logo-icon::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);animation:logoSheen 4s ease-in-out infinite}
-@keyframes logoSheen{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+.logo{display:flex;align-items:center;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--gray-900)}
 .logo span{color:var(--blue-600)}
 .nav-desktop{display:flex;align-items:center;gap:2rem}.nav-desktop a{font-family:var(--font-display);font-size:.9rem;font-weight:500;color:var(--gray-600);position:relative;padding:4px 0}.nav-desktop a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--blue-600);border-radius:2px;transition:width .3s var(--ease)}.nav-desktop a:hover{color:var(--blue-700)}.nav-desktop a:hover::after{width:100%}
 .header-actions{display:flex;align-items:center;gap:12px}.header-phone{display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:600;font-size:.9rem;color:var(--gray-700)}.header-phone svg{color:var(--blue-600)}.header-phone:hover{color:var(--blue-600)}.btn-header-cta{padding:10px 24px;font-size:.9rem}
@@ -136,7 +133,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
 .loc-hero h1{font-size:clamp(2.25rem,4.5vw,3.25rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
 .loc-hero h1 .highlight{background:linear-gradient(135deg,var(--blue-600),var(--blue-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .loc-hero-desc{font-size:1.1rem;color:var(--gray-500);line-height:1.75;margin-bottom:1.5rem;max-width:540px}
-.loc-hero-stats{display:flex;gap:2rem}.loc-hero-stat strong{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--gray-900);display:block}.loc-hero-stat span{font-size:.9rem;color:var(--gray-400)}
+.loc-hero-stats{display:flex;gap:0}.loc-hero-stat{padding-right:2rem;margin-right:2rem;border-right:1px solid var(--gray-200)}.loc-hero-stat:last-child{padding-right:0;margin-right:0;border-right:none}.loc-hero-stat strong{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--blue-600);display:block}.loc-hero-stat span{font-size:.9rem;color:var(--gray-400)}
 .hero-form-card{background:var(--white);border-radius:var(--radius-lg);padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.05);border:1px solid var(--gray-100)}
 .hero-form-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:.25rem;color:var(--gray-900)}.hero-form-sub{font-size:.9rem;color:var(--gray-400);margin-bottom:1.5rem}
 .form-group{margin-bottom:1rem}.form-group label{display:block;font-family:var(--font-display);font-size:.85rem;font-weight:600;color:var(--gray-600);margin-bottom:6px}
@@ -244,7 +241,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
 <header class="header" id="header">
   <div class="container header-inner">
     <a href="/" class="logo">
-      <div class="logo-icon">DC</div>
       DC <span>technolabs</span>
     </a>
     <nav class="nav-desktop">
