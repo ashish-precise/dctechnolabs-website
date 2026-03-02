@@ -271,10 +271,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:all .3s var(--ease)}
 .header.scrolled{border-bottom:1px solid var(--gray-200);box-shadow:0 1px 12px rgba(0,0,0,.06)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--gray-900)}
-.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:.9rem;position:relative;overflow:hidden}
-.logo-icon::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);animation:logoSheen 4s ease-in-out infinite}
-@keyframes logoSheen{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+.logo{display:flex;align-items:center;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--gray-900)}
 .logo span{color:var(--blue-600)}
 .nav-desktop{display:flex;align-items:center;gap:2rem}
 .nav-desktop a{font-family:var(--font-display);font-size:.9rem;font-weight:500;color:var(--gray-600);position:relative;padding:4px 0}
@@ -556,7 +553,6 @@ textarea.form-input{resize:vertical;min-height:80px}
 <header class="header" id="header">
   <div class="container header-inner">
     <a href="/" class="logo">
-      <div class="logo-icon">DC</div>
       DC <span>technolabs</span>
     </a>
     <nav class="nav-desktop">
