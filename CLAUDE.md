@@ -74,16 +74,26 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 | 10 SEO Mistakes Ahmedabad Businesses Make | seo-mistakes-ahmedabad-businesses-2025 | Done |
 | How Much Does a Website Cost in Ahmedabad | website-cost-ahmedabad-2025 | Done |
 
+### COMPLETED LANDING PAGES
+
+| Page | Status | Notes |
+|---|---|---|
+| Free Website Audit | Done | 10 sections, colored checklist tiles, Web3Forms |
+| Free SEO Audit | Done | 9 sections, before/after case study panel, Web3Forms |
+
 ### PENDING PAGES (build in this order as per roadmap)
 
 1. ✅ Blog detail / individual post pages (with sticky sidebar TOC) — DONE (March 2026)
-2. Portfolio detail pages (individual case study pages)
-3. Free Website Audit landing page (form: name, email, phone, website URL)
-4. Free SEO Audit landing page (form: name, email, phone, website URL)
+2. ✅ Portfolio detail pages (individual case study page — lifecare-clinic) — DONE (March 2026)
+3. ✅ Free Website Audit landing page — DONE (March 2026)
+4. ✅ Free SEO Audit landing page — DONE (March 2026)
 
 ### DEPLOYMENT STATUS
 
 - Forms: Migrated to **Web3Forms** on all pages (March 2026)
+- Sitemap: Auto-generated via @astrojs/sitemap (added March 2026)
+- robots.txt: Created in public/ (March 2026)
+- Twitter Card meta tags: Added to BaseLayout.astro (March 2026)
 - GitHub repo: Ready
 - Vercel: Connected
 - Deployment to replace live dctechnolabs.in: Pending
@@ -309,11 +319,11 @@ Each section should have a clear purpose. No filler sections. Pattern:
 ## Upcoming Next Steps (in order)
 
 1. ✅ Replace all Formspree form code with Web3Forms across all pages — DONE (March 2026)
-2. ✅ Build individual blog post page template (with sticky TOC sidebar) — DONE (March 2026) — see seo-mistakes-ahmedabad-businesses-2025.astro as the template
-3. Build individual portfolio/case study detail page template
-4. Build Free Website Audit landing page
-5. Build Free SEO Audit landing page
-6. Final pre-deployment check: sitemap, robots.txt, meta tags, schema on all pages
+2. ✅ Build individual blog post page template (with sticky TOC sidebar) — DONE (March 2026)
+3. ✅ Build individual portfolio/case study detail page (lifecare-clinic) — DONE (March 2026)
+4. ✅ Build Free Website Audit landing page — DONE (March 2026)
+5. ✅ Build Free SEO Audit landing page — DONE (March 2026)
+6. ✅ Pre-deployment check: sitemap (@astrojs/sitemap), robots.txt, Twitter Card meta tags — DONE (March 2026)
 7. Deploy v2 to replace current live dctechnolabs.in
 
 ---
