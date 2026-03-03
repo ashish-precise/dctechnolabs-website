@@ -67,9 +67,16 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 | Privacy Policy | Done | |
 | Terms of Service | Done | |
 
+### COMPLETED BLOG POSTS
+
+| Post | URL Slug | Status |
+|---|---|---|
+| 10 SEO Mistakes Ahmedabad Businesses Make | seo-mistakes-ahmedabad-businesses-2025 | Done |
+| How Much Does a Website Cost in Ahmedabad | website-cost-ahmedabad-2025 | Done |
+
 ### PENDING PAGES (build in this order as per roadmap)
 
-1. Blog detail / individual post pages (with sticky sidebar TOC)
+1. ✅ Blog detail / individual post pages (with sticky sidebar TOC) — DONE (March 2026)
 2. Portfolio detail pages (individual case study pages)
 3. Free Website Audit landing page (form: name, email, phone, website URL)
 4. Free SEO Audit landing page (form: name, email, phone, website URL)
@@ -113,6 +120,7 @@ Future sub-pages planned per area (not built yet)
 - **Never use the em dash symbol ( — )** anywhere in any file, ever
 - **Never use a hyphen** unless it is grammatically necessary (compound adjectives like "mobile-first" are fine, decorative hyphens or list separators are not)
 - **Never use the phrase "No jargon, no fluff"** anywhere on the site
+- **Never use square brackets in titles, headings, or content** unless absolutely necessary (e.g. do not write "2025 Guide" as "[2025 Guide]")
 - Content must sound like a real Ahmedabad business, not AI-generated filler
 - Always include specific local context: mention Ahmedabad, Gujarat, GIFT City, InfoCity, etc. where relevant
 - Pricing should reference Indian Rupees (₹) not dollars
