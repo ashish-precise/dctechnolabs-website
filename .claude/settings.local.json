@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm install @astrojs/sitemap)",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(grep -l \"BaseLayout\\\\|WhatsAppButton\" \"c:/Users/ashis/Downloads/noxfolio/dctechnolabs-website/src/layouts/\"*.astro)"
     ]
   }
 }
