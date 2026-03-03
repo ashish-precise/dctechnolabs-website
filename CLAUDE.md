@@ -97,9 +97,9 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 - Header nav: Services, Portfolio, Pricing, Locations, Blog, Contact
 - robots.txt: Created in public/ (March 2026)
 - Twitter Card meta tags: Added to BaseLayout.astro (March 2026)
-- GitHub repo: Ready
-- Vercel: Connected
-- Deployment to replace live dctechnolabs.in: Pending
+- GitHub repo: Connected to Vercel
+- Vercel: Live
+- Deployment: LIVE at dctechnolabs.in (March 2026)
 
 ---
 
@@ -327,7 +327,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 4. ✅ Build Free Website Audit landing page — DONE (March 2026)
 5. ✅ Build Free SEO Audit landing page — DONE (March 2026)
 6. ✅ Pre-deployment check: sitemap (@astrojs/sitemap), robots.txt, Twitter Card meta tags — DONE (March 2026)
-7. Deploy v2 to replace current live dctechnolabs.in
+7. ✅ Deploy v2 to replace current live dctechnolabs.in — LIVE (March 2026)
 
 ---
 
