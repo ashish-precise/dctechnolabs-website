@@ -141,6 +141,13 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Industries -->
+  <url>
+    <loc>https://dctechnolabs.in/industries/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Landing Pages -->
   <url>
     <loc>https://dctechnolabs.in/free-website-audit/</loc>

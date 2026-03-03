@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install @astrojs/sitemap)"
+      "Bash(npm install @astrojs/sitemap)",
+      "Bash(npm run build)"
     ]
   }
 }

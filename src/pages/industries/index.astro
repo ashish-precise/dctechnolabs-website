@@ -1,0 +1,749 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const industries = [
+  { icon: "🏥", name: "Healthcare", slug: "healthcare", desc: "Clinics, hospitals, diagnostic centres, and wellness brands across Gujarat. Appointment booking, patient portals, and local SEO.", color: "rose" },
+  { icon: "🏠", name: "Real Estate", slug: "real-estate", desc: "Builders, brokers, and property developers. Property listing websites, lead generation campaigns, and drone photography integration.", color: "blue" },
+  { icon: "🛒", name: "E-commerce", slug: "ecommerce", desc: "Online stores for fashion, electronics, food, and lifestyle products. Shopify, WooCommerce, and custom e-commerce development.", color: "amber" },
+  { icon: "🎓", name: "Education", slug: "education", desc: "Schools, coaching institutes, online learning platforms, and universities. Admission forms, course pages, and digital marketing.", color: "purple" },
+  { icon: "🏭", name: "Manufacturing", slug: "manufacturing", desc: "Industrial manufacturers, exporters, and B2B suppliers. Product catalogues, enquiry systems, and export-focused websites.", color: "gray" },
+  { icon: "🍽️", name: "Restaurants", slug: "restaurants", desc: "Restaurants, cafes, cloud kitchens, and catering businesses. Online menus, table booking, Zomato integration, and local SEO.", color: "orange" },
+  { icon: "⚖️", name: "Legal Services", slug: "legal", desc: "Law firms, solicitors, and legal consultants. Professional websites, client intake forms, and reputation management.", color: "indigo" },
+  { icon: "🏗️", name: "Construction", slug: "construction", desc: "Builders, contractors, interior designers, and architecture firms. Project portfolios, lead capture, and local presence.", color: "amber" },
+  { icon: "💰", name: "Finance", slug: "finance", desc: "CA firms, financial advisors, insurance agents, and NBFCs. Compliance-friendly websites, lead generation, and SEO.", color: "green" },
+  { icon: "✈️", name: "Travel", slug: "travel", desc: "Travel agencies, tour operators, and hospitality businesses. Booking engines, itinerary pages, and destination SEO.", color: "teal" },
+  { icon: "🚗", name: "Automotive", slug: "automotive", desc: "Car dealerships, service centres, and auto accessory shops. Inventory listings, booking systems, and Google Ads.", color: "gray" },
+  { icon: "💻", name: "SaaS & Tech", slug: "saas", desc: "Software companies, IT services, and technology startups. Product landing pages, demo request flows, and inbound SEO.", color: "blue" },
+  { icon: "👗", name: "Fashion", slug: "fashion", desc: "Apparel brands, boutiques, and fashion retailers. Lookbooks, e-commerce stores, social media marketing, and influencer campaigns.", color: "rose" },
+  { icon: "❤️", name: "Non-Profit", slug: "ngo", desc: "NGOs, trusts, and social enterprises. Donation pages, volunteer registration, cause campaigns, and grant-friendly websites.", color: "green" },
+];
+
+const colorMap: Record<string, { bg: string; text: string }> = {
+  rose:   { bg: "#FFF1F2", text: "#E11D48" },
+  blue:   { bg: "#EFF6FF", text: "#2563EB" },
+  amber:  { bg: "#FFFBEB", text: "#D97706" },
+  purple: { bg: "#F5F3FF", text: "#7C3AED" },
+  gray:   { bg: "#F8FAFC", text: "#475569" },
+  orange: { bg: "#FFF7ED", text: "#EA580C" },
+  indigo: { bg: "#EEF2FF", text: "#4338CA" },
+  green:  { bg: "#F0FDF4", text: "#059669" },
+  teal:   { bg: "#F0FDFA", text: "#0D9488" },
+};
+
+const faqs = [
+  { q: "Do you specialise in one industry only?", a: "No. We have built 945+ websites across 14 industries. Each project is approached with industry-specific research so your website speaks directly to your customers, not a generic audience." },
+  { q: "Do you understand B2B industries like manufacturing and legal?", a: "Yes. We have worked extensively with B2B exporters, manufacturers, and professional services firms in Gujarat. We understand procurement language, export compliance, and the longer B2B sales cycle." },
+  { q: "Can you help a brand-new business in my industry get found on Google?", a: "Absolutely. We start with local SEO, Google Business Profile optimisation, and a well-structured website. Most new clients in competitive industries see first-page rankings within 3 to 6 months." },
+  { q: "Do you offer industry-specific content writing?", a: "Yes. Our content team includes writers who specialise in healthcare, legal, finance, real estate, and e-commerce. All content is written for your audience, not just keyword-stuffed filler." },
+  { q: "Can you migrate my existing website without losing my Google rankings?", a: "Yes. We handle all technical migration with proper 301 redirects, sitemap updates, and crawl monitoring to protect your existing search rankings during the transition." },
+  { q: "What makes your approach different from generic web agencies?", a: "We do not use templates. Every website is custom-built after studying your industry, your competitors in Ahmedabad, and your specific customer base. You get a website that looks and works like your business." },
+];
+---
+
+<PageLayout
+  title="Industries We Serve | DC technolabs Ahmedabad"
+  description="DC technolabs builds websites and runs digital marketing for businesses across 14 industries in Gujarat — healthcare, real estate, e-commerce, education, manufacturing, and more."
+  canonical="https://dctechnolabs.in/industries/"
+>
+
+{/* SECTION 1: HERO */}
+<section class="ind-hero">
+  <div class="container">
+    <div class="ind-hero-grid">
+      <div class="ind-hero-content">
+        <span class="section-label">Industries We Serve</span>
+        <h1>Digital Marketing and Web Design Across <span class="highlight">Every Industry in Gujarat</span></h1>
+        <p class="ind-hero-desc">945+ projects across healthcare, real estate, education, manufacturing, e-commerce, and more. We bring industry knowledge to every campaign, website, and strategy we build.</p>
+        <div class="ind-hero-tags">
+          {industries.slice(0, 7).map(i => (
+            <span class="ind-mini-tag">{i.icon} {i.name}</span>
+          ))}
+          <span class="ind-mini-tag">+ 7 more</span>
+        </div>
+      </div>
+      <div class="ind-hero-form">
+        <div class="hero-form-card">
+          <h3 class="hero-form-title">Get Industry-Specific Advice</h3>
+          <p class="hero-form-sub">Tell us your industry. We'll share exactly what works.</p>
+          <form id="industryHeroForm">
+            <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
+            <input type="hidden" name="subject" value="Industries Page Inquiry - DC technolabs">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" class="form-input" placeholder="Raj Patel" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+91 9662608986" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" class="form-input" placeholder="raj@business.com" required>
+            </div>
+            <div class="form-group">
+              <label>Your Industry</label>
+              <select name="industry" class="form-input" required>
+                <option value="">Select your industry</option>
+                {industries.map(i => <option value={i.name}>{i.name}</option>)}
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>What do you need help with?</label>
+              <textarea name="message" class="form-input" rows="3" placeholder="Brief message about your goals..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full form-submit">Get Industry Advice →</button>
+          </form>
+          <div id="industryFormSuccess" style="display:none;padding:1.5rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;text-align:center;margin-top:1rem">
+            <p style="color:#166534;font-weight:600;margin:0">Thank you! We will get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 2: INDUSTRIES GRID */}
+<section class="ind-grid-section reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">14 Industries</span>
+      <h2 class="section-title">Every Major Sector in Gujarat. Covered.</h2>
+      <p class="section-subtitle">From regulated industries like healthcare and finance to competitive sectors like e-commerce and real estate, we have the experience and the results to back it up.</p>
+    </div>
+    <div class="ind-cards-grid">
+      {industries.map(ind => (
+        <div class="ind-card" style={`--ind-bg:${colorMap[ind.color]?.bg};--ind-text:${colorMap[ind.color]?.text}`}>
+          <div class="ind-card-icon">{ind.icon}</div>
+          <h3>{ind.name}</h3>
+          <p>{ind.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* SECTION 3: WHY INDUSTRY EXPERTISE MATTERS */}
+<section class="ind-why reveal">
+  <div class="container">
+    <div class="ind-why-grid">
+      <div class="ind-why-content">
+        <span class="section-label" style="color:var(--blue-300);display:block;margin-bottom:1rem">Why It Matters</span>
+        <h2 class="section-title" style="color:var(--white)">Generic Agencies Build Generic Websites. We Don't.</h2>
+        <p style="color:var(--gray-300);font-size:1.1rem;line-height:1.75;margin-bottom:2rem">A healthcare website needs appointment booking, trust signals, and NABH-friendly messaging. A real estate site needs property search, drone videos, and EMI calculators. A restaurant needs Zomato integration and menu pages that convert. <strong style="color:var(--white)">We know the difference because we've built all of them.</strong></p>
+        <ul class="ind-why-list">
+          <li>Industry-specific keyword research from day one</li>
+          <li>Competitor analysis within your exact market in Gujarat</li>
+          <li>Content written for your customers, not generic filler</li>
+          <li>Features that match how your industry actually sells</li>
+          <li>Compliance awareness for regulated sectors</li>
+        </ul>
+      </div>
+      <div class="ind-why-stats">
+        <div class="ind-stat-card">
+          <div class="ind-stat-num">14</div>
+          <div class="ind-stat-label">Industries Served</div>
+        </div>
+        <div class="ind-stat-card">
+          <div class="ind-stat-num">945+</div>
+          <div class="ind-stat-label">Projects Completed</div>
+        </div>
+        <div class="ind-stat-card">
+          <div class="ind-stat-num">8+</div>
+          <div class="ind-stat-label">Years of Experience</div>
+        </div>
+        <div class="ind-stat-card">
+          <div class="ind-stat-num">4.9</div>
+          <div class="ind-stat-label">Average Client Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 4: FEATURED INDUSTRIES */}
+<section class="featured-ind reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Deep Expertise</span>
+      <h2 class="section-title">Our Strongest Industry Verticals</h2>
+      <p class="section-subtitle">These are the sectors where we have completed the most projects and have the deepest bench of experience.</p>
+    </div>
+    <div class="featured-ind-grid">
+      <div class="featured-ind-card">
+        <div class="fi-icon">🏥</div>
+        <h3>Healthcare</h3>
+        <p>We have built websites and run campaigns for 100+ clinics, diagnostic labs, hospitals, and wellness centres across Ahmedabad and Gujarat. Our healthcare websites include appointment booking, doctor profiles, service pages optimised for local search, and patient trust signals that convert.</p>
+        <ul class="fi-list">
+          <li>Appointment booking integration</li>
+          <li>Doctor and specialist profile pages</li>
+          <li>Local SEO for "near me" searches</li>
+          <li>Google Ads for clinic patient acquisition</li>
+        </ul>
+      </div>
+      <div class="featured-ind-card">
+        <div class="fi-icon">🏠</div>
+        <h3>Real Estate</h3>
+        <p>From individual brokers on SG Highway to large builders with projects across Gujarat, we have helped real estate businesses build a digital presence that generates qualified buyer and tenant leads. We understand the RERA landscape and the Gujarat property market inside out.</p>
+        <ul class="fi-list">
+          <li>Property listing and search pages</li>
+          <li>Virtual tour and drone video integration</li>
+          <li>Lead capture with WhatsApp connect</li>
+          <li>Google Ads and Facebook lead campaigns</li>
+        </ul>
+      </div>
+      <div class="featured-ind-card">
+        <div class="fi-icon">🛒</div>
+        <h3>E-commerce</h3>
+        <p>We have built and managed Shopify, WooCommerce, and custom e-commerce stores for businesses selling clothing, food, electronics, handicrafts, and more. Our e-commerce projects cover everything from the first sale to scaling to crore-level revenue.</p>
+        <ul class="fi-list">
+          <li>Shopify and WooCommerce development</li>
+          <li>Product photography and catalogue setup</li>
+          <li>Google Shopping and Meta Ads campaigns</li>
+          <li>Conversion rate optimisation</li>
+        </ul>
+      </div>
+      <div class="featured-ind-card">
+        <div class="fi-icon">🎓</div>
+        <h3>Education</h3>
+        <p>Coaching institutes, schools, and online learning platforms across Gujarat trust us for admissions-focused websites and Google Ads campaigns timed to admission seasons. We understand the education marketing calendar and how parents research institutes online.</p>
+        <ul class="fi-list">
+          <li>Admission inquiry forms and lead funnels</li>
+          <li>Course and programme detail pages</li>
+          <li>Google Ads for admission season</li>
+          <li>Parent-facing trust content and testimonials</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 5: COMMON CHALLENGES */}
+<section class="ind-challenges reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What We Hear Every Day</span>
+      <h2 class="section-title">Common Challenges Across Industries</h2>
+      <p class="section-subtitle">Regardless of the sector, most businesses in Gujarat come to us with the same core problems.</p>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>No leads from the website</h3>
+        <p>The website exists but generates zero enquiries. This is almost always a combination of poor SEO, no contact CTA, and a design that does not build trust.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>Competitors ranking above them on Google</h3>
+        <p>A competitor with an inferior product or service appears first on Google. We fix this with technical SEO, local SEO, and content that Google actually rewards.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>Outdated or embarrassing website</h3>
+        <p>The current website was built years ago and no longer represents the brand. Customers notice. A new, modern website rebuilt for mobile changes this immediately.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Wasted ad spend with no results</h3>
+        <p>Google Ads or Facebook Ads running with no clear return. Often the problem is targeting, landing pages, or both. We rebuild campaigns from scratch with conversion in mind.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">05</div>
+        <h3>No online presence at all</h3>
+        <p>The business runs entirely on word-of-mouth and has no Google Business Profile, no website, and no social media. We build the entire digital foundation from zero.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">06</div>
+        <h3>Website not mobile-friendly</h3>
+        <p>Over 75% of searches in Gujarat happen on mobile. A desktop-only website loses more than half its potential customers before they even reach the content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 6: OUR APPROACH */}
+<section class="ind-approach reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label" style="color:var(--blue-300);display:block;margin-bottom:1rem">Our Process</span>
+      <h2 class="section-title" style="color:var(--white)">How We Approach Any Industry</h2>
+      <p class="section-subtitle" style="color:var(--gray-400)">The same rigorous process. Customised for your market.</p>
+    </div>
+    <div class="approach-steps">
+      <div class="approach-step">
+        <div class="approach-num">01</div>
+        <h3>Industry Research</h3>
+        <p>We study your sector, your top competitors in Ahmedabad and Gujarat, and the search terms your actual customers use. No guesswork.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">02</div>
+        <h3>Strategy Design</h3>
+        <p>We map out the right channel mix for your industry — SEO, PPC, social media, or all three — with a realistic timeline and budget range.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">03</div>
+        <h3>Build and Launch</h3>
+        <p>Website, campaigns, and content are built simultaneously so everything goes live together. No waiting six months for an SEO blog post to appear.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">04</div>
+        <h3>Optimise and Scale</h3>
+        <p>Monthly reporting, A/B testing, and ongoing refinement. We do not disappear after launch. We stay on as your growth partner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 7: TESTIMONIALS */}
+<section class="ind-testimonials reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Stories</span>
+      <h2 class="section-title">Results Across Industries</h2>
+      <p class="section-subtitle">Real businesses in Gujarat. Real outcomes.</p>
+    </div>
+    <div class="ind-testi-grid">
+      <div class="ind-testi-card">
+        <div class="ind-testi-stars">★★★★★</div>
+        <p class="ind-testi-quote">"Our clinic was getting no online appointments. DC technolabs rebuilt our website and ran a Google Ads campaign. Within 60 days we had 40+ new patient appointments per month directly from the website."</p>
+        <div class="ind-testi-author">
+          <div class="ind-testi-name">Dr. Priya Shah</div>
+          <div class="ind-testi-role">LifeCare Multi-Specialty Clinic, Ahmedabad</div>
+        </div>
+      </div>
+      <div class="ind-testi-card">
+        <div class="ind-testi-stars">★★★★★</div>
+        <p class="ind-testi-quote">"We were spending on Facebook Ads with zero leads. DC technolabs restructured our entire campaigns and built new landing pages specific to our property projects. Our lead cost dropped by 60%."</p>
+        <div class="ind-testi-author">
+          <div class="ind-testi-name">Rohan Mehta</div>
+          <div class="ind-testi-role">BuildRight Infra, Gandhinagar</div>
+        </div>
+      </div>
+      <div class="ind-testi-card">
+        <div class="ind-testi-stars">★★★★★</div>
+        <p class="ind-testi-quote">"As a coaching institute, admission season is everything. DC technolabs set up our Google Ads and landing pages three months before admissions opened. Our enquiries doubled compared to last year."</p>
+        <div class="ind-testi-author">
+          <div class="ind-testi-name">Manish Trivedi</div>
+          <div class="ind-testi-role">EduPro Academy, Surat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 8: SERVICES OFFERED ACROSS INDUSTRIES */}
+<section class="ind-services reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Services Available for Every Industry</h2>
+      <p class="section-subtitle">All services are available regardless of your sector. The strategy, content, and execution are customised for your market.</p>
+    </div>
+    <div class="ind-services-grid">
+      <a href="/services/web-design" class="ind-service-card">
+        <div class="isc-icon">🎨</div>
+        <h3>Web Design</h3>
+        <p>Custom, mobile-first websites designed for your industry and your audience. Starting at 25,000.</p>
+      </a>
+      <a href="/services/web-development" class="ind-service-card">
+        <div class="isc-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Booking systems, portals, custom features, and third-party integrations built specifically for your workflow.</p>
+      </a>
+      <a href="/services/seo" class="ind-service-card">
+        <div class="isc-icon">🔍</div>
+        <h3>SEO Services</h3>
+        <p>Industry-specific keyword targeting, local SEO, and content strategy. First-page rankings in 3 to 6 months.</p>
+      </a>
+      <a href="/services/ppc" class="ind-service-card">
+        <div class="isc-icon">📊</div>
+        <h3>Google Ads</h3>
+        <p>PPC campaigns targeting customers at the exact moment they search for your product or service.</p>
+      </a>
+      <a href="/services/ecommerce" class="ind-service-card">
+        <div class="isc-icon">🛒</div>
+        <h3>E-commerce</h3>
+        <p>Shopify and WooCommerce stores with payment gateway integration, inventory management, and conversion optimisation.</p>
+      </a>
+      <a href="/services/social-media" class="ind-service-card">
+        <div class="isc-icon">📱</div>
+        <h3>Social Media</h3>
+        <p>Instagram, Facebook, and LinkedIn management tailored to your industry's audience and tone of voice.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+{/* SECTION 9: FAQ */}
+<section class="ind-faq reveal">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list" id="indFaqList">
+      {faqs.map((faq, i) => (
+        <div class="faq-item" id={`ind-faq-${i}`}>
+          <button class="faq-question" onclick={`toggleFaq('ind-faq-${i}')`}>
+            {faq.q}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* SECTION 10: FINAL CTA */}
+<section class="ind-cta">
+  <div class="container">
+    <div class="ind-cta-inner">
+      <span class="section-label" style="color:var(--blue-300);display:block;margin-bottom:1rem">Ready to Start?</span>
+      <h2>Tell Us Your Industry. We'll Do the Rest.</h2>
+      <p>Get a free consultation with a strategy specific to your sector. We will analyse your competitors, identify quick wins, and outline a plan that fits your budget.</p>
+      <div class="ind-cta-actions">
+        <a href="#industryHeroForm" class="btn btn-accent">Get a Free Consultation →</a>
+        <a href="tel:+919662608986" class="btn btn-outline-light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Call +91 9662608986
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* HERO */
+.ind-hero {
+  padding: 120px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.ind-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.ind-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.ind-hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.ind-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ind-hero-desc {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.ind-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.ind-mini-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-full);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--blue-700);
+  font-family: var(--font-display);
+}
+.ind-hero-form {
+  position: sticky;
+  top: 100px;
+}
+.hero-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+  border: 1px solid var(--gray-100);
+}
+.hero-form-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: .25rem; }
+.hero-form-sub { font-size: .9rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-family: var(--font-display); font-size: .85rem; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+.form-input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); font-family: var(--font-body); font-size: .95rem; color: var(--gray-800); transition: all .2s var(--ease); background: var(--gray-50); }
+.form-input:focus { outline: none; border-color: var(--blue-500); background: var(--white); box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
+.form-input::placeholder { color: var(--gray-400); }
+.form-submit { width: 100%; padding: 14px; margin-top: .5rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* INDUSTRIES GRID */
+.ind-grid-section { padding: var(--section-pad) 0; }
+.ind-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.ind-card {
+  background: var(--ind-bg, var(--gray-50));
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 1.5px solid transparent;
+  transition: all .35s var(--ease);
+}
+.ind-card:hover {
+  border-color: var(--ind-text, var(--blue-600));
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.08);
+}
+.ind-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+.ind-card h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: .6rem; }
+.ind-card p { font-size: .875rem; color: var(--gray-500); line-height: 1.65; }
+
+/* WHY SECTION */
+.ind-why {
+  padding: var(--section-pad) 0;
+  background: var(--gray-900);
+}
+.ind-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.ind-why-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.ind-why-list li {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: var(--gray-300);
+  font-size: 1rem;
+}
+.ind-why-list li::before {
+  content: '✓';
+  width: 22px;
+  height: 22px;
+  background: var(--blue-600);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.ind-why-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.ind-stat-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+.ind-stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--blue-400); margin-bottom: .5rem; }
+.ind-stat-label { font-size: .875rem; color: var(--gray-400); }
+
+/* FEATURED INDUSTRIES */
+.featured-ind { padding: var(--section-pad) 0; background: var(--gray-50); }
+.featured-ind-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.featured-ind-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1.5px solid var(--gray-100);
+  transition: all .3s var(--ease);
+}
+.featured-ind-card:hover { border-color: var(--blue-200); box-shadow: 0 12px 40px rgba(37,99,235,.08); }
+.fi-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.featured-ind-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: .75rem; }
+.featured-ind-card p { font-size: .95rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 1.25rem; }
+.fi-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.fi-list li { font-size: .9rem; color: var(--gray-600); display: flex; align-items: center; gap: .5rem; }
+.fi-list li::before { content: '→'; color: var(--blue-600); font-weight: 700; }
+
+/* CHALLENGES */
+.ind-challenges { padding: var(--section-pad) 0; }
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.challenge-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all .3s var(--ease);
+}
+.challenge-card:hover { border-color: var(--blue-200); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,.07); }
+.challenge-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--blue-100); line-height: 1; margin-bottom: .75rem; }
+.challenge-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: .6rem; }
+.challenge-card p { font-size: .9rem; color: var(--gray-500); line-height: 1.65; }
+
+/* APPROACH */
+.ind-approach {
+  padding: var(--section-pad) 0;
+  background: var(--gray-900);
+}
+.approach-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.approach-step {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.approach-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--blue-600); margin-bottom: 1rem; }
+.approach-step h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: .6rem; }
+.approach-step p { font-size: .9rem; color: var(--gray-400); line-height: 1.65; }
+
+/* TESTIMONIALS */
+.ind-testimonials { padding: var(--section-pad) 0; background: var(--gray-50); }
+.ind-testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.ind-testi-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.ind-testi-stars { color: #F59E0B; font-size: 1.1rem; margin-bottom: 1rem; }
+.ind-testi-quote { font-size: .95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
+.ind-testi-name { font-family: var(--font-display); font-weight: 700; color: var(--gray-900); font-size: .95rem; }
+.ind-testi-role { font-size: .85rem; color: var(--gray-400); }
+
+/* SERVICES */
+.ind-services { padding: var(--section-pad) 0; }
+.ind-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.ind-service-card {
+  display: block;
+  padding: 2rem;
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  text-decoration: none;
+  color: inherit;
+  transition: all .3s var(--ease);
+}
+.ind-service-card:hover { border-color: var(--blue-200); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,99,235,.08); }
+.isc-icon { font-size: 2rem; margin-bottom: 1rem; }
+.ind-service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: .5rem; }
+.ind-service-card p { font-size: .875rem; color: var(--gray-500); line-height: 1.65; }
+
+/* FAQ */
+.ind-faq { padding: var(--section-pad) 0; background: var(--gray-50); }
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+.faq-item { border-bottom: 1px solid var(--gray-200); }
+.faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.5rem 0; font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--gray-900); background: none; border: none; cursor: pointer; text-align: left; }
+.faq-question svg { flex-shrink: 0; transition: transform .3s var(--ease); color: var(--blue-600); }
+.faq-item.open .faq-question svg { transform: rotate(180deg); }
+.faq-answer { overflow: hidden; max-height: 0; transition: max-height .4s var(--ease); }
+.faq-item.open .faq-answer { max-height: 400px; }
+.faq-answer p { padding: 0 0 1.5rem; font-size: .95rem; color: var(--gray-500); line-height: 1.75; }
+
+/* CTA */
+.ind-cta { padding: var(--section-pad) 0; background: var(--gray-900); }
+.ind-cta-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+.ind-cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--white); letter-spacing: -.02em; margin-bottom: 1rem; }
+.ind-cta p { color: var(--gray-400); font-size: 1.1rem; line-height: 1.75; margin-bottom: 2.5rem; }
+.ind-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ind-cards-grid { grid-template-columns: repeat(3, 1fr); }
+  .approach-steps { grid-template-columns: repeat(2, 1fr); }
+  .ind-services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .ind-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ind-hero { padding: 110px 0 var(--section-pad); }
+  .ind-hero-form { position: static; }
+  .ind-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-ind-grid { grid-template-columns: 1fr; }
+  .challenges-grid { grid-template-columns: 1fr; }
+  .approach-steps { grid-template-columns: 1fr; }
+  .ind-testi-grid { grid-template-columns: 1fr; }
+  .ind-services-grid { grid-template-columns: 1fr; }
+  .ind-why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ind-cta-actions { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .ind-cards-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+  // FAQ accordion
+  function toggleFaq(id: string) {
+    const item = document.getElementById(id);
+    if (!item) return;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  (window as any).toggleFaq = toggleFaq;
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Form submission
+  const form = document.getElementById('industryHeroForm') as HTMLFormElement;
+  const successMsg = document.getElementById('industryFormSuccess');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    if (res.ok) {
+      form.style.display = 'none';
+      if (successMsg) successMsg.style.display = 'block';
+    }
+  });
+</script>
+</PageLayout>

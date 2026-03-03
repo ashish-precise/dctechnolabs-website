@@ -87,11 +87,14 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 2. ✅ Portfolio detail pages (individual case study page — lifecare-clinic) — DONE (March 2026)
 3. ✅ Free Website Audit landing page — DONE (March 2026)
 4. ✅ Free SEO Audit landing page — DONE (March 2026)
+5. ✅ Industries hub page (/industries/) — DONE (March 2026) — 10 sections, 14 industry cards, Web3Forms
+   - Individual industry sub-pages (healthcare, real estate, etc.) — PENDING (future build)
 
 ### DEPLOYMENT STATUS
 
 - Forms: Migrated to **Web3Forms** on all pages (March 2026)
-- Sitemap: Auto-generated via @astrojs/sitemap (added March 2026)
+- Sitemap: Static sitemap.xml in public/ (March 2026) — update manually when new pages are added
+- Header nav: Services, Portfolio, Pricing, Locations, Blog, Contact
 - robots.txt: Created in public/ (March 2026)
 - Twitter Card meta tags: Added to BaseLayout.astro (March 2026)
 - GitHub repo: Ready
