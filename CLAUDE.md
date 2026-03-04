@@ -73,6 +73,12 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 |---|---|---|
 | 10 SEO Mistakes Ahmedabad Businesses Make | seo-mistakes-ahmedabad-businesses-2025 | Done |
 | How Much Does a Website Cost in Ahmedabad | website-cost-ahmedabad-2025 | Done |
+| How to Fix a Slow Website (Gujarat Businesses) | fix-slow-website-loading | Done |
+| Instagram Reels Strategy for Indian Businesses 2025 | instagram-reels-strategy-2025 | Done |
+| How to Set Up Razorpay on Shopify in India | razorpay-shopify-setup-guide | Done |
+| How to Reduce Google Ads Cost Per Lead | reduce-google-ads-cost-per-lead | Done |
+| Shopify vs WooCommerce for Indian Businesses 2025 | shopify-vs-woocommerce-2025 | Done |
+| How Much Does a Website Cost in India 2025 | website-cost-india-2025 | Done |
 
 ### COMPLETED LANDING PAGES
 
@@ -95,6 +101,7 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 - Forms: Migrated to **Web3Forms** on all pages (March 2026)
 - Sitemap: Static sitemap.xml in public/ (March 2026) — update manually when new pages are added
 - Header nav: Services, Portfolio, Pricing, Locations, Blog, Contact
+- Shared Header.astro component: All pages (including ServicePageLayout, LocationPageLayout, portfolio.astro) now use a single Header.astro component — nav changes only need to happen in one place (March 2026)
 - robots.txt: Created in public/ (March 2026)
 - Twitter Card meta tags: Added to BaseLayout.astro (March 2026)
 - GitHub repo: Connected to Vercel
@@ -293,6 +300,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 | Phrase "No jargon, no fluff" was used | Permanently banned |
 | Pricing page used single flat layout | Rebuilt as tabbed interface with multiple service categories |
 | Content felt generic and thin | All content has specific Ahmedabad/Gujarat local context |
+| Header HTML/CSS/JS duplicated across 4 layout files | Refactored to single shared Header.astro component with activePage and ctaHref props |
 
 ---
 
@@ -331,4 +339,4 @@ Each section should have a clear purpose. No filler sections. Pattern:
 
 ---
 
-*Last updated: March 2026. Update this file whenever a page is completed, a rule is added, or a decision is made.*
+*Last updated: March 2026 (blog posts + header refactor). Update this file whenever a page is completed, a rule is added, or a decision is made.*
