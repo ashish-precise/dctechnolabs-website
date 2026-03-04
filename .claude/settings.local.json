@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npm install @astrojs/sitemap)",
       "Bash(npm run build)",
-      "Bash(grep -l \"BaseLayout\\\\|WhatsAppButton\" \"c:/Users/ashis/Downloads/noxfolio/dctechnolabs-website/src/layouts/\"*.astro)"
+      "Bash(grep -l \"BaseLayout\\\\|WhatsAppButton\" \"c:/Users/ashis/Downloads/noxfolio/dctechnolabs-website/src/layouts/\"*.astro)",
+      "Bash(grep -v \"^.*//.*—\")",
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(python3 -:*)",
+      "Bash(node --version)"
     ]
   }
 }

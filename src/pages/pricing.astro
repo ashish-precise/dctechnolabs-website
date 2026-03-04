@@ -91,16 +91,19 @@ const faqSchema = {
       display: flex;
       align-items: center;
     }
-    .pricing-hero-inner {
-      max-width: 780px;
+    .pricing-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 3.5rem;
+      align-items: center;
       position: relative;
       z-index: 1;
     }
     .pricing-hero h1 {
-      font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem);
       letter-spacing: -0.03em;
       line-height: 1.1;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
     .pricing-hero h1 .highlight {
       background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
@@ -109,16 +112,15 @@ const faqSchema = {
       background-clip: text;
     }
     .pricing-hero p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--gray-500);
       line-height: 1.75;
-      max-width: 620px;
       margin-bottom: 1.5rem;
     }
     .pricing-hero-trust {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.25rem;
       font-size: 0.875rem;
       color: var(--gray-500);
     }
@@ -128,6 +130,66 @@ const faqSchema = {
       gap: 0.4rem;
     }
     .pricing-hero-trust svg { color: var(--blue-600); }
+    .pricing-hero-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05);
+      border: 1px solid var(--gray-100);
+    }
+    .pricing-hero-form h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--gray-900);
+    }
+    .pricing-hero-form .form-sub {
+      font-size: 0.9rem;
+      color: var(--gray-400);
+      margin-bottom: 1.5rem;
+    }
+    .pricing-hero-form .form-group { margin-bottom: 1rem; }
+    .pricing-hero-form .form-group label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 6px;
+    }
+    .pricing-hero-form .form-group input,
+    .pricing-hero-form .form-group select,
+    .pricing-hero-form .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--gray-800);
+      background: var(--white);
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .pricing-hero-form .form-group input:focus,
+    .pricing-hero-form .form-group select:focus,
+    .pricing-hero-form .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue-500);
+    }
+    .pricing-hero-form textarea { resize: vertical; min-height: 80px; }
+    .pricing-form-success {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius);
+      padding: 1rem;
+      color: #166534;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
 
     /* TABS SECTION */
     .pricing-tabs-section {
@@ -486,35 +548,85 @@ const faqSchema = {
       .ai-grid { grid-template-columns: 1fr; }
       .faq-grid { grid-template-columns: 1fr; }
     }
+    @media (max-width: 900px) {
+      .pricing-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pricing-hero { padding: 100px 0 var(--section-pad); }
+    }
     @media (max-width: 480px) {
       .pricing-hero-trust { flex-direction: column; gap: 0.75rem; }
     }
   </style>
 
   <!-- SECTION 1: HERO -->
-  <section class="pricing-hero">
+  <section class="pricing-hero" id="pricing-hero-form">
     <div class="container">
-      <div class="pricing-hero-inner">
-        <span class="section-label">Transparent Pricing</span>
-        <h1>No Hidden Fees. <span class="highlight">No Surprises.</span></h1>
-        <p>Every package is fixed-price. You know exactly what you're paying, what you're getting, and when you'll get it, before you sign anything.</p>
-        <div class="pricing-hero-trust">
-          <span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Fixed-price projects
-          </span>
-          <span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            No lock-in contracts beyond 3 months
-          </span>
-          <span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            No hidden "setup fees"
-          </span>
-          <span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            GST invoices included
-          </span>
+      <div class="pricing-hero-grid">
+        <!-- Left: content -->
+        <div>
+          <span class="section-label">Transparent Pricing</span>
+          <h1>No hidden fees. <span class="highlight">No surprises.</span></h1>
+          <p>Every package is fixed-price. You know exactly what you are paying, what you are getting, and when you will get it, before you sign anything.</p>
+          <div class="pricing-hero-trust">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Fixed-price projects
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              No lock-in contracts beyond 3 months
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              No hidden setup fees
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              GST invoices included
+            </span>
+          </div>
+        </div>
+        <!-- Right: contact form -->
+        <div class="pricing-hero-form">
+          <h3>Get a custom quote</h3>
+          <p class="form-sub">Tell us what you need. We'll send a detailed quote within 24 hours.</p>
+          <form id="pricingHeroForm">
+            <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
+            <input type="hidden" name="subject" value="New Inquiry from Pricing Page - DCTechnoLabs Website">
+            <div class="form-group">
+              <label for="ph-name">Your name</label>
+              <input type="text" id="ph-name" name="name" placeholder="Rahul Mehta" required>
+            </div>
+            <div class="form-group">
+              <label for="ph-phone">Phone number</label>
+              <input type="tel" id="ph-phone" name="phone" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label for="ph-email">Email address</label>
+              <input type="email" id="ph-email" name="email" placeholder="rahul@yourbusiness.com" required>
+            </div>
+            <div class="form-group">
+              <label for="ph-service">Service interested in</label>
+              <select id="ph-service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Web Design</option>
+                <option>Web Development</option>
+                <option>SEO Services</option>
+                <option>PPC / Google Ads</option>
+                <option>E-commerce Development</option>
+                <option>WordPress Development</option>
+                <option>Social Media Marketing</option>
+                <option>Multiple Services (bundle)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ph-msg">Brief message</label>
+              <textarea id="ph-msg" name="message" placeholder="Tell us about your project or budget range..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Get My Custom Quote</button>
+            <div class="pricing-form-success" id="pricingFormSuccess">
+              Thank you! We will get back to you within 24 hours.
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -1490,4 +1602,33 @@ const faqSchema = {
   }, { threshold: 0.15 });
 
   revealEls.forEach(el => observer.observe(el));
+
+  // Pricing hero form submission
+  const pricingHeroForm = document.getElementById('pricingHeroForm') as HTMLFormElement | null;
+  const pricingFormSuccess = document.getElementById('pricingFormSuccess') as HTMLElement | null;
+  if (pricingHeroForm && pricingFormSuccess) {
+    pricingHeroForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(pricingHeroForm);
+      const submitBtn = pricingHeroForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          pricingHeroForm.style.display = 'none';
+          pricingFormSuccess.style.display = 'block';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Get My Custom Quote';
+          alert('Something went wrong. Please try again or call us directly.');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get My Custom Quote';
+        alert('Something went wrong. Please try again or call us directly.');
+      }
+    });
+  }
 </script>
