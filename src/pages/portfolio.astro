@@ -2,6 +2,7 @@
 // src/pages/portfolio.astro
 // DC technolabs - Portfolio Page
 // 12 sections: Hero, Filters, Grid, Case Study, Stats, Industries, Process, Results, Testimonials, CTA, FAQ, Final CTA
+import Header from '../components/Header.astro';
 ---
 
 <!DOCTYPE html>
@@ -111,73 +112,6 @@
     /* Scroll reveal */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .reveal.visible { opacity: 1; transform: none; }
-
-    /* ============================================================
-       HEADER
-    ============================================================ */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,.92); backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid transparent;
-      transition: all .3s var(--ease);
-    }
-    .header.scrolled { border-bottom: 1px solid var(--gray-200); box-shadow: 0 1px 12px rgba(0,0,0,.06); }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--gray-900); }
-    .logo-icon {
-      width: 38px; height: 38px; background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 800; font-size: .9rem; position: relative; overflow: hidden;
-    }
-    .logo-icon::after {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,.12) 50%, transparent 60%);
-      animation: logoSheen 4s ease-in-out infinite;
-    }
-    @keyframes logoSheen { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }
-    .logo span { color: var(--blue-600); }
-    .nav-desktop { display: flex; align-items: center; gap: 2rem; }
-    .nav-desktop a {
-      font-family: var(--font-display); font-size: .9rem; font-weight: 500;
-      color: var(--gray-600); position: relative; padding: 4px 0;
-    }
-    .nav-desktop a::after {
-      content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
-      background: var(--blue-600); border-radius: 2px; transition: width .3s var(--ease);
-    }
-    .nav-desktop a:hover { color: var(--blue-700); }
-    .nav-desktop a:hover::after { width: 100%; }
-    .nav-desktop a.active { color: var(--blue-600); }
-    .nav-desktop a.active::after { width: 100%; }
-    .header-actions { display: flex; align-items: center; gap: 12px; }
-    .header-phone { display: flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: .9rem; color: var(--gray-700); }
-    .header-phone svg { color: var(--blue-600); }
-    .header-phone:hover { color: var(--blue-600); }
-    .btn-header-cta { padding: 10px 24px; font-size: .9rem; }
-    .menu-toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; z-index: 1001; }
-    .menu-toggle span { width: 24px; height: 2px; background: var(--gray-800); border-radius: 2px; transition: all .3s var(--ease); transform-origin: center; }
-    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    .mobile-menu {
-      position: fixed; inset: 0; background: var(--white); z-index: 999;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      gap: 1.5rem; opacity: 0; visibility: hidden; transition: all .4s var(--ease);
-    }
-    .mobile-menu.active { opacity: 1; visibility: visible; }
-    .mobile-menu a {
-      font-family: var(--font-display); font-size: 1.75rem; font-weight: 700;
-      color: var(--gray-900); opacity: 0; transform: translateY(20px); transition: all .3s var(--ease);
-    }
-    .mobile-menu.active a { opacity: 1; transform: translateY(0); }
-    .mobile-menu.active a:nth-child(1) { transition-delay: .1s; }
-    .mobile-menu.active a:nth-child(2) { transition-delay: .15s; }
-    .mobile-menu.active a:nth-child(3) { transition-delay: .2s; }
-    .mobile-menu.active a:nth-child(4) { transition-delay: .25s; }
-    .mobile-menu.active a:nth-child(5) { transition-delay: .3s; }
-    .mobile-menu a:hover { color: var(--blue-600); }
-    .mobile-menu-cta { margin-top: 2rem; opacity: 0; transform: translateY(20px); transition: all .3s var(--ease) .4s; }
-    .mobile-menu.active .mobile-menu-cta { opacity: 1; transform: translateY(0); }
 
     /* ============================================================
        SECTION 1: HERO (LEFT-ALIGNED)
@@ -489,9 +423,6 @@
       .pf-process-line { display: none; }
     }
     @media (max-width: 768px) {
-      .nav-desktop { display: none; }
-      .header-phone { display: none; }
-      .menu-toggle { display: flex; }
       .mobile-call-btn { display: flex; }
       .pf-grid { grid-template-columns: 1fr; }
       .pf-tabs { justify-content: flex-start; overflow-x: auto; padding-bottom: .5rem; flex-wrap: nowrap; }
@@ -514,51 +445,7 @@
 </head>
 <body>
 
-<!-- ============================================================
-     HEADER
-============================================================ -->
-<header class="header" id="header">
-  <div class="container header-inner">
-    <a href="/" class="logo">
-      DC <span>technolabs</span>
-    </a>
-    <nav class="nav-desktop">
-      <a href="/services">Services</a>
-      <a href="/portfolio" class="active">Portfolio</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/locations">Locations</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact">Contact</a>
-    </nav>
-    <div class="header-actions">
-      <a href="tel:+919662608986" class="header-phone">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        +91 9662608986
-      </a>
-      <a href="/contact" class="btn btn-primary btn-header-cta">Get Free Quote</a>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/services" onclick="closeMobileMenu()">Services</a>
-  <a href="/portfolio" onclick="closeMobileMenu()">Portfolio</a>
-  <a href="/pricing" onclick="closeMobileMenu()">Pricing</a>
-  <a href="/locations" onclick="closeMobileMenu()">Locations</a>
-  <a href="/blog" onclick="closeMobileMenu()">Blog</a>
-  <a href="/contact" onclick="closeMobileMenu()">Contact</a>
-  <a href="tel:+919662608986" style="font-size:1.1rem!important;color:var(--blue-600)!important;display:flex;align-items:center;gap:8px" onclick="closeMobileMenu()">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    +91 9662608986
-  </a>
-  <div class="mobile-menu-cta">
-    <a href="/contact" class="btn btn-primary" onclick="closeMobileMenu()">Get Free Quote</a>
-  </div>
-</div>
+<Header activePage="portfolio" />
 
 
 <!-- ============================================================
@@ -1217,26 +1104,6 @@
 <script>
   // Dynamic year
   document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-  // Header scroll effect
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-  // Mobile menu
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('mobileMenu');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    menu.classList.toggle('active');
-    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-  });
-  function closeMobileMenu() {
-    toggle.classList.remove('active');
-    menu.classList.remove('active');
-    document.body.style.overflow = '';
-  }
 
   // Portfolio filter tabs
   const pfTabs = document.querySelectorAll('.pf-tab');

@@ -1,5 +1,10 @@
 ---
 // Header component with sticky nav + full-screen mobile overlay
+interface Props {
+  activePage?: string;
+  ctaHref?: string;
+}
+const { activePage, ctaHref = '/contact' } = Astro.props;
 ---
 
 <header class="header" id="header">
@@ -9,17 +14,17 @@
       <a href="/" class="logo">
         <span class="logo-text">DC <span>technolabs</span></span>
       </a>
-      
+
       <!-- Desktop Nav -->
       <nav class="nav-desktop">
-        <a href="/services">Services</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/locations">Locations</a>
-        <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
+        <a href="/services" class:list={[{ active: activePage === 'services' }]}>Services</a>
+        <a href="/portfolio" class:list={[{ active: activePage === 'portfolio' }]}>Portfolio</a>
+        <a href="/pricing" class:list={[{ active: activePage === 'pricing' }]}>Pricing</a>
+        <a href="/locations" class:list={[{ active: activePage === 'locations' }]}>Locations</a>
+        <a href="/blog" class:list={[{ active: activePage === 'blog' }]}>Blog</a>
+        <a href="/contact" class:list={[{ active: activePage === 'contact' }]}>Contact</a>
       </nav>
-      
+
       <!-- Header Actions -->
       <div class="header-actions">
         <a href="tel:+919662608986" class="header-phone">
@@ -28,7 +33,7 @@
           </svg>
           +91 9662608986
         </a>
-        <a href="/contact" class="btn btn-primary btn-header-cta">Get Free Quote</a>
+        <a href={ctaHref} class="btn btn-primary btn-header-cta">Get Free Quote</a>
         
         <!-- Mobile Menu Toggle -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -51,7 +56,7 @@
   <a href="/contact">Contact</a>
   <a href="tel:+919662608986" class="mobile-menu-phone">+91 9662608986</a>
   <div class="mobile-menu-cta">
-    <a href="/contact" class="btn btn-primary">Get Free Quote</a>
+    <a href={ctaHref} class="btn btn-primary">Get Free Quote</a>
   </div>
 </div>
 
@@ -124,11 +129,13 @@
     transition: width 0.3s var(--ease);
   }
   
-  .nav-desktop a:hover {
+  .nav-desktop a:hover,
+  .nav-desktop a.active {
     color: var(--blue-700);
   }
-  
-  .nav-desktop a:hover::after {
+
+  .nav-desktop a:hover::after,
+  .nav-desktop a.active::after {
     width: 100%;
   }
   
