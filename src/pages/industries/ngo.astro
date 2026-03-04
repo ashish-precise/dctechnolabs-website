@@ -1,0 +1,331 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Websites and Digital Marketing for NGOs in Gujarat",
+  "description": "Professional websites, online donation integration, volunteer registration systems, and social media campaigns for NGOs, charitable trusts, and social enterprises in Gujarat.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DCTechnoLabs",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Gujarat"
+  },
+  "serviceType": "NGO Website Design and Digital Marketing"
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🌐",
+    title: "Digital Credibility for Donors and Funders",
+    desc: "A professional website with transparent impact reporting, financial disclosures, and visible registration details builds the trust that donors and corporate CSR departments need before they give."
+  },
+  {
+    emoji: "💳",
+    title: "Online Donation That Actually Works",
+    desc: "A donation page with clear fund usage descriptions, multiple payment options, 80G tax benefit information, and instant receipt generation removes every friction point for online donors."
+  },
+  {
+    emoji: "📢",
+    title: "Cause Campaigns That Reach the Right People",
+    desc: "Social media campaigns, fundraiser posts, and awareness content put your cause in front of donors, volunteers, and corporate partners who care about your mission and can take action."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We depend entirely on our founders' personal network for donations and no one can find us online",
+    solution: "A professional website with SEO ensures your NGO appears when donors and CSR managers search for causes to support in Gujarat. Your digital presence becomes your introduction."
+  },
+  {
+    problem: "We have no donation page. Donors have to call or transfer money to a personal account and many give up",
+    solution: "We build a proper online donation system with Razorpay or PayU integration, 80G receipt automation, UPI payment, and transparent fund usage descriptions that make donating simple and trustworthy."
+  },
+  {
+    problem: "Our grant applications keep getting rejected because funders say we have poor digital credibility",
+    solution: "Foundations and government grant bodies now verify NGOs through their online presence. A proper website with registration details, board information, annual reports, and impact data dramatically improves application success rates."
+  },
+  {
+    problem: "We publish no impact reports online and donors have no idea what their money accomplished",
+    solution: "We build annual impact report pages and beneficiary story sections that show donors exactly what their contribution achieved. Transparent reporting builds long-term donor loyalty."
+  },
+  {
+    problem: "Volunteers cannot register easily and we lose interested people who cannot figure out how to join",
+    solution: "An online volunteer registration system captures name, skills, availability, and location. Automated confirmations and orientation information are sent immediately. You never lose a volunteer who wanted to help."
+  },
+  {
+    problem: "Larger NGOs with bigger marketing budgets dominate online and we cannot compete for donor attention",
+    solution: "We focus on authentic storytelling, hyperlocal community content, and targeted social campaigns that reach the specific donors and volunteers who care about your specific cause in Gujarat."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    title: "NGO Website Design",
+    desc: "Purpose-built websites for NGOs and charitable trusts in Gujarat. Structured to build donor trust with transparent about pages, registration details, impact sections, and clear donation calls-to-action."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>',
+    title: "Online Donation Integration",
+    desc: "Razorpay or PayU donation gateway with 80G tax receipt automation, UPI payment support, recurring donation options, and fund-specific donation tracking. Donating takes less than 60 seconds."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    title: "Volunteer Registration System",
+    desc: "An online form that captures volunteer name, contact, skills, area of interest, and availability. Automatic confirmation emails with orientation details are sent immediately after registration."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+    title: "Impact Report Pages",
+    desc: "Annual impact report microsites or pages with beneficiary numbers, programme outcomes, fund utilisation, and stories that show donors exactly what their contribution accomplished."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
+    title: "Social Media for Cause Campaigns",
+    desc: "Facebook fundraiser integration, Instagram cause awareness content, WhatsApp volunteer drives, and campaign graphics for your key programmes. Content that mobilises your community to act."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="12 18 9 15 12 12 15 15 12 18"/></svg>',
+    title: "Grant Application Support Content",
+    desc: "We help you create the digital content and credibility that grant applications require: impact data pages, programme documentation, photo galleries, annual report design, and financial transparency sections."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Mission and Donor Audit",
+    desc: "We understand your programmes, target donors, registration status, and primary fundraising challenges before recommending any digital investment."
+  },
+  {
+    title: "Website and Donation Setup",
+    desc: "Your NGO website goes live with a proper donation page, volunteer registration, and all the compliance information that donors and grant bodies need to see."
+  },
+  {
+    title: "Impact Content Creation",
+    desc: "Beneficiary stories, programme outcome pages, and photo content bring your work to life digitally. This content serves both donors and grant application needs."
+  },
+  {
+    title: "Cause Campaign Launch",
+    desc: "Social media campaigns on Facebook and Instagram raise awareness for your cause, recruit volunteers, and activate online donations. Facebook Fundraisers are set up for specific campaigns."
+  },
+  {
+    title: "Reporting and Growth",
+    desc: "Monthly reporting on donation amounts, volunteer registrations, social media reach, and website traffic. Strategy evolves based on what is bringing the most community engagement."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "45+", label: "NGOs Supported" },
+  { value: "180%", label: "Online Donation Growth" },
+  { value: "500+", label: "Volunteer Registrations Generated" },
+  { value: "12", label: "CSR Partnership Enquiries" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "❤️",
+    title: "We Are Invested in Your Mission",
+    desc: "We do not treat NGO projects as smaller commercial work. We take on a limited number of NGO clients and give them the same attention and quality as any commercial project."
+  },
+  {
+    emoji: "💰",
+    title: "Subsidised NGO Pricing",
+    desc: "Our NGO pricing is significantly lower than our commercial rates because we believe digital access should not be a barrier for organisations doing genuine community work."
+  },
+  {
+    emoji: "📋",
+    title: "FCRA and Compliance Awareness",
+    desc: "We design websites with the sections that FCRA-registered NGOs need to display: registration details, foreign contribution disclosures, and audit report links. We understand what funders look for."
+  },
+  {
+    emoji: "📱",
+    title: "Donor Experience First",
+    desc: "Every design decision on your donation page is made from the donor's perspective. A confusing donation process is one of the top reasons people abandon giving. We eliminate every friction point."
+  },
+  {
+    emoji: "📖",
+    title: "Storytelling That Moves People",
+    desc: "Numbers matter but stories change behaviour. We help you tell the stories of the people your programmes have helped in a way that motivates donors to give and volunteers to join."
+  },
+  {
+    emoji: "🤝",
+    title: "CSR Partnership Positioning",
+    desc: "We help you create the digital presence and programme documentation that makes corporate CSR departments want to partner with you. Professional materials open doors that informal approaches cannot."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Education NGO, Ahmedabad",
+  title: "How an Ahmedabad Education NGO Grew Online Donations by 180 Percent and Recruited 500 Volunteers",
+  challenge: "An Ahmedabad-based education NGO running free coaching programmes for underprivileged students in seven districts of Gujarat had been operating for over eight years entirely on founder network donations. They had no website, no online donation process, and no digital presence. Grant applications were being rejected because of lack of digital credibility. They were unable to scale their programmes despite strong community impact because they could not attract enough funding.",
+  solution: "We built a professional NGO website with detailed programme pages, beneficiary impact stories, a financial transparency section, and all registration details prominently displayed. An online donation page with Razorpay integration, 80G receipt automation, and fund-specific giving options went live. A volunteer registration system was set up. Facebook fundraisers were created for specific programme campaigns. Instagram content told real student transformation stories. The website's grant application section was structured to meet common foundation requirements.",
+  results: [
+    { value: "180%", label: "More Online Donations" },
+    { value: "12", label: "New CSR Partnership Enquiries" },
+    { value: "500+", label: "Volunteer Registrations Online" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Before DCTechnoLabs our NGO existed only in the real world. Donors had to personally know us or someone who trusted us. After our website went live with proper impact pages and the donation system, we started receiving donations from people in Mumbai and Bengaluru who found us through a Facebook campaign. That was truly unexpected.",
+    name: "Rekha Joshi",
+    role: "Founder, Education NGO, Ahmedabad",
+    initials: "RJ"
+  },
+  {
+    text: "Two grant applications we submitted this year were approved. Both reviewers mentioned that our website and impact documentation gave them confidence in our organisation. The website DCTechnoLabs built was a direct factor in securing those grants. The return on that investment is many times over.",
+    name: "Arvind Sharma",
+    role: "Secretary, Rural Development Trust, Gujarat",
+    initials: "AS"
+  },
+  {
+    text: "Our women empowerment programme needed volunteers but we had no system to recruit them. The online volunteer registration system DCTechnoLabs set up brought us over 60 registered volunteers in the first two months. The automated welcome email with programme details was a very thoughtful touch.",
+    name: "Meera Nair",
+    role: "Programme Director, Women Empowerment NGO, Ahmedabad",
+    initials: "MN"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "NGO Foundation",
+    price: "₹6,000/mo",
+    note: "Special subsidised rate for registered NGOs",
+    desc: "For small NGOs and charitable trusts establishing their first professional digital presence. Significantly subsidised from our standard rates.",
+    features: [
+      "Professional NGO website (6 pages)",
+      "Online donation page with payment gateway",
+      "Volunteer registration form",
+      "Registration and compliance information display",
+      "Basic social media setup",
+      "Monthly performance report"
+    ],
+    btnLabel: "Apply for NGO Rate",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "NGO Growth",
+    price: "₹12,000/mo",
+    note: "Subsidised rate for established NGOs with active programmes",
+    desc: "For NGOs with multiple programmes ready to grow donor base, CSR partnerships, and volunteer recruitment through digital channels.",
+    features: [
+      "Full NGO website with all programme pages",
+      "Online donation system with 80G receipts",
+      "Volunteer registration and management",
+      "Impact report page design",
+      "Facebook and Instagram cause campaigns",
+      "Facebook Fundraiser management",
+      "Monthly strategy review call"
+    ],
+    btnLabel: "Grow Our Impact Online",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "NGO Authority",
+    price: "₹22,000/mo",
+    note: "For NGOs with CSR partnerships and grant-seeking programmes",
+    desc: "Comprehensive digital support for larger NGOs, FCRA-registered organisations, and social enterprises seeking significant CSR and grant funding.",
+    features: [
+      "Premium website with full programme documentation",
+      "Advanced donation platform with fund tracking",
+      "Annual impact report microsite",
+      "Grant application support content",
+      "Full social media management",
+      "CSR prospect outreach content",
+      "Email fundraising campaigns",
+      "Dedicated account manager"
+    ],
+    btnLabel: "Build Our Digital Credibility",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Does my NGO in Gujarat actually need a website?",
+    a: "Yes, and increasingly so. Grant committees, corporate CSR departments, and institutional donors now verify every organisation they consider funding through an online search. An NGO with no website or a poorly built one is at a significant disadvantage compared to one with a professional site showing impact data, registration details, and transparent financials. Donors who find you through word of mouth also check your website before transferring money."
+  },
+  {
+    q: "Can you set up online donations for a Gujarat NGO with 80G tax benefit receipts?",
+    a: "Yes. We integrate Razorpay or PayU donation gateways with your website and set up automated 80G receipt generation. Donors receive a receipt immediately after their transaction that they can use for tax deduction. We also include the relevant sections for FCRA registration if applicable and fund-specific donation tracking so donors can direct funds to a specific programme."
+  },
+  {
+    q: "What does FCRA-aware website design mean?",
+    a: "Organisations registered under FCRA (Foreign Contribution Regulation Act) are required to display specific information on their website including their FCRA registration number, the purpose for which foreign contribution is received, and annual accounts. We design NGO websites with these sections correctly structured so your organisation is always compliant with FCRA digital requirements."
+  },
+  {
+    q: "Can digital marketing help us get CSR funding from companies in Ahmedabad?",
+    a: "A strong website with clear programme pages, impact data, and professional documentation significantly improves CSR partnership conversations. Many CSR committees in Ahmedabad shortlist NGOs based on their digital presence before even scheduling a meeting. We help you build the content that makes CSR decision-makers confident in your organisation."
+  },
+  {
+    q: "How do we use Facebook and Instagram for fundraising?",
+    a: "Facebook Fundraisers allow supporters to create birthday fundraisers for your organisation. Meta's charity donation features let you add a donate button to your page. Instagram stories and posts with donation links drive campaign-specific giving. We manage all of these for you and create the content that motivates people to share and donate."
+  },
+  {
+    q: "What information should an NGO website include to build donor trust?",
+    a: "At minimum: a clear description of your programmes and beneficiaries, registration number and section 12A or 80G status, governing board names, annual reports or accounts, impact numbers, and testimonials from beneficiaries or community leaders. We build all of this into your website structure from the start."
+  },
+  {
+    q: "We are a small NGO with very limited budget. Can we afford professional digital support?",
+    a: "Our NGO pricing starts at ₹6,000 per month, which is substantially below our standard commercial rates. This covers website maintenance, donation page management, and basic social support. For NGOs in genuine financial hardship, we occasionally offer pro bono support for a limited number of exceptional causes. Contact us to discuss your situation."
+  },
+  {
+    q: "Can you help us improve our grant application success rate through better digital documentation?",
+    a: "Yes. We help you build the digital documentation and website content that grant reviewers look for: programme pages with clear objectives and outcomes, impact measurement methodology, financial transparency sections, governing body information, and previous grant utilisation reports. Many of our NGO clients have cited improved website credibility as a direct factor in successful grant approvals."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Websites and Digital Marketing for NGOs in Gujarat | DCTechnoLabs"
+  description="Professional websites, online donation integration, volunteer registration, and cause campaign management for NGOs, charitable trusts, and social enterprises in Gujarat. Special subsidised NGO pricing available."
+  canonical="https://dctechnolabs.in/industries/ngo/"
+  schemaJson={schemaJson}
+  badge="❤️ NGO Digital Support"
+  heroH1="Websites and Digital Marketing for NGOs and Non-Profits in"
+  heroHighlight="Gujarat"
+  heroDesc="Help more people by building a digital presence that donors trust, grants committees respect, and volunteers can find. We offer special subsidised pricing for registered NGOs and charitable trusts across Gujarat."
+  heroStats={[
+    { value: "45+", label: "NGOs Supported" },
+    { value: "Special NGO", label: "Pricing Available" },
+    { value: "FCRA-Aware", label: "Website Design" }
+  ]}
+  formTitle="Get a Free NGO Digital Consultation"
+  formSub="Tell us about your organisation and programmes. We respond within 24 hours."
+  s2Title="Why NGOs and Non-Profits in Gujarat Need a Strong Digital Presence"
+  s2Subtitle="Donors, grant committees, and corporate CSR departments in Gujarat now research every organisation online before committing. Your digital presence is your credibility."
+  overviewPoints={overviewPoints}
+  s3Title="The Digital Challenges NGOs in Gujarat Face"
+  challenges={challenges}
+  s4Title="Digital Services We Offer for NGOs and Non-Profits"
+  services={services}
+  s5Title="How We Build Your NGO's Digital Presence"
+  processSteps={processSteps}
+  statsHeading="Our Impact Supporting Gujarat NGOs"
+  stats={stats}
+  s7Title="Why NGOs Across Gujarat Choose DCTechnoLabs"
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Title="What NGO Leaders Say About Working With Us"
+  testimonials={testimonials}
+  s10Title="Subsidised Digital Marketing Pricing for NGOs"
+  s10Subtitle="Our NGO pricing is significantly below our standard commercial rates. We believe digital tools should be accessible to organisations doing genuine community work."
+  pricingTiers={pricingTiers}
+  s11Title="NGO Digital Marketing Questions Answered"
+  faqItems={faqItems}
+  ctaTitle="Help More People with a Digital Presence That Tells Your Story"
+  ctaSubtitle="Book a free consultation. We will review your current digital presence and share a plan that helps you reach more donors, recruit more volunteers, and build the credibility that grants and CSR partnerships require."
+/>

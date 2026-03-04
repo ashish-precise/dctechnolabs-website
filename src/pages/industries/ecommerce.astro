@@ -1,0 +1,346 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "E-commerce Development and Marketing for Online Stores in Gujarat",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat, India",
+  "description": "DC technolabs builds and markets Shopify and WooCommerce online stores for businesses in Gujarat. Specialising in Razorpay integration, Google Shopping, and performance marketing for Indian e-commerce."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "📦",
+    title: "India's E-commerce Market is Growing Fast",
+    desc: "India's online retail market is projected to cross Rs 7 lakh crore by 2026. Gujarat businesses, particularly in textiles, food, lifestyle, and handicrafts, are well-positioned to capture this growth if they have the right online store infrastructure and marketing in place."
+  },
+  {
+    emoji: "🧵",
+    title: "Gujarat Textile Businesses Are Moving Online",
+    desc: "Gujarat is India's largest textile producer. Businesses in Surat, Ahmedabad, and Bhavnagar that traditionally sold wholesale B2B are now building D2C online stores to reach retail customers directly. The margin improvement from cutting out middlemen is substantial."
+  },
+  {
+    emoji: "📱",
+    title: "Mobile-First Shopping is the Indian Reality",
+    desc: "Over 70% of Indian e-commerce orders are placed on mobile. Stores that are not fully optimised for mobile browsing, one-tap checkout, and UPI payments lose a majority of potential buyers before they even reach the product page. Speed and simplicity are everything."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our store has traffic but the conversion rate is terrible",
+    solution: "Low conversion is usually a combination of slow load times, confusing navigation, lack of trust signals, or a complicated checkout process. We audit every friction point and implement conversion rate optimisation changes that typically deliver a 40 to 80 percent improvement in conversion within 60 days."
+  },
+  {
+    problem: "Customers add to cart and then abandon without buying",
+    solution: "Cart abandonment in India averages 70%. We set up automated abandoned cart email and WhatsApp sequences that recover 15 to 25 percent of lost carts. This alone can add significant revenue without any additional ad spend."
+  },
+  {
+    problem: "We have no Razorpay or UPI integration and losing sales to payment friction",
+    solution: "We integrate Razorpay natively into your Shopify or WooCommerce store with full support for UPI, credit cards, debit cards, net banking, and EMI options. Customers can complete payment in 2 taps without being redirected to external pages."
+  },
+  {
+    problem: "Our product pages load slowly and buyers leave before seeing the product",
+    solution: "We optimise every product image to WebP format, implement lazy loading, reduce unnecessary apps and scripts, and configure CDN delivery so your store loads in under 2.5 seconds on Indian mobile networks. Fast load time directly increases conversion rate."
+  },
+  {
+    problem: "We are not on Instagram Shopping or Facebook Shop and missing out on social commerce",
+    solution: "We set up your product catalogue on Meta Commerce Manager, configure Instagram Shopping tags, and create Facebook Shop so your products appear directly in Instagram and Facebook feeds with a buy button. Social commerce is growing fast in India."
+  },
+  {
+    problem: "We are spending on Google Ads but not running Google Shopping campaigns",
+    solution: "Google Shopping campaigns show your actual product image, name, and price in search results and often deliver a lower cost per purchase than standard search ads. We set up and manage Shopping campaigns with proper product feed optimisation for maximum visibility."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>',
+    title: "Shopify Store Development",
+    desc: "Professional Shopify stores built from scratch or migrated from other platforms. Custom theme development, app integrations, Razorpay payment setup, and full Indian tax and GST configuration included."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>',
+    title: "WooCommerce Development",
+    desc: "Full WooCommerce stores on WordPress with custom design, product variations, Razorpay and PayU integration, GST invoicing plugins, and performance optimisation for Indian hosting environments."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>',
+    title: "Razorpay and UPI Integration",
+    desc: "Native Razorpay integration with full support for UPI, credit and debit cards, EMI, net banking, and wallets. We configure the payment gateway, test all payment flows, and ensure GST invoices are generated automatically on every order."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+    title: "Google Shopping Campaigns",
+    desc: "Product listing ad campaigns that show your products in Google Search and Google Shopping with image, price, and rating. We manage product feed optimisation, bid strategy, and negative keywords to maximise return on ad spend."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    title: "Instagram and Facebook Shop Setup",
+    desc: "Complete Meta Commerce setup including product catalogue upload, Instagram Shopping tag configuration, Facebook Shop, and product collection organisation so customers can browse and buy directly from your social media pages."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+    title: "Performance Marketing",
+    desc: "Full-funnel paid marketing across Google, Instagram, and Facebook. We build awareness campaigns for new products, retargeting campaigns for website visitors, and conversion campaigns for cart abandoners with clear ROAS targets."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>',
+    title: "Product Photography Guidance",
+    desc: "We advise on product photography standards for e-commerce, recommend trusted photographers in Ahmedabad for studio shoots, and guide you on creating scroll-stopping product images for Instagram that drive clicks and sales."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+    title: "Abandoned Cart Recovery",
+    desc: "Automated email and WhatsApp sequences that reach customers who added to cart but did not complete purchase. We write the copy, set up the automation, and typically recover 15 to 25 percent of abandoned carts, turning lost revenue into sales."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Store Audit or Fresh Setup",
+    desc: "For existing stores we do a full audit of performance, conversion blockers, and missed revenue opportunities. For new stores we scope out the full build including product structure, categories, variants, and payment gateway requirements."
+  },
+  {
+    title: "Payment and Tax Integration",
+    desc: "We configure Razorpay or PayU with all payment methods Indians use, set up GST tax rules, configure automatic GST invoicing, and test every checkout scenario to ensure zero payment failures on launch day."
+  },
+  {
+    title: "SEO and Speed Optimisation",
+    desc: "We implement on-page SEO for every product and category page, optimise all images to WebP, remove bloat from apps and scripts, and configure CDN. The goal is a store that loads under 2.5 seconds on Indian 4G networks."
+  },
+  {
+    title: "Marketing Launch",
+    desc: "We launch Google Shopping, Instagram Shopping, and any paid ad campaigns. We set up abandoned cart recovery flows, Meta pixel, and Google Analytics with e-commerce tracking so every sale is attributed correctly."
+  },
+  {
+    title: "Scale and Optimise",
+    desc: "Monthly reviews of store performance data. We increase ad budgets on winning products and campaigns, kill underperforming spend, introduce new product launches, and constantly test changes to improve conversion rate and average order value."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "180+", label: "Online Stores Launched" },
+  { value: "2.8x", label: "Average Revenue Growth" },
+  { value: "3.4%", label: "Avg Conversion Rate Achieved" },
+  { value: "48hr", label: "Average Store Go-Live" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "💳",
+    title: "Razorpay Native Integration",
+    desc: "We have integrated Razorpay into dozens of Shopify and WooCommerce stores. We know every configuration nuance, how to handle refunds, EMI display, and GST invoice automation. No guesswork, no trial and error."
+  },
+  {
+    emoji: "🧵",
+    title: "Gujarat Textile Industry Expertise",
+    desc: "We have helped multiple textile and fabric businesses in Gujarat launch successful D2C online stores. We understand how to present fabric variants, minimum order quantities, wholesale versus retail pricing, and the saree or dress material buyer journey."
+  },
+  {
+    emoji: "🛍️",
+    title: "Google Shopping Certified Management",
+    desc: "Google Shopping requires proper product feed management, Merchant Centre configuration, and smart bidding strategies. We have managed Shopping campaigns for stores across multiple categories and know how to maximise return on ad spend."
+  },
+  {
+    emoji: "📱",
+    title: "Mobile-First Store Design",
+    desc: "Every store we build is tested exhaustively on Indian Android devices with average internet speeds. We do not just make it responsive, we make it genuinely fast and easy to use on the devices your actual customers are shopping from."
+  },
+  {
+    emoji: "🧾",
+    title: "GST Invoice Automation",
+    desc: "Every order in your store automatically generates a proper GST invoice with the correct tax components. Customers get their invoice immediately and you have a clean record for your accountant. Indian compliance built in from day one."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Case Study: Gujarat Textile Brand",
+  title: "Surat Fabric Business Generates ₹18 Lakh Revenue in First 90 Days Online",
+  challenge: "A Surat-based fabric manufacturer selling wholesale B2B had hit a growth ceiling with just 40 to 50 regular buyers placing bulk orders. Margins were thin because middlemen were marking up significantly to retail customers. The owner wanted to sell directly to retail customers across India but had no online presence beyond a WhatsApp catalogue.",
+  solution: "We built a Shopify store with all fabric categories, saree collections, and dress material variants. Razorpay was integrated with UPI, card, and COD options. We launched Google Shopping campaigns, set up Instagram Shopping, and created a consistent Instagram content feed showcasing fabrics styled with real models. Abandoned cart WhatsApp automation was configured from day one.",
+  results: [
+    { value: "₹18L", label: "Revenue in First 90 Days" },
+    { value: "4.2%", label: "Conversion Rate Achieved" },
+    { value: "340%", label: "Instagram Follower Growth" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had a Shopify store that was barely making Rs 50,000 a month despite decent traffic. DC technolabs did a full audit, fixed our checkout flow, set up Razorpay properly with UPI, and launched Google Shopping. In 3 months we were doing Rs 3.5 lakh per month from the same traffic.",
+    name: "Nisha Agarwal",
+    role: "Founder, Natural Lifestyle Brand, Ahmedabad",
+    initials: "NA"
+  },
+  {
+    text: "They understood the textile business immediately. The Shopify store they built for our saree brand handles fabric variants, minimum order quantities, and wholesale pricing perfectly. The Instagram Shopping integration brought in customers from across India who found us through reels.",
+    name: "Farhan Shaikh",
+    role: "Owner, Fabric House, Surat",
+    initials: "FS"
+  },
+  {
+    text: "The abandoned cart WhatsApp automation they set up recovered Rs 80,000 in the first month alone from orders that would have been lost. The GST invoicing is automatic. My accountant is very happy. Very practical, business-minded team.",
+    name: "Geeta Trivedi",
+    role: "Director, Handicraft Store, Vadodara",
+    initials: "GT"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Store Starter",
+    price: "₹15,000 setup",
+    note: "Plus ₹8,000/mo for ongoing marketing support",
+    desc: "Launch your first online store with all the essentials for selling in India.",
+    features: [
+      "Shopify or WooCommerce store setup (up to 50 products)",
+      "Razorpay and UPI payment integration",
+      "GST invoicing configuration",
+      "Basic product SEO",
+      "Instagram Shopping setup",
+      "Mobile optimisation and speed check",
+      "1 month post-launch support"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Store",
+    price: "₹35,000 setup",
+    note: "Plus ₹15,000/mo for ongoing marketing",
+    desc: "A fully optimised store with marketing campaigns running from launch day.",
+    features: [
+      "Everything in Starter",
+      "Up to 200 products with variants",
+      "Google Shopping campaign setup and management",
+      "Facebook and Instagram Ads management",
+      "Abandoned cart recovery automation",
+      "Performance marketing with ROAS tracking",
+      "Monthly conversion rate optimisation review",
+      "WhatsApp customer communication setup"
+    ],
+    btnLabel: "Best for Growing Brands",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Enterprise Store",
+    price: "₹75,000+",
+    note: "Custom quote based on scope and requirements",
+    desc: "Fully custom e-commerce development for established brands with complex requirements.",
+    features: [
+      "Everything in Growth Store",
+      "Unlimited products and custom categories",
+      "Custom design and brand identity integration",
+      "B2B wholesale portal with separate pricing",
+      "ERP and inventory system integration",
+      "Multi-currency and international shipping",
+      "Dedicated project manager",
+      "Priority support and SLA guarantee"
+    ],
+    btnLabel: "Request Custom Quote",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Shopify or WooCommerce which one is better for an Indian business?",
+    a: "Both work well in India. Shopify is easier to manage, has better uptime, and is faster to launch. WooCommerce gives you more customisation control and lower ongoing cost if you already have WordPress hosting. For most new stores we recommend Shopify because the Razorpay integration is more reliable and the mobile checkout experience is superior. We have a detailed blog post on this comparison if you want to read more."
+  },
+  {
+    q: "Is Razorpay the only payment gateway you support?",
+    a: "Razorpay is our preferred gateway because it has the most reliable Shopify integration, supports all Indian payment methods including UPI, and has excellent customer support for Indian merchants. We also support PayU, CCAvenue, and Cashfree depending on your business requirements. All gateways are configured to handle GST invoicing automatically."
+  },
+  {
+    q: "How do you handle GST on the online store?",
+    a: "We configure your store with the correct GST rates for your product categories, set up automatic tax calculation at checkout, and configure GST invoice generation on every order. Customers receive a proper GST invoice by email immediately after purchase. The configuration follows current GST rules for e-commerce sellers in India."
+  },
+  {
+    q: "Can you migrate our existing store to Shopify without losing SEO rankings?",
+    a: "Yes. Store migration requires careful 301 redirect mapping from old URLs to new ones to preserve your Google rankings. We create a complete URL mapping document before migration and implement all redirects on launch day. We also re-submit your sitemap to Google after migration and monitor rankings in the weeks following launch."
+  },
+  {
+    q: "What is the typical conversion rate for Indian e-commerce stores?",
+    a: "The average Indian e-commerce store converts at 1.5 to 2 percent. Well-optimised stores with fast loading, clear product information, and smooth checkout typically achieve 3 to 4 percent. The clients we have worked with on conversion rate optimisation have seen their rates improve from 1.2 percent to 3.4 percent on average after our audit and optimisation process."
+  },
+  {
+    q: "Can you help with product photography or do we need to arrange that separately?",
+    a: "We advise on photography requirements and recommend trusted product photographers in Ahmedabad and Surat who understand e-commerce needs. We do not offer photography ourselves but can coordinate the shoot briefing so the photos are optimised for your specific store design and product page layout."
+  },
+  {
+    q: "How does Google Shopping work and is it worth the investment for Indian stores?",
+    a: "Google Shopping shows your product image, name, price, and rating directly in Google search results when someone searches for a product you sell. It typically delivers a higher click-through rate than standard text ads because buyers can see the product and price before clicking. For product-based businesses in India, Shopping campaigns almost always deliver better return on ad spend than standard search ads alone."
+  },
+  {
+    q: "Can you set up COD (cash on delivery) on our store?",
+    a: "Yes. Cash on delivery is still widely used in India, particularly in tier 2 and tier 3 cities. We configure COD as a payment option in your store and can set up COD limits by order value or pin code if needed. We also help you set up Shiprocket or other shipping integrations that handle COD collection and remittance."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="E-commerce Development and Marketing for Online Stores in Gujarat | DC technolabs"
+  description="DC technolabs builds and grows Shopify and WooCommerce stores for businesses in Gujarat. Razorpay integration, Google Shopping, Instagram Shopping, and performance marketing for Indian e-commerce. 180+ stores launched."
+  canonical="https://dctechnolabs.in/industries/ecommerce/"
+  schemaJson={schemaJson}
+  badge="🛒 E-commerce Solutions"
+  heroH1="E-commerce Development and Marketing for"
+  heroHighlight="Online Stores in Gujarat"
+  heroDesc="We build high-converting Shopify and WooCommerce stores for businesses across Gujarat and handle the full marketing stack from Google Shopping to Instagram and abandoned cart recovery. Whether you are a textile business in Surat going D2C or a lifestyle brand in Ahmedabad ready to scale online, we know exactly how to build it and grow it."
+  heroStats={[
+    { value: "180+", label: "Stores Launched" },
+    { value: "2.8x", label: "Average Revenue Growth" },
+    { value: "Shopify + WooCommerce", label: "Platform Experts" }
+  ]}
+  formTitle="Get a Free Store Audit or Setup Consultation"
+  formSub="Tell us about your products and current challenges. We will share exactly what is holding back your online store revenue."
+  s2Label="Industry Overview"
+  s2Title="Why Now is the Right Time to Sell Online in Gujarat"
+  s2Subtitle="E-commerce in India is growing faster than almost anywhere else in the world. Here is what Gujarat businesses need to know."
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="E-commerce Problems We Solve for Gujarat Businesses"
+  s3Subtitle="These are the exact revenue-killing problems we fix for online store owners across Ahmedabad, Surat, Vadodara, and beyond."
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="E-commerce Services Built for the Indian Market"
+  s4Subtitle="Every service is designed for how Indian customers shop, pay, and expect to be served online."
+  services={services}
+  s5Label="How We Work"
+  s5Title="Our Process for Launching and Growing Your Online Store"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="Why Gujarat Businesses Trust DC technolabs for E-commerce"
+  s7Subtitle="We are not a generic web agency. We understand Indian payment systems, GST compliance, Gujarat industry verticals, and how Indian shoppers actually behave."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Online Store Owners Say About Working With Us"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="E-commerce Development and Marketing Pricing"
+  s10Subtitle="Clear pricing with no surprises. Setup is a one-time cost. Monthly marketing support is ongoing with a minimum 3-month commitment."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Frequently Asked Questions About E-commerce in India"
+  faqItems={faqItems}
+  ctaTitle="Launch Your Online Store in 30 Days"
+  ctaSubtitle="Book a free consultation. We will review your products, recommend the right platform, and show you a realistic revenue projection for your online store based on our experience with similar businesses in Gujarat."
+/>

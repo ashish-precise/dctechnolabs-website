@@ -1,0 +1,331 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for SaaS and Tech Companies in Ahmedabad",
+  "description": "Inbound lead generation, SaaS landing page design, demo request optimisation, and content marketing for software companies and tech startups in Ahmedabad, Gujarat.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DCTechnoLabs",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Gujarat"
+  },
+  "serviceType": "SaaS and Tech Company Digital Marketing"
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "💻",
+    title: "Inbound Lead Generation",
+    desc: "Build a system that brings qualified demo requests, free trial signups, and sales enquiries to your product every month without relying entirely on cold outreach or referrals."
+  },
+  {
+    emoji: "📄",
+    title: "SaaS Landing Pages That Convert",
+    desc: "Most SaaS landing pages in India explain features, not outcomes. We build product pages that speak directly to buyer pain points and move visitors from curious to requesting a demo."
+  },
+  {
+    emoji: "📈",
+    title: "B2B Content That Builds Pipeline",
+    desc: "Product-led blog posts, comparison pages, and SEO content that attract decision-makers who are actively evaluating software options. Content that shortens your sales cycle."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "All our leads come from cold LinkedIn outreach and referrals. There is no inbound at all",
+    solution: "We build content SEO, Google Ads, and landing page systems that create a consistent inbound pipeline so your sales team receives demo requests instead of always chasing cold prospects."
+  },
+  {
+    problem: "Our demo request page exists but barely anyone fills out the form",
+    solution: "We redesign demo pages around prospect outcomes and urgency, with trust signals, social proof, and a frictionless booking process. Conversion rate improvements of 2x to 4x are common."
+  },
+  {
+    problem: "We are not ranking for any software-related keywords our buyers search for",
+    solution: "A focused content and technical SEO strategy targeting industry-specific software keywords, comparison searches, and problem-solution queries puts your product in front of active buyers."
+  },
+  {
+    problem: "We have no content marketing. Our competitors publish weekly and we publish nothing",
+    solution: "We build and execute a monthly content calendar with product-led articles, industry guides, and comparison posts that educate buyers and build domain authority over time."
+  },
+  {
+    problem: "Our sales cycle is very long and we have no way to nurture prospects who showed interest",
+    solution: "Email nurturing sequences deliver relevant content to prospects at each stage of their evaluation journey, keeping your product top of mind until they are ready to buy."
+  },
+  {
+    problem: "We are an Ahmedabad software company and clients assume we are less credible than Mumbai or Bengaluru firms",
+    solution: "We build a digital presence so strong that where your office is becomes irrelevant. Case studies, client logos, content authority, and a polished website communicate quality before any conversation begins."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    title: "SaaS Landing Page Design",
+    desc: "Product and feature landing pages built to convert. Clear value propositions, benefit-led copy, social proof, and a demo booking or free trial flow that removes every friction point."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+    title: "Demo Request Optimisation",
+    desc: "We analyse your demo page and rebuild it with a CRO-first approach. Trust signals, outcome-focused messaging, social proof, and a short booking form that qualifies leads without intimidating them."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+    title: "Content Marketing and SEO",
+    desc: "Monthly blog posts, comparison articles, and guide content that ranks for buyer-intent keywords. We target searches your ideal customers make when evaluating software solutions like yours."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    title: "Google Ads for Software Buyers",
+    desc: "Search and display ads targeting decision-makers searching for software solutions in your vertical. We target by job title, company size intent, and specific software keyword searches."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
+    title: "LinkedIn Lead Generation",
+    desc: "LinkedIn Ads and organic strategies targeting CFOs, HR managers, founders, and operations heads who are your ideal buyers. We build awareness and capture demo requests directly from LinkedIn."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2-2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+    title: "Email Nurturing Sequences",
+    desc: "Automated email sequences that move prospects from initial awareness through product education to purchase decision. Personalised based on the content they engaged with and where they are in the buying journey."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Buyer Research",
+    desc: "We identify your ideal buyer profile, the keywords they search, the content they consume, and the objections they have before purchasing software like yours."
+  },
+  {
+    title: "Landing Page Rebuild",
+    desc: "Your product landing page and demo request flow are rebuilt with conversion-first design. We measure baseline conversion rate before and after."
+  },
+  {
+    title: "Content and SEO",
+    desc: "Monthly content targets your highest-value buyer keywords. Technical SEO ensures your product pages are indexed and ranked properly across India."
+  },
+  {
+    title: "Paid and LinkedIn",
+    desc: "Google Ads and LinkedIn campaigns target decision-makers at companies that fit your ideal customer profile. Budget is tightly controlled against demo request cost targets."
+  },
+  {
+    title: "Nurture and Scale",
+    desc: "Email sequences engage every enquiry. Monthly review tracks cost per demo request, lead-to-close rate improvements, and content ROI. We scale what works."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "55+", label: "Tech Companies Served" },
+  { value: "3.4x", label: "Demo Request Growth" },
+  { value: "₹22L+", label: "ARR from Inbound Leads" },
+  { value: "60 Days", label: "To First Ranking Content" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🔬",
+    title: "We Understand B2B SaaS Buying",
+    desc: "B2B software purchases involve multiple stakeholders, long evaluation cycles, and specific objections. Our content and campaign strategy accounts for how software is actually bought in India."
+  },
+  {
+    emoji: "📊",
+    title: "We Track Demo Requests, Not Vanity Metrics",
+    desc: "We do not report on impressions and clicks as success metrics. We report on demo requests, qualified leads, and pipeline generated. Every campaign is optimised against real business outcomes."
+  },
+  {
+    emoji: "🗺️",
+    title: "Gujarat and Pan-India Reach",
+    desc: "Based in Ahmedabad with clients across Gujarat, we help InfoCity and SciTech Park based companies build credibility with buyers in Mumbai, Delhi, and beyond."
+  },
+  {
+    emoji: "✍️",
+    title: "Technical Content Writers",
+    desc: "Our content writers understand SaaS products. They can write accurate, detailed comparisons and guides about HR software, ERP systems, and industry-specific tools without needing constant briefing."
+  },
+  {
+    emoji: "🔗",
+    title: "Full-Funnel Approach",
+    desc: "From first Google search to demo request to post-demo nurture. We cover the entire buyer journey so no prospect falls through the cracks after showing initial interest."
+  },
+  {
+    emoji: "⚡",
+    title: "Fast Execution for Funded Startups",
+    desc: "If you have just raised a round and need to grow quickly, we can move fast. Website, ads, and content can all go live within 3 to 4 weeks of starting."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "HR Software Company, InfoCity Gandhinagar",
+  title: "How an Ahmedabad HR Software Company Built ₹22L ARR from Inbound Leads in Year One",
+  challenge: "An Ahmedabad-based HR and payroll SaaS company was generating all leads through cold LinkedIn outreach and founder networking. Their website existed but had no traffic and no demo requests. The sales team was spending 80 percent of its time on outbound with a very low conversion rate. They needed a consistent inbound engine to grow without proportionally growing the sales team.",
+  solution: "We rebuilt their product landing page with a clear value proposition and a two-step demo booking flow. A content SEO strategy targeted searches like HR software for Indian companies, payroll software Gujarat, and attendance management system SME. Google Ads targeted HR managers and founders searching for HRMS solutions. LinkedIn campaigns reached operations heads at 50-500 employee companies. Email sequences followed up with every demo no-show and prospect who downloaded a guide.",
+  results: [
+    { value: "3.4x", label: "More Demo Requests per Month" },
+    { value: "₹22L", label: "ARR from Inbound in Year 1" },
+    { value: "Featured Snippet", label: "for HR Software India on Google" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Before DCTechnoLabs our entire sales pipeline was cold outreach. Within 8 months of working with them we were receiving 20 to 25 inbound demo requests per month from content and Google Ads. The ROI is very clear. Inbound leads close at a much higher rate because they come to us already educated.",
+    name: "Chirag Bhatt",
+    role: "Founder, HR Software Startup, Gandhinagar",
+    initials: "CB"
+  },
+  {
+    text: "The content strategy they built for us is genuinely impressive. They wrote comparison articles between our product and alternatives, industry guides, and feature explainers. These articles now bring in consistent organic traffic of buyers who are evaluating tools. The SEO work has given us traffic we own.",
+    name: "Nisha Kapoor",
+    role: "Marketing Head, EdTech SaaS Company, Ahmedabad",
+    initials: "NK"
+  },
+  {
+    text: "We are a mobile app development company based in Ahmedabad and we were struggling to position ourselves against Bengaluru agencies. DCTechnoLabs built our service pages and content in a way that showcases our portfolio and processes so compellingly that clients stopped asking about our location.",
+    name: "Darshan Patel",
+    role: "Director, Mobile App Development Company, Prahlad Nagar",
+    initials: "DP"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Startup Growth",
+    price: "₹20,000/mo",
+    note: "Minimum 3-month commitment",
+    desc: "For early-stage SaaS and tech companies building their first inbound marketing foundation.",
+    features: [
+      "Product landing page design and copywriting",
+      "Demo request page optimisation",
+      "4 SEO content pieces per month",
+      "Basic Google Ads setup",
+      "Monthly performance tracking",
+      "Email welcome sequence setup"
+    ],
+    btnLabel: "Start Building Inbound",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Scale SaaS",
+    price: "₹38,000/mo",
+    note: "Most popular for funded startups and growing SaaS companies",
+    desc: "For SaaS companies ready to build a proper inbound engine with content, paid, and LinkedIn working together.",
+    features: [
+      "Full product website rebuild or redesign",
+      "Demo request page CRO",
+      "Google Ads management (search + display)",
+      "LinkedIn lead generation campaigns",
+      "8 content pieces per month",
+      "Email nurturing sequences",
+      "Monthly strategy call and reporting",
+      "Featured snippet optimisation"
+    ],
+    btnLabel: "Build My Inbound Engine",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Enterprise Tech",
+    price: "₹65,000/mo",
+    note: "For established software companies and IT services firms",
+    desc: "Full-scale B2B digital marketing for software companies, IT services firms, and technology consultants with aggressive growth targets.",
+    features: [
+      "Full website with all product and service pages",
+      "Advanced Google Ads with account-based targeting",
+      "LinkedIn Ads with full campaign management",
+      "12+ content pieces per month",
+      "PR and thought leadership content",
+      "Advanced email automation",
+      "Dedicated account manager",
+      "Weekly reporting and pipeline attribution"
+    ],
+    btnLabel: "Discuss Your Growth Plan",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can content marketing actually generate leads for a B2B SaaS product?",
+    a: "Yes, and it is often the most cost-effective channel for B2B SaaS over time. Buyers of software products research extensively before purchasing. Blog posts comparing alternatives, explaining integrations, or solving specific problems attract buyers who are already in evaluation mode. These leads come with high intent and convert at much better rates than cold outreach."
+  },
+  {
+    q: "What is the typical cost per demo request from Google Ads for a SaaS product in India?",
+    a: "This varies significantly by product category and competition. For most B2B SaaS verticals in India, a cost per demo request of ₹800 to ₹2,500 is achievable with well-optimised campaigns and landing pages. We provide category-specific benchmarks before starting any campaign."
+  },
+  {
+    q: "How long does it take for content SEO to start generating demo requests?",
+    a: "Content SEO is a longer-term channel. Meaningful organic traffic typically builds over 3 to 6 months. However, high-quality content can generate featured snippets and appear in answer boxes much faster for specific low-competition queries. We combine content SEO with Google Ads so you have immediate inbound while organic builds."
+  },
+  {
+    q: "Our product is very technical. Can your team write content about it accurately?",
+    a: "Yes. Our content team has written for HR software, ERP systems, logistics SaaS, EdTech platforms, and IT services companies. We do a thorough product briefing session before writing anything. All content goes through your technical review before publishing. We will not publish something you have not approved."
+  },
+  {
+    q: "Should we focus on LinkedIn Ads or Google Ads for a B2B SaaS product?",
+    a: "Both serve different moments in the buyer journey. Google Ads captures buyers who are actively searching for a solution right now. LinkedIn reaches your ideal customer profile before they are searching, building awareness and familiarity. For most B2B SaaS products we recommend running both with different budgets and messaging based on your product's sales cycle length."
+  },
+  {
+    q: "How do we measure ROI from digital marketing for a SaaS product?",
+    a: "We track demo requests attributed to each channel, lead-to-demo conversion rate, and when possible the downstream close rate and ARR from inbound leads. We set up Google Analytics 4 with proper conversion events so you can see exactly which campaigns, content pieces, and landing pages are generating the most valuable pipeline."
+  },
+  {
+    q: "Can you help an IT services company in Ahmedabad attract clients from other Indian cities?",
+    a: "Absolutely. Many of our tech clients are Ahmedabad-based companies serving clients in Mumbai, Delhi, Bangalore, and Hyderabad. A strong website with excellent case studies, clear service pages, and Google Ads targeting buyers in those cities can generate strong inbound from across India regardless of your physical location."
+  },
+  {
+    q: "What kind of email sequences work best for SaaS demo nurturing?",
+    a: "After a demo request, sequences should include a confirmation and prep email, a pre-demo case study relevant to the prospect's industry, and post-demo follow-up emails at day 3, day 7, and day 14 if they have not moved forward. Each email should provide value rather than just checking in. We design these sequences based on your product category and typical sales cycle."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for SaaS and Tech Companies in Ahmedabad | DCTechnoLabs"
+  description="Inbound lead generation, SaaS landing page design, demo request optimisation, content marketing, and Google Ads for software companies and tech startups in Ahmedabad, Gujarat."
+  canonical="https://dctechnolabs.in/industries/saas/"
+  schemaJson={schemaJson}
+  badge="💻 SaaS and Tech Marketing"
+  heroH1="Digital Marketing and Growth for SaaS and Tech Companies in"
+  heroHighlight="Ahmedabad"
+  heroDesc="Stop depending only on cold outreach. We help Ahmedabad software companies, SaaS startups, and IT services firms build inbound lead generation systems that bring qualified demo requests and sales enquiries every month."
+  heroStats={[
+    { value: "55+", label: "Tech Companies Served" },
+    { value: "3.4x", label: "Demo Request Growth" },
+    { value: "B2B SaaS", label: "Specialists" }
+  ]}
+  formTitle="Get a Free SaaS Growth Consultation"
+  formSub="We will review your current funnel and share a strategy within 24 hours."
+  s2Title="Why SaaS and Tech Companies in Ahmedabad Need Inbound Marketing"
+  s2Subtitle="Your buyers search Google before they ever respond to a cold LinkedIn message. InfoCity and SciTech Park based software companies that build inbound pipelines grow faster with smaller sales teams."
+  overviewPoints={overviewPoints}
+  s3Title="The Growth Challenges SaaS and Tech Companies Face"
+  challenges={challenges}
+  s4Title="Digital Marketing Services for SaaS and Tech Companies"
+  services={services}
+  s5Title="How We Build Your Inbound Pipeline"
+  processSteps={processSteps}
+  statsHeading="What We Have Delivered for Tech Companies in Gujarat"
+  stats={stats}
+  s7Title="Why Tech Companies in Ahmedabad Choose DCTechnoLabs"
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Title="What SaaS and Tech Founders Say About Working With Us"
+  testimonials={testimonials}
+  s10Title="Digital Marketing Investment for SaaS Companies"
+  pricingTiers={pricingTiers}
+  s11Title="SaaS and Tech Marketing Questions Answered"
+  faqItems={faqItems}
+  ctaTitle="Turn Your Product Into a Lead Generation Machine"
+  ctaSubtitle="Book a free strategy consultation and we will show you exactly what your inbound pipeline could look like within 90 days. No obligation, no pushy sales pitch."
+/>

@@ -1,0 +1,330 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Automotive Businesses in Ahmedabad",
+  "description": "Websites, Google Ads, inventory listings, and service booking systems for car dealerships, two-wheeler showrooms, auto service centres, and auto accessories retailers in Ahmedabad.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DCTechnoLabs",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ahmedabad"
+  },
+  "serviceType": "Automotive Digital Marketing"
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🚗",
+    title: "Inventory and Showroom Websites",
+    desc: "A dealership website with live inventory listings, vehicle photos, EMI calculators, and a test drive booking form. Buyers research online before visiting your showroom. Give them a reason to choose yours."
+  },
+  {
+    emoji: "📍",
+    title: "Google Maps Dominance",
+    desc: "Car dealerships, service centres, and tyre shops in Ahmedabad live and die by local search. We make your business appear prominently in Google Maps for every relevant search within your target area."
+  },
+  {
+    emoji: "📅",
+    title: "Online Service Booking",
+    desc: "An online service appointment system reduces phone call load on your team and captures service bookings 24 hours a day. Customers can book car servicing, tyre changes, and detailing at any time."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We have no website to show our car inventory and buyers go to competitors who do",
+    solution: "We build automotive dealer websites with filterable inventory, vehicle detail pages, EMI calculators, and test drive booking buttons so buyers can research and enquire from your website."
+  },
+  {
+    problem: "Test drive bookings and showroom visits have been declining since the pandemic",
+    solution: "Google Ads targeting buyers searching for specific cars in Ahmedabad drive qualified traffic to your inventory pages. We target in-market buyers, not generic audiences."
+  },
+  {
+    problem: "We are not visible on Google Maps when people search for car showroom near me",
+    solution: "Google Business Profile optimisation, local SEO, and consistent NAP citations put your showroom on the map for every relevant local search. We have done this for 65+ auto businesses in Ahmedabad."
+  },
+  {
+    problem: "Our Instagram and Facebook pages look outdated. New model launches get no engagement",
+    solution: "We create showroom content: new model launch Reels, customer delivery moments, EMI offer promotions, and test drive invitations. Social content that actually generates showroom visit requests."
+  },
+  {
+    problem: "Our service centre is always empty on weekdays but overloaded on Saturdays",
+    solution: "An online service booking system with time-slot selection distributes appointments evenly across the week. Reminder messages reduce no-shows significantly."
+  },
+  {
+    problem: "Used car buyers search online but cannot find our inventory or trust our prices",
+    solution: "Dedicated used car listing pages with photos, mileage, service history highlights, and market-comparison pricing build trust with used car buyers before they ever visit your lot."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    title: "Automotive Dealer Website",
+    desc: "Professional websites for car and two-wheeler dealerships with inventory pages, vehicle detail pages, EMI calculators, test drive booking forms, and service enquiry sections."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H5a2 2 0 0 0-2 2"/><path d="M21 17h-4a2 2 0 0 1-2-2"/><path d="M3 5h4a2 2 0 0 1 2 2"/><path d="M21 5h-4a2 2 0 0 0-2 2"/><circle cx="12" cy="12" r="3"/></svg>',
+    title: "Vehicle Inventory Listings",
+    desc: "Structured inventory pages for new and used vehicles with photos, specifications, pricing, mileage, and a direct WhatsApp enquiry button. Updated as your inventory changes."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+    title: "Online Service Booking System",
+    desc: "A service appointment system that lets customers book car servicing, AC service, tyre changes, and detailing slots online. Time-slot management, automated confirmations, and reminders."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    title: "Google Ads for Car Buyers",
+    desc: "Search ads targeting buyers looking for specific cars, EMI offers, and used cars in Ahmedabad. We target by vehicle type, budget range, and location to bring only qualified traffic to your pages."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    title: "Instagram Showroom Marketing",
+    desc: "New model launch Reels, customer delivery celebrations, EMI offer graphics, service tip videos. Instagram content that builds showroom excitement and drives test drive booking requests."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: "Google Maps Optimisation",
+    desc: "Complete Google Business Profile management: correct categories, vehicle brands listed, service types, showroom photos, Q&A responses, and weekly posts for maximum local visibility."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Dealership Audit",
+    desc: "We review your current online presence, inventory types, target buyer profiles, and geographic reach to build a tailored digital strategy for your business."
+  },
+  {
+    title: "Website and Inventory Setup",
+    desc: "Your dealer website with inventory listings, vehicle pages, and service booking goes live. Google Business Profile is fully optimised from day one."
+  },
+  {
+    title: "SEO and Local Visibility",
+    desc: "Local SEO builds your visibility for searches like used car dealer Ahmedabad, Maruti service centre Bopal, or Hero bike showroom SG Highway within your target area."
+  },
+  {
+    title: "Google Ads Launch",
+    desc: "Search ads go live targeting in-market buyers by vehicle model, budget, and location. We track test drive bookings and service appointments as primary conversion goals."
+  },
+  {
+    title: "Ongoing Optimisation",
+    desc: "Monthly reports cover test drive enquiries, service bookings, cost per lead, and top-performing vehicle pages. We optimise continuously based on real conversion data."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "65+", label: "Auto Businesses Served" },
+  { value: "2.9x", label: "Showroom Visit Bookings" },
+  { value: "220%", label: "Test Drive Enquiry Growth" },
+  { value: "Top 3", label: "Local Map Ranking for Clients" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🚘",
+    title: "We Understand How Car Buyers Research",
+    desc: "Car buyers in Ahmedabad research online for weeks before visiting a showroom. We build your digital presence to capture them at every stage from initial research to test drive booking."
+  },
+  {
+    emoji: "📍",
+    title: "Hyperlocal Targeting by Neighbourhood",
+    desc: "We can target buyers by specific areas like Bopal, Thaltej, Prahlad Nagar, and Naranpura so your ad budget reaches the most relevant prospects within your delivery radius."
+  },
+  {
+    emoji: "📊",
+    title: "Track Real Showroom Metrics",
+    desc: "We track test drive bookings, service appointment requests, and phone calls from your website, not just website traffic. Every metric we report is connected to actual business results."
+  },
+  {
+    emoji: "🔄",
+    title: "Inventory Updates Without Hassle",
+    desc: "We build inventory management into your website so your team can update vehicle listings without needing a developer. Fresh inventory shows up on Google quickly."
+  },
+  {
+    emoji: "⭐",
+    title: "Review Generation for Dealerships",
+    desc: "We build systematic review campaigns that collect 5-star Google reviews from happy customers after purchase and service. Reviews are the single biggest local trust factor."
+  },
+  {
+    emoji: "📱",
+    title: "Mobile-First Showroom Experience",
+    desc: "Most car research happens on mobile. Your inventory pages, vehicle comparisons, and booking forms are designed to work perfectly on a smartphone screen."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Car Dealership, Bopal, Ahmedabad",
+  title: "How a Bopal Car Dealership Increased Test Drive Bookings by 220 Percent",
+  challenge: "A multi-brand car dealership in Bopal was seeing declining showroom walk-ins. They had no website, no inventory listing online, and were invisible on Google Maps despite being in a high-traffic area. Competitors with basic websites were appearing above them in local search results.",
+  solution: "We built a full dealer website with inventory pages for new and used cars, an online test drive booking system, and an EMI calculator. Google Business Profile was fully optimised with all services, vehicle brands, photos, and consistent weekly posts. Google Ads targeted searches for specific car models and used cars in the Bopal, Ghuma, and South Ahmedabad area.",
+  results: [
+    { value: "220%", label: "More Test Drive Bookings" },
+    { value: "65%", label: "Increase in Service Appointments" },
+    { value: "Top 3", label: "for Used Cars Ahmedabad on Google" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our showroom walk-ins were declining and we had no idea how to fix it. DCTechnoLabs built our website with proper inventory listings and within 3 months we were getting test drive booking requests from the website every week. The Google Maps optimisation alone made a huge difference.",
+    name: "Mahesh Thakor",
+    role: "Owner, Thakor Motors, Bopal Ahmedabad",
+    initials: "MT"
+  },
+  {
+    text: "We run a car service centre in Satellite and the online booking system DCTechnoLabs built changed everything. Customers can book service slots on Saturday at midnight if they want. Our Monday appointments filled up completely within the first month of going live.",
+    name: "Jigar Solanki",
+    role: "Service Centre Manager, Satellite",
+    initials: "JS"
+  },
+  {
+    text: "Our Hero bike showroom was struggling with new model awareness. The Instagram Reels they create for us for each new launch actually bring customers asking specifically for that model. Our Splendor and Xtreme sales both went up after we started the social media work.",
+    name: "Nilesh Parmar",
+    role: "Showroom Owner, Naranpura Ahmedabad",
+    initials: "NP"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Dealership",
+    price: "₹12,000/mo",
+    note: "Minimum 3-month commitment",
+    desc: "For auto service centres, tyre shops, and small showrooms building their first digital presence.",
+    features: [
+      "Professional business website",
+      "Google Business Profile optimisation",
+      "Basic inventory or service listing",
+      "Local SEO for 5 keywords",
+      "WhatsApp enquiry integration",
+      "Monthly performance report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Showroom",
+    price: "₹24,000/mo",
+    note: "Most popular for car and bike dealerships",
+    desc: "For active dealerships wanting consistent test drive bookings and service appointments from online channels.",
+    features: [
+      "Full dealer website with inventory pages",
+      "Online service booking system",
+      "Google Ads for car buyers",
+      "Local SEO for 15 keywords",
+      "Google Business Profile management",
+      "Instagram showroom content (8 posts/month)",
+      "Monthly strategy review call"
+    ],
+    btnLabel: "Drive More Customers",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Authority Dealership",
+    price: "₹42,000/mo",
+    note: "For multi-brand dealerships and dealer groups",
+    desc: "Full-stack digital marketing for large dealerships, dealer groups, or businesses with multiple locations in Ahmedabad.",
+    features: [
+      "Premium multi-brand dealer website",
+      "Live inventory management system",
+      "Google Ads with dedicated budget management",
+      "Advanced local SEO across all locations",
+      "Full social media management",
+      "Model launch campaign support",
+      "Dedicated account manager",
+      "Weekly reporting and optimisation"
+    ],
+    btnLabel: "Discuss Your Dealership",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "How can a car dealership in Ahmedabad get more test drive bookings through Google Ads?",
+    a: "We target buyers who are actively searching for specific car models with intent to purchase. Ad copy focuses on offers, EMI, and a direct test drive booking CTA. Landing pages for each vehicle model convert this traffic into booking requests. This approach consistently delivers qualified test drive enquiries."
+  },
+  {
+    q: "What should an automotive dealer website include to actually convert visitors?",
+    a: "A dealer website needs filterable inventory with photos, an EMI calculator, clear pricing or price-on-request options, a test drive booking form, service information, and prominent contact buttons including WhatsApp. It must load quickly on mobile since most buyers research on their phones."
+  },
+  {
+    q: "Can you help a used car dealer list inventory on their website?",
+    a: "Yes. We build structured used car inventory pages with full vehicle details, multiple photos, mileage, year, fuel type, and service history highlights. Clear pricing or make-an-offer mechanisms build buyer confidence. Used car pages also rank well for searches like second hand car Ahmedabad or used Maruti Ahmedabad."
+  },
+  {
+    q: "How long does it take to appear on Google Maps for car showroom near me searches?",
+    a: "After full Google Business Profile optimisation, you can expect to see improved local map visibility within 4 to 8 weeks for most competitive areas in Ahmedabad. Consistent review generation, accurate information, and weekly posts all accelerate this."
+  },
+  {
+    q: "What kind of Instagram content works for a car showroom?",
+    a: "New model arrival Reels, customer delivery moments, EMI offer graphics, before-and-after detailing videos, service tips, and festival offers all perform well for automotive businesses on Instagram. Consistency is key. Accounts that post 3 to 4 times per week build audiences that convert into showroom visits."
+  },
+  {
+    q: "Can you set up an online service booking system for our auto service centre?",
+    a: "Yes. We build service booking systems where customers choose a service type, select a date and time slot, and receive a confirmation message. Your team gets notified of each booking with all details. This dramatically reduces phone-based scheduling and distributes appointments more evenly across the week."
+  },
+  {
+    q: "We are a tyre shop. Can digital marketing work for a local tyre business?",
+    a: "Absolutely. People in Ahmedabad search for tyre shop near me, tyre puncture Satellite, or buy MRF tyres Ahmedabad every day. Local SEO and Google Business Profile optimisation puts your shop in front of these searchers. A simple website with tyre brands, services, and a WhatsApp button is often enough to significantly increase walk-ins."
+  },
+  {
+    q: "How do we get more Google reviews for our dealership?",
+    a: "We build a systematic post-purchase and post-service review collection process. Happy customers receive a WhatsApp message with a direct Google review link at the right moment after their experience. This consistently generates authentic 5-star reviews that improve your local search ranking and buyer confidence."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Automotive Businesses in Ahmedabad | DCTechnoLabs"
+  description="Websites, Google Ads, inventory listings, and service booking systems for car dealerships, two-wheeler showrooms, and auto service centres in Ahmedabad, Gujarat."
+  canonical="https://dctechnolabs.in/industries/automotive/"
+  schemaJson={schemaJson}
+  badge="🚗 Automotive Digital Marketing"
+  heroH1="Digital Marketing and Websites for Automotive Businesses in"
+  heroHighlight="Ahmedabad"
+  heroDesc="Drive more customers to your showroom with a professional automotive website, Google Ads targeting active car buyers, online service booking, and Google Maps visibility that puts you ahead of every competitor in your area."
+  heroStats={[
+    { value: "65+", label: "Auto Businesses Served" },
+    { value: "2.9x", label: "Showroom Visit Bookings" },
+    { value: "Car Dealer", label: "Specialists" }
+  ]}
+  formTitle="Get a Free Auto Business Marketing Audit"
+  formSub="We will review your current online presence and share a strategy within 24 hours."
+  s2Title="Why Automotive Businesses in Ahmedabad Need Digital Marketing"
+  s2Subtitle="Buyers research online for weeks before visiting a showroom. If your dealership, service centre, or auto shop does not appear in that research phase, your competitor captures the visit."
+  overviewPoints={overviewPoints}
+  s3Title="The Digital Challenges Auto Businesses in Ahmedabad Face"
+  challenges={challenges}
+  s4Title="Digital Marketing Services for Automotive Businesses"
+  services={services}
+  s5Title="How We Grow Your Auto Business Online"
+  processSteps={processSteps}
+  statsHeading="Our Results for Automotive Businesses in Gujarat"
+  stats={stats}
+  s7Title="Why Auto Businesses in Ahmedabad Choose DCTechnoLabs"
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Title="What Automotive Business Owners Say About Us"
+  testimonials={testimonials}
+  s10Title="Digital Marketing Pricing for Auto Businesses"
+  pricingTiers={pricingTiers}
+  s11Title="Automotive Digital Marketing Questions Answered"
+  faqItems={faqItems}
+  ctaTitle="Drive More Customers to Your Showroom"
+  ctaSubtitle="Book a free strategy call and we will show you exactly how many people in Ahmedabad are searching for your type of vehicles or services right now and how to capture them."
+/>

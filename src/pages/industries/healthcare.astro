@@ -1,0 +1,329 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Healthcare Digital Marketing and Website Design in Ahmedabad",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat",
+  "description": "DC technolabs provides specialised website design and digital marketing services for clinics, hospitals, diagnostic centres, and healthcare businesses in Ahmedabad and Gujarat."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "📱",
+    title: "Patients Search Online First",
+    desc: "Over 78% of patients in Ahmedabad search Google before booking a doctor. If your clinic does not appear in the top results for searches like 'dentist near Vastrapur' or 'paediatrician in Bopal', you are losing patients to competitors every single day."
+  },
+  {
+    emoji: "📅",
+    title: "Online Appointment Booking is Now Expected",
+    desc: "Patients in Gujarat, especially those between 25 and 45 years of age, expect to book appointments online or via WhatsApp. A clinic without online booking is seen as outdated and inconvenient, regardless of how good the doctor is."
+  },
+  {
+    emoji: "⭐",
+    title: "Google Reviews Drive Footfall",
+    desc: "A 4.5 or higher star rating on Google My Business directly influences how many calls your clinic receives. Practices with fewer than 20 reviews lose patients to those with 100+ positive reviews, even when the quality of care is equal."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My clinic does not come up when patients search on Google",
+    solution: "We implement local SEO specifically for healthcare providers in Ahmedabad, targeting neighbourhood-level searches like 'cardiologist in Navrangpura' and 'skin doctor near SG Highway' so your clinic is visible when it matters."
+  },
+  {
+    problem: "Patients call during off-hours and we miss them completely",
+    solution: "We set up WhatsApp appointment forms, online booking widgets, and auto-response systems so patients can book or enquire any time, even at 11pm. You wake up to confirmed appointments."
+  },
+  {
+    problem: "My Google reviews are outdated and patients are going elsewhere",
+    solution: "Our patient review management process gently prompts satisfied patients to leave Google reviews via WhatsApp post-visit. We also help you respond professionally to any negative feedback."
+  },
+  {
+    problem: "My website looks like it was built in 2010 and loads very slowly",
+    solution: "We design clean, professional healthcare websites that load in under 2 seconds, work perfectly on mobile, and communicate trust to first-time patients browsing at night from their phones."
+  },
+  {
+    problem: "Patients cannot book an appointment without calling me directly",
+    solution: "We integrate online appointment booking systems that connect to your calendar, send automated reminders to patients, and reduce no-shows by up to 40%. Your front desk handles far fewer routine calls."
+  },
+  {
+    problem: "The big corporate hospitals and chains are taking all my patients",
+    solution: "Smaller, independent clinics in Ahmedabad win when they dominate local neighbourhood searches. We help you outrank corporate chains for specific locality searches where you have a genuine proximity advantage."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M12 6v6"/></svg>',
+    title: "Healthcare Website Design",
+    desc: "Professional, trust-building websites for clinics, hospitals, and diagnostic centres. Designed to convert visitors into patients with clear service pages, doctor profiles, and easy contact options."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+    title: "Online Appointment Booking System",
+    desc: "Integrated booking systems that let patients schedule appointments 24/7, receive automated confirmations and reminders, and help you reduce no-shows and administrative workload."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+    title: "Local SEO for Doctors and Clinics",
+    desc: "Rank on page 1 for searches like 'best gynaecologist in Satellite' or 'physiotherapy centre near Bodakdev'. We optimise your Google My Business profile, website content, and local citations."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    title: "Google Ads for Clinics",
+    desc: "Targeted Google Ads campaigns that bring in patient enquiries for specific specialties. We manage keyword bidding, ad copy, and landing pages to deliver the lowest cost per patient enquiry possible."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    title: "Patient Review Management",
+    desc: "Systematic processes to collect positive Google reviews from happy patients, respond to all reviews professionally, and build a stellar online reputation that converts sceptical new patients."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    title: "Social Media for Health Awareness",
+    desc: "Educational content on Instagram and Facebook that positions your doctors as trusted experts. We create health tip posts, patient success stories, and awareness campaigns that build community trust in Ahmedabad."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Discovery and Compliance Check",
+    desc: "We learn your specialty, patient base, locality, and competitive landscape. We review what compliance considerations apply to your healthcare content and design to ensure your communication is appropriate."
+  },
+  {
+    title: "Website Design and Development",
+    desc: "We design your clinic website with doctor profiles, service pages, gallery, and an appointment booking system. Built for speed, mobile usability, and professional trust signals."
+  },
+  {
+    title: "SEO Foundation",
+    desc: "We set up and optimise your Google My Business profile, build local citations, and implement on-page SEO so your clinic starts ranking for the searches patients in your neighbourhood are making."
+  },
+  {
+    title: "Google Ads Launch",
+    desc: "For practices that need immediate patient enquiries, we launch targeted Google Ads campaigns for your specialty and service area. Every rupee is tracked against actual patient enquiries."
+  },
+  {
+    title: "Monthly Reporting and Growth",
+    desc: "You receive a clear monthly report showing website visits, Google ranking positions, appointment enquiries received, and ad spend results. We meet monthly to review and plan next steps."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "200+", label: "Healthcare Clients Served" },
+  { value: "3.2x", label: "Average Patient Enquiry Growth" },
+  { value: "4.9★", label: "Client Satisfaction Rating" },
+  { value: "48hrs", label: "Average Onboarding Time" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🏥",
+    title: "NABH-Friendly Website Design",
+    desc: "We understand what NABH-accredited hospitals and clinics need from their web presence. Our designs support professional credibility without making compliance claims your legal team would flag."
+  },
+  {
+    emoji: "🔒",
+    title: "HIPAA-Aware Content Practices",
+    desc: "Patient privacy matters. We never recommend including identifiable patient information in testimonials or case studies without proper consent. Our content practices are built around healthcare sensitivity."
+  },
+  {
+    emoji: "📍",
+    title: "Deep Ahmedabad Local SEO Expertise",
+    desc: "We know Satellite, Vastrapur, Navrangpura, Maninagar, and every other Ahmedabad neighbourhood. This local knowledge helps us target the exact geographic searches your patients are using."
+  },
+  {
+    emoji: "⚡",
+    title: "72-Hour Website Launch Turnaround",
+    desc: "For clinics that need to get online quickly, our rapid deployment process can have a fully functional, professional website live within 72 hours of receiving your clinic information and branding assets."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Case Study: Ahmedabad Clinic",
+  title: "Lifecare Clinic Goes From Zero Online Presence to Page 1 Google Rankings",
+  challenge: "Lifecare Clinic in Ahmedabad had no website, no Google My Business listing, and no way for patients searching online to find them. All new patients came through word of mouth, which had plateaued. The clinic was losing younger patients to a corporate diagnostic centre that had a modern website and strong Google presence.",
+  solution: "We built a professional clinic website with service pages for each specialty, doctor profiles, and an appointment booking form. We claimed and fully optimised their Google My Business listing with photos, services, and regular posts. We then ran a 3-month local SEO campaign targeting searches in their neighbourhood and surrounding areas, plus a Google Ads campaign for their highest-value specialties.",
+  results: [
+    { value: "280%", label: "More Patient Enquiries in 90 Days" },
+    { value: "Page 1", label: "Google Ranking for 14 Clinic Keywords" },
+    { value: "4.8★", label: "Google Rating After Review Campaign" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had no online presence at all. Within 60 days of working with DC technolabs, patients were calling us after finding us on Google. Our appointment diary is now full 3 weeks in advance. The team understood exactly what a clinic needs.",
+    name: "Dr. Mitesh Shah",
+    role: "Orthopaedic Surgeon, Satellite, Ahmedabad",
+    initials: "MS"
+  },
+  {
+    text: "The Google Ads campaign they set up for our dental clinic brought in 40 new patient enquiries in the first month alone. The cost per enquiry is far lower than what we were spending on newspaper ads with almost no results.",
+    name: "Dr. Priya Desai",
+    role: "Dental Clinic Owner, Vastrapur, Ahmedabad",
+    initials: "PD"
+  },
+  {
+    text: "Our Google reviews went from 11 reviews at 3.9 stars to 94 reviews at 4.7 stars in 4 months. Patients now mention seeing our Google listing when they walk in. The review management system they set up is genuinely brilliant.",
+    name: "Dr. Nilesh Patel",
+    role: "Physiotherapy Centre, Navrangpura, Ahmedabad",
+    initials: "NP"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Clinic",
+    price: "₹12,000/mo",
+    note: "Best for single-doctor clinics and new practices",
+    desc: "Everything you need to establish your clinic online and start attracting local patients.",
+    features: [
+      "Professional clinic website (5 pages)",
+      "Google My Business setup and optimisation",
+      "Local SEO for 1 neighbourhood",
+      "Monthly review collection campaign",
+      "WhatsApp enquiry button integration",
+      "Basic monthly performance report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Practice",
+    price: "₹22,000/mo",
+    note: "Best for multi-specialty clinics and growing practices",
+    desc: "Aggressive local SEO plus Google Ads to consistently fill your appointment book.",
+    features: [
+      "Everything in Starter",
+      "Google Ads campaign management (ad spend separate)",
+      "Local SEO for 3 Ahmedabad neighbourhoods",
+      "Online appointment booking system",
+      "Monthly blog post for SEO",
+      "Social media health content (8 posts/mo)",
+      "Bi-weekly performance calls"
+    ],
+    btnLabel: "Most Popular Choice",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Hospital and Multi-Branch",
+    price: "₹38,000/mo",
+    note: "For hospitals, diagnostic centres, and multi-branch clinics",
+    desc: "Full-scale digital presence for larger healthcare organisations across Gujarat.",
+    features: [
+      "Everything in Growth",
+      "Multi-location SEO strategy",
+      "Video marketing for doctor expertise",
+      "Patient education content series",
+      "Advanced Google Ads with multiple campaigns",
+      "Reputation management across 3 platforms",
+      "Dedicated account manager",
+      "Weekly reporting dashboard"
+    ],
+    btnLabel: "Talk to Us",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you have experience working with healthcare clients in Ahmedabad specifically?",
+    a: "Yes. We have worked with over 200 healthcare businesses in Ahmedabad and Gujarat, including dental clinics, orthopaedic practices, skin clinics, physiotherapy centres, diagnostic labs, Ayurveda centres, and multi-specialty hospitals. We understand the specific challenges of healthcare digital marketing in the Gujarat market."
+  },
+  {
+    q: "Can you help my clinic comply with MCI and advertising guidelines for doctors?",
+    a: "We are aware of the Medical Council of India guidelines on physician advertising. While we are not legal advisors, we design content and campaigns that avoid prohibited claims like 'best doctor' or guaranteed outcomes. We focus on educational content, patient testimonials with consent, and service information that falls within acceptable communication norms for healthcare providers."
+  },
+  {
+    q: "How long does it take to see results from local SEO for a clinic?",
+    a: "For Google My Business and local pack rankings, most clinics in Ahmedabad see meaningful improvement within 4 to 8 weeks. For organic website rankings on competitive keywords, expect 3 to 5 months. Google Ads delivers patient enquiries from day one of the campaign launch."
+  },
+  {
+    q: "Can you integrate an appointment booking system with our existing software?",
+    a: "Yes. We integrate with popular appointment management tools and can also build a custom booking form that sends appointment requests directly to your WhatsApp or email. For clinics using specific practice management software, we evaluate integration options during the discovery call."
+  },
+  {
+    q: "We are a small clinic with a tight budget. What is the minimum we can do to get started?",
+    a: "The most important first step for any clinic in Ahmedabad is a properly optimised Google My Business listing with accurate information, quality photos, and initial reviews. Our Starter plan at Rs 12,000 per month covers this along with a basic website. This alone can meaningfully increase patient enquiries within 30 days."
+  },
+  {
+    q: "Do you handle patient testimonials and case studies ethically?",
+    a: "Absolutely. We never publish identifiable patient information without proper written consent. All testimonials and case studies are anonymised or explicitly approved by the patients involved. We also advise against before-and-after medical images without clear disclaimers and proper consents in place."
+  },
+  {
+    q: "Can you run Google Ads for a specialised medical service like IVF or hair transplant?",
+    a: "Yes, though these require careful keyword selection and ad copy to stay within Google's healthcare advertising policies. We have run successful campaigns for specialised medical services in Ahmedabad and know how to get campaigns approved while still driving quality patient enquiries."
+  },
+  {
+    q: "What results can I realistically expect in the first 3 months?",
+    a: "For most clinics we work with in Ahmedabad, the first 3 months deliver improved Google My Business visibility, a significant increase in patient calls from Google Search, a growing number of positive reviews, and if running Google Ads, a steady flow of new patient enquiries from day one. The 3.2x average enquiry growth we cite is measured across the 90-day mark for clients on our Growth plan."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Healthcare Digital Marketing and Website Design in Ahmedabad | DC technolabs"
+  description="DC technolabs helps clinics, hospitals, and diagnostic centres in Ahmedabad get more patients through local SEO, Google Ads, professional website design, and online appointment booking systems."
+  canonical="https://dctechnolabs.in/industries/healthcare/"
+  schemaJson={schemaJson}
+  badge="🏥 Healthcare Digital Marketing"
+  heroH1="Website Design and Digital Marketing for"
+  heroHighlight="Healthcare Businesses in Ahmedabad"
+  heroDesc="From single-doctor clinics in Navrangpura to multi-specialty hospitals near SG Highway, we help healthcare providers across Ahmedabad get found on Google, fill their appointment books, and build the online reputation that turns online searches into real patients walking through the door."
+  heroStats={[
+    { value: "200+", label: "Clinics Served" },
+    { value: "3.2x", label: "Patient Enquiry Growth" },
+    { value: "4.9★", label: "Client Rating" }
+  ]}
+  formTitle="Get a Free Clinic Growth Consultation"
+  formSub="Tell us about your practice. We will share exactly what is holding back your patient growth."
+  s2Label="Industry Overview"
+  s2Title="Why Healthcare Businesses in Gujarat Need a Strong Digital Presence"
+  s2Subtitle="The way patients in Ahmedabad find and choose their doctors has changed dramatically in the past five years. Here is what the data shows."
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="Problems We Hear from Ahmedabad Clinics Every Week"
+  s3Subtitle="Sound familiar? You are not alone. These are the exact pain points we solve for healthcare clients across Ahmedabad and Gujarat."
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="Digital Marketing Services Designed for Healthcare Providers"
+  s4Subtitle="Every service is built around the specific needs, sensitivities, and compliance considerations of the healthcare industry in India."
+  services={services}
+  s5Label="How We Work"
+  s5Title="Our Proven Process for Healthcare Client Growth"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="What Makes DC technolabs the Right Partner for Your Clinic"
+  s7Subtitle="We have worked with enough healthcare businesses in Ahmedabad to know what works and what wastes money in this sector."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Doctors and Clinic Owners Say About Working With Us"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="Clear, Transparent Pricing for Healthcare Marketing"
+  s10Subtitle="Fixed monthly packages with no hidden fees. Ad spend is separate and managed transparently with full reporting."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Frequently Asked Questions About Healthcare Digital Marketing"
+  faqItems={faqItems}
+  ctaTitle="Ready to Grow Your Practice in Ahmedabad?"
+  ctaSubtitle="Book a free 30-minute strategy call. We will review your current online presence and show you exactly where the patient enquiries are going and how to capture them for your clinic."
+/>

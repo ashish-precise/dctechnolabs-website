@@ -1,0 +1,330 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Finance and CA Firms in Ahmedabad",
+  "description": "Compliant digital marketing, websites, and local SEO for CA firms, financial advisors, mutual fund distributors, NBFCs, and tax consultants in Ahmedabad, Gujarat.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DCTechnoLabs",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ahmedabad"
+  },
+  "serviceType": "Finance Digital Marketing"
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "⚖️",
+    title: "Compliance-Aware Campaigns",
+    desc: "We understand SEBI, AMFI, and IRDAI advertising guidelines. Every campaign we run for your firm stays within regulatory boundaries so you never have to worry about compliance issues."
+  },
+  {
+    emoji: "📍",
+    title: "Local Visibility in Ahmedabad",
+    desc: "Clients searching for CA in Ahmedabad, tax consultant near me, or mutual fund advisor Satellite need to find your practice first. We make sure they do."
+  },
+  {
+    emoji: "📈",
+    title: "Systematic Enquiry Generation",
+    desc: "Beyond just a website, we build systems. ITR season campaigns, GST deadline reminders, loan enquiry pages. Digital touchpoints that bring clients to your office month after month."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My clients come from referrals only and I have no digital presence at all",
+    solution: "We build a professional website with local SEO that puts your CA firm on Google Maps and organic search for tax, audit, and compliance queries in Ahmedabad."
+  },
+  {
+    problem: "SEBI and AMFI rules stop me from advertising guaranteed returns or performance",
+    solution: "We create fully compliant content that highlights your credentials, experience, and process without making prohibited claims. Education-led content works better anyway."
+  },
+  {
+    problem: "Clients can't find me when they search for CA or tax filing services online",
+    solution: "Google Business Profile optimisation, local keyword SEO, and Google Ads for searches like ITR filing Ahmedabad or CA near me bring in ready-to-enquire prospects."
+  },
+  {
+    problem: "Large banks and fintech apps like Zerodha are taking my clients",
+    solution: "Personal touch is your advantage. We position your firm as the trusted local expert that fintech apps can never replace for complex financial planning and compliance."
+  },
+  {
+    problem: "I have no system to nurture prospects who enquire but don't convert immediately",
+    solution: "Email marketing sequences and WhatsApp follow-ups keep your firm top of mind during ITR season, GST deadlines, and financial year-end when decisions are made."
+  },
+  {
+    problem: "My website looks outdated and clients don't take my practice seriously online",
+    solution: "A clean, professional website with your qualifications, services, team, and client testimonials builds credibility before clients even speak to you."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    title: "CA and Finance Firm Website",
+    desc: "Professional websites designed for chartered accountants, financial advisors, and tax consultants. Structured to build trust with first-time visitors and convert them into enquiries."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: "SEBI-Compliant Content Marketing",
+    desc: "Blog posts, social media content, and educational guides that stay within SEBI and AMFI advertising guidelines. We attract clients through knowledge without crossing compliance lines."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>',
+    title: "Local SEO for Financial Services",
+    desc: "Rank on Google for CA in Ahmedabad, tax consultant Navrangpura, GST filing SG Highway, and similar searches your ideal clients are making every day."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    title: "Google Ads for Tax and Loan Enquiries",
+    desc: "Targeted Google Ads during ITR filing season, GST deadlines, and loan enquiry periods. We only run ads when your clients are actively searching, maximising your ad spend."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2-2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+    title: "Email Marketing for Client Retention",
+    desc: "Newsletters and automated emails around ITR deadlines, financial year close, tax-saving investment reminders, and regulatory updates keep your clients engaged and loyal."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: "Google Business Profile Management",
+    desc: "A fully optimised Google Business Profile with correct categories, services, photos, Q&A, and weekly posts makes your CA firm appear prominently in local search results."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Compliance Audit",
+    desc: "We review your current digital presence and map out a compliant marketing strategy specific to your practice area and regulatory category."
+  },
+  {
+    title: "Foundation Setup",
+    desc: "Professional website, Google Business Profile, and tracking infrastructure go live so every campaign has a solid base to send traffic to."
+  },
+  {
+    title: "Content and SEO",
+    desc: "Local keyword targeting, educational blog posts, and on-page SEO build organic search visibility for your most valuable service keywords."
+  },
+  {
+    title: "Paid Campaigns",
+    desc: "Seasonal Google Ads during ITR season, GST filing periods, and loan enquiry peaks bring in immediate enquiries when demand is highest."
+  },
+  {
+    title: "Retention and Reviews",
+    desc: "Email sequences, Google review generation, and client retention campaigns keep your existing clients returning and referring new ones."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "75+", label: "Finance Firms Served" },
+  { value: "2.7x", label: "Average Enquiry Growth" },
+  { value: "92%", label: "Client Retention Rate" },
+  { value: "45 Days", label: "To First Organic Ranking" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "⚖️",
+    title: "We Understand Financial Regulations",
+    desc: "Our content team knows the difference between what SEBI permits and what it prohibits. You will never face a compliance issue because of something we wrote or ran as an ad."
+  },
+  {
+    emoji: "🗓️",
+    title: "Seasonal Campaign Expertise",
+    desc: "ITR season, GST quarterly filing, financial year-end. We plan your campaigns 60 days in advance so you are capturing demand at its peak every year."
+  },
+  {
+    emoji: "📍",
+    title: "Ahmedabad Local Knowledge",
+    desc: "We know which neighbourhoods have high concentrations of business owners, salaried professionals, and HNI clients. Your targeting is always hyper-local and relevant."
+  },
+  {
+    emoji: "📊",
+    title: "Transparent Monthly Reports",
+    desc: "Enquiry counts, cost per lead, rankings, and website traffic. Every number explained in plain language every month with no vague marketing speak."
+  },
+  {
+    emoji: "🤝",
+    title: "Long-Term Partnership Model",
+    desc: "We do not take on hundreds of clients. Each finance firm we work with gets a dedicated account manager who understands your practice deeply."
+  },
+  {
+    emoji: "⚡",
+    title: "Fast Onboarding",
+    desc: "Your website and Google Business Profile can be live within 3 weeks. You do not wait months for results to begin showing up."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "CA Firm, Navrangpura, Ahmedabad",
+  title: "How a Navrangpura CA Firm Tripled Tax Season Enquiries in One Year",
+  challenge: "A 12-year-old CA practice in Navrangpura had zero digital presence. All clients came through referrals. During ITR season they were overwhelmed with work but had no way to add new clients consistently. The senior partner wanted to reduce dependency on referrals and build a pipeline of business owner clients specifically.",
+  solution: "We built a professional website focused on business owner services: ITR filing, GST compliance, company registration, and tax planning. Local SEO targeted Navrangpura, C.G. Road, and Satellite business owners. A Google Ads campaign ran specifically during the March to July ITR season. Google Business Profile was optimised with services, photos, and 5-star review generation.",
+  results: [
+    { value: "195%", label: "More Tax Season Enquiries" },
+    { value: "Top 3", label: "for CA in Ahmedabad on Google" },
+    { value: "45", label: "New Business Owner Clients in Year 1" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "DCTechnoLabs built our website and managed Google Ads during ITR season. The enquiries we got in just April and May 2025 were more than what we typically get in an entire year from referrals. The team understands that we cannot make certain claims in financial services and they never push us to.",
+    name: "CA Nitin Mehta",
+    role: "Chartered Accountant, Navrangpura Ahmedabad",
+    initials: "NM"
+  },
+  {
+    text: "I was sceptical that digital marketing would work for a mutual fund distributor. But within six months our website started ranking for mutual fund advisor Ahmedabad and we were getting two to three serious enquiries per week. The content they write actually builds trust with clients before the first meeting.",
+    name: "Priya Shah",
+    role: "Mutual Fund Distributor, Satellite",
+    initials: "PS"
+  },
+  {
+    text: "We run a loan DSA operation in Ahmedabad and needed Google Ads that brought in genuine home loan and business loan enquiries. The team at DCTechnoLabs set up campaigns that target people actively searching for loans in specific areas. Our cost per qualified lead is very reasonable.",
+    name: "Ramesh Kothari",
+    role: "Loan DSA, Vastrapur Ahmedabad",
+    initials: "RK"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Practice",
+    price: "₹10,000/mo",
+    note: "Minimum 3-month commitment",
+    desc: "Ideal for solo CAs and individual financial advisors starting their digital journey.",
+    features: [
+      "Professional 5-page website",
+      "Google Business Profile setup and optimisation",
+      "Basic local SEO for 5 keywords",
+      "2 blog posts per month",
+      "Monthly performance report",
+      "WhatsApp enquiry integration"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Firm",
+    price: "₹20,000/mo",
+    note: "Most popular for established CA firms",
+    desc: "For CA firms and advisory practices ready to build consistent enquiry pipelines.",
+    features: [
+      "Custom multi-page website with service pages",
+      "Google Ads management (ITR season + year-round)",
+      "Local SEO for 15 keywords",
+      "4 blog posts per month",
+      "Google Business Profile management",
+      "Email marketing sequences",
+      "Monthly review and strategy call"
+    ],
+    btnLabel: "Start Growing",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Authority Practice",
+    price: "₹35,000/mo",
+    note: "For multi-partner firms and NBFCs",
+    desc: "Full-stack digital marketing for CA firms with multiple partners, NBFCs, or loan companies needing aggressive growth.",
+    features: [
+      "Premium website with all service verticals",
+      "Google Ads with dedicated budget management",
+      "Advanced SEO for 30+ keywords",
+      "8 content pieces per month",
+      "Social media management",
+      "Dedicated account manager",
+      "Lead scoring and CRM integration",
+      "Quarterly competitor analysis"
+    ],
+    btnLabel: "Discuss Your Needs",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you run Google Ads for a CA firm without violating any advertising rules?",
+    a: "Yes. Google Ads for CA firms is perfectly fine when the ad copy focuses on your services, qualifications, and experience rather than making promises about returns or outcomes. We write all ad copy with this in mind. We have run compliant campaigns for CA firms, tax consultants, and loan DSAs for years without any issues."
+  },
+  {
+    q: "My firm is SEBI-registered. What kind of content can I publish without violating SEBI advertising guidelines?",
+    a: "SEBI-registered advisors can publish educational content about investment concepts, market awareness, and financial planning principles. You cannot publish content that promises specific returns, shows past performance as a guarantee, or uses misleading comparisons. Our content team understands these boundaries and creates material that educates without violating guidelines."
+  },
+  {
+    q: "How long does it take to start getting enquiries from SEO for a CA firm?",
+    a: "For local SEO in Ahmedabad, you can expect to see meaningful movement in rankings within 60 to 90 days. First enquiries from organic search typically start coming in around month 3 to 4. Google Ads delivers enquiries from week one if you want faster results while SEO builds up."
+  },
+  {
+    q: "Is it worth running Google Ads only during ITR season, or should it be year-round?",
+    a: "We recommend a hybrid approach. Run higher-budget campaigns from March through July when ITR filing demand peaks. Maintain a lower-spend, always-on campaign for business registration, GST filing, and audit services through the rest of the year. This keeps your firm visible without overspending in slower months."
+  },
+  {
+    q: "What kind of website does a CA firm actually need?",
+    a: "A CA firm website needs clear service pages for each practice area, a team or credentials section, client testimonials, a prominent contact form, and a blog for SEO. It should load fast on mobile since most people search on their phone. We build these as Astro static sites that score well on PageSpeed."
+  },
+  {
+    q: "Can you help a mutual fund distributor with content marketing under AMFI guidelines?",
+    a: "Yes. We have experience creating content for AMFI-registered distributors. Content can focus on explaining fund categories, goal-based investing concepts, and the importance of financial planning. We include the required disclaimers and avoid any performance-based claims that would violate AMFI norms."
+  },
+  {
+    q: "How do you generate Google reviews for a CA or finance firm ethically?",
+    a: "We set up a systematic review request process where satisfied clients receive a personalised follow-up message with a direct Google review link at the right moment, typically after completing a successful ITR filing or audit. This is fully compliant and produces authentic reviews from real clients."
+  },
+  {
+    q: "What is the minimum budget we should allocate for Google Ads during ITR season?",
+    a: "For Ahmedabad, a monthly Google Ads budget of ₹8,000 to ₹15,000 during peak ITR season (April to July) delivers a meaningful number of enquiries for tax filing and CA services. Our management fee is separate. We provide a full forecast before any campaign starts so you know what to expect."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Finance and CA Firms in Ahmedabad | DCTechnoLabs"
+  description="SEBI-aware digital marketing, professional websites, and local SEO for CA firms, financial advisors, mutual fund distributors, and tax consultants in Ahmedabad, Gujarat."
+  canonical="https://dctechnolabs.in/industries/finance/"
+  schemaJson={schemaJson}
+  badge="💰 Finance Digital Marketing"
+  heroH1="Digital Marketing and Websites for Finance and CA Firms in"
+  heroHighlight="Ahmedabad"
+  heroDesc="Compliant digital marketing for chartered accountants, financial advisors, mutual fund distributors, insurance agents, and tax consultants across Ahmedabad. We bring your clients online without crossing any regulatory lines."
+  heroStats={[
+    { value: "75+", label: "Finance Firms Served" },
+    { value: "2.7x", label: "Client Enquiry Growth" },
+    { value: "SEBI-Aware", label: "Content Strategy" }
+  ]}
+  formTitle="Get a Free Finance Marketing Audit"
+  formSub="We will review your online presence and share a plan within 24 hours."
+  s2Title="Why Finance Professionals in Ahmedabad Choose Digital Marketing Now"
+  s2Subtitle="Your clients are already searching online for tax consultants, CA firms, and mutual fund advisors in Ahmedabad. The question is whether they find you or your competitor."
+  overviewPoints={overviewPoints}
+  s3Title="The Challenges Finance Professionals Face Online"
+  challenges={challenges}
+  s4Title="Digital Marketing Services Tailored for Finance Firms"
+  services={services}
+  s5Title="How We Build Your Finance Firm's Digital Presence"
+  processSteps={processSteps}
+  statsHeading="Our Track Record with Finance Professionals in Gujarat"
+  stats={stats}
+  s7Title="Why Finance Firms in Ahmedabad Trust DCTechnoLabs"
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Title="What Finance Professionals Say About Working With Us"
+  testimonials={testimonials}
+  s10Title="Transparent Pricing for Finance Firm Digital Marketing"
+  pricingTiers={pricingTiers}
+  s11Title="Common Questions from Finance Professionals"
+  faqItems={faqItems}
+  ctaTitle="Grow Your Practice with Compliant Digital Marketing"
+  ctaSubtitle="Let us build a digital presence that brings qualified clients to your CA firm, advisory practice, or financial services business every month. No guaranteed returns claims, no compliance risks."
+/>

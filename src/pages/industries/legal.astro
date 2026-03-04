@@ -1,0 +1,325 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Law Firms in Ahmedabad",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat",
+  "description": "Professional websites, Bar Council compliant content, local SEO, and client intake systems for law firms, advocates, and legal consultants in Ahmedabad. We understand Bar Council of India advertising guidelines."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🔍",
+    title: "Clients Search for Lawyers Online Before Calling",
+    desc: "When someone faces a property dispute, needs a corporate agreement, or is dealing with a family law matter, their first step is a Google search. Law firms that do not appear in these searches lose clients to competitors before a single conversation takes place. Your digital presence is your first consultation."
+  },
+  {
+    emoji: "⚖️",
+    title: "Bar Council Advertising Rules Require a Specific Approach",
+    desc: "The Bar Council of India regulates how advocates can promote their services. You cannot use promotional language like 'best lawyer' or guarantee results. But you absolutely can have a professional website, a Google Business Profile, and high-quality educational content that demonstrates your expertise. Knowing this distinction is critical."
+  },
+  {
+    emoji: "🏛️",
+    title: "A Professional Website Builds Client Confidence",
+    desc: "Legal matters are high-stakes and personal. Clients want to know they are working with a credible, experienced professional. A well-designed website with your practice areas, educational articles, and professional biography does more for client trust than any advertisement. It is your credential on display."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We have no website at all. All our clients come through referrals and we want to grow beyond that",
+    solution: "We build a professional, Bar Council compliant law firm website that clearly presents your practice areas, team, and credentials so online visitors can confidently reach out to you."
+  },
+  {
+    problem: "We had a basic website built years ago but it looks outdated and does not generate any enquiries",
+    solution: "We rebuild your website with a modern, trust-focused design and add proper local SEO, contact forms, and educational content that brings new clients from Google searches."
+  },
+  {
+    problem: "We are not on Google Maps or showing in local searches even though we have an office in the Civil Court area",
+    solution: "We set up and optimise your Google Business Profile with proper legal categories, your office address, practice areas, and a review generation strategy that builds local search visibility."
+  },
+  {
+    problem: "We are not sure what we are and are not allowed to say on our website under Bar Council rules",
+    solution: "We are familiar with Bar Council of India advertising guidelines. All content we create is compliant by default. We focus on educational, informational content that showcases expertise without making prohibited promotional claims."
+  },
+  {
+    problem: "Clients cannot easily get in touch outside of office hours and we miss enquiries",
+    solution: "We add a structured client intake form and WhatsApp contact button so prospective clients can submit their query at any time and receive an automated acknowledgement before your team follows up."
+  },
+  {
+    problem: "We want to appear credible online but client testimonials are tricky because of confidentiality",
+    solution: "We use alternative trust signals that are fully compliant: case type experience summaries, years of practice, court affiliations, and educational articles that demonstrate depth of knowledge without breaching client confidentiality."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: "Professional Law Firm Website",
+    desc: "Clean, authoritative website design suited for legal professionals. Includes practice area pages, team biographies, office location, contact forms, and a professional visual identity that commands client confidence from the first click."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>',
+    title: "Bar Council Compliant Content",
+    desc: "All website content and articles are written with full awareness of Bar Council of India advertising restrictions. We focus on educational, informational content that establishes expertise, builds trust with prospective clients, and ranks well in Google, without making any prohibited promotional claims."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+    title: "Local SEO for Lawyers in Ahmedabad",
+    desc: "SEO strategy targeting how Ahmedabad residents search for legal help. We focus on practice area keywords like 'property lawyer Ahmedabad', 'corporate solicitor Gujarat', and 'family court advocate Civil Court area' to bring in clients actively looking for legal assistance."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: "Google Business Profile Management",
+    desc: "Setup and ongoing management of your Google Business Profile including office hours, practice area categories, regular post updates, photo uploads, and professional review response. Increases your visibility in Google Maps searches for local legal services."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    title: "Client Intake Forms and Automation",
+    desc: "Structured enquiry forms that collect matter type, urgency, contact details, and a brief description before a case is taken on. Automated acknowledgement messages let prospective clients know their query has been received and when to expect a response."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+    title: "Reputation and Review Management",
+    desc: "Strategy for building your online review profile in a compliant way. We identify which review platforms are appropriate for legal professionals, create a process for requesting reviews from satisfied clients, and manage your responses to build a positive digital reputation."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Compliance and Practice Area Audit",
+    desc: "We review Bar Council guidelines applicable to your practice type and region, audit any existing digital presence, and identify the practice areas with the strongest local search demand in Ahmedabad."
+  },
+  {
+    title: "Website Design and Content",
+    desc: "Professional website built with legal industry credibility in mind. Practice area pages, team biographies, office details, and educational articles that demonstrate expertise, all reviewed for compliance before going live."
+  },
+  {
+    title: "Local SEO and Google Business Profile",
+    desc: "Google Business Profile setup and optimisation for your specific court area and practice categories. On-page SEO for local legal keyword searches in Ahmedabad and surrounding districts."
+  },
+  {
+    title: "Client Intake and Review Building",
+    desc: "Intake forms, WhatsApp contact setup, and automated acknowledgements are activated. Review generation process begins for new and existing clients in a compliant, professional manner."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "60+", label: "Law Firms Served in Ahmedabad" },
+  { value: "2.9x", label: "Average Client Enquiry Growth" },
+  { value: "Bar Council", label: "Compliant Websites Always" },
+  { value: "48hrs", label: "Website Proposal Turnaround" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "📋",
+    title: "We Know Bar Council Advertising Rules",
+    desc: "We have worked with advocates, solicitors, and law firms extensively and understand exactly what promotional language is not permitted. Everything we write is designed to build credibility and drive enquiries while staying fully within Bar Council of India guidelines."
+  },
+  {
+    emoji: "✍️",
+    title: "Legal Content Written with Expertise",
+    desc: "Our content team writes legal articles and practice area descriptions that reflect genuine understanding of Indian law, Ahmedabad High Court procedures, and the concerns your clients bring to you. Not generic filler. Actual substance that impresses prospective clients."
+  },
+  {
+    emoji: "🏛️",
+    title: "Ahmedabad Legal Market Knowledge",
+    desc: "We understand the geography of Ahmedabad's legal landscape, from the Gujarat High Court and Civil Court area to the commercial practices centred around GIFT City and SG Highway corporate offices. We know how clients in different areas search for legal help."
+  },
+  {
+    emoji: "🔒",
+    title: "Confidential Client Handling",
+    desc: "We treat all information about your practice, client types, and case areas with strict confidentiality. We never ask for identifiable client details and all case study references on your website are anonymised and approved by you before publication."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Legal Services Case Study",
+  title: "Ahmedabad Corporate and Property Law Firm Triples Online Enquiries in 5 Months",
+  challenge: "A three-partner law firm in C.G. Road specialising in corporate transactions, commercial property disputes, and NRI legal matters had an excellent reputation built entirely on referrals. They had no website, no Google Business Profile, and their name returned no search results. As senior partners neared retirement, the firm needed to build an independent digital presence to attract corporate clients without relying on personal connections alone.",
+  solution: "We built a professional, Bar Council compliant website with separate practice area pages for corporate law, property disputes, and NRI services. Google Business Profile was set up and optimised for the C.G. Road location with proper legal categories. Educational articles on common corporate compliance questions and property registration procedures in Gujarat were published to build organic search visibility. A structured client intake form with automated WhatsApp acknowledgement was implemented.",
+  results: [
+    { value: "210%", label: "More Client Enquiries vs Referral-Only Previous Year" },
+    { value: "Top 5", label: "Google Ranking for Target Legal Keywords in Ahmedabad" },
+    { value: "35%", label: "New Clients Now Discovered the Firm Online" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were hesitant about having a website because of Bar Council rules. DC technolabs explained exactly what we could and could not do, and everything they built for us is fully compliant. We now get 4 to 5 quality enquiries per week from Google. The ROI is exceptional.",
+    name: "Adv. Nitin Bhatt",
+    role: "Senior Partner, Bhatt and Associates, C.G. Road",
+    initials: "NB"
+  },
+  {
+    text: "The client intake form they built has completely changed how we handle new enquiries. Previously clients would call at random times and we would miss them. Now they fill the form, we get notified, and we call back within our office hours. Professionalism has improved greatly.",
+    name: "Adv. Priya Joshi",
+    role: "Advocate, Ahmedabad High Court",
+    initials: "PJ"
+  },
+  {
+    text: "We focus on property and real estate law. DC technolabs wrote practice area content that actually explains Gujarat property registration procedures, which is exactly what our clients are searching for. We rank on page one for several important keywords now.",
+    name: "Adv. Suresh Modi",
+    role: "Partner, Modi Legal Consultants, Satellite",
+    initials: "SM"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Professional Foundation",
+    price: "₹12,000",
+    note: "Per month, 3-month minimum",
+    desc: "For individual advocates or small firms taking their first steps online with a credible, compliant digital presence.",
+    features: [
+      "5-page law firm website",
+      "2 practice area pages with compliant content",
+      "Google Business Profile setup",
+      "Client intake form with WhatsApp notification",
+      "Basic local SEO optimisation",
+      "Monthly performance report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Package",
+    price: "₹22,000",
+    note: "Per month, full digital presence",
+    desc: "For established law firms wanting to generate a consistent stream of new client enquiries through Google and local search.",
+    features: [
+      "8-page website with all practice areas",
+      "4 educational legal articles per month",
+      "Google Business Profile management",
+      "Local SEO for Ahmedabad legal keywords",
+      "Review generation strategy",
+      "Client intake forms with automation",
+      "Bi-weekly strategy calls",
+      "Competitor ranking analysis"
+    ],
+    btnLabel: "Start Growing",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Full Service Partner",
+    price: "₹38,000",
+    note: "Per month, for established firms",
+    desc: "For larger law firms or multi-practice legal groups wanting to dominate local search and build a strong online authority.",
+    features: [
+      "Multi-practice area website (10+ pages)",
+      "8 educational articles and legal guides per month",
+      "Google Ads for high-value practice areas",
+      "LinkedIn firm profile management",
+      "NRI legal services digital marketing",
+      "Reputation management across all review platforms",
+      "Dedicated account manager",
+      "Monthly reporting and strategy review"
+    ],
+    btnLabel: "Let's Discuss",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can a lawyer legally advertise their services in India?",
+    a: "This is the question we get asked most. Under the Bar Council of India Rules, advocates cannot solicit work or advertise in a manner that is prohibited. However, you are allowed to have a professional website that lists your name, qualifications, contact details, and areas of practice. You can also publish educational content about legal topics. What you cannot do is use slogans like 'best lawyer in Ahmedabad', make guarantees about outcomes, or use any promotional language that amounts to touting. We are fully familiar with these rules and all our work stays within them."
+  },
+  {
+    q: "What should a law firm website include?",
+    a: "A credible law firm website should include: your team biographies with qualifications and court memberships, clearly defined practice area pages, your office address and Google Maps embed, contact and client intake forms, educational articles demonstrating expertise in your areas of practice, and trust signals such as years of establishment, courts you appear in, and types of matters handled. It should not include client testimonials with identifiable case details, guaranteed outcome claims, or comparative advertising against other lawyers."
+  },
+  {
+    q: "How do clients find lawyers on Google in Ahmedabad?",
+    a: "Most searches are practice-area specific and location-based. Common patterns include 'property dispute lawyer Ahmedabad', 'corporate lawyer Gujarat High Court', 'divorce advocate Ahmedabad', 'NRI property legal help India', and 'criminal defence lawyer Civil Court'. Clients also search on Google Maps for 'lawyer near me' or 'advocate near Civil Court Ahmedabad'. Ranking for these searches requires a well-structured website and an optimised Google Business Profile."
+  },
+  {
+    q: "Can we use client testimonials on our law firm website?",
+    a: "This is a sensitive area. You cannot use identifiable client testimonials that discuss specific case outcomes, as this creates expectations and may violate confidentiality. What you can use are anonymised references to case types handled, general satisfaction statements that do not reference specific matters, and Google reviews where clients have voluntarily chosen to leave feedback. We build credibility through other means: educational content, years of experience, courts represented in, and types of matters handled."
+  },
+  {
+    q: "How long does it take for a law firm website to start generating enquiries?",
+    a: "For local Google Maps visibility, meaningful improvement is typically seen within 6 to 12 weeks with consistent optimisation. For organic search rankings on practice area keywords in Ahmedabad, expect 3 to 5 months for competitive terms and 6 to 8 weeks for lower-competition local terms. Google Ads can generate immediate visibility from day one for high-intent searches, which is useful for new firms that need enquiries while the organic rankings build up."
+  },
+  {
+    q: "Should a sole practitioner advocate have a website?",
+    a: "Yes, absolutely. A sole practitioner website is often more cost-effective to build and maintain than a large firm website, and it can be highly effective because you can be very specific about your practice area and location. A single-page website with your practice areas, your background, your court, and a contact form is a significant credibility boost over having no online presence. Clients researching you before calling will find exactly what they need."
+  },
+  {
+    q: "We specialise in NRI property and legal matters. Can you help us reach NRI clients?",
+    a: "Yes, and this is one of the strongest digital marketing opportunities for Ahmedabad law firms. NRI clients in UK, USA, Canada, and Australia who have property or family legal matters in Gujarat actively search online for Ahmedabad-based legal help because they cannot easily find it through local referrals abroad. We optimise specifically for NRI legal search terms, build content addressing common NRI legal concerns in Gujarat, and in some cases run targeted digital campaigns reaching Indian diaspora communities overseas."
+  },
+  {
+    q: "What makes your agency a good fit for law firms compared to a general web agency?",
+    a: "Most web agencies write generic content without understanding Bar Council restrictions. We have worked with multiple law firms in Ahmedabad and understand the compliance requirements, the client trust signals that matter in legal services, and the specific search behaviour of people looking for legal help in Gujarat. We do not use aggressive promotional language or make claims that could put your Bar Council standing at risk. Every piece of content is professionally considered before it goes live."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Law Firms in Ahmedabad | DC technolabs"
+  description="Professional websites, Bar Council compliant content, local SEO, and client intake systems for advocates and law firms in Ahmedabad. We understand the rules and build credible legal digital presence."
+  canonical="https://dctechnolabs.in/industries/legal/"
+  schemaJson={schemaJson}
+  badge="⚖️ Legal Services Digital Marketing"
+  heroH1="Professional Websites and Digital Marketing for"
+  heroHighlight="Law Firms in Ahmedabad"
+  heroDesc="When Ahmedabad residents face a legal matter, they search Google before they ask for a referral. Law firms with a professional, Bar Council compliant digital presence capture these clients. We build that presence for advocates and legal professionals across Ahmedabad."
+  heroStats={[
+    { value: "60+", label: "Law Firms Served" },
+    { value: "2.9x", label: "Client Enquiry Growth" },
+    { value: "Bar Council", label: "Compliant Always" }
+  ]}
+  formTitle="Get a Free Law Firm Website Consultation"
+  formSub="We will assess your current digital presence and explain what is possible within Bar Council guidelines."
+  s2Label="The Digital Reality for Ahmedabad Law Firms"
+  s2Title="Clients Find Their Lawyer Online Before Picking Up the Phone"
+  s2Subtitle="Your digital presence is your credential and your first impression. Here is what that means for your practice."
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="Challenges Ahmedabad Law Firms Face with Digital Presence"
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="Digital Services Built for Legal Professionals"
+  s4Subtitle="Every service respects Bar Council guidelines and is designed to build client trust and generate quality enquiries."
+  services={services}
+  s5Label="How We Work"
+  s5Title="From Compliance Audit to Client Enquiries in 4 Steps"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="We Understand Both Digital Marketing and Legal Compliance"
+  s7Subtitle="Working with legal professionals requires a different level of care, compliance awareness, and content expertise."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Ahmedabad Legal Professionals Say"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="Law Firm Digital Marketing Packages"
+  s10Subtitle="Transparent, fixed pricing. No hidden fees. Every package includes onboarding, strategy, and ongoing support."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Questions from Ahmedabad Law Firms and Advocates"
+  faqItems={faqItems}
+  ctaTitle="Build a Professional Digital Presence Your Clients Trust"
+  ctaSubtitle="Your expertise deserves to be visible online. Clients who need legal help in Ahmedabad are searching right now. A credible, Bar Council compliant website means they find you first and they trust what they see. Let us build that for your practice."
+/>

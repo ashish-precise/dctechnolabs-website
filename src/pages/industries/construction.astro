@@ -1,0 +1,325 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Construction and Interior Design Firms in Ahmedabad",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat",
+  "description": "Portfolio websites, project galleries, local SEO, and Google Ads for builders, contractors, interior designers, and architecture firms in Ahmedabad. We help construction businesses win more projects through a strong digital presence."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🏠",
+    title: "Property Owners Search for Contractors Online",
+    desc: "Ahmedabad is one of India's fastest-growing real estate markets. Residents in South Bopal, Shela, Makarba, and Motera are constantly renovating, building, and interior-designing their homes. When they need a contractor or designer, Google is their first stop. A strong local search presence means you are in the conversation from the very first search."
+  },
+  {
+    emoji: "📸",
+    title: "Your Portfolio Is Your Most Powerful Sales Tool",
+    desc: "In construction and interior design, seeing is believing. A potential client who can browse 20 completed projects with before and after photos, room-by-room details, and project values will trust you far more than a contractor with no digital trail. Your portfolio website works as a 24-hour showroom."
+  },
+  {
+    emoji: "🤝",
+    title: "Referrals Alone Cannot Scale Your Business",
+    desc: "Word of mouth is valuable but unpredictable. You cannot control its volume, timing, or the types of projects it brings. Digital marketing gives you a consistent, controllable inflow of enquiries from property owners in Ahmedabad who are actively planning renovations, new construction, or interior design projects right now."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "All our work comes through referrals. If one source dries up we have no backup pipeline",
+    solution: "We build your digital presence so property owners find you through Google, Instagram, and Google Ads when they are actively planning projects, creating a steady inflow independent of referrals."
+  },
+  {
+    problem: "We have done excellent work but none of it is visible online. We have no portfolio website",
+    solution: "We build a project portfolio website with before and after galleries, project type filters, and enquiry forms. Your completed work becomes your most powerful sales asset."
+  },
+  {
+    problem: "We are losing tenders and enquiries to competitors who have better-looking websites",
+    solution: "A professionally designed portfolio website with high-quality project photos positions you as a credible, established firm rather than a small operator. First impressions in digital are the same as first impressions in person."
+  },
+  {
+    problem: "We have done good projects but no before and after photos to show clients",
+    solution: "We guide you on a simple, practical photography protocol for your current and future projects so you build a portfolio asset over time. Even phone camera photos, shot well, make a significant difference."
+  },
+  {
+    problem: "Potential clients cannot find us on Google even when they search specifically for interior designers in our area",
+    solution: "Local SEO with location-specific keywords, Google Business Profile optimisation, and area-specific content means you show up when Ahmedabad residents search for contractors and designers in their neighbourhood."
+  },
+  {
+    problem: "We do quality work but our competitors with worse workmanship win projects because they look more professional online",
+    solution: "We build the digital credibility that matches your actual quality. Professional website, project galleries, client reviews, and Google visibility that reflects the standard of work you actually deliver."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: "Construction Company Website",
+    desc: "Professional website for builders, contractors, architecture firms, or interior designers. Includes your story, services, team, project showcase, and client enquiry forms. Designed to convert visitors who are actively planning a project into booked consultations."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>',
+    title: "Project Portfolio Gallery",
+    desc: "Filterable project portfolio with categories by project type, location, and style. Each project entry includes photos, project scope, approximate value, and completion timeline. Allows prospective clients to find projects similar to what they are planning and see your quality directly."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+    title: "Before and After Photo Galleries",
+    desc: "Dedicated before and after galleries for renovation and interior projects. Side-by-side or slider comparison views that visually demonstrate the transformation. These galleries are among the highest-engagement content on construction websites and drive strong enquiry rates."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+    title: "Local SEO for Contractors",
+    desc: "Location-specific SEO targeting Ahmedabad areas with active construction activity. We rank your firm for searches like 'interior designer South Bopal', 'home renovation contractor Shela', and 'builder Makarba Ahmedabad' where high-intent property owners are searching."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>',
+    title: "Google Ads for Home Renovations",
+    desc: "Targeted Google Search campaigns reaching Ahmedabad property owners who are actively searching for renovation contractors, interior designers, or builders. Ads run for your specific project types and target areas so your budget reaches only the most relevant prospects."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    title: "Instagram Portfolio Marketing",
+    desc: "Instagram content strategy showcasing your projects through progress shots, final reveal photos, and before and after Reels. Ahmedabad's residential communities on platforms like Facebook and Instagram are highly active and construction content performs extremely well with homeowners planning projects."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Portfolio and Brand Audit",
+    desc: "We review your existing project photos, current digital presence, and competitor landscape in Ahmedabad. We identify your strongest project types and the areas of the city with the highest renovation and construction activity relevant to your services."
+  },
+  {
+    title: "Website and Gallery Setup",
+    desc: "Your portfolio website is built with project galleries, before and after sections, services pages, and enquiry forms. We organise your existing project photos professionally and create a photography brief for capturing future projects."
+  },
+  {
+    title: "Local SEO and Lead Generation Launch",
+    desc: "Google Business Profile optimisation goes live, local SEO for Ahmedabad contractor keywords begins, and Google Ads campaigns for renovation and construction searches are activated to generate immediate enquiries while organic rankings build."
+  },
+  {
+    title: "Portfolio Growth and Enquiry Tracking",
+    desc: "Monthly addition of completed project photos to the gallery, ongoing SEO improvements, Instagram content posting, and detailed reporting on where your enquiries are coming from so you can see exactly what your investment is delivering."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "80+", label: "Construction Firms Helped Online" },
+  { value: "3.1x", label: "Average Project Enquiry Growth" },
+  { value: "₹50Cr+", label: "Projects Showcased on Client Sites" },
+  { value: "48hrs", label: "Website Proposal Turnaround" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🖼️",
+    title: "Portfolio Website Specialisation",
+    desc: "We have built portfolio websites for builders, interior designers, civil contractors, and architecture firms. We know exactly how to present construction projects to maximise buyer confidence, what photos to request, how to structure project descriptions, and how to turn a portfolio into an enquiry-generating machine."
+  },
+  {
+    emoji: "📷",
+    title: "Before and After Photography Strategy",
+    desc: "You do not need a professional photographer for every project. We give your team a simple mobile photography guide that produces before and after images good enough for your website and Instagram. Consistency matters more than perfection, and we build that habit into your team's workflow."
+  },
+  {
+    emoji: "📍",
+    title: "Ahmedabad Residential Market Knowledge",
+    desc: "We track Ahmedabad's active construction areas closely. South Bopal, Shela, Makarba, Motera, and Tragad are all seeing intense residential activity. We know how residents in these areas search for contractors and design our SEO and ad strategy to put you in front of the right property owners."
+  },
+  {
+    emoji: "🏆",
+    title: "Contractor Credibility Building",
+    desc: "Trust is everything in construction because clients are handing you large sums of money and access to their homes. We build credibility through project documentation, client review strategies, team profiles, and trust signals that make a cautious property owner feel confident choosing you over an unknown competitor."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Interior Design Case Study",
+  title: "Ahmedabad Interior Design Firm Goes from Word of Mouth to Google Page One in 5 Months",
+  challenge: "A well-regarded interior design firm in Satellite had completed over 40 residential and commercial projects in Ahmedabad over 8 years, entirely through word of mouth. They had a basic Facebook page with inconsistent posting, no website, and no Google presence whatsoever. When a founding partner left the business, the firm realised it had no independent digital identity and was entirely dependent on personal relationships for new projects.",
+  solution: "We built a full portfolio website with 24 completed project galleries, a before and after section for their renovation projects, and individual service pages for residential interiors, commercial fit-outs, and turnkey projects. Google Business Profile was set up with the correct interior design categories. Local SEO targeted interior design searches across Ahmedabad's west and north west zones. Google Ads campaigns ran for 'interior designer Satellite Ahmedabad' and related searches. Instagram was relaunched with a consistent project reveal content format.",
+  results: [
+    { value: "240%", label: "More Project Enquiries vs Same Period Previous Year" },
+    { value: "₹85L", label: "Worth of Projects Won from Online Enquiries" },
+    { value: "Top 3", label: "Google Ranking for Interior Design Ahmedabad" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had no online presence at all. DC technolabs built us a portfolio website that shows all our completed projects with photos. Within 3 months we were getting enquiries from people in Shela and South Bopal who found us on Google. Projects we would never have reached through referrals alone.",
+    name: "Dhruv Trivedi",
+    role: "Founder, Trivedi Interiors, Satellite",
+    initials: "DT"
+  },
+  {
+    text: "Our competitor down the road had a much worse track record than us but a better website. After DC technolabs built our portfolio site with proper project galleries, clients started choosing us over him. The work was always ours. Now the presentation matches it.",
+    name: "Rakesh Solanki",
+    role: "Director, Solanki Construction, Makarba",
+    initials: "RS"
+  },
+  {
+    text: "The Instagram strategy they created for us is simple but it works. We post before and after Reels of each project and we consistently get DMs from Ahmedabad homeowners asking for quotes. We never expected social media to be a real source of business but it genuinely is now.",
+    name: "Neha Kapadia",
+    role: "Principal Designer, Space Studio Ahmedabad",
+    initials: "NK"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Portfolio Foundation",
+    price: "₹10,000",
+    note: "Per month, 3-month minimum",
+    desc: "For contractors and designers who need a professional digital foundation with a portfolio and local SEO.",
+    features: [
+      "5-page website with project gallery",
+      "Up to 10 project portfolio entries",
+      "Google Business Profile optimisation",
+      "Basic local SEO for Ahmedabad",
+      "Enquiry form with WhatsApp notification",
+      "Monthly performance report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Package",
+    price: "₹20,000",
+    note: "Per month, includes lead generation",
+    desc: "For established firms ready to generate a consistent pipeline of project enquiries from across Ahmedabad.",
+    features: [
+      "8-page website with unlimited project gallery",
+      "Before and after photo galleries",
+      "Google Ads for renovation and design searches",
+      "Instagram content: 12 posts and 4 Reels per month",
+      "Local SEO for 5 Ahmedabad target areas",
+      "Review generation strategy",
+      "Monthly new project additions to gallery",
+      "Bi-weekly strategy calls"
+    ],
+    btnLabel: "Start Growing",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Full Digital Partner",
+    price: "₹35,000",
+    note: "Per month, comprehensive marketing",
+    desc: "For larger construction firms, multi-service contractors, or architecture firms targeting premium Ahmedabad residential and commercial projects.",
+    features: [
+      "Custom multi-service construction website",
+      "Full project portfolio with video support",
+      "Google Ads across all service types and areas",
+      "Paid Instagram and Facebook campaigns",
+      "3D walkthrough or virtual tour integration",
+      "Commercial project and tender enquiry pages",
+      "Dedicated account manager",
+      "Monthly reporting and strategy review"
+    ],
+    btnLabel: "Let's Discuss",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do construction companies in Ahmedabad really get clients from Google?",
+    a: "Yes, consistently. Ahmedabad is one of India's most active residential real estate markets and there is constant demand for renovation contractors, interior designers, civil contractors, and builders. Property owners in new developments like South Bopal, Shela, and Tragad search specifically for contractors in their area. Google Maps is often the first place they look. Contractors with optimised profiles and good reviews regularly receive 5 to 15 enquiries per month from local searches alone."
+  },
+  {
+    q: "I have very few project photos. Can I still build a portfolio website?",
+    a: "Yes. We start with whatever photos you have, even if it is just 4 to 5 projects. We organise them professionally and create a practical photography guide for your team so that every project you complete going forward adds to your portfolio. Within 3 to 6 months, most contractors have built up a meaningful portfolio just from ongoing work. The website also works as a credibility signal even while the portfolio is building, because clients can see your services, your team, and your contact details."
+  },
+  {
+    q: "What are the best project types to showcase on a construction website?",
+    a: "For residential contractors and interior designers, full home renovations and 2 BHK or 3 BHK interior fit-outs resonate most with homeowners. Before and after kitchen and bathroom renovations get extremely high engagement. For builders, completed residential buildings with exterior and interior photos build the strongest confidence. For architecture firms, renderings alongside actual completed project photos work well. We help you identify which completed projects in your portfolio will generate the strongest enquiry response."
+  },
+  {
+    q: "How does Google Ads work for a construction business?",
+    a: "We run Google Search campaigns targeting specific high-intent searches like 'home renovation contractor Ahmedabad', 'interior design company South Bopal', or '3BHK interior fit-out Ahmedabad budget'. These are searches made by people who are actively planning a project and ready to enquire. Ads take visitors directly to a relevant landing page with your portfolio, a clear service description, and an enquiry form. We track form submissions and WhatsApp contacts as conversions so you know exactly what your ad spend is generating."
+  },
+  {
+    q: "Should a civil contractor focus on Instagram or Google for leads?",
+    a: "Both serve different purposes and we recommend running both. Google captures people who are actively searching for a contractor right now, which means higher-intent, more immediate enquiries. Instagram builds awareness and desire among homeowners who are in the planning stage but have not started searching yet. Instagram before and after Reels often reach property owners 3 to 6 months before they are ready to hire, which means when they finally search, they already know your name. Together, they cover the full buyer journey."
+  },
+  {
+    q: "We do commercial interior fit-outs, not just residential. Can you market both?",
+    a: "Yes. We build separate service sections and landing pages for residential and commercial projects so you can speak to each audience with relevant content and project examples. Commercial interior fit-out clients, such as office developers, restaurant owners, and retail chains, often search with different keywords and need different trust signals than residential clients. We create a strategy that serves both without confusing either audience."
+  },
+  {
+    q: "How important are Google reviews for a construction firm?",
+    a: "Extremely important. Construction is a high-trust, high-investment purchase and property owners read reviews carefully before making a decision. A contractor with 25 Google reviews averaging 4.6 stars consistently wins enquiries over a contractor with no reviews, regardless of actual quality. We build a systematic review generation process into your workflow so satisfied clients are gently reminded to leave a Google review at project completion. This is one of the highest-ROI activities for any contractor."
+  },
+  {
+    q: "Can you help us get on Houzz or other home design platforms?",
+    a: "Yes. Houzz is particularly valuable for interior designers and architecture firms as it is a dedicated platform for home design discovery. We can help you create and optimise a Houzz profile with your project portfolio, ideabooks, and client reviews. Combined with your own website and Google presence, a strong Houzz profile adds another discovery channel for homeowners who use the platform during their design inspiration phase. We manage this as part of the full digital partner package."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Construction and Interior Design Firms in Ahmedabad | DC technolabs"
+  description="Portfolio websites, before and after galleries, local SEO, and Google Ads for builders, contractors, and interior designers in Ahmedabad. Win more projects with a portfolio that shows your work."
+  canonical="https://dctechnolabs.in/industries/construction/"
+  schemaJson={schemaJson}
+  badge="🏗️ Construction Digital Marketing"
+  heroH1="Digital Marketing and Websites for"
+  heroHighlight="Construction Firms"
+  heroDesc="Ahmedabad is building at pace. South Bopal, Shela, Makarba, Motera, and dozens of other growing residential areas are full of property owners searching for contractors and interior designers they can trust. We build the digital presence that puts your firm in front of them first."
+  heroStats={[
+    { value: "80+", label: "Firms Helped Online" },
+    { value: "3.1x", label: "Project Enquiry Growth" },
+    { value: "Portfolio Sites", label: "That Win Projects" }
+  ]}
+  formTitle="Get a Free Portfolio Website Consultation"
+  formSub="Tell us about your firm and the types of projects you want more of."
+  s2Label="The Digital Opportunity for Ahmedabad Contractors"
+  s2Title="Property Owners in Ahmedabad Are Searching for You Right Now"
+  s2Subtitle="The question is whether they find you or your competitor first."
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="Challenges Ahmedabad Construction Firms Face Online"
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="Digital Services Built for Construction and Interior Design"
+  s4Subtitle="Every service is built around how Ahmedabad property owners discover, evaluate, and hire contractors and designers."
+  services={services}
+  s5Label="How We Work"
+  s5Title="From Portfolio Audit to Project Enquiries in 4 Steps"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="We Know How to Sell Construction Online"
+  s7Subtitle="Construction is a visual, high-trust industry. We know what it takes to convert a website visitor into a booked project consultation."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Ahmedabad Builders and Designers Say"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="Construction Marketing Packages"
+  s10Subtitle="Transparent, fixed pricing. No hidden fees. Every package includes onboarding, strategy, and ongoing support."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Questions from Ahmedabad Builders and Interior Designers"
+  faqItems={faqItems}
+  ctaTitle="Win More Projects with a Portfolio That Speaks for Itself"
+  ctaSubtitle="Your completed projects are your best advertisement. They just need to be visible. A professional portfolio website, combined with local SEO and targeted Google Ads, puts your work in front of Ahmedabad property owners who are ready to hire. Let us build that for you."
+/>

@@ -113,11 +113,12 @@ const faqs = [
     </div>
     <div class="ind-cards-grid">
       {industries.map(ind => (
-        <div class="ind-card" style={`--ind-bg:${colorMap[ind.color]?.bg};--ind-text:${colorMap[ind.color]?.text}`}>
+        <a href={`/industries/${ind.slug}/`} class="ind-card" style={`--ind-bg:${colorMap[ind.color]?.bg};--ind-text:${colorMap[ind.color]?.text}`}>
           <div class="ind-card-icon">{ind.icon}</div>
           <h3>{ind.name}</h3>
           <p>{ind.desc}</p>
-        </div>
+          <span class="ind-card-link">Learn More &rarr;</span>
+        </a>
       ))}
     </div>
   </div>
@@ -522,7 +523,15 @@ const faqs = [
 }
 .ind-card-icon { font-size: 2rem; margin-bottom: 1rem; }
 .ind-card h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: .6rem; }
-.ind-card p { font-size: .875rem; color: var(--gray-500); line-height: 1.65; }
+.ind-card p { font-size: .875rem; color: var(--gray-500); line-height: 1.65; margin-bottom: .875rem; }
+.ind-card-link {
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--ind-text, var(--blue-600));
+  display: inline-block;
+  transition: gap .2s;
+}
 
 /* WHY SECTION */
 .ind-why {

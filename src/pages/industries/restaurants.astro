@@ -1,0 +1,325 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Restaurants in Ahmedabad",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat",
+  "description": "Restaurant websites with direct online ordering, Google Maps optimisation, Instagram food marketing, and Zomato commission reduction strategies for restaurants, cafes, cloud kitchens, and catering businesses in Ahmedabad."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "📱",
+    title: "Ahmedabad Diners Decide Online",
+    desc: "Before stepping out or placing an order, most Ahmedabad residents check Google Maps, Instagram, and Zomato. If your restaurant does not appear in the top results with good photos and recent reviews, you lose that customer before you even had a chance to serve them."
+  },
+  {
+    emoji: "💸",
+    title: "The 25 to 30 Percent Commission Problem",
+    desc: "Every order through Zomato or Swiggy costs you 25 to 30 percent of the bill in platform commissions. On a ₹500 order, that is ₹125 to ₹150 straight off your margin. For a busy restaurant doing ₹3L per month in delivery, you are handing over ₹75,000 to ₹90,000 every single month."
+  },
+  {
+    emoji: "🔗",
+    title: "Direct Ordering Changes the Math",
+    desc: "A restaurant website with direct WhatsApp or online ordering lets you keep that commission as revenue. Loyal customers who order regularly through your direct channel cost you nothing per order. The shift from platform-dependent to direct-channel takes about 3 to 6 months with the right digital marketing support."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We pay 28% commission to Zomato on every order and our margins are barely surviving",
+    solution: "We build a direct online ordering system on your own website with WhatsApp order integration so loyal customers can bypass the platform entirely, saving you lakhs every year."
+  },
+  {
+    problem: "We have no website, no ordering page, just our Zomato listing",
+    solution: "We create a professional restaurant website with your full menu, story, photos, and a direct ordering or reservation system that you own and control completely."
+  },
+  {
+    problem: "We do not show up when people search for restaurants near me on Google Maps",
+    solution: "We optimise your Google Business Profile with the right categories, keywords, photos, and review strategy so you appear in the top 3 for local food searches in your area."
+  },
+  {
+    problem: "Our Instagram has 200 followers and we rarely post anything. Competitors look much better",
+    solution: "We create a food content calendar with high-quality dish photography guidance, Reels ideas, and consistent posting that builds a following of local food lovers who remember your restaurant."
+  },
+  {
+    problem: "We have lots of first-time customers but they never come back or reorder",
+    solution: "We set up WhatsApp broadcast lists and loyalty messaging so you can send weekly specials, festival offers, and new menu updates directly to customers who have already ordered from you."
+  },
+  {
+    problem: "We have a catering side to the business but nobody knows we offer it",
+    solution: "We create dedicated landing pages and Google Ads campaigns for your catering and event services, targeting the Ahmedabad wedding, corporate event, and function market actively."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: "Restaurant Website with Online Menu",
+    desc: "A beautifully designed restaurant website with your full menu, food photography, story, opening hours, and location. Built to convert website visitors into dine-in reservations and direct orders with clear calls to action throughout."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
+    title: "Direct Online Ordering System",
+    desc: "WhatsApp-based or web ordering system that lets customers place orders directly without Zomato or Swiggy. Zero per-order commission. Customers get your number, you build a relationship, and your margins stay intact."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: "Google Maps Optimisation",
+    desc: "Comprehensive Google Business Profile setup and optimisation including menu upload, food category tagging, regular photo updates, Q and A management, and review response strategy. We target the top 3 position for food searches in your neighbourhood."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    title: "Instagram Food Photography Strategy",
+    desc: "We create a practical Instagram content plan including what to photograph, how to style dishes for maximum engagement, caption templates, hashtag research for Ahmedabad food audiences, and a Reels strategy to attract local food lovers."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+    title: "Zomato Profile Management",
+    desc: "We optimise your Zomato listing photos, menu descriptions, and category tags while building your direct channel in parallel. The goal is to use Zomato for new customer discovery while converting regulars to your direct ordering system."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+    title: "WhatsApp Marketing for Repeat Orders",
+    desc: "We help you build a WhatsApp broadcast list of your existing customers and create a weekly messaging calendar with new dishes, special offers, festival menus, and loyalty rewards. Existing customers are your cheapest source of revenue."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Menu and Brand Audit",
+    desc: "We review your current menu, photography, Google Maps listing, and social presence to identify gaps and quick wins. We establish your brand tone and visual style before building anything."
+  },
+  {
+    title: "Website and Ordering Setup",
+    desc: "We build your restaurant website with menu, food photos, and direct ordering or WhatsApp integration. Your team gets a simple workflow for managing incoming orders from day one."
+  },
+  {
+    title: "Google Maps and Social Launch",
+    desc: "Full Google Business Profile optimisation goes live, Instagram content plan starts, and we run the first month of review generation to build your local credibility quickly."
+  },
+  {
+    title: "Customer Retention and Growth",
+    desc: "WhatsApp broadcast list building begins, monthly campaign calendar for festivals and promotions, and ongoing performance reviews to grow your direct order share month on month."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "110+", label: "Restaurants Served in Ahmedabad" },
+  { value: "3.8x", label: "Average Online Order Growth" },
+  { value: "25%", label: "Typical Commission Saved on Direct Orders" },
+  { value: "4.7★", label: "Average Google Rating for Our Clients" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "💰",
+    title: "Zomato Commission Reduction Strategy",
+    desc: "We have a proven approach to gradually shift your regular customers from Zomato to your direct channel. We do not tell you to quit Zomato overnight. We build the alternative in parallel so you never lose volume during the transition."
+  },
+  {
+    emoji: "📸",
+    title: "Food Photography That Sells",
+    desc: "Most restaurants in Ahmedabad have poor quality food photos on social media. We give your team a simple photography guide and lighting setup recommendations so every dish you post looks as good as it tastes, without hiring a photographer every time."
+  },
+  {
+    emoji: "📍",
+    title: "Google Maps Top-3 Track Record",
+    desc: "We have placed restaurants in the top 3 Google Maps results for neighbourhood searches across CG Road, Satellite, Navrangpura, SG Highway, and Maninagar. Local search visibility directly translates to footfall and delivery orders."
+  },
+  {
+    emoji: "📲",
+    title: "WhatsApp Customer Retention",
+    desc: "Ahmedabad customers are extremely active on WhatsApp. A well-timed message about your weekend special or a new seasonal dish brings back customers who would otherwise forget you. We build this retention engine into your marketing from day one."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Restaurant Case Study",
+  title: "Satellite Area Restaurant Cuts Zomato Dependency by 22 Percent in 4 Months",
+  challenge: "A well-loved multi-cuisine restaurant near Judges Bungalow, Satellite was doing healthy business but felt trapped by Zomato commissions. Nearly 65% of their monthly revenue came through delivery platforms, eating into margins that were already squeezed by high rentals on SG Highway. They had 800 Instagram followers, no website, and no way to contact their regular customers directly.",
+  solution: "We built a clean restaurant website with an online menu and WhatsApp ordering link. We ran a campaign to migrate regular customers to the direct ordering channel by offering a small loyalty discount on direct orders. We rebuilt their Google Business Profile from scratch with professional food photos and launched a weekly Instagram content schedule. A WhatsApp broadcast list was built up over 3 months from takeaway order records.",
+  results: [
+    { value: "₹3.2L", label: "Monthly Direct Orders Generated in Month 4" },
+    { value: "22%", label: "Commission Saved by Shifting to Direct Orders" },
+    { value: "4,800", label: "Instagram Followers Gained in 3 Months" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were paying Zomato more than ₹60,000 a month in commissions. DC technolabs built us a simple WhatsApp ordering system and helped us tell our regulars about it. Within 3 months, almost half our regulars were ordering directly. That money stays with us now.",
+    name: "Mihir Desai",
+    role: "Owner, Desai Kitchen, Navrangpura",
+    initials: "MD"
+  },
+  {
+    text: "They optimised our Google Maps listing and we went from not appearing in searches to showing up in the top 3 for restaurants near Vastrapur. Saturday nights went from 60% capacity to full house within 6 weeks of them starting the work.",
+    name: "Pooja Raval",
+    role: "Co-founder, The Vatika Cafe, Vastrapur",
+    initials: "PR"
+  },
+  {
+    text: "Our Instagram was embarrassing. Bad photos, irregular posting. They gave us a simple photo guide and content plan. Now we have over 5,000 local followers and get DMs asking about reservations every weekend. Very practical team.",
+    name: "Arjun Kapoor",
+    role: "Manager, Spice Route Restaurant, CG Road",
+    initials: "AK"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Presence",
+    price: "₹8,000",
+    note: "Per month, 3-month minimum",
+    desc: "For restaurants that need a basic digital foundation. Website, Google Maps, and a starting point for social media.",
+    features: [
+      "4-page restaurant website with menu",
+      "Google Business Profile optimisation",
+      "WhatsApp ordering link setup",
+      "Instagram profile setup and 8 posts/month",
+      "Monthly performance review",
+      "Review response management"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Package",
+    price: "₹16,000",
+    note: "Per month, includes direct ordering system",
+    desc: "For restaurants serious about reducing Zomato dependency and building a loyal direct-order customer base.",
+    features: [
+      "Full restaurant website with online ordering",
+      "Direct ordering WhatsApp system",
+      "Google Maps top-3 optimisation campaign",
+      "Instagram: 16 posts and 4 Reels per month",
+      "Zomato profile management",
+      "WhatsApp broadcast setup and monthly campaign",
+      "Customer loyalty offer design",
+      "Weekly performance dashboard"
+    ],
+    btnLabel: "Start Growing",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Full Digital Partner",
+    price: "₹28,000",
+    note: "Per month, dedicated restaurant marketing",
+    desc: "For restaurant groups, cloud kitchens with multiple brands, or catering businesses with serious growth ambitions.",
+    features: [
+      "Multi-brand or multi-location website management",
+      "Google Ads for delivery and catering searches",
+      "Paid Instagram and Facebook campaigns",
+      "Professional food photography coordination",
+      "Catering and event enquiry landing pages",
+      "Monthly influencer collaboration coordination",
+      "Dedicated account manager",
+      "Bi-weekly strategy calls"
+    ],
+    btnLabel: "Let's Discuss",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can I really reduce my Zomato commissions significantly?",
+    a: "Yes, but it requires a deliberate strategy. You cannot simply ask customers to stop using Zomato because many will just go to your competitor. The approach that works is building a direct channel with a clear incentive for your regular customers, typically a small discount or loyalty benefit on direct orders. Over 3 to 6 months, we typically see 20 to 35% of regular Zomato volume shift to direct. Zomato remains useful for new customer discovery, but your loyal base stops costing you commissions."
+  },
+  {
+    q: "Do I need a full website or can I just use a WhatsApp link for ordering?",
+    a: "A WhatsApp ordering link is a good starting point but a dedicated website adds significant credibility and discoverability. When someone searches for your restaurant on Google, they expect a website. It also gives you a place to share your menu with photos, your story, your team, and your catering services. We recommend combining both: a website that drives discovery and a WhatsApp link that makes the ordering frictionless."
+  },
+  {
+    q: "How do you get a restaurant to rank higher on Google Maps?",
+    a: "Google Maps ranking depends on three main factors: relevance, distance, and prominence. We optimise your Google Business Profile with the right food categories, complete menu, keyword-rich description, and regular photo updates. We also build a review generation strategy because the volume and recency of reviews directly impacts ranking. For most restaurants in non-central Ahmedabad areas, meaningful ranking improvements are visible within 4 to 8 weeks."
+  },
+  {
+    q: "What kind of Instagram content works best for Ahmedabad restaurants?",
+    a: "Food Reels consistently outperform static posts in terms of reach. Short videos showing a dish being plated, cheese pulls, sizzling tawa shots, or a quick behind-the-scenes kitchen clip perform extremely well. For static content, overhead shots with clean, minimal backgrounds work better than cluttered table setups. We create a practical content guide for your kitchen team so you can produce this in-house without expensive photography sessions every week."
+  },
+  {
+    q: "We are a cloud kitchen with no dine-in. Does digital marketing work differently for us?",
+    a: "Yes. Cloud kitchens depend almost entirely on online ordering platforms for discovery. The strategy for cloud kitchens focuses heavily on optimising your platform listings, building a strong review base quickly, and over time, creating direct ordering channels through your own website and WhatsApp. Instagram and Google Ads targeting delivery radius keywords are also effective for cloud kitchens without a walk-in location."
+  },
+  {
+    q: "Can you help us market our catering services for weddings and corporate events?",
+    a: "Absolutely. Catering is a higher-margin business than daily food delivery and Ahmedabad is an extremely active wedding and event market. We build dedicated catering pages with menu options, event capacity details, and enquiry forms. We also run Google Ads targeting searches like 'wedding caterer Ahmedabad' and 'corporate lunch catering Ahmedabad' which have very strong seasonal demand and high order values."
+  },
+  {
+    q: "How do I get more Google reviews from my customers?",
+    a: "The most effective method is a direct ask at the right moment. For dine-in, this is when the bill arrives. For delivery, it is 30 to 40 minutes after delivery via a WhatsApp follow-up. We set up automated WhatsApp messages and provide table cards or QR codes that make it a one-tap action for customers. The key is making the process effortless. Restaurants that actively ask for reviews consistently collect 5 to 10 times more than those who do not."
+  },
+  {
+    q: "What results can I realistically expect in the first 3 months?",
+    a: "In the first 3 months, expect your Google Maps visibility to improve significantly, your Instagram following to grow by 500 to 2,000 genuine local followers depending on consistency, and your direct order channel to start gaining traction with your regulars. Commission savings take 2 to 4 months to become meaningful as the direct ordering habit builds. The clients who see results fastest are the ones who actively promote their direct ordering link to existing customers in the first month."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Restaurants in Ahmedabad | DC technolabs"
+  description="Restaurant websites, direct online ordering, Google Maps optimisation, and Instagram food marketing for restaurants, cafes, and cloud kitchens in Ahmedabad. Reduce Zomato commissions and own your customers."
+  canonical="https://dctechnolabs.in/industries/restaurants/"
+  schemaJson={schemaJson}
+  badge="🍽️ Restaurant Digital Marketing"
+  heroH1="Digital Marketing and Online Ordering for"
+  heroHighlight="Restaurants in Ahmedabad"
+  heroDesc="Ahmedabad has thousands of restaurants. Only the ones with strong Google Maps presence, Instagram food content, and a direct ordering channel are growing profitably. We help Ahmedabad restaurants stop paying Zomato commissions and start owning their customer relationships."
+  heroStats={[
+    { value: "110+", label: "Restaurants Served" },
+    { value: "3.8x", label: "Online Order Growth" },
+    { value: "Zomato + Direct", label: "Order Experts" }
+  ]}
+  formTitle="Get a Free Restaurant Marketing Plan"
+  formSub="Tell us about your restaurant and your biggest challenge."
+  s2Label="The Restaurant Digital Landscape in Ahmedabad"
+  s2Title="Why Ahmedabad Restaurants Need More Than Just Zomato"
+  s2Subtitle="Platform dependency is the single biggest threat to restaurant margins in 2025. Here is what you need to know."
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="Challenges Ahmedabad Restaurant Owners Face Online"
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="Digital Services Built for Ahmedabad Restaurants"
+  s4Subtitle="Every service is designed around how Ahmedabad diners discover, order, and stay loyal to the restaurants they love."
+  services={services}
+  s5Label="How We Work"
+  s5Title="From Menu to More Orders in 4 Steps"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="We Know the Ahmedabad Food Scene"
+  s7Subtitle="From CG Road Punjabi dhabas to Satellite cloud kitchens to SG Highway fine dining, we understand the different dynamics of every restaurant format."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Ahmedabad Restaurant Owners Say"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="Restaurant Marketing Packages"
+  s10Subtitle="Transparent, fixed pricing. No hidden fees. Every package includes onboarding, strategy, and ongoing support."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Questions from Ahmedabad Restaurant Owners"
+  faqItems={faqItems}
+  ctaTitle="Stop Paying Zomato Commission. Start Owning Your Customers."
+  ctaSubtitle="Every month you wait is another month of commission fees you did not need to pay. Let us build your direct ordering channel, grow your Google Maps ranking, and help you build a customer base that comes back because they want to, not because an algorithm showed them a competitor first."
+/>

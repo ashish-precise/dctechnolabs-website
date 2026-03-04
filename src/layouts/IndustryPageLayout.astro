@@ -1,0 +1,1183 @@
+---
+/**
+ * IndustryPageLayout.astro
+ * Reusable 12-section layout for all 14 DC technolabs industry sub-pages.
+ * Uses PageLayout (BaseLayout + Header + Footer + global.css) as the outer wrapper.
+ *
+ * Section map:
+ *  S1  Hero + embedded form
+ *  S2  Industry overview (3 highlight cards)
+ *  S3  Challenges (dark — 6 pain points)
+ *  S4  Services for this industry (6-8 cards)
+ *  S5  Our process (4-5 steps)
+ *  S6  Stats bar (dark)
+ *  S7  Why choose us (4-6 cards)
+ *  S8  Case study (dark)
+ *  S9  Testimonials
+ *  S10 Pricing (3 tiers)
+ *  S11 FAQ accordion (dark)
+ *  S12 Final CTA + form
+ */
+
+import PageLayout from './PageLayout.astro';
+
+export interface OverviewPoint  { emoji: string; title: string; desc: string }
+export interface Challenge      { problem: string; solution: string }
+export interface ServiceCard    { icon: string; title: string; desc: string }
+export interface ProcessStep    { title: string; desc: string }
+export interface StatItem       { value: string; label: string }
+export interface WhyCard        { emoji: string; title: string; desc: string }
+export interface CaseStudyResult{ value: string; label: string }
+export interface CaseStudy      { tag: string; title: string; challenge: string; solution: string; results: CaseStudyResult[] }
+export interface Testimonial    { text: string; name: string; role: string; initials: string }
+export interface PricingTier    { name: string; price: string; note: string; desc: string; features: string[]; btnLabel: string; btnClass: string; featured?: boolean }
+export interface FaqItem        { q: string; a: string }
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  schemaJson: string;
+
+  /* Hero */
+  badge: string;
+  heroH1: string;
+  heroHighlight: string;
+  heroDesc: string;
+  heroStats: StatItem[];
+  formTitle: string;
+  formSub: string;
+
+  /* S2 Overview */
+  s2Label?: string;
+  s2Title: string;
+  s2Subtitle?: string;
+  overviewPoints: OverviewPoint[];
+
+  /* S3 Challenges */
+  s3Label?: string;
+  s3Title: string;
+  s3Subtitle?: string;
+  challenges: Challenge[];
+
+  /* S4 Services */
+  s4Label?: string;
+  s4Title: string;
+  s4Subtitle?: string;
+  services: ServiceCard[];
+
+  /* S5 Process */
+  s5Label?: string;
+  s5Title: string;
+  processSteps: ProcessStep[];
+
+  /* S6 Stats */
+  statsHeading?: string;
+  stats: StatItem[];
+
+  /* S7 Why Us */
+  s7Label?: string;
+  s7Title: string;
+  s7Subtitle?: string;
+  whyCards: WhyCard[];
+
+  /* S8 Case Study */
+  caseStudy: CaseStudy;
+
+  /* S9 Testimonials */
+  s9Label?: string;
+  s9Title: string;
+  testimonials: Testimonial[];
+
+  /* S10 Pricing */
+  s10Label?: string;
+  s10Title: string;
+  s10Subtitle?: string;
+  pricingTiers: PricingTier[];
+
+  /* S11 FAQ */
+  s11Label?: string;
+  s11Title: string;
+  faqItems: FaqItem[];
+
+  /* S12 CTA */
+  ctaTitle: string;
+  ctaSubtitle: string;
+}
+
+const {
+  title, description, canonical, schemaJson,
+  badge, heroH1, heroHighlight, heroDesc, heroStats,
+  formTitle, formSub,
+  s2Label = "Industry Overview", s2Title, s2Subtitle, overviewPoints,
+  s3Label = "Common Challenges", s3Title, s3Subtitle = "Sound familiar? You are not alone. These are the pain points we solve every week for businesses in your sector.", challenges,
+  s4Label = "What We Offer", s4Title, s4Subtitle = "Every service is tailored to how your industry sells, complies, and grows.", services,
+  s5Label = "How We Work", s5Title, processSteps,
+  statsHeading, stats,
+  s7Label = "Why Choose Us", s7Title, s7Subtitle, whyCards,
+  caseStudy,
+  s9Label = "Client Reviews", s9Title, testimonials,
+  s10Label = "Investment", s10Title, s10Subtitle = "Transparent, fixed pricing. No hidden fees. Every package includes onboarding, strategy, and ongoing support.", pricingTiers,
+  s11Label = "FAQ", s11Title, faqItems,
+  ctaTitle, ctaSubtitle,
+} = Astro.props;
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+});
+---
+
+<PageLayout title={title} description={description} canonical={canonical}>
+
+  <!-- Schema -->
+  <script type="application/ld+json" set:html={schemaJson} slot="head" />
+  <script type="application/ld+json" set:html={faqSchema} slot="head" />
+
+  <!-- ═══════════════════════════════════════════════
+       S1: HERO + FORM
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-hero" id="hero-form">
+    <div class="container">
+      <div class="ind-hero-grid">
+
+        <!-- Left: content -->
+        <div class="ind-hero-content">
+          <span class="ind-badge">{badge}</span>
+          <h1>{heroH1} <span class="ind-highlight">{heroHighlight}</span></h1>
+          <p class="ind-hero-desc">{heroDesc}</p>
+          <div class="ind-hero-stats">
+            {heroStats.map(s => (
+              <div class="ind-hero-stat">
+                <strong>{s.value}</strong>
+                <span>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="ind-form-card">
+          <p class="ind-form-title">{formTitle}</p>
+          <p class="ind-form-sub">{formSub}</p>
+          <form id="ind-hero-form" class="ind-form">
+            <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6" />
+            <input type="hidden" name="subject" value="New Industry Page Enquiry" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ind-name">Your Name</label>
+                <input type="text" id="ind-name" name="name" class="form-input" placeholder="Rajesh Patel" required />
+              </div>
+              <div class="form-group">
+                <label for="ind-phone">Phone Number</label>
+                <input type="tel" id="ind-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ind-email">Email Address</label>
+              <input type="email" id="ind-email" name="email" class="form-input" placeholder="you@yourcompany.com" required />
+            </div>
+            <div class="form-group">
+              <label for="ind-service">What Do You Need?</label>
+              <select id="ind-service" name="service" class="form-input">
+                <option value="">Select a service</option>
+                <option>Website Design</option>
+                <option>SEO Services</option>
+                <option>Google Ads / PPC</option>
+                <option>Social Media Marketing</option>
+                <option>E-commerce Development</option>
+                <option>Full Digital Marketing Package</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ind-msg">Tell Us About Your Business</label>
+              <textarea id="ind-msg" name="message" class="form-input" rows="3" placeholder="Brief description of your business and goals..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Get Free Strategy Call</button>
+            <div id="ind-hero-msg" class="form-msg" style="display:none"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S2: INDUSTRY OVERVIEW
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-overview reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">{s2Label}</span>
+        <h2 class="section-title">{s2Title}</h2>
+        {s2Subtitle && <p class="section-subtitle">{s2Subtitle}</p>}
+      </div>
+      <div class="ind-overview-grid">
+        {overviewPoints.map(p => (
+          <div class="ind-overview-card">
+            <div class="ind-overview-emoji">{p.emoji}</div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S3: CHALLENGES (DARK)
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-challenges reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label" style="color:var(--blue-300)">{s3Label}</span>
+        <h2 class="section-title" style="color:var(--white)">{s3Title}</h2>
+        <p class="section-subtitle" style="color:var(--gray-400)">{s3Subtitle}</p>
+      </div>
+      <div class="ind-challenges-grid">
+        {challenges.map(c => (
+          <div class="ind-challenge-card">
+            <div class="ind-challenge-problem">
+              <span class="ind-x">✕</span>
+              <span>"{c.problem}"</span>
+            </div>
+            <div class="ind-challenge-solution">
+              <span class="ind-check">✓</span>
+              <span>{c.solution}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S4: SERVICES FOR THIS INDUSTRY
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-services reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">{s4Label}</span>
+        <h2 class="section-title">{s4Title}</h2>
+        {s4Subtitle && <p class="section-subtitle">{s4Subtitle}</p>}
+      </div>
+      <div class="ind-services-grid">
+        {services.map(s => (
+          <div class="ind-service-card">
+            <div class="ind-service-icon" set:html={s.icon} />
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S5: OUR PROCESS
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-process reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">{s5Label}</span>
+        <h2 class="section-title">{s5Title}</h2>
+      </div>
+      <div class="ind-process-steps" style={`--cols:${processSteps.length}`}>
+        {processSteps.map((step, i) => (
+          <div class="ind-process-step">
+            <div class="ind-process-num">{i + 1}</div>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S6: STATS BAR (DARK)
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-stats reveal">
+    <div class="container">
+      {statsHeading && <h2 class="ind-stats-heading">{statsHeading}</h2>}
+      <div class="ind-stats-grid">
+        {stats.map(s => (
+          <div class="ind-stat-item">
+            <div class="ind-stat-num">{s.value}</div>
+            <div class="ind-stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S7: WHY CHOOSE US
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-why reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">{s7Label}</span>
+        <h2 class="section-title">{s7Title}</h2>
+        {s7Subtitle && <p class="section-subtitle">{s7Subtitle}</p>}
+      </div>
+      <div class="ind-why-grid">
+        {whyCards.map(c => (
+          <div class="ind-why-card">
+            <div class="ind-why-emoji">{c.emoji}</div>
+            <h3>{c.title}</h3>
+            <p>{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S8: CASE STUDY (DARK)
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-case reveal">
+    <div class="container">
+      <div class="ind-case-grid">
+        <div class="ind-case-content">
+          <span class="ind-case-tag">{caseStudy.tag}</span>
+          <h2>{caseStudy.title}</h2>
+          <div class="ind-case-block">
+            <h4>The Challenge</h4>
+            <p>{caseStudy.challenge}</p>
+          </div>
+          <div class="ind-case-block">
+            <h4>What We Did</h4>
+            <p>{caseStudy.solution}</p>
+          </div>
+        </div>
+        <div class="ind-case-results">
+          <h4 class="ind-case-results-heading">Results Delivered</h4>
+          {caseStudy.results.map(r => (
+            <div class="ind-case-result-item">
+              <div class="ind-case-result-val">{r.value}</div>
+              <div class="ind-case-result-label">{r.label}</div>
+            </div>
+          ))}
+          <a href="/contact" class="btn btn-outline-light ind-case-cta">Start Your Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S9: TESTIMONIALS
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-testimonials reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">{s9Label}</span>
+        <h2 class="section-title">{s9Title}</h2>
+      </div>
+      <div class="ind-testi-grid">
+        {testimonials.map(t => (
+          <div class="ind-testi-card">
+            <div class="ind-testi-stars">★★★★★</div>
+            <p class="ind-testi-text">"{t.text}"</p>
+            <div class="ind-testi-author">
+              <div class="ind-testi-avatar">{t.initials}</div>
+              <div>
+                <div class="ind-testi-name">{t.name}</div>
+                <div class="ind-testi-role">{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S10: PRICING
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-pricing reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">{s10Label}</span>
+        <h2 class="section-title">{s10Title}</h2>
+        <p class="section-subtitle">{s10Subtitle}</p>
+      </div>
+      <div class="ind-pricing-grid">
+        {pricingTiers.map(tier => (
+          <div class:list={["ind-pricing-card", { featured: tier.featured }]}>
+            {tier.featured && <div class="ind-pricing-badge">Most Popular</div>}
+            <h3>{tier.name}</h3>
+            <p class="ind-pricing-desc">{tier.desc}</p>
+            <div class="ind-pricing-price">{tier.price}</div>
+            <p class="ind-pricing-note">{tier.note}</p>
+            <ul class="ind-pricing-features">
+              {tier.features.map(f => (
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class:list={["btn", tier.btnClass, "ind-pricing-btn"]}>
+              {tier.btnLabel}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S11: FAQ (DARK)
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-faq reveal">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label" style="color:var(--blue-300)">{s11Label}</span>
+        <h2 class="section-title" style="color:var(--white)">{s11Title}</h2>
+      </div>
+      <div class="ind-faq-list">
+        {faqItems.map((item, i) => (
+          <div class="ind-faq-item" id={`ind-faq-${i}`}>
+            <button class="ind-faq-q" aria-expanded="false" aria-controls={`ind-faq-a-${i}`}>
+              <span>{item.q}</span>
+              <svg class="ind-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="ind-faq-a" id={`ind-faq-a-${i}`} hidden>
+              <p>{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       S12: FINAL CTA + FORM
+  ═══════════════════════════════════════════════ -->
+  <section class="ind-cta reveal">
+    <div class="container">
+      <div class="ind-cta-grid">
+
+        <div class="ind-cta-content">
+          <h2>{ctaTitle}</h2>
+          <p>{ctaSubtitle}</p>
+          <div class="ind-cta-points">
+            <div class="ind-cta-point"><span class="ind-check-blue">✓</span> Free strategy consultation</div>
+            <div class="ind-cta-point"><span class="ind-check-blue">✓</span> Custom proposal within 24 hours</div>
+            <div class="ind-cta-point"><span class="ind-check-blue">✓</span> No obligation, no pushy sales</div>
+            <div class="ind-cta-point"><span class="ind-check-blue">✓</span> Local team based in Ahmedabad</div>
+          </div>
+        </div>
+
+        <div class="ind-form-card ind-cta-form-card">
+          <p class="ind-form-title">Book Your Free Call</p>
+          <form id="ind-cta-form" class="ind-form">
+            <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6" />
+            <input type="hidden" name="subject" value="New Industry Page CTA Enquiry" />
+            <div class="form-group">
+              <input type="text" name="name" class="form-input" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" class="form-input" placeholder="Phone Number" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-input" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-input" rows="3" placeholder="What do you need help with?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send My Enquiry</button>
+            <div id="ind-cta-msg" class="form-msg" style="display:none"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<style>
+/* ═══ S1: HERO ═══════════════════════════════════════════════════════════════ */
+.ind-hero {
+  padding: 120px 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(170deg, var(--white) 0%, var(--blue-50) 55%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.ind-hero::before {
+  content: '';
+  position: absolute;
+  top: -150px; right: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,.07) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.ind-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.ind-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--blue-700);
+  margin-bottom: 1.25rem;
+}
+.ind-hero-content h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+.ind-highlight {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ind-hero-desc {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+.ind-hero-stats {
+  display: flex;
+  gap: 0;
+}
+.ind-hero-stat {
+  padding-right: 2rem;
+  margin-right: 2rem;
+  border-right: 1px solid var(--gray-200);
+}
+.ind-hero-stat:last-child { padding-right: 0; margin-right: 0; border-right: none; }
+.ind-hero-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue-600);
+  display: block;
+}
+.ind-hero-stat span { font-size: .9rem; color: var(--gray-400); }
+
+/* Form card */
+.ind-form-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.04);
+  border: 1px solid var(--gray-100);
+}
+.ind-form-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: .25rem;
+}
+.ind-form-sub { font-size: .9rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+.ind-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.form-group { margin-bottom: .875rem; }
+.form-group label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 5px;
+}
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  color: var(--gray-800);
+  background: var(--gray-50);
+  transition: all .2s;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(59,130,246,.1);
+}
+.form-input::placeholder { color: var(--gray-400); }
+textarea.form-input { resize: vertical; min-height: 80px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  margin-top: .25rem;
+}
+.form-msg {
+  margin-top: .75rem;
+  padding: .875rem 1rem;
+  border-radius: 10px;
+  font-size: .875rem;
+  font-weight: 500;
+  text-align: center;
+}
+.form-msg.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.form-msg.error   { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* ═══ S2: OVERVIEW ══════════════════════════════════════════════════════════ */
+.ind-overview { padding: var(--section-pad) 0; }
+.ind-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.ind-overview-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.ind-overview-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+  opacity: 0;
+  transition: opacity .3s;
+}
+.ind-overview-card:hover { border-color: var(--blue-200); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.06); }
+.ind-overview-card:hover::before { opacity: 1; }
+.ind-overview-emoji { font-size: 2.25rem; margin-bottom: 1rem; }
+.ind-overview-card h3 { font-size: 1.1rem; margin-bottom: .5rem; color: var(--gray-900); }
+.ind-overview-card p { font-size: .95rem; color: var(--gray-500); line-height: 1.7; }
+
+/* ═══ S3: CHALLENGES (DARK) ════════════════════════════════════════════════ */
+.ind-challenges {
+  padding: var(--section-pad) 0;
+  background: var(--gray-900);
+}
+.ind-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+.ind-challenge-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all .3s;
+}
+.ind-challenge-card:hover { border-color: rgba(255,255,255,.15); background: rgba(255,255,255,.07); }
+.ind-challenge-problem {
+  display: flex;
+  gap: 10px;
+  margin-bottom: .75rem;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  color: var(--gray-300);
+  font-style: italic;
+}
+.ind-challenge-solution {
+  display: flex;
+  gap: 10px;
+  font-size: .9rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+.ind-x  { color: #F87171; font-weight: 700; flex-shrink: 0; }
+.ind-check { color: #34D399; font-weight: 700; flex-shrink: 0; }
+
+/* ═══ S4: SERVICES ══════════════════════════════════════════════════════════ */
+.ind-services {
+  padding: var(--section-pad) 0;
+  background: var(--blue-50);
+}
+.ind-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.ind-service-card {
+  background: var(--white);
+  border: 1px solid var(--blue-100);
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: all .3s;
+}
+.ind-service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.06); border-color: var(--blue-300); }
+.ind-service-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--blue-50);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--blue-600);
+}
+.ind-service-card h3 { font-size: 1.05rem; margin-bottom: .45rem; color: var(--gray-900); }
+.ind-service-card p { font-size: .9rem; color: var(--gray-500); line-height: 1.7; }
+
+/* ═══ S5: PROCESS ═══════════════════════════════════════════════════════════ */
+.ind-process { padding: var(--section-pad) 0; }
+.ind-process-steps {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 4), 1fr);
+  gap: 0;
+  position: relative;
+}
+.ind-process-step {
+  text-align: center;
+  padding: 0 1.5rem;
+  position: relative;
+}
+.ind-process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 28px; right: 0;
+  width: calc(100% - 56px);
+  height: 2px;
+  background: var(--blue-200);
+  transform: translateX(50%);
+}
+.ind-process-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 auto 1.25rem;
+  position: relative; z-index: 1;
+  box-shadow: 0 4px 12px rgba(37,99,235,.3);
+}
+.ind-process-step h3 { font-size: 1.05rem; margin-bottom: .45rem; color: var(--gray-900); }
+.ind-process-step p { font-size: .9rem; color: var(--gray-500); line-height: 1.65; }
+
+/* ═══ S6: STATS BAR (DARK) ══════════════════════════════════════════════════ */
+.ind-stats {
+  padding: 4rem 0;
+  background: var(--gray-900);
+  position: relative; overflow: hidden;
+}
+.ind-stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(37,99,235,.1) 0%, transparent 50%, rgba(245,158,11,.05) 100%);
+}
+.ind-stats-heading {
+  text-align: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  position: relative; z-index: 1;
+}
+.ind-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative; z-index: 1;
+}
+.ind-stat-item { text-align: center; }
+.ind-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.ind-stat-label { font-size: .9rem; color: var(--gray-400); font-weight: 500; }
+
+/* ═══ S7: WHY US ════════════════════════════════════════════════════════════ */
+.ind-why { padding: var(--section-pad) 0; }
+.ind-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.ind-why-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all .3s;
+}
+.ind-why-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.06); border-color: var(--blue-200); }
+.ind-why-emoji { font-size: 2rem; margin-bottom: 1rem; }
+.ind-why-card h3 { font-size: 1.05rem; margin-bottom: .5rem; color: var(--gray-900); }
+.ind-why-card p { font-size: .9rem; color: var(--gray-500); line-height: 1.7; }
+
+/* ═══ S8: CASE STUDY (DARK) ════════════════════════════════════════════════ */
+.ind-case {
+  padding: var(--section-pad) 0;
+  background: var(--gray-900);
+}
+.ind-case-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: start;
+}
+.ind-case-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(59,130,246,.15);
+  color: var(--blue-300);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.ind-case-content h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--white);
+  margin-bottom: 2rem;
+  letter-spacing: -.02em;
+}
+.ind-case-block { margin-bottom: 1.75rem; }
+.ind-case-block h4 {
+  font-family: var(--font-display);
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--blue-400);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .5rem;
+}
+.ind-case-block p { color: var(--gray-300); line-height: 1.8; font-size: .95rem; }
+.ind-case-results {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+.ind-case-results-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.ind-case-result-item { text-align: center; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.ind-case-result-item:last-of-type { border-bottom: none; }
+.ind-case-result-val {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--white);
+}
+.ind-case-result-label { font-size: .85rem; color: var(--gray-400); margin-top: .25rem; }
+.ind-case-cta { width: 100%; margin-top: 1.5rem; justify-content: center; }
+
+/* ═══ S9: TESTIMONIALS ══════════════════════════════════════════════════════ */
+.ind-testimonials { padding: var(--section-pad) 0; background: var(--blue-50); }
+.ind-testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.ind-testi-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--blue-100);
+  display: flex; flex-direction: column; gap: .75rem;
+}
+.ind-testi-stars { color: #F59E0B; font-size: 1rem; }
+.ind-testi-text { font-size: .95rem; color: var(--gray-600); line-height: 1.75; flex: 1; }
+.ind-testi-author { display: flex; align-items: center; gap: .875rem; }
+.ind-testi-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: .85rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.ind-testi-name { font-family: var(--font-display); font-weight: 700; font-size: .9rem; color: var(--gray-900); }
+.ind-testi-role { font-size: .82rem; color: var(--gray-400); }
+
+/* ═══ S10: PRICING ══════════════════════════════════════════════════════════ */
+.ind-pricing { padding: var(--section-pad) 0; }
+.ind-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.ind-pricing-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all .3s;
+}
+.ind-pricing-card.featured { border-color: var(--blue-500); box-shadow: 0 16px 48px rgba(37,99,235,.12); }
+.ind-pricing-badge {
+  position: absolute;
+  top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--blue-600);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: .8rem; font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+.ind-pricing-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.08); }
+.ind-pricing-card h3 { font-size: 1.15rem; margin-bottom: .5rem; color: var(--gray-900); }
+.ind-pricing-desc { font-size: .9rem; color: var(--gray-500); margin-bottom: 1.25rem; }
+.ind-pricing-price {
+  font-family: var(--font-display);
+  font-size: 2.25rem; font-weight: 800;
+  color: var(--gray-900); margin-bottom: .25rem;
+}
+.ind-pricing-note { font-size: .82rem; color: var(--gray-400); margin-bottom: 1.75rem; }
+.ind-pricing-features { margin-bottom: 2rem; list-style: none; padding: 0; }
+.ind-pricing-features li {
+  display: flex; align-items: flex-start; gap: 9px;
+  padding: 7px 0;
+  font-size: .88rem;
+  color: var(--gray-600);
+  border-bottom: 1px solid var(--gray-100);
+}
+.ind-pricing-features li:last-child { border-bottom: none; }
+.ind-pricing-features li svg { flex-shrink: 0; color: #10B981; margin-top: 2px; }
+.ind-pricing-btn { width: 100%; justify-content: center; }
+
+/* ═══ S11: FAQ (DARK) ═══════════════════════════════════════════════════════ */
+.ind-faq {
+  padding: var(--section-pad) 0;
+  background: var(--gray-900);
+}
+.ind-faq-list { max-width: 800px; margin: 0 auto; }
+.ind-faq-item {
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.ind-faq-item:last-child { border-bottom: none; }
+.ind-faq-q {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.25rem 0;
+  background: none; border: none;
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 600;
+  color: var(--white);
+  text-align: left;
+  cursor: pointer;
+  transition: color .2s;
+}
+.ind-faq-q:hover { color: var(--blue-300); }
+.ind-faq-icon { flex-shrink: 0; transition: transform .3s; }
+.ind-faq-item.open .ind-faq-icon { transform: rotate(180deg); }
+.ind-faq-a {
+  padding-bottom: 1.25rem;
+}
+.ind-faq-a p { color: var(--gray-400); font-size: .95rem; line-height: 1.75; }
+
+/* ═══ S12: FINAL CTA ════════════════════════════════════════════════════════ */
+.ind-cta {
+  padding: var(--section-pad) 0;
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-950) 100%);
+}
+.ind-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  align-items: start;
+}
+.ind-cta-content h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: -.02em;
+}
+.ind-cta-content p {
+  font-size: 1.1rem;
+  color: var(--gray-300);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.ind-cta-points { display: flex; flex-direction: column; gap: .75rem; }
+.ind-cta-point {
+  display: flex; align-items: center; gap: .75rem;
+  color: var(--gray-200);
+  font-size: .95rem;
+}
+.ind-check-blue {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(59,130,246,.2);
+  color: var(--blue-400);
+  font-size: .75rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.ind-cta-form-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.ind-cta-form-card .ind-form-title { color: var(--white); }
+.ind-cta-form-card .ind-form-sub { color: var(--gray-400); }
+.ind-cta-form-card .form-group label { color: var(--gray-300); }
+.ind-cta-form-card .form-input {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.12);
+  color: var(--white);
+}
+.ind-cta-form-card .form-input::placeholder { color: var(--gray-500); }
+.ind-cta-form-card .form-input:focus { border-color: var(--blue-500); background: rgba(255,255,255,.08); }
+
+/* ── btn-outline-light needed for case study CTA ── */
+.btn-outline-light {
+  border: 2px solid rgba(255,255,255,.3);
+  color: var(--white);
+  background: transparent;
+}
+.btn-outline-light:hover {
+  border-color: rgba(255,255,255,.6);
+  background: rgba(255,255,255,.08);
+  transform: translateY(-2px);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .ind-hero-grid,
+  .ind-cta-grid { grid-template-columns: 1fr; }
+  .ind-case-grid { grid-template-columns: 1fr; }
+  .ind-overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .ind-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .ind-hero { padding-top: 100px; }
+  .ind-hero .form-row { grid-template-columns: 1fr; }
+  .ind-services-grid,
+  .ind-overview-grid,
+  .ind-testi-grid,
+  .ind-pricing-grid { grid-template-columns: 1fr; }
+  .ind-challenges-grid { grid-template-columns: 1fr; }
+  .ind-why-grid { grid-template-columns: 1fr; }
+  .ind-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .ind-process-steps { grid-template-columns: 1fr; gap: 2rem; }
+  .ind-process-step::after { display: none; }
+}
+</style>
+
+<script>
+  /* Hero form */
+  const heroForm = document.getElementById('ind-hero-form') as HTMLFormElement | null;
+  const heroMsg  = document.getElementById('ind-hero-msg') as HTMLElement | null;
+
+  heroForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = heroForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(heroForm))),
+      });
+      const data = await res.json();
+      if (data.success) {
+        heroMsg!.textContent = 'Thank you! We will contact you within 24 hours.';
+        heroMsg!.className = 'form-msg success';
+        heroForm.reset();
+      } else { throw new Error(); }
+    } catch {
+      heroMsg!.textContent = 'Something went wrong. Please call us directly.';
+      heroMsg!.className = 'form-msg error';
+    } finally {
+      heroMsg!.style.display = 'block';
+      btn.textContent = 'Get Free Strategy Call';
+      btn.disabled = false;
+    }
+  });
+
+  /* CTA form */
+  const ctaForm = document.getElementById('ind-cta-form') as HTMLFormElement | null;
+  const ctaMsg  = document.getElementById('ind-cta-msg') as HTMLElement | null;
+
+  ctaForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = ctaForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(ctaForm))),
+      });
+      const data = await res.json();
+      if (data.success) {
+        ctaMsg!.textContent = 'Thank you! We will contact you within 24 hours.';
+        ctaMsg!.className = 'form-msg success';
+        ctaForm.reset();
+      } else { throw new Error(); }
+    } catch {
+      ctaMsg!.textContent = 'Something went wrong. Please call us directly.';
+      ctaMsg!.className = 'form-msg error';
+    } finally {
+      ctaMsg!.style.display = 'block';
+      btn.textContent = 'Send My Enquiry';
+      btn.disabled = false;
+    }
+  });
+
+  /* FAQ accordion */
+  document.querySelectorAll<HTMLButtonElement>('.ind-faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.ind-faq-item')!;
+      const answer = item.querySelector<HTMLElement>('.ind-faq-a')!;
+      const isOpen = item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.ind-faq-item').forEach(el => {
+        el.classList.remove('open');
+        (el.querySelector('.ind-faq-a') as HTMLElement).hidden = true;
+        (el.querySelector('.ind-faq-q') as HTMLButtonElement).setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

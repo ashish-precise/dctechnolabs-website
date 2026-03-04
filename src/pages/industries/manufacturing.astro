@@ -1,0 +1,327 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Manufacturers in Gujarat",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat",
+  "description": "B2B websites, digital product catalogues, and export-focused SEO for manufacturers, industrial exporters, and B2B suppliers in Gujarat. Helping GIDC, Vatva, and Sanand manufacturers reach international buyers directly."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🌐",
+    title: "International Buyers Search Online First",
+    desc: "Buyers from the Middle East, Africa, and Southeast Asia are actively searching Google for Gujarat suppliers. If your factory does not have an English-language website, you are invisible to them. A well-ranked site means enquiries while you sleep."
+  },
+  {
+    emoji: "📦",
+    title: "Your Product Catalogue Needs to Be Online",
+    desc: "Buyers want to see specifications, certifications, MOQs, and packaging details before they pick up the phone. A digital product catalogue on your own website gives you full control over how your products are presented, without IndiaMART taking a cut."
+  },
+  {
+    emoji: "🏆",
+    title: "Own Your Brand, Reduce Platform Dependency",
+    desc: "IndiaMART works, but it commoditises your business and charges high commissions on every enquiry. Your own website positions you as a premium, trustworthy exporter and creates a direct channel where buyers contact you at zero per-enquiry cost."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "All our buyers come through IndiaMART and we pay heavy commissions on every enquiry",
+    solution: "We build export-ready websites with enquiry forms, WhatsApp integration, and SEO so buyers find and contact you directly, bypassing the platform entirely."
+  },
+  {
+    problem: "We do not have an English website so international buyers cannot understand our products",
+    solution: "We build bilingual or English-first websites with proper technical product pages that international procurement teams can evaluate before they call."
+  },
+  {
+    problem: "Our product catalogue only exists as a PDF we email to people",
+    solution: "We create an online product catalogue with filterable categories, downloadable spec sheets, and enquiry-per-product CTAs that work 24 hours a day."
+  },
+  {
+    problem: "Chinese competitors rank above us on Google even though we have better quality",
+    solution: "Export-focused SEO targets the exact search terms international buyers use. We position your quality certifications and Gujarat manufacturing advantages prominently."
+  },
+  {
+    problem: "We respond to enquiries slowly and lose buyers to competitors who reply faster",
+    solution: "We set up automated WhatsApp and email acknowledgements so buyers get an instant response, followed by your team's detailed reply within your working hours."
+  },
+  {
+    problem: "We look like a small vendor online but we run a serious industrial operation in GIDC",
+    solution: "We build a credibility-first website with factory photos, certifications, client logos, and export destination maps that reflect your actual scale and capability."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: "B2B Manufacturer Website",
+    desc: "Professional English-language websites built for industrial exporters. Includes certifications showcase, factory photo gallery, export markets section, and direct enquiry system. Designed to build trust with international procurement buyers."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+    title: "Digital Product Catalogue",
+    desc: "Searchable online catalogues with product specifications, MOQ details, packaging options, and downloadable data sheets. Buyers can browse your full range and submit enquiries product-by-product, all without leaving your website."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+    title: "Export-Focused SEO",
+    desc: "Keyword research targeting how international buyers search for Gujarat and Indian suppliers. We optimise your pages for terms like 'chemical manufacturer Gujarat export' and 'engineering parts supplier India' to attract direct organic enquiries."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>',
+    title: "Google Ads for B2B Buyers",
+    desc: "Targeted Google Search campaigns reaching procurement managers and import agents who are actively searching for your category. We run ads in relevant markets including UAE, Saudi Arabia, Kenya, and Bangladesh, in English and Arabic where needed."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
+    title: "LinkedIn Marketing for Exporters",
+    desc: "LinkedIn company page setup, targeted connection campaigns reaching import managers and distributors, and regular content sharing your factory capabilities, certifications, and export milestones to build long-term B2B relationships."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: "IndiaMART Profile Optimisation",
+    desc: "We optimise your existing IndiaMART listing with better product descriptions, response rate improvements, and trust badge maximisation, while simultaneously building your direct channel so you reduce long-term dependency on the platform."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Industry and Market Research",
+    desc: "We study your product categories, target export markets, key certifications, and main competitors to build a content and SEO strategy specific to your manufacturing niche."
+  },
+  {
+    title: "Website and Catalogue Build",
+    desc: "Custom B2B website with product catalogue, factory gallery, certifications, export map, and enquiry system. Mobile-friendly and fast-loading for buyers accessing from any country."
+  },
+  {
+    title: "Export SEO and Google Ads Launch",
+    desc: "On-page SEO for international buyer keywords, Google Business Profile optimisation for local discovery, and targeted Google Ads campaigns for high-intent export buyer searches."
+  },
+  {
+    title: "Enquiry Management and Growth",
+    desc: "WhatsApp and email automation for instant acknowledgements, monthly reporting on enquiry sources, and ongoing content updates to keep rankings strong as your product range evolves."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "90+", label: "Manufacturers Helped Online" },
+  { value: "2.4x", label: "Average Export Enquiry Growth" },
+  { value: "GIDC to Globe", label: "Gujarat Exporter Expertise" },
+  { value: "48hrs", label: "Website Proposal Turnaround" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🗣️",
+    title: "We Write in Export Buyer Language",
+    desc: "We understand the difference between writing for a local distributor and writing for a procurement team in Dubai or Nairobi. Our content uses the technical terminology and trust signals that international B2B buyers respond to."
+  },
+  {
+    emoji: "🔧",
+    title: "Technical Product Page Expertise",
+    desc: "We know how to present chemical specs, engineering tolerances, textile GSM ratings, and MOQ structures in a way that is both buyer-friendly and Google-rankable. No generic product descriptions."
+  },
+  {
+    emoji: "📍",
+    title: "Deep Gujarat Industrial Belt Knowledge",
+    desc: "We have worked with manufacturers from Vatva GIDC, Naroda, Sanand, Savli, and Surat. We understand the export clusters, trade fair calendars, and certification norms specific to Gujarat industry."
+  },
+  {
+    emoji: "📊",
+    title: "B2B SEO Specialisation",
+    desc: "B2B export SEO is different from retail SEO. Search volumes are lower but buyer intent is extremely high. We focus on the exact search patterns that procurement managers use, not just high-volume generic terms."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Manufacturing Case Study",
+  title: "Ahmedabad Chemical Exporter Breaks Free from IndiaMART Dependency",
+  challenge: "A mid-sized specialty chemical manufacturer in Vatva GIDC had been exporting to the Middle East and East Africa for over 12 years. Despite a strong product line and ISO certification, nearly all their international enquiries came through IndiaMART, where they paid per-lead fees and competed on price alone. They had no English website, no product catalogue online, and no presence in Google search. Their goal was to establish direct buyer relationships and reduce platform fees.",
+  solution: "We built a complete export-ready website with a filterable product catalogue covering 60+ products, downloadable technical data sheets, and an export destination map. We launched export-focused SEO targeting procurement keywords in English and ran Google Ads campaigns targeting buyers in UAE, Saudi Arabia, and Kenya. We also set up a LinkedIn company page with a content calendar highlighting their manufacturing process and quality certifications.",
+  results: [
+    { value: "185%", label: "More Direct Export Enquiries vs Previous Year" },
+    { value: "42%", label: "Reduction in IndiaMART Dependency" },
+    { value: "6", label: "New International Distributor Contacts" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Before DC technolabs, every international buyer found us on IndiaMART and we were just one name among fifty. Now we have our own website that ranks on Google and buyers from UAE contact us directly. The enquiry quality is much better too.",
+    name: "Rajesh Mehta",
+    role: "Director, Mehta Industrial Chemicals, Vatva GIDC",
+    initials: "RM"
+  },
+  {
+    text: "We export textile machinery parts to South East Asia. DC technolabs built us a proper product catalogue website with downloadable spec sheets. Our sales team now shares the link instead of sending PDF emails. Buyers trust us more.",
+    name: "Kirit Patel",
+    role: "Export Manager, Patel Engineering Works, Naroda",
+    initials: "KP"
+  },
+  {
+    text: "They understood our industry from day one. The keywords they targeted for our plastic granules business were exactly what African importers search. Within four months we had enquiries from buyers in Nigeria and Tanzania who found us on Google.",
+    name: "Bhavesh Shah",
+    role: "Partner, Shah Polymers Pvt Ltd, Sanand",
+    initials: "BS"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Export Presence",
+    price: "₹20,000",
+    note: "One-time website + ₹12,000/month marketing",
+    desc: "For small manufacturers taking their first steps online. Clean, professional website with a basic product catalogue and local SEO.",
+    features: [
+      "5-page B2B manufacturer website",
+      "Up to 20 products in online catalogue",
+      "Google Business Profile setup and optimisation",
+      "Basic export keyword SEO",
+      "Enquiry form with WhatsApp notification",
+      "Mobile-optimised design",
+      "Monthly performance report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Export Growth Package",
+    price: "₹45,000",
+    note: "One-time website + ₹22,000/month marketing",
+    desc: "For established manufacturers ready to capture international buyers directly through Google and LinkedIn.",
+    features: [
+      "10-page export-ready website",
+      "Up to 60 products with spec sheets",
+      "Downloadable product data sheets (PDF)",
+      "Export markets map and certifications page",
+      "Google Ads for B2B buyer keywords",
+      "LinkedIn company page and monthly content",
+      "IndiaMART profile optimisation",
+      "Bi-weekly strategy calls",
+      "Enquiry tracking and CRM integration"
+    ],
+    btnLabel: "Start Growing",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Enterprise Industrial",
+    price: "₹80,000+",
+    note: "Custom pricing based on scope",
+    desc: "For large manufacturers with complex product ranges, multiple export markets, and multi-language requirements.",
+    features: [
+      "Custom multi-section industrial website",
+      "Unlimited product catalogue with advanced filters",
+      "Arabic or French product page translations",
+      "Multi-country Google Ads campaigns",
+      "LinkedIn lead generation campaigns",
+      "Trade fair digital presence support",
+      "Dedicated account manager",
+      "Monthly strategy review and reporting"
+    ],
+    btnLabel: "Let's Discuss",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do I really need my own website if I am already on IndiaMART?",
+    a: "IndiaMART is a useful directory but it comes with significant limitations. You pay per-lead fees, you compete with dozens of similar suppliers on the same page, and buyers have no way to assess your quality independently. Your own website lets you control the narrative, showcase your factory, certifications, and client references, and receive enquiries at zero per-lead cost. Over 18 to 24 months, the cost savings on IndiaMART fees typically exceed the cost of your website."
+  },
+  {
+    q: "Can a website actually help us get enquiries from buyers in the Middle East or Africa?",
+    a: "Yes, provided the website is built with export SEO in mind. Buyers in UAE, Saudi Arabia, Kenya, and Nigeria use Google to search for Indian suppliers in categories like chemicals, textiles, engineering parts, and agro-products. If your website is optimised for the keywords these buyers use, you can receive direct enquiries from international markets within 3 to 6 months of launch."
+  },
+  {
+    q: "What is export-focused SEO and how is it different from regular SEO?",
+    a: "Regular SEO focuses on ranking for high-volume local or national searches. Export-focused SEO targets the lower-volume but high-intent searches that procurement managers and importers use when looking for Indian suppliers. Terms like 'ISO certified chemical manufacturer Gujarat export' or 'bulk textile supplier India MOQ 500kg' have low search volume but produce extremely valuable enquiries. We prioritise these over generic high-competition terms."
+  },
+  {
+    q: "How should my product catalogue be structured on the website?",
+    a: "The ideal structure groups products by category with a filterable grid. Each product page should include the product name, CAS number if applicable, specifications, available grades or variants, packaging options, MOQ, certifications relevant to that product, and a direct enquiry button. Downloadable spec sheets and safety data sheets add significant credibility with international buyers."
+  },
+  {
+    q: "Should my manufacturer website be in English only or also in Gujarati or Hindi?",
+    a: "For export-focused manufacturers, English is the priority. International buyers require English and a non-English website creates an immediate credibility barrier. If your business also serves domestic clients in Gujarat, we recommend a primarily English site with a Gujarati or Hindi section for local agents and distributors. For Arab markets, we can add Arabic product descriptions as part of the enterprise package."
+  },
+  {
+    q: "How do Google Ads for B2B manufacturing work?",
+    a: "We run Google Search campaigns targeting keywords used by importers and procurement managers. Ads appear when a buyer in a target country searches for a product in your category. Clicks go to dedicated landing pages matched to each product group or export market. Campaigns are structured by geography, product line, and buyer type. We track form submissions and WhatsApp contacts as conversions, not just clicks."
+  },
+  {
+    q: "How long does it take to see results from export SEO?",
+    a: "Most manufacturers see the first organic ranking improvements within 6 to 8 weeks for lower-competition export keywords. For more competitive categories, first-page rankings typically take 4 to 6 months. Google Ads produce immediate visibility from day one of launch. We recommend running both in parallel during the first 6 months."
+  },
+  {
+    q: "We already have a basic website. Do we need to rebuild it or can you work with what we have?",
+    a: "We will audit your existing website first. If the structure is sound, we can work with it, improving product pages, adding a catalogue section, fixing technical SEO issues, and improving the overall design. If the site is very old, not mobile-friendly, or built on a platform that limits what we can do, a fresh build is usually faster and more cost-effective in the long run."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Manufacturers in Gujarat | DC technolabs Ahmedabad"
+  description="B2B websites, export-focused SEO, and Google Ads for manufacturers, industrial exporters, and B2B suppliers in Gujarat. We help GIDC manufacturers get direct international enquiries."
+  canonical="https://dctechnolabs.in/industries/manufacturing/"
+  schemaJson={schemaJson}
+  badge="🏭 Manufacturing Digital Marketing"
+  heroH1="B2B Websites and Digital Marketing for"
+  heroHighlight="Manufacturers in Gujarat"
+  heroDesc="Gujarat is one of India's strongest manufacturing and export states. Yet most factories in Vatva, Naroda, Sanand, and GIDC estates are invisible online. We change that with export-ready websites, digital product catalogues, and SEO that puts your factory in front of international buyers directly."
+  heroStats={[
+    { value: "90+", label: "Manufacturers Online" },
+    { value: "2.4x", label: "Export Enquiry Growth" },
+    { value: "B2B Export", label: "Specialists" }
+  ]}
+  formTitle="Get a Free Export Website Strategy"
+  formSub="Tell us about your factory and export markets."
+  s2Label="Why Manufacturers Need Digital Presence"
+  s2Title="International Buyers Are Searching for You Right Now"
+  s2Subtitle="The world's import managers use Google before they pick up the phone. Is your factory showing up?"
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="Challenges Gujarat Manufacturers Face Online"
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="Digital Services Built for B2B Manufacturers"
+  s4Subtitle="Every service is built around how industrial buyers search, evaluate, and make purchasing decisions."
+  services={services}
+  s5Label="How We Work"
+  s5Title="From Factory Gate to Global Buyer in 4 Steps"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="We Understand Manufacturing, Not Just Marketing"
+  s7Subtitle="We have worked with dozens of GIDC manufacturers across chemicals, textiles, engineering, plastics, and agro-processing."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Gujarat Manufacturers Say About Us"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="Clear Pricing for Manufacturer Marketing"
+  s10Subtitle="Transparent, fixed pricing. No hidden fees. Every package includes onboarding, strategy, and ongoing support."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Questions from Gujarat Manufacturers"
+  faqItems={faqItems}
+  ctaTitle="Put Your Factory on the Global Map"
+  ctaSubtitle="Buyers are searching for Gujarat manufacturers right now. Let us make sure they find you before they find your competitor. Book a free strategy call and we will show you exactly what is possible for your product category."
+/>

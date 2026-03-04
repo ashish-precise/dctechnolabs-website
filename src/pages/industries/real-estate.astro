@@ -1,0 +1,326 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Real Estate Website Design and Digital Marketing in Ahmedabad",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DC technolabs",
+    "url": "https://dctechnolabs.in",
+    "telephone": "+91 9662608986",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Ahmedabad, Gujarat",
+  "description": "DC technolabs provides specialised website design, property listing portals, Google Ads, and digital marketing services for builders, developers, and property consultants in Ahmedabad and Gujarat."
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🔍",
+    title: "Property Buyers Start Their Search Online",
+    desc: "Over 85% of homebuyers in Gujarat begin their property search on Google before ever speaking to a broker or visiting a site. If your project is not appearing for searches like 'flats in South Bopal' or '3BHK apartments near SG Highway', your marketing budget is invisible to your best prospects."
+  },
+  {
+    emoji: "🎬",
+    title: "Virtual Tours and Video Are Now the Norm",
+    desc: "Buyers in Ahmedabad increasingly expect virtual walkthroughs, drone footage, and detailed video tours before they agree to a site visit. Builders who offer this digital experience convert enquiries to site visits at significantly higher rates than those with only static images."
+  },
+  {
+    emoji: "💰",
+    title: "EMI Calculators and Loan Information Convert Buyers",
+    desc: "Many buyers in Gujarat are first-time homeowners comparing affordability. Landing pages with EMI calculators, bank loan eligibility information, and clear floor plan pricing dramatically reduce the hesitation barrier and increase enquiry rates from genuinely interested buyers."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We have no dedicated property listing website for our projects",
+    solution: "We build fully functional property listing websites and project micro-sites with gallery, floor plans, amenities, EMI calculator, RERA number, and lead capture forms. Buyers get everything they need in one place without calling a broker."
+  },
+  {
+    problem: "We depend on brokers who charge 2% commission and control all the leads",
+    solution: "A strong direct digital presence means buyers contact you first instead of going through brokers. We have helped Ahmedabad builders reduce broker dependency significantly while generating direct enquiries at a fraction of the brokerage cost."
+  },
+  {
+    problem: "We get no WhatsApp enquiries even though buyers clearly prefer WhatsApp",
+    solution: "We integrate WhatsApp lead capture buttons, automated WhatsApp reply sequences, and WhatsApp Business API-connected forms across your project pages so interested buyers can enquire instantly in their preferred channel."
+  },
+  {
+    problem: "Our project website loads so slowly that buyers leave before seeing the gallery",
+    solution: "Real estate websites with large images and floor plans often suffer from poor performance. We optimise every image, implement lazy loading, and use CDN delivery so your property pages load fast even on mobile connections in Gujarat."
+  },
+  {
+    problem: "Our competitors are ranking on Google for 'apartments in Ahmedabad' and we are nowhere",
+    solution: "We run targeted local SEO campaigns for specific project locations, neighbourhood searches, and property type queries. Combined with Google Ads for high-intent buyer searches, we put your project in front of serious buyers consistently."
+  },
+  {
+    problem: "We took professional photos but have no way to use drone footage on our website",
+    solution: "We integrate drone video backgrounds, YouTube embed gallery sections, and virtual tour players directly into your project website. Buyers get a compelling visual experience that makes them want to book a site visit immediately."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+    title: "Real Estate Website Design",
+    desc: "Beautiful, fast-loading project websites and builder portfolio sites designed specifically for the Ahmedabad property market. Includes floor plans, gallery, amenities, RERA information, and EMI calculator."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: "Property Listing Portal",
+    desc: "Custom property listing systems where you can showcase multiple projects, unit types, and pricing configurations. Buyers can filter by bedroom count, area, and price range and submit enquiries directly."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+    title: "Google Ads for Homebuyers",
+    desc: "Targeted Google Ads campaigns reaching buyers searching for properties in Ahmedabad. We target high-intent keywords for your specific locations like 'affordable flats in Bopal' and 'luxury villas near Prahlad Nagar'."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>',
+    title: "Virtual Tour Integration",
+    desc: "We integrate 360-degree virtual tours, drone footage, and video walkthroughs directly into your property website. Buyers can explore your project from their phone in Surat or Mumbai before booking a site visit to Ahmedabad."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+    title: "WhatsApp Lead Generation",
+    desc: "WhatsApp Business integration, automated greeting messages, lead capture forms connected to WhatsApp, and follow-up sequence setup so every enquiry gets an instant response and no lead falls through the cracks."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: "Local SEO for Builders",
+    desc: "Rank for neighbourhood-specific searches like 'new residential projects in South Bopal' and 'GIFT City apartments for sale'. Local SEO brings organic buyer traffic that grows every month without ongoing ad spend."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Market Research",
+    desc: "We study your project location, target buyer profile, competitor websites, and the specific search terms Ahmedabad property buyers are using. This informs every creative and strategic decision we make."
+  },
+  {
+    title: "Website and Listing Setup",
+    desc: "We build your project website or property listing portal with all unit configurations, gallery, floor plans, RERA registration number, amenities, location maps, and EMI calculator. Everything buyers need to make their decision."
+  },
+  {
+    title: "Paid Ads Launch",
+    desc: "We launch Google Ads and Facebook Property Ads targeting buyers in specific income brackets and locations. Ads are designed to drive direct WhatsApp enquiries and site visit bookings rather than just website clicks."
+  },
+  {
+    title: "Lead Nurturing and Reporting",
+    desc: "We set up WhatsApp follow-up sequences for enquiries that did not convert immediately. You receive weekly lead reports showing enquiry volume, cost per lead, and site visit conversion rates."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "150+", label: "Real Estate Projects Launched" },
+  { value: "4.1x", label: "Lead Generation Growth" },
+  { value: "48hr", label: "Average Campaign Go-Live" },
+  { value: "₹500Cr+", label: "Property Sales Supported" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "📋",
+    title: "RERA Compliance Awareness",
+    desc: "Every property website we build includes your RERA registration number prominently as required. We design content and calls to action that are appropriate for RERA-registered projects and avoid regulatory pitfalls in property advertising."
+  },
+  {
+    emoji: "🚁",
+    title: "Drone and Photography Integration",
+    desc: "We work with your existing drone footage and photography assets to create stunning visual sections on your project website. No need to hire a separate web agency after your shoot."
+  },
+  {
+    emoji: "🏙️",
+    title: "Deep Ahmedabad Market Knowledge",
+    desc: "We understand the specific buyer profiles around GIFT City, SG Highway, Bopal, South Bopal, Prahlad Nagar, and Sanand. This hyper-local knowledge makes our targeting and copy far more effective than generic real estate marketing."
+  },
+  {
+    emoji: "💬",
+    title: "WhatsApp Automation for Property Enquiries",
+    desc: "Indian property buyers overwhelmingly prefer WhatsApp. We set up automated welcome messages, enquiry logging, and follow-up reminders so your sales team focuses on hot leads instead of chasing cold enquiries manually."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Case Study: Ahmedabad Residential Builder",
+  title: "SG Highway Project Goes From Slow Enquiries to ₹12 Crore Sold in 60 Days",
+  challenge: "A mid-size Ahmedabad builder launching a 2BHK and 3BHK residential project near SG Highway had a project brochure PDF and a basic website page but was generating fewer than 10 genuine enquiries per week. Sales velocity was poor and the builder was relying entirely on broker channels with high commissions eating into margins.",
+  solution: "We built a dedicated project landing page with drone video, floor plan downloads, virtual tour embed, and EMI calculator. We launched Google Ads targeting 'flats near SG Highway', 'new projects Ahmedabad', and 15 related keyword variations. WhatsApp forms with instant automated responses were set up so every enquiry got a reply within 60 seconds, day or night.",
+  results: [
+    { value: "312%", label: "More Site Visit Bookings" },
+    { value: "₹12Cr", label: "Sold in First 60 Days" },
+    { value: "58%", label: "Reduction in Cost Per Lead" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We launched our South Bopal project entirely through DC technolabs' digital marketing. Within 45 days we had 180 genuine enquiries and our broker dependency dropped sharply. The WhatsApp automation they set up was a game-changer for our sales team.",
+    name: "Bhavin Mehta",
+    role: "Managing Director, Mehta Constructions, Ahmedabad",
+    initials: "BM"
+  },
+  {
+    text: "Our GIFT City commercial project needed a very specific buyer audience. They targeted NRIs and corporate investors with precision and brought in enquiries from buyers in Mumbai and the US who were interested in GIFT City office spaces. Impressive targeting.",
+    name: "Krunal Shah",
+    role: "Director, Shah Realty Group, Gandhinagar",
+    initials: "KS"
+  },
+  {
+    text: "I was spending Rs 2 lakh per month with a broker and getting maybe 15 site visits. DC technolabs' Google Ads gave me 60 site visits at Rs 80,000 ad spend. The ROI comparison was not even close. I should have done this two projects ago.",
+    name: "Dhruv Patel",
+    role: "Builder and Developer, Prahlad Nagar, Ahmedabad",
+    initials: "DP"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Project Launch",
+    price: "₹18,000/mo",
+    note: "Best for single-project launches and small builders",
+    desc: "A strong digital presence for one residential or commercial project in Ahmedabad.",
+    features: [
+      "Project landing page design",
+      "Google My Business for builder brand",
+      "Basic Google Ads campaign setup",
+      "WhatsApp enquiry button integration",
+      "RERA number prominent display",
+      "Monthly enquiry report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Builder",
+    price: "₹32,000/mo",
+    note: "Best for active builders with 2 to 4 ongoing projects",
+    desc: "Full digital marketing engine generating consistent site visit bookings and direct buyer enquiries.",
+    features: [
+      "Everything in Project Launch",
+      "Multi-project listing website",
+      "Advanced Google Ads with remarketing",
+      "Facebook and Instagram Property Ads",
+      "WhatsApp automation sequences",
+      "EMI calculator and floor plan section",
+      "Virtual tour or drone video integration",
+      "Weekly lead performance reports"
+    ],
+    btnLabel: "Best Value for Builders",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Developer Premium",
+    price: "₹55,000/mo",
+    note: "For large developers with multiple projects or commercial inventory",
+    desc: "Enterprise-level digital marketing for established builders managing significant inventory in Ahmedabad and Gujarat.",
+    features: [
+      "Everything in Growth Builder",
+      "Custom property listing portal with admin panel",
+      "NRI and outstation buyer campaigns",
+      "YouTube video campaign production support",
+      "Broker portal and co-marketing support",
+      "GIFT City and commercial project specialisation",
+      "Dedicated account manager",
+      "CRM integration and lead scoring"
+    ],
+    btnLabel: "Talk to Our Team",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you ensure RERA compliance in the website content and ads you create?",
+    a: "Yes. Every property website we build prominently displays the RERA registration number for each project. Our ad copy and content avoid making promises that would violate RERA regulations on property advertising, such as guaranteed returns or possession date commitments without proper disclaimers. We recommend all builders have their legal team review final content."
+  },
+  {
+    q: "Can you build a property listing portal with multiple projects under one brand?",
+    a: "Absolutely. We build custom real estate portals where builders can list multiple projects, each with their own gallery, floor plans, unit configurations, pricing, and lead capture. The admin panel lets you update project details, mark units as sold, and download leads without needing a developer."
+  },
+  {
+    q: "How do Google Ads work for real estate in Ahmedabad? What is a realistic cost per lead?",
+    a: "Google Ads for real estate in Ahmedabad typically cost between Rs 200 and Rs 800 per genuine enquiry depending on project type, location, and competition. Luxury projects near Prahlad Nagar tend to have higher cost per lead than mid-income projects in Bopal or Sanand. We focus on quality over volume to ensure enquiries are from genuinely interested buyers with appropriate budgets."
+  },
+  {
+    q: "Can you target NRI buyers from the US, UK, and Middle East for GIFT City projects?",
+    a: "Yes. We run international targeting campaigns on Google and Facebook reaching NRI audiences interested in Gujarat real estate. GIFT City in particular attracts NRI investment interest. We tailor the messaging, landing pages, and follow-up communication to address the specific concerns of NRI buyers such as power of attorney, virtual tours replacing physical visits, and bank loan processes."
+  },
+  {
+    q: "How do you handle virtual tours? Do we need to hire a separate company?",
+    a: "If you already have 360-degree tour files, drone footage, or videos, we integrate them directly into your website. If you need virtual tour creation, we can recommend trusted photographers and videographers in Ahmedabad who we regularly work with. The integration into the website is always handled by us."
+  },
+  {
+    q: "What makes your real estate marketing different from generic digital agencies in Ahmedabad?",
+    a: "We understand the Ahmedabad property market deeply. We know which localities are seeing buyer interest, what price points are realistic in each micromarket, how buyers in Gujarat research property differently from buyers in Mumbai, and what RERA requires. Generic agencies apply real estate marketing templates that ignore all of this local context."
+  },
+  {
+    q: "Can you set up automated WhatsApp responses for property enquiries?",
+    a: "Yes. We set up WhatsApp Business API-connected forms or WhatsApp click-to-chat buttons that trigger instant automated messages when a buyer enquires. These messages acknowledge the enquiry, share brochure links, and ask qualifying questions. This means every enquiry gets a response in under 60 seconds even if your sales team is not online."
+  },
+  {
+    q: "We are launching a new project in 6 weeks. Can you be ready in time?",
+    a: "Yes. Our standard project launch timeline from brief to live website and running ads is 10 to 14 working days. If you are on a tighter timeline, we offer rapid deployment that can have a project landing page and Google Ads live within 5 to 7 working days. The earlier you brief us, the better the result."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Real Estate Website Design and Digital Marketing in Ahmedabad | DC technolabs"
+  description="DC technolabs helps builders, developers, and property consultants in Ahmedabad generate direct buyer enquiries through project websites, Google Ads, WhatsApp lead generation, and local SEO. RERA-aware digital marketing for Gujarat real estate."
+  canonical="https://dctechnolabs.in/industries/real-estate/"
+  schemaJson={schemaJson}
+  badge="🏠 Real Estate Digital Marketing"
+  heroH1="Real Estate Websites and"
+  heroHighlight="Digital Marketing in Ahmedabad"
+  heroDesc="We help builders, developers, and property consultants across Ahmedabad generate direct buyer enquiries and reduce broker dependency. From GIFT City commercial projects to affordable housing in Bopal and South Bopal, we know how buyers in Gujarat search for property and how to put your project in front of them."
+  heroStats={[
+    { value: "150+", label: "Projects Launched" },
+    { value: "4.1x", label: "Lead Generation Growth" },
+    { value: "₹500Cr+", label: "Property Sales Supported" }
+  ]}
+  formTitle="Get a Free Property Marketing Consultation"
+  formSub="Tell us about your project. We will show you how to generate direct buyer enquiries at lower cost than broker commissions."
+  s2Label="Industry Overview"
+  s2Title="How Property Buyers in Gujarat Search and Decide Online"
+  s2Subtitle="The Ahmedabad property market has shifted dramatically digital. Here is what builders and developers need to understand to compete effectively."
+  overviewPoints={overviewPoints}
+  s3Label="Common Challenges"
+  s3Title="Problems We Hear from Ahmedabad Builders Every Week"
+  s3Subtitle="These are the real challenges holding back real estate sales in Ahmedabad. We solve them with proven digital strategies."
+  challenges={challenges}
+  s4Label="What We Offer"
+  s4Title="Digital Marketing Services Built for Real Estate in Ahmedabad"
+  s4Subtitle="Every service is designed around how property buyers in Gujarat actually research and make purchasing decisions."
+  services={services}
+  s5Label="How We Work"
+  s5Title="Our Process for Real Estate Digital Marketing Success"
+  processSteps={processSteps}
+  stats={stats}
+  s7Label="Why Choose Us"
+  s7Title="Why Ahmedabad Builders Choose DC technolabs"
+  s7Subtitle="We are not a generic digital agency. We understand the Ahmedabad property market, RERA requirements, and how buyers in Gujarat think."
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Label="Client Reviews"
+  s9Title="What Builders and Developers Say About Our Work"
+  testimonials={testimonials}
+  s10Label="Investment"
+  s10Title="Real Estate Digital Marketing Pricing"
+  s10Subtitle="Transparent monthly packages. Ad spend budget is managed separately with full reporting on every rupee spent."
+  pricingTiers={pricingTiers}
+  s11Label="FAQ"
+  s11Title="Frequently Asked Questions About Real Estate Digital Marketing"
+  faqItems={faqItems}
+  ctaTitle="Start Generating Quality Property Leads Today"
+  ctaSubtitle="Book a free 30-minute consultation. We will review your project, show you what your competitors are doing online, and present a clear plan to generate direct buyer enquiries for your Ahmedabad property project."
+/>

@@ -1,0 +1,330 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing and E-commerce for Fashion Brands in Ahmedabad",
+  "description": "Instagram shop setup, Shopify e-commerce, influencer campaigns, and performance marketing for apparel brands, boutiques, ethnic wear, and fashion retailers in Ahmedabad, Gujarat.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DCTechnoLabs",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Gujarat"
+  },
+  "serviceType": "Fashion Brand Digital Marketing"
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "🛍️",
+    title: "E-commerce Beyond the Shop Floor",
+    desc: "Sell your sarees, kurtis, lehengas, and accessories to customers across Gujarat and all of India without depending only on Law Garden foot traffic or Manek Chowk wholesale relationships."
+  },
+  {
+    emoji: "📱",
+    title: "Instagram and Reels That Sell",
+    desc: "Fashion sells visually. We create Instagram content, Reels, and stories that showcase your pieces to the right audience and convert views into enquiries, visits, and online purchases."
+  },
+  {
+    emoji: "🎯",
+    title: "Performance Marketing for Fashion",
+    desc: "Facebook and Instagram ads that target fashion buyers by age, interest, location, and purchase behaviour. Every rupee spent is tracked against actual sales and revenue."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "All our sales happen in-store at Law Garden or through wholesalers. We have no online sales at all",
+    solution: "We build Shopify or WooCommerce stores for your brand with beautiful product photography presentation, size guides, and a checkout experience that converts mobile visitors into paying customers."
+  },
+  {
+    problem: "We have no Instagram shop and people DM us to ask prices but rarely buy",
+    solution: "We set up a fully functional Instagram Shop with product catalogue, tagged posts, and a checkout flow so customers can buy directly from the app without losing momentum."
+  },
+  {
+    problem: "Myntra and Amazon are selling fast fashion that is taking our customers away",
+    solution: "Your advantage is uniqueness, craftsmanship, and authentic Gujarat textile heritage. We position your brand around what makes you different and attract customers who value that."
+  },
+  {
+    problem: "We have no online catalogue. Customers who visit once cannot remember what they saw",
+    solution: "A digital lookbook and catalogue website lets customers browse your collection, share pieces with family, and come back when they are ready to buy, even if they first visited your store months ago."
+  },
+  {
+    problem: "We do not know how to create Reels or what to post on Instagram for a fashion brand",
+    solution: "We create and manage your Instagram content: weekly Reels, outfit inspiration posts, fabric detail shots, styling videos, and festival offer graphics designed to grow your following and generate sales."
+  },
+  {
+    problem: "We sell only in Gujarat but our designs could sell across India and we do not know how to reach that market",
+    solution: "Performance marketing on Meta targeting ethnic wear buyers across India, combined with Shopify shipping and pan-India delivery setup, can turn a local brand into a national one."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>',
+    title: "Fashion E-commerce Website",
+    desc: "Custom Shopify or WooCommerce stores designed for fashion brands. Beautiful collection pages, product detail pages with multiple photos, size guides, and a smooth mobile checkout experience."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    title: "Instagram Shop Setup",
+    desc: "Full Instagram Shop setup with product catalogue, tagged posts, story shopping links, and integration with your website inventory. Customers can buy without leaving the Instagram app."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>',
+    title: "Shopify for Fashion Brands",
+    desc: "Shopify setup and customisation specifically for ethnic wear, saree, kurti, and lehenga brands. Collection organisation, size and colour variants, GST invoicing, and Razorpay payment integration included."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    title: "Influencer Campaign Management",
+    desc: "We identify and manage collaborations with Gujarat and India fashion influencers who match your brand aesthetic. Micro-influencers with engaged fashion audiences deliver better ROI than celebrity placements."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+    title: "Lookbook Landing Pages",
+    desc: "Seasonal lookbook pages for Navratri, Diwali, wedding season, and summer collections. High-quality presentation of your latest designs that can be shared on WhatsApp and social media to drive sales."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    title: "Performance Marketing for Fashion",
+    desc: "Facebook and Instagram ads targeting fashion buyers by interest, age, location, and lookalike audiences based on your existing customers. Campaigns optimised for purchases and revenue, not just clicks."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Brand and Product Audit",
+    desc: "We review your designs, pricing, target customer, and current social presence to build a digital strategy that matches your brand positioning and growth goals."
+  },
+  {
+    title: "Store and Shop Setup",
+    desc: "Shopify or WooCommerce store goes live with your full collection. Instagram Shop is set up and connected. All products are photographed and presented to maximise conversions."
+  },
+  {
+    title: "Content and Following",
+    desc: "Weekly Instagram content and Reels build your brand following and product awareness. Content is planned around festival seasons, new arrivals, and trending fashion moments."
+  },
+  {
+    title: "Performance Campaigns",
+    desc: "Facebook and Instagram ads target buyers who match your ideal customer profile. Campaigns launch for Navratri, Diwali, wedding season, and key sale periods."
+  },
+  {
+    title: "Scale and Optimise",
+    desc: "Monthly review of top-selling products, best-performing ad creatives, and customer acquisition cost. We double down on what is working and cut what is not."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "100+", label: "Fashion Brands Served" },
+  { value: "3.6x", label: "Online Sales Growth" },
+  { value: "₹12L+", label: "Revenue in First 90 Days" },
+  { value: "28,000+", label: "Instagram Followers Built" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🎨",
+    title: "We Understand Gujarat Textile Culture",
+    desc: "Bandhani, Patola, Chaniya choli, Kediyu, and contemporary ethnic fusion. We understand the Ahmedabad fashion market and know what resonates with Gujarat buyers during wedding season and Navratri."
+  },
+  {
+    emoji: "📸",
+    title: "Content That Sells Fashion",
+    desc: "Fashion sells on emotion and aspiration. Our content team creates Reels, photography directions, and captions that make people want to wear your pieces before they even check the price."
+  },
+  {
+    emoji: "🛒",
+    title: "E-commerce That Works on Mobile",
+    desc: "The vast majority of fashion e-commerce purchases in India happen on mobile. Every store we build is optimised for a smooth mobile buying experience from product page to checkout."
+  },
+  {
+    emoji: "📅",
+    title: "Festival Season Campaign Planning",
+    desc: "Navratri, Diwali, wedding season, Eid, and New Year. We build your annual campaign calendar so your inventory is promoted and selling before each peak demand period arrives."
+  },
+  {
+    emoji: "🎯",
+    title: "Ethnic Wear Audience Targeting",
+    desc: "We have built custom audience segments for ethnic wear buyers in Gujarat, Rajasthan, Maharashtra, and across India. Your ads reach people who actually buy ethnic and traditional fashion."
+  },
+  {
+    emoji: "🌏",
+    title: "Local to National Brand Building",
+    desc: "Many of our fashion brand clients started as local Ahmedabad shops and now sell pan-India. We build the digital infrastructure to make that scale-up possible and manageable."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Ethnic Wear Brand, Law Garden Area, Ahmedabad",
+  title: "How a Law Garden Ethnic Wear Brand Launched Pan-India and Made ₹12L in 90 Days",
+  challenge: "A family-run ethnic wear brand in the Law Garden area of Ahmedabad sold exclusively from their stall and through a few wholesale relationships. Their designs, particularly Bandhani sarees and hand-embroidered kurtis, were genuinely distinctive. But sales were entirely dependent on foot traffic and the owner's personal network. They had no Instagram, no website, and no way to reach buyers outside Ahmedabad.",
+  solution: "We built a Shopify store presenting their collection beautifully with professional styling direction and photography guidance. Instagram Shop was set up with tagged products. A Reels content strategy showcasing the craft behind their pieces attracted an organic following. Meta performance marketing targeted ethnic fashion buyers in Gujarat, Maharashtra, and Rajasthan with a specific Navratri collection campaign. WhatsApp ordering was integrated for customers who preferred it.",
+  results: [
+    { value: "₹12L", label: "Online Revenue in First 90 Days" },
+    { value: "28,000", label: "Instagram Followers in 6 Months" },
+    { value: "Pan-India", label: "Fashion Brand Launched Successfully" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were selling only from our Law Garden shop for 15 years. DCTechnoLabs set up our Shopify store and Instagram Shop in less than 4 weeks. During our first Navratri campaign we received orders from Mumbai, Pune, and even Delhi. It still feels unbelievable.",
+    name: "Asha Ben Mehta",
+    role: "Owner, Ethnic Wear Brand, Law Garden Ahmedabad",
+    initials: "AM"
+  },
+  {
+    text: "The Reels they create for our saree collection are genuinely beautiful. We went from 800 followers to 22,000 in four months without any paid following tricks. Real fashion buyers who enquire and purchase. Our DMs are now full of genuine orders every day.",
+    name: "Hemal Kapadia",
+    role: "Owner, Saree Boutique, Manek Chowk Area",
+    initials: "HK"
+  },
+  {
+    text: "We are a clothing exporter in Ahmedabad and wanted to build a B2C brand alongside our wholesale business. DCTechnoLabs built our website and started Instagram marketing. Within six months we have a proper brand presence and direct retail customers from across India.",
+    name: "Jignesh Shah",
+    role: "Textile Exporter turned Fashion Brand, Ahmedabad",
+    initials: "JS"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Brand Starter",
+    price: "₹12,000/mo",
+    note: "Minimum 3-month commitment",
+    desc: "For boutiques and small fashion brands setting up their first digital presence and online store.",
+    features: [
+      "Shopify or WooCommerce store setup",
+      "Instagram Shop configuration",
+      "8 Instagram posts and 4 Reels per month",
+      "Basic product catalogue setup",
+      "WhatsApp ordering integration",
+      "Monthly performance report"
+    ],
+    btnLabel: "Launch My Brand",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Brand",
+    price: "₹25,000/mo",
+    note: "Most popular for active fashion brands",
+    desc: "For fashion brands ready to scale online sales through performance marketing and consistent content.",
+    features: [
+      "Custom fashion e-commerce website",
+      "Full Instagram and Facebook management",
+      "Meta performance marketing campaigns",
+      "Seasonal campaign planning and execution",
+      "Influencer collaboration management",
+      "Lookbook landing pages for key collections",
+      "Monthly strategy and sales review call"
+    ],
+    btnLabel: "Scale My Fashion Brand",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Authority Brand",
+    price: "₹45,000/mo",
+    note: "For established brands scaling pan-India",
+    desc: "Full-scale digital marketing for fashion brands with multiple collections, pan-India ambitions, and serious revenue targets.",
+    features: [
+      "Premium multi-collection e-commerce site",
+      "Full Meta Ads management with dedicated budget",
+      "Influencer campaign management",
+      "12+ content pieces per month including Reels",
+      "Seasonal lookbook campaigns",
+      "WhatsApp and email marketing automation",
+      "Dedicated account manager",
+      "Weekly performance reporting and optimisation"
+    ],
+    btnLabel: "Discuss Your Brand",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Is Shopify the best platform for a fashion brand selling ethnic wear in India?",
+    a: "Shopify works very well for Indian fashion brands. It supports Razorpay and PayU for payments, handles GST invoicing, manages size and colour variants cleanly, and works well on mobile. For brands with straightforward catalogues, Shopify is our default recommendation. For brands with very complex customisation needs or large wholesale operations, WooCommerce may be more flexible."
+  },
+  {
+    q: "Can you set up an Instagram Shop for our saree or kurti brand?",
+    a: "Yes. We set up your Instagram Shop from scratch including the Facebook Commerce Manager account, product catalogue upload, tagging products in posts and Reels, and shopping story integration. The whole setup typically takes 5 to 7 days. Once live, customers can buy directly from Instagram without leaving the app."
+  },
+  {
+    q: "How do we sell our ethnic wear to buyers in other cities like Mumbai, Delhi, or Rajasthan?",
+    a: "Meta performance marketing on Facebook and Instagram lets us target fashion buyers in specific cities by interest, behaviour, and lookalike audiences based on your existing customers. Combined with a Shopify store that handles national shipping and payment, reaching buyers across India is completely achievable for a small Ahmedabad brand."
+  },
+  {
+    q: "What kind of Instagram Reels work well for a fashion brand in Gujarat?",
+    a: "For ethnic wear brands, Reels that showcase the craftsmanship process, behind-the-scenes fabric selection, styling multiple looks from one piece, and festival outfit inspiration all perform very well. Real customers wearing your pieces outperform studio shots almost every time. We create a content mix that balances both."
+  },
+  {
+    q: "How important is it to have a website versus selling only on Instagram?",
+    a: "Having your own website gives you complete control over the buyer experience, customer data, and brand presentation. Instagram can ban or restrict accounts without warning. A website with SEO can also attract organic buyers who search Google for specific products. We recommend both working together, with Instagram driving discovery and your website handling the purchase."
+  },
+  {
+    q: "Can you handle influencer marketing for a fashion brand in Gujarat?",
+    a: "Yes. We identify and manage collaborations with fashion influencers who match your brand aesthetic and price point. For ethnic and traditional fashion, we have relationships with Gujarat-based micro-influencers who have genuinely engaged audiences of ethnic fashion buyers. We handle outreach, briefs, content review, and performance tracking."
+  },
+  {
+    q: "How do we create seasonal campaigns for Navratri or Diwali fashion collections?",
+    a: "We plan your festival campaign calendar at least 8 weeks in advance. Navratri collections are promoted from mid-August onwards. Diwali collections launch in September. Wedding season content starts in October. This advance planning ensures your inventory sells before the season, not after. Campaign budgets are concentrated in the 2 to 3 weeks of peak buying."
+  },
+  {
+    q: "How much should we spend on Facebook and Instagram ads for a fashion brand?",
+    a: "For a fashion brand starting with performance marketing in India, a monthly Meta Ads budget of ₹15,000 to ₹30,000 is a reasonable starting point for meaningful testing and initial sales generation. During peak festival seasons we recommend increasing this. We provide revenue projections based on your average order value and target sales before any campaign starts."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing and E-commerce for Fashion Brands in Ahmedabad | DCTechnoLabs"
+  description="Instagram shop setup, Shopify e-commerce, influencer campaigns, and performance marketing for ethnic wear brands, boutiques, and fashion retailers in Ahmedabad, Gujarat."
+  canonical="https://dctechnolabs.in/industries/fashion/"
+  schemaJson={schemaJson}
+  badge="👗 Fashion Digital Marketing"
+  heroH1="Digital Marketing and E-commerce for Fashion Brands in"
+  heroHighlight="Ahmedabad"
+  heroDesc="Take your sarees, kurtis, lehengas, and ethnic wear beyond Law Garden and Manek Chowk. We help Ahmedabad fashion brands launch Shopify stores, build Instagram audiences, and sell pan-India through performance marketing."
+  heroStats={[
+    { value: "100+", label: "Fashion Brands Served" },
+    { value: "3.6x", label: "Online Sales Growth" },
+    { value: "Instagram + E-commerce", label: "Experts" }
+  ]}
+  formTitle="Get Your Free Fashion Brand Strategy"
+  formSub="Tell us about your brand and collections and we will share a plan within 24 hours."
+  s2Title="Why Ahmedabad Fashion Brands Need a Digital Sales Channel"
+  s2Subtitle="Gujarat's textile and fashion heritage is extraordinary. The brands that build a digital presence alongside their physical stores grow faster, reach more buyers, and are not vulnerable to seasonal foot traffic drops."
+  overviewPoints={overviewPoints}
+  s3Title="The Challenges Fashion Brands in Ahmedabad Face Online"
+  challenges={challenges}
+  s4Title="Digital Marketing and E-commerce Services for Fashion Brands"
+  services={services}
+  s5Title="How We Take Your Fashion Brand Online"
+  processSteps={processSteps}
+  statsHeading="What We Have Delivered for Fashion Brands in Gujarat"
+  stats={stats}
+  s7Title="Why Fashion Brands in Ahmedabad Choose DCTechnoLabs"
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Title="What Fashion Brand Owners Say About Working With Us"
+  testimonials={testimonials}
+  s10Title="Digital Marketing Packages for Fashion Brands"
+  pricingTiers={pricingTiers}
+  s11Title="Fashion Brand Digital Marketing Questions Answered"
+  faqItems={faqItems}
+  ctaTitle="Take Your Fashion Brand Beyond the Shop Floor"
+  ctaSubtitle="Book a free strategy call and we will show you exactly how to set up your online store, grow your Instagram following, and start selling your designs to customers across India."
+/>

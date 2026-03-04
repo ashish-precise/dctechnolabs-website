@@ -1,0 +1,330 @@
+---
+import IndustryPageLayout from '../../layouts/IndustryPageLayout.astro';
+import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyCard, CaseStudy, Testimonial, PricingTier, FaqItem } from '../../layouts/IndustryPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing for Travel Agencies in Ahmedabad",
+  "description": "Websites, Google Ads, and seasonal campaign management for travel agencies, tour operators, and pilgrimage package providers in Ahmedabad, Gujarat.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DCTechnoLabs",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ahmedabad"
+  },
+  "serviceType": "Travel Agency Digital Marketing"
+});
+
+const overviewPoints: OverviewPoint[] = [
+  {
+    emoji: "✈️",
+    title: "Package Showcase Websites",
+    desc: "Dedicated landing pages for each tour package with itineraries, pricing, inclusions, and a WhatsApp booking button. Clients get all the information they need before they call."
+  },
+  {
+    emoji: "🛕",
+    title: "Pilgrimage and Leisure Expertise",
+    desc: "Gujarat travellers book Char Dham, Somnath, Ambaji, and international packages through local agencies they trust. We position your agency as the expert for both pilgrimage and leisure travel."
+  },
+  {
+    emoji: "📅",
+    title: "Seasonal Campaign Management",
+    desc: "Summer holidays, Navratri group tours, Diwali international packages. We plan and execute campaigns 8 weeks before peak booking windows so you fill packages before the season even begins."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "MakeMyTrip and Yatra are taking our customers and we cannot compete with them online",
+    solution: "Aggregators cannot offer local expertise, custom itineraries, and personal service. We position your agency as the better choice for clients who want a personalised trip, not just the cheapest flight."
+  },
+  {
+    problem: "We have no website to show our packages and clients don't take us seriously",
+    solution: "A professional travel agency website with dedicated package pages, photo galleries, itineraries, and pricing builds instant credibility and gives clients the information they need to book."
+  },
+  {
+    problem: "Clients WhatsApp us but there is no system and bookings get lost",
+    solution: "We integrate a WhatsApp booking system with a proper enquiry form so every lead is captured, tracked, and followed up. Nothing falls through the cracks."
+  },
+  {
+    problem: "We do not rank on Google when people search for Char Dham package from Ahmedabad or similar queries",
+    solution: "SEO and dedicated landing pages for your most popular routes, including Char Dham, Somnath, Kashmir, Maldives, and Europe packages from Ahmedabad, put you in front of ready-to-book travellers."
+  },
+  {
+    problem: "We have no plan for peak season. We wait for calls instead of actively filling packages",
+    solution: "Seasonal Google Ads and social campaigns launch 8 weeks before peak booking periods so your packages fill early and you avoid last-minute scrambling for clients."
+  },
+  {
+    problem: "Clients do not know what makes us different from a dozen other travel agencies in Ahmedabad",
+    solution: "We craft your unique positioning around local knowledge, exclusive pilgrimage expertise, or personalised service and communicate it clearly across your website and ads."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    title: "Travel Agency Website",
+    desc: "A professional, mobile-first website that showcases your agency's destinations, packages, team, and client testimonials. Designed to convert visitors into enquiries."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: "Tour Package Landing Pages",
+    desc: "Dedicated pages for each package: Char Dham, Somnath, international honeymoon, corporate travel. Optimised to rank on Google and convert visitors who are ready to enquire."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    title: "Google Ads for Tour Packages",
+    desc: "Targeted search ads for high-intent queries like Char Dham package Ahmedabad, Maldives honeymoon package Gujarat, and international tour operators Ahmedabad."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+    title: "WhatsApp Booking Integration",
+    desc: "A proper enquiry and booking system connected to WhatsApp so no lead gets lost. Automated acknowledgement messages and a simple tracking system for your team."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+    title: "Seasonal Campaign Management",
+    desc: "Pre-planned campaigns for summer holidays, Navratri group tours, Diwali packages, Christmas Europe tours, and New Year getaways. Campaigns launch 8 weeks before peak booking periods."
+  },
+  {
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    title: "Instagram Travel Content",
+    desc: "Reels and posts showcasing tour highlights, happy traveller moments, and destination beauty. Instagram content that builds a following and converts followers into bookings."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Agency Audit",
+    desc: "We review your current bookings, top packages, and target client profile to build a marketing plan that matches how your clients actually search and decide."
+  },
+  {
+    title: "Website and Package Pages",
+    desc: "Your website and individual package landing pages go live with full SEO, itineraries, pricing, photos, and WhatsApp booking buttons."
+  },
+  {
+    title: "SEO and Local Presence",
+    desc: "We optimise your Google Business Profile, build local citations, and start SEO for your top package keywords and destination routes."
+  },
+  {
+    title: "Seasonal Campaigns",
+    desc: "Google Ads and Instagram campaigns launch 8 weeks before each peak booking period. Budgets are aligned to your most profitable packages."
+  },
+  {
+    title: "Review and Scale",
+    desc: "Monthly performance reviews track cost per booking enquiry, top-performing packages, and campaign ROI. Budgets shift to what is working."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "85+", label: "Travel Agencies Served" },
+  { value: "3.2x", label: "Booking Enquiry Growth" },
+  { value: "₹45L+", label: "Online Revenue Generated" },
+  { value: "8 Weeks", label: "Advance Campaign Planning" }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🗺️",
+    title: "We Know Gujarat Travel Patterns",
+    desc: "Char Dham, Ambaji, Somnath, Rishikesh, and international honeymoon packages from Ahmedabad. We know what Gujarat travellers book and when they book it."
+  },
+  {
+    emoji: "📅",
+    title: "Seasonal Planning Expertise",
+    desc: "Summer vacations, Navratri group tours, Diwali short breaks, New Year international trips. We build your annual campaign calendar so you are always 8 weeks ahead of demand."
+  },
+  {
+    emoji: "📱",
+    title: "WhatsApp-First Approach",
+    desc: "Gujarat travellers prefer WhatsApp for booking enquiries. Every form and call-to-action we build flows into a WhatsApp conversation that your team can handle easily."
+  },
+  {
+    emoji: "📸",
+    title: "Travel Content That Converts",
+    desc: "Beautiful destination photos, real traveller testimonials, and honest itineraries. Our content builds trust before the first enquiry call, making your conversion rate much higher."
+  },
+  {
+    emoji: "🎯",
+    title: "Package-Level ROI Tracking",
+    desc: "We track exactly which packages generate the most enquiries and the most bookings. Budget flows to what works, not what looks good on a slide."
+  },
+  {
+    emoji: "⚡",
+    title: "Fast Seasonal Execution",
+    desc: "Peak travel season cannot wait. We move fast to launch campaigns, create package pages, and activate Google Ads before your competitors fill the market."
+  }
+];
+
+const caseStudy: CaseStudy = {
+  tag: "Travel Agency, Maninagar, Ahmedabad",
+  title: "How a Maninagar Travel Agency Booked ₹45L from Online Enquiries in One Year",
+  challenge: "A Maninagar travel agency specialising in Char Dham packages and international tours was competing directly with MakeMyTrip listings in Google search. They had no website, all bookings came from walk-ins and referrals, and they were losing international package enquiries to larger aggregators because they had no online credibility to show.",
+  solution: "We built a professional website with dedicated landing pages for each package: Char Dham Yatra, Somnath, Kashmir, Maldives honeymoon, and Southeast Asia. Google Ads targeted high-intent searches like Char Dham package from Ahmedabad and honeymoon package Gujarat. A WhatsApp booking integration captured every enquiry. Seasonal campaigns launched 8 weeks before summer and Diwali booking peaks.",
+  results: [
+    { value: "285%", label: "More Booking Enquiries" },
+    { value: "₹45L", label: "Revenue from Online Bookings" },
+    { value: "Top 3", label: "for Char Dham Package Ahmedabad" }
+  ]
+};
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Before DCTechnoLabs we were getting maybe 20 Char Dham enquiries per season through referrals. This year we got over 90 enquiries online and converted 60 of them into confirmed bookings. The landing page they built for Char Dham specifically is what made the difference.",
+    name: "Suresh Trivedi",
+    role: "Owner, Trivedi Travels, Maninagar Ahmedabad",
+    initials: "ST"
+  },
+  {
+    text: "We specialise in corporate travel for Ahmedabad companies and needed a professional digital presence. DCTechnoLabs built our website and started LinkedIn campaigns that brought in corporate enquiries we never had before. Our B2B bookings have grown significantly.",
+    name: "Kavita Desai",
+    role: "Director, Desai Corporate Travel, SG Highway",
+    initials: "KD"
+  },
+  {
+    text: "The WhatsApp booking system they integrated changed everything. Earlier enquiries would come on my personal number and get mixed up with everything else. Now there is a proper system and my team handles all bookings professionally. Clients love the quick response too.",
+    name: "Haresh Prajapati",
+    role: "Travel Agency Owner, Naranpura Ahmedabad",
+    initials: "HP"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter Agency",
+    price: "₹10,000/mo",
+    note: "Minimum 3-month commitment",
+    desc: "For small travel agencies starting their digital journey with a website and basic SEO.",
+    features: [
+      "Professional 5-page travel website",
+      "WhatsApp booking integration",
+      "Google Business Profile setup",
+      "Basic local SEO for 5 keywords",
+      "2 package landing pages",
+      "Monthly performance report"
+    ],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary"
+  },
+  {
+    name: "Growth Agency",
+    price: "₹22,000/mo",
+    note: "Most popular for established travel agencies",
+    desc: "For travel agencies ready to compete online and fill packages through digital channels.",
+    features: [
+      "Full travel website with 10+ package pages",
+      "Google Ads management for top packages",
+      "SEO for 15 destination keywords",
+      "Seasonal campaign planning and execution",
+      "WhatsApp booking system",
+      "Instagram content (8 posts/month)",
+      "Monthly strategy review call"
+    ],
+    btnLabel: "Start Filling Packages",
+    btnClass: "btn-primary",
+    featured: true
+  },
+  {
+    name: "Authority Agency",
+    price: "₹40,000/mo",
+    note: "For agencies with multiple package verticals",
+    desc: "Full-scale digital marketing for travel agencies handling pilgrimage, leisure, corporate, and international packages.",
+    features: [
+      "Premium website with all package categories",
+      "Google Ads with dedicated ad budget management",
+      "Advanced SEO for 30+ keywords",
+      "Full seasonal campaign calendar",
+      "Instagram and Facebook management",
+      "Influencer collaboration management",
+      "Dedicated account manager",
+      "Weekly performance reporting"
+    ],
+    btnLabel: "Discuss Your Agency",
+    btnClass: "btn-secondary"
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help a small travel agency compete with MakeMyTrip or Yatra on Google?",
+    a: "Yes, and the approach is different from competing on price. We position your agency as the personal, expert alternative for travellers who want someone to plan their trip properly. Pilgrimage packages, custom itineraries, and group tours are areas where aggregators cannot compete with a knowledgeable local agency."
+  },
+  {
+    q: "How do we get bookings for Char Dham or Somnath packages through digital marketing?",
+    a: "We build dedicated landing pages for these pilgrimage routes with full itineraries, pricing, inclusions, and client testimonials. Google Ads target searches like Char Dham yatra package from Ahmedabad with a call or WhatsApp button as the primary action. These pages rank organically over time as well."
+  },
+  {
+    q: "How much should a travel agency in Ahmedabad spend on Google Ads per month?",
+    a: "For most Ahmedabad travel agencies starting out, a monthly Google Ads budget of ₹10,000 to ₹20,000 on top of the management fee is a reasonable starting point. This covers the most important package keywords without overspending. We scale based on which packages are converting and what your target cost per booking enquiry is."
+  },
+  {
+    q: "When should we launch campaigns for summer holiday packages?",
+    a: "For summer packages (April to June), campaigns should go live by mid-February so you have 8 weeks to build awareness and capture early planners. Parents in Ahmedabad start thinking about summer trips in March. If you wait until April your competitors have already taken the early bookings."
+  },
+  {
+    q: "Do you manage Instagram for travel agencies? What kind of content works?",
+    a: "Yes. For travel agencies, Instagram Reels showing destination highlights, group tour moments, and quick trip tips perform very well. We also post package promotions, early bird offers, and real client photos with permission. Consistency matters more than occasional viral posts."
+  },
+  {
+    q: "How does the WhatsApp booking integration work?",
+    a: "We create a booking enquiry form on your website that captures name, phone, destination interest, and travel dates. On submission it triggers a WhatsApp message to your sales number with all the details. Alternatively we use a direct WhatsApp button with a pre-filled message template so the client can start a conversation instantly."
+  },
+  {
+    q: "Can you build specific landing pages for pilgrimage tours like Ambaji or Somnath darshan packages?",
+    a: "Absolutely. We build dedicated pages for each pilgrimage destination: Ambaji, Somnath, Dwarka, Char Dham, Shirdi, and others. Each page has a relevant title for Google, full route information, departure dates, pricing, and a booking form. These pages attract organic traffic from people searching specifically for these packages."
+  },
+  {
+    q: "How long does it take to start getting online bookings after you start working with us?",
+    a: "Google Ads will start delivering enquiries within the first week if campaigns are set up with good landing pages. Organic SEO takes longer, usually 3 to 5 months before meaningful traffic builds. We typically run both together so you get immediate results from ads while SEO grows in the background."
+  }
+];
+---
+
+<IndustryPageLayout
+  title="Digital Marketing for Travel Agencies in Ahmedabad | DCTechnoLabs"
+  description="Websites, Google Ads, WhatsApp booking integration, and seasonal campaign management for travel agencies and tour operators in Ahmedabad, Gujarat."
+  canonical="https://dctechnolabs.in/industries/travel/"
+  schemaJson={schemaJson}
+  badge="✈️ Travel Digital Marketing"
+  heroH1="Digital Marketing and Websites for Travel Agencies in"
+  heroHighlight="Ahmedabad"
+  heroDesc="Stop losing bookings to aggregators. We help Ahmedabad travel agencies fill packages for Char Dham, international tours, honeymoon packages, and corporate travel through targeted digital marketing and smart seasonal campaigns."
+  heroStats={[
+    { value: "85+", label: "Travel Agencies Served" },
+    { value: "3.2x", label: "Booking Enquiry Growth" },
+    { value: "Pilgrimage + Leisure", label: "Experts" }
+  ]}
+  formTitle="Get Your Free Travel Marketing Plan"
+  formSub="Tell us about your top packages and we will share a strategy within 24 hours."
+  s2Title="Why Ahmedabad Travel Agencies Need a Stronger Digital Presence"
+  s2Subtitle="Gujarat travellers are searching online for tours, packages, and pilgrimage trips every day. The agencies that show up with the right information and the right trust signals win the bookings."
+  overviewPoints={overviewPoints}
+  s3Title="The Challenges Ahmedabad Travel Agencies Face Online"
+  challenges={challenges}
+  s4Title="Digital Marketing Services for Travel Agencies"
+  services={services}
+  s5Title="How We Fill Your Packages Through Digital Channels"
+  processSteps={processSteps}
+  statsHeading="What We Have Delivered for Travel Agencies in Gujarat"
+  stats={stats}
+  s7Title="Why Travel Agencies in Ahmedabad Choose DCTechnoLabs"
+  whyCards={whyCards}
+  caseStudy={caseStudy}
+  s9Title="What Travel Agency Owners Say About Working With Us"
+  testimonials={testimonials}
+  s10Title="Digital Marketing Packages for Travel Agencies"
+  pricingTiers={pricingTiers}
+  s11Title="Travel Agency Digital Marketing Questions Answered"
+  faqItems={faqItems}
+  ctaTitle="Fill Your Tour Packages Before the Season Starts"
+  ctaSubtitle="Let us build a digital presence that puts your packages in front of Gujarat travellers before your competitors do. A free strategy consultation includes a review of your top packages and a seasonal campaign plan."
+/>
