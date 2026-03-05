@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving IT companies, software firms, BPO, and tech startups in Infocity, Gandhinagar with web design, SEO, LinkedIn marketing, and B2B lead generation.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/infocity",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.170", "longitude": "72.640" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Infocity, Gandhinagar" },
+    { "@type": "Place", "name": "Infocity Phase 1, Gandhinagar" },
+    { "@type": "Place", "name": "Infocity Phase 2, Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "75+",    label: "IT Sector Clients Served" },
+  { value: "8+",     label: "Years in Gujarat" },
+  { value: "30 min", label: "From Our Ahmedabad Office" },
+  { value: "93%",    label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Infocity is Gandhinagar's dedicated technology and software township. Home to hundreds of IT companies, BPO operations, software development firms, staffing agencies, and emerging SaaS startups, it sits adjacent to GIFT City and forms the backbone of Gujarat's technology sector.",
+  "The challenge for IT companies in Infocity is visibility. Most firms have the technical capability but no digital strategy. Potential clients from across India and abroad cannot find them on Google, their websites are three years out of date, and their LinkedIn pages have not been updated since the company was founded.",
+  "DC technolabs, based in Ahmedabad just 30 minutes from Infocity, specialises in B2B digital marketing for technology companies. We help Infocity IT firms generate qualified leads from clients they actually want to work with, across India and internationally.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "💻", label: "IT Companies" },
+  { icon: "🖥️", label: "Software Firms" },
+  { icon: "📞", label: "BPO Operations" },
+  { icon: "🧑‍💼", label: "Staffing Agencies" },
+  { icon: "🚀", label: "Tech Startups" },
+  { icon: "☁️", label: "SaaS Companies" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏢", title: "Gujarat's IT Hub", desc: "Infocity houses over 100 technology companies ranging from large IT services firms to lean product startups. The competition for talent and clients is intense." },
+  { icon: "🌐", title: "Clients Are National and Global", desc: "Most Infocity IT companies serve clients in Ahmedabad, Mumbai, Delhi, and increasingly internationally. Your digital presence must inspire confidence at that level." },
+  { icon: "🎯", title: "Talent and Business Both Require Digital", desc: "Infocity firms compete with Ahmedabad and Pune companies for talent, and with firms across India for clients. Both audiences evaluate you online first." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Website Design and Development for IT Firms",
+    desc: "Professional, fast, mobile-first websites for IT companies, software firms, and SaaS products. We clearly communicate your technical capabilities to non-technical buyers and decision-makers. Starting from Rs. 25,000."
+  },
+  {
+    icon: "💼",
+    title: "LinkedIn B2B Lead Generation",
+    desc: "We build your LinkedIn company page, create a regular content calendar, and run targeted LinkedIn Ads campaigns reaching CTOs, IT heads, and procurement managers at companies in your target market across India."
+  },
+  {
+    icon: "🔍",
+    title: "B2B SEO for IT Companies",
+    desc: "We rank your Infocity IT firm for searches like 'custom software development Gujarat', 'IT outsourcing Gandhinagar', and sector-specific keywords your ideal clients use. Full SEO from Rs. 30,000 per month."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Tech Companies",
+    desc: "Targeted Google Ads campaigns reaching businesses actively searching for IT services, software development, or outsourcing partners. We manage campaigns from Rs. 20,000 to Rs. 5,00,000 per month."
+  },
+  {
+    icon: "✍️",
+    title: "Content and Case Study Marketing",
+    desc: "Long-form blogs, technical case studies, and thought leadership content that ranks on Google and builds trust with prospective clients before they ever contact your sales team."
+  },
+  {
+    icon: "📣",
+    title: "Employer Branding and Recruitment Marketing",
+    desc: "Infocity firms compete hard for engineering talent. We build your employer brand on LinkedIn, Glassdoor, and your own website so that top Gujarat engineering graduates consider you first."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our IT company has no visibility on Google for the services we offer",
+    solution: "We conduct a full keyword analysis for your specific services and technology stack, then build an SEO strategy that ranks your Infocity firm for searches your ideal clients are actually making. Results tracked monthly."
+  },
+  {
+    problem: "The website is old and does not represent our current capabilities",
+    solution: "We redesign your website to clearly showcase your technology services, team credentials, case studies, and client logos in a modern design that works perfectly on mobile. Starting from Rs. 25,000."
+  },
+  {
+    problem: "We are losing talent to bigger IT companies in Ahmedabad and Pune",
+    solution: "We build an employer brand that makes your Infocity company attractive to engineers and professionals. LinkedIn content, career pages, and Glassdoor management that highlight your culture and growth opportunities."
+  },
+  {
+    problem: "Sales team has no content to share with prospects during the evaluation process",
+    solution: "We produce technical case studies, service brochures, and capability decks that your business development team can share with prospects, shortening the sales cycle and improving conversion rates."
+  },
+  {
+    problem: "No B2B content strategy means no consistent pipeline from digital",
+    solution: "We create and execute a 12-month B2B content plan covering blog posts, LinkedIn articles, video scripts, and email newsletters that keep you visible and credible to your target audience throughout the year."
+  },
+  {
+    problem: "LinkedIn ads were tried before but produced no quality leads",
+    solution: "LinkedIn Ads require precise audience targeting, strong creative, and the right offer. We audit previous campaigns and rebuild them correctly, targeting specific job titles and industries that actually buy your services."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "💻",
+    title: "We Market IT to Non-Technical Buyers",
+    desc: "The hardest part of IT marketing is making complex technical services clear to buyers who are not technical themselves. We excel at this, explaining your capabilities in a way that builds confidence and drives decisions."
+  },
+  {
+    emoji: "📍",
+    title: "Local Presence, National Reach",
+    desc: "Our Ahmedabad office is 30 minutes from Infocity. We can meet in person while running campaigns that reach clients across India and internationally."
+  },
+  {
+    emoji: "🎯",
+    title: "B2B Only, Always",
+    desc: "We run B2B campaigns every day. Consumer marketing thinking does not translate to IT services sales. We understand pipeline, sales cycles, and what makes technical buyers trust a vendor."
+  },
+  {
+    emoji: "📈",
+    title: "Measured by Qualified Leads",
+    desc: "We do not report on website traffic alone. Every campaign is measured by the number of qualified conversations started, proposals sent, and new client relationships opened."
+  },
+  {
+    emoji: "🔧",
+    title: "Technical Enough to Understand Your Work",
+    desc: "Our team understands web technologies, software development processes, and the IT services landscape well enough to write accurate, credible content and ask the right questions."
+  },
+  {
+    emoji: "📅",
+    title: "Consistent and Reliable Delivery",
+    desc: "IT companies value reliability above all else. We deliver content, campaigns, and reports on schedule, every time. No chasing, no delays, no surprises."
+  },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Deep-Dive Discovery",
+    desc: "We spend time understanding your technology services, your ideal client profile, your current digital situation, and your sales process before we build anything."
+  },
+  {
+    step: "2",
+    title: "Custom Strategy",
+    desc: "We present a B2B digital marketing strategy tailored to your Infocity IT firm, covering website, SEO, LinkedIn, and content, with a clear 90-day action plan."
+  },
+  {
+    step: "3",
+    title: "Build and Execute",
+    desc: "Website, content, campaigns, and LinkedIn all executed to a precise schedule with your input and approval at every stage."
+  },
+  {
+    step: "4",
+    title: "Report and Improve",
+    desc: "Monthly reports covering leads generated, keyword rankings, LinkedIn growth, and ad performance. We review results together and adjust strategy for the next month."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "75+",    label: "IT and Tech Clients Served" },
+  { value: "3x",     label: "Average Lead Volume Increase" },
+  { value: "Rs. 30K", label: "SEO Starting From Per Month" },
+  { value: "4 hrs",  label: "Average Response Time" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had a good team and strong technical delivery, but our digital presence was embarrassing. DC technolabs redesigned our website and built a LinkedIn strategy in two months. We started getting inbound enquiries from Mumbai and Bangalore companies we never could have reached before.",
+    name: "Nirav Patel",
+    role: "Managing Director, IT Services Firm, Infocity",
+    initials: "NP"
+  },
+  {
+    text: "Our LinkedIn was completely dormant. DC technolabs built a content plan, started posting consistently, and ran a small LinkedIn Ads campaign. Within three months we had three warm leads from companies that found us organically on the platform.",
+    name: "Aakanksha Trivedi",
+    role: "Founder, Software Startup, Infocity",
+    initials: "AT"
+  },
+  {
+    text: "Recruitment was our biggest pain point. We were losing good engineers to companies with better-known brands. After DC technolabs rebuilt our employer branding on LinkedIn and our careers page, our application quality improved noticeably within two months.",
+    name: "Suresh Joshi",
+    role: "Operations Head, BPO Company, Infocity",
+    initials: "SJ"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "GIFT City", slug: "gift-city", desc: "India's International Financial Services Centre, home to fintech, banking, and financial technology firms adjacent to Infocity." },
+  { name: "Sector 21", slug: "sector-21", desc: "Gandhinagar's central commercial area with restaurants, retail, clinics, and professional services." },
+  { name: "Kudasan", slug: "kudasan", desc: "A growing residential and commercial locality near Infocity with rising business activity and a young professional population." },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "What digital marketing services work best for IT companies in Infocity?",
+    a: "For IT companies selling services to other businesses, LinkedIn marketing, B2B SEO, and content marketing produce the best long-term results. Google Ads work well for companies with specific service offerings and higher budgets. We recommend a combination of SEO and LinkedIn for most Infocity IT firms."
+  },
+  {
+    q: "How do you generate B2B leads for a software company?",
+    a: "We use a combination of LinkedIn organic content, LinkedIn Ads, SEO-driven blog content, and Google search ads. The goal is to be visible and credible when your ideal client is actively looking for a vendor, and to stay top of mind through content when they are not yet in buying mode."
+  },
+  {
+    q: "What does SEO cost for an IT company in Infocity?",
+    a: "Our SEO services start at Rs. 30,000 per month. This includes keyword research, on-page optimisation, technical SEO, monthly content, and link building. For competitive keywords in the IT services space, we typically recommend a 6-month initial commitment to see meaningful results."
+  },
+  {
+    q: "Can you help with employer branding to attract engineers to our Infocity company?",
+    a: "Yes. We help IT companies build their employer brand through LinkedIn company page management, careers page redesign, content about company culture, and targeted campaigns reaching engineering graduates and experienced developers in Gujarat and across India."
+  },
+  {
+    q: "How long does it take to see leads from LinkedIn marketing?",
+    a: "LinkedIn Ads can generate leads within the first month if your offer and targeting are correct. LinkedIn organic content typically builds momentum over three to six months. Most Infocity clients see their first qualified LinkedIn enquiries within 60 to 90 days of a well-executed campaign."
+  },
+  {
+    q: "Do you create technical content for software development companies?",
+    a: "Yes. We write technically accurate blog posts, case studies, and service pages for software development firms. Our content team researches your specific technologies, asks the right questions, and produces content that resonates with both technical and non-technical buyers."
+  },
+  {
+    q: "Can you handle marketing for a SaaS product based in Infocity?",
+    a: "Absolutely. SaaS marketing is slightly different from services marketing, requiring product-led content, free trial conversion funnels, and feature-benefit communication. We have experience marketing SaaS products in the Indian market and can build a strategy suited to your product and pricing."
+  },
+  {
+    q: "Is your team available for in-person meetings in Gandhinagar or Infocity?",
+    a: "Yes. Our office is in Ahmedabad, 30 minutes from Infocity. We are happy to meet at your Infocity office, at a central Gandhinagar location, or at our Ahmedabad office. We believe in face-to-face meetings, especially at the start of a project."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",   slug: "gift-city" },
+  { name: "Sector 21",  slug: "sector-21" },
+  { name: "Sector 7",   slug: "sector-7" },
+  { name: "Kudasan",    slug: "kudasan" },
+  { name: "Sargasan",   slug: "sargasan" },
+  { name: "Adalaj",     slug: "adalaj" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing Agency in Infocity, Gandhinagar | DC technolabs"
+  description="DC technolabs provides B2B digital marketing, LinkedIn lead generation, web design, and SEO for IT companies, software firms, BPO, and tech startups in Infocity, Gandhinagar. Based in Ahmedabad, 30 minutes away."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/infocity"
+  schemaJson={schemaJson}
+  badge="Infocity, Gandhinagar"
+  heroH1="Digital Marketing for Infocity, Gandhinagar"
+  heroHighlight="Infocity, Gandhinagar"
+  heroDesc="Helping IT companies, software development firms, BPO operations, and tech startups in Infocity generate qualified B2B leads, attract top talent, and build digital presences that match their actual capabilities. Based in Ahmedabad, just 30 minutes away."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Infocity Business"
+  formSub="We respond within 4 hours on business days."
+  s2Title="B2B Marketing for Gandhinagar's Technology Hub"
+  s2Subtitle="Infocity IT companies have the technical skills. We give them the digital visibility to match."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+  s3Title="Our Services for Infocity IT Businesses"
+  s3Subtitle="Specialist B2B digital marketing for technology companies that need to win clients and attract talent."
+  {services}
+  s4Title="Challenges We Solve for Infocity Businesses"
+  s4Subtitle="Common problems we hear from IT company founders and marketing heads in Infocity."
+  {challenges}
+  s5Title="Why Infocity Businesses Trust DC technolabs"
+  s5Subtitle="B2B marketing expertise, local presence, and a genuine understanding of the IT sector."
+  {whyCards}
+  s6Title="How We Work With Infocity IT Companies"
+  {processSteps}
+  statsHeading="Our Track Record With IT Clients in Gujarat"
+  {stats}
+  s8Title="What Infocity Business Leaders Say"
+  {testimonials}
+  s9Title="We Also Serve Nearby Areas in Gandhinagar"
+  s9Subtitle="Covering all major business zones across Gandhinagar and the Ahmedabad metro region."
+  {nearbyAreas}
+  s10Title="Frequently Asked Questions From Infocity Businesses"
+  {faqItems}
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+  ctaTitle="Ready to Grow Your Infocity IT Business Online?"
+  ctaSubtitle="Whether you are a software startup seeking your first national clients or an established IT services firm that needs a modern digital presence, we are ready to build it with you. Let us talk."
+/>

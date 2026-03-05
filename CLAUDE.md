@@ -100,6 +100,7 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 5. ✅ Industries hub page (/industries/) — DONE (March 2026) — 10 sections, 14 industry cards, Web3Forms
 6. ✅ All 14 individual industry sub-pages — DONE (March 2026) — healthcare, real-estate, ecommerce, education, manufacturing, restaurants, legal, construction, finance, travel, automotive, saas, fashion, ngo
 7. ✅ 8 Ahmedabad neighborhood sub-pages — DONE (March 2026) — satellite, sg-highway, prahlad-nagar, vastrapur, bodakdev, navrangpura, cg-road, maninagar. Uses NeighborhoodPageLayout.astro (wraps PageLayout, 12 sections). Ahmedabad.astro neighborhood cards now link to sub-pages. BaseLayout.astro and PageLayout.astro updated to support named head slot for schema injection.
+8. ✅ 8 Gandhinagar neighborhood sub-pages — DONE (March 2026) — gift-city, infocity, sector-21, sector-7, kudasan, sargasan, adalaj, koba-circle. NeighborhoodPageLayout.astro and LocationPageLayout.astro updated to accept optional citySlug/cityName props (default: ahmedabad/Ahmedabad) for multi-city support. Gandhinagar.astro neighborhood cards now link to sub-pages.
 
 ### DEPLOYMENT STATUS
 

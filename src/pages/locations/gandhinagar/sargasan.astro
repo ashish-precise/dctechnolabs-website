@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Sargasan industrial and commercial businesses in Gandhinagar with B2B web design, SEO, Google Ads, and digital catalogue services.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/sargasan",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.189", "longitude": "72.659" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Sargasan, Gandhinagar" },
+    { "@type": "Place", "name": "Koba Circle, Gandhinagar" },
+    { "@type": "Place", "name": "Kudasan, Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "60+",   label: "Gandhinagar Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "92%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Sargasan is one of Gandhinagar's key industrial and commercial corridors, situated along the Sargasan Crossroads towards Adalaj and connected to the broader NH-48 network. The area has a dense concentration of logistics operators, light manufacturers, hardware suppliers, auto dealers, and wholesale traders.",
+  "Most Sargasan businesses were built on personal references and existing trade relationships. Digital presence was never a priority. But the market has shifted. Procurement managers, fleet operators, and business buyers now search online before they make calls. An invisible business is a business losing orders.",
+  "DC technolabs builds professional B2B websites, digital product catalogues, and Google ranking campaigns specifically designed for Sargasan's industrial and commercial businesses. We understand the B2B buyer journey in Gujarat's manufacturing and logistics sector.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🚛", label: "Logistics Companies" },
+  { icon: "🏭", label: "Light Manufacturers" },
+  { icon: "🚗", label: "Auto Dealers" },
+  { icon: "🔩", label: "Hardware Shops" },
+  { icon: "📦", label: "Wholesale Traders" },
+  { icon: "⚙️", label: "Industrial Services" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏭", title: "Industrial and Trade Hub", desc: "Sargasan hosts logistics depots, manufacturing units, and wholesale trade businesses that together generate significant B2B transaction volume across Gujarat." },
+  { icon: "🔍", title: "B2B Buyers Search Online First", desc: "Modern procurement in Gujarat starts with a Google search. Businesses without a professional website and Google presence are skipped by buyers who have dozens of alternatives to choose from." },
+  { icon: "📋", title: "Digital Catalogues Drive Orders", desc: "A well-structured product or service catalogue on your website, combined with good Google rankings, brings in enquiries from buyers across Ahmedabad, Gandhinagar, and beyond." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "B2B Website Design for Sargasan Businesses",
+    desc: "Professional websites designed for industrial and trading businesses. Includes product or service listings, company profile, GST invoice enquiry forms, and WhatsApp integration. Builds immediate credibility with new buyers."
+  },
+  {
+    icon: "🔍",
+    title: "Google Ranking for Industrial Keywords",
+    desc: "We optimise your website and Google listing to rank for searches like 'logistics company Gandhinagar', 'hardware supplier Sargasan', or 'auto dealer near Koba Circle'. Buyers searching in this segment find you before your competitors."
+  },
+  {
+    icon: "📋",
+    title: "Digital Product Catalogues",
+    desc: "Replace printed catalogues with a searchable online product catalogue integrated into your website. Trade customers can browse your inventory, download product specifications, and place enquiries without calling. Saves time for both sides."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for B2B Lead Generation",
+    desc: "Targeted Google Ads campaigns aimed at procurement managers and business buyers in Gandhinagar and Ahmedabad. We focus on high-intent keywords that bring in genuine trade enquiries rather than casual browsers."
+  },
+  {
+    icon: "📱",
+    title: "WhatsApp Business for Trade Communication",
+    desc: "WhatsApp Business setup with quick replies, catalogue sharing, and broadcast lists for existing trade customers. Keep buyers updated on new stock, pricing changes, and dispatch confirmations without switching platforms."
+  },
+  {
+    icon: "📍",
+    title: "Local SEO and Google Business Profile",
+    desc: "Complete Google Business Profile optimisation for your Sargasan business. Buyers searching for suppliers near Gandhinagar and the NH-48 corridor find your business with accurate location, working hours, and contact details."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We have no website or our current website looks unprofessional",
+    solution: "A basic but professionally designed B2B website changes buyer perception immediately. We build clean, credible websites for Sargasan industrial businesses starting at Rs. 25,000. First impressions in the B2B world happen online before any phone call."
+  },
+  {
+    problem: "New buyers cannot find us online when they search for our product or service",
+    solution: "We identify the exact search terms your buyers use, optimise your website content and Google listing for those terms, and build local citations. Within 60 to 90 days your business appears when buyers search for suppliers in Gandhinagar."
+  },
+  {
+    problem: "We are losing contracts to bigger companies from Ahmedabad because they have better online presence",
+    solution: "A professional website and strong Google rankings level the playing field. Buyers judge credibility by what they find online. We make sure your Sargasan business looks as credible and professional as any Ahmedabad competitor."
+  },
+  {
+    problem: "Our printed catalogue is expensive and goes out of date quickly",
+    solution: "A digital catalogue on your website can be updated instantly, shared on WhatsApp, and accessed by buyers on any device. We build product catalogue pages that help buyers find what they need and enquire directly. No printing costs, always current."
+  },
+  {
+    problem: "We rely entirely on existing customer references and have no way to reach new buyers",
+    solution: "Google Ads campaigns targeting specific industrial and trade keywords give you direct access to new buyers actively searching for what you supply. We run campaigns from Rs. 15,000 per month that bring in qualified B2B enquiries."
+  },
+  {
+    problem: "Our auto dealership is not visible online compared to dealers on SG Highway in Ahmedabad",
+    solution: "We run targeted local SEO and Google Ads campaigns that specifically promote your Sargasan dealership to buyers in Gandhinagar and the NH-48 corridor. Buyers who want to avoid Ahmedabad traffic actively look for Gandhinagar dealers when we make you visible."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏭", title: "B2B Marketing Expertise", desc: "We have built websites and digital campaigns for manufacturers, logistics companies, hardware suppliers, and auto dealers across Gujarat. We understand how industrial and trade buyers research and decide." },
+  { emoji: "⚡", title: "Fast Website Delivery", desc: "Most Sargasan business websites go live within 14 working days of approval. We understand that B2B businesses cannot wait months. Quick launch, quick credibility." },
+  { emoji: "💰", title: "Straightforward Pricing", desc: "B2B website from Rs. 25,000. Google ranking from Rs. 30,000 per month. Google Ads management from Rs. 35,000 per month. All prices are inclusive and clear from day one." },
+  { emoji: "📞", title: "Accessible Support Team", desc: "Your dedicated project contact is available by phone and WhatsApp. If a product page needs updating or a campaign needs adjustment, you reach a person who acts on it the same day." },
+  { emoji: "📈", title: "Measured in Enquiries and Orders", desc: "We track trade enquiries, catalogue downloads, and form submissions, not just website sessions. Every campaign is designed to bring in actual buyers, not just traffic numbers." },
+  { emoji: "🤝", title: "Close to Sargasan", desc: "Our Ahmedabad office is a short drive from Sargasan via the Koba Circle route. In-person visits, on-site photography for catalogues, and face-to-face meetings are all available." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Business Review",
+    desc: "We understand your products or services, your existing buyer relationships, your competitors, and your goals for online growth."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a proposal covering your website structure, SEO keywords, and campaign plan with clear pricing and timelines."
+  },
+  {
+    step: "3",
+    title: "Build and Optimise",
+    desc: "We build your website, digital catalogue, and Google presence. You review every stage before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Generate and Grow",
+    desc: "Monthly reports show enquiries generated, keyword rankings, and campaign performance. We continuously refine to bring in more qualified buyers."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "60+",  label: "Gandhinagar Clients Served" },
+  { value: "91%",  label: "First-Page Google Rankings" },
+  { value: "3.2x", label: "Average Enquiry Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We run a logistics operation from Sargasan and had no website at all. DC technolabs built us a professional site with our fleet details and service areas listed clearly. Within three months we started getting calls from new clients in Ahmedabad who found us on Google. Our business has grown noticeably.",
+    name: "Mahesh Solanki",
+    role: "Owner, Gujarat Transport Services, Sargasan",
+    initials: "MS"
+  },
+  {
+    text: "Our auto component manufacturing unit relied entirely on old contacts. After DC technolabs built our website and optimised it for Google, we got enquiries from companies in Vadodara and Surat that we had no existing relationship with. A proper digital catalogue made a huge difference.",
+    name: "Dinesh Prajapati",
+    role: "Director, Prajapati Auto Components, Sargasan",
+    initials: "DP"
+  },
+  {
+    text: "I have a second-hand commercial vehicle dealership near Sargasan. The SEO work they did made us visible when buyers search for trucks near Gandhinagar. Our enquiries have doubled and we are selling vehicles to buyers from as far as Rajkot who found us online.",
+    name: "Ramesh Thakor",
+    role: "Owner, Thakor Motors, Sargasan",
+    initials: "RT"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Koba Circle",
+    slug: "koba-circle",
+    desc: "A busy commercial junction adjacent to Sargasan with restaurants, auto showrooms, and retail businesses needing digital visibility in a competitive market."
+  },
+  {
+    name: "Kudasan",
+    slug: "kudasan",
+    desc: "A growing residential township near Sargasan with clinics, coaching institutes, and local service businesses we actively support with digital marketing."
+  },
+  {
+    name: "Adalaj",
+    slug: "adalaj",
+    desc: "A residential and tourism area near Sargasan with hotels, restaurants, and local businesses benefiting from our Google Maps and Instagram marketing."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Does a logistics company in Sargasan really need a website?",
+    a: "Yes, absolutely. Procurement managers and fleet operators from Ahmedabad, Gandhinagar, and neighbouring districts now search Google before calling any supplier. A logistics company without a website is invisible to this segment of buyers. A basic but professional website costs from Rs. 25,000 and pays for itself with one new client."
+  },
+  {
+    q: "What kind of website does a hardware supplier or wholesale trader in Sargasan need?",
+    a: "A B2B website with a clear product or category listing, your company profile and GST details, a WhatsApp enquiry button, and your service areas listed. It does not need to be complex. It needs to be credible. We build exactly this type of site starting at Rs. 25,000."
+  },
+  {
+    q: "Can you help us rank on Google for 'auto dealer in Gandhinagar' or 'logistics company near Sargasan'?",
+    a: "Yes. These are the exact types of local B2B keywords we specialise in for Sargasan and Gandhinagar businesses. With proper on-page optimisation, Google Business Profile setup, and consistent citation building, most Sargasan businesses see first-page rankings within 60 to 90 days for these terms."
+  },
+  {
+    q: "We have a large product range. Can you build an online catalogue for us?",
+    a: "Yes. We build searchable product catalogue pages in WordPress where you can list products by category, include specifications, and add enquiry forms. Buyers can browse your inventory and enquire directly from the catalogue. This works well for hardware suppliers, industrial equipment firms, and auto parts dealers."
+  },
+  {
+    q: "How much does Google Ads cost for a B2B business in Sargasan?",
+    a: "We manage Google Ads campaigns from Rs. 35,000 per month, which includes our management fee and recommended ad budget combined. For industrial and logistics keywords in Gandhinagar, this budget is enough to generate 15 to 30 qualified enquiries per month. We provide full transparency on where every rupee is spent."
+  },
+  {
+    q: "Can you set up WhatsApp Business for our trade communication?",
+    a: "Yes. WhatsApp Business setup is included in our website packages. For standalone WhatsApp Business setup with quick reply templates, catalogue integration, and broadcast list setup, we charge Rs. 8,000 as a one-time fee. This is especially useful for traders who share price lists and stock updates with existing customers."
+  },
+  {
+    q: "We are a small manufacturer competing against larger Ahmedabad companies. Can digital marketing actually help?",
+    a: "Yes. Digital marketing levels the playing field. Buyers searching for specific products or services in Gandhinagar often prefer local suppliers to avoid logistics complexity with Ahmedabad. If you rank on Google when they search, you get the first call. Many of our Sargasan clients win contracts specifically because buyers prefer Gandhinagar-based suppliers."
+  },
+  {
+    q: "How do we measure results from digital marketing for an industrial business?",
+    a: "We track website enquiry form submissions, WhatsApp clicks, Google Maps direction requests, and phone calls originating from Google. Every month you receive a report showing how many qualified buyer actions your digital presence generated. We also track keyword rankings and compare against your top local competitors."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",   slug: "gift-city" },
+  { name: "Infocity",    slug: "infocity" },
+  { name: "Sector 21",   slug: "sector-21" },
+  { name: "Sector 7",    slug: "sector-7" },
+  { name: "Kudasan",     slug: "kudasan" },
+  { name: "Adalaj",      slug: "adalaj" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Sargasan, Gandhinagar | DC technolabs"
+  description="DC technolabs helps Sargasan Gandhinagar industrial and commercial businesses grow online with B2B website design, local SEO, Google Ads, and digital catalogues. Logistics, manufacturers, auto dealers, and hardware suppliers. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/sargasan"
+  schemaJson={schemaJson}
+
+  badge="Sargasan, Gandhinagar"
+  heroH1="Digital Marketing Agency in Sargasan, Gandhinagar"
+  heroHighlight="Sargasan, Gandhinagar"
+  heroDesc="Sargasan's logistics companies, manufacturers, auto dealers, and hardware suppliers are losing contracts to online-visible competitors. We build professional B2B websites, digital catalogues, and Google ranking campaigns that put your Sargasan business in front of buyers who are actively searching."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Sargasan Business"
+  formSub="Sargasan industrial and trade businesses get a detailed proposal within 24 hours."
+
+  s2Title="B2B Digital Marketing Built for Sargasan's Industrial Businesses"
+  s2Subtitle="Buyers search online before they call. We make sure they find your Sargasan business first."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Sargasan Businesses"
+  s3Subtitle="From B2B websites to digital catalogues and Google Ads, everything your Sargasan business needs to attract new buyers online."
+  {services}
+
+  s4Title="Challenges We Solve for Sargasan Businesses"
+  s4Subtitle="The most common digital problems we hear from logistics operators, manufacturers, and traders in Sargasan."
+  {challenges}
+
+  s5Title="Why Sargasan Businesses Trust DC technolabs"
+  s5Subtitle="B2B marketing expertise, transparent pricing, and results measured in actual buyer enquiries."
+  {whyCards}
+
+  s6Title="How We Work With Sargasan Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gandhinagar"
+  {stats}
+
+  s8Title="What Sargasan Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans the Sargasan, Koba Circle, and Kudasan corridor in Gandhinagar."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Sargasan Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+
+  ctaTitle="Ready to Grow Your Sargasan Business Online?"
+  ctaSubtitle="B2B buyers in Gujarat search online before they pick up the phone. Make your Sargasan business the first result they find. Get a free consultation with no sales pressure."
+/>

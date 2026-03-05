@@ -1,0 +1,298 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving restaurants, retail shops, clinics, CA offices, and professional services businesses in Sector 21, Gandhinagar with local SEO, Google Ads, and web design.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/sector-21",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.215", "longitude": "72.657" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Sector 21, Gandhinagar" },
+    { "@type": "Place", "name": "Gandhinagar Sector 21 Market" },
+    { "@type": "Place", "name": "Central Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "90+",    label: "Local Business Clients Served" },
+  { value: "8+",     label: "Years in Gujarat" },
+  { value: "30 min", label: "From Our Ahmedabad Office" },
+  { value: "93%",    label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Sector 21 is one of Gandhinagar's most active commercial hubs, with a dense mix of restaurants, retail outlets, medical clinics, chartered accountant offices, coaching institutes, and professional service providers all competing for the same local customers and referrals.",
+  "Gandhinagar residents are increasingly searching on Google before visiting any local business. A clinic without Google reviews loses patients to the clinic across the street that has forty five-star ratings. A restaurant without an updated Google Business Profile loses dinner reservations to a competitor who keeps their menu current and photos fresh.",
+  "Our team at DC technolabs serves Sector 21 businesses with hyperlocal digital marketing strategies that drive foot traffic, build online reputations, and keep local customers coming back. We are 30 minutes away in Ahmedabad and understand Gandhinagar's local market well.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🍽️", label: "Restaurants" },
+  { icon: "🛍️", label: "Retail Shops" },
+  { icon: "🏥", label: "Clinics" },
+  { icon: "📋", label: "CA / CS Offices" },
+  { icon: "📚", label: "Coaching Institutes" },
+  { icon: "💼", label: "Professional Services" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "📍", title: "Central Gandhinagar Location", desc: "Sector 21 sits in the heart of Gandhinagar, making it one of the most visited commercial areas in the city. High footfall means high competition for digital visibility." },
+  { icon: "🔍", title: "Google Is Where Customers Decide", desc: "More than 70% of Sector 21 customers search on Google before visiting a restaurant, clinic, or retail shop. Your Google Business Profile and website are your most important first impressions." },
+  { icon: "📱", title: "Instagram and WhatsApp Drive Walk-Ins", desc: "For restaurants, boutiques, and clinics in Sector 21, Instagram and WhatsApp campaigns are powerful tools for driving immediate footfall and appointment bookings." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🗺️",
+    title: "Local SEO and Google Business Profile",
+    desc: "We optimise your Google Business Profile so your Sector 21 business appears at the top of local searches and Google Maps. Review management, photo updates, Q&A, and weekly posts all handled for you."
+  },
+  {
+    icon: "🌐",
+    title: "Website Design for Local Businesses",
+    desc: "Clean, mobile-first websites for clinics, restaurants, retail shops, and professional services in Sector 21. Fast loading, easy to update, and built to convert visitors into calls and bookings. Starting from Rs. 25,000."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads and Local PPC",
+    desc: "Targeted Google Ads reaching Gandhinagar residents searching for your specific service right now. We manage budgets from Rs. 10,000 to Rs. 2,00,000 per month and show you exactly what every rupee produces."
+  },
+  {
+    icon: "📸",
+    title: "Instagram and Social Media Marketing",
+    desc: "Consistent, quality content on Instagram and Facebook for restaurants, clinics, and retail businesses in Sector 21. We handle creative, captions, posting, and paid campaigns that drive real walk-ins."
+  },
+  {
+    icon: "⭐",
+    title: "Online Reputation and Review Management",
+    desc: "We help you build a strong Google and Justdial rating through a structured review collection process. More reviews mean more trust, and more trust means more customers choosing your business over the competition."
+  },
+  {
+    icon: "📱",
+    title: "WhatsApp Marketing and CRM",
+    desc: "WhatsApp Business setup, broadcast campaigns for offers and events, and a simple CRM process that keeps your Sector 21 customers coming back. Especially powerful for restaurants, clinics, and coaching institutes."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Business is invisible on Google Maps despite being a good location in Sector 21",
+    solution: "We audit and fully optimise your Google Business Profile, fix category errors, add professional photos, build local citations, and run a structured review collection campaign. Most clients see map ranking improvements within 4 to 8 weeks."
+  },
+  {
+    problem: "Website was built five years ago and looks it",
+    solution: "We rebuild your website from scratch in a clean, fast, mobile-first design that reflects your current business. Clinic booking forms, restaurant menus, retail product showcases, all handled. Starting from Rs. 25,000."
+  },
+  {
+    problem: "Instagram ads were tried but spent money with no results",
+    solution: "Poor Instagram ad results almost always come from wrong audience targeting, weak creative, or an unclear offer. We rebuild your campaigns with proper Gandhinagar area targeting, professional creative, and a clear call to action that drives visits or bookings."
+  },
+  {
+    problem: "Competing with national food delivery brands and chain clinics nearby",
+    solution: "National brands win on scale, but local businesses win on trust, personality, and community connection. We build that story through consistent Google presence, local reviews, Instagram content, and community-first messaging that large chains cannot replicate."
+  },
+  {
+    problem: "No Google reviews, customers never seem to leave them",
+    solution: "We set up a simple, systematic review collection process using WhatsApp and email that makes it easy for satisfied customers to leave reviews. Most Sector 21 clients go from fewer than 10 reviews to over 50 within three months."
+  },
+  {
+    problem: "Coaching institute or professional services firm has no online enquiry system",
+    solution: "We build a professional website with an enquiry form, integrate it with WhatsApp Business, and run a combination of local SEO and Google Ads that brings consistent enquiries from parents, students, or clients in Gandhinagar and nearby areas."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "📍",
+    title: "We Know the Gandhinagar Local Market",
+    desc: "We understand the business landscape in Sector 21 and across Gandhinagar. Our campaigns are built for the specific demographics, search behaviour, and competition of the Gandhinagar market."
+  },
+  {
+    emoji: "💰",
+    title: "Affordable for Local Businesses",
+    desc: "We offer services that are genuinely accessible for Sector 21 small businesses. Web design from Rs. 25,000, SEO from Rs. 30,000 per month, and Google Ads management from Rs. 35,000 per month."
+  },
+  {
+    emoji: "📈",
+    title: "Foot Traffic and Phone Calls, Not Just Clicks",
+    desc: "For local businesses, what matters is the phone ringing and customers walking in. We measure our success by these real business outcomes, not just website traffic numbers."
+  },
+  {
+    emoji: "⭐",
+    title: "Reputation Management Included",
+    desc: "Building a strong Google rating is as important as any ad campaign for local businesses. We include reputation management in all our local SEO engagements."
+  },
+  {
+    emoji: "🤝",
+    title: "Simple Process, No Tech Overload",
+    desc: "We explain everything in plain Gujarati or Hindi if needed. No technical jargon. You tell us your business goals, we translate them into digital results."
+  },
+  {
+    emoji: "🚀",
+    title: "Quick Turnaround",
+    desc: "A local business in Sector 21 cannot wait four months to see results. We focus on quick wins first: Google Business Profile, Google Ads, and review collection, while building longer-term assets alongside."
+  },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Business Audit",
+    desc: "We look at your current Google Business Profile, website, reviews, and local competition before recommending anything. This audit is completely free."
+  },
+  {
+    step: "2",
+    title: "Customised Local Strategy",
+    desc: "We present a clear plan with services, timelines, and monthly costs tailored to your Sector 21 business type and budget."
+  },
+  {
+    step: "3",
+    title: "Launch in 2 to 3 Weeks",
+    desc: "Website, Google Business Profile, social media, and ads all set up and live within 2 to 3 weeks. No long waits."
+  },
+  {
+    step: "4",
+    title: "Monthly Reporting",
+    desc: "Simple monthly reports showing calls, website visits, ad performance, and ranking improvements. We review together and plan the next month."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "90+",    label: "Local Business Clients Served" },
+  { value: "50+",    label: "Average New Reviews Per Client" },
+  { value: "Rs. 25K", label: "Web Design Starting From" },
+  { value: "4 wks",  label: "Typical Time to First Results" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had been running our Sector 21 restaurant for three years with almost no online presence. DC technolabs set up our Google Business Profile properly, ran Instagram campaigns targeting Gandhinagar, and within six weeks we were getting 15 to 20 extra walk-ins on weekends. The difference was visible immediately.",
+    name: "Pragnesh Desai",
+    role: "Owner, Restaurant, Sector 21 Gandhinagar",
+    initials: "PD"
+  },
+  {
+    text: "My clinic in Sector 21 had 8 Google reviews after three years. DC technolabs set up a WhatsApp review collection system and managed my Google listing. Within 10 weeks I had 62 reviews with a 4.8 rating. New patient walk-ins increased by around 30%.",
+    name: "Dr. Mital Raval",
+    role: "Clinic Owner, Sector 21 Gandhinagar",
+    initials: "MR"
+  },
+  {
+    q: "Client",
+    text: "I was spending money on Instagram ads with zero returns. DC technolabs restructured the entire campaign with proper Gandhinagar targeting and better creative. The first month after relaunch, we got 22 qualified enquiries for our CA services. I wish I had called them earlier.",
+    name: "Chirag Shah",
+    role: "Partner, CA Firm, Sector 21 Gandhinagar",
+    initials: "CS"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "Infocity", slug: "infocity", desc: "Gandhinagar's technology hub with IT companies, software firms, and BPO operations, just north of Sector 21." },
+  { name: "Kudasan", slug: "kudasan", desc: "A fast-growing residential area near Gandhinagar with a large middle-class customer base." },
+  { name: "Sector 7", slug: "sector-7", desc: "Home to coaching institutes, schools, NGOs, and government-adjacent businesses in Gandhinagar." },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "How much does local SEO cost for a Sector 21 business?",
+    a: "Our local SEO packages start at Rs. 30,000 per month. This includes Google Business Profile optimisation, local citation building, monthly content, review management, and monthly reporting. For restaurants, clinics, and professional services in Sector 21, local SEO often produces the fastest and most measurable return."
+  },
+  {
+    q: "How quickly can you improve our Google Maps ranking in Gandhinagar?",
+    a: "For Google Business Profile optimisation, most Sector 21 clients see meaningful ranking improvement within 4 to 8 weeks. Full local SEO results, meaning consistent top-three map pack rankings, typically take 3 to 4 months. We focus on quick wins first while building the long-term foundation."
+  },
+  {
+    q: "Do you manage Instagram marketing for restaurants in Sector 21?",
+    a: "Yes. We create monthly content calendars, design posts and reels, write captions, schedule posts, and run paid campaigns targeting Gandhinagar and nearby areas. Instagram is particularly effective for restaurants, cafes, and retail businesses in Sector 21 and across Gandhinagar."
+  },
+  {
+    q: "Can you help a CA or CS firm in Sector 21 get more clients online?",
+    a: "Absolutely. Professional services like CA and CS firms benefit significantly from local SEO, Google Ads targeting people searching for tax or company registration services in Gandhinagar, and a professional website with a clear enquiry form. We have worked with multiple CA firms across Gujarat."
+  },
+  {
+    q: "How do I get more Google reviews for my Sector 21 business?",
+    a: "We set up a simple, systematic review request process using WhatsApp messages sent to customers after a visit or service. We create the messaging, set up a short-link that takes customers directly to your review form, and track progress monthly. Most clients go from under 15 reviews to over 60 reviews within 90 days."
+  },
+  {
+    q: "What is the minimum budget for Google Ads in Sector 21?",
+    a: "Google Ads can be started with an ad spend of Rs. 10,000 to Rs. 15,000 per month for a local Sector 21 business. Our management fee starts at Rs. 35,000 per month. For most local businesses, we recommend a combined budget of Rs. 25,000 to Rs. 50,000 per month to see meaningful volume."
+  },
+  {
+    q: "Do you serve businesses in other Gandhinagar sectors besides Sector 21?",
+    a: "Yes. We serve businesses across all of Gandhinagar, including Sector 7, Infocity, GIFT City, Kudasan, Sargasan, Adalaj, and Koba Circle. We also serve businesses in Ahmedabad and across Gujarat."
+  },
+  {
+    q: "Can I see results before committing to a long contract?",
+    a: "Yes. We offer a one-month trial for Google Business Profile optimisation and Google Ads so you can see real results before signing a longer agreement. After the first month, most Sector 21 clients continue because the results are clear and the ROI is positive."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",   slug: "gift-city" },
+  { name: "Infocity",   slug: "infocity" },
+  { name: "Sector 7",   slug: "sector-7" },
+  { name: "Kudasan",    slug: "kudasan" },
+  { name: "Sargasan",   slug: "sargasan" },
+  { name: "Adalaj",     slug: "adalaj" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing Agency in Sector 21, Gandhinagar | DC technolabs"
+  description="DC technolabs provides local SEO, Google Ads, Instagram marketing, and web design for restaurants, clinics, CA offices, retail shops, and professional services in Sector 21, Gandhinagar. Based in Ahmedabad."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/sector-21"
+  schemaJson={schemaJson}
+  badge="Sector 21, Gandhinagar"
+  heroH1="Digital Marketing for Sector 21, Gandhinagar"
+  heroHighlight="Sector 21, Gandhinagar"
+  heroDesc="Helping restaurants, clinics, retail businesses, CA offices, and coaching institutes in Sector 21 rank higher on Google, build stronger reputations, and attract more local customers. Based in Ahmedabad, just 30 minutes away."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Sector 21 Business"
+  formSub="We respond within 4 hours on business days."
+  s2Title="Local Digital Marketing for Gandhinagar's Central Commercial Hub"
+  s2Subtitle="Sector 21 businesses deserve to be found by the Gandhinagar customers who are searching for them right now."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+  s3Title="Our Services for Sector 21 Businesses"
+  s3Subtitle="Practical, results-focused digital marketing built for the competitive local market of Sector 21."
+  {services}
+  s4Title="Challenges We Solve for Sector 21 Businesses"
+  s4Subtitle="We hear these problems every week from local business owners in Gandhinagar."
+  {challenges}
+  s5Title="Why Sector 21 Businesses Trust DC technolabs"
+  s5Subtitle="Local market knowledge, honest pricing, and measurable results for businesses of all sizes."
+  {whyCards}
+  s6Title="How We Work With Sector 21 Businesses"
+  {processSteps}
+  statsHeading="Our Results With Local Businesses in Gujarat"
+  {stats}
+  s8Title="What Sector 21 Business Owners Say"
+  {testimonials}
+  s9Title="We Also Serve Nearby Areas in Gandhinagar"
+  s9Subtitle="Covering all major residential and commercial zones across Gandhinagar."
+  {nearbyAreas}
+  s10Title="Frequently Asked Questions From Sector 21 Businesses"
+  {faqItems}
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+  ctaTitle="Ready to Grow Your Sector 21 Business Online?"
+  ctaSubtitle="Whether you run a restaurant, a clinic, a retail shop, or a professional services firm in Sector 21, we have a practical digital marketing plan that fits your budget and your goals. Let us talk."
+/>

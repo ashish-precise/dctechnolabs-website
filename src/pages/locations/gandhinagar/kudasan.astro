@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Kudasan businesses in Gandhinagar with web design, local SEO, Google Ads, and social media marketing. Clinics, coaching institutes, salons, and local shops.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/kudasan",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.169", "longitude": "72.629" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Kudasan, Gandhinagar" },
+    { "@type": "Place", "name": "Sector 21, Gandhinagar" },
+    { "@type": "Place", "name": "Sargasan, Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "60+",   label: "Gandhinagar Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "92%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Kudasan is one of Gandhinagar's fastest-growing residential townships. Built around wide roads, green sectors, and an increasing number of residential societies, the area is home to a rapidly expanding population of working families, government employees, and GIFT City professionals.",
+  "This residential density has created strong demand for neighbourhood services: family clinics, coaching institutes, salons, pharmacies, and local grocery stores. But most of these businesses still rely entirely on word of mouth and physical signage, missing thousands of potential customers who search on Google every day.",
+  "DC technolabs helps Kudasan businesses get discovered online, build trust through a professional digital presence, and generate consistent local enquiries. We are based in Ahmedabad and reach Kudasan within 30 minutes for in-person meetings.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏥", label: "Clinics and Doctors" },
+  { icon: "📚", label: "Coaching Institutes" },
+  { icon: "💇", label: "Salons and Beauty Parlours" },
+  { icon: "💊", label: "Pharmacies" },
+  { icon: "🛒", label: "Local Grocery and Retail" },
+  { icon: "🔧", label: "Home Services" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "📍", title: "Growing Residential Township", desc: "Kudasan is rapidly filling with new residential societies, bringing thousands of new families who need local services and actively search for them online." },
+  { icon: "📱", title: "Mobile-First Search Behaviour", desc: "Kudasan residents search on mobile for clinics, coaching, salons, and local shops. If your business is not on Google Maps with reviews, you are invisible to them." },
+  { icon: "🏙️", title: "GIFT City Spillover Demand", desc: "Kudasan sits adjacent to the GIFT City corridor. Many professionals working in GIFT City live in Kudasan societies and prefer services within the neighbourhood." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Website Design for Kudasan Businesses",
+    desc: "Professional, mobile-first websites for clinics, coaching institutes, salons, and local businesses in Kudasan. We build sites that load fast and convert visitors into enquiries and bookings."
+  },
+  {
+    icon: "📍",
+    title: "Google Maps and Local SEO",
+    desc: "We fully set up and optimise your Google Business Profile so Kudasan residents searching for 'clinic near me' or 'coaching institute in Kudasan Gandhinagar' find your business at the top of local results."
+  },
+  {
+    icon: "📲",
+    title: "WhatsApp Marketing for Local Businesses",
+    desc: "WhatsApp is the primary communication channel for Kudasan residents. We set up WhatsApp Business, create broadcast campaigns for offers and reminders, and integrate WhatsApp into your website and ads."
+  },
+  {
+    icon: "🗓️",
+    title: "Online Booking Systems for Clinics and Salons",
+    desc: "Replace phone-based appointment booking with a seamless online booking system. Kudasan patients and salon customers can book directly from Google, your website, or Instagram without calling."
+  },
+  {
+    icon: "📢",
+    title: "Hyperlocal Google Ads Campaigns",
+    desc: "Targeted PPC campaigns reaching Kudasan and nearby Sargasan, Sector 21 residents exactly when they are searching for your service. Ad budgets managed from Rs. 10,000 per month with full transparency."
+  },
+  {
+    icon: "📱",
+    title: "Social Media for Coaching and Salons",
+    desc: "Instagram and Facebook content and ad campaigns designed for Kudasan's residential audience. Coaching enrollment campaigns for parents, before-and-after content for salons, and seasonal promotion posts."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My clinic is invisible on Google Maps despite being well-known locally",
+    solution: "Google Maps visibility depends on a correctly optimised Google Business Profile, not just reputation. We set up your profile with photos, services, hours, and a review collection strategy so new Kudasan residents find your clinic immediately."
+  },
+  {
+    problem: "My coaching institute loses students to bigger brands near Sector 21 and GIFT City",
+    solution: "Larger competitors have marketing budgets but often neglect hyperlocal Kudasan SEO. We target Kudasan-specific search terms, build your review profile, and run parent-facing Google Ads that convert curious searches into enrolled students."
+  },
+  {
+    problem: "I rely entirely on word of mouth and have no online presence",
+    solution: "Word of mouth works inside existing social circles but misses the hundreds of new families moving into Kudasan societies every month. We build your digital presence so new residents discover you before they develop existing loyalties."
+  },
+  {
+    problem: "My salon gets no new customers from Instagram despite posting regularly",
+    solution: "Posting alone is not enough. We run targeted Instagram and Facebook ad campaigns aimed at women within 3 to 5 km of your Kudasan salon, use location tags, and connect ads directly to WhatsApp for instant booking enquiries."
+  },
+  {
+    problem: "Patients cannot book appointments online and keep calling during busy hours",
+    solution: "We integrate an online appointment booking system into your clinic website and Google listing. Patients book at their convenience, you get organised appointments, and your front desk handles fewer interruption calls."
+  },
+  {
+    problem: "My pharmacy has no way to notify loyal customers about offers or new stock",
+    solution: "WhatsApp Business broadcast lists are ideal for pharmacies. We set up your WhatsApp Business account, build a subscriber list of loyal Kudasan customers, and run monthly broadcast campaigns for offers, seasonal health reminders, and new arrivals."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "📍", title: "Local Gandhinagar Knowledge", desc: "We understand the Kudasan market, the residential demographics, and how Gandhinagar residents search for local services. Our strategies are built on real local data, not generic templates." },
+  { emoji: "⚡", title: "Fast Results for Small Businesses", desc: "Google Maps rankings for local Kudasan searches typically improve within 45 to 60 days. Website design projects go live within 14 days of approval. We do not keep you waiting." },
+  { emoji: "💰", title: "Affordable and Transparent Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. PPC from Rs. 35,000 per month. No hidden setup fees, no contracts that trap you. You pay for results." },
+  { emoji: "📞", title: "Direct Access to Your Project Manager", desc: "You speak to the person working on your project, not a call centre. Phone, WhatsApp, or in-person at your Kudasan business, we are accessible when you need us." },
+  { emoji: "📈", title: "Measured by Your Leads, Not Our Metrics", desc: "We track the number of new patient appointments, coaching enquiries, or salon bookings you get from our work, not just website impressions. Growth you can see in your business." },
+  { emoji: "🤝", title: "30-Minute Drive from Kudasan", desc: "Our office is in Vatva, Ahmedabad, approximately 30 minutes from Kudasan. We can meet at your business, at a nearby cafe, or on a video call, whatever works best for you." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Kudasan business, your current online presence, your goals, and your local competition. No obligation and no charge."
+  },
+  {
+    step: "2",
+    title: "Custom Strategy",
+    desc: "Within 24 hours we send a clear proposal with scope, pricing, timeline, and a specific plan for getting your business found by Kudasan residents."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We build your website, optimise your Google listing, and set up your campaigns. You review and approve everything before it goes live."
+  },
+  {
+    step: "4",
+    title: "Grow Month by Month",
+    desc: "Monthly reports show exactly what is working. We refine the strategy continuously so your Kudasan business keeps growing every month."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "60+",  label: "Gandhinagar Clients Served" },
+  { value: "91%",  label: "First-Page Google Rankings" },
+  { value: "3.4x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "I have a general medicine clinic in Kudasan and had zero online presence. DC technolabs set up my Google listing and built a simple website. Within two months I started getting calls from new patients who found me on Google. The online booking feature has made my front desk much less stressed.",
+    name: "Dr. Rajesh Patel",
+    role: "General Physician, Kudasan, Gandhinagar",
+    initials: "RP"
+  },
+  {
+    text: "Our coaching institute near Kudasan was losing students to well-known brands in Sector 21. After DC technolabs ran Google Ads and improved our local SEO, parent enquiries increased by over 50 percent in one semester. They understood exactly what Gandhinagar parents look for.",
+    name: "Meena Shah",
+    role: "Director, Shikhar Coaching Institute, Kudasan",
+    initials: "MS"
+  },
+  {
+    text: "My beauty parlour in Kudasan depended only on regulars. They ran Instagram ads targeting ladies in the nearby societies and within a month I was getting five to eight new bookings every week from women who had never visited before. Very good results for a small budget.",
+    name: "Priya Joshi",
+    role: "Owner, Priya Beauty Parlour, Kudasan",
+    initials: "PJ"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Sector 21",
+    slug: "sector-21",
+    desc: "One of Gandhinagar's most established commercial sectors, minutes from Kudasan. Strong market for restaurants, retail, and professional services."
+  },
+  {
+    name: "Sector 7",
+    slug: "sector-7",
+    desc: "A well-developed government and residential sector in Gandhinagar with steady demand for professional services and local businesses."
+  },
+  {
+    name: "Sargasan",
+    slug: "sargasan",
+    desc: "An industrial and commercial area adjacent to Kudasan with logistics companies, auto dealers, and wholesale traders needing digital visibility."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "How long does it take to rank on Google Maps for 'clinic in Kudasan Gandhinagar'?",
+    a: "With a properly optimised Google Business Profile and a few weeks of consistent review collection, most Kudasan clinics see improved Google Maps rankings within 45 to 60 days. The keyword 'clinic in Kudasan Gandhinagar' is relatively low competition, which means faster results compared to Ahmedabad city searches."
+  },
+  {
+    q: "What does a basic website for a Kudasan clinic or coaching institute cost?",
+    a: "A professional website with a contact form, service pages, Google Maps integration, and mobile-first design starts at Rs. 25,000. For clinics that want online appointment booking, the package starts at Rs. 35,000. We build on WordPress, which means you can update content yourself easily."
+  },
+  {
+    q: "Do you handle Google Business Profile setup for new businesses in Kudasan?",
+    a: "Yes. We handle the complete Google Business Profile setup including verification, photo uploads, service listings, category selection, and initial review collection. This is included in our SEO packages and can also be done as a standalone service for Rs. 5,000."
+  },
+  {
+    q: "Can you run WhatsApp campaigns for my pharmacy or local shop in Kudasan?",
+    a: "Yes. We set up WhatsApp Business, help you build a broadcast list of existing customers, and create monthly campaigns for seasonal offers, health reminders, or new product arrivals. WhatsApp campaigns work very well for pharmacies and local retail in Kudasan because residents actively use WhatsApp for local business communication."
+  },
+  {
+    q: "My coaching institute needs more student enrolments. What do you recommend?",
+    a: "We recommend a combination of local SEO, Google Ads targeting parents in Kudasan and nearby Sargasan, and a content strategy focused on student results and parent testimonials. Most coaching institutes in Gandhinagar see a 40 to 60 percent increase in enrolment enquiries within the first three months of a well-run campaign."
+  },
+  {
+    q: "Is digital marketing affordable for small businesses in Kudasan?",
+    a: "Yes. Our packages start at Rs. 25,000 for a website and Rs. 30,000 per month for SEO. For very small businesses like salons or home services, we offer starter packages that focus on Google Maps optimisation and WhatsApp setup for under Rs. 15,000. We match the investment to the size of your business."
+  },
+  {
+    q: "Do you offer in-person meetings at our Kudasan business?",
+    a: "Yes. Our office is in Vatva, Ahmedabad, approximately 30 minutes from Kudasan. We are happy to visit your business for the initial consultation and review sessions. We can also meet at a convenient location in Gandhinagar or conduct meetings over video call."
+  },
+  {
+    q: "How do new families moving into Kudasan societies find local businesses?",
+    a: "New residents in Kudasan primarily search on Google Maps and ask in residential society WhatsApp groups. Optimising your Google Business Profile and getting positive reviews from existing customers ensures new families find your business as soon as they move in. We specialise in exactly this type of hyperlocal visibility."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",  slug: "gift-city" },
+  { name: "Infocity",   slug: "infocity" },
+  { name: "Sector 21",  slug: "sector-21" },
+  { name: "Sector 7",   slug: "sector-7" },
+  { name: "Sargasan",   slug: "sargasan" },
+  { name: "Adalaj",     slug: "adalaj" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Kudasan, Gandhinagar | DC technolabs"
+  description="DC technolabs helps Kudasan Gandhinagar businesses grow online with web design, local SEO, Google Maps optimisation, and WhatsApp marketing. Clinics, coaching institutes, salons, and local shops. Get a free quote today."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/kudasan"
+  schemaJson={schemaJson}
+
+  badge="Kudasan, Gandhinagar"
+  heroH1="Digital Marketing Agency in Kudasan, Gandhinagar"
+  heroHighlight="Kudasan, Gandhinagar"
+  heroDesc="Kudasan is growing fast and thousands of new residents search for local services every day. We help clinics, coaching institutes, salons, and local businesses in Kudasan get found on Google and WhatsApp before their competitors do."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Kudasan Business"
+  formSub="Kudasan businesses get a response within 4 hours. In-person meetings available."
+
+  s2Title="Digital Marketing for Kudasan's Residential Business Market"
+  s2Subtitle="Kudasan's growing population means growing demand. We help local businesses capture it online."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Kudasan Businesses"
+  s3Subtitle="From Google Maps to WhatsApp marketing, we cover everything a Kudasan business needs to grow online."
+  {services}
+
+  s4Title="Challenges We Solve for Kudasan Businesses"
+  s4Subtitle="The most common digital marketing problems we hear from clinics, coaching institutes, and local shops in Kudasan."
+  {challenges}
+
+  s5Title="Why Kudasan Businesses Trust DC technolabs"
+  s5Subtitle="Local knowledge, transparent pricing, and results measured in actual leads, not just website traffic."
+  {whyCards}
+
+  s6Title="How We Work With Kudasan Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gandhinagar"
+  {stats}
+
+  s8Title="What Kudasan Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across Gandhinagar. If your customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Kudasan Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+
+  ctaTitle="Ready to Grow Your Kudasan Business Online?"
+  ctaSubtitle="New families move into Kudasan every month and they search on Google before they ask neighbours. Make sure your business is the first one they find. Get a free consultation with no obligation."
+/>

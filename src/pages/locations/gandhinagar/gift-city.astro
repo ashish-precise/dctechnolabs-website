@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving GIFT City businesses in Gandhinagar with web design, SEO, PPC, LinkedIn marketing, and B2B lead generation services.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/gift-city",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.969", "longitude": "72.629" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "GIFT City, Gandhinagar" },
+    { "@type": "Place", "name": "Gujarat International Finance Tec-City" },
+    { "@type": "Place", "name": "GIFT SEZ, Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "60+",   label: "Fintech Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "30 min", label: "From Our Ahmedabad Office" },
+  { value: "94%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "GIFT City, or Gujarat International Finance Tec-City, is India's first operational smart city and International Financial Services Centre. Located on the banks of the Sabarmati river between Ahmedabad and Gandhinagar, it hosts banks, insurance companies, fintech startups, brokerage firms, fund management offices, and global IT companies operating under a special regulatory framework.",
+  "Businesses in GIFT City operate at a national and often international level. Your competitors are not just other Gandhinagar firms but well-funded companies from Mumbai's BKC and Bangalore's UB City. A weak or outdated digital presence signals unprofessionalism to the very clients you are trying to win.",
+  "Our team at DC technolabs, based in Ahmedabad just 30 minutes from GIFT City, understands the compliance-sensitive and credibility-driven nature of financial services marketing. We build digital presences that communicate authority, trust, and capability to institutional and high-net-worth clients.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏦", label: "Banking Firms" },
+  { icon: "💳", label: "Fintech Startups" },
+  { icon: "🛡️", label: "Insurance Tech" },
+  { icon: "📈", label: "Financial Services" },
+  { icon: "💻", label: "IT Companies" },
+  { icon: "🏢", label: "Professional Services" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏙️", title: "India's Premier IFSC", desc: "GIFT City operates under a unique regulatory environment managed by IFSCA, making it home to some of India's most sophisticated financial and technology businesses." },
+  { icon: "🤝", title: "B2B Sales Cycles Demand Trust", desc: "Decision-makers in GIFT City evaluate vendors thoroughly. Your website, LinkedIn presence, and content must build credibility before a call is ever taken." },
+  { icon: "🌐", title: "Compete Nationally and Globally", desc: "GIFT City businesses often bid against firms from Mumbai, Delhi, and Singapore. Your digital presence must match that tier of competition." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Premium Website Design for GIFT City",
+    desc: "We design high-conversion, compliance-aware websites for financial services firms and fintech companies. Fast-loading, mobile-optimised, and built to impress institutional clients from their first click. Starting from Rs. 25,000."
+  },
+  {
+    icon: "💼",
+    title: "LinkedIn B2B Lead Generation",
+    desc: "LinkedIn is the primary digital channel for GIFT City businesses. We build your company page, create thought leadership content, run targeted LinkedIn Ads, and generate qualified B2B leads from decision-makers across India."
+  },
+  {
+    icon: "🔍",
+    title: "SEO for Financial Services",
+    desc: "We rank your firm for high-intent searches like 'fintech company GIFT City', 'IFSC fund management', and related keywords. Compliance-aware content that builds domain authority without making any regulatory promises."
+  },
+  {
+    icon: "📢",
+    title: "PPC and Google Ads",
+    desc: "Targeted B2B Google Ads campaigns reaching CFOs, investment managers, and compliance officers searching for financial services in GIFT City and pan-India. Full budget transparency with monthly reporting."
+  },
+  {
+    icon: "✍️",
+    title: "Content Marketing and Thought Leadership",
+    desc: "Whitepapers, case studies, blog articles, and industry commentary that positions your GIFT City firm as a genuine authority. We write for financial and technology audiences without any generic filler."
+  },
+  {
+    icon: "📊",
+    title: "Analytics and Reporting",
+    desc: "Every campaign is tracked with clear metrics: leads generated, cost per lead, keyword rankings, and pipeline attributed to digital. You always know exactly what your marketing budget is producing."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Your website looks outdated compared to Mumbai and Bangalore competitors",
+    solution: "We redesign GIFT City company websites to match the premium visual standards expected in financial services, with fast load times, clear service pages, and mobile-first design. Starting from Rs. 25,000."
+  },
+  {
+    problem: "Your digital presence generates zero qualified leads",
+    solution: "We build a full-funnel digital strategy combining SEO, LinkedIn, and Google Ads specifically calibrated for the long B2B sales cycles typical in GIFT City sectors. Results tracked monthly."
+  },
+  {
+    problem: "Competing with well-funded firms from tier-1 cities feels impossible online",
+    solution: "Smaller GIFT City firms can outmanoeuvre larger firms through consistent content, strong local SEO, and precise LinkedIn targeting. We have done this for multiple Gujarat-based financial services companies."
+  },
+  {
+    problem: "LinkedIn company page has no followers and no engagement",
+    solution: "We establish your LinkedIn presence with a professional company page, a content calendar built around your expertise, and targeted follower-growth campaigns reaching your ideal clients across India."
+  },
+  {
+    problem: "Marketing must stay within regulatory and compliance boundaries",
+    solution: "Our team understands the restrictions around financial services advertising in India. We create content and campaigns that build credibility without making claims that could trigger regulatory concern."
+  },
+  {
+    problem: "Sales team has no digital collateral to share with prospects",
+    solution: "We produce professional one-pagers, case study PDFs, and branded presentation decks that your business development team can share across email and LinkedIn throughout the sales process."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🏦",
+    title: "We Understand Fintech and Finance",
+    desc: "We have worked with fintech startups, financial advisory firms, and technology companies serving the banking sector. We know the language, the compliance sensitivities, and the expectations of your clients."
+  },
+  {
+    emoji: "📍",
+    title: "Ahmedabad-Based, GIFT City-Focused",
+    desc: "Our office is in Ahmedabad, 30 minutes from GIFT City. We can meet in person, attend client presentations, and work closely with your team rather than as a distant vendor."
+  },
+  {
+    emoji: "🎯",
+    title: "B2B Marketing Specialists",
+    desc: "Consumer marketing and B2B marketing are entirely different disciplines. We run B2B campaigns every day for clients who sell to companies, not individual consumers."
+  },
+  {
+    emoji: "📈",
+    title: "Lead Quality Over Lead Volume",
+    desc: "We optimise for qualified pipeline, not vanity metrics. Every GIFT City campaign we run is measured by actual business outcomes: meetings booked, proposals sent, and deals influenced."
+  },
+  {
+    emoji: "🔒",
+    title: "Confidentiality and Professionalism",
+    desc: "We understand that financial services firms value discretion. We sign NDAs, handle all client data responsibly, and never use your firm's name or work in our case studies without explicit permission."
+  },
+  {
+    emoji: "🚀",
+    title: "Fast Turnaround, No Delays",
+    desc: "We know business moves fast in GIFT City. We commit to timelines, deliver on time, and keep you informed throughout every project. No chasing us for updates."
+  },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Discovery Call",
+    desc: "We understand your GIFT City business, your target clients, your compliance boundaries, and your current digital situation before we recommend anything."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "We present a clear digital marketing plan with services, timelines, and budgets. No generic packages, everything is tailored to your specific sector and goals."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "Website, content, ads accounts, LinkedIn setup, all executed with precision and reviewed with you at every milestone before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Optimise and Report",
+    desc: "Monthly performance reports with clear metrics. We continuously test and improve your campaigns, and you have a direct line to our team any time you need us."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "60+",    label: "B2B Clients Served in Gujarat" },
+  { value: "3x",     label: "Average Lead Volume Increase" },
+  { value: "Rs. 30K", label: "SEO Starting From Per Month" },
+  { value: "4 hrs",  label: "Average Response Time" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were losing RFPs to Mumbai firms partly because our website looked years behind. DC technolabs redesigned our site and built our LinkedIn presence in six weeks. Three months later we had inbound enquiries from two large Gujarat banks.",
+    name: "Keval Mehta",
+    role: "Founder, Fintech Startup, GIFT City",
+    initials: "KM"
+  },
+  {
+    text: "Our biggest challenge was explaining complex financial products to prospects online without triggering compliance concerns. DC technolabs created content that was authoritative, clear, and fully within our regulatory guidelines.",
+    name: "Ruchita Shah",
+    role: "Managing Director, Financial Services, GIFT City",
+    initials: "RS"
+  },
+  {
+    text: "I was sceptical about hiring a Gujarat agency for B2B marketing, but DC technolabs proved they understand institutional sales. Our LinkedIn page went from 200 followers to over 2,000 in four months, and we booked six qualified meetings from digital alone.",
+    name: "Dhruv Pandya",
+    role: "Co-founder, IT Company, GIFT City",
+    initials: "DP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "Infocity", slug: "infocity", desc: "IT companies, BPO firms, and tech startups in Gandhinagar's major technology hub, adjacent to GIFT City." },
+  { name: "Sector 21", slug: "sector-21", desc: "Restaurants, retail businesses, clinics, and professional service firms serving central Gandhinagar." },
+  { name: "Kudasan", slug: "kudasan", desc: "A fast-growing residential and commercial area near GIFT City with rising business activity." },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you handle compliance-sensitive marketing for financial services firms in GIFT City?",
+    a: "Yes. We understand that financial services companies in GIFT City operate under IFSCA and SEBI regulations. We create content and advertising campaigns that build credibility and generate enquiries without making unsubstantiated performance claims or triggering regulatory concern. We are happy to have your compliance team review everything before publication."
+  },
+  {
+    q: "How do you generate B2B leads for GIFT City businesses?",
+    a: "We use a combination of LinkedIn Ads, LinkedIn organic content, Google search campaigns targeting high-intent keywords, and SEO to build a consistent pipeline of enquiries. B2B lead generation requires patience and consistent effort. Most GIFT City clients see meaningful results within three to six months."
+  },
+  {
+    q: "What does a professional website for a GIFT City financial firm cost?",
+    a: "Web design for financial services companies starts at Rs. 25,000 for a clean informational site. More sophisticated sites with client portals, detailed service pages, and custom design work typically range from Rs. 60,000 to Rs. 1,50,000. We will give you a precise quote after understanding your requirements."
+  },
+  {
+    q: "Do you offer LinkedIn marketing services specifically for GIFT City firms?",
+    a: "Yes. We set up and optimise your LinkedIn Company Page, build a content calendar, write and publish thought leadership posts, and run LinkedIn Ads targeting specific job titles, industries, and company sizes. This is one of our most popular services for GIFT City businesses."
+  },
+  {
+    q: "How long before we see results from SEO for a financial services website?",
+    a: "SEO for financial services is competitive but very rewarding. Typically you will see meaningful ranking improvements within three to four months, and strong lead generation from organic search within six months. We set realistic expectations and report progress every month."
+  },
+  {
+    q: "Can you help with content marketing in both English and Gujarati?",
+    a: "Yes. We write professional content in English for pan-India and international audiences, and we can also produce Gujarati content for local business development. We ensure all content is accurate, professionally written, and relevant to your specific audience."
+  },
+  {
+    q: "Is your team available for in-person meetings in GIFT City or Gandhinagar?",
+    a: "Absolutely. Our office is in Ahmedabad, which is 30 minutes from GIFT City. We are happy to meet at your office in GIFT City, at a Gandhinagar location, or at our office in Ahmedabad. We believe in building proper working relationships with our clients."
+  },
+  {
+    q: "What industries within GIFT City do you have the most experience with?",
+    a: "We have worked with fintech startups, fund management firms, insurance technology companies, financial advisory services, and IT companies serving the BFSI sector. We understand the sales process, buyer expectations, and digital marketing challenges specific to these sectors."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Infocity",     slug: "infocity" },
+  { name: "Sector 21",   slug: "sector-21" },
+  { name: "Sector 7",    slug: "sector-7" },
+  { name: "Kudasan",     slug: "kudasan" },
+  { name: "Sargasan",    slug: "sargasan" },
+  { name: "Adalaj",      slug: "adalaj" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing Agency in GIFT City, Gandhinagar | DC technolabs"
+  description="DC technolabs provides B2B digital marketing, LinkedIn lead generation, web design, and SEO for fintech, banking, and financial services firms in GIFT City, Gandhinagar. Based in Ahmedabad, 30 minutes away."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/gift-city"
+  schemaJson={schemaJson}
+  badge="GIFT City, Gandhinagar"
+  heroH1="Digital Marketing for GIFT City, Gandhinagar"
+  heroHighlight="GIFT City, Gandhinagar"
+  heroDesc="Helping fintech startups, banking firms, insurance tech companies, and financial services providers in GIFT City build credible digital presences that generate qualified B2B enquiries. Based in Ahmedabad, just 30 minutes away."
+  {heroStats}
+  formTitle="Get a Free Quote for Your GIFT City Business"
+  formSub="We respond within 4 hours on business days."
+  s2Title="Marketing for India's Premier International Financial Hub"
+  s2Subtitle="GIFT City demands a digital presence that matches its international stature."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+  s3Title="Our Services for GIFT City Businesses"
+  s3Subtitle="B2B digital marketing built for the compliance-aware, credibility-driven world of financial services."
+  {services}
+  s4Title="Challenges We Solve for GIFT City Businesses"
+  s4Subtitle="We have heard these problems from fintech founders and financial services heads across GIFT City."
+  {challenges}
+  s5Title="Why GIFT City Businesses Trust DC technolabs"
+  s5Subtitle="B2B marketing expertise, local presence, and a genuine understanding of financial services."
+  {whyCards}
+  s6Title="How We Work With GIFT City Businesses"
+  {processSteps}
+  statsHeading="Our Track Record With B2B Clients in Gujarat"
+  {stats}
+  s8Title="What GIFT City Business Leaders Say"
+  {testimonials}
+  s9Title="We Also Serve Nearby Areas in Gandhinagar"
+  s9Subtitle="Covering all major business zones across Gandhinagar and the Ahmedabad metro region."
+  {nearbyAreas}
+  s10Title="Frequently Asked Questions From GIFT City Businesses"
+  {faqItems}
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+  ctaTitle="Ready to Grow Your GIFT City Business Online?"
+  ctaSubtitle="Whether you are a fintech startup seeking your first qualified leads or an established financial services firm that needs a professional digital overhaul, we are ready to help. Let us talk."
+/>

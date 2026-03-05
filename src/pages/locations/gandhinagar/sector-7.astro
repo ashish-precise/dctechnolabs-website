@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving coaching institutes, schools, NGOs, and professional services businesses in Sector 7, Gandhinagar with web design, SEO, and credibility-building digital marketing.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/sector-7",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.200", "longitude": "72.645" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Sector 7, Gandhinagar" },
+    { "@type": "Place", "name": "Gandhinagar Sector 7 Market" },
+    { "@type": "Place", "name": "Gandhinagar Government Area" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "80+",    label: "Educational and Institutional Clients" },
+  { value: "8+",     label: "Years in Gujarat" },
+  { value: "30 min", label: "From Our Ahmedabad Office" },
+  { value: "93%",    label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Sector 7 in Gandhinagar is one of the city's older and more established sectors, home to a distinctive mix of educational institutions, coaching institutes, government department offices, NGOs, healthcare facilities, and businesses that supply goods and services to government agencies.",
+  "The businesses and institutions in Sector 7 share a common challenge: they operate in sectors where credibility, trust, and authority matter above everything else. A coaching institute must convince parents that their child's future is safe in your hands. An NGO must show donors that their money creates real impact. A government supplier must project professionalism to win tenders and maintain relationships.",
+  "DC technolabs, based in Ahmedabad 30 minutes from Sector 7, understands the communication needs of educational institutions, civil society organisations, and institutional service providers. We build digital presences that inspire trust and drive the outcomes these organisations need.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "📚", label: "Coaching Institutes" },
+  { icon: "🏫", label: "Schools" },
+  { icon: "🤲", label: "NGOs" },
+  { icon: "🏗️", label: "Government Suppliers" },
+  { icon: "💼", label: "Professional Services" },
+  { icon: "🏥", label: "Healthcare" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏛️", title: "Government-Adjacent Ecosystem", desc: "Sector 7's proximity to Gandhinagar's government offices and secretariat means many local businesses serve or depend on government relationships, requiring a credible, professional presence." },
+  { icon: "👨‍👩‍👧", title: "Parent and Community Decision-Makers", desc: "Educational institutions in Sector 7 are primarily evaluated by parents who research online before calling. A strong digital presence directly influences admissions and enrolment." },
+  { icon: "🤝", title: "Trust Is the Primary Currency",  desc: "Whether it is a parent choosing a coaching institute, a donor evaluating an NGO, or a procurement officer assessing a supplier, trust signals online determine who wins the relationship." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Website Design for Institutions and Institutes",
+    desc: "Professional, trust-building websites for coaching institutes, schools, NGOs, and professional services firms in Sector 7. Clear programme information, faculty profiles, outcome data, and inquiry forms. Starting from Rs. 25,000."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO and Google Presence",
+    desc: "We optimise your Google Business Profile and build local SEO so parents and community members in Gandhinagar find your coaching institute, school, or healthcare practice when they search. Consistent rankings, managed monthly."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Admissions and Enrolment",
+    desc: "Targeted Google Ads campaigns reaching Gandhinagar parents searching for coaching classes, schools, or tuition. Campaigns focused on admission season peaks with budgets starting from Rs. 15,000 per month."
+  },
+  {
+    icon: "📸",
+    title: "Social Media for Educational Institutions",
+    desc: "Facebook and Instagram content that builds community trust for coaching institutes, schools, and NGOs. Student success stories, event coverage, faculty highlights, and achievement posts that keep your audience engaged."
+  },
+  {
+    icon: "✍️",
+    title: "NGO Content and Donor Communication",
+    desc: "Impact reports, donor newsletters, grant communication, and social media campaigns for NGOs in Sector 7. We help you tell your impact story in a way that motivates donors, volunteers, and government partners to support your work."
+  },
+  {
+    icon: "🏆",
+    title: "Credibility and Authority Building",
+    desc: "Testimonials, case studies, media coverage facilitation, award applications, and LinkedIn presence for Sector 7 institutions and professional services firms that need to establish and maintain community authority."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Coaching institute or school has no digital presence and is losing students to bigger brands",
+    solution: "We build a complete digital presence for educational institutions: professional website with course details and faculty profiles, Google Business Profile with reviews, and Google Ads targeting parents in Gandhinagar and nearby areas during admission season."
+  },
+  {
+    problem: "NGO is struggling to reach donors and volunteers online",
+    solution: "We build your NGO's digital presence with a website that clearly communicates your mission and impact, social media profiles that tell ongoing stories, and a donor outreach email strategy that nurtures long-term relationships with supporters."
+  },
+  {
+    problem: "Government supplier has no professional website or credibility signals for tender applications",
+    solution: "We design a professional company website with clear service capabilities, company profile, past work, and credentials that strengthen your position in government tenders and private sector bidding. Starting from Rs. 25,000."
+  },
+  {
+    problem: "Parents are choosing competitor coaching institutes with better online reviews",
+    solution: "We implement a structured student and parent review collection system, respond professionally to existing reviews, and optimise your Google Business Profile so your coaching institute appears prominently for searches in Gandhinagar."
+  },
+  {
+    problem: "Educational institution enrolment has been declining year over year",
+    solution: "Declining enrolment is often a visibility problem as much as a quality problem. We build a targeted admission season campaign combining Google Ads, WhatsApp outreach, and local SEO to put your institute in front of parents actively looking for educational options in Gandhinagar."
+  },
+  {
+    problem: "Healthcare practice near Sector 7 has no digital presence at all",
+    solution: "We create a professional website, optimise your Google Business Profile, collect patient reviews, and run locally targeted Google Ads for specific treatments or services. Most Sector 7 clinics and practices see new patient enquiries within the first 30 days."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "🏛️",
+    title: "We Understand Institutional Communication",
+    desc: "Marketing for schools, NGOs, and government-adjacent businesses is different from commercial marketing. We understand the tone, the trust signals, and the audience expectations that drive decisions in these sectors."
+  },
+  {
+    emoji: "📍",
+    title: "Based 30 Minutes from Sector 7",
+    desc: "Our office is in Ahmedabad. We can meet in person, attend events, and understand your institution or organisation on the ground, not just through a screen."
+  },
+  {
+    emoji: "💰",
+    title: "Budget-Friendly for Non-Profits and Institutes",
+    desc: "We offer special pricing for registered NGOs and educational institutions. A strong digital presence should not be out of reach for organisations doing important community work."
+  },
+  {
+    emoji: "👨‍👩‍👧",
+    title: "Parent-Facing Content Specialists",
+    desc: "We know how to write for parents evaluating schools and coaching institutes. Our content addresses the specific concerns, hopes, and evaluation criteria that Gandhinagar parents use when making education decisions."
+  },
+  {
+    emoji: "📈",
+    title: "Admission Season Campaigns That Actually Fill Seats",
+    desc: "We have managed admission season campaigns for coaching institutes and schools across Gujarat. We know when to run, what to say, and how to convert enquiries into enrolled students."
+  },
+  {
+    emoji: "🤲",
+    title: "Genuine Interest in Community Impact",
+    desc: "We take on NGO and educational institution clients because we believe in the work they do. We bring the same level of effort and creativity to these projects as we do to any commercial client."
+  },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Understanding Your Mission",
+    desc: "We start by deeply understanding your institution or organisation: your programmes, your audience, your goals, and what success looks like for you. This is especially important for schools, NGOs, and institutional clients."
+  },
+  {
+    step: "2",
+    title: "Strategy and Plan",
+    desc: "We present a tailored digital strategy with realistic timelines and transparent costs. For educational institutions, this usually includes a website plan, Google presence strategy, and an admission season campaign calendar."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "Website, Google Business Profile, social media, and ad campaigns all launched within 3 to 4 weeks with your review and approval at every stage."
+  },
+  {
+    step: "4",
+    title: "Ongoing Support",
+    desc: "Monthly reporting, regular content updates, and seasonal campaign management keep your digital presence active and effective throughout the year, especially during critical admission or fundraising periods."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "80+",    label: "Educational and Institutional Clients" },
+  { value: "40%",    label: "Average Enrolment Increase for Institute Clients" },
+  { value: "Rs. 25K", label: "Website Starting From" },
+  { value: "6 wks",  label: "Typical Time to First Enquiry Increase" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had been running our coaching institute in Sector 7 for eight years but had almost no online presence. DC technolabs built our website, got us on Google Maps, and ran a Google Ads campaign during admission season. That year we saw a 40% increase in new student enquiries compared to the previous year.",
+    name: "Ashok Panchal",
+    role: "Director, Coaching Institute, Sector 7 Gandhinagar",
+    initials: "AP"
+  },
+  {
+    text: "As an NGO, we were always worried about marketing costs. DC technolabs offered us a very fair rate and built our website, set up our social media pages, and created an email newsletter system for donor communication. Our online donations have increased meaningfully and we now get volunteer applications through the website.",
+    name: "Reena Bhatt",
+    role: "Secretary, NGO, Sector 7 Gandhinagar",
+    initials: "RB"
+  },
+  {
+    text: "Our school had a very outdated website that parents complained about. DC technolabs redesigned it completely, added a digital fee portal, and created a parent communication system. The feedback from parents has been overwhelmingly positive and new admissions enquiries are now consistently coming through the website.",
+    name: "Hemant Parmar",
+    role: "Principal, School, Sector 7 Gandhinagar",
+    initials: "HP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "Sector 21", slug: "sector-21", desc: "Gandhinagar's central commercial hub with restaurants, retail, clinics, and professional services." },
+  { name: "Kudasan", slug: "kudasan", desc: "A growing residential and commercial locality near Gandhinagar with a young, digitally active population." },
+  { name: "Infocity", slug: "infocity", desc: "Gandhinagar's technology and software hub with IT companies, BPO operations, and tech startups." },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help a coaching institute in Sector 7 attract more students online?",
+    a: "Yes. We build comprehensive digital marketing campaigns for coaching institutes covering Google Ads targeting parents in Gandhinagar, local SEO so your institute appears prominently on Google Maps, a professional website with course details and faculty profiles, and review collection to build trust. Most coaching institute clients see a meaningful increase in admissions enquiries within the first admission season."
+  },
+  {
+    q: "Do you offer discounted rates for NGOs in Gandhinagar?",
+    a: "Yes. We offer special pricing for registered NGOs and charitable organisations. We believe that organisations doing important community work should have access to professional digital marketing. Please contact us and we will discuss pricing based on your specific needs and budget."
+  },
+  {
+    q: "How can a school in Sector 7 use digital marketing to increase admissions?",
+    a: "Schools benefit most from a strong website with clear programme information and fee structures, Google Business Profile optimisation with parent reviews, Facebook and Instagram content showcasing school life, and targeted Google Ads during admission season. We have a proven approach for school admission campaigns in Gujarat."
+  },
+  {
+    q: "Can you build a website for a government supplier or contractor in Sector 7?",
+    a: "Yes. A professional company website significantly strengthens a government supplier's credibility in tender applications and direct solicitations. We build clean, credible websites that showcase your products or services, past work, certifications, and company profile. Starting from Rs. 25,000."
+  },
+  {
+    q: "How can an NGO in Sector 7 raise more donations online?",
+    a: "An effective NGO digital presence combines a strong website with clear impact stories and a donation button, social media content that shares your work regularly, an email newsletter for existing donors, and targeted social media campaigns during giving seasons. We have helped Gujarat NGOs increase online donor acquisition meaningfully."
+  },
+  {
+    q: "What social media platforms work best for educational institutions in Gandhinagar?",
+    a: "Facebook is still the primary platform for reaching parents in Gandhinagar, especially for schools and coaching institutes. Instagram works well for showcasing activities and student achievements to a slightly younger audience. WhatsApp Business is extremely effective for direct parent communication, reminders, and event updates."
+  },
+  {
+    q: "How soon can you get our Sector 7 coaching institute ranking on Google?",
+    a: "Google Business Profile optimisation typically shows ranking improvements within 4 to 8 weeks for Gandhinagar local searches. Full SEO for broader keywords takes 3 to 5 months. For admission season urgency, we recommend combining Google Ads for immediate visibility with SEO for sustained long-term rankings."
+  },
+  {
+    q: "Can you create content in Gujarati for our school or coaching institute?",
+    a: "Yes. We create content in both English and Gujarati for educational institutions and NGOs in Sector 7 and across Gandhinagar. Gujarati-language content is particularly effective for reaching parents who are more comfortable in their native language and often makes communication feel more personal and trustworthy."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",   slug: "gift-city" },
+  { name: "Infocity",   slug: "infocity" },
+  { name: "Sector 21",  slug: "sector-21" },
+  { name: "Kudasan",    slug: "kudasan" },
+  { name: "Sargasan",   slug: "sargasan" },
+  { name: "Adalaj",     slug: "adalaj" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing Agency in Sector 7, Gandhinagar | DC technolabs"
+  description="DC technolabs provides web design, SEO, Google Ads, and institutional digital marketing for coaching institutes, schools, NGOs, and professional services firms in Sector 7, Gandhinagar. Based in Ahmedabad."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/sector-7"
+  schemaJson={schemaJson}
+  badge="Sector 7, Gandhinagar"
+  heroH1="Digital Marketing for Sector 7, Gandhinagar"
+  heroHighlight="Sector 7, Gandhinagar"
+  heroDesc="Helping coaching institutes, schools, NGOs, government suppliers, and professional services firms in Sector 7 build credible digital presences that increase admissions, attract donors, and win new clients. Based in Ahmedabad, just 30 minutes away."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Sector 7 Business"
+  formSub="We respond within 4 hours on business days."
+  s2Title="Credibility-First Digital Marketing for Sector 7, Gandhinagar"
+  s2Subtitle="In sectors where trust drives decisions, your digital presence must communicate authority and integrity from the first click."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+  s3Title="Our Services for Sector 7 Businesses and Institutions"
+  s3Subtitle="Purpose-built digital marketing for educational institutions, NGOs, and professional services in Gandhinagar."
+  {services}
+  s4Title="Challenges We Solve for Sector 7 Businesses"
+  s4Subtitle="Real problems we hear from coaching institutes, schools, NGOs, and professional services firms in Sector 7."
+  {challenges}
+  s5Title="Why Sector 7 Institutions Trust DC technolabs"
+  s5Subtitle="Understanding the unique communication needs of educational and institutional organisations in Gandhinagar."
+  {whyCards}
+  s6Title="How We Work With Sector 7 Institutions"
+  {processSteps}
+  statsHeading="Our Results With Educational and Institutional Clients"
+  {stats}
+  s8Title="What Sector 7 Clients Say"
+  {testimonials}
+  s9Title="We Also Serve Nearby Areas in Gandhinagar"
+  s9Subtitle="Covering all major residential and commercial zones across Gandhinagar."
+  {nearbyAreas}
+  s10Title="Frequently Asked Questions From Sector 7 Businesses"
+  {faqItems}
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+  ctaTitle="Ready to Grow Your Sector 7 Institution or Business Online?"
+  ctaSubtitle="Whether you run a coaching institute seeking more admissions, an NGO trying to reach more donors, or a professional services firm looking to build authority in Gandhinagar, we have a plan for you. Let us talk."
+/>

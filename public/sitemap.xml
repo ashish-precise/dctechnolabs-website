@@ -117,6 +117,48 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Gandhinagar Neighborhood Pages -->
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/gift-city/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/infocity/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/sector-21/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/sector-7/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/kudasan/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/sargasan/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/adalaj/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/gandhinagar/koba-circle/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Ahmedabad Neighborhood Pages -->
   <url>
     <loc>https://dctechnolabs.in/locations/ahmedabad/satellite/</loc>

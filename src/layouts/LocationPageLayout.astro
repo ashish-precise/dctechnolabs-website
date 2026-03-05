@@ -58,6 +58,7 @@ interface Props {
   s11Label?: string; s11Title: string;
   mapInfo: MapInfo;
   ctaTitle: string; ctaSubtitle: string;
+  citySlug?: string;
 }
 
 const {
@@ -74,6 +75,7 @@ const {
   s10Label = "FAQ", s10Title, faqItems,
   s11Label = "Find Us", s11Title, mapInfo,
   ctaTitle, ctaSubtitle,
+  citySlug = 'ahmedabad',
 } = Astro.props;
 import Header from '../components/Header.astro';
 ---
@@ -299,7 +301,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
     <div class="neighborhoods-grid">
       {neighborhoods.map(n => (
         n.slug
-          ? <a href={`/locations/ahmedabad/${n.slug}/`} class="neighborhood-card neighborhood-card--link"><h3>{n.name}</h3><p>{n.types}</p><span class="neighborhood-card-arrow">View area →</span></a>
+          ? <a href={`/locations/${citySlug}/${n.slug}/`} class="neighborhood-card neighborhood-card--link"><h3>{n.name}</h3><p>{n.types}</p><span class="neighborhood-card-arrow">View area →</span></a>
           : <div class="neighborhood-card"><h3>{n.name}</h3><p>{n.types}</p></div>
       ))}
     </div>

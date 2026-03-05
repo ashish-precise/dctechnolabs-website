@@ -80,18 +80,18 @@ const overviewParagraphs: OverviewParagraphs = {
 
 // ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
 const neighborhoods: Neighborhood[] = [
-  { name: "GIFT City",      types: "Fintech, banking, financial services" },
-  { name: "Infocity",       types: "IT companies, BPO, tech startups" },
-  { name: "Sector 21",      types: "Restaurants, retail, professional services" },
-  { name: "Sector 7",       types: "Government offices, education, NGOs" },
-  { name: "Kudasan",        types: "Residential services, clinics, coaching" },
-  { name: "Sargasan",       types: "Logistics, light manufacturing, retail" },
+  { name: "GIFT City",      types: "Fintech, banking, financial services",        slug: "gift-city" },
+  { name: "Infocity",       types: "IT companies, BPO, tech startups",            slug: "infocity" },
+  { name: "Sector 21",      types: "Restaurants, retail, professional services",  slug: "sector-21" },
+  { name: "Sector 7",       types: "Government offices, education, NGOs",         slug: "sector-7" },
+  { name: "Kudasan",        types: "Residential services, clinics, coaching",      slug: "kudasan" },
+  { name: "Sargasan",       types: "Logistics, light manufacturing, retail",      slug: "sargasan" },
+  { name: "Adalaj",         types: "Tourism, hospitality, residential services",  slug: "adalaj" },
+  { name: "Koba Circle",    types: "Commercial, food & beverage, auto",           slug: "koba-circle" },
   { name: "Raysan",         types: "Industrial estates, warehousing" },
-  { name: "Adalaj",         types: "Tourism, hospitality, residential services" },
   { name: "Sector 11",      types: "Educational institutions, research" },
   { name: "Sector 16",      types: "Government corporates, public sector" },
   { name: "Randesan",       types: "Pharma, industrial, institutional" },
-  { name: "Koba Circle",    types: "Commercial, food & beverage, auto" },
 ];
 
 // ── §4 CHALLENGES ─────────────────────────────────────────────────────────────
@@ -215,6 +215,8 @@ const mapInfo: MapInfo = {
 
   s11Title="Our Base, 30 Minutes From Gandhinagar"
   mapInfo={mapInfo}
+
+  citySlug="gandhinagar"
 
   ctaTitle="Ready to Grow Your Gandhinagar Business Online?"
   ctaSubtitle="Get a free consultation from a team that knows Gandhinagar's market. We respond the same day and can meet at your location."

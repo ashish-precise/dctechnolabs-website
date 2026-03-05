@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Adalaj businesses in Gandhinagar with hospitality SEO, tourism marketing, Google Maps for hotels and restaurants, and Instagram marketing for local businesses.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/adalaj",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.165", "longitude": "72.579" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Adalaj, Gandhinagar" },
+    { "@type": "Place", "name": "Adalaj Stepwell, Gujarat" },
+    { "@type": "Place", "name": "Koba Circle, Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "60+",   label: "Gandhinagar Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "92%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Adalaj is a unique area in Gandhinagar. It is home to the famous Adalaj Stepwell, one of Gujarat's most visited historical monuments, attracting thousands of domestic and international tourists every year. This tourism draw creates a natural opportunity for hotels, homestays, restaurants, and local businesses to capture visitor spending.",
+  "Yet most Adalaj businesses are invisible to the very tourists who visit the stepwell. A tourist who visits the Adalaj ni Vav spends only minutes at the site but is looking for places to eat, stay, and shop nearby. Without an online presence on Google Maps and Instagram, local businesses miss this ready-made audience entirely.",
+  "DC technolabs helps Adalaj businesses build visibility specifically for both local residents and the steady flow of tourists visiting the Adalaj Stepwell. We understand tourism marketing in Gujarat and the digital behaviour of visitors who plan trips using Google and social media.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏨", label: "Hotels and Homestays" },
+  { icon: "🍽️", label: "Restaurants" },
+  { icon: "🗺️", label: "Tour Operators" },
+  { icon: "🏠", label: "Residential Services" },
+  { icon: "🏥", label: "Clinics" },
+  { icon: "🛒", label: "Local Shops" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏛️", title: "Tourism Driven by Adalaj Stepwell", desc: "The 15th-century Adalaj ni Vav attracts visitors from across India and abroad. Businesses near the stepwell have a captive audience looking for food, accommodation, and local experiences." },
+  { icon: "📱", title: "Tourists Search Before They Visit", desc: "Modern tourists plan their day on Google Maps, Tripadvisor, and Instagram. Adalaj businesses that appear prominently on these platforms capture tourist spending that currently goes elsewhere." },
+  { icon: "🏘️", title: "Growing Residential Neighbourhood", desc: "Beyond tourism, Adalaj is also a growing residential area with families and working professionals who need local services, clinics, and everyday businesses close to home." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "📍",
+    title: "Google Maps Optimisation for Tourism Businesses",
+    desc: "We optimise your hotel, restaurant, or tour business on Google Maps so tourists searching 'restaurants near Adalaj Stepwell' or 'hotels in Adalaj Gandhinagar' find you immediately. Includes photo management, review collection, and accurate listing details."
+  },
+  {
+    icon: "🌐",
+    title: "Hotel and Homestay Websites with Booking",
+    desc: "Professional hotel or homestay websites with room galleries, pricing, and direct booking forms. Reduce dependency on OTA platforms like OYO or MakeMyTrip and capture direct bookings that cost you no commission."
+  },
+  {
+    icon: "📸",
+    title: "Instagram Marketing for Hospitality and Food",
+    desc: "Instagram is where tourists discover restaurants and hotels in heritage locations like Adalaj. We create and manage your Instagram presence with high-quality content, reel production guidance, and targeted ads reaching tourists planning Gujarat trips."
+  },
+  {
+    icon: "🗺️",
+    title: "Tourism SEO for Adalaj Businesses",
+    desc: "We rank your website and Google listing for travel-intent keywords like 'Adalaj Stepwell tour guide', 'day trip from Ahmedabad to Adalaj', and 'best restaurants near Adalaj ni Vav'. Capture visitors researching Gujarat heritage tourism."
+  },
+  {
+    icon: "🍽️",
+    title: "Restaurant Online Presence and Delivery Setup",
+    desc: "Website with your full menu, professional food photography guidance, Google listing, and Swiggy or Zomato profile optimisation. Tourists visiting Adalaj and residents searching for dining options find your restaurant first."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Hotels and Tour Packages",
+    desc: "Targeted Google Ads campaigns reaching travellers searching for Adalaj and Gandhinagar accommodation and experiences. We run campaigns from Rs. 15,000 per month that bring in direct booking enquiries and tour package leads."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Tourists visit the Adalaj Stepwell but do not find my hotel or restaurant nearby",
+    solution: "We optimise your Google Business Profile specifically for tourist search terms like 'hotels near Adalaj ni Vav' and 'restaurants in Adalaj Gandhinagar'. With accurate location, great photos, and positive reviews, your business appears in Google Maps results the moment tourists search during or before their visit."
+  },
+  {
+    problem: "My hotel is not appearing on Google despite being well-located",
+    solution: "Most small hotels and homestays in Adalaj have incomplete or unverified Google Business Profiles. We do a full profile setup, add professional-quality photos, list all room types and amenities, and implement a review collection system that builds your rating steadily over 60 to 90 days."
+  },
+  {
+    problem: "My restaurant has no Instagram presence and is losing customers to food places that post regularly",
+    solution: "We set up your Instagram page, create a content strategy built around your cuisine and the Adalaj heritage backdrop, and run targeted ads reaching food-seeking tourists and local residents within a 5 km radius. The Adalaj heritage setting is a strong visual marketing asset we use to differentiate your restaurant."
+  },
+  {
+    problem: "My tour operation has no website and I miss inquiries from tourists planning Gujarat heritage trips",
+    solution: "A clean, informative website with your tour packages, itineraries, pickup points from Ahmedabad, and a direct WhatsApp enquiry button captures tourists who plan their trips online weeks in advance. We build these sites starting at Rs. 25,000 and optimise them for heritage tourism search terms."
+  },
+  {
+    problem: "I pay high commission to Booking.com or OYO and want more direct bookings",
+    solution: "A direct booking website reduces OTA dependency significantly. We build your hotel website with room listings, photos, a direct booking form, and Google Ads targeting visitors searching for Adalaj accommodation. Even capturing 30% of bookings directly can save lakhs in annual commission costs."
+  },
+  {
+    problem: "My local shop or clinic gets no new customers from the residential Adalaj community",
+    solution: "Adalaj's residential population is growing quickly. We optimise your Google Business Profile for residential searches, run targeted social media campaigns for the local community, and build a simple website that establishes you as the neighbourhood's preferred service provider."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏛️", title: "Tourism Marketing Expertise", desc: "We have run digital campaigns for hospitality and tourism businesses across Gujarat. We understand how domestic and international tourists search for and choose accommodation and dining in heritage destinations." },
+  { emoji: "📍", title: "Google Maps Specialists", desc: "For tourism businesses, Google Maps visibility is everything. We specialise in getting hotels, restaurants, and tour operators to appear prominently in local search results, especially for tourist-intent search terms." },
+  { emoji: "💰", title: "Affordable Packages for Small Hotels", desc: "Hotel website from Rs. 35,000. SEO from Rs. 30,000 per month. Google Ads from Rs. 35,000 per month. Transparent pricing with no hidden commissions or platform lock-in fees." },
+  { emoji: "📸", title: "Visual Content Strategy", desc: "Hospitality and tourism marketing is visual. We guide you on photography, create Instagram-worthy content strategies that leverage the Adalaj heritage backdrop, and run reels campaigns that reach a wide tourism audience." },
+  { emoji: "📈", title: "Results in Bookings and Footfall", desc: "We measure success in hotel bookings, restaurant table reservations, and tour package enquiries. Not just impressions or followers. Every campaign is tied to a concrete business outcome." },
+  { emoji: "🤝", title: "30-Minute Access", desc: "Our Ahmedabad office is approximately 30 minutes from Adalaj. We can visit your property, photograph your rooms or restaurant, and meet in person for project discussions and strategy reviews." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Property and Business Review",
+    desc: "We visit your hotel, restaurant, or business in Adalaj to understand your offerings, your current online presence, and your target guests or customers."
+  },
+  {
+    step: "2",
+    title: "Tourism Strategy and Proposal",
+    desc: "We map your target tourist and resident audience, identify the highest-impact keywords and platforms, and deliver a clear proposal within 24 hours."
+  },
+  {
+    step: "3",
+    title: "Build and Publish",
+    desc: "We build your website, optimise your Google listing, set up your Instagram, and launch your campaigns. You approve everything before it goes live."
+  },
+  {
+    step: "4",
+    title: "Track Bookings and Grow",
+    desc: "Monthly reports show booking enquiries, Google Maps views, Instagram reach, and keyword rankings. We refine the strategy every month based on results."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "60+",  label: "Gandhinagar Clients Served" },
+  { value: "91%",  label: "First-Page Google Rankings" },
+  { value: "3.5x", label: "Average Booking Enquiry Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We have a heritage homestay near the Adalaj Stepwell and were almost invisible online. DC technolabs built our website with a booking form and set up our Google listing with proper photos. We now get direct booking enquiries from tourists across India without paying OTA commission. It has made a real difference to our margins.",
+    name: "Hiral Raval",
+    role: "Owner, Adalaj Heritage Homestay, Adalaj",
+    initials: "HR"
+  },
+  {
+    text: "My restaurant near the stepwell entry gets hundreds of visitors walking past but most do not know we exist online. After DC technolabs set up our Google listing and started Instagram marketing, we get tourists specifically mentioning they found us on Google Maps. Weekend footfall has increased noticeably.",
+    name: "Ketan Bhatt",
+    role: "Owner, Stepwell Kitchen Restaurant, Adalaj",
+    initials: "KB"
+  },
+  {
+    text: "I run a day-trip tour operation covering Adalaj Stepwell, Gandhinagar temples, and Ahmedabad heritage. My website was outdated and I had no online presence. DC technolabs redesigned everything and did SEO for Gujarat heritage tour keywords. Now I get five to eight serious enquiries every week from tourists planning Gujarat trips.",
+    name: "Suresh Patel",
+    role: "Owner, Gujarat Heritage Tours, Adalaj",
+    initials: "SP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Koba Circle",
+    slug: "koba-circle",
+    desc: "A busy commercial junction near Adalaj with restaurants, auto businesses, and retail outlets. Many Adalaj residents and tourists pass through Koba Circle daily."
+  },
+  {
+    name: "Sargasan",
+    slug: "sargasan",
+    desc: "An industrial and commercial corridor adjacent to Adalaj with logistics, manufacturing, and auto dealer businesses we support with B2B digital marketing."
+  },
+  {
+    name: "Kudasan",
+    slug: "kudasan",
+    desc: "A growing residential township near Adalaj with clinics, coaching institutes, and local service businesses benefiting from our hyperlocal SEO and WhatsApp marketing."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help my hotel or homestay in Adalaj get more direct bookings instead of OTA bookings?",
+    a: "Yes. A direct booking website combined with Google Ads targeting travellers searching for 'hotels in Adalaj' or 'accommodation near Adalaj Stepwell' brings in direct enquiries. Even if you retain 20 to 30 percent of bookings as direct, the commission savings are significant. Hotel websites with booking forms start at Rs. 35,000."
+  },
+  {
+    q: "How do tourists find restaurants near the Adalaj Stepwell on Google?",
+    a: "Most tourists open Google Maps immediately after visiting the stepwell and search for 'restaurants near me' or 'restaurants near Adalaj ni Vav'. A fully optimised Google Business Profile with photos, menu, opening hours, and positive reviews will show your restaurant prominently in these results. We handle the full setup and ongoing optimisation."
+  },
+  {
+    q: "I run heritage day trips from Ahmedabad covering Adalaj. How do I get found online?",
+    a: "Heritage tourism is a growing search category in Gujarat. We optimise your website and Google listing for terms like 'day trip from Ahmedabad to Adalaj Stepwell', 'Gujarat heritage tour from Ahmedabad', and 'Adalaj ni Vav guided tour'. A properly ranked page for these terms brings consistent organic enquiries throughout the year."
+  },
+  {
+    q: "Does Instagram marketing really work for a restaurant in Adalaj?",
+    a: "Yes, especially in a heritage tourism context. The Adalaj Stepwell backdrop and traditional Gujarat cuisine are visually compelling. We create Instagram Reels showcasing your food and ambience, run targeted ads reaching tourists planning Gujarat trips, and build a local following among Gandhinagar and Ahmedabad residents. Most restaurant clients see measurable footfall increases within 6 to 8 weeks."
+  },
+  {
+    q: "What is the cost of a basic website for a local clinic or service business in Adalaj?",
+    a: "A professional website with service details, contact information, Google Maps integration, and a WhatsApp enquiry button starts at Rs. 25,000. For clinics that want online appointment booking, the package starts at Rs. 35,000. Both options include basic Google Business Profile setup and one month of post-launch support."
+  },
+  {
+    q: "How many tourists visit the Adalaj Stepwell and what is the business opportunity?",
+    a: "The Adalaj ni Vav attracts tens of thousands of visitors annually, with peak visits during winter months from October to February and on weekends throughout the year. Most visitors search for food and accommodation near the stepwell on Google before or during their visit. This is a consistent, high-intent audience that most local businesses are currently failing to capture."
+  },
+  {
+    q: "Can you help a homestay in Adalaj appear on Tripadvisor and other travel platforms?",
+    a: "Yes. We handle listing setup and optimisation on Google, Tripadvisor, and other relevant travel platforms. A consistent, well-reviewed presence across multiple platforms significantly improves your booking volume. We focus first on Google because it drives the most direct traffic, then extend to other platforms based on your property type."
+  },
+  {
+    q: "I am a local shop owner in Adalaj. Is digital marketing worth it for a small business?",
+    a: "Yes, especially with Adalaj's growing residential population. A properly optimised Google Business Profile costs very little and puts you in front of every new resident searching for local services. For retail shops, WhatsApp marketing to existing customers for offers and new stock updates is very cost-effective. We offer starter packages under Rs. 15,000 for small local businesses."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",   slug: "gift-city" },
+  { name: "Infocity",    slug: "infocity" },
+  { name: "Sector 21",   slug: "sector-21" },
+  { name: "Sector 7",    slug: "sector-7" },
+  { name: "Kudasan",     slug: "kudasan" },
+  { name: "Sargasan",    slug: "sargasan" },
+  { name: "Koba Circle", slug: "koba-circle" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Adalaj, Gandhinagar | DC technolabs"
+  description="DC technolabs helps Adalaj Gandhinagar hotels, restaurants, tour operators, and local businesses grow online with Google Maps optimisation, tourism SEO, Instagram marketing, and booking websites. Near Adalaj Stepwell. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/adalaj"
+  schemaJson={schemaJson}
+
+  badge="Adalaj, Gandhinagar"
+  heroH1="Digital Marketing Agency in Adalaj, Gandhinagar"
+  heroHighlight="Adalaj, Gandhinagar"
+  heroDesc="Thousands of tourists visit the Adalaj Stepwell every month and they search for nearby hotels, restaurants, and experiences on Google. We help Adalaj businesses capture this tourist audience and the growing residential market with targeted digital marketing that drives real bookings and footfall."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Adalaj Business"
+  formSub="Hotels, restaurants, and tour operators in Adalaj get a tailored proposal within 24 hours."
+
+  s2Title="Tourism and Residential Digital Marketing for Adalaj"
+  s2Subtitle="Adalaj ni Vav brings tourists to your doorstep. We make sure they find your business when they arrive."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Adalaj Businesses"
+  s3Subtitle="From Google Maps to Instagram marketing, everything an Adalaj hotel, restaurant, or local business needs to grow online."
+  {services}
+
+  s4Title="Challenges We Solve for Adalaj Businesses"
+  s4Subtitle="The most common digital marketing problems we hear from hospitality and local businesses in Adalaj."
+  {challenges}
+
+  s5Title="Why Adalaj Businesses Trust DC technolabs"
+  s5Subtitle="Tourism marketing expertise, transparent pricing, and results you can see in bookings and footfall."
+  {whyCards}
+
+  s6Title="How We Work With Adalaj Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gandhinagar"
+  {stats}
+
+  s8Title="What Adalaj Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans Adalaj and the surrounding Gandhinagar corridor."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Adalaj Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+
+  ctaTitle="Ready to Grow Your Adalaj Business Online?"
+  ctaSubtitle="Tourists visiting the Adalaj Stepwell are searching for nearby hotels and restaurants right now. Make sure your business is the first they find. Get a free consultation with no obligation."
+/>

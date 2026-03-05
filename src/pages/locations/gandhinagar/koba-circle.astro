@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Koba Circle businesses in Gandhinagar with local SEO, Google Maps optimisation, social media marketing, and website design for restaurants, auto showrooms, hardware stores, and retail.",
+  "url": "https://dctechnolabs.in/locations/gandhinagar/koba-circle",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.178", "longitude": "72.640" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Koba Circle, Gandhinagar" },
+    { "@type": "Place", "name": "Adalaj, Gandhinagar" },
+    { "@type": "Place", "name": "Sargasan, Gandhinagar" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "60+",   label: "Gandhinagar Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "92%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Koba Circle is one of the busiest traffic junctions in Gandhinagar, sitting at the intersection of routes heading towards Ahmedabad, Adalaj, Sargasan, and Sector 21. The volume of vehicles passing through the junction every day makes it a prime commercial location for restaurants, auto showrooms, hardware stores, fuel stations, and service businesses.",
+  "But physical footfall is not the same as digital visibility. Drivers passing through Koba Circle may see a signboard, but the majority of buying decisions for food, auto services, hardware, and retail are made after a Google search. Businesses at Koba Circle that do not appear on Google are invisible to this digital majority.",
+  "DC technolabs helps Koba Circle businesses convert their physical location advantage into a digital one. We get your business ranking on Google Maps, build a credible online presence, and run targeted campaigns that reach the high-traffic Koba Circle audience both online and at the junction.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🍽️", label: "Restaurants and Cafes" },
+  { icon: "🚗", label: "Auto Showrooms and Service Centres" },
+  { icon: "🔩", label: "Hardware Stores" },
+  { icon: "🛒", label: "Retail Outlets" },
+  { icon: "⚙️", label: "Service Businesses" },
+  { icon: "🏥", label: "Healthcare" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🔄", title: "High-Traffic Commercial Junction", desc: "Koba Circle connects Gandhinagar's main sectors to the Ahmedabad-Gandhinagar highway and the Adalaj-Sargasan corridor. Daily vehicle traffic creates a large natural customer base." },
+  { icon: "📱", title: "Local Searches Drive Visit Decisions", desc: "Drivers and passengers search for restaurants, auto services, and shops on mobile before they turn in. Google Maps placement at Koba Circle converts searches directly into visits." },
+  { icon: "⚔️", title: "Competitive Junction Market", desc: "Koba Circle's visibility attracts multiple competitors in every category. Google rankings, review scores, and social media presence determine which businesses get the customer and which ones are skipped." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "📍",
+    title: "Google Maps Dominance for Koba Circle",
+    desc: "We fully optimise your Google Business Profile so your Koba Circle business appears at the top of 'near me' and location-specific searches. Restaurants, auto dealers, hardware stores, and service businesses all benefit from prominent Google Maps placement at this busy junction."
+  },
+  {
+    icon: "🌐",
+    title: "Website Design for Koba Circle Businesses",
+    desc: "Professional, mobile-first websites that build credibility and convert online visitors into calls, bookings, and walk-ins. Whether you run a restaurant, auto showroom, or hardware store at Koba Circle, your website is often the first thing a customer sees."
+  },
+  {
+    icon: "📱",
+    title: "Social Media for Restaurants and Food Businesses",
+    desc: "Instagram and Facebook marketing designed for Koba Circle's food and beverage businesses. We create content calendars, food photography content strategies, reel campaigns, and run ads targeting Gandhinagar residents and the Ahmedabad-Gandhinagar highway commuter segment."
+  },
+  {
+    icon: "🚗",
+    title: "Digital Marketing for Auto Showrooms and Service Centres",
+    desc: "Dedicated digital campaigns for auto dealers and service centres at Koba Circle. SEO for vehicle purchase and service keywords, Google Ads targeting buyers searching for specific models or services, and a professional website that builds trust with high-value automotive customers."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for High-Competition Junction Businesses",
+    desc: "PPC campaigns for businesses at Koba Circle competing in a high-traffic market. We run tightly targeted campaigns by location radius and keyword intent, ensuring your ad budget reaches buyers actually looking for your type of business at or near the junction."
+  },
+  {
+    icon: "⭐",
+    title: "Google Reviews and Reputation Management",
+    desc: "At a competitive junction like Koba Circle, your Google review score and review count directly impact whether customers choose you over competitors 50 metres away. We implement a systematic review collection strategy and respond to reviews to build a strong reputation score."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "High competition at the junction means customers walk past to competitors with better Google presence",
+    solution: "At Koba Circle, the business with more Google reviews and a complete Google listing captures the walk-in customer even if a competitor is physically closer. We optimise your Google Business Profile, run review collection campaigns, and ensure every search for your category at the junction returns your business prominently."
+  },
+  {
+    problem: "My restaurant is not ranking on Google despite being in a busy location",
+    solution: "A busy physical location does not automatically mean Google visibility. We complete your Google Business Profile with full menu upload, professional photos, accurate location pin, opening hours, and an active review base. Most restaurants at Koba Circle start appearing in top-3 Google Maps results within 45 to 60 days of optimisation."
+  },
+  {
+    problem: "My auto showroom or service centre has no social media presence",
+    solution: "Auto customers research vehicles and service centres extensively online before visiting. We set up and manage your Facebook and Instagram presence with vehicle showcases, customer delivery posts, service specials, and targeted ads reaching car buyers and vehicle owners in Gandhinagar and the NH-48 corridor."
+  },
+  {
+    problem: "My Google Business Profile is incomplete or unverified",
+    solution: "An incomplete Google listing means you are invisible to customers searching for you. We handle full verification, add accurate business information, upload photos, set up service listings, and manage your Q and A section. A complete profile increases Google Maps enquiries by an average of 3 to 5 times within the first 60 days."
+  },
+  {
+    problem: "Customers from SG Highway prefer Ahmedabad businesses over Koba Circle businesses",
+    solution: "We target customers who specifically search within Gandhinagar and the Koba Circle area, positioning your business as the closer, faster, more convenient alternative to Ahmedabad options. Local SEO and Google Ads with radius targeting are highly effective at capturing this audience."
+  },
+  {
+    problem: "My hardware or retail shop gets no online enquiries and depends entirely on walk-in traffic",
+    solution: "Walk-in traffic is inconsistent. A Google Business Profile with your product categories, a WhatsApp enquiry link, and basic SEO converts online searches into store visits even on quiet days. We set up this foundation for hardware and retail shops at Koba Circle starting at Rs. 15,000 as an entry package."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🔄", title: "Junction Market Expertise", desc: "We understand the competitive dynamics of high-traffic commercial junctions in Gujarat. Koba Circle's multi-directional traffic means your Google presence needs to capture audiences from multiple directions and intent types simultaneously." },
+  { emoji: "⭐", title: "Review and Reputation Building", desc: "Google review score is the single biggest differentiator at Koba Circle where multiple similar businesses compete side by side. We build systematic review collection processes that grow your score month by month without any artificial tactics." },
+  { emoji: "💰", title: "Transparent and Affordable Pricing", desc: "Website from Rs. 25,000. SEO from Rs. 30,000 per month. Google Ads from Rs. 35,000 per month. Entry-level Google Maps and review packages available from Rs. 15,000 for small businesses at the junction." },
+  { emoji: "📍", title: "Local Gandhinagar Market Knowledge", desc: "We know how Gandhinagar residents search, where the Koba Circle customer base comes from, and what motivates them to choose one business over another. Our strategies are built on real local data from the Gandhinagar market." },
+  { emoji: "📈", title: "Results in Footfall and Revenue", desc: "We measure campaigns by the number of Google Maps calls and direction requests your business generates, not by impressions or clicks. For restaurant, auto, and retail clients, this translates directly into footfall and revenue you can count." },
+  { emoji: "🤝", title: "Accessible and Nearby", desc: "Our Ahmedabad office is a short drive from Koba Circle. We are available for in-person site visits, photography sessions, and face-to-face strategy meetings. You deal with people, not a remote agency ticket system." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "On-Site Consultation",
+    desc: "We visit your Koba Circle business to review your current online presence, photograph your location if needed, and understand your competitive situation at the junction."
+  },
+  {
+    step: "2",
+    title: "Competition Analysis and Proposal",
+    desc: "We analyse your Google Maps competitors at Koba Circle, identify ranking gaps, and deliver a specific proposal within 24 hours with pricing and timeline."
+  },
+  {
+    step: "3",
+    title: "Optimise and Launch",
+    desc: "We optimise your Google listing, build your website or social presence, and launch your campaigns. All changes go through your approval before going live."
+  },
+  {
+    step: "4",
+    title: "Track and Refine Monthly",
+    desc: "Monthly reports show Google Maps views, direction requests, call clicks, and review growth. We refine the strategy based on what your Koba Circle competitors are doing."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "60+",  label: "Gandhinagar Clients Served" },
+  { value: "91%",  label: "First-Page Google Rankings" },
+  { value: "3.6x", label: "Average Google Maps Enquiry Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We have a popular Gujarati thali restaurant at Koba Circle and despite being well-known locally, we were not appearing on Google when people searched nearby. DC technolabs sorted our Google listing, got us 60 new reviews in three months, and now we appear in the top three for 'restaurant near Koba Circle'. Weekend covers have increased by 30 percent.",
+    name: "Bhavesh Mehta",
+    role: "Owner, Swad Gujarati Restaurant, Koba Circle",
+    initials: "BM"
+  },
+  {
+    text: "I manage an authorised two-wheeler showroom near Koba Circle. The competition from Ahmedabad dealerships was hurting us. DC technolabs built our website, ran Google Ads, and set up Instagram for us. We now get enquiries from buyers across Gandhinagar who specifically prefer buying locally. Sales have picked up significantly.",
+    name: "Nilesh Patel",
+    role: "Showroom Manager, Patel Two Wheelers, Koba Circle",
+    initials: "NP"
+  },
+  {
+    text: "My building hardware shop at Koba Circle had zero digital presence. DC technolabs set up our Google Business Profile and optimised it for local searches. Now contractors and builders from nearby sites find us on Google before calling. I get four to six new customer calls every week directly from Google.",
+    name: "Jayesh Parmar",
+    role: "Owner, Parmar Hardware Store, Koba Circle",
+    initials: "JP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Adalaj",
+    slug: "adalaj",
+    desc: "A residential and tourism area near Koba Circle, home to the famous Adalaj Stepwell and a growing base of hotels, restaurants, and local service businesses."
+  },
+  {
+    name: "Sargasan",
+    slug: "sargasan",
+    desc: "An industrial and commercial corridor adjacent to Koba Circle with logistics companies, manufacturers, and auto dealers needing B2B digital marketing support."
+  },
+  {
+    name: "Sector 21",
+    slug: "sector-21",
+    desc: "One of Gandhinagar's most established commercial sectors, a short distance from Koba Circle with strong demand for digital marketing across multiple business categories."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "My restaurant is at Koba Circle but not appearing in Google Maps searches. Why?",
+    a: "An incomplete or unverified Google Business Profile is the most common reason. Google prioritises listings with verified location, complete business information, photos, and active reviews. We do a full audit of your listing, fix all missing elements, and implement a review collection strategy. Most Koba Circle restaurants start seeing top-3 Google Maps placement within 45 to 60 days of a complete optimisation."
+  },
+  {
+    q: "How do I compete with restaurants on SG Highway that have bigger marketing budgets?",
+    a: "You compete by dominating local Gandhinagar and Koba Circle searches rather than trying to rank for all of Ahmedabad. Customers who are at or near Koba Circle and search for food will find you first if your local Google presence is stronger than your nearby competitors. Hyperlocal SEO and Google Ads with a 5 to 10 km radius targeting are far more cost-effective than broad city-wide campaigns."
+  },
+  {
+    q: "What does a website for an auto showroom or service centre at Koba Circle cost?",
+    a: "An auto showroom website with vehicle listings, service menu, enquiry form, WhatsApp integration, and Google Maps starts at Rs. 35,000. For service centres, a site with service packages, pricing transparency, and online booking for service appointments starts at the same price. These sites build the credibility that auto customers expect before they visit."
+  },
+  {
+    q: "Can you help increase Google reviews for my business at Koba Circle?",
+    a: "Yes. We implement a systematic review collection process that includes post-visit WhatsApp messages to satisfied customers with a direct Google review link, in-store QR codes for Google review, and staff training on how to encourage reviews naturally. Most businesses see their review count double within 60 to 90 days without any artificial tactics."
+  },
+  {
+    q: "Does Instagram marketing work for a hardware or auto business?",
+    a: "For hardware stores, Instagram is less impactful than Google Maps. For auto showrooms and service centres, Instagram and Facebook are effective for vehicle showcase posts, customer delivery photos, and service offer campaigns targeting vehicle owners in Gandhinagar. We recommend the right platform mix based on your specific business type at Koba Circle."
+  },
+  {
+    q: "How much does Google Ads cost for a business at Koba Circle?",
+    a: "We manage Google Ads campaigns for Koba Circle businesses starting at Rs. 35,000 per month, which includes our management fee and a recommended ad budget. For restaurants and food businesses, a budget of Rs. 20,000 to Rs. 30,000 per month in ads generates an average of 80 to 120 additional customer actions per month in the Koba Circle area."
+  },
+  {
+    q: "Can you set up and manage our Google Business Profile if we have never done it before?",
+    a: "Yes. We handle complete Google Business Profile setup from scratch including verification, business category selection, full description, photo uploads, service listings, opening hours, and initial review collection. This is included in our SEO packages and also available as a standalone service starting at Rs. 5,000."
+  },
+  {
+    q: "We have multiple competitors at the same junction. How do you differentiate our business online?",
+    a: "Differentiation online at a competitive junction like Koba Circle comes from three things: a higher Google review rating with more reviews than competitors, more complete and visually rich Google listing with photos and up-to-date posts, and a website that clearly communicates what makes your business better. We work on all three systematically to give your business a visible digital edge over nearby competitors."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "GIFT City",  slug: "gift-city" },
+  { name: "Infocity",   slug: "infocity" },
+  { name: "Sector 21",  slug: "sector-21" },
+  { name: "Sector 7",   slug: "sector-7" },
+  { name: "Kudasan",    slug: "kudasan" },
+  { name: "Sargasan",   slug: "sargasan" },
+  { name: "Adalaj",     slug: "adalaj" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Koba Circle, Gandhinagar | DC technolabs"
+  description="DC technolabs helps Koba Circle Gandhinagar businesses dominate local search with Google Maps optimisation, website design, Google Ads, and social media marketing. Restaurants, auto showrooms, hardware stores, and retail outlets. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/gandhinagar/koba-circle"
+  schemaJson={schemaJson}
+
+  badge="Koba Circle, Gandhinagar"
+  heroH1="Digital Marketing Agency in Koba Circle, Gandhinagar"
+  heroHighlight="Koba Circle, Gandhinagar"
+  heroDesc="Koba Circle is one of Gandhinagar's busiest commercial junctions. But physical footfall is not the same as digital visibility. We help restaurants, auto showrooms, hardware stores, and retail businesses at Koba Circle rank on Google and win customers who are searching right now."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Koba Circle Business"
+  formSub="Koba Circle businesses get a detailed digital audit and proposal within 24 hours."
+
+  s2Title="Digital Marketing for Koba Circle's Competitive Junction Market"
+  s2Subtitle="Being at a busy junction is an advantage. Being invisible on Google gives that advantage to your competitors."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Koba Circle Businesses"
+  s3Subtitle="From Google Maps dominance to social media and Google Ads, everything a Koba Circle business needs to grow online."
+  {services}
+
+  s4Title="Challenges We Solve for Koba Circle Businesses"
+  s4Subtitle="The most common digital marketing challenges we hear from businesses at and around the Koba Circle junction."
+  {challenges}
+
+  s5Title="Why Koba Circle Businesses Trust DC technolabs"
+  s5Subtitle="Junction market expertise, transparent pricing, and results measured in footfall and enquiries."
+  {whyCards}
+
+  s6Title="How We Work With Koba Circle Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gandhinagar"
+  {stats}
+
+  s8Title="What Koba Circle Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across the Koba Circle, Adalaj, and Sargasan corridor in Gandhinagar."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Koba Circle Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="gandhinagar"
+  cityName="Gandhinagar"
+
+  ctaTitle="Ready to Grow Your Koba Circle Business Online?"
+  ctaSubtitle="Your competitors at Koba Circle are getting your customers because they appear first on Google. Fix that today. Get a free consultation with no obligation and no sales pressure."
+/>
