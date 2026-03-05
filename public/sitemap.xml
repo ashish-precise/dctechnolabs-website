@@ -117,6 +117,48 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Ahmedabad Neighborhood Pages -->
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/satellite/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/sg-highway/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/prahlad-nagar/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/vastrapur/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/bodakdev/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/navrangpura/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/cg-road/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/ahmedabad/maninagar/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://dctechnolabs.in/blog/</loc>

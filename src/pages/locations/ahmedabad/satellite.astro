@@ -1,0 +1,295 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Satellite area businesses in Ahmedabad with web design, SEO, PPC, and social media services.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/satellite",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.020", "longitude": "72.528" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Satellite, Ahmedabad" },
+    { "@type": "Place", "name": "Shyamal Cross Road, Ahmedabad" },
+    { "@type": "Place", "name": "100 Feet Road, Satellite, Ahmedabad" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "120+", label: "Satellite Clients Served" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Satellite is one of Ahmedabad's most competitive commercial localities. Shyamal Cross Road, 100 Feet Road, and the Satellite Road corridor are packed with clinics, dental practices, coaching institutes, boutiques, specialty restaurants, and professional service firms all competing for the same local customers.",
+  "We have been working with Satellite businesses since 2017. We know the local competition inside out. We know which keywords Satellite residents search on Google, which times of day they browse, and what makes them choose one clinic or restaurant over another.",
+  "Whether you run a dental practice on 100 Feet Road, a boutique on Shyamal Cross Road, or a coaching institute near Satellite, we build your digital presence so local customers find you first and trust you immediately.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🦷", label: "Dental Practices" },
+  { icon: "🏥", label: "Clinics" },
+  { icon: "🛍️", label: "Boutiques" },
+  { icon: "🍽️", label: "Restaurants" },
+  { icon: "📚", label: "Coaching Institutes" },
+  { icon: "💼", label: "Professional Services" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "📍", title: "Prime Ahmedabad Location", desc: "Satellite sits between SG Highway and Prahlad Nagar, serving some of Ahmedabad's most affluent and digitally active residents." },
+  { icon: "🏪", title: "High-Density Business Hub", desc: "Shyamal Cross Road and 100 Feet Road have hundreds of businesses. Standing out online is no longer optional, it is survival." },
+  { icon: "📱", title: "Mobile-First Customers", desc: "Over 80% of Satellite customers search on mobile before visiting or calling. Your website and Google listing must be flawless on mobile." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Web Design for Satellite Businesses",
+    desc: "Clean, fast, mobile-first websites that reflect the premium character of the Satellite area. From clinic booking pages to restaurant menus with online orders, we build sites that convert visitors into customers."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Satellite",
+    desc: "We get your business ranking on Google when people in Satellite and nearby Prahlad Nagar search for your services. Google Business Profile, local citations, and area-specific keywords handled completely."
+  },
+  {
+    icon: "📢",
+    title: "PPC and Google Ads",
+    desc: "Targeted Google Ads campaigns that reach Satellite residents exactly when they are searching for your service. We manage budgets from Rs. 15,000 to Rs. 5,00,000 per month with full transparency."
+  },
+  {
+    icon: "🛒",
+    title: "E-commerce Development",
+    desc: "Satellite boutiques and specialty stores can now sell online across Ahmedabad and all of India. We build Shopify and WooCommerce stores with Razorpay integration and seamless mobile checkout."
+  },
+  {
+    icon: "📱",
+    title: "Social Media Marketing",
+    desc: "Instagram and Facebook marketing designed for Satellite's lifestyle-oriented audience. We create content calendars, run targeted ad campaigns, and grow genuine followings for local businesses."
+  },
+  {
+    icon: "💻",
+    title: "WordPress and Shopify Development",
+    desc: "Custom WordPress sites for clinics, coaching institutes, and professional service firms. Shopify stores for fashion, food, and lifestyle brands based in Satellite. Fast, secure, and easy to manage."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My clinic or salon is invisible on Google Maps",
+    solution: "We fully optimize your Google Business Profile with photos, services, hours, and review management. Satellite customers searching for 'dentist near me' or 'salon in Satellite Ahmedabad' will find you at the top."
+  },
+  {
+    problem: "My website looks outdated compared to competitors on Shyamal Road",
+    solution: "We redesign your site with a premium, professional look that matches the Satellite market. Patients and customers judge credibility by your website, and we make sure yours earns trust instantly."
+  },
+  {
+    problem: "I am spending on Instagram ads but getting no bookings",
+    solution: "Most ad spend is wasted on broad audiences. We target Satellite and adjacent pin codes, use the right creatives for the local aesthetic, and connect ads directly to WhatsApp or booking forms."
+  },
+  {
+    problem: "My coaching institute loses students to bigger brands online",
+    solution: "We build your reputation through local SEO, Google reviews strategy, and targeted parent-facing content that builds trust. Satellite parents research extensively before enrolling children, and we make sure you come out on top."
+  },
+  {
+    problem: "My restaurant has no online presence beyond a Facebook page",
+    solution: "We create a proper website with your menu, online ordering or reservation capability, Google listing, and Instagram presence. Satellite diners check online before they visit, and we make your restaurant the obvious choice."
+  },
+  {
+    problem: "I get website visitors but no one calls or fills the form",
+    solution: "We audit your current site for conversion issues, improve the layout, add strong calls to action, and make it effortless for Satellite customers to reach you. More traffic should mean more business."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏙️", title: "Satellite Market Knowledge", desc: "We have worked with 120+ businesses in and around Satellite. We know the local competition, the customer expectations, and the digital habits of residents in this area." },
+  { emoji: "⚡", title: "Fast Turnaround", desc: "Most Satellite businesses see their new website go live within 14 days. SEO improvements show within 60 days. We do not keep you waiting for months." },
+  { emoji: "💰", title: "Transparent Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. No hidden fees, no lock-in contracts that trap you. Honest pricing for honest work." },
+  { emoji: "📞", title: "Real Support, Not Tickets", desc: "Your project manager is reachable by phone and WhatsApp. If something needs urgent attention, you reach a person, not a helpdesk system." },
+  { emoji: "📈", title: "ROI-Focused Approach", desc: "We measure success by your leads, bookings, and revenue, not just website traffic numbers. Every campaign is designed around a measurable return." },
+  { emoji: "🤝", title: "Long-Term Partnership", desc: "Our average Satellite client has been with us for over 3 years. We grow with your business, not just during the initial setup phase." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Satellite business, your goals, your current online presence, and your competitors. No obligation, no sales pressure."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a clear proposal covering scope, timeline, pricing, and the specific strategy for your business in the Satellite market."
+  },
+  {
+    step: "3",
+    title: "Build and Optimize",
+    desc: "We execute the plan, whether it is a new website, an SEO campaign, or paid ads. You see progress at every stage and approve before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Results and Growth",
+    desc: "Monthly reporting shows exactly what is working. We continue refining the strategy so your Satellite business keeps growing month after month."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "120+", label: "Satellite Area Clients" },
+  { value: "94%",  label: "First-Page Google Rankings" },
+  { value: "3.8x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We had a dental clinic on 100 Feet Road with almost zero online presence. DC technolabs built us a proper website and got us ranking on Google within 3 months. We now get 20 to 25 new patient inquiries every month from Google alone. Best decision we ever made.",
+    name: "Dr. Nishant Patel",
+    role: "Dentist, Satellite Road",
+    initials: "NP"
+  },
+  {
+    text: "My boutique was struggling to get visibility against bigger stores on Shyamal Road. They ran Instagram ads targeting Satellite and Prahlad Nagar residents and our walk-ins doubled in 6 weeks. They understand the local market very well.",
+    name: "Kavya Desai",
+    role: "Owner, Fashion Boutique, Shyamal Cross Road",
+    initials: "KD"
+  },
+  {
+    text: "Our coaching institute competes with big national brands and several local ones near Satellite. The SEO work DC technolabs did put us on page one for our key search terms. Parent inquiries went up by 60% in the first semester after we started working with them.",
+    name: "Vikram Shah",
+    role: "Director, Coaching Institute, Satellite",
+    initials: "VS"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Prahlad Nagar",
+    slug: "prahlad-nagar",
+    desc: "Adjacent to Satellite, Prahlad Nagar is home to restaurants, cafes, and boutique brands. We serve businesses across this entire corridor."
+  },
+  {
+    name: "SG Highway",
+    slug: "sg-highway",
+    desc: "Ahmedabad's main tech and corporate corridor, minutes from Satellite. We work with IT companies and startups throughout the SG Highway stretch."
+  },
+  {
+    name: "Bodakdev",
+    slug: "bodakdev",
+    desc: "A premium residential and commercial area neighbouring Satellite, with healthcare clinics, luxury retail, and financial services businesses."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you work specifically with businesses on Shyamal Cross Road and 100 Feet Road?",
+    a: "Yes. We have worked with clinics, salons, boutiques, restaurants, and coaching institutes across the Satellite corridor including Shyamal Cross Road, 100 Feet Road, and Satellite Road itself. We understand this market and the local competition."
+  },
+  {
+    q: "My dental clinic needs a website. What does that cost?",
+    a: "A professional dental clinic website with appointment booking, service pages, doctor profiles, and Google integration starts at Rs. 35,000. We also include basic SEO setup and Google Business Profile optimization in this package."
+  },
+  {
+    q: "How long does SEO take for a Satellite business?",
+    a: "You typically see ranking improvements for local terms like 'dentist in Satellite Ahmedabad' within 60 to 90 days. Significant traffic and lead increases usually happen between months 4 and 6. Local SEO in Satellite is competitive but achievable with the right strategy."
+  },
+  {
+    q: "Can you run Instagram ads for my boutique in Satellite?",
+    a: "Absolutely. We create targeted Instagram and Facebook ad campaigns focused on Satellite, Prahlad Nagar, Bodakdev, and SG Highway, reaching women aged 22 to 45 with disposable income and interest in fashion. Most boutique campaigns see results within 2 to 3 weeks."
+  },
+  {
+    q: "My restaurant has no online presence. Where do I start?",
+    a: "Start with three things: a proper Google Business Profile with photos and menu, an Instagram page with consistent posts, and a basic website with your menu and contact details. We handle all three as a bundled package starting at Rs. 40,000."
+  },
+  {
+    q: "Can you help my coaching institute rank above bigger competitors?",
+    a: "Yes. Larger national brands often neglect hyperlocal SEO. We target Satellite-specific search terms, build local backlinks, optimize your Google listing, and run targeted ads to parents in the area. Many of our coaching clients now outrank bigger brands locally."
+  },
+  {
+    q: "Do you offer monthly SEO packages for Satellite businesses?",
+    a: "Yes. Our local SEO packages start at Rs. 30,000 per month and include keyword tracking, Google Business Profile management, citation building, content updates, and monthly performance reports. No lock-in contracts, you continue because you see results."
+  },
+  {
+    q: "Can we meet in person to discuss our project?",
+    a: "Yes. We can meet at your Satellite business, at a coffee shop on Shyamal Road, or at our office in Vatva. We prefer in-person meetings for new projects because we can review your existing setup and give better recommendations."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "SG Highway",    slug: "sg-highway" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Vastrapur",     slug: "vastrapur" },
+  { name: "Bodakdev",      slug: "bodakdev" },
+  { name: "Navrangpura",   slug: "navrangpura" },
+  { name: "CG Road",       slug: "cg-road" },
+  { name: "Maninagar",     slug: "maninagar" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Satellite, Ahmedabad | DC technolabs"
+  description="DC technolabs helps Satellite Ahmedabad businesses grow online with web design, local SEO, Google Ads, and social media marketing. Clinics, boutiques, restaurants, and coaching institutes. Get a free quote today."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/satellite"
+  schemaJson={schemaJson}
+
+  badge="Satellite, Ahmedabad"
+  heroH1="Digital Marketing Agency in Satellite, Ahmedabad"
+  heroHighlight="Satellite, Ahmedabad"
+  heroDesc="From dental clinics on 100 Feet Road to boutiques on Shyamal Cross Road, we help Satellite businesses rank higher on Google, get more customers, and grow consistently. Local experts, local results."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Satellite Business"
+  formSub="Satellite businesses get a response within 4 hours."
+
+  s2Title="Why Satellite Businesses Choose DC technolabs"
+  s2Subtitle="We have been working in the Satellite market since 2017. We know your competition and your customers."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Satellite Businesses"
+  s3Subtitle="Everything your Satellite business needs to dominate local search and attract more customers."
+  {services}
+
+  s4Title="Challenges We Solve for Satellite Businesses"
+  s4Subtitle="These are the most common problems we hear from businesses across Satellite and Shyamal Road."
+  {challenges}
+
+  s5Title="Why Satellite Businesses Trust DC technolabs"
+  s5Subtitle="120 plus Satellite clients and growing. Here is what makes us the right partner for this market."
+  {whyCards}
+
+  s6Title="How We Work With Satellite Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record in the Satellite Area"
+  {stats}
+
+  s8Title="What Satellite Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across West Ahmedabad. If your customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Satellite Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your Satellite Business Online?"
+  ctaSubtitle="Join 120 plus Satellite area businesses who trust DC technolabs for their digital marketing. Get a free consultation with no obligation."
+/>

@@ -1,0 +1,178 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Maninagar businesses in Ahmedabad with web design, SEO, and B2B digital marketing services.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/maninagar",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "areaServed": { "@type": "Place", "name": "Maninagar, Ahmedabad" }
+});
+
+const heroStats: StatItem[] = [
+  { value: "945+", label: "Gujarat Projects" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "55+",  label: "East Ahmedabad Clients" },
+  { value: "B2B",  label: "Specialist Experience" },
+];
+
+const s2Body = [
+  "Maninagar is one of Ahmedabad's largest, most populated, and commercially active areas on the east side of the city. It is known for its textile and garment trade, wholesale markets, traditional SMEs, and a strong Gujarati business community that has built generational wealth in this locality.",
+  "The area has the Maninagar railway station, Swaminarayan Temple as a major landmark, and large market areas catering to everything from textiles and garments to hardware and wholesale FMCG. Many businesses in Maninagar are transitioning from purely offline operations to a mix of online and offline commerce.",
+  "We help Maninagar businesses build professional websites, generate B2B leads, and expand their customer base beyond the local market. Whether you want to sell garments to buyers across Gujarat or generate export enquiries, we have the strategy to help.",
+];
+
+const businessTypes = [
+  { icon: "🧵", label: "Textile and Garments" },
+  { icon: "🏭", label: "Manufacturing and SMEs" },
+  { icon: "🛒", label: "Wholesale and Distribution" },
+  { icon: "🔩", label: "Hardware and Industrial" },
+  { icon: "🏥", label: "Clinics and Healthcare" },
+  { icon: "📦", label: "Export and Trading" },
+];
+
+const overviewCards = [
+  { icon: "🌐", title: "B2B Website Development", desc: "Professional websites that help Maninagar manufacturers and wholesalers generate enquiries from buyers across India and abroad." },
+  { icon: "🔍", title: "Trade and B2B SEO", desc: "Rank on Google for product and supplier searches. Appear when buyers search for textile suppliers, garment manufacturers, or wholesale distributors." },
+  { icon: "📧", title: "Lead Generation Funnels", desc: "We build enquiry forms, WhatsApp integration, and email capture systems that turn website visitors into qualified business leads." },
+];
+
+const services: ServiceCard[] = [
+  { icon: "🌐", title: "Web Design", desc: "Professional websites for textile businesses, manufacturers, and wholesalers in Maninagar. Built to generate B2B enquiries and showcase product ranges." },
+  { icon: "🔍", title: "B2B and Local SEO", desc: "Rank on Google for product and supplier searches. We target buyers searching for textile and garment suppliers, wholesalers, and manufacturers in Ahmedabad." },
+  { icon: "📢", title: "Google Ads / PPC", desc: "B2B lead generation campaigns on Google. We target buyers actively searching for the products your business manufactures or supplies." },
+  { icon: "🛒", title: "E-commerce Development", desc: "Sell your products online with a B2B or B2C e-commerce store. Accept payments via Razorpay or bank transfer with minimum order quantity controls." },
+  { icon: "📸", title: "Social Media and LinkedIn", desc: "For businesses wanting to reach corporate buyers, we manage LinkedIn company pages and WhatsApp Business profiles alongside Instagram for B2C visibility." },
+  { icon: "🔧", title: "WordPress Development", desc: "Flexible WordPress sites for trading companies, exporters, and service providers. Easy to update your product range and pricing yourself." },
+];
+
+const challenges: Challenge[] = [
+  { problem: "We rely entirely on word-of-mouth and no buyers find us online", solution: "We build a professional website with your product catalogue, certifications, and capacity details. Then we run SEO so buyers searching for your products on Google find you first." },
+  { problem: "We want to reach buyers outside of Ahmedabad and Gujarat", solution: "We optimise your website for national and export searches, create product-specific landing pages, and run Google Ads targeting buyers in key cities and export markets." },
+  { problem: "Our website is outdated and does not reflect our business today", solution: "We redesign your website with current products, updated company information, certifications, and a strong enquiry form. A modern website signals credibility to serious buyers." },
+  { problem: "We have a wholesale business but no online catalogue", solution: "We build a product catalogue website with categories, specifications, and a minimum order enquiry form. No payment gateway required for pure B2B businesses." },
+  { problem: "We want to export but international buyers cannot find us", solution: "We build an export-focused website in English, optimise for international search terms, list you on IndiaMART and similar portals, and run targeted international Google Ads." },
+  { problem: "Our competitors in the same market have better online presence", solution: "We audit your competitors, identify what they are doing well, and build a strategy that positions your business as the more credible, professional choice online." },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏭", title: "B2B and Manufacturing Expertise", desc: "We have worked with manufacturers, wholesalers, and traders across Ahmedabad. We understand B2B sales cycles and what drives serious enquiries." },
+  { emoji: "📍", title: "East Ahmedabad Knowledge", desc: "We are based in Vatva, adjacent to Maninagar. We understand the textile and industrial business community in this part of the city." },
+  { emoji: "🌐", title: "Export-Ready Websites", desc: "We build websites that make your business look credible to international buyers. English content, company profile, certifications, and export enquiry forms." },
+  { emoji: "📈", title: "Lead Generation Focus", desc: "Every website we build for Maninagar businesses is optimised to generate enquiries. WhatsApp buttons, contact forms, and product enquiry pages all set up correctly." },
+  { emoji: "💰", title: "SME-Friendly Pricing", desc: "Web design from Rs. 25,000. B2B lead generation packages from Rs. 30,000 per month. We work with SME budgets and deliver enterprise-quality output." },
+  { emoji: "🤝", title: "Local Presence", desc: "We are Ahmedabad-based. You can meet us face to face, visit our office, or have us visit your factory or warehouse in Maninagar." },
+];
+
+const processSteps: ProcessStep[] = [
+  { step: "1", title: "Business Discovery", desc: "We understand your products, target buyers, current sales channels, and growth goals before proposing anything." },
+  { step: "2", title: "Digital Strategy Proposal", desc: "You receive a proposal covering website, SEO, and lead generation strategy within 24 hours." },
+  { step: "3", title: "Build and Configure", desc: "We build your website, set up Google Business Profile, and launch campaigns. You see and approve everything." },
+  { step: "4", title: "Generate and Measure", desc: "We track enquiries, calls, and form fills every month. Monthly reports show exactly where your leads are coming from." },
+];
+
+const stats: StatItem[] = [
+  { value: "945+", label: "Projects Across Gujarat" },
+  { value: "55+",  label: "East Ahmedabad Clients" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "4x",   label: "Average B2B Lead Increase" },
+];
+
+const testimonials: Testimonial[] = [
+  { text: "We have been in the textile business in Maninagar for 18 years. DC technolabs built our first proper website and got us ranking on Google. We now receive 10 plus export enquiries per month from Gujarat and Maharashtra.", name: "Bharat Patel", role: "Textile Manufacturer, Maninagar", initials: "BP" },
+  { text: "Our wholesale FMCG distribution company was invisible online. DC technolabs built us a catalogue website and ran Google Ads. We acquired 8 new retail clients in the first 4 months. Outstanding results.", name: "Ramesh Agrawal", role: "Wholesale Distributor, Maninagar", initials: "RA" },
+  { text: "We are a garment exporter from Maninagar. DC technolabs redesigned our website for international buyers, added our certifications, and ran export-focused SEO. International enquiries have tripled in 6 months.", name: "Nilesh Shah", role: "Garment Exporter, Maninagar", initials: "NS" },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "Navrangpura", slug: "navrangpura", desc: "Central business district with law firms, coaching institutes, and professional services near Gujarat High Court." },
+  { name: "CG Road", slug: "cg-road", desc: "Ahmedabad's iconic commercial street with jewellery, fashion, restaurants, and retail." },
+  { name: "Satellite", slug: "satellite", desc: "Premium west Ahmedabad area with clinics, retail, and professional services." },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Do you build websites for textile and garment businesses in Maninagar?", a: "Yes. We build B2B product catalogue websites for textile manufacturers, garment exporters, and wholesale businesses. These include product categories, specifications, certifications, and enquiry forms." },
+  { q: "Can you help our manufacturing business get export enquiries online?", a: "Yes. We build export-focused websites in English, optimise for international search terms, and can run Google Ads targeting buyers in export markets. We also list your business on IndiaMART and related platforms." },
+  { q: "How long does it take to see B2B leads from SEO?", a: "B2B SEO typically shows measurable results in 3 to 4 months. For product-specific searches with lower competition, some clients see results faster. Paid Google Ads can generate leads within days of launch." },
+  { q: "What does a B2B catalogue website cost for a Maninagar business?", a: "A B2B catalogue website with product categories, company profile, certifications, and enquiry forms starts at Rs. 35,000. E-commerce sites with payment gateway start at Rs. 55,000." },
+  { q: "Can you help our wholesale business reach retailers outside Ahmedabad?", a: "Yes. We build geo-targeted Google Ads campaigns and SEO strategies that target retailers in other cities searching for wholesale suppliers in Ahmedabad and Gujarat." },
+  { q: "Do you work with small factories and SMEs in Maninagar?", a: "Yes. Our most common Maninagar clients are small and medium manufacturers with 10 to 200 employees. We have SME-friendly packages designed for businesses that need digital presence without a large marketing budget." },
+  { q: "Can you help us list on IndiaMART and similar platforms?", a: "Yes. We help with IndiaMART catalogue setup and optimisation alongside your website. A strong IndiaMART listing combined with a professional website significantly increases buyer trust." },
+  { q: "Do you offer any payment plans for SME businesses?", a: "Yes. We offer milestone-based payment structures for website projects. For monthly services like SEO and Google Ads, you pay at the start of each month with no long-term commitment required." },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite", slug: "satellite" },
+  { name: "SG Highway", slug: "sg-highway" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Vastrapur", slug: "vastrapur" },
+  { name: "Bodakdev", slug: "bodakdev" },
+  { name: "Navrangpura", slug: "navrangpura" },
+  { name: "CG Road", slug: "cg-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Maninagar, Ahmedabad | DC technolabs"
+  description="DC technolabs helps textile businesses, manufacturers, wholesalers, and SMEs in Maninagar, Ahmedabad grow online. B2B websites, SEO, and Google Ads. 55+ east Ahmedabad clients. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/maninagar"
+  schemaJson={schemaJson}
+
+  badge="📍 Maninagar, Ahmedabad"
+  heroH1="Digital Marketing Agency in Maninagar, Ahmedabad"
+  heroHighlight="Maninagar, Ahmedabad"
+  heroDesc="We help textile manufacturers, wholesalers, garment exporters, and SMEs in Maninagar grow their business online. B2B websites, export enquiry generation, and local SEO for east Ahmedabad businesses."
+  {heroStats}
+  formTitle="Get a Free Quote"
+  formSub="East Ahmedabad businesses get priority response within 4 hours."
+
+  s2Title="Why Maninagar Businesses Choose DC technolabs"
+  s2Subtitle="We are Ahmedabad-based and understand the textile, wholesale, and SME landscape of east Ahmedabad."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Digital Services for Maninagar Businesses"
+  s3Subtitle="B2B and B2C digital marketing built for manufacturers, wholesalers, and traders in Maninagar."
+  {services}
+
+  s4Title="Common Challenges We Solve for Maninagar Businesses"
+  s4Subtitle="These are the most frequent problems we solve for textile, wholesale, and manufacturing businesses in this area."
+  {challenges}
+
+  s5Title="Why Maninagar Businesses Trust DC technolabs"
+  {whyCards}
+
+  s6Title="How We Work With Maninagar Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Ahmedabad"
+  {stats}
+
+  s8Title="What Maninagar Clients Say"
+  {testimonials}
+
+  s9Title="We Also Serve These Nearby Areas"
+  s9Subtitle="Our coverage spans all of Ahmedabad including east and central areas."
+  {nearbyAreas}
+
+  s10Title="Questions from Maninagar Business Owners"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your Maninagar Business Online?"
+  ctaSubtitle="Get a free consultation with DC technolabs. We understand the textile and wholesale market in Maninagar and will build a digital strategy that generates real enquiries."
+/>

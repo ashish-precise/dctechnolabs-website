@@ -95,6 +95,7 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 4. ✅ Free SEO Audit landing page — DONE (March 2026)
 5. ✅ Industries hub page (/industries/) — DONE (March 2026) — 10 sections, 14 industry cards, Web3Forms
 6. ✅ All 14 individual industry sub-pages — DONE (March 2026) — healthcare, real-estate, ecommerce, education, manufacturing, restaurants, legal, construction, finance, travel, automotive, saas, fashion, ngo
+7. ✅ 8 Ahmedabad neighborhood sub-pages — DONE (March 2026) — satellite, sg-highway, prahlad-nagar, vastrapur, bodakdev, navrangpura, cg-road, maninagar. Uses NeighborhoodPageLayout.astro (wraps PageLayout, 12 sections). Ahmedabad.astro neighborhood cards now link to sub-pages. BaseLayout.astro and PageLayout.astro updated to support named head slot for schema injection.
 
 ### DEPLOYMENT STATUS
 
@@ -124,8 +125,9 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 
 ## Location Coverage
 
-**Primary city:** Ahmedabad  
-Neighborhoods covered: Satellite, SG Highway, Vastrapur, Bodakdev, Prahlad Nagar, Navrangpura, C.G. Road, Maninagar  
+**Primary city:** Ahmedabad
+Neighborhoods covered (with individual sub-pages): Satellite, SG Highway, Vastrapur, Bodakdev, Prahlad Nagar, Navrangpura, C.G. Road, Maninagar
+Neighborhood sub-pages URL pattern: /locations/ahmedabad/[slug]/ (e.g. /locations/ahmedabad/satellite/)
 Business hubs: GIFT City, InfoCity, Science City area
 
 **Other cities:** Gandhinagar, Surat, Vadodara  

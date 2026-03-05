@@ -1,0 +1,316 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DCTechnoLabs",
+  "description": "Digital marketing and web design agency serving Bodakdev businesses in Ahmedabad, Gujarat. Specialists in premium local SEO, website design, and Google Ads for healthcare, luxury retail, and finance businesses.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/bodakdev",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Bodakdev, Ahmedabad, Gujarat"
+  },
+  "priceRange": "Rs.15000 - Rs.200000",
+  "openingHours": "Mo-Sa 09:00-19:00"
+});
+
+const heroStats: StatItem[] = [
+  { value: "120+", label: "Ahmedabad Clients" },
+  { value: "8+", label: "Years Experience" },
+  { value: "96%", label: "Client Retention" },
+  { value: "48hr", label: "Response Time" }
+];
+
+const businessTypes = [
+  { icon: "🏥", label: "Hospitals & Clinics" },
+  { icon: "💎", label: "Luxury Retail" },
+  { icon: "🏦", label: "Finance & Banking" },
+  { icon: "🍽️", label: "Fine Dining" },
+  { icon: "🏠", label: "Premium Real Estate" },
+  { icon: "💈", label: "Luxury Salons & Spas" },
+  { icon: "🚗", label: "Luxury Car Showrooms" }
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  {
+    icon: "📍",
+    title: "Prime SG Highway Location",
+    desc: "Bodakdev sits along the prestigious SG Highway corridor, home to Ahmedabad's highest-income residential pockets and upscale commercial establishments."
+  },
+  {
+    icon: "💰",
+    title: "High-Value Customer Base",
+    desc: "The Bodakdev customer base has significant purchasing power. Your digital presence must reflect the premium nature of your business to attract and convert these buyers."
+  },
+  {
+    icon: "🏆",
+    title: "Competitive Premium Market",
+    desc: "From Judges Bungalow Road to Thaltej, premium businesses compete hard for visibility. Strong SEO and Google Ads targeting are essential to stand out in this locality."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🎨",
+    title: "Premium Website Design",
+    desc: "We design websites that match the premium character of Bodakdev businesses. Clean, high-converting layouts built for healthcare clinics, luxury brands, and finance firms."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Bodakdev",
+    desc: "Rank on Google when potential patients, shoppers, or clients in Bodakdev and nearby areas search for your services. We handle Google Business Profile, local citations, and on-page SEO."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads Management",
+    desc: "Run highly targeted Google Ads campaigns aimed at Bodakdev, Judges Bungalow Road, Thaltej, and SG Highway residents. We optimise for real inquiries, not just clicks."
+  },
+  {
+    icon: "🛒",
+    title: "E-commerce Development",
+    desc: "Sell luxury products or premium services online with a polished e-commerce platform. We set up Shopify and WooCommerce stores tailored for high-end retail in Ahmedabad."
+  },
+  {
+    icon: "📱",
+    title: "Social Media Marketing",
+    desc: "Manage your Instagram, Facebook, and LinkedIn presence to build brand authority among Bodakdev's discerning audience. Content and ads that speak to premium buyers."
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare Digital Marketing",
+    desc: "Specialist marketing for hospitals, clinics, and diagnostic centres in Bodakdev. Patient-friendly websites, appointment booking integration, and reputation management on Google."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Your clinic or hospital is not appearing in Google searches for Bodakdev patients",
+    solution: "We set up and optimise your Google Business Profile, build local citations, and create location-specific landing pages so patients searching for doctors, dentists, or specialists in Bodakdev find you first."
+  },
+  {
+    problem: "Your luxury retail store gets walk-in footfall but very little online visibility",
+    solution: "We build a premium website with strong local SEO and run Google Shopping and Instagram ads targeting Bodakdev's high-net-worth households, converting online browsers into in-store buyers."
+  },
+  {
+    problem: "Competitors with inferior services rank above you on Google Maps in Bodakdev",
+    solution: "Our hyper-local SEO strategy improves your Maps ranking through review generation, consistent NAP data, local content, and optimised business profile listings specific to the Bodakdev area."
+  },
+  {
+    problem: "Your restaurant or salon relies entirely on word-of-mouth with no digital footprint",
+    solution: "We create a strong online presence with a conversion-focused website, Google reviews strategy, and targeted Instagram ads that bring in new premium customers from Bodakdev and surrounding areas."
+  },
+  {
+    problem: "Your finance or wealth management firm looks outdated online despite offering top-tier services",
+    solution: "We redesign your website with a professional, trust-building layout that reflects your expertise. SEO and LinkedIn marketing then help you reach high-net-worth individuals in Bodakdev seeking financial advice."
+  },
+  {
+    problem: "You are spending on Google Ads but getting poor-quality leads that never convert",
+    solution: "We audit your existing campaigns, fix targeting, refine ad copy for premium buyers, and set up proper conversion tracking so your ad budget brings in genuine inquiries from qualified Bodakdev prospects."
+  }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "📍",
+    title: "We Know Bodakdev",
+    desc: "We understand the Bodakdev market deeply, from Judges Bungalow Road to Thaltej. Our local knowledge means your campaigns target the right people in the right areas."
+  },
+  {
+    emoji: "🏥",
+    title: "Healthcare Marketing Specialists",
+    desc: "With several hospital and clinic clients in Ahmedabad under our belt, we know how to market healthcare services sensitively and effectively to patients searching online."
+  },
+  {
+    emoji: "🎯",
+    title: "Premium Audience Targeting",
+    desc: "We craft campaigns specifically aimed at Bodakdev's high-income demographic. Your ad spend reaches people with genuine intent and purchasing power."
+  },
+  {
+    emoji: "📊",
+    title: "Transparent Monthly Reports",
+    desc: "Every month you get a plain-language report showing website traffic, ranking improvements, leads generated, and ad spend results. No hidden metrics, no confusion."
+  },
+  {
+    emoji: "⚡",
+    title: "Fast, Responsive Team",
+    desc: "Based in Ahmedabad, we are in your time zone. Questions get answered quickly and urgent updates are handled without delays. No outsourcing to distant teams."
+  },
+  {
+    emoji: "💰",
+    title: "Genuine ROI Focus",
+    desc: "We measure success by the inquiries and revenue your business generates, not vanity metrics. Every rupee you invest is tracked back to real business outcomes."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Audit and Discovery",
+    desc: "We review your current website, Google rankings, and competitor landscape in Bodakdev to identify the biggest opportunities for growth."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "We present a tailored digital marketing plan specific to your business type, budget, and target customers in Bodakdev and nearby areas."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We design your website, set up SEO, configure Google Ads, and create social media content, then launch everything with precision."
+  },
+  {
+    step: "4",
+    title: "Optimise and Grow",
+    desc: "We monitor performance weekly, make data-driven improvements monthly, and report results clearly so your Bodakdev business keeps growing."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "120+", label: "Businesses Served Across Ahmedabad" },
+  { value: "3.8x", label: "Average ROI on Ad Spend" },
+  { value: "85%", label: "Clients See Ranking Improvement in 90 Days" },
+  { value: "Rs.0", label: "Hidden Charges, Ever" }
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "DCTechnoLabs redesigned our clinic website and set up Google Ads. Within two months we were getting 30 to 40 patient inquiries every month from Bodakdev and Thaltej. The team is professional, responsive, and truly understands healthcare marketing.",
+    name: "Dr. Sanjay Mehta",
+    role: "Orthopaedic Surgeon, Bodakdev Clinic",
+    initials: "SM"
+  },
+  {
+    text: "We run a luxury furniture showroom on SG Highway. Before DCTechnoLabs, our website was invisible online. Now we rank on the first page for premium furniture searches in Ahmedabad. Footfall and inquiries have both increased significantly.",
+    name: "Priya Desai",
+    role: "Owner, Desai Furniture Studio, Bodakdev",
+    initials: "PD"
+  },
+  {
+    text: "Their Instagram marketing for our restaurant has been outstanding. The content captures our ambiance perfectly and we are reaching exactly the right audience in Bodakdev and Vastrapur. Reservations have gone up 45% since we started with them.",
+    name: "Harsh Patel",
+    role: "Director, The Terrace Kitchen, Bodakdev",
+    initials: "HP"
+  }
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Vastrapur",
+    slug: "vastrapur",
+    desc: "Adjacent to Bodakdev, Vastrapur is home to Vastrapur Lake, upscale cafes, and a growing retail scene. We serve businesses across both areas."
+  },
+  {
+    name: "Satellite",
+    slug: "satellite",
+    desc: "One of Ahmedabad's most sought-after commercial and residential zones, just minutes from Bodakdev. Strong overlap in target audience and business types."
+  },
+  {
+    name: "Prahlad Nagar",
+    slug: "prahlad-nagar",
+    desc: "Prahlad Nagar's corporate hub and residential community share many characteristics with Bodakdev. We run integrated campaigns spanning both areas."
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "How much does digital marketing cost for a Bodakdev business?",
+    a: "Our packages start from Rs. 15,000 per month for local SEO and Google Business Profile management, and go up to Rs. 80,000 or more for comprehensive campaigns including website design, Google Ads, and social media. We customise pricing based on your business type and goals."
+  },
+  {
+    q: "Can you help my clinic rank on Google for searches in Bodakdev?",
+    a: "Yes. We specialise in local SEO for healthcare businesses. We optimise your Google Business Profile, build local citations, create location-specific content, and manage your online reviews. Most clinic clients see ranking improvements within 60 to 90 days."
+  },
+  {
+    q: "Do you work with luxury retail and fine dining businesses in Bodakdev?",
+    a: "Absolutely. We have experience marketing premium retail, fine dining restaurants, luxury salons, and high-end service businesses. We understand that your brand image matters as much as your reach, and we build campaigns accordingly."
+  },
+  {
+    q: "How do Google Ads work for a Bodakdev restaurant or salon?",
+    a: "We set up location-targeted campaigns that show your ads to people within Bodakdev, Vastrapur, Satellite, and SG Highway when they search for restaurants or salons. We use call extensions, map integrations, and carefully written ad copy to drive reservations and appointments."
+  },
+  {
+    q: "How long does it take to build a website for a Bodakdev business?",
+    a: "A standard professional website typically takes 2 to 3 weeks from content handover to launch. For larger projects involving e-commerce or appointment booking systems, we plan for 4 to 6 weeks. We share a clear timeline at the start of every project."
+  },
+  {
+    q: "Will my website work well on mobile for Bodakdev customers?",
+    a: "Yes. All websites we build are fully mobile-responsive and optimised for fast loading. Given that most local searches in Bodakdev happen on smartphones, mobile performance is our top priority for every site."
+  },
+  {
+    q: "Can you manage my Google Business Profile for my Bodakdev business?",
+    a: "Yes. We take full responsibility for your Google Business Profile: accurate business information, photo uploads, review responses, regular posts, and category optimisation. A well-managed profile is the single most important local ranking factor."
+  },
+  {
+    q: "Do you offer a free audit before I commit to a paid plan?",
+    a: "Yes, we offer a free website and SEO audit for every Bodakdev business we speak with. The audit covers your current rankings, website performance, Google Business Profile status, and competitor analysis. Fill in the form above to get started."
+  }
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite", slug: "satellite" },
+  { name: "SG Highway", slug: "sg-highway" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Vastrapur", slug: "vastrapur" },
+  { name: "Navrangpura", slug: "navrangpura" },
+  { name: "CG Road", slug: "cg-road" },
+  { name: "Maninagar", slug: "maninagar" }
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Bodakdev, Ahmedabad | DCTechnoLabs"
+  description="DCTechnoLabs provides premium web design, local SEO, Google Ads, and social media marketing for Bodakdev businesses in Ahmedabad. Specialists in healthcare, luxury retail, finance, and fine dining. Get a free audit today."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/bodakdev"
+  schemaJson={schemaJson}
+  badge="📍 Bodakdev, Ahmedabad"
+  heroH1="Digital Marketing Agency in Bodakdev, Ahmedabad"
+  heroHighlight="Bodakdev, Ahmedabad"
+  heroDesc="Bodakdev is Ahmedabad's most prestigious locality, home to premium hospitals, luxury showrooms, fine dining restaurants, and high-net-worth residents. DCTechnoLabs helps Bodakdev businesses build a powerful online presence that attracts the right customers and grows revenue."
+  heroStats={heroStats}
+  formTitle="Get a Free Quote"
+  formSub="For Bodakdev businesses. Response within 24 hours."
+  s2Title="Bodakdev: Ahmedabad's Premium Business Hub"
+  s2Subtitle="Understanding the Bodakdev market and why your digital presence must match your premium positioning."
+  s2Body={[
+    "Bodakdev is one of Ahmedabad's most affluent localities, stretching along SG Highway towards Thaltej. It is home to upscale residential complexes, super-specialty hospitals, luxury car showrooms, branded salons, and some of the city's finest restaurants. The people living and working here have high expectations, and your online presence must reflect that.",
+    "Whether you run a multi-specialty clinic near Judges Bungalow Road, a luxury jewellery boutique, a wealth management firm, or a fine dining restaurant, your website and digital marketing need to communicate trust, quality, and professionalism from the very first click.",
+    "DCTechnoLabs works with premium businesses across Bodakdev, Thaltej, and the wider SG Highway corridor. We understand that a generic digital marketing approach does not work here. We build strategies specifically for high-intent, high-value customers who are searching online before they visit your establishment."
+  ]}
+  businessTypes={businessTypes}
+  overviewCards={overviewCards}
+  s3Title="Digital Services for Bodakdev Businesses"
+  s3Subtitle="A complete suite of digital marketing services tailored to the premium Bodakdev market."
+  services={services}
+  s4Title="Challenges Bodakdev Businesses Face Online"
+  s4Subtitle="Real problems we solve for clinics, retailers, restaurants, and finance firms in Bodakdev every day."
+  challenges={challenges}
+  s5Title="Why Bodakdev Businesses Choose DCTechnoLabs"
+  s5Subtitle="Local expertise, premium marketing strategies, and results you can measure."
+  whyCards={whyCards}
+  s6Title="How We Work with Bodakdev Businesses"
+  processSteps={processSteps}
+  statsHeading="Our Track Record Across Ahmedabad"
+  stats={stats}
+  s8Title="What Our Clients in Bodakdev Say"
+  testimonials={testimonials}
+  s9Title="We Also Serve These Nearby Areas"
+  s9Subtitle="Our digital marketing services extend across Bodakdev and into the surrounding Ahmedabad neighbourhoods."
+  nearbyAreas={nearbyAreas}
+  s10Title="Frequently Asked Questions for Bodakdev Businesses"
+  faqItems={faqItems}
+  otherNeighborhoods={otherNeighborhoods}
+  ctaTitle="Ready to Grow Your Bodakdev Business Online?"
+  ctaSubtitle="Get a free website audit and digital marketing consultation. We serve healthcare, luxury retail, finance, and hospitality businesses across Bodakdev, Thaltej, and SG Highway."
+/>

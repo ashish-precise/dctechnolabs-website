@@ -1,0 +1,178 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Prahlad Nagar businesses in Ahmedabad with web design, SEO, and PPC services.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/prahlad-nagar",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "areaServed": { "@type": "Place", "name": "Prahlad Nagar, Ahmedabad" }
+});
+
+const heroStats: StatItem[] = [
+  { value: "945+", label: "Gujarat Projects" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "45+",  label: "Prahlad Nagar Clients" },
+  { value: "24 hrs", label: "Proposal Turnaround" },
+];
+
+const s2Body = [
+  "Prahlad Nagar has become one of Ahmedabad's most vibrant commercial destinations over the past decade. The area around Prahlad Nagar Garden and the roads leading off SG Highway are packed with upscale restaurants, cafes, fashion boutiques, salons, co-working spaces, and creative agencies.",
+  "Businesses here compete for a young, mobile-savvy audience that makes decisions based on Instagram feeds, Google reviews, and recommendations from friends. If your digital presence is not impressive, you are invisible to your best customers.",
+  "We have worked with restaurants, boutiques, agencies, and fitness studios in Prahlad Nagar. We understand the audience, the competitive landscape, and what it takes to stand out in one of Ahmedabad's most photogenic commercial zones.",
+];
+
+const businessTypes = [
+  { icon: "🍽️", label: "Restaurants and Cafes" },
+  { icon: "👗", label: "Fashion Boutiques" },
+  { icon: "💈", label: "Salons and Spas" },
+  { icon: "🏢", label: "Creative Agencies" },
+  { icon: "💪", label: "Fitness Studios" },
+  { icon: "🎨", label: "Design and Media" },
+];
+
+const overviewCards = [
+  { icon: "📸", title: "Instagram and Social Media", desc: "Prahlad Nagar's audience lives on Instagram. We create scroll-stopping content and run geo-targeted social ads for your business." },
+  { icon: "⭐", title: "Google Reviews Strategy", desc: "We set up a review generation system that turns happy customers into public advocates on Google and Zomato." },
+  { icon: "🔍", title: "Local SEO for High Competition", desc: "Prahlad Nagar is competitive. We use hyperlocal SEO to rank you above similar businesses on the same street." },
+];
+
+const services: ServiceCard[] = [
+  { icon: "🌐", title: "Web Design", desc: "Visually stunning websites for restaurants, boutiques, and agencies in Prahlad Nagar. Built for mobile, optimised for conversion." },
+  { icon: "🔍", title: "Local SEO", desc: "Rank on Google for searches like 'restaurants in Prahlad Nagar' and 'boutique near Prahlad Nagar Garden'. We own the local search landscape." },
+  { icon: "📢", title: "Google Ads / PPC", desc: "Drive targeted traffic from people looking for dining, fashion, and lifestyle experiences in and around Prahlad Nagar." },
+  { icon: "📸", title: "Social Media Marketing", desc: "Instagram-first content strategy for Prahlad Nagar businesses. Reels, stories, UGC campaigns, and influencer collaborations." },
+  { icon: "🛒", title: "E-commerce Development", desc: "Sell your boutique collections or specialty products online. Shopify or WooCommerce stores built for the Indian market." },
+  { icon: "🔧", title: "WordPress Development", desc: "Elegant WordPress sites for agencies, studios, and service businesses. Fully editable with training included." },
+];
+
+const challenges: Challenge[] = [
+  { problem: "Our restaurant is full on weekends but empty on weekdays", solution: "We run weekday-specific promotions on Google Ads and Instagram, target office-goers nearby, and set up a reservation system to spread footfall across the week." },
+  { problem: "We have amazing food but terrible online visibility", solution: "We optimise your Zomato and Google Business Profile, run a review generation campaign, and build social media content that shows off your dishes and ambience." },
+  { problem: "Our boutique's Instagram has followers but no sales", solution: "Followers without sales usually means your bio, link in bio, and website are not converting. We redesign your funnel and run Instagram Shopping ads to drive purchases." },
+  { problem: "We are a new salon and cannot compete with established ones", solution: "We build your online presence from scratch. A professional website, Google Business Profile, Instagram growth strategy, and local SEO that gets you visible within 60 days." },
+  { problem: "We spend on Meta ads but get no measurable results", solution: "Meta ads for local businesses need hyper-local targeting within 3 to 5 km, strong creative, and proper tracking. We rebuild your campaigns the right way." },
+  { problem: "Our competitor's website looks much better than ours", solution: "First impressions matter enormously in lifestyle and hospitality. We redesign your site to match the premium character of your Prahlad Nagar location." },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🎯", title: "Lifestyle Brand Expertise", desc: "We understand how restaurants, boutiques, and lifestyle brands need to market themselves differently from B2B businesses." },
+  { emoji: "📸", title: "Visual-First Strategy", desc: "Prahlad Nagar businesses win on visual appeal. We help you create content that makes people stop scrolling and take action." },
+  { emoji: "📍", title: "Deep Local Knowledge", desc: "We know Prahlad Nagar Garden, the lanes off SG Highway, and which local influencers actually drive footfall in this area." },
+  { emoji: "📈", title: "Restaurant and Retail Wins", desc: "Our clients in Prahlad Nagar report 40% to 100% increases in weekday covers and online sales within the first 3 months." },
+  { emoji: "💰", title: "Honest Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. Social media management from Rs. 20,000 per month." },
+  { emoji: "🤝", title: "Creative Partnership", desc: "We do not just run ads. We become a creative partner that understands your brand voice and helps you build a loyal following." },
+];
+
+const processSteps: ProcessStep[] = [
+  { step: "1", title: "Brand and Audit Review", desc: "We review your current online presence, social media, and competitors to understand where you stand." },
+  { step: "2", title: "Strategy Proposal", desc: "You receive a tailored strategy within 24 hours, including channels, content approach, timeline, and investment." },
+  { step: "3", title: "Launch and Create", desc: "We build your website, set up campaigns, and begin content creation. You approve everything before it goes live." },
+  { step: "4", title: "Optimise and Grow", desc: "Monthly performance reviews with clear metrics. We adjust strategy every 30 days based on what is working." },
+];
+
+const stats: StatItem[] = [
+  { value: "945+", label: "Projects Across Gujarat" },
+  { value: "40%+", label: "Average Traffic Increase in 90 Days" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "45+",  label: "Prahlad Nagar Clients" },
+];
+
+const testimonials: Testimonial[] = [
+  { text: "We run a cafe near Prahlad Nagar Garden. DC technolabs redesigned our Instagram presence and ran local ads. Our weekday covers went from 40% to 90% within 8 weeks. Absolutely transformed our business.", name: "Siddharth Mehta", role: "Cafe Owner, Prahlad Nagar", initials: "SM" },
+  { text: "Our fashion boutique was competing against dozens of similar stores. DC technolabs built us a proper website with online shopping and an Instagram strategy that shows our collections beautifully. Sales are up 70%.", name: "Pooja Desai", role: "Boutique Owner, Prahlad Nagar", initials: "PD" },
+  { text: "We are a small branding agency in Prahlad Nagar. DC technolabs helped us rank on Google for design agency searches in Ahmedabad. We now get 5 to 8 qualified inquiries per month without any paid advertising.", name: "Karan Trivedi", role: "Founder, Design Agency", initials: "KT" },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "SG Highway", slug: "sg-highway", desc: "Ahmedabad's tech and corporate corridor. Home to IT companies, startups, and coworking spaces." },
+  { name: "Satellite", slug: "satellite", desc: "Premium residential and commercial area with clinics, retail, and professional services." },
+  { name: "Vastrapur", slug: "vastrapur", desc: "Education and fitness hub close to IIM Ahmedabad and Vastrapur Lake." },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Do you work with restaurants and food businesses in Prahlad Nagar?", a: "Yes. Restaurants are one of our most common client types in Prahlad Nagar. We manage everything from Zomato profiles and Google Business to Instagram content and local SEO." },
+  { q: "How do you help boutiques and fashion brands in this area?", a: "We build e-commerce websites, manage Instagram Shopping, run Meta ads targeted to Ahmedabad's fashion-conscious audience, and help you grow an engaged following that converts into sales." },
+  { q: "Can you help my salon compete with bigger salons in Prahlad Nagar?", a: "Yes. A well-optimised Google Business Profile, strong Instagram presence, and a website with online booking can put a new salon on par with established ones within 3 months." },
+  { q: "What does social media management cost for a Prahlad Nagar business?", a: "Social media management starts from Rs. 20,000 per month for content creation, posting, and story management. Add-ons include paid ads management and influencer coordination." },
+  { q: "How quickly can you set up a restaurant website?", a: "A standard restaurant website with menu, gallery, contact form, and reservation link takes 10 to 14 days. Websites with online ordering or booking systems take 3 to 4 weeks." },
+  { q: "Do you run Zomato campaigns for restaurants?", a: "We help with Zomato profile optimisation and review strategy. For Zomato Gold and paid promotions, we work alongside your Zomato account manager to coordinate campaigns." },
+  { q: "What results can I expect in the first 3 months?", a: "Most of our Prahlad Nagar clients see measurable increases in Google impressions within 60 days. Social media engagement typically improves within 30 days of a new content strategy." },
+  { q: "Can we meet at our restaurant or boutique for the initial discussion?", a: "Of course. We are happy to visit your venue. Meeting at your space helps us understand your ambience and brand better so we can represent you authentically online." },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite", slug: "satellite" },
+  { name: "SG Highway", slug: "sg-highway" },
+  { name: "Vastrapur", slug: "vastrapur" },
+  { name: "Bodakdev", slug: "bodakdev" },
+  { name: "Navrangpura", slug: "navrangpura" },
+  { name: "CG Road", slug: "cg-road" },
+  { name: "Maninagar", slug: "maninagar" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Prahlad Nagar, Ahmedabad | DC technolabs"
+  description="DC technolabs helps restaurants, boutiques, salons, and agencies in Prahlad Nagar, Ahmedabad grow online. Web design, Instagram marketing, local SEO. 45+ local clients. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/prahlad-nagar"
+  schemaJson={schemaJson}
+
+  badge="📍 Prahlad Nagar, Ahmedabad"
+  heroH1="Digital Marketing Agency in Prahlad Nagar, Ahmedabad"
+  heroHighlight="Prahlad Nagar, Ahmedabad"
+  heroDesc="Prahlad Nagar businesses compete for a young, style-conscious audience. We help restaurants, boutiques, salons, and agencies stand out online with strategies built for this market."
+  {heroStats}
+  formTitle="Get a Free Quote"
+  formSub="Prahlad Nagar businesses get priority response."
+
+  s2Title="Why Prahlad Nagar Businesses Choose DC technolabs"
+  s2Subtitle="We have helped 45+ businesses in and around Prahlad Nagar grow their digital presence."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Digital Services for Prahlad Nagar Businesses"
+  s3Subtitle="Strategies built for lifestyle, food, and creative businesses in one of Ahmedabad's most competitive areas."
+  {services}
+
+  s4Title="Common Challenges We Solve in Prahlad Nagar"
+  s4Subtitle="These are the problems we hear most often from restaurants, boutiques, and service businesses in this area."
+  {challenges}
+
+  s5Title="Why Prahlad Nagar Businesses Trust DC technolabs"
+  {whyCards}
+
+  s6Title="How We Work With Prahlad Nagar Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Ahmedabad"
+  {stats}
+
+  s8Title="What Prahlad Nagar Clients Say"
+  {testimonials}
+
+  s9Title="We Also Serve These Nearby Areas"
+  s9Subtitle="Our coverage spans all of west Ahmedabad."
+  {nearbyAreas}
+
+  s10Title="Questions from Prahlad Nagar Business Owners"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Stand Out in Prahlad Nagar?"
+  ctaSubtitle="Get a free consultation today. We understand the Prahlad Nagar market and will build a strategy that fits your brand and budget."
+/>

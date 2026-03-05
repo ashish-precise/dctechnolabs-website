@@ -16,8 +16,9 @@ const { title, description, canonical, ogImage } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
+  <slot name="head" slot="head" />
   <Header />
-  
+
   <!-- Page Content -->
   <slot />
   

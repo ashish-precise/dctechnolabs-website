@@ -1,0 +1,178 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Vastrapur businesses in Ahmedabad with web design, SEO, and digital marketing services.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/vastrapur",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "areaServed": { "@type": "Place", "name": "Vastrapur, Ahmedabad" }
+});
+
+const heroStats: StatItem[] = [
+  { value: "945+", label: "Gujarat Projects" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "40+",  label: "Vastrapur Area Clients" },
+  { value: "90+",  label: "PageSpeed Score Average" },
+];
+
+const s2Body = [
+  "Vastrapur is a busy, well-connected area in west Ahmedabad centred around Vastrapur Lake. The locality is a mix of residential complexes, coaching institutes for engineering and medical exams, fitness centres, real estate offices, and healthcare clinics.",
+  "The area draws students from nearby institutions including IIM Ahmedabad and various engineering colleges, as well as families from surrounding neighbourhoods like Jodhpur, Thaltej, and Vejalpur. Businesses here serve both a young student demographic and an affluent residential base.",
+  "We understand the dual audience of Vastrapur and build digital strategies that speak to both. Whether you are a coaching institute targeting exam aspirants or a fitness studio targeting working professionals, we get the messaging right.",
+];
+
+const businessTypes = [
+  { icon: "📚", label: "Coaching and Education" },
+  { icon: "💪", label: "Gyms and Fitness Studios" },
+  { icon: "🏠", label: "Real Estate Agencies" },
+  { icon: "🏥", label: "Clinics and Healthcare" },
+  { icon: "🍜", label: "Restaurants and QSR" },
+  { icon: "🏗️", label: "Construction and Interiors" },
+];
+
+const overviewCards = [
+  { icon: "🎓", title: "Education and Coaching SEO", desc: "We rank coaching institutes for high-intent searches like 'IIT coaching near Vastrapur' and 'NEET preparation Ahmedabad'." },
+  { icon: "🏋️", title: "Fitness Studio Marketing", desc: "Targeted campaigns for gyms and yoga studios that convert nearby residents and office-goers into members." },
+  { icon: "🏠", title: "Real Estate Digital Strategy", desc: "Lead generation websites and Google Ads for builders and agents listing projects in and around Vastrapur." },
+];
+
+const services: ServiceCard[] = [
+  { icon: "🌐", title: "Web Design", desc: "Professional websites for coaching institutes, fitness studios, real estate agencies, and clinics in Vastrapur. Mobile-first and fast-loading." },
+  { icon: "🔍", title: "Local SEO", desc: "Rank on Google for Vastrapur-specific searches. We optimise your Google Business Profile and build authoritative local citations." },
+  { icon: "📢", title: "Google Ads / PPC", desc: "Drive qualified leads with Google Ads targeted to Vastrapur and nearby areas. We focus on calls and form submissions, not vanity clicks." },
+  { icon: "📸", title: "Social Media Marketing", desc: "Build your presence on Instagram and Facebook. Content strategy, paid promotions, and audience growth for Vastrapur businesses." },
+  { icon: "🛒", title: "E-commerce Development", desc: "Sell coaching materials, merchandise, or products online with a Shopify or WooCommerce store integrated with Indian payment gateways." },
+  { icon: "🔧", title: "WordPress Development", desc: "Flexible, easy-to-manage websites for education businesses and service providers. Training and ongoing support included." },
+];
+
+const challenges: Challenge[] = [
+  { problem: "Our coaching institute is not appearing in Google searches", solution: "We audit your local SEO, optimise your Google Business Profile, and build a content strategy targeting high-intent searches like 'NEET coaching in Vastrapur' and similar queries." },
+  { problem: "Students find competitor gyms on Google before ours", solution: "We run a full local SEO audit, fix your Google Maps listing, gather reviews from current members, and run geo-targeted Google Ads for fitness-related searches within 3 km." },
+  { problem: "We get enquiries but they don't convert into admissions or memberships", solution: "Conversion issues are usually in the website or follow-up process. We redesign your landing pages and set up automated WhatsApp follow-ups for new enquiries." },
+  { problem: "Our real estate listings get no online visibility", solution: "We build property listing websites with proper schema markup, run Google Ads for project-specific searches, and manage a social media strategy that showcases your properties." },
+  { problem: "We launched a new clinic and need patients quickly", solution: "A combination of Google Business Profile setup, local SEO, and a small Google Ads campaign can get you visible and receiving calls within 2 to 4 weeks of launch." },
+  { problem: "Our website is old and looks unprofessional", solution: "We redesign your website with modern design, mobile optimisation, fast load times, and proper calls to action. A new site typically doubles enquiry rates within 60 days." },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🎓", title: "Education Sector Experience", desc: "We have worked with coaching institutes, tuition centres, and training providers across Ahmedabad. We understand how to market education effectively." },
+  { emoji: "📍", title: "Vastrapur Market Knowledge", desc: "We know the neighbourhoods, the competition, and the audience. Hyperlocal strategies that work in Vastrapur, not generic templates." },
+  { emoji: "📱", title: "Mobile-First Approach", desc: "Students and working professionals in Vastrapur are almost entirely on mobile. Every site and campaign we create is built for mobile first." },
+  { emoji: "📈", title: "Lead Generation Focus", desc: "We optimise for leads, not just traffic. Form fills, calls, WhatsApp messages - we track what brings real business results." },
+  { emoji: "💰", title: "Transparent Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. Google Ads management from Rs. 15,000 per month plus ad spend." },
+  { emoji: "🔒", title: "No Hidden Commitments", desc: "Month-to-month contracts. Clear reporting every month. No surprises." },
+];
+
+const processSteps: ProcessStep[] = [
+  { step: "1", title: "Discovery Call", desc: "We start with a 30-minute call or meeting to understand your business, audience, and goals in Vastrapur." },
+  { step: "2", title: "Audit and Strategy", desc: "We audit your current online presence and send you a clear proposal within 24 hours with channels, timelines, and pricing." },
+  { step: "3", title: "Build and Launch", desc: "We build, design, or set up whatever was agreed. You get regular updates and final approval before launch." },
+  { step: "4", title: "Track and Improve", desc: "Monthly reports with real metrics. We hold a review call every month to discuss results and plan the next 30 days." },
+];
+
+const stats: StatItem[] = [
+  { value: "945+", label: "Projects Completed Across Gujarat" },
+  { value: "8+",   label: "Years Based in Ahmedabad" },
+  { value: "40+",  label: "Vastrapur Area Clients" },
+  { value: "3x",   label: "Average Lead Increase for Education Clients" },
+];
+
+const testimonials: Testimonial[] = [
+  { text: "We run a NEET and JEE coaching institute in Vastrapur. DC technolabs built our website and got us on the first page of Google. Admission enquiries increased by 80% compared to the previous year.", name: "Jayesh Bhatia", role: "Coaching Director, Vastrapur", initials: "JB" },
+  { text: "Our yoga studio was struggling to compete with large gym chains. After DC technolabs rebuilt our website and set up local SEO, we consistently rank above all competitors on Google Maps in our area.", name: "Priya Agrawal", role: "Yoga Studio Owner, Vastrapur", initials: "PA" },
+  { text: "We are a real estate developer with projects near Vastrapur Lake. DC technolabs built us a property listing website and runs Google Ads. Our cost per qualified lead dropped from Rs. 3,500 to Rs. 900.", name: "Vivek Patel", role: "Real Estate Developer, Ahmedabad", initials: "VP" },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "Satellite", slug: "satellite", desc: "Busy commercial and residential area with clinics, retail, and professional services." },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar", desc: "Trendy area known for restaurants, boutiques, and creative businesses near SG Highway." },
+  { name: "Bodakdev", slug: "bodakdev", desc: "Premium locality with luxury retail, healthcare, and high-end residential zones." },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Do you work with coaching institutes in Vastrapur?", a: "Yes. Education marketing is one of our specialities. We help coaching institutes rank on Google, run targeted Google Ads for exam preparation searches, and build websites with online admission forms." },
+  { q: "How do you help gyms and fitness studios attract more members?", a: "We use local SEO to rank your gym on Google Maps, run paid campaigns targeting people searching for fitness near Vastrapur, and create Instagram content that showcases your facility and trainers." },
+  { q: "Can you build a real estate website for my Vastrapur projects?", a: "Yes. We build property listing websites with floor plans, gallery, location maps, and enquiry forms. We also run Google Ads targeting homebuyers searching for properties in the Vastrapur area." },
+  { q: "How long until my coaching institute sees more admissions from digital marketing?", a: "Most education clients see a measurable increase in online enquiries within 60 to 90 days. The SEO builds over 3 to 6 months as your site gains authority." },
+  { q: "What is the cost of SEO for a Vastrapur coaching institute?", a: "Local SEO packages start from Rs. 30,000 per month. For coaching institutes, we recommend a 6-month commitment to see compounding results before the next admission cycle." },
+  { q: "Do you work with clinics and healthcare providers in Vastrapur?", a: "Yes. We have worked with dental clinics, physiotherapy centres, and multi-specialty clinics. Healthcare SEO, Google Ads for patient acquisition, and website development are all in our scope." },
+  { q: "Can I get a website with an online admission or booking system?", a: "Yes. We build websites with online booking, appointment scheduling, and payment integration. These are particularly effective for coaching institutes and fitness studios." },
+  { q: "Do you offer any guarantees?", a: "We do not promise specific ranking positions because search algorithms can change. What we guarantee is complete transparency, monthly reporting, and a clear strategy review if targets are not being met." },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite", slug: "satellite" },
+  { name: "SG Highway", slug: "sg-highway" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Bodakdev", slug: "bodakdev" },
+  { name: "Navrangpura", slug: "navrangpura" },
+  { name: "CG Road", slug: "cg-road" },
+  { name: "Maninagar", slug: "maninagar" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Vastrapur, Ahmedabad | DC technolabs"
+  description="DC technolabs helps coaching institutes, gyms, real estate agencies, and clinics in Vastrapur, Ahmedabad grow online. Web design, SEO, Google Ads. 40+ local clients. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/vastrapur"
+  schemaJson={schemaJson}
+
+  badge="📍 Vastrapur, Ahmedabad"
+  heroH1="Digital Marketing Agency in Vastrapur, Ahmedabad"
+  heroHighlight="Vastrapur, Ahmedabad"
+  heroDesc="We help coaching institutes, fitness studios, real estate agencies, and clinics in Vastrapur grow their online presence. Local expertise, transparent pricing, measurable results."
+  {heroStats}
+  formTitle="Get a Free Quote"
+  formSub="Vastrapur businesses get a detailed proposal within 24 hours."
+
+  s2Title="Why Vastrapur Businesses Choose DC technolabs"
+  s2Subtitle="40+ clients in and around Vastrapur. We understand the education, fitness, and real estate landscape here."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Digital Services for Vastrapur Businesses"
+  s3Subtitle="Strategies built for education, fitness, real estate, and healthcare businesses in Vastrapur."
+  {services}
+
+  s4Title="Common Challenges We Solve in Vastrapur"
+  s4Subtitle="Problems we hear regularly from coaching institutes, gyms, and real estate agencies in this area."
+  {challenges}
+
+  s5Title="Why Vastrapur Businesses Trust DC technolabs"
+  {whyCards}
+
+  s6Title="How We Work With Vastrapur Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Ahmedabad"
+  {stats}
+
+  s8Title="What Vastrapur Clients Say"
+  {testimonials}
+
+  s9Title="We Also Serve These Nearby Areas"
+  s9Subtitle="We cover all of west Ahmedabad and surrounding areas."
+  {nearbyAreas}
+
+  s10Title="Questions from Vastrapur Business Owners"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your Vastrapur Business Online?"
+  ctaSubtitle="Get a free consultation from DC technolabs. We understand the Vastrapur market and will build a strategy that fits your goals and budget."
+/>

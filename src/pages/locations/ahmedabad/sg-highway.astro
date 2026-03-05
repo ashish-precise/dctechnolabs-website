@@ -1,0 +1,295 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving IT companies, SaaS startups, and corporate businesses on SG Highway, Ahmedabad.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/sg-highway",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "23.035", "longitude": "72.507" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "SG Highway, Ahmedabad" },
+    { "@type": "Place", "name": "Sarkhej Gandhinagar Highway, Ahmedabad" },
+    { "@type": "Place", "name": "Prahlad Nagar Garden, Ahmedabad" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "85+",  label: "SG Highway Clients" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "6x",   label: "Average ROI on Ad Spend" },
+  { value: "48 hrs", label: "Campaign Launch Time" },
+];
+
+const s2Body: string[] = [
+  "Sarkhej-Gandhinagar Highway, commonly called SG Highway, is Ahmedabad's technology and corporate corridor. Software companies, IT parks, SaaS startups, coworking spaces, and established enterprises line this stretch from Prahlad Nagar Garden to Bopal. The concentration of tech-savvy professionals and globally connected businesses here is unlike any other part of the city.",
+  "We have been the digital partner for IT firms, product companies, and service businesses on SG Highway since 2017. We understand what a B2B software company needs from its website. We know how a SaaS startup should position itself to attract investors and customers. And we know how to run paid campaigns that generate quality enterprise leads, not just clicks.",
+  "If your business is on or near SG Highway and you need a digital presence that matches the ambition of this corridor, we are the right partner. We have delivered for companies ranging from bootstrapped startups to teams of 200 people.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "💻", label: "IT Companies" },
+  { icon: "🚀", label: "SaaS Startups" },
+  { icon: "🏢", label: "Coworking Spaces" },
+  { icon: "📊", label: "Corporate Offices" },
+  { icon: "🔧", label: "Tech Service Firms" },
+  { icon: "🏬", label: "Premium Retail" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🖥️", title: "Ahmedabad's Tech Corridor", desc: "SG Highway houses Ahmedabad's highest density of IT companies, startups, and knowledge economy businesses. The competition for online visibility is fierce." },
+  { icon: "🌍", title: "Globally Connected Businesses", desc: "Many SG Highway firms serve international clients. Your website and marketing must meet global standards while also resonating with local enterprise buyers." },
+  { icon: "📈", title: "Enterprise and B2B Focus", desc: "Leads here have longer sales cycles. SEO, LinkedIn marketing, and content authority matter more than social media vanity metrics." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Corporate Web Design for IT and Tech Firms",
+    desc: "High-performance, conversion-focused websites for software companies, IT service firms, and SaaS products. We build sites that attract enterprise clients and communicate technical expertise without losing clarity."
+  },
+  {
+    icon: "🔍",
+    title: "B2B SEO for SG Highway Companies",
+    desc: "We rank your company for the keywords your enterprise buyers search. Whether you want to be found for IT services, software development, or cloud solutions, we build the content and authority that drives organic inbound leads."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads and LinkedIn Ads",
+    desc: "Precision-targeted paid campaigns for B2B and enterprise audiences. We run Google Ads for inbound software and IT queries and LinkedIn campaigns that reach decision-makers at Gujarat companies and beyond."
+  },
+  {
+    icon: "🛒",
+    title: "SaaS and Software Product Marketing",
+    desc: "From landing pages to product-led content strategies, we help SaaS startups on SG Highway build the digital presence needed to acquire users, reduce churn, and position for funding rounds."
+  },
+  {
+    icon: "📱",
+    title: "Social Media and Content Marketing",
+    desc: "LinkedIn-first social strategy for IT companies that want to build thought leadership, attract talent, and nurture enterprise prospects. We handle content calendars, publishing, and performance tracking."
+  },
+  {
+    icon: "💻",
+    title: "WordPress and Custom Web Development",
+    desc: "Custom WordPress websites, company intranets, and portfolio showcases for IT and consulting firms. We build sites that are fast, secure, and easy for your team to update without a developer."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our website looks like it was built 10 years ago and scares away enterprise clients",
+    solution: "We redesign corporate websites to match the caliber of SG Highway businesses. Clean, modern, fast-loading sites that communicate credibility and technical expertise. Most enterprise clients decide within 30 seconds of landing, and we make those seconds count."
+  },
+  {
+    problem: "We are not getting organic leads from Google despite having a team of 50 people",
+    solution: "Most IT company websites have no real SEO strategy. We audit your current site, identify the highest-value B2B keywords, build authoritative content, and earn backlinks that move you up the rankings. Inbound leads from SEO are the highest quality leads you will get."
+  },
+  {
+    problem: "Our Google Ads spend is high but the leads are not qualified",
+    solution: "Poor targeting and generic landing pages are the usual culprits. We restructure your campaigns with tight keyword grouping, negative keyword lists, and dedicated landing pages for each service. Lead quality goes up, cost per lead goes down."
+  },
+  {
+    problem: "We have no LinkedIn presence and are losing talent and client opportunities",
+    solution: "LinkedIn is the most valuable platform for SG Highway B2B companies. We build your company page, create a content strategy, and run targeted campaigns that reach both potential clients and top engineering talent."
+  },
+  {
+    problem: "Our SaaS product has no marketing strategy beyond word of mouth",
+    solution: "We build a full-funnel digital strategy: awareness through SEO and content, consideration through case studies and demos, decision through targeted ads and retargeting. SaaS growth requires systematic digital marketing, not hope."
+  },
+  {
+    problem: "We cannot track whether our marketing spend is generating any return",
+    solution: "We set up proper conversion tracking through Google Analytics 4, Google Ads, and LinkedIn Insight Tag. You get a monthly dashboard showing exactly which channels deliver leads, what those leads cost, and which ones convert to revenue."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🖥️", title: "We Understand Tech Businesses", desc: "We have worked with 85 plus IT companies, SaaS startups, and tech service firms. We speak your language and understand what enterprise clients expect from a vendor website." },
+  { emoji: "📊", title: "Data-Driven Campaigns", desc: "Every decision we make is backed by data. We track clicks, leads, cost per acquisition, and revenue impact. Monthly reports give you full visibility into what your marketing spend is delivering." },
+  { emoji: "🌍", title: "International Standard Quality", desc: "Many of our SG Highway clients serve US, UK, and UAE markets. Our websites and campaigns are built to international quality standards, not just local ones." },
+  { emoji: "⚡", title: "Quick Execution", desc: "Enterprise websites live in 21 days. PPC campaigns launch within 48 hours of brief sign-off. We move fast without cutting corners on strategy or quality." },
+  { emoji: "💰", title: "Competitive Ahmedabad Pricing", desc: "Premium digital marketing for SG Highway businesses at prices that make sense for the Gujarat market. Web design from Rs. 45,000 for corporate sites, SEO from Rs. 40,000 per month for B2B." },
+  { emoji: "🤝", title: "Long-Term Strategic Partnership", desc: "We do not disappear after launch. We track your results, optimize continuously, and evolve your strategy as your company grows. Our longest SG Highway client is in year 6." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Discovery and Audit",
+    desc: "We review your current website, analytics, ad accounts, and competitive landscape. You get a clear picture of where you stand and where the biggest opportunities are."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "A detailed digital marketing proposal specific to your SG Highway business, covering services, timelines, expected outcomes, and pricing. Delivered within 24 hours."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We build, optimize, and launch your campaigns or website with your approval at every stage. Nothing goes live without your sign-off."
+  },
+  {
+    step: "4",
+    title: "Optimize and Scale",
+    desc: "Monthly reporting, continuous optimization, and strategic scaling as your business grows. We treat your marketing like an investment, not a one-time project."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "85+",  label: "SG Highway IT and Tech Clients" },
+  { value: "6x",   label: "Average Return on Ad Spend" },
+  { value: "60",   label: "Days to First SEO Rankings" },
+  { value: "21",   label: "Days to Corporate Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We are a 60-person IT company on SG Highway and our website was embarrassing. DC technolabs redesigned it completely and launched it in 18 days. We closed two enterprise contracts within the next quarter from inbound inquiries we had never received before.",
+    name: "Rahul Agarwal",
+    role: "CEO, IT Services Company, SG Highway",
+    initials: "RA"
+  },
+  {
+    text: "Our Google Ads were spending Rs. 80,000 a month with almost nothing to show. Within 6 weeks of DC technolabs taking over the account, our cost per qualified lead dropped by 65% and lead volume went up. They genuinely understand B2B campaigns.",
+    name: "Mihir Joshi",
+    role: "Marketing Head, SaaS Company, Prahlad Nagar Garden",
+    initials: "MJ"
+  },
+  {
+    text: "Our coworking space needed to rank for search terms in the Ahmedabad enterprise market. DC technolabs built us a content strategy and got us to page one for our top three keywords within 4 months. Membership inquiries from Google went from near zero to 30 plus per month.",
+    name: "Sneha Kapoor",
+    role: "Founder, Coworking Space, SG Highway",
+    initials: "SK"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Prahlad Nagar",
+    slug: "prahlad-nagar",
+    desc: "Immediately adjacent to SG Highway, Prahlad Nagar is home to agencies, restaurants, cafes, and creative businesses. We serve the entire SG Highway and Prahlad Nagar corridor."
+  },
+  {
+    name: "Satellite",
+    slug: "satellite",
+    desc: "Just east of SG Highway, Satellite has a dense concentration of clinics, boutiques, and professional services businesses. We cover this entire west Ahmedabad area."
+  },
+  {
+    name: "Vastrapur",
+    slug: "vastrapur",
+    desc: "Education institutes, coaching classes, fitness centers, and real estate firms near Vastrapur Lake. A key area for businesses catering to the growing residential population of west Ahmedabad."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you work with IT companies and software firms on SG Highway?",
+    a: "Yes. IT companies and tech firms are among our most common clients on SG Highway. We have built websites and digital marketing campaigns for software companies, IT service firms, SaaS startups, and product companies across this corridor. We understand B2B and enterprise digital marketing."
+  },
+  {
+    q: "How much does a corporate website cost for an IT company?",
+    a: "Corporate websites for IT and tech firms typically start at Rs. 45,000 and go up to Rs. 2,00,000 depending on the number of pages, custom features, and integrations required. This includes SEO optimization, mobile responsiveness, and a content management system your team can update."
+  },
+  {
+    q: "Can you run Google Ads for B2B software services?",
+    a: "Yes. B2B Google Ads is a specialty of ours. We target decision-maker search queries, build dedicated landing pages for each service, and optimize for lead quality, not just lead volume. Many IT companies on SG Highway see a significant improvement in lead quality within the first 30 to 45 days."
+  },
+  {
+    q: "Do you do LinkedIn marketing for SG Highway companies?",
+    a: "Yes. LinkedIn marketing is particularly effective for SG Highway businesses serving enterprise clients or recruiting tech talent. We manage company pages, create thought leadership content, and run targeted LinkedIn ad campaigns reaching C-suite and senior IT decision-makers."
+  },
+  {
+    q: "Our SaaS startup needs a proper marketing strategy. Where do we start?",
+    a: "We start with your target customer, your positioning, and your current digital assets. From there we build a phased strategy: first fix your website and messaging, then launch SEO content, then add paid acquisition. We have worked with early-stage SaaS startups and can help you build a foundation that scales."
+  },
+  {
+    q: "How long does B2B SEO take for an IT company?",
+    a: "For competitive B2B keywords, meaningful ranking improvements typically happen between months 3 and 6. Some lower-competition terms can rank within 60 to 90 days. We set realistic expectations upfront and track progress transparently every month."
+  },
+  {
+    q: "We want to attract international clients. Can you help with that?",
+    a: "Yes. Several of our SG Highway clients serve US, UK, and UAE markets. We optimize your website for international search intent, build English-language content that resonates globally, and can run geo-targeted campaigns for specific international markets."
+  },
+  {
+    q: "Do you offer performance-based pricing?",
+    a: "We work on monthly retainer agreements with clearly defined deliverables and KPIs. We do not offer percentage-of-revenue share models, but we do tie our retainers to agreed performance benchmarks. If we miss targets consistently, you have the flexibility to exit without penalty."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite",     slug: "satellite" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Vastrapur",     slug: "vastrapur" },
+  { name: "Bodakdev",      slug: "bodakdev" },
+  { name: "Navrangpura",   slug: "navrangpura" },
+  { name: "CG Road",       slug: "cg-road" },
+  { name: "Maninagar",     slug: "maninagar" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing for IT Companies on SG Highway, Ahmedabad | DC technolabs"
+  description="DC technolabs helps SG Highway Ahmedabad IT companies, SaaS startups, and corporate businesses grow online. Corporate web design, B2B SEO, Google Ads, and LinkedIn marketing. 85+ tech clients. Get a free consultation."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/sg-highway"
+  schemaJson={schemaJson}
+
+  badge="SG Highway, Ahmedabad"
+  heroH1="Digital Marketing for SG Highway Businesses in Ahmedabad"
+  heroHighlight="SG Highway Businesses"
+  heroDesc="Ahmedabad's tech corridor deserves world-class digital marketing. From IT companies at Prahlad Nagar Garden to SaaS startups at coworking spaces along SG Highway, we build online presence that wins enterprise clients and drives measurable growth."
+  {heroStats}
+  formTitle="Get a Free Quote for Your SG Highway Business"
+  formSub="IT and corporate businesses get priority onboarding."
+
+  s2Title="Serving Ahmedabad's Tech and Corporate Corridor"
+  s2Subtitle="We have been the digital partner of choice for SG Highway businesses since 2017."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for SG Highway Businesses"
+  s3Subtitle="From corporate web design to B2B lead generation, we cover the full digital marketing spectrum for tech and enterprise firms."
+  {services}
+
+  s4Title="Challenges We Solve for SG Highway Businesses"
+  s4Subtitle="The most common digital marketing problems faced by IT companies and startups on Ahmedabad's SG Highway corridor."
+  {challenges}
+
+  s5Title="Why SG Highway Companies Choose DC technolabs"
+  s5Subtitle="85 plus IT and tech clients on and around SG Highway trust us to deliver results."
+  {whyCards}
+
+  s6Title="How We Deliver for SG Highway Businesses"
+  {processSteps}
+
+  statsHeading="Our Results on the SG Highway Corridor"
+  {stats}
+
+  s8Title="What SG Highway Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Cover These Nearby Areas"
+  s9Subtitle="Our digital marketing coverage extends across the entire west Ahmedabad and SG Highway corridor."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from SG Highway Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your SG Highway Business Online?"
+  ctaSubtitle="Join 85 plus SG Highway IT companies and startups who trust DC technolabs for enterprise-grade digital marketing. Free consultation, no obligation."
+/>

@@ -1,0 +1,178 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving CG Road businesses in Ahmedabad with web design, SEO, and digital marketing services.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/cg-road",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "areaServed": { "@type": "Place", "name": "CG Road, Ahmedabad" }
+});
+
+const heroStats: StatItem[] = [
+  { value: "945+", label: "Gujarat Projects" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "50+",  label: "CG Road Area Clients" },
+  { value: "1st",  label: "Page Rankings for Local Searches" },
+];
+
+const s2Body = [
+  "CG Road, formally known as Chimanlal Girdharlal Road, is one of Ahmedabad's most iconic and high-footfall commercial streets. Stretching through the heart of central Ahmedabad, it is lined with fashion boutiques, jewellery showrooms, restaurants, banks, and commercial offices.",
+  "The road connects major business areas including Navrangpura, Panchvati, and Commerce Six Roads. Businesses on and around CG Road serve both the walk-in customer looking for fashion or jewellery and the corporate professional needing services nearby.",
+  "We have worked with jewellers, clothing brands, restaurants, and professional service firms in this area. CG Road businesses need a digital presence that matches the premium character of the street while also converting high-intent local searchers into paying customers.",
+];
+
+const businessTypes = [
+  { icon: "💎", label: "Jewellery Showrooms" },
+  { icon: "👗", label: "Fashion and Apparel" },
+  { icon: "🍽️", label: "Restaurants and Dining" },
+  { icon: "🏦", label: "Banks and Finance" },
+  { icon: "🏠", label: "Real Estate" },
+  { icon: "⚖️", label: "Professional Services" },
+];
+
+const overviewCards = [
+  { icon: "🔍", title: "High-Intent Local SEO", desc: "We rank your CG Road business for searches like 'jewellery shops on CG Road Ahmedabad' and 'restaurants near Commerce Six Roads'." },
+  { icon: "🖥️", title: "Premium Web Design", desc: "CG Road businesses need websites that match the premium character of the street. We deliver elegant, conversion-focused design." },
+  { icon: "📢", title: "Google Shopping and Ads", desc: "For jewellery and fashion businesses, Google Shopping campaigns put your products in front of high-intent buyers at the moment they are ready to purchase." },
+];
+
+const services: ServiceCard[] = [
+  { icon: "🌐", title: "Web Design", desc: "Premium websites for jewellers, fashion brands, and businesses on CG Road. Elegant design with clear product showcases and contact forms." },
+  { icon: "🔍", title: "Local SEO", desc: "Rank on Google for CG Road-specific searches. Jewellery, fashion, dining and professional service searches. We cover them all." },
+  { icon: "📢", title: "Google Ads / PPC", desc: "Reach customers actively searching for jewellery, fashion, and dining on CG Road and nearby areas with targeted Google Ads." },
+  { icon: "🛒", title: "E-commerce Development", desc: "Sell jewellery, fashion, and specialty products online. We build Shopify and WooCommerce stores integrated with Indian payment gateways." },
+  { icon: "📸", title: "Social Media Marketing", desc: "Showcase your collections and showroom on Instagram. We create polished content for fashion and jewellery brands on CG Road." },
+  { icon: "🔧", title: "WordPress Development", desc: "Content-rich WordPress websites for professional services, banks, and consultancies located on CG Road and nearby areas." },
+];
+
+const challenges: Challenge[] = [
+  { problem: "Our jewellery showroom has no online presence", solution: "We build you a professional website with your catalogue, certifications, and contact details. We then run local SEO to rank you for jewellery searches in Ahmedabad." },
+  { problem: "Customers walk past but don't discover us through Google", solution: "We optimise your Google Business Profile with photos, business hours, services, and regular posts so you appear prominently in local map searches for CG Road." },
+  { problem: "We have a website but it's not generating any business", solution: "Most CG Road business websites look good but have no clear calls to action, no WhatsApp button, and no local SEO. We fix all three within 30 days." },
+  { problem: "Our clothing brand is not visible on Instagram or Google", solution: "We build your Instagram with a consistent aesthetic and run Google Shopping ads so your products appear to buyers searching for fashion in Ahmedabad." },
+  { problem: "We want to sell jewellery online but don't know how", solution: "We build a secure e-commerce store with product photography guidelines, trust signals, gold and diamond jewellery categories, and Razorpay integration." },
+  { problem: "Our restaurant on CG Road gets no walk-ins from online discovery", solution: "We optimise your Zomato and Google My Business, generate reviews from current customers, and run local search ads to bring in diners searching for options on CG Road." },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "💎", title: "Jewellery and Retail Expertise", desc: "We have worked with jewellers, clothing brands, and premium retailers. We understand how to market high-value products online with trust and elegance." },
+  { emoji: "📍", title: "CG Road Market Knowledge", desc: "We know the businesses on this street, the competition, and what drives customers to choose one store over another." },
+  { emoji: "🖥️", title: "Premium Design Quality", desc: "CG Road has a reputation for quality. Your website and social media must reflect that. We deliver design that matches your brand positioning." },
+  { emoji: "📈", title: "Proven Retail Results", desc: "Our jewellery and fashion clients report 3x to 5x increases in online enquiries within 3 months of working with us." },
+  { emoji: "💰", title: "Ahmedabad-Friendly Pricing", desc: "Web design from Rs. 25,000. E-commerce sites from Rs. 55,000. SEO from Rs. 30,000 per month. All built for businesses in this market." },
+  { emoji: "🤝", title: "Long-Term Partnership", desc: "Many of our CG Road clients have been with us for 3 plus years. We grow with your business and add services as you scale." },
+];
+
+const processSteps: ProcessStep[] = [
+  { step: "1", title: "Showroom or Office Visit", desc: "We come to you on CG Road. Seeing your products, showroom, and brand in person helps us represent you accurately online." },
+  { step: "2", title: "Strategy Proposal", desc: "Within 24 hours, you receive a tailored proposal covering website, SEO, ads, and social media with clear pricing." },
+  { step: "3", title: "Design and Launch", desc: "We design, build, and launch. You see every stage and approve before anything is made public." },
+  { step: "4", title: "Grow and Report", desc: "Monthly performance reports with clear data. We meet regularly to review results and refine the strategy." },
+];
+
+const stats: StatItem[] = [
+  { value: "945+", label: "Projects Across Gujarat" },
+  { value: "50+",  label: "CG Road Area Clients" },
+  { value: "8+",   label: "Years in Ahmedabad" },
+  { value: "5x",   label: "Average ROI for Retail Clients" },
+];
+
+const testimonials: Testimonial[] = [
+  { text: "We have a jewellery showroom near CG Road for 25 years. DC technolabs built our first proper website and got us ranking on Google. Online enquiries have added 30% to our monthly walk-in business.", name: "Mahesh Sanghvi", role: "Jewellery Showroom, CG Road", initials: "MS" },
+  { text: "Our ladies clothing store needed a better online presence. DC technolabs built us an Instagram-ready website and started our social media. We now get 15 plus DM enquiries every week from customers around Ahmedabad.", name: "Nandini Shah", role: "Fashion Boutique Owner, CG Road", initials: "NS" },
+  { text: "We run a multi-cuisine restaurant near Commerce Six Roads. After DC technolabs optimised our Google profile and ran local ads, our weekday covers increased by 45% within 2 months.", name: "Rakesh Joshi", role: "Restaurant Owner, CG Road Area", initials: "RJ" },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  { name: "Navrangpura", slug: "navrangpura", desc: "Central business district with law firms, coaching institutes, and professional services." },
+  { name: "Satellite", slug: "satellite", desc: "Premium residential and commercial area with clinics, retail, and professional services." },
+  { name: "Maninagar", slug: "maninagar", desc: "Large commercial area known for textile, wholesale, and traditional businesses." },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Do you build e-commerce websites for jewellery businesses on CG Road?", a: "Yes. We build jewellery e-commerce sites on Shopify or WooCommerce with product catalogues by category (gold, diamond, silver), trust signals, and Razorpay or payment gateway integration." },
+  { q: "How do you help fashion boutiques compete online in Ahmedabad?", a: "We build a well-designed website with your catalogue, run Instagram Shopping ads, and manage your social media with visually strong content. We also run Google Ads for fashion-related searches in Ahmedabad." },
+  { q: "Can you get my CG Road showroom to appear on Google Maps?", a: "Yes. We optimise your Google Business Profile with professional photos, correct categories, business hours, and regular posts. Most clients see significant improvement in map visibility within 60 days." },
+  { q: "What does a jewellery website cost?", a: "A catalogue website (not e-commerce) for a jewellery showroom starts at Rs. 35,000. A full e-commerce site with payment gateway starts at Rs. 55,000." },
+  { q: "Do you work with restaurants near Commerce Six Roads?", a: "Yes. We have helped several restaurants near CG Road and Commerce Six Roads with Google My Business optimisation, Zomato profiles, and local advertising campaigns." },
+  { q: "How long does it take to rank on Google for jewellery searches in Ahmedabad?", a: "Jewellery is a competitive category in Ahmedabad. Expect meaningful improvement in 3 to 4 months. Our clients typically reach the first page for targeted local keywords within 4 to 6 months." },
+  { q: "Can you help our clothing brand grow its Instagram following?", a: "Yes. We create a content calendar, shoot or source content, manage posting, and run targeted Instagram growth ads. Most fashion clients see 30 to 60% follower growth within the first 3 months." },
+  { q: "Can we meet on CG Road for the initial consultation?", a: "Absolutely. We visit your showroom or office. It helps us understand your products, space, and brand which allows us to represent you more accurately online." },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite", slug: "satellite" },
+  { name: "SG Highway", slug: "sg-highway" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Vastrapur", slug: "vastrapur" },
+  { name: "Bodakdev", slug: "bodakdev" },
+  { name: "Navrangpura", slug: "navrangpura" },
+  { name: "Maninagar", slug: "maninagar" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing on CG Road, Ahmedabad | DC technolabs"
+  description="DC technolabs helps jewellers, fashion boutiques, restaurants, and businesses on CG Road, Ahmedabad grow online. Web design, e-commerce, local SEO. 50+ local clients. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/cg-road"
+  schemaJson={schemaJson}
+
+  badge="📍 CG Road, Ahmedabad"
+  heroH1="Digital Marketing Agency for CG Road, Ahmedabad Businesses"
+  heroHighlight="CG Road, Ahmedabad"
+  heroDesc="We help jewellers, fashion brands, restaurants, and businesses on CG Road stand out online. Premium design, local SEO, and e-commerce solutions built for Ahmedabad's iconic commercial street."
+  {heroStats}
+  formTitle="Get a Free Quote"
+  formSub="CG Road businesses get priority response within 4 hours."
+
+  s2Title="Why CG Road Businesses Choose DC technolabs"
+  s2Subtitle="50+ clients on and around CG Road. We understand the premium retail and hospitality market here."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Digital Services for CG Road Businesses"
+  s3Subtitle="From jewellery e-commerce to restaurant marketing, we cover everything CG Road businesses need online."
+  {services}
+
+  s4Title="Common Challenges We Solve for CG Road Businesses"
+  s4Subtitle="Problems we solve regularly for jewellers, fashion brands, and businesses on CG Road."
+  {challenges}
+
+  s5Title="Why CG Road Businesses Trust DC technolabs"
+  {whyCards}
+
+  s6Title="How We Work With CG Road Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Ahmedabad"
+  {stats}
+
+  s8Title="What CG Road Clients Say"
+  {testimonials}
+
+  s9Title="We Also Serve These Nearby Areas"
+  s9Subtitle="Our coverage spans central and west Ahmedabad."
+  {nearbyAreas}
+
+  s10Title="Questions from CG Road Business Owners"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your CG Road Business Online?"
+  ctaSubtitle="Get a free consultation with DC technolabs. We visit your showroom or office and build a strategy that matches the prestige of your CG Road location."
+/>

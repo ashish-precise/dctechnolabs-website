@@ -1,0 +1,316 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DCTechnoLabs",
+  "description": "Digital marketing and web design agency serving Navrangpura businesses in Ahmedabad, Gujarat. Specialists in SEO, Google Ads, and website design for law firms, coaching institutes, hotels, and professional services.",
+  "url": "https://dctechnolabs.in/locations/ahmedabad/navrangpura",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Navrangpura, Ahmedabad, Gujarat"
+  },
+  "priceRange": "Rs.15000 - Rs.200000",
+  "openingHours": "Mo-Sa 09:00-19:00"
+});
+
+const heroStats: StatItem[] = [
+  { value: "120+", label: "Ahmedabad Clients" },
+  { value: "8+", label: "Years Experience" },
+  { value: "94%", label: "Client Satisfaction" },
+  { value: "24hr", label: "First Response Time" }
+];
+
+const businessTypes = [
+  { icon: "⚖️", label: "Law Firms and Advocates" },
+  { icon: "📚", label: "Coaching Institutes" },
+  { icon: "🏨", label: "Hotels and Hospitality" },
+  { icon: "✈️", label: "Travel Agencies" },
+  { icon: "🎓", label: "Educational Institutions" },
+  { icon: "🧾", label: "CA and Finance Firms" },
+  { icon: "🏢", label: "Corporate Offices" }
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  {
+    icon: "⚖️",
+    title: "Legal and Professional Hub",
+    desc: "Navrangpura is home to a dense cluster of advocate offices, CA firms, and consultancies near the Gujarat High Court and Ellis Bridge. These professionals need authoritative digital presences."
+  },
+  {
+    icon: "📚",
+    title: "Education and Coaching Centre",
+    desc: "Navrangpura has some of Ahmedabad's most established coaching institutes for CA, UPSC, MBA, and competitive exams. Student enrolment depends heavily on online visibility and reputation."
+  },
+  {
+    icon: "🏨",
+    title: "Hospitality and Travel Corridor",
+    desc: "With several business hotels and travel agencies serving Ahmedabad's CG Road visitors, Navrangpura's hospitality sector needs strong digital marketing to compete with OTA platforms."
+  }
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🎨",
+    title: "Professional Website Design",
+    desc: "We build authoritative, trust-first websites for law firms, CA offices, coaching institutes, and hotels in Navrangpura. Clean design, fast loading, and built to convert serious visitors."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Navrangpura",
+    desc: "Rank when people search for advocates, coaching classes, hotels, or travel agencies near Navrangpura, Ellis Bridge, and CG Road. We handle every aspect of local search optimisation."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads and Lead Generation",
+    desc: "Run targeted Google Ads campaigns for coaching enrollments, hotel bookings, legal inquiries, and travel packages. We target the Navrangpura area and the broader central Ahmedabad market."
+  },
+  {
+    icon: "📖",
+    title: "Content Marketing and SEO",
+    desc: "For law firms and educational institutes, content authority is crucial. We create blog posts, practice area pages, and course landing pages that rank on Google and build professional credibility."
+  },
+  {
+    icon: "📱",
+    title: "Social Media and Brand Building",
+    desc: "Build your institute or firm brand on Facebook, Instagram, and LinkedIn. We create content calendars, manage student testimonials for coaching institutes, and run awareness campaigns."
+  },
+  {
+    icon: "🏨",
+    title: "Hotel and Travel Digital Marketing",
+    desc: "Compete effectively with OTA platforms by building direct booking channels, optimising your Google Business Profile, and running remarketing campaigns to past visitors and travel searchers in Gujarat."
+  }
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Your law firm or advocate office has no website and relies entirely on referrals",
+    solution: "We build a credible, professional website for your practice that explains your areas of expertise, features case results and testimonials, and ranks for searches like 'advocate in Navrangpura' or 'family law Ahmedabad'."
+  },
+  {
+    problem: "Your coaching institute is losing enrolments to competitors with better online presence",
+    solution: "We create a conversion-focused website with detailed course pages, faculty profiles, student results, and a clear admission inquiry form. Google Ads and Facebook campaigns then drive targeted enrolment inquiries from students across Ahmedabad."
+  },
+  {
+    problem: "Your hotel near CG Road is getting very few direct bookings compared to OTA platforms",
+    solution: "We build a direct booking-optimised website, run Google Hotel Ads, and set up remarketing campaigns targeting previous visitors. We also manage your Google Business Profile to improve your local search visibility in Navrangpura."
+  },
+  {
+    problem: "Your travel agency cannot compete with large online portals for search visibility",
+    solution: "We focus on niche targeting, such as Gujarat-specific tours, pilgrimage packages, or corporate travel for Ahmedabad businesses. Highly specific SEO and Google Ads campaigns bring motivated travelers who prefer personalised service over large portals."
+  },
+  {
+    problem: "Your CA firm or finance consultancy looks outdated online despite excellent expertise",
+    solution: "We redesign your website with a professional layout, add a clear services section with local Ahmedabad context, and use content marketing to establish your firm as an authority. LinkedIn ads then target business owners in Navrangpura and central Ahmedabad."
+  },
+  {
+    problem: "Your educational institution is not reaching students searching in Navrangpura and nearby areas",
+    solution: "We set up a full local SEO campaign with area-specific landing pages, optimise your Google Maps listing, and run YouTube and Facebook ads showcasing faculty, infrastructure, and student success stories to reach decision-makers in the right catchment areas."
+  }
+];
+
+const whyCards: WhyCard[] = [
+  {
+    emoji: "⚖️",
+    title: "Professional Services Marketing",
+    desc: "We have worked with law firms, CA offices, and consultancies across Ahmedabad and understand how to market professional services with credibility and compliance in mind."
+  },
+  {
+    emoji: "🎓",
+    title: "Education Sector Expertise",
+    desc: "Coaching institutes and educational institutions have unique marketing needs tied to admission cycles and exam schedules. We plan campaigns around these timelines for maximum impact."
+  },
+  {
+    emoji: "📍",
+    title: "Central Ahmedabad Focus",
+    desc: "Navrangpura, CG Road, and Ellis Bridge form the commercial heart of Ahmedabad. Our local campaigns target this dense urban audience with precision."
+  },
+  {
+    emoji: "📊",
+    title: "Clear Reporting Every Month",
+    desc: "We send straightforward monthly reports covering leads generated, keyword rankings, website traffic, and ad performance. You always know exactly what your investment is delivering."
+  },
+  {
+    emoji: "🤝",
+    title: "Long-term Partnership Approach",
+    desc: "We do not chase one-time project fees. We build lasting relationships with Navrangpura businesses and stay invested in your growth month after month."
+  },
+  {
+    emoji: "🇮🇳",
+    title: "Ahmedabad-Based Team",
+    desc: "Our team is based right here in Ahmedabad. We can meet in person, respond quickly, and we genuinely understand the local business culture and customer expectations."
+  }
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Discovery and Audit",
+    desc: "We review your current digital footprint, analyse competitors in Navrangpura, and identify the fastest growth opportunities for your specific business type."
+  },
+  {
+    step: "2",
+    title: "Custom Strategy",
+    desc: "We build a tailored plan covering website, SEO, paid ads, and social media, aligned to your admission cycle, service area, or booking season."
+  },
+  {
+    step: "3",
+    title: "Execute and Launch",
+    desc: "We design, build, and launch all elements of your digital strategy, from your new website to live Google Ads campaigns targeting Navrangpura and surrounding areas."
+  },
+  {
+    step: "4",
+    title: "Monitor and Improve",
+    desc: "We track every metric that matters, share monthly reports, and continuously refine campaigns to improve your return on investment over time."
+  }
+];
+
+const stats: StatItem[] = [
+  { value: "120+", label: "Businesses Served Across Ahmedabad" },
+  { value: "4.1x", label: "Average ROI on Digital Campaigns" },
+  { value: "90 Days", label: "Average Time to First Ranking Improvement" },
+  { value: "100%", label: "Transparent Pricing, No Surprises" }
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "DCTechnoLabs built a website for our advocate firm and handled local SEO for three months. We now appear on the first page when people search for property lawyers in Navrangpura and Ellis Bridge. Client inquiries via the website have increased substantially and the quality of leads is excellent.",
+    name: "Advocate Ramesh Chauhan",
+    role: "Senior Advocate, Navrangpura, Ahmedabad",
+    initials: "RC"
+  },
+  {
+    text: "We run a CA coaching institute in Navrangpura. Before working with DCTechnoLabs, we depended entirely on word-of-mouth. They redesigned our website, ran Google Ads during exam season, and managed our Facebook page. Our enrollment inquiries went up by nearly 60% in the first admission cycle.",
+    name: "Nikhil Shah",
+    role: "Director, Shah Commerce Academy, Navrangpura",
+    initials: "NS"
+  },
+  {
+    text: "Our hotel near CG Road was getting very few direct bookings. DCTechnoLabs set up Google Hotel Ads, improved our Google Business Profile, and redesigned our booking page. Direct bookings have now doubled and we are less dependent on OTA commissions. Very happy with the results.",
+    name: "Mital Joshi",
+    role: "General Manager, Hotel Cityview, Navrangpura",
+    initials: "MJ"
+  }
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "CG Road",
+    slug: "cg-road",
+    desc: "Navrangpura borders CG Road, Ahmedabad's premier shopping and commercial street. We run integrated campaigns covering both areas for businesses that serve the same customer base."
+  },
+  {
+    name: "Satellite",
+    slug: "satellite",
+    desc: "Satellite is a major commercial and residential hub nearby. Many Navrangpura professional service firms target Satellite residents as their primary client base."
+  },
+  {
+    name: "Vastrapur",
+    slug: "vastrapur",
+    desc: "Vastrapur is a growing upscale area near Navrangpura. Educational and professional services in Navrangpura frequently draw students and clients from Vastrapur and Bodakdev."
+  }
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help a law firm or advocate office get found on Google in Navrangpura?",
+    a: "Yes. We specialise in local SEO for professional service firms including law offices, CA firms, and consultancies. We create practice area pages, optimise your Google Business Profile, and build local citations so you rank when people near Navrangpura, Ellis Bridge, and Gujarat High Court search for legal services."
+  },
+  {
+    q: "How do you market coaching institutes to students in Ahmedabad?",
+    a: "We use a combination of Google Ads targeting students searching for specific courses, Facebook and Instagram ads showcasing your faculty and results, and SEO-optimised course pages. We also plan campaigns around exam seasons and admission windows for maximum relevance."
+  },
+  {
+    q: "What does a professional website for a coaching institute cost?",
+    a: "Websites for coaching institutes typically range from Rs. 25,000 to Rs. 60,000 depending on the number of course pages, student portal features, and design complexity. We offer clear, itemised quotes with no hidden costs."
+  },
+  {
+    q: "How can my hotel compete with OTA platforms like MakeMyTrip or Booking.com?",
+    a: "We build a fast, conversion-optimised direct booking website and run Google Hotel Ads to capture high-intent searchers. We also manage your Google Business Profile and set up retargeting ads so people who visit your site but do not book immediately see your ads again until they convert."
+  },
+  {
+    q: "How long does SEO take to show results for a Navrangpura business?",
+    a: "Most businesses see meaningful ranking improvements within 60 to 90 days for local search terms. Competitive terms in professional services like legal or finance may take 4 to 6 months to reach page one. We are transparent about timelines from day one."
+  },
+  {
+    q: "Do you manage LinkedIn marketing for professional services firms?",
+    a: "Yes. LinkedIn is a powerful channel for law firms, CA offices, and consultancies in Navrangpura. We manage company page content, run lead generation ads targeting business owners and decision-makers in Ahmedabad, and help position your firm as a thought leader in your practice area."
+  },
+  {
+    q: "Can you run Google Ads for a travel agency in Navrangpura?",
+    a: "Absolutely. We run targeted Google Search and Display campaigns for travel agencies, focusing on niche packages such as pilgrimage tours, Gujarat heritage tours, and corporate travel for Ahmedabad-based companies. We target high-intent searchers rather than generic travel audiences."
+  },
+  {
+    q: "Do you offer free consultations for Navrangpura businesses?",
+    a: "Yes, we offer a free digital audit and strategy consultation for every business we speak with. The audit covers your current online presence, competitor analysis, and our recommended priorities. Fill in the form at the top of this page to schedule your free session."
+  }
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Satellite", slug: "satellite" },
+  { name: "SG Highway", slug: "sg-highway" },
+  { name: "Prahlad Nagar", slug: "prahlad-nagar" },
+  { name: "Vastrapur", slug: "vastrapur" },
+  { name: "Bodakdev", slug: "bodakdev" },
+  { name: "CG Road", slug: "cg-road" },
+  { name: "Maninagar", slug: "maninagar" }
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Navrangpura, Ahmedabad | DCTechnoLabs"
+  description="DCTechnoLabs offers web design, local SEO, Google Ads, and digital marketing for law firms, coaching institutes, hotels, and travel agencies in Navrangpura, Ahmedabad. Serving businesses near CG Road and Ellis Bridge. Get a free audit."
+  canonical="https://dctechnolabs.in/locations/ahmedabad/navrangpura"
+  schemaJson={schemaJson}
+  badge="📍 Navrangpura, Ahmedabad"
+  heroH1="Digital Marketing Agency in Navrangpura, Ahmedabad"
+  heroHighlight="Navrangpura, Ahmedabad"
+  heroDesc="Navrangpura is central Ahmedabad's professional and educational hub, home to law firms, CA coaching institutes, business hotels, and travel agencies. DCTechnoLabs helps Navrangpura businesses grow their online presence, attract the right clients, and compete in a crowded digital landscape."
+  heroStats={heroStats}
+  formTitle="Get a Free Consultation"
+  formSub="For Navrangpura businesses. Response within 24 hours."
+  s2Title="Navrangpura: Ahmedabad's Professional and Education Hub"
+  s2Subtitle="A central business district where law, education, hospitality, and finance businesses need strong digital visibility to grow."
+  s2Body={[
+    "Navrangpura sits at the heart of Ahmedabad, bordering CG Road and close to Ellis Bridge and the Gujarat High Court. This location makes it one of the city's most important commercial districts for professional services. Advocate offices, chartered accountant firms, coaching institutes for CA and UPSC examinations, business hotels, and travel agencies are all concentrated here.",
+    "The challenge for businesses in Navrangpura is that this density creates intense competition. A law firm or coaching institute that does not have a strong online presence is essentially invisible to the thousands of people searching for their services on Google every month.",
+    "DCTechnoLabs works with professional service firms, educational institutions, and hospitality businesses across Navrangpura. Our digital marketing strategies are built around the specific cycles and audience behaviors relevant to each sector, from admission seasons for coaching institutes to peak booking periods for hotels."
+  ]}
+  businessTypes={businessTypes}
+  overviewCards={overviewCards}
+  s3Title="Digital Services for Navrangpura Businesses"
+  s3Subtitle="Professional digital marketing services tailored to law firms, coaching institutes, hotels, and travel agencies in central Ahmedabad."
+  services={services}
+  s4Title="Digital Challenges Navrangpura Businesses Face"
+  s4Subtitle="Common problems we solve for professional services, education, and hospitality businesses in Navrangpura every day."
+  challenges={challenges}
+  s5Title="Why Navrangpura Businesses Work With DCTechnoLabs"
+  s5Subtitle="Local knowledge, sector-specific expertise, and measurable results for central Ahmedabad businesses."
+  whyCards={whyCards}
+  s6Title="Our Process for Navrangpura Businesses"
+  processSteps={processSteps}
+  statsHeading="Our Track Record Across Ahmedabad"
+  stats={stats}
+  s8Title="What Our Navrangpura Clients Say"
+  testimonials={testimonials}
+  s9Title="Nearby Areas We Also Serve"
+  s9Subtitle="Our digital marketing services cover Navrangpura and extend into the surrounding central Ahmedabad areas."
+  nearbyAreas={nearbyAreas}
+  s10Title="Frequently Asked Questions for Navrangpura Businesses"
+  faqItems={faqItems}
+  otherNeighborhoods={otherNeighborhoods}
+  ctaTitle="Ready to Grow Your Navrangpura Business Online?"
+  ctaSubtitle="Whether you run a law firm, coaching institute, hotel, or travel agency, DCTechnoLabs has the expertise to build your digital presence and generate real leads. Get your free audit today."
+/>
