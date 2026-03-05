@@ -79,6 +79,10 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 | How to Reduce Google Ads Cost Per Lead | reduce-google-ads-cost-per-lead | Done |
 | Shopify vs WooCommerce for Indian Businesses 2025 | shopify-vs-woocommerce-2025 | Done |
 | How Much Does a Website Cost in India 2025 | website-cost-india-2025 | Done |
+| Google Business Profile Setup Guide for Ahmedabad Businesses 2026 | google-business-profile-setup-ahmedabad | Done |
+| WhatsApp Business Marketing for Indian Small Businesses: Complete 2026 Guide | whatsapp-business-marketing-guide-india | Done |
+| How to Choose a Digital Marketing Agency in Ahmedabad: 7 Questions to Ask | how-to-choose-digital-marketing-agency-ahmedabad | Done |
+| How to Start Selling Online in India: Complete E-commerce Guide for 2026 | ecommerce-for-indian-businesses-2026 | Done |
 
 ### COMPLETED LANDING PAGES
 
