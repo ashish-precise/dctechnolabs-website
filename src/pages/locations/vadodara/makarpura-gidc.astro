@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Makarpura GIDC businesses in Vadodara with B2B web design, industrial SEO, export portal development, and credibility-first digital presence for chemical, engineering, pharma, and defence sector companies.",
+  "url": "https://dctechnolabs.in/locations/vadodara/makarpura-gidc",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.2721", "longitude": "73.1938" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 40,000 - Rs. 5,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Makarpura GIDC, Vadodara" },
+    { "@type": "Place", "name": "Makarpura Industrial Estate, Vadodara" },
+    { "@type": "Place", "name": "Old Padra Road, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",   label: "Vadodara Industrial Clients" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Makarpura GIDC is one of India's most significant industrial estates. Chemical manufacturers, heavy engineering firms, pharmaceutical producers, CNC and precision engineering companies, plastics processors, and defence-related suppliers all operate within its boundaries. The HAL plant here is a landmark that speaks to the calibre of industrial activity in the estate.",
+  "The digital reality of most Makarpura GIDC companies is stark: they have built extraordinary manufacturing capabilities, won national and international clients, and operate at very high standards, but their digital presence is either entirely absent or reflects a website built in 2010 with no updates since. When procurement managers and international buyers search online to vet a potential supplier, this gap becomes a competitive liability.",
+  "We have worked with industrial manufacturers and B2B engineering businesses across Gujarat since 2018. We understand procurement-driven buying behaviour, the credibility signals that matter to industrial buyers, and how to build a B2B digital presence that makes a Makarpura GIDC company look as serious online as it is in reality.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "⚗️", label: "Chemical Manufacturers" },
+  { icon: "⚙️", label: "Engineering Companies" },
+  { icon: "💊", label: "Pharmaceutical Producers" },
+  { icon: "🛡️", label: "Defence Sector Suppliers" },
+  { icon: "🔩", label: "CNC and Precision Engineering" },
+  { icon: "🏭", label: "Plastics and Industrial Equipment" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏭", title: "One of India's Premier Industrial Estates", desc: "Makarpura GIDC houses some of India's most capable manufacturers. The HAL plant, major chemical companies, and precision engineering clusters make this a nationally significant industrial address." },
+  { icon: "🌍", title: "Export-Ready but Digitally Invisible", desc: "Many Makarpura manufacturers export to international buyers but have no export-facing digital presence. A proper B2B website and SEO strategy can open global procurement doors." },
+  { icon: "📋", title: "High-Stakes Procurement Environment", desc: "Procurement managers vet suppliers online before shortlisting them. A credibility-first B2B website is not a marketing exercise, it is a prerequisite for winning high-value contracts." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "B2B Industrial Websites",
+    desc: "Professional websites built for procurement managers, not general audiences. We design industrial B2B sites with product or service catalogs, technical specifications, quality certifications, capacity data, and clear inquiry forms that generate qualified leads from serious buyers."
+  },
+  {
+    icon: "🔍",
+    title: "Industrial SEO and B2B Search",
+    desc: "We target the specific search terms that procurement managers and sourcing teams use to find suppliers. Chemical formulations, engineering tolerances, industry certifications, and product categories all create searchable opportunities that we capture for Makarpura companies."
+  },
+  {
+    icon: "🌍",
+    title: "Export Portal Development",
+    desc: "For manufacturers targeting international buyers, we build export-oriented websites with company profiles, export capability pages, compliance documentation sections, and inquiry forms designed for international procurement teams. Including basic SEO for export-specific search terms."
+  },
+  {
+    icon: "📋",
+    title: "Tender and Government Contract Support",
+    desc: "Companies tendering for government and defence contracts need digital credentials. We build corporate capability websites with certifications, past project records, team credentials, and ISO or other quality documentation pages that support the tendering process."
+  },
+  {
+    icon: "💼",
+    title: "LinkedIn and B2B Digital Marketing",
+    desc: "For engineering and chemical companies targeting procurement decision-makers, LinkedIn is the most effective paid channel. We run sponsored content and message campaigns targeting sourcing managers, purchase heads, and technical directors in specific industries."
+  },
+  {
+    icon: "📊",
+    title: "Lead Tracking and Inquiry Analytics",
+    desc: "Industrial B2B marketing is only valuable if you can trace a lead to its source. We implement full inquiry tracking so you know which channel, campaign, or search term brought each procurement inquiry, making every marketing decision evidence-based."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Procurement managers find our website and immediately question our credibility",
+    solution: "We rebuild your website around the credibility signals that B2B buyers look for: quality certifications, manufacturing capacity, client references, technical team credentials, and a clean professional design. A Makarpura GIDC company should look as serious online as it is in reality."
+  },
+  {
+    problem: "International buyers cannot find us or evaluate us online for export inquiries",
+    solution: "We build an export-focused website section with company profile, export capabilities, compliance documentation, and inquiry forms designed for international procurement teams. Combined with SEO for export-related search terms, this opens a direct channel to overseas buyers."
+  },
+  {
+    problem: "We are tendering for government and defence contracts but lack a strong digital presence",
+    solution: "Government and defence procurement teams verify suppliers online during vetting. We build authoritative corporate websites with certifications, facility details, team credentials, past project documentation, and all the elements that build confidence during the tendering review process."
+  },
+  {
+    problem: "Our website is 10 years old and reflects nothing of what we have become",
+    solution: "We do complete website rebuilds for industrial companies where the old site is doing more harm than good. New site includes updated capabilities, current certifications, modern design, and mobile functionality, built in 14 to 21 days depending on complexity."
+  },
+  {
+    problem: "We have no way to measure if our marketing activities generate B2B leads",
+    solution: "Most industrial companies have no tracking in place. We set up Google Analytics 4, Search Console, and form inquiry tracking across your site so every procurement inquiry has a traceable origin. This makes every future marketing decision data-driven rather than a guess."
+  },
+  {
+    problem: "Smaller competitors with better websites are winning contracts we deserve",
+    solution: "Online credibility directly influences shortlisting in B2B procurement. We have helped several Makarpura companies that lost contracts to less capable but better-presented competitors. A strong digital presence levels the playing field and often tips the decision in your favour."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏭", title: "Industrial B2B Marketing Specialists", desc: "We have worked with chemical manufacturers, engineering firms, and industrial equipment suppliers across Gujarat. We understand what procurement managers evaluate online and how to present your capabilities convincingly." },
+  { emoji: "🌍", title: "Export Portal Experience", desc: "We have built export-facing websites for Gujarat manufacturers targeting international buyers. We understand the specific credibility signals and content requirements for global B2B procurement audiences." },
+  { emoji: "⚡", title: "Fast Delivery on Complex Projects", desc: "B2B industrial websites with catalog, technical specs, and certification pages launch within 21 days. We work efficiently because we have done this many times before for similar businesses." },
+  { emoji: "💰", title: "Transparent Pricing for High-Value Projects", desc: "B2B industrial website from Rs. 40,000. Export portal from Rs. 75,000. LinkedIn B2B campaigns from Rs. 20,000 per month. Fixed prices, no scope creep, no hidden charges." },
+  { emoji: "📞", title: "Senior Team Involvement", desc: "Industrial B2B projects are high-stakes. Your project is handled by senior team members with experience in industrial marketing, not handed to a junior account manager after the sale." },
+  { emoji: "📈", title: "Measurable Lead Generation", desc: "We track every B2B inquiry to its source. Monthly reports show you exactly how many qualified leads came from which channel, what they cost, and how the number is trending. No vanity metrics, only business outcomes." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Industrial Business Audit",
+    desc: "We review your current digital presence, understand your products or services, identify your target buyer profile, and assess the competitive landscape for your specific industrial segment in Makarpura."
+  },
+  {
+    step: "2",
+    title: "B2B Strategy and Proposal",
+    desc: "Within 24 hours you receive a detailed proposal covering website scope, content requirements, SEO strategy, and any campaign plans. Pricing is fixed and transparent from the start."
+  },
+  {
+    step: "3",
+    title: "Website Build and Content",
+    desc: "We build your B2B website with your product catalog, technical documentation, certification pages, and inquiry system. We handle copywriting in industry-appropriate language that procurement managers trust."
+  },
+  {
+    step: "4",
+    title: "Launch, Track, and Refine",
+    desc: "We launch with full tracking in place. Monthly reporting covers lead volume, inquiry sources, and ranking movements. We refine based on data to keep the inquiry pipeline growing."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Industrial Clients" },
+  { value: "93%",  label: "First-Page B2B Rankings" },
+  { value: "3.5x", label: "Average Lead Increase" },
+  { value: "21",   label: "Days to B2B Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We are a chemical manufacturer in Makarpura GIDC with zero online presence. Our competitors were winning inquiries we should have been getting. DC technolabs built us a proper B2B website and SEO strategy. We now receive 8 to 12 qualified procurement inquiries every month from companies we had never reached before.",
+    name: "Arvind Shah",
+    role: "Chemical Manufacturer, Makarpura GIDC",
+    initials: "AS"
+  },
+  {
+    text: "We were tendering for a large government contract and the evaluation team mentioned our website looked outdated. We engaged DC technolabs urgently. The new site launched in 18 days, and we cleared the digital credibility check on the next bid cycle. That contract alone was worth 40 times the website cost.",
+    name: "Dinesh Kumar",
+    role: "Engineering Company Director, Makarpura",
+    initials: "DK"
+  },
+  {
+    text: "As a precision CNC company, we had international buyers who could not properly assess our capabilities from our old site. The export portal DC technolabs built now draws 5 to 8 international inquiries per month. Three have converted into ongoing supply relationships with buyers in Europe and Southeast Asia.",
+    name: "Rajiv Mehta",
+    role: "CNC Manufacturing Company, Makarpura GIDC",
+    initials: "RM"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Waghodia Road",
+    slug: "waghodia-road",
+    desc: "The industrial and logistics corridor connecting Makarpura to east Vadodara and the Waghodia industrial area. Auto dealerships, spare parts, and transport companies."
+  },
+  {
+    name: "Harni",
+    slug: "harni",
+    desc: "Growing residential area in east Vadodara with clinics, schools, and home service businesses serving the families of Makarpura's industrial workforce."
+  },
+  {
+    name: "Manjalpur",
+    slug: "manjalpur",
+    desc: "Mid-market commercial area in south Vadodara, connecting the Makarpura industrial belt to the city's residential and retail core."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you have experience with chemical and engineering companies in Makarpura GIDC?",
+    a: "Yes. We have built B2B websites and lead generation systems for chemical manufacturers, engineering firms, and industrial equipment companies in Gujarat's industrial estates including Makarpura GIDC. We understand how procurement managers evaluate suppliers online and what content and design signals build credibility in industrial B2B contexts."
+  },
+  {
+    q: "What does a B2B industrial website cost for a Makarpura manufacturer?",
+    a: "A professional B2B industrial website with product or service catalog, technical specifications pages, quality certification documentation, team credentials, and inquiry form starts at Rs. 40,000. Export-focused portals with international buyer content and compliance documentation pages start at Rs. 75,000. Projects with complex product catalogs are quoted based on scope."
+  },
+  {
+    q: "Can you help our company prepare a digital presence for government and defence tendering?",
+    a: "Yes. We build corporate capability websites specifically designed to support tender vetting. This includes pages for certifications, past projects, facility overview, team credentials, quality systems, and financial standing information. Many procurement evaluations now include a digital verification step and a strong website helps you pass it."
+  },
+  {
+    q: "Can you build an export portal for international buyers?",
+    a: "Absolutely. We build export-focused websites with company profiles, export capability summaries, compliance and certification documentation, international trade reference sections, and inquiry forms designed for overseas procurement teams. We also handle SEO for export-specific search terms so international buyers can find you organically."
+  },
+  {
+    q: "How does B2B SEO work for a Makarpura GIDC manufacturer?",
+    a: "B2B SEO targets the specific queries procurement managers use when sourcing suppliers. For a chemical company this might be specific formulation names, CAS numbers, or application-specific terms. For engineering companies it might be machine types, material capabilities, or tolerance specifications. We research these search terms for your specific category and build content and optimization around them."
+  },
+  {
+    q: "Does LinkedIn advertising make sense for Makarpura industrial companies?",
+    a: "For companies targeting large corporate buyers, LinkedIn is highly effective. We can run sponsored content and direct message campaigns targeting Purchase Managers, Sourcing Heads, and Technical Directors in specific industries and company sizes. The cost per lead is higher than Google but the quality and deal size typically justify it for B2B industrial products."
+  },
+  {
+    q: "Our old website is doing more harm than good. How quickly can you replace it?",
+    a: "We can launch a new B2B industrial website within 14 to 21 days depending on the scope and how quickly you can provide product information and certifications. We handle the copywriting and design. You review and approve before anything goes live. We have done several urgent website replacements for Vadodara industrial companies ahead of specific tender deadlines."
+  },
+  {
+    q: "How do you handle technical content for industries we may not be familiar with?",
+    a: "We do a detailed onboarding process at the start of every industrial project where we interview your technical team, review your existing materials, and document your capabilities in detail. Our writers then produce content that is accurate, credible, and written in the language that procurement professionals in your industry expect. You review and approve all technical content before it goes live."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",       slug: "alkapuri" },
+  { name: "Gotri",          slug: "gotri" },
+  { name: "Manjalpur",      slug: "manjalpur" },
+  { name: "Fatehgunj",      slug: "fatehgunj" },
+  { name: "Sayajigunj",     slug: "sayajigunj" },
+  { name: "Waghodia Road",  slug: "waghodia-road" },
+  { name: "Harni",          slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="B2B Web Design and Digital Marketing in Makarpura GIDC, Vadodara | DC technolabs"
+  description="DC technolabs helps Makarpura GIDC manufacturers and industrial companies build credible B2B digital presence. Chemical companies, engineering firms, pharmaceutical manufacturers, defence suppliers. Export portals, tendering websites, and lead generation. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/makarpura-gidc"
+  schemaJson={schemaJson}
+
+  badge="Makarpura GIDC, Vadodara"
+  heroH1="B2B Digital Marketing for Makarpura GIDC, Vadodara"
+  heroHighlight="Makarpura GIDC, Vadodara"
+  heroDesc="Chemical companies. Engineering manufacturers. Pharmaceutical producers. Defence suppliers. Makarpura GIDC companies are world-class manufacturers with websites that do not reflect their capabilities. We change that, with B2B websites, export portals, and lead generation built specifically for industrial procurement buyers."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Makarpura GIDC Business"
+  formSub="Industrial and B2B businesses get a response within 4 hours."
+
+  s2Title="Makarpura GIDC: World-Class Manufacturing, Invisible Online"
+  s2Subtitle="One of India's premier industrial estates has a digital presence problem. We solve it with B2B websites, export portals, and procurement-focused lead generation."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Makarpura GIDC Companies"
+  s3Subtitle="Every service is designed for industrial B2B, not consumer marketing. We understand procurement-driven buyers and build digital assets that convert them."
+  {services}
+
+  s4Title="Challenges We Solve for Makarpura GIDC Companies"
+  s4Subtitle="These are the most common problems we hear from manufacturers, engineering companies, and industrial suppliers in Makarpura GIDC."
+  {challenges}
+
+  s5Title="Why Makarpura GIDC Companies Trust DC technolabs"
+  s5Subtitle="Industrial B2B marketing expertise, export portal experience, and transparent fixed pricing for high-value projects."
+  {whyCards}
+
+  s6Title="How We Work With Makarpura GIDC Companies"
+  {processSteps}
+
+  statsHeading="Our Track Record with Vadodara Industrial Clients"
+  {stats}
+
+  s8Title="What Makarpura GIDC Companies Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Vadodara Areas"
+  s9Subtitle="Our coverage extends across Vadodara's industrial and commercial zones."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Makarpura GIDC Companies"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Build a B2B Digital Presence That Reflects Your Capabilities?"
+  ctaSubtitle="Makarpura GIDC companies that look credible online win more procurement contracts. Get a free consultation from a team that understands industrial B2B marketing."
+/>

@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Gotri businesses in Vadodara with web design, local SEO, Google Ads, and social media for hospitals, clinics, labs, coaching institutes, and restaurants.",
+  "url": "https://dctechnolabs.in/locations/vadodara/gotri",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.345", "longitude": "73.155" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Gotri, Vadodara" },
+    { "@type": "Place", "name": "Old Padra Road, Vadodara" },
+    { "@type": "Place", "name": "Kalali, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Gotri is one of Vadodara's fastest-growing zones, anchored by several large multi-speciality hospitals, diagnostic centres, pathology labs, and specialist clinics. It is also a preferred residential area for healthcare professionals, which has drawn coaching institutes, quality schools, supermarkets, and food delivery restaurants into the area.",
+  "Healthcare businesses in Gotri face a specific challenge. Patients search on Google before they call a hospital or book a diagnostic test. Searches like 'blood test Gotri', 'orthopaedic specialist near Old Padra Road', and 'CBSE school Gotri Vadodara' are happening every day, and the businesses ranking at the top capture that demand.",
+  "We have built digital marketing strategies for hospitals, diagnostic labs, clinics, and coaching institutes across Gujarat since 2018. We know the compliance considerations, the specific search behaviour of healthcare seekers, and the content that earns trust in a sector where trust is everything.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏥", label: "Multi-Speciality Hospitals" },
+  { icon: "🔬", label: "Diagnostic Labs" },
+  { icon: "🩺", label: "Specialist Clinics" },
+  { icon: "🧬", label: "Physiotherapy Centres" },
+  { icon: "📚", label: "CBSE Schools" },
+  { icon: "✏️", label: "Coaching Institutes" },
+  { icon: "🛒", label: "Supermarkets" },
+  { icon: "🍽️", label: "Home Delivery Restaurants" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏥", title: "Healthcare-Dense Corridor", desc: "Gotri hosts some of Vadodara's largest hospitals and diagnostic facilities. Digital visibility directly translates to appointment bookings and patient footfall." },
+  { icon: "📱", title: "Patients Search Before They Call", desc: "Patients in Gotri check Google for hospital ratings, doctor reviews, and test availability before making contact. Your digital presence must be ready for that moment." },
+  { icon: "🎓", title: "Growing Education Demand", desc: "Gotri's residential expansion has created strong demand for quality schools and coaching. Institutes that rank on local search fill seats faster during admission season." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Hospital and Clinic Website Design",
+    desc: "Professional, trust-building websites for multi-speciality hospitals and clinics with appointment booking, doctor profiles, department pages, and patient information. Designed to convert visitors into booked appointments."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Gotri Healthcare",
+    desc: "We rank your hospital or diagnostic lab for specific searches like 'blood test Gotri', 'cardiologist Vadodara', and 'physiotherapy near Old Padra Road'. Google Business Profile management and local citations included."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Hospitals and Labs",
+    desc: "Targeted PPC campaigns that put your hospital or diagnostic centre in front of patients actively searching for your services in Gotri and the wider Vadodara area. Campaigns managed from Rs. 20,000 per month."
+  },
+  {
+    icon: "🛒",
+    title: "Swiggy and Zomato Optimization",
+    desc: "Gotri restaurants competing on delivery platforms need optimized listings, better photography, and review management. We handle your food delivery platform presence alongside your social media."
+  },
+  {
+    icon: "📱",
+    title: "Social Media and Instagram Marketing",
+    desc: "Healthcare facilities and restaurants in Gotri need an active social media presence. We manage Instagram and Facebook marketing, content creation, and community management for consistent audience growth."
+  },
+  {
+    icon: "✏️",
+    title: "Coaching Institute Digital Marketing",
+    desc: "We help Gotri coaching institutes attract students through local SEO, online admission forms, Google Ads during peak admission season, and social media strategies targeting parents in the surrounding residential areas."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My hospital is not showing up when patients search for services in Gotri",
+    solution: "We do a full Google Business Profile audit, add all specialities, services, and doctor names, and build local citations for healthcare directories. Patients searching for specific treatments in Gotri will find your hospital at the top."
+  },
+  {
+    problem: "My diagnostic lab is losing business to branded chains like SRL and Metropolis",
+    solution: "We focus on hyperlocal SEO targeting searches like 'blood test near Gotri', 'pathology lab Old Padra Road', and Vadodara-specific health panels. Local labs with good reviews and strong Google profiles consistently outrank national chains for neighbourhood searches."
+  },
+  {
+    problem: "Our coaching institute fills seats late every admission cycle because parents do not find us online",
+    solution: "We run targeted Google Ads from February to June when admission searches peak, combined with local SEO so your institute ranks for Gotri and Vadodara coaching searches. Parents who find you early in their research are the easiest to convert."
+  },
+  {
+    problem: "My restaurant is on Swiggy but gets far fewer orders than competitors nearby",
+    solution: "A higher-quality listing with professional food photos, accurate menu descriptions, and actively managed ratings can dramatically improve your Swiggy and Zomato ranking. We handle full food delivery platform optimization alongside Instagram marketing."
+  },
+  {
+    problem: "We have a well-equipped physiotherapy centre but no referrals from Google",
+    solution: "We build your Google Business Profile with photos, services, and patient reviews, optimize your website for physiotherapy searches in Gotri and Old Padra Road, and set up a consistent review-request process after each session."
+  },
+  {
+    problem: "Our supermarket has local regulars but no presence online to attract new customers",
+    solution: "Even retail grocery businesses benefit from Google Business Profile presence, WhatsApp Business, and occasional local Instagram promotions. We set up a minimal but effective digital presence that makes it easy for new Gotri residents to discover you."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏥", title: "Healthcare Digital Marketing Expertise", desc: "We have worked with hospitals, clinics, and diagnostic labs across Gujarat. We understand appointment booking systems, patient content guidelines, and the trust signals that matter in healthcare." },
+  { emoji: "⚡", title: "Fast Results for Healthcare", desc: "Google Business Profile improvements show within 4 to 6 weeks. Paid campaigns can deliver appointment enquiries within days of launch. We move quickly because every day without visibility costs you patients." },
+  { emoji: "💰", title: "Affordable Packages for Growing Businesses", desc: "Local SEO from Rs. 30,000 per month. Clinic websites from Rs. 35,000. Coaching institute packages from Rs. 25,000. Straightforward pricing with no hidden fees." },
+  { emoji: "📞", title: "Responsive, Direct Communication", desc: "Your project manager is reachable by WhatsApp and phone. Healthcare businesses cannot wait days for answers. We respond quickly because we know urgency matters." },
+  { emoji: "📈", title: "Appointment-Focused Results", desc: "We measure appointment bookings, phone call clicks, and form submissions, not just website visitors. Every campaign is built around a clear, measurable objective." },
+  { emoji: "🤝", title: "Long-Term Healthcare Partnerships", desc: "Healthcare clients with us for two or more years see compounding improvements in their Google rankings, patient volume, and online reputation. We are a long-term partner, not a one-time vendor." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We audit your Google Business Profile, website, and local rankings. We identify the quickest wins and build a clear picture of your current online position in Gotri."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a detailed proposal with scope, timeline, and fixed pricing tailored to your healthcare or education business in Gotri."
+  },
+  {
+    step: "3",
+    title: "Build and Optimize",
+    desc: "We execute the plan, website, SEO, ads, or social media, with your approval at every stage. Healthcare-specific content is reviewed for accuracy before publishing."
+  },
+  {
+    step: "4",
+    title: "Results and Growth",
+    desc: "Monthly reports show appointment enquiries, Google rankings, and ad performance in plain language. We refine the strategy every month to keep growing your patient and student numbers."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients" },
+  { value: "93%",  label: "Client Retention Rate" },
+  { value: "3.5x", label: "Average Enquiry Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We run a multi-speciality hospital in Gotri and our online presence was nearly invisible. DC technolabs rebuilt our website with proper doctor profiles, department pages, and appointment booking. Within 90 days our Google ranking for key specialities improved dramatically and patient enquiries through the website more than doubled.",
+    name: "Dr. Ashok Rana",
+    role: "Hospital Director, Gotri, Vadodara",
+    initials: "AR"
+  },
+  {
+    text: "Our diagnostic lab was losing patients to big brand chains despite being cheaper and faster. After DC technolabs optimized our Google Business Profile and ran local ads, we started getting 30 to 40 new test bookings every week from local searches. The difference is remarkable.",
+    name: "Seema Patel",
+    role: "Owner, Diagnostic Lab, Gotri",
+    initials: "SP"
+  },
+  {
+    text: "Our coaching institute in Gotri struggled during admission season because parents did not know us. DC technolabs ran Google Ads in March and April targeting Vadodara parents and our enquiries tripled compared to last year. We filled our batch 3 weeks ahead of schedule.",
+    name: "Rajesh Trivedi",
+    role: "Director, Coaching Institute, Gotri",
+    initials: "RT"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Manjalpur",
+    slug: "manjalpur",
+    desc: "Large residential and commercial area south of Gotri. We serve retail shops, salons, and local service businesses across Manjalpur."
+  },
+  {
+    name: "Harni",
+    slug: "harni",
+    desc: "Residential zone adjacent to Gotri with growing retail and service businesses. We help Harni businesses establish their local online presence."
+  },
+  {
+    name: "Alkapuri",
+    slug: "alkapuri",
+    desc: "Vadodara's premium commercial corridor with architecture firms, law offices, and private hospitals. We serve Alkapuri's professional services businesses."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help a hospital in Gotri get more appointment bookings from Google?",
+    a: "Yes. We optimize your Google Business Profile for all specialities, build a website with integrated appointment booking, and run local SEO so your hospital ranks for searches like 'cardiologist Gotri' and 'best hospital Old Padra Road'. Patients who find you on Google are high-intent and book quickly."
+  },
+  {
+    q: "How can my diagnostic lab compete with Metropolis and SRL in Gotri?",
+    a: "National chains spend heavily on brand marketing but often neglect hyperlocal SEO. We target neighbourhood-specific searches, build a strong Google Business Profile, and run Google Ads for test-specific queries. Local labs with good reviews and a strong local SEO foundation consistently outrank national chains for nearby searches."
+  },
+  {
+    q: "What does a hospital website cost in Vadodara?",
+    a: "A professional hospital website with department pages, doctor profiles, appointment booking, and basic SEO setup starts at Rs. 50,000. Diagnostic lab websites are simpler and start at Rs. 35,000. Coaching institute websites with online admission forms start at Rs. 30,000."
+  },
+  {
+    q: "Can you run Google Ads specifically for admission season in March and April?",
+    a: "Yes. Many coaching institutes run seasonal campaigns, and we specialise in this. We build the campaign, targeting, and landing page before the season begins so you capture enquiries from the first day of the search window. Admission-season campaigns typically run for 8 to 12 weeks."
+  },
+  {
+    q: "Do you optimize Swiggy and Zomato listings for Gotri restaurants?",
+    a: "Yes. Better food photography, accurate menu descriptions, and actively managed ratings all improve your platform ranking. We also handle Instagram marketing alongside food delivery platform optimization so your restaurant builds a local following beyond platform discovery."
+  },
+  {
+    q: "How quickly can a clinic in Gotri improve its Google Maps ranking?",
+    a: "Google Business Profile improvements are typically visible within 4 to 6 weeks. Ranking for high-competition searches like 'gynaecologist Vadodara' takes longer, 3 to 6 months, but neighbourhood-specific searches like 'doctor near Gotri' can improve much faster."
+  },
+  {
+    q: "Do you work with healthcare businesses on content compliance?",
+    a: "Yes. We are careful about healthcare content guidelines in India. We avoid making specific medical claims, ensure doctor credentials are displayed accurately, and build content strategies around educational and informational content that builds trust without crossing compliance lines."
+  },
+  {
+    q: "Is there a minimum monthly budget for Google Ads for a clinic?",
+    a: "We recommend a minimum ad spend of Rs. 15,000 per month for a single clinic or lab in Gotri. Combined with our management fee, the minimum total investment starts at Rs. 30,000 per month. For hospitals with multiple specialities, Rs. 40,000 to Rs. 80,000 per month gives better coverage."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",      slug: "alkapuri" },
+  { name: "Manjalpur",     slug: "manjalpur" },
+  { name: "Fatehgunj",     slug: "fatehgunj" },
+  { name: "Sayajigunj",    slug: "sayajigunj" },
+  { name: "Waghodia Road", slug: "waghodia-road" },
+  { name: "Makarpura GIDC",slug: "makarpura-gidc" },
+  { name: "Harni",         slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Gotri, Vadodara | DC technolabs"
+  description="DC technolabs helps Gotri Vadodara businesses grow online. Hospitals, diagnostic labs, clinics, coaching institutes, and restaurants in Gotri get more patients, students, and customers through local SEO, Google Ads, and web design. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/gotri"
+  schemaJson={schemaJson}
+
+  badge="Gotri, Vadodara"
+  heroH1="Digital Marketing for Gotri, Vadodara Businesses"
+  heroHighlight="Gotri, Vadodara"
+  heroDesc="Gotri is Vadodara's fastest-growing healthcare and residential zone. Hospitals, diagnostic labs, clinics, coaching institutes, and restaurants here need patients and customers to find them first on Google. We make that happen with local SEO, Google Ads, and websites built for results."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Gotri Business"
+  formSub="Gotri businesses receive a response within 4 business hours."
+
+  s2Title="Why Gotri Businesses Choose DC technolabs"
+  s2Subtitle="We have served healthcare businesses across Gujarat since 2018. We know what makes patients book and what makes clinics rank."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Gotri Businesses"
+  s3Subtitle="From hospital appointment systems to coaching institute admission campaigns, we handle it all."
+  {services}
+
+  s4Title="Challenges We Solve for Gotri Businesses"
+  s4Subtitle="The most common digital problems hospitals, labs, clinics, and coaching institutes face in Gotri."
+  {challenges}
+
+  s5Title="Why Gotri Businesses Trust DC technolabs"
+  s5Subtitle="Healthcare digital marketing expertise, fast execution, and appointment-focused results."
+  {whyCards}
+
+  s6Title="How We Work With Gotri Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Vadodara"
+  {stats}
+
+  s8Title="What Gotri Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans all of Vadodara. Clients from adjacent areas get the same focused attention."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Gotri Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Grow Your Gotri Business Online?"
+  ctaSubtitle="Join Vadodara businesses that trust DC technolabs to grow their patient base, student admissions, and customer numbers. Get a free consultation, no obligation."
+/>

@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Varachha businesses in Surat with web design, SEO, PPC, and international B2B digital marketing for diamond and textile industries.",
+  "url": "https://dctechnolabs.in/locations/surat/varachha",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.218", "longitude": "72.881" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Varachha, Surat" },
+    { "@type": "Place", "name": "Katargam, Surat" },
+    { "@type": "Place", "name": "Udhna, Surat" },
+    { "@type": "Place", "name": "Surat Diamond Bourse" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "Same Day", label: "Response Time" },
+  { value: "92%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Varachha is the beating heart of Surat's diamond industry. Thousands of diamond cutting and polishing units, trading firms, and broker offices are packed into this area, alongside textile traders and wholesale garment markets. It is one of the most commercially dense neighborhoods in all of Gujarat.",
+  "The challenge for most Varachha businesses is that the industry runs on personal relationships and word-of-mouth. International diamond buyers from Belgium, Israel, Dubai, and the United States still find Surat suppliers primarily through referrals, trade shows, or outdated directories. A strong digital presence can change that equation completely.",
+  "DC technolabs has worked with diamond trading firms and B2B businesses in Surat's trade ecosystem since 2019. We know how to build websites and digital strategies that project global credibility, reach international buyers, and generate real export inquiries.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "💎", label: "Diamond Trading Firms" },
+  { icon: "✂️", label: "Cutting & Polishing Units" },
+  { icon: "🏢", label: "Diamond Brokers" },
+  { icon: "🧵", label: "Textile Traders" },
+  { icon: "📦", label: "Wholesale Markets" },
+  { icon: "🌍", label: "Export Businesses" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "💎", title: "Diamond Industry Hub", desc: "Varachha is home to thousands of diamond units processing over 90% of the world's rough diamonds. Global buyers visit and search for suppliers from here every single day." },
+  { icon: "🌍", title: "International Buyer Reach", desc: "Diamond buyers from Antwerp, Dubai, Tel Aviv, and New York search online before they travel or call. A professional English-language website is your first impression with these buyers." },
+  { icon: "📱", title: "Referral Culture Going Digital", desc: "The Varachha trade community still values personal trust, but digital credibility is now a pre-condition for getting that first meeting. We build the digital presence that earns trust before the handshake." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Export-Oriented Web Design",
+    desc: "Professional, English-first websites designed to convert international diamond and textile buyers. We create pages that communicate quality, certifications, capacity, and trustworthiness to overseas visitors who have never met you in person."
+  },
+  {
+    icon: "🔍",
+    title: "International and Local SEO",
+    desc: "We target both Surat-local search terms and international queries like 'polished diamond supplier Surat' or 'loose diamond exporter India'. Buyers from Belgium to Dubai can find your Varachha firm on Google."
+  },
+  {
+    icon: "📢",
+    title: "B2B Lead Generation Campaigns",
+    desc: "Google Ads and LinkedIn campaigns targeted at diamond buyers, gem dealers, jewellery manufacturers, and textile importers globally. We manage budgets of Rs. 30,000 to Rs. 5,00,000 per month with full transparency and ROI tracking."
+  },
+  {
+    icon: "🛒",
+    title: "Trade Portals and B2B E-commerce",
+    desc: "Custom B2B trade portals for wholesale diamond or textile businesses. Buyers can browse inventory, request quotes, and submit bulk inquiries directly from your site. Reduces phone tag and speeds up deal cycles."
+  },
+  {
+    icon: "📱",
+    title: "Social Media and Trade Credibility",
+    desc: "LinkedIn company pages, WhatsApp Business profiles, and Instagram content that builds brand recognition in the trade community. We position Varachha firms as authoritative, established players in their category."
+  },
+  {
+    icon: "🌐",
+    title: "Multilingual Website Support",
+    desc: "For firms targeting specific international markets, we can build bilingual websites with English, Gujarati, or Hindi content. Proper hreflang tagging ensures search engines show the right version to the right audience."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our diamond firm has no website and all our business is referral-based",
+    solution: "Referrals will always be valuable, but international buyers now verify every supplier online before making contact. We build a professional website that confirms your credibility and gives new buyers confidence to reach out to you directly."
+  },
+  {
+    problem: "Our website exists but it looks outdated and unprofessional to foreign buyers",
+    solution: "A low-quality website actively loses you business with discerning international buyers. We redesign your site to match global professional standards, with proper English, compelling photography, and trust signals like certifications and testimonials."
+  },
+  {
+    problem: "We want to reach diamond buyers in Belgium, Dubai, and the US online",
+    solution: "We build international SEO strategies targeting keywords that overseas buyers use when sourcing from Surat. Combined with LinkedIn outreach campaigns and trade directory listings, your Varachha firm becomes visible to the right global audience."
+  },
+  {
+    problem: "We have no way to capture leads from our website",
+    solution: "We integrate inquiry forms, WhatsApp chat, and callback request forms into your site. Every visitor who is interested can contact you in seconds, and their details go directly to your phone or email without manual intervention."
+  },
+  {
+    problem: "Our textile trading business needs to reach bulk buyers across India",
+    solution: "We build India-focused SEO campaigns targeting fabric importers and garment manufacturers across Mumbai, Delhi, Kolkata, and Tirupur. Combined with a proper B2B trade portal, domestic buyers can find and contact your Varachha business easily."
+  },
+  {
+    problem: "We are spending on ads but getting no results from our campaigns",
+    solution: "Most poorly performing campaigns target the wrong audience or send traffic to weak landing pages. We audit your current setup, fix targeting, rebuild landing pages, and implement proper conversion tracking so every rupee is accountable."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "💎", title: "Diamond and Textile Industry Knowledge", desc: "We have worked with Surat's B2B trade businesses since 2019. We understand the buying cycle, the export angle, and how trust is established in these industries." },
+  { emoji: "🌍", title: "International Marketing Experience", desc: "We build campaigns and websites targeting international buyers in Belgium, Dubai, the US, and across Asia. This requires different SEO, different design standards, and different content than domestic campaigns." },
+  { emoji: "⚡", title: "Same-Day Response", desc: "Your inquiry gets a response the same business day. Urgent projects get priority. You can reach us on WhatsApp and get a real person, not an automated reply." },
+  { emoji: "💰", title: "Honest and Transparent Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. No hidden fees, no lock-in contracts. You know exactly what you are getting and what it costs." },
+  { emoji: "📊", title: "ROI-First Thinking", desc: "We measure success by your actual leads and inquiries, not vanity metrics like page views. Every campaign is built around a measurable return on your investment." },
+  { emoji: "🤝", title: "Long-Term Partnership", desc: "We do not disappear after launch. Our Surat clients stay with us for years because we keep delivering results and improving their digital presence as their business grows." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Varachha business, your target buyers whether domestic or international, your current digital presence, and your growth goals. No obligation, no sales pressure."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a clear proposal covering scope, timeline, pricing, and the specific strategy for your business in the Varachha and Surat market."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We execute the plan. Website design, SEO setup, ad campaigns, or trade portal development. Everything is reviewed and approved by you before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Results and Reporting",
+    desc: "Monthly reports show exactly what is working. Leads generated, keyword rankings, ad performance. We refine the strategy continuously so your business keeps growing."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "945+", label: "Total Gujarat Projects" },
+  { value: "24 hrs", label: "Proposal Turnaround" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our diamond firm had no digital presence at all. DC technolabs built us a website in 5 weeks that we are proud to share with international buyers. Within 3 months we received our first direct inquiry from a buyer in Dubai who found us on Google. That single deal covered the entire investment.",
+    name: "Hiren Vora",
+    role: "Diamond Export Firm, Varachha, Surat",
+    initials: "HV"
+  },
+  {
+    text: "We had a website that was built 8 years ago and embarrassed us every time we shared the link with foreign buyers. The redesign by DC technolabs was completely transformed. Professional, English-first, with our certifications and product capabilities clearly presented. Buyer response is noticeably better.",
+    name: "Mahesh Gajera",
+    role: "Diamond Trading Firm, Varachha",
+    initials: "MG"
+  },
+  {
+    text: "We are a textile wholesale business in Varachha dealing in bulk fabrics. DC technolabs ran Google Ads targeting garment manufacturers in Mumbai and Delhi and we got 18 qualified inquiries in the first month. The ROI was immediate and clear.",
+    name: "Rajesh Patel",
+    role: "Textile Wholesale Business, Varachha",
+    initials: "RP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Katargam",
+    slug: "katargam",
+    desc: "Adjacent to Varachha, Katargam is Surat's power loom and textile weaving hub with thousands of manufacturing units."
+  },
+  {
+    name: "Ring Road",
+    slug: "ring-road",
+    desc: "Surat's main commercial artery with fabric wholesale markets, garment showrooms, and major textile exporters."
+  },
+  {
+    name: "Adajan",
+    slug: "adajan",
+    desc: "A large residential and commercial area with clinics, coaching centers, restaurants, and service businesses."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you build a website that targets international diamond buyers?",
+    a: "Yes. We build English-first websites designed specifically for international audiences, with proper global trust signals, certification pages, product showcase sections, and easy inquiry flows. We also implement international SEO so buyers in Belgium, Dubai, and the US find your site on Google."
+  },
+  {
+    q: "Do you understand the diamond industry's business model?",
+    a: "Yes. We have worked with diamond firms in Surat since 2019 and understand how the industry works. We know that buyers evaluate credibility before making contact, that certifications and capacity information matter, and that the buying cycle is longer and more relationship-driven than most industries."
+  },
+  {
+    q: "How much does a professional website for a diamond trading firm cost?",
+    a: "A professional export-oriented website for a diamond or textile trading firm starts at Rs. 45,000. This includes English-first design, product or category showcase, certification pages, inquiry forms, and basic international SEO setup."
+  },
+  {
+    q: "Can you help us rank on Google for searches like 'diamond exporter Surat'?",
+    a: "Yes. We implement SEO strategies targeting both domestic and international search queries relevant to your business. Ranking for competitive terms takes 4 to 6 months of consistent work, but we begin seeing movement within 60 to 90 days."
+  },
+  {
+    q: "Do you offer multilingual website support for international markets?",
+    a: "Yes. For firms targeting specific regions, we can build bilingual websites or add translated pages. We also implement proper hreflang tags so Google shows the right language version to visitors from different countries."
+  },
+  {
+    q: "Can you build a B2B trade portal for our wholesale diamond or textile business?",
+    a: "Yes. We build custom B2B portals where buyers can browse your inventory or categories, request quotes, and submit bulk inquiries. This is significantly more effective than a static brochure website for businesses handling large volume transactions."
+  },
+  {
+    q: "We have no time for digital marketing. Can you manage everything for us?",
+    a: "Yes. We offer fully managed digital marketing where we handle your website, SEO, Google Ads, and social media. You receive monthly reports and approve any major decisions, but the day-to-day execution is entirely with us."
+  },
+  {
+    q: "How do we get started?",
+    a: "Fill the form on this page or WhatsApp us directly. We schedule a free consultation call within 24 hours, discuss your business and goals, and send you a detailed proposal the same day. No obligation and no sales pressure."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Ring Road",   slug: "ring-road" },
+  { name: "Vesu",        slug: "vesu" },
+  { name: "Adajan",      slug: "adajan" },
+  { name: "Athwa",       slug: "athwa" },
+  { name: "Katargam",    slug: "katargam" },
+  { name: "Piplod",      slug: "piplod" },
+  { name: "Dumas Road",  slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Varachha, Surat | DC technolabs"
+  description="DC technolabs helps Varachha Surat businesses grow online. Web design, international SEO, and B2B lead generation for diamond trading firms, textile businesses, and exporters. Free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/varachha"
+  schemaJson={schemaJson}
+
+  citySlug="surat"
+  cityName="Surat"
+
+  badge="Varachha, Surat"
+  heroH1="Digital Marketing for Varachha Businesses in Surat"
+  heroHighlight="Varachha Businesses"
+  heroDesc="Varachha is the world's diamond hub. From cutting and polishing units to trading firms and textile wholesalers, we help Varachha businesses build digital credibility that reaches international buyers and generates real export inquiries."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Varachha Business"
+  formSub="Diamond and textile businesses get a response the same day."
+
+  s2Title="Why Varachha Businesses Need a Stronger Digital Presence"
+  s2Subtitle="The world's diamond trade passes through Varachha. International buyers are now searching online before they call or travel. We make sure your business is found and trusted."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Varachha Businesses"
+  s3Subtitle="From export-oriented websites to international B2B lead generation campaigns, everything your Varachha business needs to compete globally."
+  {services}
+
+  s4Title="Challenges We Solve for Varachha Businesses"
+  s4Subtitle="These are the most common digital challenges we hear from diamond and textile businesses in Varachha."
+  {challenges}
+
+  s5Title="Why Varachha Businesses Trust DC technolabs"
+  s5Subtitle="We have been working with Surat's trade businesses since 2019. We understand your industry and your buyers."
+  {whyCards}
+
+  s6Title="How We Work With Varachha Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gujarat"
+  {stats}
+
+  s8Title="What Surat Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across Surat. If your customers or buyers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Varachha Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Reach International Buyers from Varachha?"
+  ctaSubtitle="Join Surat's growing community of businesses that use DC technolabs for digital marketing. Get a free consultation with no obligation and a proposal within 24 hours."
+/>

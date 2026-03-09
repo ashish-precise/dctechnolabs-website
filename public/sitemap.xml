@@ -117,6 +117,90 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Vadodara Neighborhood Pages -->
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/alkapuri/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/gotri/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/manjalpur/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/fatehgunj/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/sayajigunj/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/waghodia-road/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/makarpura-gidc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/vadodara/harni/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Surat Neighborhood Pages -->
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/varachha/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/ring-road/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/vesu/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/adajan/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/athwa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/katargam/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/piplod/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/locations/surat/dumas-road/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Gandhinagar Neighborhood Pages -->
   <url>
     <loc>https://dctechnolabs.in/locations/gandhinagar/gift-city/</loc>
@@ -283,9 +367,49 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Portfolio -->
+  <!-- Portfolio Case Studies -->
   <url>
     <loc>https://dctechnolabs.in/portfolio/lifecare-clinic/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/gujarat-gems/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/buildright-infra/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/freshbasket/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/crona-group/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/nis-consulting/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/edupro-academy/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/cloudsync-solutions/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dctechnolabs.in/portfolio/taste-of-gujarat/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

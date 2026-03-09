@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Fatehgunj businesses in Vadodara with local SEO, Google Ads for admissions, website design, and social media for coaching institutes, educational centres, and student-facing businesses.",
+  "url": "https://dctechnolabs.in/locations/vadodara/fatehgunj",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.318", "longitude": "73.192" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 20,000 - Rs. 2,50,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Fatehgunj, Vadodara" },
+    { "@type": "Place", "name": "Sayajigunj, Vadodara" },
+    { "@type": "Place", "name": "RC Dutt Road, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Fatehgunj sits adjacent to Maharaja Sayajirao University and forms Vadodara's dense education and coaching corridor. JEE and NEET coaching institutes, language learning centres, private tuition teachers, banks, printing shops, stationery stores, student hostels, and affordable restaurants are all packed into an area with extremely high daily footfall from students and parents.",
+  "The coaching institute market in Fatehgunj is fiercely competitive. ALLEN, Aakash, and other national brands run large Google Ads campaigns during admission season. Local and regional institutes that do not have a strong digital presence simply lose students to these bigger names, regardless of their actual teaching quality.",
+  "We have worked with coaching institutes and educational businesses across Gujarat, helping them build Google visibility, run effective admission-season campaigns, and develop a digital reputation that wins over parents who research extensively before enrolling. We know the admission calendar, the peak search windows, and the content that converts enquiries into fee payments.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "📐", label: "JEE and NEET Coaching" },
+  { icon: "🌍", label: "Language Learning Centres" },
+  { icon: "✏️", label: "Private Tuition Teachers" },
+  { icon: "🏦", label: "Banks and NBFCs" },
+  { icon: "🖨️", label: "Printing and Stationery" },
+  { icon: "🏠", label: "Student Hostels and PGs" },
+  { icon: "🍱", label: "Affordable Restaurants and Tiffin" },
+  { icon: "📚", label: "Private Colleges and Classes" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🎓", title: "Education Hub Adjacent to MS University", desc: "Fatehgunj's proximity to one of Gujarat's most prestigious universities creates sustained demand for coaching, tuition, and student services year-round." },
+  { icon: "📱", title: "Parents Research Before They Enrol", desc: "Parents in Vadodara spend significant time comparing coaching institutes online. Google search, reviews, and website quality all influence the final enrollment decision." },
+  { icon: "📅", title: "Admission Season is a Critical Window", desc: "March to June is when the vast majority of coaching enrollment decisions happen. Institutes that are visible on Google Ads and SEO during these months capture a disproportionate share of new students." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🔍",
+    title: "Local SEO for Coaching Institutes in Fatehgunj",
+    desc: "We rank your coaching institute for specific searches like 'JEE coaching Vadodara', 'NEET institute Fatehgunj', and 'best coaching near MS University'. Google Business Profile, local citations, and review strategy included."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Admission Season",
+    desc: "Targeted Google Ads campaigns running from February through June that put your institute in front of students and parents actively searching for coaching in Vadodara. We beat ALLEN and Aakash for local intent searches with neighbourhood-specific targeting."
+  },
+  {
+    icon: "🌐",
+    title: "Coaching Institute Website Design",
+    desc: "Professional institute websites with online admission forms, fee payment integration, batch schedules, faculty profiles, and result showcases. Designed to convert parent enquiries into enrolled students."
+  },
+  {
+    icon: "📱",
+    title: "Instagram and Social Media for Student Audiences",
+    desc: "Students spend significant time on Instagram and YouTube. We build social media strategies for coaching institutes that showcase results, faculty expertise, and student success stories to build trust with young audiences."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp Admission Campaign Management",
+    desc: "WhatsApp broadcast campaigns during admission season for reaching enquiry lists, sharing batch details, and converting warm prospects. We manage the broadcast strategy so your admissions team can focus on conversations."
+  },
+  {
+    icon: "⭐",
+    title: "Google Review and Reputation Management",
+    desc: "Parent reviews on Google are the single most trusted signal for coaching selection decisions in Fatehgunj. We build a systematic review-collection process and manage responses to build a compelling online reputation."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our coaching institute cannot rank above ALLEN and Aakash in Google search",
+    solution: "National brands dominate broad searches but often miss hyperlocal intent. We target searches like 'JEE coaching in Fatehgunj' and 'coaching institute near MS University Vadodara' where national brands have weaker local optimization, and we build a Google Business Profile that ranks strongly for neighbourhood-level queries."
+  },
+  {
+    problem: "We get enquiries during March and April but lose many of them before they enrol",
+    solution: "Most enquiry-to-enrollment drop-off happens due to slow follow-up and lack of a nurturing sequence. We set up WhatsApp broadcast campaigns, ensure your website has the information parents need to make decisions, and run remarketing ads to re-engage people who visited your site but did not submit an enquiry."
+  },
+  {
+    problem: "Our online admission form is difficult to use and students abandon it halfway",
+    solution: "We rebuild your admission form as a simple, mobile-friendly experience with Razorpay or payment gateway integration for registration fees. A form that takes under 3 minutes to complete on mobile will dramatically reduce abandonment and increase confirmed admissions."
+  },
+  {
+    problem: "Students are choosing our competitors because they appear more credible online",
+    solution: "Online credibility for a coaching institute comes from Google reviews, result showcases, faculty credentials, and a professional website. We systematically build all four. A high-review-count institute with a polished website consistently wins over newer-looking competitors, even if the actual teaching quality is similar."
+  },
+  {
+    problem: "Our language learning centre is invisible compared to British Council and other brands",
+    solution: "We focus your SEO on Vadodara-specific and Fatehgunj-specific language searches rather than competing nationally. Parent and student searches like 'spoken English classes Fatehgunj' and 'IELTS coaching Vadodara' are winnable for a well-optimized local business and deliver highly qualified, ready-to-enrol leads."
+  },
+  {
+    problem: "My hostel or PG has seasonal vacancies and I cannot fill them consistently",
+    solution: "Student accommodation searches spike in May and June before the academic year begins. We run targeted Google Ads and local SEO during this window, optimize your Google listing with photos and verified details, and set up a WhatsApp enquiry flow to convert interest quickly into confirmed bookings."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🎓", title: "Education Marketing Specialists", desc: "We have managed admission campaigns, local SEO, and websites for coaching institutes and educational businesses across Gujarat. We know the admission calendar, the peak search windows, and the content that converts." },
+  { emoji: "📅", title: "Admission Season Ready", desc: "We plan and launch your Google Ads and SEO strategy weeks before the March-June admission window opens, so you are capturing student and parent searches from the first day of peak season." },
+  { emoji: "💰", title: "Packages Built for Education Budgets", desc: "Coaching institute websites from Rs. 30,000. Admission-season Google Ads from Rs. 25,000 total campaign spend. Local SEO from Rs. 30,000 per month. Real results without enterprise-scale budgets." },
+  { emoji: "📞", title: "Responsive Project Management", desc: "Your contact at DC technolabs is reachable by WhatsApp during the admission season for quick updates and campaign adjustments. When admissions are live, speed matters." },
+  { emoji: "📈", title: "Enrollment-Focused Results", desc: "We track enquiry form submissions, WhatsApp taps, phone call clicks, and ultimately enrollments. Every campaign is optimized around what gets students through your door and through the admission process." },
+  { emoji: "🤝", title: "Multi-Year Track Record in Education", desc: "Our coaching institute clients typically stay with us for multiple admission cycles because results improve each year as we refine the strategy based on what worked in previous seasons." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Audit",
+    desc: "We review your current Google ranking, your website admission flow, and your Google Business Profile. We identify the specific gaps that are costing you students during admission season."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a proposal with a clear timeline, fixed pricing, and a specific plan for your admission-season campaign and ongoing SEO in Fatehgunj."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We set up your website improvements, Google Ads campaigns, and SEO foundation. Everything is ready before the admission season search window opens."
+  },
+  {
+    step: "4",
+    title: "Campaign Optimisation",
+    desc: "Weekly check-ins during admission season to adjust bids, creative, and targeting based on what is converting. Post-season review to plan the following year's strategy."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients" },
+  { value: "93%",  label: "Client Retention Rate" },
+  { value: "3x",   label: "Average Admission Enquiry Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We run a JEE coaching institute in Fatehgunj and were completely invisible on Google compared to ALLEN and Aakash. DC technolabs ran Google Ads targeting Vadodara-specific searches during March and April. Our admission enquiries tripled compared to the previous year and we filled our batch by mid-May for the first time.",
+    name: "Pooja Patel",
+    role: "Director, JEE Coaching Institute, Fatehgunj",
+    initials: "PP"
+  },
+  {
+    text: "Our language learning centre had a dated website and no Google presence. After the website redesign and local SEO work, we now appear in Google Maps for spoken English and IELTS searches in Vadodara. Parent and student enquiries have been consistent throughout the year, not just in one peak season.",
+    name: "Mihir Shah",
+    role: "Owner, Language Learning Centre, Fatehgunj",
+    initials: "MS"
+  },
+  {
+    text: "My PG near MS University used to have 5 to 6 vacant rooms every June. After DC technolabs optimized my Google listing and ran a small admission-season ad campaign, I got fully occupied by the first week of July last year. The WhatsApp enquiry flow they set up made my response time much faster too.",
+    name: "Varsha Trivedi",
+    role: "Owner, Student PG, Fatehgunj",
+    initials: "VT"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Sayajigunj",
+    slug: "sayajigunj",
+    desc: "Vadodara's heritage commercial district adjacent to Fatehgunj. Hospitality, hotels, and cultural businesses along the Sayajigunj corridor."
+  },
+  {
+    name: "Alkapuri",
+    slug: "alkapuri",
+    desc: "Vadodara's premium commercial address with architecture firms, law offices, and private hospitals. Adjacent to Fatehgunj via RC Dutt Road."
+  },
+  {
+    name: "Gotri",
+    slug: "gotri",
+    desc: "Fast-growing healthcare and residential zone north of Vadodara with hospitals, diagnostic labs, and coaching institutes."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help our coaching institute rank above ALLEN and Aakash on Google in Vadodara?",
+    a: "For hyperlocal searches like 'JEE coaching Fatehgunj' and 'NEET institute near MS University Vadodara', yes. National brands compete on broad keywords but are often weaker on neighbourhood-specific searches. We target those local intent queries, combined with a strong Google Business Profile and review strategy, and most of our coaching clients reach the top 3 for Vadodara-specific searches within 4 to 6 months."
+  },
+  {
+    q: "What is the ideal time to start Google Ads for coaching admissions?",
+    a: "We recommend having your campaign fully set up and running by the first week of February. Admission searches in Vadodara start building from mid-February and peak between March and mid-June. Starting early lets you build campaign history and Quality Score before the most competitive period, which reduces your cost per enquiry."
+  },
+  {
+    q: "How much does it cost to build an admission form and website for our coaching institute?",
+    a: "A coaching institute website with batch information, faculty profiles, result showcases, and an online admission form with Razorpay fee payment integration starts at Rs. 35,000. A simpler site with contact form and basic information starts at Rs. 25,000. Both include mobile-first design and on-page SEO setup."
+  },
+  {
+    q: "Can you help a private tuition teacher get more students through Google?",
+    a: "Yes. A well-optimized Google Business Profile, a simple website or landing page, and a few targeted Google Ads for searches like 'maths tuition Fatehgunj' can consistently generate student enquiries. Even with a small budget of Rs. 8,000 to Rs. 12,000 per month, a tuition teacher can build a steady enquiry pipeline."
+  },
+  {
+    q: "How do you help coaching institutes collect more Google reviews from parents?",
+    a: "We build a systematic review-collection process: follow-up messages sent via WhatsApp after fee payment with a direct Google review link, reminder messages 30 days later, and a monthly review-request broadcast to your enrolled parent community. This process typically builds 8 to 15 new reviews per month without any paid incentives."
+  },
+  {
+    q: "Can you run Instagram marketing for a coaching institute that wants to reach students?",
+    a: "Yes. Instagram Reels and posts showcasing student results, faculty expertise, study tips, and exam strategy perform extremely well for coaching institutes. We create a content calendar, manage posting, and run targeted Instagram ads to students aged 14 to 22 in Vadodara and Fatehgunj. LinkedIn is also effective for coaching institutes targeting working professionals."
+  },
+  {
+    q: "My PG near MS University has seasonal vacancies. Can digital marketing help fill them?",
+    a: "Yes. Accommodation searches peak in May and June as students confirm college placements and look for housing. We run targeted Google Ads during this window, optimize your Google Business listing with photos and accurate details, and set up a WhatsApp enquiry response system to convert interest quickly. Most accommodation businesses see significant vacancy reduction within the first campaign cycle."
+  },
+  {
+    q: "Do you offer monthly packages for coaching institutes throughout the year, not just during admission season?",
+    a: "Yes. Annual packages include admission-season Google Ads, ongoing local SEO, monthly social media management, and Google review management. An annual relationship gives your institute compounding SEO benefits, a growing review count, and a social media following that makes each admission season more effective than the last."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",      slug: "alkapuri" },
+  { name: "Gotri",         slug: "gotri" },
+  { name: "Manjalpur",     slug: "manjalpur" },
+  { name: "Sayajigunj",    slug: "sayajigunj" },
+  { name: "Waghodia Road", slug: "waghodia-road" },
+  { name: "Makarpura GIDC",slug: "makarpura-gidc" },
+  { name: "Harni",         slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Coaching Institutes in Fatehgunj, Vadodara | DC technolabs"
+  description="DC technolabs helps Fatehgunj Vadodara coaching institutes and educational businesses grow with admission-season Google Ads, local SEO, website design, and Instagram marketing. Outrank ALLEN and Aakash for local searches. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/fatehgunj"
+  schemaJson={schemaJson}
+
+  badge="Fatehgunj, Vadodara"
+  heroH1="Digital Marketing for Fatehgunj, Vadodara Coaching Institutes"
+  heroHighlight="Fatehgunj, Vadodara"
+  heroDesc="Fatehgunj is Vadodara's education belt, right next to MS University. JEE coaching institutes, language centres, tuition teachers, and student services businesses here compete hard for every admission. We build the digital presence that puts local institutes ahead of ALLEN, Aakash, and other national brands when parents and students search in Vadodara."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Fatehgunj Business"
+  formSub="Coaching institutes and educational businesses get a response within 4 business hours."
+
+  s2Title="Why Fatehgunj Businesses Choose DC technolabs"
+  s2Subtitle="We know the admission calendar, the peak search windows, and the digital tactics that fill coaching seats in Vadodara."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Fatehgunj Businesses"
+  s3Subtitle="Admission-focused digital marketing for coaching institutes, language centres, tuition teachers, and student-facing businesses in Fatehgunj."
+  {services}
+
+  s4Title="Challenges We Solve for Fatehgunj Businesses"
+  s4Subtitle="The most common digital obstacles coaching institutes and educational businesses face in Fatehgunj."
+  {challenges}
+
+  s5Title="Why Fatehgunj Businesses Trust DC technolabs"
+  s5Subtitle="Education sector expertise, admission-season readiness, and enrollment-focused results."
+  {whyCards}
+
+  s6Title="How We Work With Fatehgunj Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Vadodara"
+  {stats}
+
+  s8Title="What Fatehgunj Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our Vadodara coverage spans the entire city. Businesses in nearby areas get the same admission-season focus."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Fatehgunj Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Fill Your Next Admission Batch?"
+  ctaSubtitle="Coaching institutes and educational businesses in Fatehgunj grow faster when parents and students find them first on Google. Get a free consultation and see exactly how we can help your admission numbers."
+/>

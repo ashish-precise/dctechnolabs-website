@@ -101,6 +101,9 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 6. ✅ All 14 individual industry sub-pages — DONE (March 2026) — healthcare, real-estate, ecommerce, education, manufacturing, restaurants, legal, construction, finance, travel, automotive, saas, fashion, ngo
 7. ✅ 8 Ahmedabad neighborhood sub-pages — DONE (March 2026) — satellite, sg-highway, prahlad-nagar, vastrapur, bodakdev, navrangpura, cg-road, maninagar. Uses NeighborhoodPageLayout.astro (wraps PageLayout, 12 sections). Ahmedabad.astro neighborhood cards now link to sub-pages. BaseLayout.astro and PageLayout.astro updated to support named head slot for schema injection.
 8. ✅ 8 Gandhinagar neighborhood sub-pages — DONE (March 2026) — gift-city, infocity, sector-21, sector-7, kudasan, sargasan, adalaj, koba-circle. NeighborhoodPageLayout.astro and LocationPageLayout.astro updated to accept optional citySlug/cityName props (default: ahmedabad/Ahmedabad) for multi-city support. Gandhinagar.astro neighborhood cards now link to sub-pages.
+9. ✅ 8 portfolio case study pages — DONE (March 2026) — lifecare-clinic, gujarat-gems, buildright-infra, freshbasket, crona-group, nis-consulting, edupro-academy, cloudsync-solutions, taste-of-gujarat. All 9 cards on portfolio.astro now have working detail pages.
+10. ✅ 8 Surat neighborhood sub-pages — DONE (March 2026) — varachha, ring-road, vesu, adajan, athwa, katargam, piplod, dumas-road. surat.astro updated with slugs and citySlug="surat" prop.
+11. ✅ 8 Vadodara neighborhood sub-pages — DONE (March 2026) — alkapuri, gotri, manjalpur, fatehgunj, sayajigunj, waghodia-road, makarpura-gidc, harni. vadodara.astro updated with slugs and citySlug="vadodara" prop.
 
 ### DEPLOYMENT STATUS
 
@@ -135,8 +138,10 @@ Neighborhoods covered (with individual sub-pages): Satellite, SG Highway, Vastra
 Neighborhood sub-pages URL pattern: /locations/ahmedabad/[slug]/ (e.g. /locations/ahmedabad/satellite/)
 Business hubs: GIFT City, InfoCity, Science City area
 
-**Other cities:** Gandhinagar, Surat, Vadodara  
-Future sub-pages planned per area (not built yet)
+**Other cities:** Gandhinagar, Surat, Vadodara
+Gandhinagar neighborhoods (with sub-pages): GIFT City, Infocity, Sector 21, Sector 7, Kudasan, Sargasan, Adalaj, Koba Circle — URL pattern: /locations/gandhinagar/[slug]/
+Surat neighborhoods (with sub-pages): Varachha, Ring Road, Vesu, Adajan, Athwa, Katargam, Piplod, Dumas Road — URL pattern: /locations/surat/[slug]/
+Vadodara neighborhoods (with sub-pages): Alkapuri, Gotri, Manjalpur, Fatehgunj, Sayajigunj, Waghodia Road, Makarpura GIDC, Harni — URL pattern: /locations/vadodara/[slug]/
 
 ---
 

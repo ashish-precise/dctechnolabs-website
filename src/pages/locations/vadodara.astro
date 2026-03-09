@@ -78,14 +78,14 @@ const overviewParagraphs: OverviewParagraphs = {
 
 // ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
 const neighborhoods: Neighborhood[] = [
-  { name: "Alkapuri",        types: "Premium retail, showrooms, professionals" },
-  { name: "Gotri",           types: "Healthcare, education, residential services" },
-  { name: "Manjalpur",       types: "Retail, food & beverage, mid-market services" },
-  { name: "Fatehgunj",       types: "Coaching institutes, education, banks" },
-  { name: "Sayajigunj",      types: "Heritage district, hospitality, culture" },
-  { name: "Waghodia Road",   types: "Logistics, industrial, auto dealers" },
-  { name: "Makarpura GIDC",  types: "Engineering, chemical, heavy manufacturing" },
-  { name: "Harni",           types: "Residential services, clinics, retail" },
+  { name: "Alkapuri",        types: "Premium retail, showrooms, professionals",       slug: "alkapuri" },
+  { name: "Gotri",           types: "Healthcare, education, residential services",     slug: "gotri" },
+  { name: "Manjalpur",       types: "Retail, food & beverage, mid-market services",   slug: "manjalpur" },
+  { name: "Fatehgunj",       types: "Coaching institutes, education, banks",           slug: "fatehgunj" },
+  { name: "Sayajigunj",      types: "Heritage district, hospitality, culture",         slug: "sayajigunj" },
+  { name: "Waghodia Road",   types: "Logistics, industrial, auto dealers",             slug: "waghodia-road" },
+  { name: "Makarpura GIDC",  types: "Engineering, chemical, heavy manufacturing",      slug: "makarpura-gidc" },
+  { name: "Harni",           types: "Residential services, clinics, retail",           slug: "harni" },
   { name: "Subhanpura",      types: "Real estate, residential, new developments" },
   { name: "Old Padra Road",  types: "Pharma, labs, professional services" },
   { name: "Sama",            types: "Mixed commercial, logistics, food" },
@@ -189,6 +189,7 @@ const mapInfo: MapInfo = {
 
   s3Title="Every Corner of Vadodara"
   neighborhoods={neighborhoods}
+  citySlug="vadodara"
 
   s4Title="Vadodara Business Problems We Solve"
   challenges={challenges}

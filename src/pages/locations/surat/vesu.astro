@@ -1,0 +1,300 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Vesu businesses in Surat with web design, local SEO, social media marketing, and lead generation for restaurants, IT companies, clinics, and coaching institutes.",
+  "url": "https://dctechnolabs.in/locations/surat/vesu",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.145", "longitude": "72.779" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Vesu, Surat" },
+    { "@type": "Place", "name": "Adajan, Surat" },
+    { "@type": "Place", "name": "Piplod, Surat" },
+    { "@type": "Place", "name": "Dumas Road, Surat" },
+    { "@type": "Place", "name": "Althan, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "Same Day", label: "Response Time" },
+  { value: "92%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Vesu has transformed into Surat's most upmarket residential and commercial corridor over the past decade. Premium restaurants and cafes line VIP Road. IT companies and BPO offices occupy the gleaming commercial towers. Specialist clinics and diagnostic centres have opened to serve the area's affluent residential population. Coaching institutes compete for students from South Surat's most educated families.",
+  "The residents of Vesu are digitally active, research-driven, and have high expectations. Before trying a new restaurant, they check Instagram and Google reviews. Before booking a clinic appointment, they look at the website and online ratings. Before enrolling in a coaching class, parents research the institute extensively online.",
+  "DC technolabs helps Vesu businesses build the digital credibility that this audience expects. We know this market: socially active, premium-sensitive, and making decisions based on online reputation as much as personal recommendations.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🍽️", label: "Premium Restaurants" },
+  { icon: "💻", label: "IT Companies and BPOs" },
+  { icon: "🏥", label: "Clinics and Diagnostics" },
+  { icon: "📚", label: "Coaching Institutes" },
+  { icon: "🛍️", label: "Luxury Retail" },
+  { icon: "🏢", label: "Corporate Offices" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏙️", title: "Surat's Premium Corridor", desc: "Vesu and VIP Road attract Surat's most affluent residents and businesses. The commercial standard here is higher and digital presence is not optional, it is a baseline requirement." },
+  { icon: "📱", title: "Research-First Audience", desc: "Vesu residents check Google, read reviews, and scroll Instagram before making any purchasing decision. Businesses without strong online presence simply do not exist for this demographic." },
+  { icon: "💼", title: "Growing Corporate Economy", desc: "Vesu's IT and BPO sector is expanding. Corporate buyers for software, services, and solutions are active online. B2B lead generation works very well in this part of Surat." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🍽️",
+    title: "Social Media Marketing for Restaurants",
+    desc: "Instagram and Facebook marketing tailored for Vesu's food scene. We create content calendars, run targeted ad campaigns to Vesu and South Surat residents, manage Google reviews, and build the social following that fills your tables every weekend. Many of our restaurant clients see bookings increase within 30 days."
+  },
+  {
+    icon: "💻",
+    title: "Corporate Website Design for IT Firms",
+    desc: "Professional website design for IT companies, software firms, and BPO offices in Vesu's commercial towers. We build credibility-first corporate sites with service pages, case studies, team profiles, and lead generation forms targeted at the decision-makers these firms want to reach."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Clinics and Healthcare",
+    desc: "We fully optimize your clinic's Google Business Profile, build local citations, manage patient reviews, and create SEO content so patients searching 'specialist clinic Vesu' or 'diagnostic centre near VIP Road' find your practice at the top of results."
+  },
+  {
+    icon: "📚",
+    title: "Lead Generation for Coaching Institutes",
+    desc: "Targeted Google Ads and Facebook campaigns reaching parents in Vesu, Piplod, and Adajan who are researching coaching classes for their children. We build landing pages that convert ad clicks into inquiry calls, and we track every lead so you know exactly what is working."
+  },
+  {
+    icon: "📢",
+    title: "PPC and Google Ads Management",
+    desc: "Paid search campaigns for Vesu businesses targeting the premium local audience. We manage budgets from Rs. 15,000 to Rs. 3,00,000 per month with full transparency. Every rupee is tracked and every campaign is optimized for your specific conversion goals."
+  },
+  {
+    icon: "🛒",
+    title: "E-commerce for Retail and Lifestyle Brands",
+    desc: "Vesu's luxury retail and lifestyle brands can now sell across Surat and all of India. We build Shopify and WooCommerce stores with premium design, Razorpay integration, and seamless mobile checkout that reflects the quality of your physical store."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My restaurant gets no reservations through digital channels despite having great food",
+    solution: "Great food is not enough without digital discoverability. We set up your Google Business Profile correctly, create Instagram content that showcases your ambience and dishes, run targeted ads to Vesu residents, and add an online reservation link to every platform. Bookings increase typically within 4 to 6 weeks."
+  },
+  {
+    problem: "Our IT company has a weak website that does not generate any client inquiries",
+    solution: "Most IT company websites are technically fine but fail to convert because they do not communicate value clearly. We redesign your site with a services-first structure, client case studies, trust indicators, and optimised inquiry flows that turn visitors into qualified leads."
+  },
+  {
+    problem: "My clinic is invisible on Google despite being well-established in Vesu for years",
+    solution: "An established offline reputation does not automatically translate to online visibility. We optimise your Google Business Profile, build local citations across medical directories, manage your patient review profile, and create SEO content that gets your clinic ranked for the searches your patients are actually making."
+  },
+  {
+    problem: "Our coaching institute is losing students to competitors who are more active online",
+    solution: "Parents in Vesu research coaching institutes extensively before enrolling. We build a compelling online presence with detailed faculty profiles, student achievement stories, and targeted ad campaigns that reach parents on Google and Facebook when they are actively searching."
+  },
+  {
+    problem: "I have a premium retail store in Vesu but my Instagram looks amateur",
+    solution: "Vesu's lifestyle shoppers judge quality by the visual standard of your social media. We create a consistent, premium content strategy with proper photography direction, captions that sell, and a posting schedule that keeps your brand visible and desirable."
+  },
+  {
+    problem: "We are spending on Google Ads for our BPO but getting very few qualified leads",
+    solution: "B2B PPC for service businesses requires very specific keyword selection and audience targeting. We audit your current campaigns, eliminate wasteful keywords, build dedicated landing pages for each service, and implement proper lead tracking so only qualified business inquiries reach your team."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏙️", title: "Vesu Market Understanding", desc: "We know that Vesu's audience is premium-sensitive and digitally active. Everything we build for your business reflects the quality standard that this neighbourhood expects." },
+  { emoji: "📱", title: "Social Media Excellence", desc: "Our Instagram and Facebook campaigns for Surat's restaurant and retail clients drive real footfall. We understand how to market lifestyle and premium products to Surat's affluent demographic." },
+  { emoji: "⚡", title: "Fast Results", desc: "Most Vesu businesses see their website go live within 14 days. Social media campaigns and Google Ads can run within a week. We do not believe in slow timelines." },
+  { emoji: "💰", title: "Transparent Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. Social media management from Rs. 20,000 per month. Clear, fixed pricing with no surprises." },
+  { emoji: "📊", title: "Data-Driven Decisions", desc: "Every campaign is tracked with proper analytics. You see exactly how many leads each channel generates, what they cost, and how your investment is performing." },
+  { emoji: "🤝", title: "Long-Term Relationship", desc: "Our clients in Surat have been with us for an average of 3 plus years. We grow alongside your business, adapting the strategy as your business evolves and scales." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Vesu business, your target customers, your current online presence, and your goals. Video call or phone. No obligation and no pressure."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a clear proposal covering the exact scope, timeline, and fixed pricing for your business and your market."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "Website, social media setup, SEO, or ad campaigns. We execute everything and get your approval at each stage before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Monthly Reporting",
+    desc: "Every month you see exactly what is working. Leads, rankings, ad performance, and social growth. We optimize continuously based on real data."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "945+", label: "Total Gujarat Projects" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We opened a premium restaurant on VIP Road in Vesu and needed an online presence fast. DC technolabs set up our Google listing, launched our Instagram, and ran targeted ads to Vesu and Adajan residents. Within 6 weeks we had 15,000 Instagram followers and were fully booked every weekend. The work was exceptional.",
+    name: "Fatima Diwan",
+    role: "Restaurant Owner, VIP Road, Vesu",
+    initials: "FD"
+  },
+  {
+    text: "Our IT company in Vesu had a website that looked like it was built in 2012. DC technolabs redesigned the entire site and added proper case study pages and a services breakdown. We started getting 3 to 5 qualified inbound inquiries every month within 90 days of the new site going live.",
+    name: "Kalpesh Mehta",
+    role: "Director, IT Services Company, Vesu",
+    initials: "KM"
+  },
+  {
+    text: "I run a specialist clinic near VIP Road and was not showing up anywhere on Google despite having 400 plus patients. They optimised my Google listing, got me 60 new patient reviews in 3 months, and now I rank in the top 3 results for specialist searches in Vesu. The phone has not stopped ringing.",
+    name: "Dr. Sneha Patel",
+    role: "Specialist Clinic, Vesu, Surat",
+    initials: "SP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Adajan",
+    slug: "adajan",
+    desc: "A large established residential and commercial area with clinics, schools, restaurants, and service businesses serving South Surat families."
+  },
+  {
+    name: "Piplod",
+    slug: "piplod",
+    desc: "An upmarket residential neighbourhood adjacent to Vesu with healthcare facilities, luxury homes, and schools."
+  },
+  {
+    name: "Dumas Road",
+    slug: "dumas-road",
+    desc: "Surat's waterfront leisure corridor with hotels, resorts, restaurants, and weekend destination businesses."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you manage Instagram for our restaurant in Vesu?",
+    a: "Yes. We create a complete social media strategy including content calendar, photo direction, captions, hashtag strategy, and paid ad campaigns targeting Vesu and South Surat residents. Most of our restaurant clients see significant follower growth and booking increases within 30 to 45 days."
+  },
+  {
+    q: "What does a new website for an IT company in Vesu cost?",
+    a: "A professional corporate website for an IT company or BPO, with service pages, case studies, team section, and contact forms, starts at Rs. 35,000. More complex sites with custom portals or client login sections start at Rs. 75,000. We provide a fixed-price quote in your proposal."
+  },
+  {
+    q: "How quickly can you improve my clinic's Google ranking in Vesu?",
+    a: "Google Business Profile optimizations typically show results within 4 to 8 weeks. This includes updated photos, services, hours, posts, and a review acquisition strategy. Organic website SEO for clinic-related searches takes 3 to 6 months to show significant ranking improvements."
+  },
+  {
+    q: "We run a coaching institute in Vesu. Can you help us get more student enrollments?",
+    a: "Yes. We run targeted Google Ads and Facebook campaigns reaching parents in Vesu, Adajan, and Piplod when they are searching for coaching classes. We also build optimised landing pages and inquiry flows that convert ad clicks into actual enrollment inquiries."
+  },
+  {
+    q: "Can you help a luxury retail store in Vesu build an online shop?",
+    a: "Yes. We build Shopify and WooCommerce stores with premium design, proper product photography layout, Razorpay payment integration, and mobile-first checkout. Vesu's lifestyle brands can reach customers across Surat and all of India through a well-built e-commerce store."
+  },
+  {
+    q: "Do you understand how to market to Vesu's premium audience?",
+    a: "Yes. Vesu's residents are socially active, research-driven, and have high aesthetic expectations. We create campaigns and content that matches this audience's standards, premium photography, professional copy, and ad targeting based on income and lifestyle indicators."
+  },
+  {
+    q: "How much does social media management cost for a Vesu business?",
+    a: "Social media management packages start at Rs. 20,000 per month and include content creation, posting schedule, community management, and monthly performance reporting. Paid ad management is available as an add-on starting at Rs. 15,000 per month plus your ad spend."
+  },
+  {
+    q: "We are based in Vesu. Do we need to travel to Ahmedabad to work with you?",
+    a: "Not at all. All our Surat client work is delivered remotely with video calls, WhatsApp updates, and shared project dashboards. We visit Surat quarterly for in-person sessions. The entire process is designed to work seamlessly without any travel required from your side."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",   slug: "varachha" },
+  { name: "Ring Road",  slug: "ring-road" },
+  { name: "Adajan",     slug: "adajan" },
+  { name: "Athwa",      slug: "athwa" },
+  { name: "Katargam",   slug: "katargam" },
+  { name: "Piplod",     slug: "piplod" },
+  { name: "Dumas Road", slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Vesu, Surat | DC technolabs"
+  description="DC technolabs helps Vesu Surat businesses grow online. Social media marketing for restaurants, web design for IT companies, local SEO for clinics, and lead generation for coaching institutes. Free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/vesu"
+  schemaJson={schemaJson}
+
+  citySlug="surat"
+  cityName="Surat"
+
+  badge="Vesu, Surat"
+  heroH1="Digital Marketing for Vesu Businesses in Surat"
+  heroHighlight="Vesu Businesses"
+  heroDesc="Vesu is Surat's most upmarket residential and commercial corridor. Premium restaurants, IT companies, specialist clinics, and coaching institutes serve a digitally active, research-driven audience. We help Vesu businesses build the online presence that this audience expects and trusts."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Vesu Business"
+  formSub="Vesu businesses get a response the same business day."
+
+  s2Title="Why Vesu Businesses Need a Strong Digital Presence"
+  s2Subtitle="Vesu residents check Instagram, read Google reviews, and research extensively before spending. If you are not visible online, you are invisible to this audience."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Vesu Businesses"
+  s3Subtitle="From restaurant social media to IT company websites, we offer every digital service Vesu businesses need to attract and convert their local audience."
+  {services}
+
+  s4Title="Challenges We Solve for Vesu Businesses"
+  s4Subtitle="These are the most common digital challenges we hear from restaurants, clinics, IT firms, and coaching institutes in Vesu."
+  {challenges}
+
+  s5Title="Why Vesu Businesses Trust DC technolabs"
+  s5Subtitle="We understand Surat's premium market and build digital strategies that fit the expectations of Vesu's audience."
+  {whyCards}
+
+  s6Title="How We Work With Vesu Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gujarat"
+  {stats}
+
+  s8Title="What Surat Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across South Surat. If your customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Vesu Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your Vesu Business Online?"
+  ctaSubtitle="Get a free consultation and a fixed-price proposal within 24 hours. We understand Vesu's premium market and know how to build digital presence that this audience trusts."
+/>

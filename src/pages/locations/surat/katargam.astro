@@ -1,0 +1,298 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Katargam businesses in Surat with web design, B2B SEO, and lead generation for textile manufacturers, power loom units, and fabric traders.",
+  "url": "https://dctechnolabs.in/locations/surat/katargam",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.221", "longitude": "72.851" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Katargam, Surat" },
+    { "@type": "Place", "name": "Udhna, Surat" },
+    { "@type": "Place", "name": "Sarthana, Surat" },
+    { "@type": "Place", "name": "Varachha, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "24 hrs", label: "Proposal Delivery" },
+  { value: "3.8x", label: "Average Lead Increase" },
+];
+
+const s2Body: string[] = [
+  "Katargam is the beating heart of Surat's textile industry. Power loom units, weaving mills, fabric manufacturers, yarn traders, and dyeing units operate here in dense industrial clusters. This is where India's reputation as a textile powerhouse is earned, roll of fabric by roll of fabric, shift by shift.",
+  "Despite generating hundreds of crores in trade every year, the vast majority of Katargam's textile businesses have almost no digital presence. They operate through trader networks and personal relationships built over decades. But the next generation of buyers, both domestic and international, now searches online before picking up the phone.",
+  "We help Katargam manufacturers and traders build the digital infrastructure they need to win new business in a changing market. From B2B trade websites that impress bulk buyers to SEO that surfaces your mill when importers search online, we bring Katargam's industrial output to the world.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🧵", label: "Power Loom Units" },
+  { icon: "🏭", label: "Weaving Mills" },
+  { icon: "🎨", label: "Dyeing Units" },
+  { icon: "📦", label: "Yarn Traders" },
+  { icon: "🧶", label: "Fabric Manufacturers" },
+  { icon: "🚚", label: "Textile Exporters" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏭", title: "Industrial Textile Heartland", desc: "Katargam houses thousands of power loom units and weaving operations. It is Surat's most densely industrialised textile zone, producing fabric that reaches markets across India and beyond." },
+  { icon: "🌍", title: "Export-Ready Businesses", desc: "Many Katargam manufacturers export to buyers in Gujarat, Maharashtra, Delhi, and internationally. A professional B2B website and export-targeted SEO opens doors that word-of-mouth alone cannot." },
+  { icon: "📱", title: "Zero Digital Presence", desc: "Most Katargam businesses have no website and minimal online identity. This is the biggest gap and the biggest opportunity. First movers in Katargam's digital space will capture the most new trade buyer inquiries." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "B2B Trade Websites for Textile Manufacturers",
+    desc: "Professional websites for Katargam power loom units and weaving mills that communicate your production capacity, fabric types, MOQs, and certifications to serious trade buyers. We design for the B2B buyer's decision-making process, not for casual browsing."
+  },
+  {
+    icon: "🔍",
+    title: "B2B and Export SEO",
+    desc: "We rank your Katargam business for search terms used by fabric importers, garment manufacturers, and wholesale buyers across India and internationally. When a buyer in Mumbai or a trader in Dubai searches for your fabric type, your website appears."
+  },
+  {
+    icon: "📦",
+    title: "Bulk Order and Enquiry Portals",
+    desc: "Custom inquiry systems built into your website where trade buyers can specify fabric type, quantity, weave, finish, and delivery requirements. Your sales team gets structured inquiries instead of disorganised WhatsApp messages."
+  },
+  {
+    icon: "🌍",
+    title: "International Digital Presence",
+    desc: "Export-oriented web content in English targeting international markets, international SEO targeting buyers in Southeast Asia, Europe, and the Middle East, and professional presentation that signals world-class manufacturing quality."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Trade Lead Generation",
+    desc: "Targeted Google Ads reaching fabric importers and wholesale buyers when they are actively searching for manufacturers. We run campaigns specifically for B2B intent keywords, not consumer traffic, so every click is a potential trade inquiry."
+  },
+  {
+    icon: "💼",
+    title: "IndiaMart and B2B Platform Optimisation",
+    desc: "Many Katargam manufacturers have IndiaMart listings that are incomplete or poorly optimised. We improve your B2B marketplace presence alongside building your own website so you capture inquiries from every channel."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "We have been running on word-of-mouth for 20 years but new buyers are not reaching us",
+    solution: "Your long-standing buyers know you well. But the next generation of procurement managers searches online before calling anyone. We build your digital presence so new buyers find your Katargam unit when they search for your fabric type or weave, even if they have never heard of you before."
+  },
+  {
+    problem: "International buyers find us through agents who take big commissions",
+    solution: "A professional export-oriented website with international SEO can generate direct inquiries from overseas buyers, cutting out agents and improving your margins. We have built websites for Surat manufacturers that receive inquiries from buyers in Europe and Southeast Asia within the first year."
+  },
+  {
+    problem: "We have no website and do not know where to start",
+    solution: "We make the process straightforward. You provide your business details, fabric types, capacity, and photos. We handle everything else, the design, the content, the SEO setup, the Google Business Profile, and the hosting. You review and approve before anything goes live."
+  },
+  {
+    problem: "Buyers ask for a website and we have none, costing us deals",
+    solution: "This is one of the most direct ROI cases we see. A professional website is now a basic requirement for serious trade buyers to consider a manufacturer. We deliver B2B manufacturer websites in 14 days so you can share a link in your next buyer conversation."
+  },
+  {
+    problem: "Our IndiaMart inquiries are low quality and we get too many from small retailers",
+    solution: "We restructure your IndiaMart profile and your own website to attract wholesale buyers and serious trade partners, while filtering out small or non-serious inquiries. Better qualification starts at the digital touchpoint before anyone contacts you."
+  },
+  {
+    problem: "Our dyeing unit serves specific fabric types and we cannot reach niche buyers",
+    solution: "Niche B2B SEO is actually easier to win than broad terms. We target very specific search phrases used by buyers who need your exact dyeing or printing capability. This generates fewer but far higher-quality inquiries from buyers already looking for what you offer."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🧵", title: "Textile Industry Knowledge", desc: "We understand power looms, weave types, fabric certifications, and the B2B buying cycle in India's textile trade. We do not need a crash course in your industry when we work with you." },
+  { emoji: "⚡", title: "Fast B2B Website Delivery", desc: "B2B manufacturer websites go live within 14 days of content approval. We know time is money in manufacturing and we do not slow you down." },
+  { emoji: "🌍", title: "Export-Focused SEO Expertise", desc: "We have experience building international digital presence for Gujarat manufacturers. We know how to target buyers in key export markets and what content earns trust with overseas procurement teams." },
+  { emoji: "💰", title: "Fixed, Transparent Pricing", desc: "B2B websites from Rs. 35,000. Export SEO from Rs. 30,000 per month. No hidden fees, no ongoing obligations beyond what you see in the proposal." },
+  { emoji: "📞", title: "Direct Access, No Middlemen", desc: "Your project manager is reachable on WhatsApp and phone. If something needs clarifying about your production process or fabric range, we talk directly. No tickets, no delays." },
+  { emoji: "📈", title: "Trade Inquiry Growth", desc: "Our Surat textile clients see meaningful growth in qualified B2B inquiries within 6 months of launch. We track inquiry volume and quality, not just website traffic numbers." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Industry Consultation",
+    desc: "We learn about your Katargam operation: fabric types, production capacity, current buyer mix, target markets, and digital goals. No generic forms, a real conversation."
+  },
+  {
+    step: "2",
+    title: "B2B Strategy and Proposal",
+    desc: "Within 24 hours you receive a tailored proposal covering your B2B website, SEO approach, and target markets. Fixed pricing, clear timeline, no surprises."
+  },
+  {
+    step: "3",
+    title: "Build and Optimise",
+    desc: "We design your website, write trade-focused content, set up your inquiry system, and handle all the technical SEO. You approve at every stage."
+  },
+  {
+    step: "4",
+    title: "Launch and Generate Inquiries",
+    desc: "Once live, we continue with monthly SEO and reporting. You receive a monthly breakdown of inquiry volume, search rankings, and recommended next steps."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "94%",  label: "First-Page Google Rankings" },
+  { value: "3.8x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our weaving mill in Katargam has been operating for 18 years without a website. DC technolabs built us a proper B2B site in 12 days. We started getting inquiries from buyers in Rajasthan and Maharashtra within the first month. We wish we had done this years ago.",
+    name: "Ramesh Bhatt",
+    role: "Owner, Weaving Mill, Katargam, Surat",
+    initials: "RB"
+  },
+  {
+    text: "We export fabric and were spending heavily on agents to reach international buyers. DC technolabs built an export-focused website with English content and international SEO. We now receive direct inquiries from buyers in Dubai and Bangladesh without any agent involvement.",
+    name: "Kamlesh Patel",
+    role: "Director, Fabric Exporter, Katargam",
+    initials: "KP"
+  },
+  {
+    text: "Our dyeing unit had no online presence at all. The whole digital setup DC technolabs delivered, website, Google listing, and targeted SEO for dyeing services, has brought us 6 new trade clients in 5 months. The investment paid for itself twice over.",
+    name: "Suresh Vaishnav",
+    role: "Proprietor, Dyeing Unit, Katargam, Surat",
+    initials: "SV"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Varachha",
+    slug: "varachha",
+    desc: "Surat's diamond trading heartland, adjacent to Katargam. We work with diamond firms and wholesale traders throughout Varachha."
+  },
+  {
+    name: "Ring Road",
+    slug: "ring-road",
+    desc: "Surat's main textile and fabric market corridor. We serve manufacturers, wholesalers, and garment traders across the Ring Road stretch."
+  },
+  {
+    name: "Adajan",
+    slug: "adajan",
+    desc: "A major residential area neighbouring Katargam, with clinics, coaching institutes, and retail businesses across the digital marketing spectrum."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you have experience marketing for power loom units and weaving mills?",
+    a: "Yes. We have worked with textile manufacturers, fabric exporters, and weaving operations in Surat. We understand the B2B buying cycle, the importance of production capacity and certifications, and how to present a manufacturing business to serious trade buyers."
+  },
+  {
+    q: "What does a B2B manufacturer website cost for a Katargam unit?",
+    a: "A professional B2B website for a power loom unit or weaving mill, including product catalogue, inquiry system, company profile, certifications page, and SEO setup, starts at Rs. 35,000. Export-oriented versions with English content and international SEO are available from Rs. 50,000."
+  },
+  {
+    q: "How quickly can you deliver a B2B website for our textile business?",
+    a: "14 days from content approval. We prepare a content brief, you provide your details and factory photos, we handle the rest. Most Katargam manufacturer websites are live within 2 weeks of the first meeting."
+  },
+  {
+    q: "Can you help us rank on Google for fabric and textile search terms?",
+    a: "Yes. We do both local B2B SEO for domestic buyers and international SEO for export markets. Local terms like 'fabric manufacturer Surat' or 'power loom Katargam' can rank within 60 to 90 days. International terms take longer but generate high-value inquiries from serious buyers."
+  },
+  {
+    q: "We sell through IndiaMart. Can you improve our performance there?",
+    a: "Yes. We optimise IndiaMart company profiles, product listings, and inquiry response systems. We also build your own website so you are not entirely dependent on one platform, and we run SEO that drives direct inquiries independently of IndiaMart."
+  },
+  {
+    q: "Can you help us reach international fabric importers?",
+    a: "Yes. We build export-oriented websites with English-first content, international SEO targeting buyers in Southeast Asia, Europe, and the Middle East, and professional design that signals manufacturing credibility. Several Surat exporters we work with now receive direct overseas inquiries regularly."
+  },
+  {
+    q: "How do you work with Katargam businesses remotely?",
+    a: "Smoothly. We handle everything digitally with video consultations, WhatsApp approvals, and shared project dashboards. We also make quarterly visits to Surat for clients who prefer in-person meetings. Most Katargam clients find the remote process faster and more convenient."
+  },
+  {
+    q: "We are a yarn trader, not a manufacturer. Can you help our kind of business?",
+    a: "Absolutely. B2B trade websites and SEO work just as well for yarn traders, fabric wholesalers, and textile agents as they do for manufacturers. We tailor the content and inquiry system to your specific trade role and the types of buyers you want to attract."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",    slug: "varachha" },
+  { name: "Ring Road",   slug: "ring-road" },
+  { name: "Vesu",        slug: "vesu" },
+  { name: "Adajan",      slug: "adajan" },
+  { name: "Athwa",       slug: "athwa" },
+  { name: "Piplod",      slug: "piplod" },
+  { name: "Dumas Road",  slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing for Katargam Textile Businesses, Surat | DC technolabs"
+  description="DC technolabs helps Katargam Surat textile manufacturers, power loom units, and fabric exporters build B2B websites, rank on Google, and generate new trade buyer inquiries. Get a free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/katargam"
+  schemaJson={schemaJson}
+
+  badge="Katargam, Surat"
+  heroH1="B2B Digital Marketing for Katargam, Surat"
+  heroHighlight="Katargam, Surat"
+  heroDesc="Katargam's power loom units and weaving mills produce fabric that reaches markets across India and the world. We help these manufacturers build the digital presence they need to win new trade buyers, including international importers, without relying solely on agents and word-of-mouth."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Katargam Business"
+  formSub="Textile manufacturers and traders get a response within 24 hours."
+
+  s2Title="Why Katargam Manufacturers Choose DC technolabs"
+  s2Subtitle="We understand Surat's textile trade and how B2B buyers make purchasing decisions in this industry."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Katargam Textile Businesses"
+  s3Subtitle="B2B digital marketing built for manufacturers, exporters, and traders in Surat's textile heartland."
+  {services}
+
+  s4Title="Challenges We Solve for Katargam Businesses"
+  s4Subtitle="These are the most common problems we hear from textile manufacturers and traders across Katargam."
+  {challenges}
+
+  s5Title="Why Katargam Businesses Trust DC technolabs"
+  s5Subtitle="B2B expertise, textile industry knowledge, and a track record of generating real trade inquiries."
+  {whyCards}
+
+  s6Title="How We Work With Katargam Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Surat"
+  {stats}
+
+  s8Title="What Surat Textile Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our Surat coverage extends across all textile and industrial zones. If your buyers come from these areas, we cover them."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Katargam Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="surat"
+  cityName="Surat"
+
+  ctaTitle="Ready to Bring Your Katargam Business Online?"
+  ctaSubtitle="Join Surat's textile manufacturers who are winning new trade buyers through digital marketing. Get a free B2B website and SEO consultation with no obligation."
+/>

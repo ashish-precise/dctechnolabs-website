@@ -78,14 +78,14 @@ const overviewParagraphs: OverviewParagraphs = {
 
 // ── §3 NEIGHBORHOODS ─────────────────────────────────────────────────────────
 const neighborhoods: Neighborhood[] = [
-  { name: "Varachha",       types: "Diamond industry, trading, wholesale" },
-  { name: "Ring Road",      types: "Textile markets, fabric, garments" },
-  { name: "Vesu",           types: "IT/BPO, restaurants, premium retail" },
-  { name: "Adajan",         types: "Residential services, clinics, education" },
-  { name: "Athwa",          types: "Banks, showrooms, professional services" },
-  { name: "Katargam",       types: "Textile weaving, power loom, manufacturing" },
-  { name: "Piplod",         types: "Healthcare, luxury residential, schools" },
-  { name: "Dumas Road",     types: "Hospitality, tourism, waterfront dining" },
+  { name: "Varachha",       types: "Diamond industry, trading, wholesale",        slug: "varachha" },
+  { name: "Ring Road",      types: "Textile markets, fabric, garments",            slug: "ring-road" },
+  { name: "Vesu",           types: "IT/BPO, restaurants, premium retail",          slug: "vesu" },
+  { name: "Adajan",         types: "Residential services, clinics, education",     slug: "adajan" },
+  { name: "Athwa",          types: "Banks, showrooms, professional services",      slug: "athwa" },
+  { name: "Katargam",       types: "Textile weaving, power loom, manufacturing",  slug: "katargam" },
+  { name: "Piplod",         types: "Healthcare, luxury residential, schools",      slug: "piplod" },
+  { name: "Dumas Road",     types: "Hospitality, tourism, waterfront dining",      slug: "dumas-road" },
   { name: "Althan",         types: "Pharma, chemical, industrial estates" },
   { name: "Udhna",          types: "Dyeing & printing, industrial, export" },
   { name: "Majura Gate",    types: "Commercial markets, wholesale trade" },
@@ -189,6 +189,7 @@ const mapInfo: MapInfo = {
 
   s3Title="Every Corner of Surat"
   neighborhoods={neighborhoods}
+  citySlug="surat"
 
   s4Title="Surat Business Problems We Solve"
   challenges={challenges}

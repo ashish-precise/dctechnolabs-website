@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Sayajigunj businesses in Vadodara with web design, SEO, PPC, and social media marketing for hotels, event companies, heritage tourism, and corporate training institutes.",
+  "url": "https://dctechnolabs.in/locations/vadodara/sayajigunj",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.3119", "longitude": "73.1863" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Sayajigunj, Vadodara" },
+    { "@type": "Place", "name": "RC Dutt Road, Vadodara" },
+    { "@type": "Place", "name": "Dandia Bazaar, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",   label: "Vadodara Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Sayajigunj is the historic and commercial heart of Vadodara. The area around Sayaji Baug, the railway station, RC Dutt Road, and the Laxmi Vilas Palace corridor sees a constant mix of hotel guests, corporate travellers, government officials, heritage tourists, and local shoppers. No other locality in Baroda carries this combination of heritage prestige and modern commercial activity.",
+  "Hotels and guest houses here compete with OTA platforms that take a 15 to 30 percent cut on every booking. Event management companies and corporate training institutes run mostly on referrals, which means they go quiet the moment referrals dry up. Heritage tourism operators have an extraordinary product but minimal digital visibility for the searches that could bring them visitors.",
+  "We have worked with hospitality and cultural businesses across Gujarat since 2018. We understand what it takes to build a direct booking engine, an enquiry funnel for B2B event buyers, and a local SEO presence that captures the tourist searches Sayajigunj businesses deserve.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏨", label: "Hotels and Guest Houses" },
+  { icon: "🎭", label: "Event Management Companies" },
+  { icon: "🏛️", label: "Heritage Tourism Operators" },
+  { icon: "🎓", label: "Corporate Training Institutes" },
+  { icon: "🏛️", label: "Government Contractors" },
+  { icon: "🍽️", label: "Upscale Restaurants" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏛️", title: "Heritage and Hospitality Hub", desc: "Sayajigunj sits between Laxmi Vilas Palace, Sayaji Baug, and Vadodara railway station, attracting heritage tourists, corporate guests, and cultural visitors year-round." },
+  { icon: "🏨", title: "Hotel OTA Dependency Problem", desc: "Most Sayajigunj hotels pay 15 to 30 percent commission to OTAs on every booking. A direct booking website with Google Ads cuts that cost dramatically." },
+  { icon: "🎓", title: "B2B Corporate Segment", desc: "Corporate training institutes and event companies near Sayajigunj serve large clients but win most work through referrals. A strong B2B digital presence opens an entirely new acquisition channel." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Hotel and Hospitality Websites",
+    desc: "Professional hotel websites with online booking integration, room galleries, amenity pages, and direct inquiry forms. We build sites that convert Google searchers into direct bookings, bypassing OTA commissions entirely."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Sayajigunj",
+    desc: "We rank your business when tourists and corporate travellers search for 'hotels near Vadodara railway station', 'heritage stays in Baroda', or 'things to do in Vadodara'. Sayajigunj has a strong search opportunity that few businesses are capturing."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Direct Bookings",
+    desc: "Targeted search campaigns that reach guests at the exact moment they are booking their Vadodara trip. We run ads for heritage stays, business hotels, and event venues, keeping budgets tight and conversions high."
+  },
+  {
+    icon: "🎭",
+    title: "Event and Training Company Websites",
+    desc: "B2B websites for event management companies and corporate training institutes that showcase credentials, past clients, and service capabilities to procurement decision-makers. Designed to generate qualified B2B enquiries, not just showcase work."
+  },
+  {
+    icon: "📱",
+    title: "Social Media for Heritage Tourism",
+    desc: "Instagram and Facebook content that showcases Vadodara's heritage through your brand. Heritage tourism content performs exceptionally well organically and with paid promotion when done with genuine local context."
+  },
+  {
+    icon: "📊",
+    title: "Reputation Management and Reviews",
+    desc: "For hotels and restaurants in Sayajigunj, online ratings on Google and TripAdvisor directly determine booking decisions. We build review generation systems and respond to feedback professionally to protect and improve your ratings."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our hotel depends entirely on MakeMyTrip and OYO for bookings",
+    solution: "We build a professional direct booking website, set up Google Hotel Ads, and run search campaigns that capture guests before they reach OTA platforms. Most Sayajigunj hotels reduce OTA dependency by 30 to 40 percent within 6 months."
+  },
+  {
+    problem: "Our event company gets no new clients outside referrals",
+    solution: "We build a B2B website that demonstrates your credentials, showcases past events with case studies, and targets corporate HR and admin decision-makers in Vadodara and nearby cities through Google and LinkedIn."
+  },
+  {
+    problem: "Tourists visit Laxmi Vilas Palace but don't find our heritage walk or tour service",
+    solution: "We optimise your Google Business Profile and website for 'things to do in Vadodara' and 'Vadodara heritage tour' searches. These are high-intent searches where strong SEO and good reviews directly translate to bookings."
+  },
+  {
+    problem: "Our corporate training institute has no online presence for B2B lead generation",
+    solution: "We create a professional website with course listings, trainer profiles, past client logos, and a clear enquiry funnel. Combined with LinkedIn and Google Ads targeting HR professionals, this generates consistent B2B enquiries."
+  },
+  {
+    problem: "Our restaurant near RC Dutt Road is invisible to hotel guests and visitors",
+    solution: "We optimise your Google listing so you appear in 'restaurants near Sayajigunj' and 'dinner in Vadodara' searches. We also build a simple website with your menu and add you to Swiggy, Zomato, and Google Maps properly."
+  },
+  {
+    problem: "We have no way to measure which marketing activities bring guests",
+    solution: "We set up proper tracking across your website, Google Ads, and social channels. You see exactly how many visitors came from which channel, what they looked at, and how many made a booking or sent an inquiry."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏨", title: "Hospitality Marketing Expertise", desc: "We have worked with hotels, guest houses, and event venues across Gujarat. We know the OTA ecosystem, the direct booking funnel, and the digital habits of both leisure and corporate travellers." },
+  { emoji: "🏛️", title: "Heritage Tourism Experience", desc: "Vadodara's heritage tourism segment is genuinely unique in Gujarat. We understand the search intent, the audience, and the content that converts cultural interest into bookings and inquiries." },
+  { emoji: "⚡", title: "Fast Turnaround", desc: "Hotel and hospitality websites go live in 14 days. SEO improvements are visible within 60 days. B2B campaigns start generating enquiries within the first month of launch." },
+  { emoji: "💰", title: "Transparent Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. Hotel website with booking integration from Rs. 45,000. No hidden fees and no OTA-style commission structures on your success." },
+  { emoji: "📞", title: "Direct Access to Your Team", desc: "Your project manager is reachable by phone and WhatsApp. For hospitality businesses, responsive support matters because guest season doesn't follow a 9-to-5 schedule." },
+  { emoji: "📈", title: "ROI We Can Prove", desc: "We track direct bookings, enquiry form submissions, and Google Maps calls. Every rupee of your marketing budget is accountable to a measurable outcome." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We review your current online presence, discuss your Sayajigunj business goals, and assess the specific opportunities available in your segment, whether hotel, events, heritage tourism, or training."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a clear proposal covering scope, timeline, pricing, and the specific strategy for your business. No generic packages, every proposal is specific to your Sayajigunj context."
+  },
+  {
+    step: "3",
+    title: "Build and Optimise",
+    desc: "We build your website or campaign and optimise your Google presence. You approve before anything goes live. For hotels, we integrate your booking system before launch."
+  },
+  {
+    step: "4",
+    title: "Results and Growth",
+    desc: "Monthly reporting shows direct bookings, enquiries, and ranking movements. We refine the strategy based on what your Sayajigunj market responds to most, so results compound over time."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Area Clients" },
+  { value: "93%",  label: "First-Page Google Rankings" },
+  { value: "3.5x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were paying MakeMyTrip over Rs. 2 lakh a month in commissions. DC technolabs built us a proper booking website and ran Google Ads for 4 months. Our direct bookings now cover 40 percent of occupancy. The savings paid for the campaign ten times over.",
+    name: "Rakesh Mehta",
+    role: "Hotel Owner, Sayajigunj, Vadodara",
+    initials: "RM"
+  },
+  {
+    text: "Our event management company was entirely dependent on referrals. The B2B website they built positioned us properly and the Google Ads campaign brought 6 qualified corporate enquiries in the first 2 months. Three converted into real contracts.",
+    name: "Sneha Joshi",
+    role: "Director, Event Management Company, Vadodara",
+    initials: "SJ"
+  },
+  {
+    text: "We run heritage walks and cultural tours in Vadodara. Before DC technolabs, tourists found us only through word of mouth. Now we rank on page one for Vadodara heritage searches and our bookings have doubled since last season.",
+    name: "Mihir Rao",
+    role: "Heritage Tourism Operator, Sayajigunj",
+    initials: "MR"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Alkapuri",
+    slug: "alkapuri",
+    desc: "Vadodara's premium commercial and professional services hub, minutes from Sayajigunj. Showrooms, financial services, and upscale retail."
+  },
+  {
+    name: "Fatehgunj",
+    slug: "fatehgunj",
+    desc: "Education corridor near MS University. Coaching institutes, colleges, and student-oriented services adjacent to Sayajigunj."
+  },
+  {
+    name: "Gotri",
+    slug: "gotri",
+    desc: "Growing healthcare and residential area on the west side of Vadodara, serving families across the city."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help our hotel reduce OTA dependency and increase direct bookings?",
+    a: "Yes. We build professional hotel websites with integrated booking functionality, set up Google Hotel Ads, and run search campaigns targeting guests at the moment they are planning their Vadodara trip. Most Sayajigunj hotel clients reduce OTA dependency by 30 to 40 percent within 6 months of a properly executed direct booking strategy."
+  },
+  {
+    q: "What does a hotel website with booking integration cost?",
+    a: "A professional hotel website with room galleries, booking enquiry form, amenity pages, Google Maps integration, and SEO setup starts at Rs. 45,000. If you want a full online booking engine with payment processing, packages start at Rs. 75,000. Both options pay for themselves within a few months of reduced OTA commissions."
+  },
+  {
+    q: "Can you help our corporate training institute generate B2B leads?",
+    a: "Yes. We build B2B-focused websites that position your training institute credibly for corporate HR and L&D decision-makers. Combined with Google Ads and LinkedIn campaigns targeting companies in Vadodara and nearby industrial areas like Makarpura, we generate consistent qualified enquiries for training programmes."
+  },
+  {
+    q: "Can heritage tourism operators in Sayajigunj rank on Google for tourist searches?",
+    a: "Absolutely. Searches like 'things to do in Vadodara', 'Vadodara heritage walk', and 'Baroda palace tour' have real search volume and most tourism operators have weak SEO. We optimise your Google Business Profile, build a proper website, and create content targeting these searches. Results show within 60 to 90 days."
+  },
+  {
+    q: "Do you handle restaurant digital marketing for upscale dining in Sayajigunj?",
+    a: "Yes. We handle Google Business Profile optimisation, a restaurant website with your menu, Swiggy and Zomato listing optimisation, and Instagram content for dining establishments in Sayajigunj. Restaurants near the palace and Sayaji Baug have strong tourism footfall to capture digitally."
+  },
+  {
+    q: "How quickly can you launch a website for our Sayajigunj business?",
+    a: "Standard business websites launch within 14 days of project kickoff. Hotel websites with booking integration take 18 to 21 days. All work is approved by you before going live and we include one round of revisions at no extra cost."
+  },
+  {
+    q: "Do you work with government contractors based in Sayajigunj?",
+    a: "Yes. Government contractors need credibility-first websites and sometimes basic SEO to support their tendering credentials. We have built websites for contractors who need to demonstrate capability, certifications, and past project records to government procurement teams."
+  },
+  {
+    q: "Can you improve our hotel's Google and TripAdvisor ratings?",
+    a: "We build reputation management systems that consistently prompt happy guests to leave reviews on Google and TripAdvisor, while helping you respond professionally to negative feedback. Better ratings directly increase booking rates. Most hotel clients see a 0.3 to 0.5 star improvement within 6 months."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",       slug: "alkapuri" },
+  { name: "Gotri",          slug: "gotri" },
+  { name: "Manjalpur",      slug: "manjalpur" },
+  { name: "Fatehgunj",      slug: "fatehgunj" },
+  { name: "Waghodia Road",  slug: "waghodia-road" },
+  { name: "Makarpura GIDC", slug: "makarpura-gidc" },
+  { name: "Harni",          slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Sayajigunj, Vadodara | DC technolabs"
+  description="DC technolabs helps Sayajigunj Vadodara businesses grow online. Hotels, heritage tourism operators, event companies, and corporate training institutes. Reduce OTA dependency, generate B2B leads, and rank on Google. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/sayajigunj"
+  schemaJson={schemaJson}
+
+  badge="Sayajigunj, Vadodara"
+  heroH1="Digital Marketing for Sayajigunj, Vadodara Businesses"
+  heroHighlight="Sayajigunj, Vadodara"
+  heroDesc="Hotels cutting OTA commissions with direct bookings. Heritage tourism operators ranking on Google. Event companies winning B2B clients. Sayajigunj businesses deserve digital marketing that matches the prestige of Baroda's heritage district."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Sayajigunj Business"
+  formSub="Sayajigunj businesses get a response within 4 hours."
+
+  s2Title="Sayajigunj: Where Baroda's Heritage Meets Modern Commerce"
+  s2Subtitle="Hotels, event companies, heritage tourism, and corporate training all operate in the same prestigious Sayajigunj corridor. Each needs a different digital strategy."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Sayajigunj Businesses"
+  s3Subtitle="From direct hotel bookings to B2B event enquiries and heritage tourism SEO, we cover every digital channel that matters for the Sayajigunj market."
+  {services}
+
+  s4Title="Challenges We Solve for Sayajigunj Businesses"
+  s4Subtitle="These are the most common problems we hear from hospitality, tourism, and professional services businesses across the Sayajigunj corridor."
+  {challenges}
+
+  s5Title="Why Sayajigunj Businesses Trust DC technolabs"
+  s5Subtitle="Hospitality marketing, heritage tourism SEO, and B2B lead generation in one team."
+  {whyCards}
+
+  s6Title="How We Work With Sayajigunj Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record in Vadodara"
+  {stats}
+
+  s8Title="What Sayajigunj Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Vadodara Areas"
+  s9Subtitle="Our coverage extends across Vadodara. If your guests, clients, or customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Sayajigunj Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Grow Your Sayajigunj Business Online?"
+  ctaSubtitle="Join Vadodara businesses who trust DC technolabs for hospitality marketing, heritage tourism SEO, and B2B lead generation. Get a free consultation with no obligation."
+/>

@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Manjalpur businesses in Vadodara with local SEO, Google Business Profile, Instagram marketing, Google Ads, and website design for retail shops, salons, restaurants, and service businesses.",
+  "url": "https://dctechnolabs.in/locations/vadodara/manjalpur",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.277", "longitude": "73.195" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 15,000 - Rs. 2,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Manjalpur, Vadodara" },
+    { "@type": "Place", "name": "Sama, Vadodara" },
+    { "@type": "Place", "name": "Waghodia Road, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Manjalpur is one of Vadodara's largest and most densely populated residential and commercial areas. The high street is lined with retail shops, mobile and electronics showrooms, salons, grocery stores, snack bars, local clinics, courier services, and gyms. The population density here is high, and foot traffic is strong, but the businesses that truly grow are the ones that show up online when residents search.",
+  "A resident in Manjalpur looking for a salon, a gym, or a good thali restaurant will open Google before they step outside. If your business is not on Google Maps with recent photos and reviews, you are invisible to a significant portion of your potential customers.",
+  "We work with small and mid-sized local businesses across Gujarat's high-density residential corridors. We understand the budgets available, the type of content that works, and the specific tactics like hyperlocal Google Ads, WhatsApp Business, and Instagram that move the needle for Manjalpur businesses."
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🛍️", label: "Retail Shops" },
+  { icon: "📱", label: "Mobile and Electronics" },
+  { icon: "💇", label: "Salons and Beauty Parlours" },
+  { icon: "🍽️", label: "Restaurants and Snack Bars" },
+  { icon: "🏥", label: "Local Clinics" },
+  { icon: "📦", label: "Courier and Delivery" },
+  { icon: "💪", label: "Gyms and Fitness Centres" },
+  { icon: "🏪", label: "Grocery and Kirana Stores" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏘️", title: "High Population Density", desc: "Manjalpur's dense residential layout means a large potential customer base within walking distance. Digital visibility turns that footfall potential into actual customers." },
+  { icon: "📱", title: "Mobile-First Consumer Behaviour", desc: "Manjalpur residents search on mobile for nearby salons, restaurants, and service providers. Google Maps and Instagram are the two channels that matter most here." },
+  { icon: "💬", title: "WhatsApp-Driven Local Commerce", desc: "Many Manjalpur transactions start on WhatsApp. A professional WhatsApp Business presence, combined with Google visibility, is the most effective foundation for local business growth." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🗺️",
+    title: "Google Business Profile and Local SEO",
+    desc: "We fully set up and optimize your Google Business Profile so you appear when Manjalpur residents search for your service category nearby. Photos, services, hours, categories, and review management all handled."
+  },
+  {
+    icon: "📱",
+    title: "Instagram Marketing for Salons and Restaurants",
+    desc: "Salons and restaurants in Manjalpur grow fastest on Instagram. We create content calendars, manage posting, run targeted ads to nearby pin codes, and grow your local following with real, engaged customers."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp Business Setup and Marketing",
+    desc: "We set up your WhatsApp Business profile, create a product catalogue, and build WhatsApp broadcast lists so repeat customers keep ordering and booking through the most convenient channel in India."
+  },
+  {
+    icon: "📢",
+    title: "Hyperlocal Google Ads",
+    desc: "Targeted Google Ads campaigns with a radius of 3 to 5 km around your Manjalpur location. We reach residents who are actively searching for exactly what you offer, with budgets as low as Rs. 10,000 per month."
+  },
+  {
+    icon: "🌐",
+    title: "Simple, Mobile-First Websites",
+    desc: "Not every Manjalpur business needs a complex website, but every business needs something that works on mobile. We build clean, fast websites with your services, photos, and contact details starting at Rs. 15,000."
+  },
+  {
+    icon: "🛒",
+    title: "Swiggy and Zomato Platform Optimization",
+    desc: "Manjalpur restaurants on Swiggy and Zomato need better food photos, accurate menu descriptions, and an active review response strategy. We optimize your delivery platform presence to improve your platform ranking."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My retail shop has regular customers but no way to attract new ones online",
+    solution: "We set up your Google Business Profile with proper categories, photos, and products. When new Manjalpur residents or visitors search for what you sell, your shop appears at the top of Google Maps. That visibility converts into new footfall."
+  },
+  {
+    problem: "My salon is full on weekends but quiet on weekdays and I cannot seem to change that",
+    solution: "We run targeted Instagram and Google Ads specifically to fill weekday slots, targeting Manjalpur women aged 18 to 45 within a 3 km radius with time-sensitive offers. Consistent posting also keeps your salon top of mind for recurring bookings."
+  },
+  {
+    problem: "My local restaurant is losing delivery orders to big cloud kitchen brands",
+    solution: "We optimize your Swiggy and Zomato listing with better photography and descriptions, run Instagram marketing to build a local following, and set up a WhatsApp ordering option for repeat customers who prefer ordering directly."
+  },
+  {
+    problem: "I run a mobile showroom and people only visit when they already know me, not from Google",
+    solution: "Mobile searches like 'mobile repair near me' and 'buy smartphone Manjalpur' happen every day. We optimize your Google listing for these searches and run small Google Ads campaigns that bring in customers who do not yet know your shop name."
+  },
+  {
+    problem: "My gym has a loyal base but I lost members during expansion and cannot seem to recover",
+    solution: "We run Instagram campaigns showcasing your facilities and success stories, Google Ads targeting people searching for gyms in Manjalpur, and WhatsApp campaigns offering trial passes to a warm audience. Gym marketing in dense residential areas responds very well to hyperlocal targeting."
+  },
+  {
+    problem: "I run a local clinic but patients are going to the larger hospital down the road",
+    solution: "We optimize your Google Business Profile for local medical searches, build a simple website, and run local SEO so patients searching for 'general physician Manjalpur' or 'clinic near Sama' find you first. A well-reviewed clinic listing beats a corporate hospital for nearby searches."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏘️", title: "Hyperlocal Marketing Specialists", desc: "We specialize in local business digital marketing for high-density residential corridors across Gujarat. We know what works for Manjalpur-type markets and we apply it immediately." },
+  { emoji: "💰", title: "Budgets That Match Local Business Reality", desc: "Not every Manjalpur business has a large marketing budget. We offer Google Business setup from Rs. 8,000, simple websites from Rs. 15,000, and local SEO from Rs. 25,000 per month. Affordable entry points with real results." },
+  { emoji: "⚡", title: "Quick Setup, Quick Results", desc: "Google Business Profile optimization shows results in 4 to 6 weeks. Instagram ad campaigns can drive enquiries within days. We get you visible fast." },
+  { emoji: "📞", title: "Direct Access, No Runaround", desc: "Small business owners do not have time for ticketing systems. Your contact at DC technolabs is reachable by WhatsApp and phone for quick questions and urgent updates." },
+  { emoji: "📈", title: "Customer-Focused Metrics", desc: "We track foot traffic signals, phone call clicks, WhatsApp taps, and direction requests, the actions that actually mean a customer is coming to your door." },
+  { emoji: "🤝", title: "Built for Long-Term Growth", desc: "A salon that invests in Instagram consistently for 12 months builds a following that generates bookings independently. We build assets that compound over time, not just short campaigns." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Review",
+    desc: "We check your Google Business Profile, your Instagram or Facebook presence, and your local search visibility in Manjalpur. We tell you exactly what is missing and what to fix first."
+  },
+  {
+    step: "2",
+    title: "Simple Proposal",
+    desc: "Within 24 hours you get a clear proposal with services, timeline, and fixed pricing. No confusing packages. Just a straightforward plan for your Manjalpur business."
+  },
+  {
+    step: "3",
+    title: "Setup and Launch",
+    desc: "We set up or optimize your Google listing, build your website or social media presence, and launch your first campaigns. Everything goes through you for approval before going live."
+  },
+  {
+    step: "4",
+    title: "Ongoing Results",
+    desc: "Monthly check-ins and reports show what is working. We keep refining your strategy based on what your Manjalpur customers are responding to."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients" },
+  { value: "93%",  label: "Client Retention Rate" },
+  { value: "3.5x", label: "Average Enquiry Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "I run a unisex salon in Manjalpur and my Instagram had under 300 followers for years. DC technolabs managed my Instagram for 4 months, ran some local ads, and now I get 8 to 10 new booking enquiries on Instagram every week. My Monday and Tuesday slots are filling up for the first time ever.",
+    name: "Priya Soni",
+    role: "Owner, Unisex Salon, Manjalpur",
+    initials: "PS"
+  },
+  {
+    text: "My mobile repair shop was only getting customers through word of mouth. After they set up my Google Business Profile properly and added photos, I started getting 4 to 5 walk-ins per week from people who found me on Google Maps. For a small shop that is a big deal.",
+    name: "Kiran Makwana",
+    role: "Owner, Mobile Repair Shop, Manjalpur",
+    initials: "KM"
+  },
+  {
+    text: "We had a decent restaurant but our Swiggy ranking was terrible. DC technolabs improved our listing, got better photos, and set up our Instagram page. Orders increased within a month and we also started getting direct WhatsApp orders from repeat customers. Really good value for the investment.",
+    name: "Bhavesh Prajapati",
+    role: "Owner, Restaurant, Manjalpur",
+    initials: "BP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Gotri",
+    slug: "gotri",
+    desc: "Fast-growing healthcare zone north of Manjalpur with hospitals, clinics, and coaching institutes. We serve healthcare and education businesses across Gotri."
+  },
+  {
+    name: "Harni",
+    slug: "harni",
+    desc: "Residential area adjacent to Manjalpur with growing local service businesses. We help Harni businesses establish Google and Instagram presence."
+  },
+  {
+    name: "Waghodia Road",
+    slug: "waghodia-road",
+    desc: "Industrial and auto dealer corridor near Manjalpur. We help businesses along Waghodia Road with B2B and local SEO."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "How much does it cost to set up Google Business Profile for a Manjalpur shop?",
+    a: "A one-time Google Business Profile setup and optimization, including all categories, photos, service descriptions, and Q&A, costs Rs. 8,000. Ongoing monthly management, including review responses and updates, is Rs. 5,000 per month. This is typically the highest-return investment a local shop in Manjalpur can make."
+  },
+  {
+    q: "Can Instagram really bring more customers to my salon in Manjalpur?",
+    a: "Yes, consistently. Salons are one of the highest-performing local business categories on Instagram in India. We create before-and-after posts, Reels showing your work, and run targeted ads to women aged 18 to 45 within 3 to 5 km of your shop. Most Manjalpur salons we work with see measurable booking increases within 6 to 8 weeks."
+  },
+  {
+    q: "I want to set up WhatsApp Business for my grocery store. Can you help?",
+    a: "Yes. We set up your WhatsApp Business profile, create a product catalogue with your key items and prices, and help you build a broadcast list for weekly offers. WhatsApp is the most cost-effective retention tool for kirana and grocery stores in dense residential areas like Manjalpur."
+  },
+  {
+    q: "What is the minimum Google Ads budget for a small Manjalpur business?",
+    a: "We recommend a minimum of Rs. 8,000 to Rs. 10,000 per month in ad spend for a small shop or clinic. Combined with our management fee, the minimum total investment starts at Rs. 20,000 per month. For most local Manjalpur businesses, we focus on a 3 km to 5 km radius to keep costs low and relevance high."
+  },
+  {
+    q: "My restaurant delivery orders are declining on Swiggy. What can you do?",
+    a: "Swiggy and Zomato ranking depends on order volume, rating, review count, and listing completeness. We improve your listing with professional food photos, complete menu descriptions, and an active review-response strategy. We also promote your delivery service on Instagram to drive more orders and improve your platform ranking over time."
+  },
+  {
+    q: "Can a local clinic in Manjalpur rank higher than the big hospitals?",
+    a: "For hyperlocal searches like 'clinic near Manjalpur' or 'general physician Sama road Vadodara', yes. Large hospitals often rank for broad city-wide searches but struggle with very specific neighbourhood queries. A well-optimized Google Business Profile with good reviews and proximity will consistently beat big brands for nearby searches."
+  },
+  {
+    q: "How long does it take to see results from Instagram ads in Manjalpur?",
+    a: "Ad campaigns typically show engagement and profile visits within 48 to 72 hours of launch. Enquiries and bookings from ads usually start within the first week. Building an organic following and seeing consistent enquiries from Instagram content takes 2 to 3 months of consistent posting and engagement."
+  },
+  {
+    q: "Do you offer one-time setup services or only monthly packages?",
+    a: "We offer both. One-time setups include Google Business Profile optimization, website builds, and WhatsApp Business configuration. Monthly packages cover ongoing SEO, Instagram management, and Google Ads. Many Manjalpur businesses start with a one-time setup and add monthly services once they see the initial results."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",      slug: "alkapuri" },
+  { name: "Gotri",         slug: "gotri" },
+  { name: "Fatehgunj",     slug: "fatehgunj" },
+  { name: "Sayajigunj",    slug: "sayajigunj" },
+  { name: "Waghodia Road", slug: "waghodia-road" },
+  { name: "Makarpura GIDC",slug: "makarpura-gidc" },
+  { name: "Harni",         slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Manjalpur, Vadodara Businesses | DC technolabs"
+  description="DC technolabs helps Manjalpur Vadodara businesses grow with Google Business Profile, local SEO, Instagram marketing, WhatsApp Business, and hyperlocal Google Ads. Salons, restaurants, retail shops, clinics, and gyms. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/manjalpur"
+  schemaJson={schemaJson}
+
+  badge="Manjalpur, Vadodara"
+  heroH1="Digital Marketing for Manjalpur, Vadodara Businesses"
+  heroHighlight="Manjalpur, Vadodara"
+  heroDesc="Manjalpur has one of Vadodara's largest residential populations and a thriving local high street. Salons, restaurants, retail shops, gyms, and clinics here grow when they show up on Google Maps and Instagram. We make sure your business is visible when Manjalpur residents are searching."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Manjalpur Business"
+  formSub="Manjalpur businesses receive a response within 4 business hours."
+
+  s2Title="Why Manjalpur Businesses Choose DC technolabs"
+  s2Subtitle="We specialize in hyperlocal digital marketing for residential corridor businesses across Gujarat."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Manjalpur Businesses"
+  s3Subtitle="Practical, affordable digital marketing for local shops, salons, restaurants, clinics, and service businesses in Manjalpur."
+  {services}
+
+  s4Title="Challenges We Solve for Manjalpur Businesses"
+  s4Subtitle="The most common digital problems local businesses face in Manjalpur's high-density commercial corridors."
+  {challenges}
+
+  s5Title="Why Manjalpur Businesses Trust DC technolabs"
+  s5Subtitle="Hyperlocal expertise, affordable entry points, and customer-focused results."
+  {whyCards}
+
+  s6Title="How We Work With Manjalpur Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Vadodara"
+  {stats}
+
+  s8Title="What Manjalpur Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans all of Vadodara. Businesses in adjacent areas get the same local-focused attention."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Manjalpur Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Grow Your Manjalpur Business Online?"
+  ctaSubtitle="Local shops, salons, restaurants, and clinics in Manjalpur grow faster when they show up on Google and Instagram. Get a free consultation and see what is possible for your business."
+/>

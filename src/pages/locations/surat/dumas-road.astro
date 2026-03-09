@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Dumas Road businesses in Surat with web design, SEO, Instagram marketing, and Google Ads for restaurants, hotels, resorts, and event venues.",
+  "url": "https://dctechnolabs.in/locations/surat/dumas-road",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.091", "longitude": "72.713" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Dumas Road, Surat" },
+    { "@type": "Place", "name": "Dumas Beach, Surat" },
+    { "@type": "Place", "name": "Vesu, Surat" },
+    { "@type": "Place", "name": "Piplod, Surat" },
+    { "@type": "Place", "name": "Athwa, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Dumas Road is Surat's most visited leisure destination. The road from Surat's city centre to Dumas Beach is lined with beach-facing restaurants, boutique hotels, resorts, waterfront cafes, and event venues that draw families, couples, and corporate groups every weekend of the year. On peak weekends and holidays, the Dumas Road stretch is packed with visitors from across Surat and South Gujarat.",
+  "For hospitality and food businesses on Dumas Road, the challenge is not footfall on a Saturday night. It is filling weekdays, managing seasonal slowdowns, reducing dependency on Zomato and OTA commissions, and standing out from the dozens of restaurants and hotels that compete for the same weekend crowd.",
+  "We help Dumas Road restaurants, hotels, and event venues build direct digital pipelines that bring customers without the middleman. Instagram presence that fills weekend tables, Google Ads that drive direct hotel bookings, and event inquiry funnels that generate corporate venue bookings without relying on agents.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🍽️", label: "Beach Restaurants" },
+  { icon: "🏨", label: "Hotels and Resorts" },
+  { icon: "🎪", label: "Event Venues" },
+  { icon: "☕", label: "Waterfront Cafes" },
+  { icon: "🎉", label: "Party and Banquet Halls" },
+  { icon: "🌊", label: "Tourism Businesses" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🌊", title: "Surat's Weekend Destination", desc: "Dumas Beach and the surrounding road is the most visited leisure area in Surat. Families, couples, and corporate groups make it a weekend ritual, creating intense but seasonal demand for hospitality businesses." },
+  { icon: "🍽️", title: "Competitive Restaurant Scene", desc: "Dozens of restaurants compete for the same weekend crowd on Dumas Road. The ones with strong Instagram presence, Google Maps visibility, and direct booking options consistently outperform those who rely on walk-ins alone." },
+  { icon: "💰", title: "OTA Dependency Problem", desc: "Many Dumas Road hotels pay 15 to 25 percent commissions to booking platforms. A direct booking website with Google Ads delivers guests at a fraction of that cost, improving margins significantly year over year." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "📱",
+    title: "Instagram and Social Media Marketing",
+    desc: "Dumas Road's food and beach aesthetic is made for Instagram. We create content calendars, manage your Instagram page, run targeted ad campaigns, and build the follower base and brand recognition that drives weekend reservations. Food and beach content done right generates genuine buzz."
+  },
+  {
+    icon: "🗺️",
+    title: "Google Maps and Local SEO",
+    desc: "When a Surat family searches 'best restaurant near Dumas Beach' or 'hotel on Dumas Road', you need to appear at the top. We fully optimise your Google Business Profile, manage reviews, add photos, and build the local citations that push you to position one for hospitality searches."
+  },
+  {
+    icon: "🏨",
+    title: "Direct Booking Landing Pages for Hotels",
+    desc: "We build conversion-focused booking pages for Dumas Road hotels that make direct booking easier than going to a booking platform. Combined with Google Ads targeting guests searching in Surat, direct bookings replace OTA bookings and commission costs drop significantly."
+  },
+  {
+    icon: "🎪",
+    title: "Event Venue Inquiry Funnels",
+    desc: "Corporate events, weddings, birthday parties, and family gatherings are huge revenue opportunities for Dumas Road venues. We build dedicated event inquiry pages with capacity information, gallery, package details, and a structured inquiry form that generates qualified event booking leads."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Weekend Visitors",
+    desc: "Surat residents and visitors from nearby cities search for things to do on weekends. We run Google Ads campaigns targeting people searching for beach restaurants, waterfront dining, and Surat weekend activities, bringing ready-to-visit customers to your door."
+  },
+  {
+    icon: "🌐",
+    title: "Restaurant and Hotel Website Design",
+    desc: "A beautiful website with high-quality food and venue photography, your menu, pricing, location, and an easy reservation or inquiry form. Designed for the hospitality industry, optimised for mobile, and built to convert browsers into bookings."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our restaurant fills on weekends but weekdays are empty",
+    solution: "We run weekday-specific Google Ads and Instagram campaigns promoting special menus, lunch offers, or couple dining deals targeted at Surat residents who are available midweek. Email and WhatsApp remarketing to your existing customers also drives repeat weekday visits efficiently."
+  },
+  {
+    problem: "We are paying 20 percent commission to OTAs on almost every booking",
+    solution: "We build your hotel a direct booking page that is optimised for conversion and run Google Ads specifically targeting guests searching for Dumas Road hotels. When the first two or three direct bookings cover the cost of ads, the ongoing savings from reduced OTA dependency are pure margin improvement."
+  },
+  {
+    problem: "Our restaurant gets poor Google reviews that hurt our reputation",
+    solution: "We implement a structured post-visit review request programme that generates a consistent flow of genuine positive reviews from satisfied guests. Combined with professional responses to all reviews including negative ones, your overall rating improves and the quantity of positive reviews drowns out isolated negatives."
+  },
+  {
+    problem: "Our event venue does not appear when corporate clients search online",
+    solution: "Corporate event planners search for specific things: capacity, catering options, parking, AV facilities, and proximity to city. We build your event venue page to answer all of these questions clearly, optimise it for corporate event search terms, and run Google Ads targeting event planner searches in Surat."
+  },
+  {
+    problem: "We have no Instagram presence and competitors have thousands of followers",
+    solution: "Starting from zero is fine. We create a content strategy built around your food, your setting, and your beach location. Within 3 months of consistent, well-produced content and targeted follower growth campaigns, most Dumas Road restaurants see 1,000 to 3,000 engaged followers and measurable table fills from Instagram alone."
+  },
+  {
+    problem: "Our cafe has no website and relies only on Zomato for orders",
+    solution: "Platform dependency is expensive and fragile. We build a simple, beautiful website with your menu, ordering option if needed, location, and Instagram link. Combined with Google Maps optimisation, you generate organic visits that cost you nothing per order rather than paying a platform commission every time."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🍽️", title: "Hospitality Sector Expertise", desc: "We have worked with restaurants, cafes, hotels, and event venues across Gujarat. We understand the seasonal nature, the visual importance of food photography, and how hospitality customers make decisions." },
+  { emoji: "📱", title: "Social Media Results", desc: "Our Instagram campaigns for food and hospitality businesses consistently outperform industry averages. We know what works for beach restaurants and waterfront venues on the platform." },
+  { emoji: "💰", title: "OTA Commission Reduction", desc: "We have helped Surat hotels significantly reduce their OTA dependency through direct booking campaigns. Every direct booking saves 15 to 25 percent that goes straight to your bottom line." },
+  { emoji: "⚡", title: "Fast Setup", desc: "Restaurant websites go live in 7 days. Instagram strategies launch in 5 days. Google Ads campaigns go live in 48 hours. We move at the speed hospitality businesses need." },
+  { emoji: "📞", title: "Direct Access", desc: "WhatsApp and phone access to your account manager. If you need to update your menu or promote a special event on 48 hours notice, we are available to act fast." },
+  { emoji: "📈", title: "Booking Growth Focus", desc: "We track actual reservations, inquiries, and direct bookings, not just likes and follower counts. Every campaign is designed around filling tables and rooms, not vanity metrics." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Dumas Road business: your current channels, your peak and slow seasons, your competitor landscape, and whether you want to reduce OTA dependency, grow social media, or both."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a hospitality-specific proposal with content strategy, campaign plan, timeline, and fixed pricing. No generic digital marketing packages, a plan built for your specific venue type."
+  },
+  {
+    step: "3",
+    title: "Launch and Build Presence",
+    desc: "Website, Instagram, Google Ads, and Google Maps all go live together for maximum impact. You approve the content and creative before anything is published."
+  },
+  {
+    step: "4",
+    title: "Optimise and Grow",
+    desc: "Monthly reporting on bookings generated, Instagram growth, ad performance, and review scores. We adjust strategy around your seasonal calendar so you are always building toward your peak periods."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "94%",  label: "First-Page Google Rankings" },
+  { value: "3.8x", label: "Average Lead Increase" },
+  { value: "7",    label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our beach restaurant on Dumas Road had a Zomato listing and nothing else. DC technolabs built our Instagram from zero to 8,000 followers in 4 months and set up our Google Business Profile properly. We now get walk-ins specifically mentioning they found us on Instagram. Weekday covers have improved by almost 40 percent.",
+    name: "Faisal Shaikh",
+    role: "Owner, Beach Restaurant, Dumas Road, Surat",
+    initials: "FS"
+  },
+  {
+    text: "Our resort was paying nearly 22 percent to booking platforms on most reservations. DC technolabs built our direct booking page and ran Google Ads. Direct bookings now account for over 40 percent of our occupancy. The commission savings in one year covered our entire digital marketing investment.",
+    name: "Dilip Thakkar",
+    role: "Owner, Resort, Dumas Road, Surat",
+    initials: "DT"
+  },
+  {
+    text: "We run a corporate event venue near Dumas Road and had no online presence targeting business clients. DC technolabs built us a dedicated event page with capacity details and an inquiry form, and ran Google Ads for Surat corporate events. We received 18 corporate inquiry calls in the first 2 months. The results were immediate.",
+    name: "Heena Joshi",
+    role: "Manager, Event Venue, Dumas Road area, Surat",
+    initials: "HJ"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Vesu",
+    slug: "vesu",
+    desc: "Surat's IT and premium lifestyle corridor, close to Dumas Road. We serve restaurants, cafes, and retail businesses across the Vesu residential belt."
+  },
+  {
+    name: "Piplod",
+    slug: "piplod",
+    desc: "Premium residential and healthcare hub adjacent to Dumas Road. Many Piplod families are regular Dumas Road visitors and we help businesses reach them effectively."
+  },
+  {
+    name: "Athwa",
+    slug: "athwa",
+    desc: "Surat's professional services and showroom district, connecting Dumas Road to the city centre. We work with businesses across the Athwa commercial belt."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help our Dumas Road restaurant get more weekday covers?",
+    a: "Yes. Weekday dining promotion is one of the most common briefs we receive from Dumas Road restaurants. We run Google Ads and Instagram campaigns promoting weekday-specific deals, lunch specials, and off-peak discounts targeted at Surat residents who are available during the week. Most restaurants see meaningful weekday improvement within 4 to 6 weeks."
+  },
+  {
+    q: "How do you reduce our hotel's OTA commission costs?",
+    a: "We build a direct booking page on your website that is designed to convert, then run Google Ads targeting guests searching specifically for Dumas Road hotels. When direct bookings start coming in, each one saves you 15 to 25 percent compared to OTA commissions. Over a year, the savings are typically substantial enough to cover the entire digital marketing investment several times over."
+  },
+  {
+    q: "Can you build Instagram presence for a new restaurant on Dumas Road?",
+    a: "Yes. We handle everything from Instagram setup and profile optimisation to content creation, posting schedule, hashtag strategy, and paid follower growth campaigns. Most beach restaurants and cafes with good food and a nice setting see genuine engagement growth quickly. We target Surat food lovers and weekend day-tripper audiences specifically."
+  },
+  {
+    q: "What does a restaurant website cost?",
+    a: "A professional restaurant website with your menu, food photo gallery, location, hours, reservation form, and Google integration starts at Rs. 25,000. We can include online ordering integration with Razorpay from Rs. 40,000. All websites are mobile-first and load fast, which matters when people are browsing on the way to Dumas Beach."
+  },
+  {
+    q: "Can you help an event venue on Dumas Road generate corporate booking inquiries?",
+    a: "Yes. Corporate event planners search for venues with specific capacity, catering, AV, and parking requirements. We build a dedicated event page answering all of these, run Google Ads targeting corporate event searches in Surat, and set up an inquiry form that captures structured briefs from corporate clients. Most venues see qualified corporate inquiries within the first 3 to 4 weeks."
+  },
+  {
+    q: "How important is Google Maps ranking for a Dumas Road business?",
+    a: "Extremely important. Most Surat families decide where to eat or stay during the day by searching Google Maps on mobile. Being in the top 3 Google Maps results for searches like 'restaurant Dumas Road' or 'hotel near Dumas Beach' is worth more than any ad campaign because the search intent is immediate and the customer is ready to visit."
+  },
+  {
+    q: "Can you manage our Google reviews and respond to negative feedback?",
+    a: "Yes. We manage Google Business Profile review responses for all our hospitality clients. We respond to positive reviews warmly and to negative reviews professionally, in a way that shows prospective guests that you take feedback seriously. We also run a post-visit review request programme to generate a consistent flow of new positive reviews."
+  },
+  {
+    q: "Do you work with Surat businesses remotely?",
+    a: "Yes. All our Surat work is delivered remotely with video consultations, WhatsApp approvals, and shared dashboards. For hospitality clients, we may ask for a brief walkthrough video of your venue to support content creation. We also visit Surat quarterly for in-person meetings with clients who prefer that."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",   slug: "varachha" },
+  { name: "Ring Road",  slug: "ring-road" },
+  { name: "Vesu",       slug: "vesu" },
+  { name: "Adajan",     slug: "adajan" },
+  { name: "Athwa",      slug: "athwa" },
+  { name: "Katargam",   slug: "katargam" },
+  { name: "Piplod",     slug: "piplod" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Restaurants, Hotels and Event Venues on Dumas Road, Surat | DC technolabs"
+  description="DC technolabs helps Dumas Road Surat restaurants, hotels, resorts, and event venues grow with Instagram marketing, Google Ads, direct booking pages, and local SEO. Free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/dumas-road"
+  schemaJson={schemaJson}
+
+  badge="Dumas Road, Surat"
+  heroH1="Digital Marketing for Dumas Road, Surat"
+  heroHighlight="Dumas Road, Surat"
+  heroDesc="Surat's most popular weekend destination needs more than weekend crowds. Restaurants need weekday covers. Hotels need direct bookings instead of OTA commissions. Event venues need corporate inquiry pipelines. We build all of these for Dumas Road's hospitality and tourism businesses."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Dumas Road Business"
+  formSub="Restaurants, hotels, and event venues get a response within 4 hours."
+
+  s2Title="Why Dumas Road Businesses Choose DC technolabs"
+  s2Subtitle="We understand hospitality marketing, the beach tourism customer, and how to build systems that fill venues beyond just the peak weekend."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Dumas Road Businesses"
+  s3Subtitle="Instagram, Google Maps, direct booking pages, and event inquiry funnels built for Surat's hospitality and tourism corridor."
+  {services}
+
+  s4Title="Challenges We Solve for Dumas Road Businesses"
+  s4Subtitle="From empty weekdays to OTA commissions, these are the problems we solve for restaurants, hotels, and venues on Dumas Road."
+  {challenges}
+
+  s5Title="Why Dumas Road Businesses Trust DC technolabs"
+  s5Subtitle="Hospitality marketing that fills tables and reduces commission costs. Here is what makes us the right partner."
+  {whyCards}
+
+  s6Title="How We Work With Dumas Road Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Surat"
+  {stats}
+
+  s8Title="What Dumas Road Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans all of Surat's residential and commercial zones. We reach your customers wherever they are in the city."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Dumas Road Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="surat"
+  cityName="Surat"
+
+  ctaTitle="Ready to Fill More Tables and Rooms on Dumas Road?"
+  ctaSubtitle="Join Surat's hospitality businesses that trust DC technolabs to build the digital pipelines that bring guests directly and reduce platform dependency. Free consultation, no obligation."
+/>

@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Alkapuri businesses in Vadodara with web design, SEO, PPC, and social media services.",
+  "url": "https://dctechnolabs.in/locations/vadodara/alkapuri",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.310", "longitude": "73.181" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Alkapuri, Vadodara" },
+    { "@type": "Place", "name": "Race Course Road, Vadodara" },
+    { "@type": "Place", "name": "Sayajigunj, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Alkapuri is Vadodara's most prestigious commercial corridor. Race Course Road, Alkapuri Society, and the surrounding streets host architecture firms, law offices, wealth management practices, private hospitals, premium car showrooms, and upscale restaurants. The Alkapuri Club sits at its heart. This is old-money Baroda, and the businesses here trade on credibility first.",
+  "Clients who walk into an Alkapuri law firm or architecture practice already expect quality before the meeting begins. They judge that quality by your website, your Google presence, and how your brand presents itself online. A mediocre website in this market costs you clients silently, without you ever knowing.",
+  "We have worked with professional services firms and premium businesses from Vadodara since 2018. We understand the Alkapuri client base: highly educated, digitally active, and quick to dismiss a business that presents itself poorly online. We build digital presence that matches the quality of what Alkapuri businesses actually deliver.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏛️", label: "Architecture Firms" },
+  { icon: "⚖️", label: "Law Firms" },
+  { icon: "💰", label: "Wealth Management" },
+  { icon: "🏥", label: "Private Hospitals" },
+  { icon: "🚗", label: "Car Dealerships" },
+  { icon: "🍽️", label: "Premium Restaurants" },
+  { icon: "💼", label: "Chartered Accountants" },
+  { icon: "🛍️", label: "Luxury Retail" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏛️", title: "Credibility-First Market", desc: "Alkapuri clients make decisions based on trust and reputation. Your website and Google presence must establish authority before the first conversation." },
+  { icon: "📱", title: "High-Value, Digitally Active Audience", desc: "Alkapuri professionals research vendors thoroughly online. A compelling digital presence is what gets you considered alongside established names." },
+  { icon: "🏆", title: "Competitive Professional Services", desc: "Architecture, law, and finance are competitive in Alkapuri. The firms that win new clients are the ones that look authoritative and rank well on Google." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Professional Website Design for Alkapuri Firms",
+    desc: "Premium, credibility-first websites for architecture firms, law practices, and professional service businesses. We match the quality of your work with a digital presence that earns trust before the first meeting."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Alkapuri",
+    desc: "We get your firm ranking when Vadodara clients search for your services. Google Business Profile, local citations, and high-intent Alkapuri keywords managed completely."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for High-Value Services",
+    desc: "Targeted PPC campaigns for law firms, clinics, and architects reaching clients actively searching in Vadodara. Budgets from Rs. 20,000 to Rs. 5,00,000 per month, managed with full transparency."
+  },
+  {
+    icon: "📱",
+    title: "Instagram and LinkedIn Marketing",
+    desc: "Architecture firms need Instagram to showcase portfolio. Law firms and CAs benefit from LinkedIn thought leadership. We build the right strategy for each professional services category in Alkapuri."
+  },
+  {
+    icon: "🚗",
+    title: "Automotive and Luxury Retail Digital Marketing",
+    desc: "Alkapuri car dealerships and premium retailers need local visibility combined with compelling digital showrooms. We handle website, SEO, and paid campaigns for high-ticket retail."
+  },
+  {
+    icon: "🍽️",
+    title: "Restaurant Marketing for Alkapuri Dining",
+    desc: "Alkapuri's discerning restaurant crowd checks Instagram and Google before booking a table. We build your online presence to reach Vadodara's food-conscious audience and fill covers consistently."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our architecture firm's website looks outdated and loses us clients before the pitch",
+    solution: "We redesign your website as a portfolio-first showcase with high-quality project imagery, service pages, and team credentials. Alkapuri clients research before they call, and your site needs to win that silent audition."
+  },
+  {
+    problem: "Our law practice gets no enquiries through Google despite being well known locally",
+    solution: "Word of mouth only carries so far. We build your Google Business Profile, optimize for practice-area searches like 'corporate lawyer Vadodara' and 'property attorney Alkapuri', and drive qualified new client enquiries."
+  },
+  {
+    problem: "Competitors with inferior service are outranking us on Google",
+    solution: "Online visibility does not automatically reflect offline reputation. We fix that through targeted local SEO, structured data, and content strategy that signals authority to both Google and prospective clients."
+  },
+  {
+    problem: "My premium restaurant struggles to attract the Alkapuri and Race Course Road crowd online",
+    solution: "We create Instagram content that showcases your ambience, run geo-targeted ads to Alkapuri and nearby Sayajigunj, and optimize your Google listing for local dining searches. The discerning crowd finds you before the weekend."
+  },
+  {
+    problem: "Our car dealership is not getting leads from digital channels",
+    solution: "We run targeted Google Ads for high-intent searches like 'luxury car dealer Vadodara', build landing pages that convert, and maintain local SEO so walkins from Alkapuri and Race Course Road increase consistently."
+  },
+  {
+    problem: "We have no strategy to generate referrals and new clients digitally",
+    solution: "We build LinkedIn thought leadership for partners, Google review campaigns to capture happy client endorsements, and content marketing that positions your firm as the category expert in Vadodara's professional services market."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏛️", title: "Professional Services Expertise", desc: "We have built websites and digital strategies for architecture firms, law offices, and financial advisors across Gujarat. We know how to present credibility online for this market." },
+  { emoji: "⚡", title: "Fast, Thorough Execution", desc: "Professional websites go live within 14 to 21 days. SEO improvements are visible in 60 to 90 days. We are thorough because Alkapuri clients notice quality in every detail." },
+  { emoji: "💰", title: "Transparent Pricing, No Surprises", desc: "Web design from Rs. 35,000. SEO from Rs. 30,000 per month. No hidden fees, no lock-in contracts. You see the full quote before we begin." },
+  { emoji: "📞", title: "Direct Access to Your Team", desc: "Your project manager is reachable by phone and WhatsApp. Alkapuri business owners do not wait on ticketing systems. Nor should you." },
+  { emoji: "📈", title: "Measured Results, Not Vanity Metrics", desc: "We measure enquiries, form submissions, phone calls, and booked appointments, not page views. Your investment has a number attached to it." },
+  { emoji: "🤝", title: "Long-Term Relationships", desc: "Most of our professional services clients have been with us for three or more years. We understand your business deeply and continue to improve results over time." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We review your current website and Google presence, understand your Alkapuri market position, and discuss where digital can move the needle for your firm."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a detailed proposal with scope, timeline, fixed pricing, and the specific strategy built for your Alkapuri business."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We design, develop, and optimize your digital presence. You see and approve every milestone before anything goes live. No surprises."
+  },
+  {
+    step: "4",
+    title: "Results and Refinement",
+    desc: "Monthly reports show rankings, traffic, and leads in plain language. We continuously refine the strategy to keep your Alkapuri business growing."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Clients" },
+  { value: "93%",  label: "Client Retention Rate" },
+  { value: "3.5x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We are an architecture firm on Race Course Road and our old website was an embarrassment. DC technolabs built us a portfolio site that genuinely showcases our work. Prospective clients now comment on the website before we even begin the meeting. Project inquiries have increased significantly.",
+    name: "Vishal Desai",
+    role: "Principal Architect, Alkapuri, Vadodara",
+    initials: "VD"
+  },
+  {
+    text: "As a law firm in Alkapuri we were entirely dependent on referrals. DC technolabs built our Google presence and now we consistently receive enquiries from people who found us through search. The quality of inbound enquiries is very good, exactly the kind of clients we want.",
+    name: "Ruchita Mehta",
+    role: "Partner, Law Firm, Alkapuri",
+    initials: "RM"
+  },
+  {
+    text: "Our premium restaurant near Alkapuri Club needed a stronger Instagram presence to compete with newer establishments. The content and ad campaigns DC technolabs ran brought in a noticeably younger, affluent crowd. Our weekend bookings have never been fuller.",
+    name: "Nikhil Joshi",
+    role: "Owner, Fine Dining Restaurant, Alkapuri",
+    initials: "NJ"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Sayajigunj",
+    slug: "sayajigunj",
+    desc: "Vadodara's heritage commercial district adjacent to Alkapuri, with hospitality, hotels, and cultural businesses. We serve this corridor too."
+  },
+  {
+    name: "Fatehgunj",
+    slug: "fatehgunj",
+    desc: "Vadodara's education and coaching belt near MS University, just east of Alkapuri. Coaching institutes and student-facing businesses are our speciality here."
+  },
+  {
+    name: "Gotri",
+    slug: "gotri",
+    desc: "Fast-growing healthcare and residential zone in north Vadodara. We serve hospitals, clinics, and diagnostic labs across Gotri."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you build websites for architecture firms in Vadodara?",
+    a: "Yes. We have designed websites for architecture and interior design firms across Gujarat. A great architecture website is a visual portfolio above all else. We build sites that showcase your project photography, highlight your design philosophy, and make it easy for prospective clients to reach you."
+  },
+  {
+    q: "What does a professional website cost for an Alkapuri law firm?",
+    a: "A law firm website with practice area pages, attorney profiles, a contact form, and Google Business integration starts at Rs. 40,000. We also include basic on-page SEO so you begin ranking immediately. More complex sites with content strategy and ongoing SEO are discussed in our proposal."
+  },
+  {
+    q: "Can you help a wealth management firm attract new clients digitally?",
+    a: "Yes. We build credibility-first websites, run Google Ads targeting high-net-worth searches in Vadodara, and create LinkedIn content strategies for financial advisors. Wealth management clients research extensively before making contact, and your digital presence needs to inspire confidence at every touchpoint."
+  },
+  {
+    q: "How do you approach SEO for professional services in Alkapuri?",
+    a: "Professional services SEO focuses on practice-area keywords, local citations, Google Business Profile optimization, and content that demonstrates expertise. For an Alkapuri firm, we target searches like 'property lawyer Vadodara', 'architect near Alkapuri', and 'best CA in Baroda', combined with a review-building strategy to cement your ranking."
+  },
+  {
+    q: "Our private clinic in Alkapuri needs appointment bookings online. Can you help?",
+    a: "Absolutely. We build clinic websites with integrated appointment booking, service pages for each speciality, doctor profiles, and local SEO to rank for health searches across Alkapuri and the wider Vadodara area. Patients increasingly book online and your clinic needs to make that as easy as possible."
+  },
+  {
+    q: "Can you run Instagram marketing for a premium restaurant in Alkapuri?",
+    a: "Yes. We create content strategies for upscale restaurants, including food photography direction, Instagram Reels, and paid ad campaigns targeting the 25 to 50 age group in Alkapuri, Race Course Road, and nearby Sayajigunj. Alkapuri's dining crowd is Instagram-active and highly responsive to quality content."
+  },
+  {
+    q: "How do you work with Vadodara clients remotely?",
+    a: "All strategy and design work happens over video calls, shared project dashboards, and WhatsApp. We send detailed proposals, share mockups for approval, and provide monthly reports digitally. We also visit Vadodara quarterly for clients who prefer face-to-face sessions."
+  },
+  {
+    q: "How long does SEO take for an Alkapuri business?",
+    a: "Local SEO for Vadodara-specific terms begins showing ranking movement in 60 to 90 days. Meaningful traffic and enquiry increases are typically visible between months 4 and 6. For competitive categories like law or architecture, a 6 to 9 month timeline is realistic for strong first-page positions."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Gotri",         slug: "gotri" },
+  { name: "Manjalpur",     slug: "manjalpur" },
+  { name: "Fatehgunj",     slug: "fatehgunj" },
+  { name: "Sayajigunj",    slug: "sayajigunj" },
+  { name: "Waghodia Road", slug: "waghodia-road" },
+  { name: "Makarpura GIDC",slug: "makarpura-gidc" },
+  { name: "Harni",         slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Alkapuri, Vadodara | DC technolabs"
+  description="DC technolabs helps Alkapuri Vadodara businesses grow online. Websites, local SEO, and Google Ads for architecture firms, law offices, private hospitals, car dealerships, and premium restaurants in Alkapuri. Get a free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/alkapuri"
+  schemaJson={schemaJson}
+
+  badge="Alkapuri, Vadodara"
+  heroH1="Digital Marketing for Alkapuri, Vadodara Businesses"
+  heroHighlight="Alkapuri, Vadodara"
+  heroDesc="Alkapuri is Vadodara's most prestigious commercial address. Architecture firms, law practices, private hospitals, and premium restaurants here need a digital presence that matches their reputation. We build that presence and make sure the right clients find you first."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Alkapuri Business"
+  formSub="Alkapuri businesses receive a response within 4 business hours."
+
+  s2Title="Why Alkapuri Businesses Choose DC technolabs"
+  s2Subtitle="We understand how professional services and premium businesses in Vadodara need to present themselves online."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Alkapuri Businesses"
+  s3Subtitle="Everything your Alkapuri firm needs to establish digital authority and attract high-value clients."
+  {services}
+
+  s4Title="Challenges We Solve for Alkapuri Businesses"
+  s4Subtitle="These are the most common digital problems professional services firms and premium businesses face in Alkapuri."
+  {challenges}
+
+  s5Title="Why Alkapuri Businesses Trust DC technolabs"
+  s5Subtitle="We bring professional services digital marketing expertise to Vadodara's most demanding business addresses."
+  {whyCards}
+
+  s6Title="How We Work With Alkapuri Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Vadodara"
+  {stats}
+
+  s8Title="What Vadodara Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans all of Vadodara. Clients from adjacent areas are equally well served."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Alkapuri Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Grow Your Alkapuri Business Online?"
+  ctaSubtitle="Join Vadodara businesses that trust DC technolabs for digital marketing that reflects the quality they deliver. Get a free consultation, no obligation."
+/>

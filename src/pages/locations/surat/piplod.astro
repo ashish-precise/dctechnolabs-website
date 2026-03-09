@@ -1,0 +1,299 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Piplod businesses in Surat with web design, SEO, and lead generation for hospitals, diagnostic centres, real estate developers, schools, and premium clinics.",
+  "url": "https://dctechnolabs.in/locations/surat/piplod",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.146", "longitude": "72.789" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Piplod, Surat" },
+    { "@type": "Place", "name": "Vesu, Surat" },
+    { "@type": "Place", "name": "Adajan, Surat" },
+    { "@type": "Place", "name": "Dumas Road, Surat" },
+    { "@type": "Place", "name": "Althan, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Piplod is one of Surat's most premium residential and healthcare addresses. Multi-speciality hospitals, advanced diagnostic centres, luxury apartment projects, CBSE and IGCSE schools, and premium specialty clinics have established Piplod as the area where Surat's upwardly mobile families choose to live, study, and receive medical care.",
+  "For businesses in Piplod, the customer is discerning and well-researched. Before a patient books an appointment, they read reviews and check the hospital's website. Before a family chooses a school, they spend hours on the admission pages and contact form. Before a buyer commits to a luxury apartment, they study the project website extensively.",
+  "We help Piplod healthcare providers, real estate developers, and educational institutions build digital presences that match the premium expectations of their target audience. Every page we build, every campaign we run, is designed for a customer who researches before they act.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏥", label: "Multi-Speciality Hospitals" },
+  { icon: "🔬", label: "Diagnostic Centres" },
+  { icon: "🏗️", label: "Real Estate Developers" },
+  { icon: "🏫", label: "CBSE and IGCSE Schools" },
+  { icon: "🩺", label: "Premium Clinics" },
+  { icon: "🏘️", label: "Luxury Housing Projects" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏥", title: "Surat's Healthcare Belt", desc: "Piplod has established itself as a preferred location for multi-speciality hospitals and advanced diagnostic facilities. Patients travel from across Surat and South Gujarat to access healthcare here." },
+  { icon: "🏗️", title: "Premium Real Estate Market", desc: "Luxury apartment projects in Piplod command among Surat's highest per-square-foot prices. Buyers are informed, take time deciding, and extensively research developers before inquiring." },
+  { icon: "🏫", title: "Education Hub for Premium Families", desc: "CBSE, IGCSE, and Cambridge schools in Piplod serve Surat's professional families. Admission seasons are intensely competitive, and schools with strong digital presence fill seats faster." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🏥",
+    title: "Hospital and Healthcare Website Design",
+    desc: "Websites for multi-speciality hospitals and diagnostic centres that include specialist listings, department pages, appointment booking, and health content. We design for the patient journey, from first search to confirmed appointment."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Piplod Healthcare",
+    desc: "Rank on Google when Surat patients search for your speciality or your diagnostic test. We optimise your Google Business Profile, build healthcare-specific local citations, and create content that ranks for medical searches across Piplod and Vesu."
+  },
+  {
+    icon: "🏗️",
+    title: "Real Estate Project Landing Pages",
+    desc: "Project-specific landing pages for luxury apartment developments in Piplod. Each page is built around a single project with gallery, floor plans, pricing, location map, and an inquiry form. These convert site visitors into registered leads far better than a generic developer website."
+  },
+  {
+    icon: "🏫",
+    title: "School Admission and Lead Generation",
+    desc: "We build school websites with dedicated admission inquiry forms, virtual tour content, curriculum detail pages, and organic visibility for Surat parents searching for quality schools. Applications per admission season typically increase significantly for schools we work with."
+  },
+  {
+    icon: "🩺",
+    title: "Clinic Reputation Management",
+    desc: "Piplod's premium clinics are chosen based on online reputation. We implement review generation strategies, manage Google Business Profile, respond to patient feedback, and build the online credibility that fills appointment books consistently."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Healthcare and Education",
+    desc: "Targeted campaigns for hospitals and schools reaching Surat families actively searching for medical care or school admission. We manage campaigns with the sensitivity that healthcare and education advertising requires."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our hospital has no website and patients search online before calling",
+    solution: "A hospital without a proper website loses patients to competitors before the first contact. We build comprehensive hospital websites with specialist profiles, department pages, appointment booking, and health information content that ranks on Google for the medical searches your target patients make."
+  },
+  {
+    problem: "Our luxury apartment project is not generating enough qualified inquiries",
+    solution: "Most real estate websites are too generic. We create dedicated project landing pages for Piplod developments with high-quality gallery, 3D floor plans, pricing transparency, and a clear inquiry form. Combined with Google Ads and Facebook targeting, qualified leads increase significantly within the first month."
+  },
+  {
+    problem: "Our school's admission inquiry form is not generating enough applications",
+    solution: "Poor admissions pipelines usually come from poor website design and no SEO. We rebuild school websites with parent-focused content, clear admission process pages, and inquiry forms optimised for conversion. Schools typically see a 40 to 60 percent increase in qualified admission inquiries in the first academic cycle."
+  },
+  {
+    problem: "Our diagnostic centre has negative reviews hurting our reputation",
+    solution: "We implement a structured review generation programme that encourages satisfied patients to share their experience online, while managing responses to existing reviews professionally. Combined with content that builds authority, your overall online reputation improves steadily."
+  },
+  {
+    problem: "Our premium clinic is hard to find online compared to government hospitals",
+    solution: "We do not try to compete on terms like 'free hospital Surat'. Instead we target premium, specialty-specific searches like 'dermatologist in Piplod' or 'best paediatric clinic Surat' where your private clinic has a clear advantage. Patients searching these terms have the intent and means to book with you."
+  },
+  {
+    problem: "Our hospital gets patients but no one leaves Google reviews",
+    solution: "Most hospitals simply never ask. We set up a post-visit review request system that sends satisfied patients a simple link to leave a Google review. Within 3 months, most hospitals we work with see their review count double and their average rating improve."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏥", title: "Healthcare Marketing Expertise", desc: "We have worked with hospitals, diagnostic labs, and specialist clinics. We understand HIPAA-adjacent sensitivity, patient trust, and how to market healthcare services without overpromising or being misleading." },
+  { emoji: "🏗️", title: "Real Estate Conversion Expertise", desc: "We know how premium property buyers behave online. We build real estate experiences that move buyers from interest to registered inquiry, the most important conversion in property marketing." },
+  { emoji: "🏫", title: "Education Sector Experience", desc: "From school admission pages to tuition inquiry forms, we have built digital systems for educational institutions across Gujarat. We understand the parent buyer's mindset and decision timeline." },
+  { emoji: "💰", title: "Clear, Fixed Pricing", desc: "Hospital websites from Rs. 45,000. Real estate landing pages from Rs. 20,000 per project. School websites from Rs. 35,000. No surprises and no ongoing lock-in beyond what we agree." },
+  { emoji: "📞", title: "Dedicated Support", desc: "Your project manager is accessible on WhatsApp and phone. Healthcare and education projects often need quick updates during critical seasons. We are always reachable when it matters." },
+  { emoji: "📈", title: "Measurable Lead Outcomes", desc: "We track appointment inquiries, admission form submissions, and project registrations, not just website visitors. Every campaign is measured against the business outcome you actually care about." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We learn about your Piplod business: your patient or customer profile, your current digital presence, your competitors in the area, and your seasonal peaks like admission season or monsoon healthcare campaigns."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a proposal specific to your sector with clear scope, timeline, and fixed pricing. Healthcare, real estate, and education each have different approaches and we plan accordingly."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We design your website, set up campaigns, and optimise your digital presence. You review and approve at every stage. Healthcare and education content goes through an additional accuracy check before publication."
+  },
+  {
+    step: "4",
+    title: "Grow and Report",
+    desc: "Monthly reporting on inquiry volume, search rankings, and ad performance. We plan around your seasonal calendar, scaling admission campaigns before season opens and healthcare campaigns around relevant health periods."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "94%",  label: "First-Page Google Rankings" },
+  { value: "3.8x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our multi-speciality hospital in Piplod had a basic website that was not generating any patient inquiries. DC technolabs rebuilt it with specialist profiles, department pages, and an appointment booking system. Online patient inquiries went up by over 80 percent in 6 months.",
+    name: "Dr. Hemal Desai",
+    role: "Medical Director, Multi-Speciality Hospital, Piplod, Surat",
+    initials: "HD"
+  },
+  {
+    text: "We launched a luxury residential project in Piplod and needed qualified buyers fast. DC technolabs built a project-specific landing page and ran Google Ads and Facebook campaigns. We registered 120 qualified leads in the first 45 days. The cost per lead was far lower than anything we had seen before.",
+    name: "Manish Shah",
+    role: "Director, Real Estate Developer, Piplod, Surat",
+    initials: "MS"
+  },
+  {
+    text: "Our CBSE school in Piplod always filled admission seats slowly. DC technolabs rebuilt our website with a clear admission journey and set up targeted ads for Surat parents. This year, we had to close applications early because seats filled faster than ever. Outstanding work.",
+    name: "Archana Trivedi",
+    role: "Principal, CBSE School, Piplod, Surat",
+    initials: "AT"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Vesu",
+    slug: "vesu",
+    desc: "Adjacent to Piplod, Vesu is Surat's IT and premium lifestyle corridor. We serve businesses across the Vesu residential and commercial belt."
+  },
+  {
+    name: "Adajan",
+    slug: "adajan",
+    desc: "A major Surat residential hub with clinics, schools, and services businesses. We cover the full spectrum of Adajan's digital marketing needs."
+  },
+  {
+    name: "Dumas Road",
+    slug: "dumas-road",
+    desc: "Surat's coastal hospitality and dining corridor, minutes from Piplod. We work with restaurants, hotels, and event venues along the waterfront."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you have experience with hospital and healthcare marketing?",
+    a: "Yes. We have worked with multi-speciality hospitals, diagnostic laboratories, specialist clinics, and dental practices. We understand the patient trust journey, healthcare advertising sensitivity, and the importance of accuracy in medical content."
+  },
+  {
+    q: "What does a hospital website cost?",
+    a: "A comprehensive multi-speciality hospital website with department pages, specialist profiles, appointment booking, health content, and SEO setup starts at Rs. 45,000. Diagnostic centres and specialist clinics start at Rs. 30,000. All include Google Business Profile optimisation."
+  },
+  {
+    q: "Can you build a landing page for our Piplod real estate project?",
+    a: "Yes. We build project-specific landing pages for luxury apartment developments with gallery, floor plans, amenities, location map, pricing, and a registered-interest inquiry form. Combined with Google Ads and Meta campaigns, these pages typically generate qualified leads within the first week of going live."
+  },
+  {
+    q: "How do you market a school or educational institution?",
+    a: "We focus on three things: a school website built for parents rather than for administrators, SEO targeting the specific curriculum and age group you offer, and targeted ads reaching Surat parents who are actively researching schools. Admission inquiry form submissions typically increase by 40 to 60 percent in the first academic cycle."
+  },
+  {
+    q: "How can we get more Google reviews for our Piplod clinic?",
+    a: "We set up a post-visit or post-consultation review request system. Satisfied patients receive a simple WhatsApp message or SMS with a direct link to leave a Google review. Most clinics double their review count within 3 months and see their average rating improve as a result."
+  },
+  {
+    q: "Can you manage reputation management for a hospital that has some negative reviews?",
+    a: "Yes. We manage review responses professionally, implement a systematic positive review generation programme, and build authoritative content that improves the overall online reputation picture. Reputation management is a continuous process and we handle it as part of ongoing monthly plans."
+  },
+  {
+    q: "Do you run Google Ads for healthcare businesses?",
+    a: "Yes. We run Google Search campaigns for hospitals, diagnostic centres, and clinics, targeting patients who are actively searching for specific medical services in Piplod and Surat. Healthcare advertising requires particular care with claims and restrictions, which we navigate correctly."
+  },
+  {
+    q: "How quickly can you deliver a project for our Piplod business?",
+    a: "Most websites are live within 14 to 21 days of content approval, with healthcare and education websites taking slightly longer due to content accuracy requirements. Landing pages for real estate projects can go live within 7 days when client content is ready."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",    slug: "varachha" },
+  { name: "Ring Road",   slug: "ring-road" },
+  { name: "Vesu",        slug: "vesu" },
+  { name: "Adajan",      slug: "adajan" },
+  { name: "Athwa",       slug: "athwa" },
+  { name: "Katargam",    slug: "katargam" },
+  { name: "Dumas Road",  slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Digital Marketing for Hospitals, Schools and Real Estate in Piplod, Surat | DC technolabs"
+  description="DC technolabs helps Piplod Surat hospitals, diagnostic centres, real estate developers, and schools grow with web design, SEO, and lead generation. Premium sector expertise. Free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/piplod"
+  schemaJson={schemaJson}
+
+  badge="Piplod, Surat"
+  heroH1="Digital Marketing for Piplod, Surat"
+  heroHighlight="Piplod, Surat"
+  heroDesc="Piplod is Surat's premium residential and healthcare address. Hospitals need appointment systems that fill wards. Real estate projects need landing pages that generate registered inquiries. Schools need admission funnels that fill seats. We build all of these and make them work."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Piplod Business"
+  formSub="Healthcare, education, and real estate specialists respond within 4 hours."
+
+  s2Title="Why Piplod Businesses Choose DC technolabs"
+  s2Subtitle="We understand the research-heavy buyer in Piplod and build digital presences that convert them from search to inquiry."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Piplod Businesses"
+  s3Subtitle="Sector-specific digital marketing for healthcare, real estate, and education in Surat's premium neighbourhood."
+  {services}
+
+  s4Title="Challenges We Solve for Piplod Businesses"
+  s4Subtitle="From empty appointment books to slow admission seasons, these are the problems we solve for Piplod's healthcare and education businesses."
+  {challenges}
+
+  s5Title="Why Piplod Businesses Trust DC technolabs"
+  s5Subtitle="Healthcare marketing done carefully, real estate conversion done effectively, education leads done consistently."
+  {whyCards}
+
+  s6Title="How We Work With Piplod Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Surat"
+  {stats}
+
+  s8Title="What Piplod Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our Surat coverage spans all of the city's premium and residential zones. We follow your customers wherever they live."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Piplod Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="surat"
+  cityName="Surat"
+
+  ctaTitle="Ready to Grow Your Piplod Business Online?"
+  ctaSubtitle="Join Surat's hospitals, schools, and developers who trust DC technolabs to build digital pipelines that generate real inquiries. Free consultation, no obligation."
+/>

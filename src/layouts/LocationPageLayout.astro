@@ -62,7 +62,7 @@ interface Props {
 }
 
 const {
-  title, description, canonical, schemaJson,
+  title, description, canonical: rawCanonical, schemaJson,
   badge, cityName, heroDesc, heroStats, formTitle, formSub,
   s2Label = "Our Local Presence", s2Title, overviewParagraphs, overviewSvg,
   s3Label = "Areas We Serve", s3Title, s3Subtitle = "We work with businesses across all major areas of the city.", neighborhoods,
@@ -77,6 +77,7 @@ const {
   ctaTitle, ctaSubtitle,
   citySlug = 'ahmedabad',
 } = Astro.props;
+const canonical = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 import Header from '../components/Header.astro';
 ---
 <!DOCTYPE html>

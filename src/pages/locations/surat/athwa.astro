@@ -1,0 +1,298 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Athwa businesses in Surat with web design, SEO, PPC, and social media services for banks, showrooms, CA firms, and corporate offices.",
+  "url": "https://dctechnolabs.in/locations/surat/athwa",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.190", "longitude": "72.820" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Athwa, Surat" },
+    { "@type": "Place", "name": "Athwa Gate, Surat" },
+    { "@type": "Place", "name": "Ghod Dod Road, Surat" },
+    { "@type": "Place", "name": "Ring Road, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",  label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Athwa is Surat's most established professional and commercial district. Ghod Dod Road, Athwa Gate, and the surrounding lanes are home to private banks, insurance offices, car showrooms, electronics retailers, chartered accountant firms, and corporate headquarters. This is where Surat's decision-makers work and spend.",
+  "Financial services firms in Athwa face a unique challenge: their products require trust before a customer picks up the phone. A CA firm without a credible website, or an insurance office with no digital presence, loses potential clients to competitors who show up first on Google and look professional online.",
+  "We help Athwa businesses build that credibility digitally. From lead generation landing pages for insurance advisors to Google Ads campaigns for car showrooms, we understand the professional services market and what it takes to convert an online searcher into a booked appointment or showroom visit.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏦", label: "Banks and Finance" },
+  { icon: "🚗", label: "Car Showrooms" },
+  { icon: "📊", label: "CA and Tax Firms" },
+  { icon: "🛡️", label: "Insurance Companies" },
+  { icon: "💻", label: "Electronics Retailers" },
+  { icon: "🏢", label: "Corporate Offices" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏦", title: "Financial Services Hub", desc: "Athwa hosts branches of every major private bank, NBFC offices, wealth management firms, and financial advisors serving Surat's affluent business community." },
+  { icon: "🚗", title: "Premium Showroom Corridor", desc: "Car dealerships and electronics retailers on Ghod Dod Road compete fiercely for walk-ins. Local SEO and Google Ads are the difference between a full showroom and an empty one." },
+  { icon: "📋", title: "Professional Services Belt", desc: "CA firms, legal offices, and consulting practices in Athwa rely on professional reputation. A polished website and Google presence are now as important as word-of-mouth referrals." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Professional Website Design",
+    desc: "Custom websites for CA firms, insurance offices, and financial advisors that project credibility and competence from the first click. We design for trust, because your clients make decisions based on how professional you appear online."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Athwa Businesses",
+    desc: "Get found when Surat residents search for chartered accountants, insurance advisors, or car dealers in Athwa. We optimize your Google Business Profile, build local citations, and create content that ranks for Athwa-specific search queries."
+  },
+  {
+    icon: "📢",
+    title: "PPC and Google Ads Campaigns",
+    desc: "Car showrooms and electronics retailers see immediate results with targeted Google Ads. We manage campaigns for Athwa businesses with budgets from Rs. 15,000 to Rs. 5,00,000 per month, with full transparency on every rupee spent."
+  },
+  {
+    icon: "📋",
+    title: "Lead Generation Landing Pages",
+    desc: "Insurance companies and financial advisors need more than a brochure website. We build conversion-focused landing pages with inquiry forms, WhatsApp buttons, and trust signals designed specifically for high-value lead generation."
+  },
+  {
+    icon: "💼",
+    title: "B2B Digital Marketing",
+    desc: "Corporate offices in Athwa often need to attract business clients rather than individual consumers. We run LinkedIn campaigns, develop B2B content strategies, and build pipelines for professional services firms in the area."
+  },
+  {
+    icon: "📱",
+    title: "Social Media and Reputation Management",
+    desc: "A CA firm's Google reviews matter as much as their ACA credentials in the eyes of new clients. We manage your social presence, generate positive reviews, and ensure your Athwa business is the clear choice when clients research online."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My CA firm has no website and relies only on referrals",
+    solution: "We build professional websites for chartered accountants that rank on Google for Surat tax and accounting searches. New clients who do not know you yet will find you, check your website, and call with confidence. Many of our CA clients see inquiries from beyond their existing network within 90 days."
+  },
+  {
+    problem: "Our car showroom's Google Ads bring visitors but not test-drive bookings",
+    solution: "Most showroom ad campaigns send traffic to the homepage. We build dedicated landing pages per model with a test-drive booking form and click-to-call button. Conversion rates typically double within the first month of this change."
+  },
+  {
+    problem: "Insurance clients are going to direct online portals instead of advisors",
+    solution: "We position local insurance advisors as the superior choice through content marketing, personalized landing pages, and Google reviews. Customers who want human advice and local service will find your office first and understand the value you offer over a generic portal."
+  },
+  {
+    problem: "Our bank branch needs more current account and loan inquiries",
+    solution: "We run hyper-local Google Ads and SEO campaigns targeting Athwa and Ghod Dod Road residents who are actively searching for bank services. Combined with an optimized Google Business Profile, your branch becomes the obvious first call."
+  },
+  {
+    problem: "Our electronics store is losing footfall to e-commerce platforms",
+    solution: "Physical electronics retailers in Athwa have advantages online stores cannot match: demonstration, immediate availability, and after-sales service. We communicate these through targeted local SEO and social campaigns that bring ready-to-buy customers through your door."
+  },
+  {
+    problem: "Our corporate website is outdated and does not represent our capabilities",
+    solution: "An outdated website loses corporate clients before the first conversation. We redesign corporate sites with modern design, strong case study sections, and credible content that reflects the actual quality of your Athwa-based operation."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🏦", title: "Financial Services Understanding", desc: "We have worked with insurance advisors, CA firms, and wealth management offices. We understand the compliance considerations, the trust-building required, and how to communicate financial services without overselling." },
+  { emoji: "⚡", title: "Fast Delivery", desc: "Professional service websites go live within 14 days. Google Ads campaigns launch within 48 hours of brief approval. We do not make you wait when time is money for your business." },
+  { emoji: "💰", title: "Clear, Fixed Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. Google Ads management from Rs. 12,000 per month plus ad spend. No hidden fees, no lock-in contracts." },
+  { emoji: "📞", title: "Same-Day Response", desc: "WhatsApp, phone, or email. You get a response the same business day, every time. Your project manager is a real person you can reach, not a support ticket system." },
+  { emoji: "📈", title: "Measurable ROI", desc: "Every campaign we run for Athwa businesses is tracked against real business outcomes: inquiries, appointments, showroom visits. We report on what actually matters to your bottom line." },
+  { emoji: "🤝", title: "Long-Term Partnership", desc: "We do not disappear after delivery. Our Surat clients stay with us for years because we keep improving results, adapt to market changes, and treat your business as our own." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Athwa business, your current digital presence, your competitors on Ghod Dod Road, and your growth goals. No obligation, no pressure."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a tailored proposal with scope, timeline, and fixed pricing for your Athwa market. No generic packages, a plan built for your specific business type."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We execute the strategy, whether that is a new website, a Google Ads campaign, or a local SEO programme. You review and approve at every stage before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Report and Grow",
+    desc: "Monthly performance reports show exactly what is working. We refine the approach continuously so your Athwa business keeps generating more leads month after month."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "94%",  label: "First-Page Google Rankings" },
+  { value: "3.8x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We are a CA firm in Athwa that had zero online presence for 12 years. DC technolabs built our website and handled our Google Business Profile. Within 4 months we were getting calls from new clients who found us on Google. That never happened before.",
+    name: "CA Jayesh Mehta",
+    role: "Chartered Accountant, Athwa, Surat",
+    initials: "JM"
+  },
+  {
+    text: "Our car dealership runs Google Ads with DC technolabs. They redesigned our campaign with a landing page specifically for test-drive bookings. Inquiries went up by nearly 70 percent and the quality of leads improved drastically. Highly recommend.",
+    name: "Nilesh Parikh",
+    role: "Dealer Principal, Car Showroom, Ghod Dod Road",
+    initials: "NP"
+  },
+  {
+    text: "As an insurance advisor in Athwa, I was invisible online. DC technolabs built me a professional website and ran Google Ads targeting Surat residents. I now get 8 to 10 qualified inquiries per month from people I have never met. The ROI has been outstanding.",
+    name: "Priya Kapadia",
+    role: "Insurance Advisor, Athwa, Surat",
+    initials: "PK"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Ring Road",
+    slug: "ring-road",
+    desc: "Surat's textile and fabric corridor, minutes from Athwa. We serve manufacturers, traders, and garment exporters throughout the Ring Road stretch."
+  },
+  {
+    name: "Adajan",
+    slug: "adajan",
+    desc: "A large residential hub adjacent to Athwa with clinics, coaching institutes, and retail businesses that depend on local SEO and social media marketing."
+  },
+  {
+    name: "Piplod",
+    slug: "piplod",
+    desc: "Surat's premium residential area with hospitals, diagnostic centres, and luxury real estate developers, all within easy reach of Athwa."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Do you work with CA firms and financial services businesses in Athwa?",
+    a: "Yes. We have worked with chartered accountants, tax consultants, insurance advisors, and wealth management firms in Surat. We understand the compliance environment, the need for professional tone, and the importance of trust-building over direct selling in these categories."
+  },
+  {
+    q: "What does a professional CA firm website cost?",
+    a: "A professional website for a CA or tax consultancy firm, including service pages, team profiles, contact form, Google integration, and basic SEO setup, starts at Rs. 30,000. We also offer a content writing service for tax and compliance topics if you need blog articles to build authority."
+  },
+  {
+    q: "How effective is Google Ads for a car showroom in Athwa?",
+    a: "Very effective when done correctly. Most showroom campaigns we take over are sending traffic to the homepage with a generic ad. We create model-specific ad groups, dedicated landing pages with test-drive booking forms, and call extensions. The first month typically shows a significant improvement in cost per lead and total inquiries."
+  },
+  {
+    q: "Can you help a bank branch generate more current account and business loan inquiries?",
+    a: "Yes. We run geo-targeted Google Ads within the Athwa and surrounding pin codes, optimize the branch's Google Business Profile with photos and services, and create landing pages for specific products like business current accounts or MSME loans. These campaigns are compliant with banking advertising guidelines."
+  },
+  {
+    q: "How long does SEO take for an Athwa professional services firm?",
+    a: "For local search terms like 'chartered accountant in Athwa Surat' or 'insurance advisor Surat', you typically see ranking improvements within 60 to 90 days. Lead flow from organic search usually becomes significant between months 4 and 6. The Athwa professional services market is competitive but very achievable to rank in."
+  },
+  {
+    q: "Can you manage our corporate LinkedIn page and B2B marketing?",
+    a: "Yes. For corporate offices in Athwa that sell to other businesses, LinkedIn is often the most effective channel. We manage company pages, create content, run sponsored campaigns targeting decision-makers, and build B2B lead generation pipelines. Packages start at Rs. 25,000 per month."
+  },
+  {
+    q: "We are an electronics retailer competing with Amazon and Flipkart. Can you help?",
+    a: "Absolutely. Physical retailers have genuine advantages: demonstration, on-the-spot availability, no delivery wait, and local after-sales service. We communicate these through local SEO, Google Shopping campaigns, and targeted social ads that bring Athwa and Surat residents into your store when they are ready to buy."
+  },
+  {
+    q: "Can we meet in person to discuss our Athwa project?",
+    a: "Yes. We offer video consultations for Surat clients and also make quarterly visits to Surat for in-person meetings. You can also come to our Ahmedabad office if you prefer. We are flexible and will always make time for a proper briefing before starting any project."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",    slug: "varachha" },
+  { name: "Ring Road",   slug: "ring-road" },
+  { name: "Vesu",        slug: "vesu" },
+  { name: "Adajan",      slug: "adajan" },
+  { name: "Katargam",    slug: "katargam" },
+  { name: "Piplod",      slug: "piplod" },
+  { name: "Dumas Road",  slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Athwa, Surat | DC technolabs"
+  description="DC technolabs helps Athwa Surat businesses grow online with web design, local SEO, Google Ads, and lead generation. CA firms, car showrooms, banks, and insurance advisors. Get a free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/athwa"
+  schemaJson={schemaJson}
+
+  badge="Athwa, Surat"
+  heroH1="Digital Marketing for Athwa, Surat Businesses"
+  heroHighlight="Athwa, Surat"
+  heroDesc="Surat's banking, showroom, and professional services hub deserves a digital presence that matches its reputation. From CA firms on Ghod Dod Road to car dealerships on Athwa Gate, we help local businesses rank higher on Google and convert more inquiries into clients."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Athwa Business"
+  formSub="Athwa and Surat businesses get a response within 4 hours."
+
+  s2Title="Why Athwa Businesses Choose DC technolabs"
+  s2Subtitle="We understand professional services, financial brands, and showroom marketing. We deliver results that matter in the Athwa market."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Athwa Businesses"
+  s3Subtitle="Everything your Athwa business needs to win more clients online and dominate local search."
+  {services}
+
+  s4Title="Challenges We Solve for Athwa Businesses"
+  s4Subtitle="These are the most common problems we hear from CA firms, showrooms, and financial services offices across Athwa."
+  {challenges}
+
+  s5Title="Why Athwa Businesses Trust DC technolabs"
+  s5Subtitle="Professional services marketing done with precision. Here is what makes us the right partner for Athwa."
+  {whyCards}
+
+  s6Title="How We Work With Athwa Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Surat"
+  {stats}
+
+  s8Title="What Surat Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage spans all of Surat. If your customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Athwa Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="surat"
+  cityName="Surat"
+
+  ctaTitle="Ready to Grow Your Athwa Business Online?"
+  ctaSubtitle="Join Surat businesses that trust DC technolabs for digital marketing that generates real leads. Get a free consultation with no obligation."
+/>

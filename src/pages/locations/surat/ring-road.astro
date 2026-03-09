@@ -1,0 +1,300 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Ring Road Surat businesses with web design, B2B SEO, and lead generation for fabric wholesale, garment manufacturers, and textile exporters.",
+  "url": "https://dctechnolabs.in/locations/surat/ring-road",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.195", "longitude": "72.831" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Ring Road, Surat" },
+    { "@type": "Place", "name": "Varachha, Surat" },
+    { "@type": "Place", "name": "Katargam, Surat" },
+    { "@type": "Place", "name": "Majura Gate, Surat" },
+    { "@type": "Place", "name": "Athwa, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "Same Day", label: "Response Time" },
+  { value: "945+", label: "Total Gujarat Projects" },
+];
+
+const s2Body: string[] = [
+  "Ring Road is Surat's main commercial spine. Running through the city, it connects fabric wholesale markets, garment showrooms, textile exporters, logistics hubs, and banks in a dense commercial corridor that handles billions of rupees in trade every year. This is where bulk buyers come to source fabric, where manufacturers display their latest collections, and where logistics firms coordinate exports to buyers across India and abroad.",
+  "Despite the sheer volume of commerce happening on Ring Road, most businesses here have minimal or outdated digital presence. Buyers who cannot visit in person often cannot find these businesses online at all. Trade show footfalls are not enough anymore. International and domestic buyers increasingly search Google before they dial any number.",
+  "DC technolabs helps Ring Road businesses build professional websites, rank for relevant textile and wholesale search terms, and set up digital channels that generate leads beyond their existing network. We understand the B2B buying process and design everything around the way your buyers actually make purchasing decisions.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🧵", label: "Fabric Wholesale Markets" },
+  { icon: "👗", label: "Garment Manufacturers" },
+  { icon: "🌍", label: "Textile Exporters" },
+  { icon: "🏪", label: "Fabric Showrooms" },
+  { icon: "🏦", label: "Banks and Finance" },
+  { icon: "🚛", label: "Logistics Firms" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🧵", title: "India's Textile Capital", desc: "Surat produces over 40% of India's man-made fabric. Ring Road is the commercial artery connecting manufacturers, traders, and exporters in this massive industry." },
+  { icon: "🌍", title: "International Buyer Traffic", desc: "Fabric importers from Southeast Asia, the Middle East, and Africa source from Surat's Ring Road traders. Online presence is now critical to being on their vendor shortlist." },
+  { icon: "📊", title: "B2B Digital Gap", desc: "Most Ring Road businesses rely on trade shows and walk-ins. The businesses that build a digital presence now will own the search rankings when their competitors eventually catch up." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "B2B Website Design for Textile Businesses",
+    desc: "Professional websites built for wholesale and export-oriented businesses on Ring Road. We create catalogue pages, product galleries, inquiry forms, and international trust signals that convert trade buyers into warm leads."
+  },
+  {
+    icon: "🔍",
+    title: "Textile SEO and International Search Ranking",
+    desc: "We target search terms used by domestic garment manufacturers and international fabric importers. From 'saree fabric wholesale Surat' to 'synthetic fabric exporter India', we get your Ring Road business found by the buyers who matter."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Showroom Walk-ins and B2B Leads",
+    desc: "Targeted Google Ads campaigns that drive both walk-in showroom visitors from Surat and online B2B inquiries from buyers across India. Budgets from Rs. 20,000 per month with full transparent reporting."
+  },
+  {
+    icon: "🛒",
+    title: "B2B Trade Portal and Bulk Order Systems",
+    desc: "We build wholesale portals where buyers can browse your fabric categories, check availability, download swatches, and submit bulk inquiry forms. This dramatically reduces the time you spend on phone calls for initial inquiries."
+  },
+  {
+    icon: "📱",
+    title: "WhatsApp Business and Social Media",
+    desc: "WhatsApp Business catalogue setup, Instagram showcasing your fabric collections, and LinkedIn for connecting with buyers and trade professionals. We create content that highlights your inventory and builds confidence in your product quality."
+  },
+  {
+    icon: "🏆",
+    title: "Logistics and Tendering Digital Support",
+    desc: "For logistics firms and service businesses on Ring Road, we build websites and local SEO setups that help you win more contracts. Company profile pages, case studies, and service area targeting for Surat and South Gujarat."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our fabric wholesale business has no website and relies entirely on walk-in buyers",
+    solution: "Walk-in traffic is limited to people who already know you exist. A website with your product catalogue and a Google Business Profile listing puts your business in front of buyers who are actively searching for what you sell, including buyers from other cities who cannot visit in person."
+  },
+  {
+    problem: "Our showroom looks great but buyers from other cities cannot see it",
+    solution: "We build visual product showcase websites with high-quality fabric photography and organised category pages. Buyers in Mumbai, Delhi, or Bangalore can browse your inventory, understand your range, and submit inquiries before ever visiting your Ring Road showroom."
+  },
+  {
+    problem: "We want to reach international buyers in Southeast Asia and the Middle East",
+    solution: "International B2B SEO requires English-first content, proper export credibility signals, and targeting of the specific search terms overseas buyers use. We build this entire presence for Ring Road textile exporters, from the website to the international Google rankings."
+  },
+  {
+    problem: "Our competitors are getting more inquiries from online channels and we are being left behind",
+    solution: "Early movers in textile digital marketing are capturing a growing share of online inquiry traffic. We can close that gap quickly, typically getting your website ranking for key Surat textile terms within 60 to 90 days and running lead-generating ad campaigns within days of launch."
+  },
+  {
+    problem: "We handle logistics for textile exporters and want to win more contracts digitally",
+    solution: "A professional logistics company website with a clear service area map, fleet information, industry specializations, and client case studies gives tender committees confidence in your capabilities. We also run local SEO for Surat logistics search terms."
+  },
+  {
+    problem: "We have a website but no one fills the inquiry form",
+    solution: "Most inquiry forms fail because they are too long, poorly placed, or lack a compelling reason to fill out. We redesign your conversion flow, add WhatsApp as an instant alternative, and test different CTAs until you are consistently getting leads from your existing traffic."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🧵", title: "Textile Industry Expertise", desc: "We have marketed fabric wholesale, garment manufacturing, and textile export businesses in Surat's trade ecosystem. We understand B2B buying cycles and what content convinces trade buyers." },
+  { emoji: "🌍", title: "International Buyer Targeting", desc: "We build campaigns and SEO strategies targeting fabric importers in Southeast Asia, the Middle East, and across India. International B2B marketing is a different skill set and we have it." },
+  { emoji: "⚡", title: "Fast Execution", desc: "We launch websites within 14 to 21 days and ad campaigns within 72 hours. Ring Road businesses often have time-sensitive inventory and seasonal requirements. We move at business speed." },
+  { emoji: "💰", title: "Clear and Fixed Pricing", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. No hidden fees and no escalating costs. You know the full investment before we start." },
+  { emoji: "📊", title: "Measurable Results", desc: "Every campaign is tracked with proper analytics. You see exactly how many inquiries came from Google, how many from ads, and what each lead cost. No black-box reporting." },
+  { emoji: "🤝", title: "Remote-First but Visit-Ready", desc: "All Ring Road client work is delivered remotely with seamless video calls and WhatsApp communication. We also visit Surat quarterly for in-person strategy sessions for clients who prefer it." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Ring Road business, your target buyers, your current online presence, and your growth goals. Video call or phone, whichever you prefer. No obligation."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you get a detailed proposal with scope, timeline, and fixed pricing. No vague quotes, no hidden additions. You know exactly what you are getting."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We design, develop, and launch your website or campaign. You see and approve every stage. Nothing goes live without your sign-off."
+  },
+  {
+    step: "4",
+    title: "Monthly Reporting and Optimization",
+    desc: "Every month you receive a clear report showing leads generated, keyword rankings, and ad performance. We continuously optimize based on what the data tells us."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "945+", label: "Total Gujarat Projects" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We are a fabric wholesale business near Ring Road. Our website was 7 years old and we had almost no inquiry traffic. DC technolabs redesigned the site with our full product catalogue, added a bulk inquiry form, and set up Google Ads. We got 22 new buyer inquiries in the first 6 weeks.",
+    name: "Ravi Khatri",
+    role: "Fabric Wholesale, Ring Road, Surat",
+    initials: "RK"
+  },
+  {
+    text: "We export saree fabric and synthetic cloth to buyers in Malaysia and Dubai. DC technolabs built us an English-language export website and optimised it for international search terms. We now get 3 to 4 international buyer inquiries every month from people who found us on Google.",
+    name: "Bhavesh Shah",
+    role: "Textile Exporter, Ring Road, Surat",
+    initials: "BS"
+  },
+  {
+    text: "I run a garment showroom on Ring Road. The Instagram content DC technolabs creates shows our fabrics in a way that actually makes buyers want to visit. Footfall from other Surat areas has genuinely increased since we started the social media work.",
+    name: "Preeti Desai",
+    role: "Garment Showroom Owner, Ring Road",
+    initials: "PD"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Varachha",
+    slug: "varachha",
+    desc: "Adjacent to Ring Road, Varachha is Surat's diamond industry heartland with trading firms, polishing units, and export businesses."
+  },
+  {
+    name: "Katargam",
+    slug: "katargam",
+    desc: "Surat's power loom and weaving hub with thousands of textile manufacturing units and dyeing operations."
+  },
+  {
+    name: "Athwa",
+    slug: "athwa",
+    desc: "A major commercial zone on Ring Road's southern stretch with banks, showrooms, and professional service businesses."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you build a website that shows our fabric catalogue to buyers?",
+    a: "Yes. We build product catalogue websites with organised fabric category pages, colour and design filters, quality specification sections, and easy bulk inquiry forms. Buyers from other cities can browse your range and submit inquiries without visiting your Ring Road showroom."
+  },
+  {
+    q: "Do you know the textile industry well enough to write content for our website?",
+    a: "Yes. We have worked with Surat's textile and fabric businesses since 2019. We understand fabric categories, industry terminology, B2B buying culture, and what information buyers need to make a purchasing decision. We write content that reads as if it came from an industry insider."
+  },
+  {
+    q: "How quickly can you launch a website for our showroom?",
+    a: "Standard business websites launch within 14 to 21 days. More complex B2B portals with bulk ordering functionality typically take 4 to 6 weeks. We always confirm the exact timeline in your proposal before starting work."
+  },
+  {
+    q: "Can you run Google Ads to drive walk-ins to our Ring Road showroom?",
+    a: "Yes. We run geo-targeted Google Ads that reach buyers searching for fabric or textiles across Surat and nearby districts. These campaigns drive both website inquiries and phone calls from people who want to visit your showroom."
+  },
+  {
+    q: "We want to reach fabric importers in Southeast Asia and the Middle East. Is that possible?",
+    a: "Yes. International B2B SEO and targeted advertising can reach buyers in Malaysia, Indonesia, the UAE, and across the Middle East. We build English-first websites with proper export credibility signals and run campaigns targeting the specific search terms international fabric buyers use."
+  },
+  {
+    q: "What is the cost of a professional website for a textile business?",
+    a: "A professional B2B textile business website with a product catalogue, inquiry forms, and basic SEO setup starts at Rs. 35,000. More complex portals with bulk ordering, buyer login, and inventory integration start at Rs. 75,000. We send you a fixed-price quote before starting."
+  },
+  {
+    q: "How long does SEO take for a Ring Road textile business?",
+    a: "You typically see Google ranking improvements for Surat textile search terms within 60 to 90 days. Significant traffic and inquiry increases happen between months 4 and 6. We track rankings from day one and report progress monthly."
+  },
+  {
+    q: "Do we need to visit your office in Ahmedabad?",
+    a: "Not at all. All our Ring Road client work is delivered remotely with video calls, WhatsApp approvals, and shared project dashboards. We also visit Surat quarterly. The entire process is designed to work seamlessly without any travel required on either side."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",   slug: "varachha" },
+  { name: "Vesu",       slug: "vesu" },
+  { name: "Adajan",     slug: "adajan" },
+  { name: "Athwa",      slug: "athwa" },
+  { name: "Katargam",   slug: "katargam" },
+  { name: "Piplod",     slug: "piplod" },
+  { name: "Dumas Road", slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing on Ring Road, Surat | DC technolabs"
+  description="DC technolabs helps Ring Road Surat businesses grow online. B2B websites, textile SEO, Google Ads, and trade portal development for fabric wholesalers, garment manufacturers, and textile exporters. Free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/ring-road"
+  schemaJson={schemaJson}
+
+  citySlug="surat"
+  cityName="Surat"
+
+  badge="Ring Road, Surat"
+  heroH1="Digital Marketing for Ring Road Businesses in Surat"
+  heroHighlight="Ring Road Businesses"
+  heroDesc="Ring Road is Surat's commercial backbone. Fabric wholesalers, garment manufacturers, textile exporters, and logistics firms line this corridor. We help Ring Road businesses build digital presence that reaches buyers in Mumbai, Delhi, and beyond, and that earns them inquiries from international importers who never set foot in Surat."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Ring Road Business"
+  formSub="Textile and wholesale businesses get a proposal within 24 hours."
+
+  s2Title="Why Ring Road Businesses Are Going Digital"
+  s2Subtitle="Trade shows and referrals are not enough anymore. Buyers search online before they call or visit. We make sure your Ring Road business is the one they find."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Ring Road Businesses"
+  s3Subtitle="From B2B trade portals to international textile SEO, everything your Ring Road business needs to generate leads beyond its existing network."
+  {services}
+
+  s4Title="Challenges We Solve for Ring Road Businesses"
+  s4Subtitle="These are the most common digital challenges we hear from fabric wholesale, garment, and textile businesses on Ring Road."
+  {challenges}
+
+  s5Title="Why Ring Road Businesses Trust DC technolabs"
+  s5Subtitle="We understand Surat's textile trade and build digital strategies that fit the B2B buying culture of this market."
+  {whyCards}
+
+  s6Title="How We Work With Ring Road Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gujarat"
+  {stats}
+
+  s8Title="What Surat Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across Surat. If your buyers or customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Ring Road Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Grow Your Ring Road Business Online?"
+  ctaSubtitle="Get a free consultation and a fixed-price proposal within 24 hours. We understand Surat's textile trade and we know how to turn digital presence into real business inquiries."
+/>

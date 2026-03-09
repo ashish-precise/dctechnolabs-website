@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Harni businesses in Vadodara with web design, local SEO, Google Business Profile, WhatsApp Business, and social media marketing for clinics, home services, schools, and local restaurants.",
+  "url": "https://dctechnolabs.in/locations/vadodara/harni",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.3048", "longitude": "73.2281" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 15,000 - Rs. 1,50,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Harni, Vadodara" },
+    { "@type": "Place", "name": "Harni Lake Area, Vadodara" },
+    { "@type": "Place", "name": "Old Padra Road, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",   label: "Vadodara Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Harni is one of Vadodara's fastest-growing residential areas. Situated near Harni Lake in the eastern part of the city, the neighbourhood has expanded rapidly over the past decade with new housing societies, family-oriented infrastructure, and a growing ecosystem of local businesses catering to daily needs. Schools, clinics, pharmacies, grocery stores, home service providers, and local eateries are the backbone of the Harni economy.",
+  "The customer base here is digitally active but locally oriented. Harni families search Google for a doctor near them, check Instagram before ordering food, and rely on WhatsApp Business interactions when choosing a plumber or AC repair service. If your business is not visible on these channels, you are losing customers to whoever is.",
+  "We work with local service businesses across Gujarat, helping them set up the basics correctly: Google Business Profile, a mobile-friendly website, and the social media or WhatsApp presence that turns local searches into calls and walk-ins. Harni's growth trajectory makes now the right time to establish digital presence before competition intensifies.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏥", label: "Clinics and Family Physicians" },
+  { icon: "💊", label: "Pharmacies" },
+  { icon: "🎓", label: "Private Schools" },
+  { icon: "🔧", label: "Home Services" },
+  { icon: "🍽️", label: "Local Restaurants" },
+  { icon: "🏠", label: "Real Estate Agents" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "📍", title: "Rapidly Expanding Residential Area", desc: "Harni is growing fast with new housing societies and families moving in from across Vadodara. Local businesses that establish digital presence now will dominate as the neighbourhood expands." },
+  { icon: "📱", title: "Mobile-First Local Searches", desc: "Harni residents search for clinics, restaurants, and home services primarily on mobile phones. A Google Business Profile and mobile-optimised website are the foundation of local visibility here." },
+  { icon: "🏘️", title: "Family-Oriented Community", desc: "Schools, tutors, pharmacies, and family clinics are in high demand. Word-of-mouth still works in Harni, but digital presence amplifies it to the many families who moved here recently and do not yet have established local networks." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "📍",
+    title: "Google Business Profile for Harni Businesses",
+    desc: "A fully optimised Google Business Profile is the single most important digital asset for a Harni clinic, pharmacy, or home service business. We set it up correctly with photos, services, opening hours, and a review generation system that helps you appear in local searches immediately."
+  },
+  {
+    icon: "🌐",
+    title: "Mobile-First Websites for Local Businesses",
+    desc: "Clean, fast websites that load well on the mobile phones Harni residents use. Whether you are a family clinic needing an appointment booking page or a home services business needing a quote request form, we build exactly what your customers expect to find."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Harni",
+    desc: "We rank your business when Harni and east Vadodara residents search for your service. Searches like 'doctor in Harni Vadodara', 'AC repair near Harni', and 'school in Harni' are our targets. Strong local SEO brings consistent new patients, customers, and clients every month."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp Business Setup and Marketing",
+    desc: "Harni home service businesses and local shops run heavily on WhatsApp. We set up WhatsApp Business properly with a catalogue, automated responses, and broadcast list strategy. We also run click-to-WhatsApp ads that bring inquiries directly to your chat."
+  },
+  {
+    icon: "📱",
+    title: "Social Media for Restaurants and Eateries",
+    desc: "Instagram and Facebook content and advertising for Harni restaurants, tiffin services, and cafes. Food content works exceptionally well on Instagram with local targeting, and we build a consistent presence that keeps your tables full and your delivery orders coming."
+  },
+  {
+    icon: "🏠",
+    title: "Property Listing Websites for Real Estate Agents",
+    desc: "Harni is a growing real estate market. Agents need property listing websites that showcase available properties with photos, floor plans, pricing, and inquiry forms. We build clean property portals that work well for buyers searching for flats and houses in Harni and nearby areas."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our clinic is not showing up on Google Maps when patients search nearby",
+    solution: "We fully set up and optimise your Google Business Profile with accurate category, services, photos, and a review generation system. Clinics with properly optimised Google listings in Harni appear in the local map pack for 'doctor near me' and category-specific searches like 'general physician Harni Vadodara'."
+  },
+  {
+    problem: "Our home services business gets calls only from existing customers, not new ones",
+    solution: "We combine a Google Business Profile, a basic website with service area and quote request form, and click-to-WhatsApp ads targeting Harni residents. Home service businesses with this setup typically see new customer inquiries within 2 weeks of launch."
+  },
+  {
+    problem: "My restaurant does well but only with regulars, we need new customers from Harni",
+    solution: "We build your Instagram presence with food content targeting Harni and nearby areas, run Google Maps optimisation so you appear in 'restaurants in Harni' searches, and help you get listed and optimised on Swiggy and Zomato. New residents in the area discover places to eat almost entirely through these channels."
+  },
+  {
+    problem: "Our private school has no digital presence and relies entirely on word of mouth",
+    solution: "We build a school website with admission information, curriculum overview, faculty page, and an online inquiry form. Combined with Google Ads targeting parents in Harni and east Vadodara during admission season, this brings qualified admissions inquiries without relying on referrals."
+  },
+  {
+    problem: "Families new to Harni do not know our pharmacy exists",
+    solution: "New residents in a neighbourhood discover local services primarily through Google Maps and Instagram. We optimise your Google listing, create basic social media presence, and run awareness campaigns targeting people who recently moved to Harni. Pharmacies with good Google ratings get consistent foot traffic from new residents."
+  },
+  {
+    problem: "We sell property in Harni but have no website and miss online leads",
+    solution: "We build a property listing website with your current inventory, locality information, and WhatsApp inquiry buttons on every listing. Most property buyers in Harni research online before contacting an agent. A professional listing website is the difference between being found and being missed."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "📍", title: "Local Service Business Specialists", desc: "We work with clinics, home service providers, restaurants, and schools across Gujarat. We understand what local service businesses need to grow in residential neighbourhoods like Harni." },
+  { emoji: "💬", title: "WhatsApp Business Expertise", desc: "Many Harni businesses run on WhatsApp. We set up WhatsApp Business properly, create catalogues, set up automated responses, and run click-to-WhatsApp campaigns that bring inquiries directly to your chat." },
+  { emoji: "⚡", title: "Fast Setup for Local Businesses", desc: "Google Business Profile setup in 2 days. A basic local services website in 7 to 10 days. You start seeing results from Google Maps within a few weeks of proper optimisation." },
+  { emoji: "💰", title: "Affordable Packages for Local Businesses", desc: "Google Business Profile setup and optimisation from Rs. 8,000. Local services website from Rs. 15,000. Monthly local SEO from Rs. 12,000. Packages designed for local Harni businesses, not enterprise marketing budgets." },
+  { emoji: "📞", title: "Direct Support in Gujarati or English", desc: "Your project manager is reachable by phone and WhatsApp. We work in the language that is most comfortable for you, whether that is Gujarati, Hindi, or English." },
+  { emoji: "📈", title: "Results That Match Your Business Size", desc: "We do not promise enterprise results on local business budgets. We promise more patients, more food orders, more service inquiries, measurable by the calls and messages you receive every month." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Local Audit",
+    desc: "We review your current Google listing, any existing website, and your social media presence. We identify the specific gaps that are costing you local customers in Harni and tell you exactly what to fix."
+  },
+  {
+    step: "2",
+    title: "Simple Plan and Pricing",
+    desc: "You receive a clear recommendation with scope, timeline, and fixed pricing. For local businesses, we keep the plan simple and focused on the channels that will actually move the needle for your type of business."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We set up your Google Business Profile, build your website or social presence, and launch within days, not weeks. You review and approve before anything goes live."
+  },
+  {
+    step: "4",
+    title: "Track and Grow",
+    desc: "Monthly reporting shows how many new patients, customers, or clients found you through digital channels. We keep optimising so your Harni business continues to grow."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Area Clients" },
+  { value: "93%",  label: "First-Page Google Rankings" },
+  { value: "3.5x", label: "Average Lead Increase" },
+  { value: "10",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We opened a family clinic in Harni and had almost no patients for the first three months. DC technolabs set up our Google Business Profile and optimised it properly. Within 6 weeks we were appearing at the top of Google Maps for nearby medical searches and patient inquiries tripled. The investment paid back in the first month.",
+    name: "Dr. Priti Shah",
+    role: "Family Physician, Harni, Vadodara",
+    initials: "PS"
+  },
+  {
+    text: "My AC repair and home appliance service was entirely on referrals. They set up a proper Google listing, a basic website with a quote request form, and a click-to-WhatsApp ad. I now get 10 to 15 new customer inquiries every week from people in Harni and nearby areas who I had never reached before.",
+    name: "Kiran Parmar",
+    role: "AC Repair and Home Appliance Service, Harni",
+    initials: "KP"
+  },
+  {
+    text: "Our tiffin service was popular with existing customers but we could not reach new residents moving into Harni. The Instagram content and local targeting they set up brought us 30 new subscribers in the first month. We had to hire an extra person to keep up with demand.",
+    name: "Geetaben Trivedi",
+    role: "Home Tiffin Service, Harni, Vadodara",
+    initials: "GT"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Manjalpur",
+    slug: "manjalpur",
+    desc: "Mid-market retail and residential area in south Vadodara, connecting Harni to the city's commercial core."
+  },
+  {
+    name: "Waghodia Road",
+    slug: "waghodia-road",
+    desc: "Industrial and automotive corridor in east Vadodara. Many Harni families work in the businesses along this route."
+  },
+  {
+    name: "Gotri",
+    slug: "gotri",
+    desc: "Growing healthcare and residential area on Vadodara's west side. Similar neighbourhood profile to Harni with clinics, schools, and local services."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "What is the most important thing a Harni clinic or pharmacy should do digitally?",
+    a: "Set up and fully optimise your Google Business Profile. This is the single highest-return action a local clinic or pharmacy can take. When someone searches 'doctor in Harni' or 'pharmacy near me', a properly optimised listing with good photos, accurate information, and regular reviews puts you in the map pack. We do the complete setup and optimisation for Rs. 8,000 and it typically generates its first new patient within 2 to 3 weeks."
+  },
+  {
+    q: "How can a home services business in Harni get more customers online?",
+    a: "Three things work reliably for home services in Harni: a Google Business Profile with photos and service descriptions, a simple website with a quote request form and your service area listed, and click-to-WhatsApp ads targeting Harni residents. This combination brings consistent new inquiries from people who have never heard of you before. Most home service clients start getting 5 to 15 new inquiries per week within 4 weeks of launch."
+  },
+  {
+    q: "Can you help our private school in Harni get more admissions inquiries?",
+    a: "Yes. We build school websites with curriculum information, faculty pages, fee structure, and online admission inquiry forms. During admission season, we run Google Ads targeting parents in Harni, nearby Manjalpur, and east Vadodara who are actively searching for schools. This brings qualified admissions inquiries at a fraction of the cost of traditional advertising."
+  },
+  {
+    q: "What does digital marketing cost for a small restaurant or tiffin service in Harni?",
+    a: "A complete starter package for a local restaurant covering Google Business Profile optimisation, basic Instagram setup, and 3 months of content creation starts at Rs. 18,000 total. Monthly social media management for ongoing content and paid promotion starts at Rs. 8,000 per month. We keep it affordable because local food businesses in Harni operate on tight margins."
+  },
+  {
+    q: "Does WhatsApp Business actually help for home service businesses?",
+    a: "Enormously. WhatsApp Business with a proper catalogue of your services, automated greeting messages, and quick reply templates means every inquiry gets an immediate professional response even when you are busy. We also run click-to-WhatsApp ads on Instagram and Facebook that send interested customers directly to your WhatsApp chat. Most home service clients in residential areas like Harni tell us WhatsApp is their single biggest source of new inquiries after Google."
+  },
+  {
+    q: "Can you help a real estate agent in Harni get more property leads online?",
+    a: "Yes. We build property listing websites for individual agents and small brokerages with current property listings, area guides, and WhatsApp inquiry buttons on every property. We also run Google and Facebook ads targeting people searching for property in Harni and east Vadodara. Property buyers research extensively online before contacting an agent, and a professional website puts you in that research phase."
+  },
+  {
+    q: "How long does it take to see results from local SEO in Harni?",
+    a: "Google Business Profile improvements show within 2 to 4 weeks for searches in Harni and nearby areas. Website SEO for local terms typically shows meaningful ranking movement within 60 days and significant traffic growth by month 3 to 4. Google Ads can start delivering clicks and calls within 48 hours of launch. We usually recommend starting with Google Business Profile optimisation and a simple website, then adding SEO or ads once the foundation is in place."
+  },
+  {
+    q: "Do you offer affordable packages specifically for small Harni businesses?",
+    a: "Yes. We have a starter package for local service businesses that covers Google Business Profile optimisation, a 5-page mobile-first website, and 3 months of basic local SEO for Rs. 25,000 all in. This is designed specifically for clinics, home services, pharmacies, and local eateries in residential areas like Harni where the customer base is local and the marketing budget is modest."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",       slug: "alkapuri" },
+  { name: "Gotri",          slug: "gotri" },
+  { name: "Manjalpur",      slug: "manjalpur" },
+  { name: "Fatehgunj",      slug: "fatehgunj" },
+  { name: "Sayajigunj",     slug: "sayajigunj" },
+  { name: "Waghodia Road",  slug: "waghodia-road" },
+  { name: "Makarpura GIDC", slug: "makarpura-gidc" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Local Digital Marketing in Harni, Vadodara | DC technolabs"
+  description="DC technolabs helps Harni Vadodara businesses grow online. Clinics, pharmacies, home services, schools, restaurants, and real estate agents. Google Business Profile, local SEO, WhatsApp Business, and affordable websites. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/harni"
+  schemaJson={schemaJson}
+
+  badge="Harni, Vadodara"
+  heroH1="Local Digital Marketing for Harni, Vadodara Businesses"
+  heroHighlight="Harni, Vadodara"
+  heroDesc="Harni is growing fast and new families arrive every month. Clinics ranking on Google Maps. Home service businesses getting WhatsApp inquiries daily. Restaurants filling orders from Instagram. Harni businesses that establish digital presence now will own the neighbourhood."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Harni Business"
+  formSub="Harni businesses get a response within 4 hours."
+
+  s2Title="Harni: Vadodara's Growing Residential Neighbourhood"
+  s2Subtitle="Clinics, home services, schools, restaurants, and pharmacies serve a rapidly expanding community. Digital presence is how new residents find you first."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Harni Businesses"
+  s3Subtitle="From Google Business Profile to WhatsApp Business and local SEO, we cover the digital channels that bring Harni residents to your door."
+  {services}
+
+  s4Title="Challenges We Solve for Harni Businesses"
+  s4Subtitle="These are the most common problems we hear from clinics, home services, restaurants, and local businesses across Harni."
+  {challenges}
+
+  s5Title="Why Harni Businesses Trust DC technolabs"
+  s5Subtitle="Affordable packages for local service businesses, fast setup, and results you can count as patient calls and customer messages."
+  {whyCards}
+
+  s6Title="How We Work With Harni Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record in Vadodara"
+  {stats}
+
+  s8Title="What Harni Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Vadodara Areas"
+  s9Subtitle="Our coverage extends across east Vadodara and beyond. If your customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Harni Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Grow Your Harni Business Online?"
+  ctaSubtitle="Join Vadodara businesses that trust DC technolabs to bring them more patients, more customers, and more orders every month. Get a free consultation with no obligation."
+/>

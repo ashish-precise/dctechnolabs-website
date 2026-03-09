@@ -1,0 +1,300 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Adajan businesses in Surat with local SEO, Google Business Profile, social media marketing, and web design for clinics, coaching centers, restaurants, and service businesses.",
+  "url": "https://dctechnolabs.in/locations/surat/adajan",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "21.175", "longitude": "72.791" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Adajan, Surat" },
+    { "@type": "Place", "name": "Vesu, Surat" },
+    { "@type": "Place", "name": "Athwa, Surat" },
+    { "@type": "Place", "name": "Piplod, Surat" },
+    { "@type": "Place", "name": "Katargam, Surat" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "50+",  label: "Surat Clients Served" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "Same Day", label: "Response Time" },
+  { value: "945+", label: "Total Gujarat Projects" },
+];
+
+const s2Body: string[] = [
+  "Adajan is one of Surat's most densely populated residential and commercial areas. Its streets are lined with clinics, schools, coaching centers, grocery stores, local restaurants, salons, tailors, and every variety of home service provider. This is a neighbourhood built on serving families, and most of those families now use Google and WhatsApp to find the businesses they need.",
+  "The Adajan market is intensely local. Residents search for 'clinic near me in Adajan', 'best coaching class Adajan', or 'restaurant near Adajan'. Most of these searches happen on mobile while people are walking, commuting, or sitting at home. The businesses that show up at the top of these searches get the inquiry. The ones that do not, lose the customer to whoever does.",
+  "DC technolabs helps Adajan businesses claim their rightful place at the top of these local searches. We set up and optimise Google Business Profiles, build websites that work on mobile, run hyperlocal ad campaigns targeting Adajan residents, and set up WhatsApp Business so customers can reach you in seconds.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🏥", label: "Clinics and Healthcare" },
+  { icon: "📚", label: "Coaching Centers" },
+  { icon: "🍽️", label: "Restaurants" },
+  { icon: "💇", label: "Salons and Spas" },
+  { icon: "🏠", label: "Home Service Businesses" },
+  { icon: "🛒", label: "Grocery and Retail" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏘️", title: "Dense Residential Market", desc: "Adajan's high residential density means thousands of potential customers within a 3-kilometer radius of any local business. Local SEO and Google Maps presence is the fastest way to reach them." },
+  { icon: "📱", title: "Mobile-First Customer Base", desc: "Adajan residents search for local services on mobile, often in the moment they need them. Being on Google Maps with correct information, photos, and reviews is the single most important digital move any Adajan business can make." },
+  { icon: "🌟", title: "Reviews Drive Decisions", desc: "In a neighbourhood with many competing clinics, coaching centers, and restaurants, Google reviews are often the deciding factor. We help Adajan businesses build and manage strong review profiles systematically." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "📍",
+    title: "Google Business Profile Setup and Optimization",
+    desc: "Complete setup or full optimization of your Google Business Profile. Correct categories, services, photos, hours, and a review management system. This is the single highest-return digital investment any Adajan local business can make. Most businesses see an increase in calls within 4 weeks."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Adajan Businesses",
+    desc: "We build local SEO so your clinic, coaching centre, or restaurant ranks at the top of 'near me' searches across Adajan. Citation building, local keyword optimization, and neighbourhood-specific content that tells Google exactly where you are and who you serve."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp Business Setup and Marketing",
+    desc: "WhatsApp Business catalogue setup for your services or menu, automated welcome messages, appointment confirmation templates, and broadcast list management. Most Adajan customers prefer WhatsApp over phone calls. We make your business easy to reach on WhatsApp from the first interaction."
+  },
+  {
+    icon: "🍽️",
+    title: "Social Media for Restaurants and Salons",
+    desc: "Instagram and Facebook marketing for Adajan's food and lifestyle businesses. Content calendars, food photography direction, menu showcasing, offer posts, and targeted ad campaigns reaching Adajan residents within a 3 to 5 kilometer radius. We build the social presence that fills your tables and appointment books."
+  },
+  {
+    icon: "📚",
+    title: "Online Enrollment for Coaching Centers",
+    desc: "Landing pages and online inquiry forms for coaching institutes that make it easy for parents to get information and submit enrollment inquiries. Combined with Google Ads campaigns targeting Adajan parents who are actively searching for coaching classes, this is one of our most consistently effective campaigns."
+  },
+  {
+    icon: "🌐",
+    title: "Website Design for Clinics and Services",
+    desc: "Professional mobile-first websites for clinics, salons, home service businesses, and small retailers in Adajan. Service listing pages, appointment booking, WhatsApp integration, and local SEO built in from day one. Starting at Rs. 25,000 for a fully functional professional website."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "My clinic is not showing up on Google Maps when people search nearby",
+    solution: "This is usually a Google Business Profile issue, either it is not set up, has incorrect information, or has no photos and reviews. We do a complete profile audit and optimization that typically gets Adajan clinics showing up in the top 3 local map results within 6 to 8 weeks."
+  },
+  {
+    problem: "My coaching center is losing students to better-marketed competitors",
+    solution: "Parents in Adajan research coaching institutes carefully before enrolling. We build your online reputation with Google reviews, create a clear website with faculty credentials and student results, and run targeted ads that reach parents in Adajan when they are actively searching for coaching classes."
+  },
+  {
+    problem: "My restaurant gets no orders or table bookings through digital channels",
+    solution: "We start with three essentials: a properly set up Google listing with photos and menu, an Instagram page with consistent food content, and a simple inquiry flow via WhatsApp. Most Adajan restaurants see a meaningful increase in orders and table inquiries within 30 days of these being properly set up."
+  },
+  {
+    problem: "My salon or spa is not getting new customers beyond repeat clients",
+    solution: "Adajan has many salons and the same customers cycle between a few of them. We break through this by running Instagram ads targeting women in Adajan and nearby areas, showcasing your work with proper before-and-after content, and building a Google profile that converts searches into first-time bookings."
+  },
+  {
+    problem: "Customers cannot reach me easily and I miss inquiries",
+    solution: "We set up WhatsApp Business with proper catalogue and auto-replies, make sure your Google listing phone number is correct, and add prominent click-to-call and WhatsApp buttons to your website. No more missed inquiries because of a hard-to-find contact."
+  },
+  {
+    problem: "I have a home service business but people in Adajan do not know I exist",
+    solution: "Home services are a huge growth market in Adajan. We build local SEO for your service category, set up your Google Business Profile, and run hyperlocal Google Ads targeting Adajan and adjacent residential areas. Most home service businesses see their first leads within days of the campaigns launching."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "📍", title: "Hyperlocal Expertise", desc: "We build campaigns specifically for the Adajan residential market. Hyperlocal targeting on Google and social platforms means your ad budget reaches actual Adajan residents, not wasted on people in Surat's industrial areas." },
+  { emoji: "📱", title: "Mobile-First Approach", desc: "Every website and campaign we build is designed for mobile first because that is how Adajan residents search. No desktop-first layouts that look broken on a phone." },
+  { emoji: "⚡", title: "Fast Setup", desc: "Google Business Profile optimization takes less than a week. Social media setup takes days. Website launch within 14 days. We get you visible fast so you start seeing results quickly." },
+  { emoji: "💰", title: "Accessible Pricing", desc: "Web design from Rs. 25,000. Local SEO from Rs. 30,000 per month. Social media management from Rs. 20,000 per month. Sensible pricing for the scale of Adajan's local businesses." },
+  { emoji: "💬", title: "WhatsApp Integration in Everything", desc: "We build WhatsApp into every website, every ad campaign, and every social media profile we create. Most Adajan customers prefer WhatsApp over forms or phone calls, and we make your business easy to reach that way." },
+  { emoji: "🤝", title: "Honest Long-Term Partnership", desc: "We do not disappear after the initial setup. Our Surat clients stay with us for years and we keep delivering results because we keep optimising and improving the strategy as your business grows." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We discuss your Adajan business, your current online presence, your target customers, and your goals. Video call or phone call, whichever suits you. No pressure and no obligation."
+  },
+  {
+    step: "2",
+    title: "Audit and Proposal",
+    desc: "We audit your existing Google presence, social media, and website. Within 24 hours you receive a clear proposal showing exactly what we recommend, why, and the fixed price."
+  },
+  {
+    step: "3",
+    title: "Setup and Launch",
+    desc: "We build your website, optimize your Google profile, launch social media, and set up ad campaigns. Everything is approved by you before it goes live."
+  },
+  {
+    step: "4",
+    title: "Monthly Reporting",
+    desc: "Every month you see how many calls, WhatsApp messages, and website inquiries came from our work. We continue optimising to keep improving your results."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "50+",  label: "Surat Area Clients" },
+  { value: "945+", label: "Total Gujarat Projects" },
+  { value: "8+",   label: "Years in Gujarat" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "I run a general physician clinic in Adajan and had no online presence at all. DC technolabs set up my Google Business Profile properly and got me to the top 3 results for doctor searches in Adajan within 2 months. New patient calls increased by 40 percent. The investment paid for itself in the first month.",
+    name: "Dr. Nikhil Mehta",
+    role: "General Physician Clinic, Adajan, Surat",
+    initials: "NM"
+  },
+  {
+    text: "Our coaching centre in Adajan was losing students to bigger institutes that were visible online. DC technolabs built us a proper website with our faculty profiles and student results, and ran Google Ads targeting parents in Adajan and Vesu. We got 35 new enrollment inquiries in the first 45 days.",
+    name: "Sonal Shah",
+    role: "Director, Coaching Centre, Adajan",
+    initials: "SS"
+  },
+  {
+    text: "I have a home catering service in Adajan and had no digital presence. They set up my WhatsApp Business catalogue, optimised my Google listing, and ran Instagram ads for my catering packages. Within 3 months I had more orders than I could handle and had to hire two more people.",
+    name: "Geeta Prajapati",
+    role: "Home Catering Business, Adajan, Surat",
+    initials: "GP"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Vesu",
+    slug: "vesu",
+    desc: "Surat's premium residential and commercial corridor adjacent to Adajan, home to IT companies, premium restaurants, and specialist clinics."
+  },
+  {
+    name: "Athwa",
+    slug: "athwa",
+    desc: "A major commercial zone with banks, showrooms, and professional service businesses serving South and West Surat."
+  },
+  {
+    name: "Piplod",
+    slug: "piplod",
+    desc: "An upmarket residential area adjacent to Adajan with healthcare facilities, luxury residential complexes, and schools."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "How do I get my clinic to show up on Google Maps in Adajan?",
+    a: "A properly set up and optimised Google Business Profile is the key. This means correct business categories, complete service listings, up-to-date hours, high-quality photos, a review acquisition strategy, and regular posts. We handle the full setup and ongoing management. Most Adajan clinics see ranking improvements within 4 to 6 weeks."
+  },
+  {
+    q: "Can you help my coaching centre get more student inquiries?",
+    a: "Yes. We run targeted Google Ads and Facebook campaigns reaching parents in Adajan, Vesu, and Piplod when they search for coaching classes. We also build optimised landing pages with faculty details, student achievements, and easy inquiry forms. Most coaching centres see 20 to 40 new inquiries in the first month of campaigns."
+  },
+  {
+    q: "Can you manage Instagram for my restaurant in Adajan?",
+    a: "Yes. We create a content strategy including food photography direction, caption writing, posting schedule, hashtag strategy, and targeted ad campaigns for Adajan and nearby residential areas. We also set up your Google listing with your menu and photos. Most restaurant clients see a meaningful increase in walk-ins and orders within 4 to 6 weeks."
+  },
+  {
+    q: "What does a basic website for my clinic or service business cost?",
+    a: "A professional mobile-first website for a clinic, salon, or service business starts at Rs. 25,000. This includes your services page, about us, contact with WhatsApp button, and basic SEO setup. We also offer a starter package that includes website plus Google Business Profile optimization for Rs. 35,000."
+  },
+  {
+    q: "How do I set up WhatsApp Business for my salon or home service?",
+    a: "We handle the full WhatsApp Business setup including account verification, service catalogue, automated welcome message, appointment confirmation template, and integration with your website as a click-to-WhatsApp button. Most home service and salon clients find WhatsApp becomes their primary inquiry channel within 30 days."
+  },
+  {
+    q: "We want to reach families specifically in Adajan. Can your ads target that precisely?",
+    a: "Yes. We run hyperlocal Google and Facebook campaigns targeting Adajan by pin code and radius. Facebook also allows demographic targeting by family status and age, which is very useful for coaching centres, clinics, and family service businesses. Your ad budget reaches the exact Adajan audience you want."
+  },
+  {
+    q: "Do you work with very small businesses, not just larger ones?",
+    a: "Absolutely. Many of our Surat clients are single-location clinics, family-run restaurants, individual coaching instructors, and home service businesses. We offer starter packages specifically designed for smaller businesses that want professional digital presence without large agency budgets."
+  },
+  {
+    q: "I am in Adajan. Do I need to visit you in Ahmedabad?",
+    a: "Not at all. All our Surat client work is delivered remotely via video calls, WhatsApp, and shared project dashboards. We visit Surat quarterly for in-person sessions if clients prefer. Everything can be set up, approved, and running without any travel required from your side."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Varachha",   slug: "varachha" },
+  { name: "Ring Road",  slug: "ring-road" },
+  { name: "Vesu",       slug: "vesu" },
+  { name: "Athwa",      slug: "athwa" },
+  { name: "Katargam",   slug: "katargam" },
+  { name: "Piplod",     slug: "piplod" },
+  { name: "Dumas Road", slug: "dumas-road" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing in Adajan, Surat | DC technolabs"
+  description="DC technolabs helps Adajan Surat businesses grow online. Local SEO, Google Business Profile, WhatsApp Business, and social media marketing for clinics, coaching centres, restaurants, and service businesses. Free quote today."
+  canonical="https://dctechnolabs.in/locations/surat/adajan"
+  schemaJson={schemaJson}
+
+  citySlug="surat"
+  cityName="Surat"
+
+  badge="Adajan, Surat"
+  heroH1="Digital Marketing for Adajan Businesses in Surat"
+  heroHighlight="Adajan Businesses"
+  heroDesc="Adajan is one of Surat's most active residential and commercial areas. Clinics, coaching centers, restaurants, salons, and home service businesses serve thousands of families in this neighbourhood. We help Adajan businesses get found on Google, build WhatsApp inquiry flows, and grow their customer base through targeted local marketing."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Adajan Business"
+  formSub="Adajan businesses get a response the same business day."
+
+  s2Title="Why Adajan Businesses Need to Be Found Online"
+  s2Subtitle="Adajan residents search Google and WhatsApp to find local services. If your business is not visible in these searches, you are losing customers to competitors who are."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Adajan Businesses"
+  s3Subtitle="From Google Business Profile setup to WhatsApp Business marketing, we offer every digital service Adajan's local businesses need to attract more customers."
+  {services}
+
+  s4Title="Challenges We Solve for Adajan Businesses"
+  s4Subtitle="These are the most common digital challenges we hear from clinics, coaching centres, restaurants, and service businesses in Adajan."
+  {challenges}
+
+  s5Title="Why Adajan Businesses Trust DC technolabs"
+  s5Subtitle="We understand hyperlocal markets and build digital strategies designed for the way Adajan residents actually search and decide."
+  {whyCards}
+
+  s6Title="How We Work With Adajan Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record Across Gujarat"
+  {stats}
+
+  s8Title="What Surat Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Areas"
+  s9Subtitle="Our coverage extends across South and West Surat. If your customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Adajan Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+
+  ctaTitle="Ready to Get More Customers for Your Adajan Business?"
+  ctaSubtitle="Get a free consultation and a fixed-price proposal within 24 hours. We understand Adajan's local market and know how to build digital presence that drives real customer inquiries."
+/>

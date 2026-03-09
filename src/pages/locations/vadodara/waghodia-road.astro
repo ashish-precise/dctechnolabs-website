@@ -1,0 +1,297 @@
+---
+import NeighborhoodPageLayout from '../../../layouts/NeighborhoodPageLayout.astro';
+import type { ServiceCard, Challenge, WhyCard, ProcessStep, StatItem, Testimonial, NearbyArea, FaqItem, NeighborhoodLink } from '../../../layouts/NeighborhoodPageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "description": "Digital marketing agency serving Waghodia Road businesses in Vadodara with web design, SEO, Google Ads, and B2B digital marketing for auto dealerships, logistics, manufacturing, and spare parts businesses.",
+  "url": "https://dctechnolabs.in/locations/vadodara/waghodia-road",
+  "telephone": "+919662608986",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B-18, Sainik Society, Vinzol Road, Vatva",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "382445",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "22.2837", "longitude": "73.2568" },
+  "openingHours": "Mo-Sa 09:00-19:00",
+  "priceRange": "Rs. 25,000 - Rs. 3,00,000+",
+  "areaServed": [
+    { "@type": "Place", "name": "Waghodia Road, Vadodara" },
+    { "@type": "Place", "name": "Sama, Vadodara" },
+    { "@type": "Place", "name": "Waghodia Industrial Area, Vadodara" }
+  ]
+});
+
+const heroStats: StatItem[] = [
+  { value: "40+",   label: "Vadodara Clients Served" },
+  { value: "8+",    label: "Years in Gujarat" },
+  { value: "4 hrs", label: "Average Response Time" },
+  { value: "93%",   label: "Client Retention Rate" },
+];
+
+const s2Body: string[] = [
+  "Waghodia Road is Vadodara's eastern industrial and logistics spine. The stretch from the city's edge toward Waghodia town and onward to Halol carries auto dealerships, spare parts wholesalers, logistics warehouses, cold storage operators, light manufacturing units, and construction material suppliers. It is a corridor built for commerce, not for consumers.",
+  "The businesses here are largely B2B or high-consideration B2C, auto buyers who research online for weeks before visiting a showroom, procurement managers looking for spare parts suppliers they can rely on, logistics clients who need to vet a transport company before trusting them with a contract. The digital stakes are real.",
+  "We have worked with industrial and automotive businesses across Gujarat since 2018. We understand the difference between a consumer-facing auto dealership website and a B2B logistics company landing page, and we build both with the specific goal of winning more business in this market.",
+];
+
+const businessTypes: { icon: string; label: string }[] = [
+  { icon: "🚗", label: "Auto Dealerships" },
+  { icon: "🔧", label: "Spare Parts Wholesalers" },
+  { icon: "🚛", label: "Logistics and Transport" },
+  { icon: "🏭", label: "Light Manufacturing" },
+  { icon: "❄️", label: "Cold Storage Operators" },
+  { icon: "🏗️", label: "Construction Material Suppliers" },
+];
+
+const overviewCards: { icon: string; title: string; desc: string }[] = [
+  { icon: "🚗", title: "Auto Dealership Corridor", desc: "Several major auto dealerships operate on Waghodia Road. Competing with larger chains requires strong local SEO, Google Ads, and a test drive inquiry system that works on mobile." },
+  { icon: "🚛", title: "Logistics and Warehousing Hub", desc: "Logistics companies need professional websites for tendering and B2B client acquisition. A poorly presented or absent website loses contracts to more digitally prepared competitors." },
+  { icon: "🏭", title: "Gateway to Waghodia and Halol", desc: "Waghodia Road connects Vadodara to Waghodia's industrial area and the Gujarat Industrial Development Corporation estates near Halol, making it a key B2B commercial corridor." },
+];
+
+const services: ServiceCard[] = [
+  {
+    icon: "🌐",
+    title: "Auto Dealership Websites",
+    desc: "Professional dealership websites with vehicle listings, test drive booking forms, finance enquiry pages, and service booking. We build sites that capture online leads before competitors do. Mobile-first, fast-loading, and connected to your Google Business Profile."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Waghodia Road",
+    desc: "Auto buyers and procurement managers search online before they visit or call. We rank your business for 'car dealership Waghodia Road Vadodara', 'spare parts supplier Baroda', and similar high-intent searches that bring serious buyers to your door."
+  },
+  {
+    icon: "📢",
+    title: "Google Ads for Auto and Logistics",
+    desc: "Targeted Google Ads for auto dealerships competing with chain brands, and B2B search campaigns for logistics and spare parts companies. We manage budgets from Rs. 15,000 to Rs. 5,00,000 per month with clear reporting on leads generated."
+  },
+  {
+    icon: "🏭",
+    title: "B2B Websites for Manufacturing Units",
+    desc: "Light manufacturing and fabrication units on Waghodia Road need websites that impress procurement managers from larger companies. We build credibility-focused B2B sites with product catalogues, certifications, and inquiry forms targeting the right buyers."
+  },
+  {
+    icon: "🚛",
+    title: "Logistics Company Websites and Tendering",
+    desc: "Logistics and warehousing businesses need websites that demonstrate operational capability, fleet size, coverage area, and compliance credentials. We build sites specifically designed to support the client acquisition and tendering process."
+  },
+  {
+    icon: "🛒",
+    title: "Spare Parts E-commerce and Inquiry Portals",
+    desc: "Spare parts traders can increase reach with an online catalog and inquiry portal. We build Shopify and WooCommerce-based solutions with proper product categorisation, search filters, and B2B inquiry flows that work for wholesale buyers."
+  },
+];
+
+const challenges: Challenge[] = [
+  {
+    problem: "Our auto dealership loses test drive leads to larger chain brands online",
+    solution: "Larger chains have bigger budgets but weak local relevance. We target Waghodia Road and east Vadodara buyers specifically with search ads, local SEO, and a dealership website that makes booking a test drive effortless from mobile."
+  },
+  {
+    problem: "Our logistics company has no professional website and loses tenders",
+    solution: "Many procurement teams check a supplier's website before shortlisting them. We build logistics websites with fleet information, coverage maps, compliance records, and client references that pass the credibility test every time."
+  },
+  {
+    problem: "Our spare parts wholesale business gets no online inquiries",
+    solution: "We build a product catalog website with B2B inquiry functionality, optimise it for parts-specific searches, and set up Google Business Profile so local garages and manufacturing units find you before they call a competitor."
+  },
+  {
+    problem: "Our manufacturing unit is invisible to potential B2B buyers in Gujarat",
+    solution: "We build a B2B manufacturing website that targets procurement managers in your industry. Product or service categories, quality certifications, capacity details, and a clear inquiry path are the key elements that turn website visitors into genuine leads."
+  },
+  {
+    problem: "We spend on newspaper ads but cannot measure if they bring customers",
+    solution: "Digital marketing is entirely measurable. We track every inquiry source, every call click, and every form submission. You know exactly how many leads came from Google Ads versus organic search versus your website, with full monthly reporting."
+  },
+  {
+    problem: "Our cold storage facility needs more clients but has no marketing",
+    solution: "Cold storage clients, food manufacturers, pharma companies, and agricultural processors, search online for reliable operators. We build a professional website, optimise your Google listing, and run B2B campaigns targeting industries that need cold chain logistics in Vadodara."
+  },
+];
+
+const whyCards: WhyCard[] = [
+  { emoji: "🚗", title: "Automotive Digital Marketing Experience", desc: "We have worked with auto dealerships across Gujarat. We know the lead funnel from Google search to test drive to sale, and we optimise every step of that journey." },
+  { emoji: "🏭", title: "B2B Industrial Marketing Expertise", desc: "Waghodia Road businesses sell to other businesses. We specialise in B2B digital marketing for manufacturing, logistics, and industrial sectors, not just consumer brands." },
+  { emoji: "⚡", title: "Fast Turnaround", desc: "Dealership and B2B websites launch within 14 days. Google Ads campaigns go live within 48 hours. SEO improvements show within 60 days. We do not make you wait for months to see results." },
+  { emoji: "💰", title: "Transparent Pricing in Rupees", desc: "Web design from Rs. 25,000. SEO from Rs. 30,000 per month. Google Ads management from Rs. 15,000 per month plus your ad spend. No hidden costs, no lock-in contracts." },
+  { emoji: "📞", title: "Direct Project Manager Access", desc: "Your project manager is reachable by phone and WhatsApp. Industrial and automotive businesses have real-time needs and you should not be filing support tickets to get answers." },
+  { emoji: "📈", title: "Lead-Focused Reporting", desc: "We report on leads, not just traffic. Every month you see how many test drive inquiries, B2B quote requests, or catalog downloads your digital presence generated, and what the cost per lead was." },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: "1",
+    title: "Free Consultation",
+    desc: "We review your current online presence, understand your Waghodia Road business type, and identify the specific channels and strategies that will bring you more customers or B2B clients."
+  },
+  {
+    step: "2",
+    title: "Strategy and Proposal",
+    desc: "Within 24 hours you receive a clear proposal with scope, timeline, fixed pricing, and the specific strategy for your automotive, logistics, or manufacturing business."
+  },
+  {
+    step: "3",
+    title: "Build and Launch",
+    desc: "We build your website or launch your campaigns with your approval at each stage. Nothing goes live without your sign-off. For dealerships, we integrate your vehicle inventory before launch."
+  },
+  {
+    step: "4",
+    title: "Measure and Optimise",
+    desc: "Monthly reporting shows every lead, every call, and every inquiry. We refine your campaigns based on what your Waghodia Road market responds to, compounding results over time."
+  },
+];
+
+const stats: StatItem[] = [
+  { value: "40+",  label: "Vadodara Area Clients" },
+  { value: "93%",  label: "First-Page Google Rankings" },
+  { value: "3.5x", label: "Average Lead Increase" },
+  { value: "14",   label: "Days to Website Launch" },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We are a two-wheeler dealership on Waghodia Road competing against bigger chains with national ad budgets. DC technolabs ran local Google Ads targeting east Vadodara buyers and built us a mobile-first website with test ride booking. Our monthly inquiries went from 12 to 47 in three months.",
+    name: "Jayesh Patel",
+    role: "Two-Wheeler Dealership Owner, Waghodia Road",
+    initials: "JP"
+  },
+  {
+    text: "Our logistics company had no website and was losing contracts at the shortlisting stage. The website DC technolabs built positioned us as credibly as companies twice our size. We won two significant contracts within 4 months of launching and both buyers mentioned our website specifically.",
+    name: "Ramesh Solanki",
+    role: "Director, Logistics Company, Waghodia Road Vadodara",
+    initials: "RS"
+  },
+  {
+    text: "As a spare parts wholesaler, we never thought digital marketing was relevant for us. The product inquiry portal they built now brings 15 to 20 new wholesale buyer inquiries every month from across Gujarat. It has completely changed how we acquire new accounts.",
+    name: "Nilesh Contractor",
+    role: "Spare Parts Wholesaler, Waghodia Road",
+    initials: "NC"
+  },
+];
+
+const nearbyAreas: NearbyArea[] = [
+  {
+    name: "Makarpura GIDC",
+    slug: "makarpura-gidc",
+    desc: "Gujarat's premier industrial estate with chemical plants, heavy engineering, and defence contractors. Adjacent to the Waghodia Road corridor."
+  },
+  {
+    name: "Manjalpur",
+    slug: "manjalpur",
+    desc: "Mid-market retail, food and beverage, and residential services in south Vadodara, connecting to the Waghodia Road corridor."
+  },
+  {
+    name: "Harni",
+    slug: "harni",
+    desc: "Growing residential area in east Vadodara near Harni Lake, with clinics, schools, and local service businesses."
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    q: "Can you help our auto dealership compete with larger chains online?",
+    a: "Yes. Larger chains have bigger budgets but they are not targeting Waghodia Road and east Vadodara buyers specifically. We run hyper-local Google Ads and SEO campaigns that intercept buyers at the moment they are searching for a vehicle in your area. Most dealership clients see a significant increase in test drive inquiries within the first 4 to 6 weeks of running local ads."
+  },
+  {
+    q: "What does a professional website cost for a logistics company in Vadodara?",
+    a: "A B2B logistics company website with fleet overview, coverage map, service descriptions, compliance page, and inquiry form starts at Rs. 35,000. If you need integration with a tracking system or fleet management software, we quote that separately. The website pays for itself the first time it helps you win a contract."
+  },
+  {
+    q: "Can you build an online catalog for our spare parts wholesale business?",
+    a: "Yes. We build spare parts catalog websites with product categories, brand filters, part number search, and a B2B inquiry form. For businesses that want to take online orders, we build full e-commerce with Razorpay or wholesale pricing tiers. Starting at Rs. 50,000 for a catalog site with inquiry functionality."
+  },
+  {
+    q: "How do you generate leads for manufacturing units on Waghodia Road?",
+    a: "Through a combination of a credibility-focused B2B website, Google Ads targeting procurement and sourcing managers in your specific industry, and local SEO for manufacturing-related searches. We also set up proper inquiry tracking so you know the source of every lead and can measure the return on your marketing investment."
+  },
+  {
+    q: "Does SEO work for B2B businesses on Waghodia Road?",
+    a: "Absolutely. Procurement managers and business owners search Google before shortlisting suppliers. We target searches like 'logistics company Vadodara', 'spare parts supplier Baroda', and industry-specific terms. B2B SEO takes 3 to 6 months to fully compound, but the leads it generates are among the highest quality you will receive."
+  },
+  {
+    q: "Can you run Google Ads for our cold storage business?",
+    a: "Yes. We target businesses in need of cold storage solutions near Vadodara, including food manufacturers, pharmaceutical companies, and agricultural processors. B2B Google Ads for cold storage and warehousing typically yield a very strong return because the contract values are high and competition online is relatively low."
+  },
+  {
+    q: "How quickly can a Waghodia Road business start seeing leads from digital marketing?",
+    a: "Google Ads campaigns for auto dealerships can generate inquiries within 48 hours of launch. B2B campaigns for manufacturing and logistics typically see first qualified leads within 2 to 4 weeks. SEO results build over 3 to 6 months. We recommend a combined approach: ads for immediate leads while SEO builds for the long term."
+  },
+  {
+    q: "Do you offer ongoing support and maintenance after the website launches?",
+    a: "Yes. We offer monthly maintenance packages starting at Rs. 5,000 per month covering security updates, content changes, and performance monitoring. For businesses with active marketing campaigns, we provide monthly reporting and strategy calls to keep results improving."
+  },
+];
+
+const otherNeighborhoods: NeighborhoodLink[] = [
+  { name: "Alkapuri",       slug: "alkapuri" },
+  { name: "Gotri",          slug: "gotri" },
+  { name: "Manjalpur",      slug: "manjalpur" },
+  { name: "Fatehgunj",      slug: "fatehgunj" },
+  { name: "Sayajigunj",     slug: "sayajigunj" },
+  { name: "Makarpura GIDC", slug: "makarpura-gidc" },
+  { name: "Harni",          slug: "harni" },
+];
+---
+
+<NeighborhoodPageLayout
+  title="Web Design and Digital Marketing on Waghodia Road, Vadodara | DC technolabs"
+  description="DC technolabs helps Waghodia Road Vadodara businesses grow online. Auto dealerships, logistics companies, spare parts wholesalers, and manufacturing units. Local SEO, Google Ads, and B2B websites. Free quote."
+  canonical="https://dctechnolabs.in/locations/vadodara/waghodia-road"
+  schemaJson={schemaJson}
+
+  badge="Waghodia Road, Vadodara"
+  heroH1="Digital Marketing for Waghodia Road, Vadodara Businesses"
+  heroHighlight="Waghodia Road, Vadodara"
+  heroDesc="Auto dealerships competing with chains. Logistics companies winning tenders. Spare parts wholesalers finding new accounts online. Waghodia Road's industrial and automotive businesses deserve digital marketing built for B2B and high-consideration buyers."
+  {heroStats}
+  formTitle="Get a Free Quote for Your Waghodia Road Business"
+  formSub="Waghodia Road businesses get a response within 4 hours."
+
+  s2Title="Waghodia Road: Vadodara's Industrial and Automotive Corridor"
+  s2Subtitle="Auto dealerships, logistics warehouses, spare parts traders, and manufacturing units all operate along this busy eastern corridor. Each needs a digital strategy built for their specific buyer."
+  {s2Body}
+  {businessTypes}
+  {overviewCards}
+
+  s3Title="Our Services for Waghodia Road Businesses"
+  s3Subtitle="From dealership lead generation to B2B logistics websites and industrial spare parts portals, we cover every digital need on the Waghodia Road corridor."
+  {services}
+
+  s4Title="Challenges We Solve for Waghodia Road Businesses"
+  s4Subtitle="These are the most common problems we hear from automotive, logistics, and industrial businesses on the Waghodia Road corridor."
+  {challenges}
+
+  s5Title="Why Waghodia Road Businesses Trust DC technolabs"
+  s5Subtitle="B2B and automotive digital marketing expertise, local Vadodara market knowledge, and transparent pricing in rupees."
+  {whyCards}
+
+  s6Title="How We Work With Waghodia Road Businesses"
+  {processSteps}
+
+  statsHeading="Our Track Record in Vadodara"
+  {stats}
+
+  s8Title="What Waghodia Road Business Owners Say"
+  {testimonials}
+
+  s9Title="We Also Serve Nearby Vadodara Areas"
+  s9Subtitle="Our coverage extends across Vadodara's industrial and commercial belt. If your clients or customers come from these areas, we cover them too."
+  {nearbyAreas}
+
+  s10Title="Frequently Asked Questions from Waghodia Road Businesses"
+  {faqItems}
+
+  {otherNeighborhoods}
+  citySlug="vadodara"
+  cityName="Vadodara"
+
+  ctaTitle="Ready to Grow Your Waghodia Road Business Online?"
+  ctaSubtitle="Join Vadodara businesses who trust DC technolabs for automotive, logistics, and industrial B2B digital marketing. Get a free consultation with no obligation."
+/>
