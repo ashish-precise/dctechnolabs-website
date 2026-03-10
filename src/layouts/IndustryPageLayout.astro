@@ -1110,6 +1110,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
       });
       const data = await res.json();
       if (data.success) {
+        if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
         heroMsg!.textContent = 'Thank you! We will contact you within 24 hours.';
         heroMsg!.className = 'form-msg success';
         heroForm.reset();
@@ -1141,6 +1142,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
       });
       const data = await res.json();
       if (data.success) {
+        if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
         ctaMsg!.textContent = 'Thank you! We will contact you within 24 hours.';
         ctaMsg!.className = 'form-msg success';
         ctaForm.reset();

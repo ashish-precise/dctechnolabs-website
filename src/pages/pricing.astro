@@ -1617,6 +1617,7 @@ const faqSchema = {
         const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
         const data = await res.json();
         if (data.success) {
+          if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
           pricingHeroForm.style.display = 'none';
           pricingFormSuccess.style.display = 'block';
         } else {

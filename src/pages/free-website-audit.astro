@@ -1011,6 +1011,7 @@ import CtaBanner from '../components/CtaBanner.astro';
         });
         const data = await res.json();
         if (data.success) {
+          if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
           auditFormMsg.textContent = 'Thank you! We will get back to you within 24 hours.';
           auditFormMsg.className = 'form-msg form-msg--success';
           auditFormMsg.style.display = 'block';

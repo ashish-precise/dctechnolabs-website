@@ -984,6 +984,7 @@ textarea.nb-form-input { resize: vertical; min-height: 80px; }
         const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(nbHeroForm) });
         const data = await res.json();
         if (data.success) {
+          if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
           nbHeroMsg.textContent = 'Thank you! We will get back to you within 24 hours.';
           nbHeroMsg.className = 'nb-form-msg nb-form-msg--success';
           nbHeroMsg.style.display = 'block';
@@ -1012,6 +1013,7 @@ textarea.nb-form-input { resize: vertical; min-height: 80px; }
         const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(nbCtaForm) });
         const data = await res.json();
         if (data.success) {
+          if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
           nbCtaMsg.textContent = 'Thank you! We will get back to you within 24 hours.';
           nbCtaMsg.style.display = 'block';
           nbCtaForm.reset();
