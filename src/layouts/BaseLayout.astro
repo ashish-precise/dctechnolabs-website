@@ -9,7 +9,7 @@ interface Props {
 const { title, description, canonical, ogImage } = Astro.props;
 const rawCanonical = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const canonicalURL = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
-const ogImageURL = ogImage || 'https://dctechnolabs.in/og-image.png';
+const ogImageURL = ogImage || 'https://dctechnolabs.in/og-image.webp';
 const currentYear = new Date().getFullYear();
 import "../styles/global.css";
 ---

@@ -8,7 +8,9 @@
       "Bash(grep -v \"^\\\\s*//\")",
       "Bash(python3 -:*)",
       "Bash(node --version)",
-      "Bash(wc -l src/pages/locations/ahmedabad/*.astro)"
+      "Bash(wc -l src/pages/locations/ahmedabad/*.astro)",
+      "WebFetch(domain:pagespeed.web.dev)",
+      "WebFetch(domain:www.googleapis.com)"
     ]
   }
 }
