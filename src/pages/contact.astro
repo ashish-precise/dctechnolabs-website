@@ -162,8 +162,8 @@ import CtaBanner from '../components/CtaBanner.astro';
           </div>
 
           <div class="form-group">
-            <label>Service Interested In *</label>
-            <select name="service" class="form-input" required>
+            <label for="contactService">Service Interested In *</label>
+            <select id="contactService" name="service" class="form-input" required>
               <option value="" disabled selected>Select a service</option>
               <option>Web Design</option>
               <option>Web Development</option>
@@ -180,8 +180,8 @@ import CtaBanner from '../components/CtaBanner.astro';
 
           <div class="form-row">
             <div class="form-group">
-              <label>Estimated Budget</label>
-              <select name="budget" class="form-input">
+              <label for="contactBudget">Estimated Budget</label>
+              <select id="contactBudget" name="budget" class="form-input">
                 <option value="" disabled selected>Select range (optional)</option>
                 <option>Under ₹25,000</option>
                 <option>₹25,000 - ₹50,000</option>
@@ -191,8 +191,8 @@ import CtaBanner from '../components/CtaBanner.astro';
               </select>
             </div>
             <div class="form-group">
-              <label>Timeline</label>
-              <select name="timeline" class="form-input">
+              <label for="contactTimeline">Timeline</label>
+              <select id="contactTimeline" name="timeline" class="form-input">
                 <option value="" disabled selected>When do you need it? (optional)</option>
                 <option>ASAP</option>
                 <option>Within 2 weeks</option>

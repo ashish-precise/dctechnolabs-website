@@ -518,7 +518,7 @@ a:focus-visible {
   flex-shrink: 0;
 }
 .testimonial-name { font-family: var(--font-display); font-weight: 700; font-size: .9rem; color: var(--gray-900); }
-.testimonial-role { font-size: .85rem; color: var(--gray-400); }
+.testimonial-role { font-size: .85rem; color: var(--gray-600); }
 
 /* SECTION 9: INDUSTRIES */
 .industries { padding: var(--section-pad) 0; background: var(--blue-50); }
@@ -585,8 +585,8 @@ a:focus-visible {
   color: var(--gray-900);
   margin-bottom: .25rem;
 }
-.pricing-price span { font-size: .9rem; font-weight: 500; color: var(--gray-400); }
-.pricing-note { font-size: .85rem; color: var(--gray-400); margin-bottom: 2rem; }
+.pricing-price span { font-size: .9rem; font-weight: 500; color: var(--gray-600); }
+.pricing-note { font-size: .85rem; color: var(--gray-600); margin-bottom: 2rem; }
 .pricing-features { margin-bottom: 2rem; }
 .pricing-features li {
   display: flex;
@@ -635,7 +635,7 @@ a:focus-visible {
 }
 .blog-card h3 { font-size: 1.05rem; margin-bottom: .6rem; line-height: 1.35; color: var(--gray-900); }
 .blog-card p { font-size: .95rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 1rem; }
-.blog-meta { font-size: .85rem; color: var(--gray-400); }
+.blog-meta { font-size: .85rem; color: var(--gray-600); }
 
 /* SECTION 12: FAQ */
 .faq { padding: var(--section-pad) 0; }

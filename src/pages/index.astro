@@ -36,7 +36,7 @@ import PageLayout from '../layouts/PageLayout.astro';
         </div>
       </div>
       <div class="hero-form-card" id="hero-form">
-        <h3 class="hero-form-title">Get Your Free Quote</h3>
+        <p class="hero-form-title">Get Your Free Quote</p>
         <p class="hero-form-sub">Tell us about your project. We respond within 24 hours.</p>
         <form id="heroForm">
           <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
@@ -56,8 +56,8 @@ import PageLayout from '../layouts/PageLayout.astro';
             <input type="email" name="email" class="form-input" placeholder="john@company.com" required>
           </div>
           <div class="form-group">
-            <label>Service Interested In</label>
-            <select name="service" class="form-input" required>
+            <label for="heroService">Service Interested In</label>
+            <select id="heroService" name="service" class="form-input" required>
               <option value="" disabled selected>Select a service</option>
               <option>Web Design</option>
               <option>Web Development</option>
@@ -961,7 +961,7 @@ textarea.form-input {
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--gray-400);
+  color: var(--gray-600);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }

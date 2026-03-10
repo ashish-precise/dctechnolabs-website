@@ -95,7 +95,8 @@ import Header from '../components/Header.astro';
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563EB'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='800' font-size='14' fill='white'%3EDC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ"></script>
 <script is:inline>
@@ -229,8 +230,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
 .footer{background:var(--gray-900);color:var(--gray-400)}.footer-top{padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,.08)}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:2.5rem}.footer-brand-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--white);margin-bottom:1rem}.footer-brand p{font-size:.95rem;line-height:1.7;margin-bottom:1.5rem;max-width:280px}.footer-socials{display:flex;gap:10px}.footer-social{width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--gray-400);transition:all .3s var(--ease)}.footer-social:hover{border-color:rgba(255,255,255,.3);color:var(--white)}.footer-col h4{font-family:var(--font-display);font-size:.9rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.25rem}.footer-col a{display:block;font-size:.9rem;color:var(--gray-400);padding:4px 0}.footer-col a:hover{color:var(--blue-400)}.footer-mid{padding:2rem 0;border-bottom:1px solid rgba(255,255,255,.08)}.footer-mid-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;font-size:.95rem}.footer-contact-item{display:flex;align-items:center;gap:10px}.footer-contact-item a{color:var(--gray-300)}.footer-contact-item a:hover{color:var(--blue-400)}.footer-bottom{padding:1.5rem 0}.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;font-size:.9rem;flex-wrap:wrap;gap:1rem}.footer-bottom a{color:var(--gray-400)}.footer-bottom a:hover{color:var(--blue-400)}
 
 /* FLOATING */
-.mobile-call-btn{display:none;position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;background:var(--blue-600);color:var(--white);align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,99,235,.4);z-index:900;animation:pulse 2.5s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}70%{box-shadow:0 0 0 15px rgba(37,99,235,0)}100%{box-shadow:0 0 0 0 rgba(37,99,235,0)}}
+.mobile-call-btn{display:none;position:fixed;bottom:90px;right:20px;width:60px;height:60px;border-radius:50%;background:var(--blue-600);color:var(--white);align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,99,235,.4);z-index:900;overflow:visible}
+.mobile-call-btn::after{content:'';position:absolute;inset:0;border-radius:50%;background:rgba(37,99,235,.4);animation:pulse 2.5s infinite;z-index:-1}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}70%{transform:scale(2);opacity:0}100%{transform:scale(2);opacity:0}}
 /* RESPONSIVE */
 @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr 1fr;gap:2rem}.footer-grid>div:first-child{grid-column:1/-1}.why-us-grid{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.loc-hero-grid,.loc-overview-grid,.loc-map-grid{grid-template-columns:1fr}.loc-hero{padding:100px 0 var(--section-pad)}.loc-hero-stats{flex-wrap:wrap}.neighborhoods-grid{grid-template-columns:repeat(2,1fr)}.challenges-grid,.hubs-grid,.response-grid,.why-us-grid,.testimonials-grid{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-mid-inner{flex-direction:column;align-items:flex-start}.final-cta-actions{flex-direction:column;align-items:center}.mobile-call-btn{display:flex}}
@@ -240,6 +242,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
 <body>
 
 <Header ctaHref="#hero-form" />
+
+<main>
 
 <!-- §1 HERO -->
 <section class="loc-hero" id="hero-form">
@@ -256,7 +260,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
         </div>
       </div>
       <div class="hero-form-card">
-        <h3 class="hero-form-title">{formTitle}</h3>
+        <p class="hero-form-title">{formTitle}</p>
         <p class="hero-form-sub">{formSub}</p>
         <form id="heroForm">
           <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
@@ -265,8 +269,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
           <div class="form-group"><label>Phone</label><input type="tel" name="phone" class="form-input" placeholder="+91 9662608986" required></div>
           <div class="form-group"><label>Email</label><input type="email" name="email" class="form-input" placeholder="you@company.com" required></div>
           <div class="form-group">
-            <label>Service Needed</label>
-            <select name="service" class="form-input" required>
+            <label for="locService">Service Needed</label>
+            <select id="locService" name="service" class="form-input" required>
               <option value="" disabled selected>Select a service</option>
               <option>Web Design</option><option>SEO Services</option><option>PPC / Google Ads</option>
               <option>E-commerce</option><option>Social Media</option><option>Multiple Services</option>
@@ -476,7 +480,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
         </div>
         <div class="loc-map-detail">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <p><strong>Phone</strong><a href={`tel:${mapInfo.phone.replace(/[\s+]/g,'')}`}>{mapInfo.phone}</a></p>
+          <p><strong>Phone</strong><a href={`tel:${mapInfo.phone.replace(/\s/g,'')}`}>{mapInfo.phone}</a></p>
         </div>
         <div class="loc-map-detail">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -509,6 +513,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
