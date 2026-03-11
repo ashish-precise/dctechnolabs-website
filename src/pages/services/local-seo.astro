@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Local SEO Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Local SEO services in Ahmedabad. Google Business Profile management, Google Maps top 3 rankings, near-me search optimization for local businesses.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "25000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: "Google Business Profile Management",
+    desc: "Complete GBP setup and ongoing management. Posts, Q&A, review responses, photos, and services kept fresh every month. The foundation of every local ranking."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    title: "Google Maps Top 3",
+    desc: "Systematic ranking in the local map pack. We have ranked clinics, restaurants, and professionals in Ahmedabad's most competitive areas including Satellite, SG Highway, and CG Road."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: "Near-Me Search Optimization",
+    desc: "Targeting 'service near me' and 'service in [area]' searches. Hyper-local keyword strategy tied to your exact location and the neighborhoods you serve."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`,
+    title: "Local Citation Building",
+    desc: "Consistent NAP (Name, Address, Phone) across JustDial, IndiaMART, Sulekha, and 50+ Indian directories. Inconsistent listings hurt rankings. We fix and maintain all of them."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Review Generation Strategy",
+    desc: "Systematic approach to building genuine 5-star reviews. More reviews means higher rankings and more trust. We give you the process and templates to make it happen without begging."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+    title: "Local Content Creation",
+    desc: "Area-specific pages and blog posts targeting Ahmedabad neighborhoods and service areas. Content that Google can rank locally and customers actually want to read."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "Customers cannot find us on Google Maps", solution: "We optimize your GBP listing, fix missing information, add photos, and build the citations and reviews that push you into the map pack." },
+  { problem: "Competitors appear above us in local searches", solution: "We analyse exactly why each competitor ranks above you and build a systematic plan to outrank them within 3 months for your most valuable local keywords." },
+  { problem: "We have bad reviews or no reviews at all", solution: "We set up a review generation process that makes it easy for happy customers to leave feedback on Google. More genuine reviews, better rankings, more trust." },
+  { problem: "Our business info is wrong on directories", solution: "We audit and correct your NAP data across 50+ Indian directories including JustDial, Sulekha, and IndiaMART. Inconsistent info is a silent ranking killer." },
+  { problem: "Google Ads is too expensive for us", solution: "Local SEO delivers long-term visibility for a fraction of the ongoing cost of ads. Once you rank in the map pack, that traffic is free every single month." },
+  { problem: "We get calls from the wrong areas", solution: "Wrong keyword targeting brings the wrong customers. We focus on location-specific searches that bring people from your actual service area in Ahmedabad." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Local Audit", desc: "GBP audit, citation check, competitor analysis, and keyword mapping for your specific area and service type in Ahmedabad. We know exactly where you stand." },
+  { title: "Foundation Fix", desc: "Optimize your GBP, correct all citations, add schema markup to your website, and improve on-page local signals. Fast wins in the first 30 days." },
+  { title: "Ranking Campaign", desc: "Build reviews, create local content, earn local backlinks, and monitor map pack positions weekly. Consistent effort that compounds month after month." },
+  { title: "Monthly Growth", desc: "Rank tracking, GBP performance reports, new local content, and strategy refinement delivered in a clear monthly report every 30 days." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Google Business Profile optimization", desc: "Complete setup, all categories, services, photos, posts, and Q&A responses." },
+  { title: "Local keyword research", desc: "20+ location-specific keywords mapped to your service areas across Ahmedabad." },
+  { title: "On-page local SEO", desc: "Title tags, meta descriptions, schema markup, and NAP consistency on your website." },
+  { title: "Citation building (50+ directories)", desc: "JustDial, IndiaMART, Sulekha, and 50+ Indian directories corrected and consistent." },
+  { title: "Review generation system", desc: "Templates, timing, and WhatsApp/SMS follow-up process for getting genuine reviews." },
+  { title: "2 local content pieces per month", desc: "Neighborhood landing pages or local blog posts targeting high-value area searches." },
+  { title: "GBP performance report", desc: "Monthly impressions, calls, direction requests, and photo view data from your GBP." },
+  { title: "Rank tracking report", desc: "Weekly keyword position tracking for all local terms we are targeting for you." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "GBP management included",             us: "✓", usClass: "check", agency: "Extra cost",   agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "Citation building (50+ directories)", us: "✓", usClass: "check", agency: "Extra cost",   agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "Review generation strategy",          us: "✓", usClass: "check", agency: "Varies",       agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "Local content writing",               us: "✓", usClass: "check", agency: "Extra cost",   agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "Weekly rank tracking",                us: "✓", usClass: "check", agency: "Monthly only", agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "No long-term contract",               us: "✓", usClass: "check", agency: "✗",           agencyClass: "cross", freelancer: "✓",      freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For single-location local businesses",
+    price: "₹25,000",
+    priceSuffix: "/month",
+    note: "Best for: Clinics, shops, professionals, cafes",
+    features: ["Google Business Profile management", "10 local keywords tracked", "Citation building (50+ directories)", "Review generation templates", "Monthly GBP performance report", "3-month minimum"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth",
+    desc: "For competitive local industries",
+    price: "₹40,000",
+    priceSuffix: "/month",
+    note: "Best for: Clinics, restaurants, professionals in prime areas",
+    features: ["Everything in Starter", "25+ keywords tracked", "Competitor map pack monitoring", "2 local content pieces per month", "GBP posts and Q&A management", "Review response writing", "Quarterly strategy calls"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Multi-Location",
+    desc: "For businesses with multiple Ahmedabad locations",
+    price: "₹75,000",
+    priceSuffix: "/month",
+    note: "Covers up to 3 locations, all content included",
+    features: ["Full management for 3 locations", "Separate GBP per location", "Location-specific keyword strategies", "4 content pieces per month", "Cross-location review strategy", "Monthly dashboard for all locations"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e3a5f)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><path d="M100 30 C100 30 70 55 70 75 C70 90 84 100 100 100 C116 100 130 90 130 75 C130 55 100 30 100 30Z" fill="rgba(59,130,246,.2)" stroke="rgba(59,130,246,.5)" stroke-width="1.5"/><circle cx="100" cy="75" r="8" fill="rgba(59,130,246,.6)"/><text x="100" y="50" text-anchor="middle" font-size="9" fill="rgba(59,130,246,.9)" font-family="system-ui" font-weight="700">#1 Maps</text></svg>`,
+    tag: "Healthcare · Google Maps",
+    title: "Dental Clinic, Satellite Road",
+    desc: "Ranked #1 in Google Maps for 'dentist in Satellite Ahmedabad'. 3x appointment inquiries in 90 days from map pack alone.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="30" width="160" height="60" rx="8" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.3)"/><text x="100" y="58" text-anchor="middle" font-size="11" fill="rgba(16,185,129,.9)" font-family="system-ui" font-weight="700">Top 3</text><text x="100" y="74" text-anchor="middle" font-size="8" fill="rgba(16,185,129,.6)" font-family="system-ui">Google Maps</text></svg>`,
+    tag: "Food and Beverage · Near-Me Searches",
+    title: "Restaurant Chain, Navrangpura",
+    desc: "Top 3 for 'restaurant near CG Road'. 40% increase in walk-in customers attributed directly to Google Maps visibility.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#4c1d95)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><circle cx="100" cy="60" r="40" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.3)"/><text x="100" y="55" text-anchor="middle" font-size="9" fill="rgba(139,92,246,.9)" font-family="system-ui" font-weight="700">15 Keywords</text><text x="100" y="70" text-anchor="middle" font-size="8" fill="rgba(139,92,246,.6)" font-family="system-ui">Page 1</text></svg>`,
+    tag: "Professional Services · Local SEO",
+    title: "CA Firm, Prahlad Nagar",
+    desc: "Page 1 for 15 local CA-related searches in Ahmedabad. 8 new client inquiries per month from organic local search.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We went from 3 Google reviews to 87 in 6 months. Now we rank in the top 3 for every dental search in Satellite. Our appointment book is full because of local SEO.",
+    initials: "AM",
+    name: "Dr. Anjali Mehta",
+    role: "Dental Clinic, Satellite, Ahmedabad",
+  },
+  {
+    text: "We had no idea local SEO was this different from general SEO. DC technolabs got us into the map pack for 20 Ahmedabad searches within 4 months. Game changer for footfall.",
+    initials: "RS",
+    name: "Rakesh Shah",
+    role: "Restaurant Owner, Navrangpura",
+  },
+  {
+    text: "Our Google Business Profile impressions went from 200 per month to 4,500 per month. We are getting direction requests and calls we never got before.",
+    initials: "PD",
+    name: "Pooja Desai",
+    role: "Salon Owner, Vastrapur, Ahmedabad",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "What is local SEO and how is it different from regular SEO?", a: "Local SEO focuses on ranking your business for location-specific searches and in the Google Maps pack. Regular SEO targets broader keyword rankings. If you serve customers in a specific area of Ahmedabad, local SEO is what gets you found by nearby buyers." },
+  { q: "How quickly can you get my business into the Google Maps top 3?", a: "Typically 6 to 10 weeks for less competitive areas, and 3 to 5 months for highly competitive niches like dentists or restaurants in prime Ahmedabad locations like Satellite or SG Highway. The foundation work is fast, but Map Pack rankings depend on competition." },
+  { q: "What is a Google Business Profile and why does it matter?", a: "GBP is your free Google listing that appears in Maps and local search results. An optimized GBP is the single most important factor in local search rankings. We fully manage yours every month including posts, photos, Q&A, and review responses." },
+  { q: "How do you get more reviews without paying for them?", a: "We set up a review request process using WhatsApp and SMS follow-ups after each customer interaction. Genuine reviews from real customers. No fake reviews, no shortcuts. Google penalizes fake reviews and so do we." },
+  { q: "Do I need a website for local SEO?", a: "You absolutely need a GBP. A website helps significantly and we optimize your existing site for local signals. If you don't have a website yet, ask about our web design service which is built for local SEO from the ground up." },
+  { q: "Do you manage GBP for multiple locations?", a: "Yes. Our Multi-Location plan covers up to 3 Ahmedabad locations. Each location gets separate GBP management, location-specific keywords, and dedicated content to avoid cross-location cannibalization." },
+  { q: "What Indian directories do you build citations in?", a: "JustDial, IndiaMART, Sulekha, IndiaBizInfo, Grotal, Yellow Pages India, TradeIndia, and 40+ more. We build and verify listings in every major Indian local directory and correct any wrong information we find." },
+  { q: "Can you help with negative reviews?", a: "We cannot remove reviews that Google won't remove, but we help you respond professionally to every negative review and build enough positive reviews that the negatives become a small fraction of your overall rating." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/seo", title: "Full SEO Services", desc: "For businesses that need national or e-commerce SEO alongside local rankings. Starting ₹30,000/month." },
+  { href: "/services/web-design", title: "Web Design", desc: "A fast, well-structured website amplifies your local SEO results significantly. Starting ₹25,000." },
+  { href: "/services/ppc", title: "Google Ads", desc: "Get immediate visibility while local SEO builds momentum. Run both together for maximum lead flow. Starting ₹35,000/month." },
+];
+---
+
+<ServicePageLayout
+  title="Local SEO Services in Ahmedabad | Google Maps Rankings | DC technolabs"
+  description="Local SEO services in Ahmedabad starting ₹25,000/month. Google Business Profile, Google Maps top 3, near-me searches. 150+ local businesses ranked. Get found by customers near you."
+  canonical="https://dctechnolabs.in/services/local-seo"
+  schemaJson={schemaJson}
+
+  badge="📍 Local SEO Services"
+  heroH1="Rank in Google Maps."
+  heroHighlight="Get Found by Customers Searching Near You."
+  heroDesc="Local SEO and Google Business Profile management for Ahmedabad businesses. We get you into the Google Maps top 3 for searches like 'dentist near me', 'restaurant in Satellite', and 'CA in Navrangpura'. Starting ₹25,000/month."
+  heroStats={[
+    { value: "150+", label: "Local Businesses Ranked" },
+    { value: "Top 3", label: "Google Maps Target" },
+    { value: "6–10", label: "Weeks to Results" },
+  ]}
+  formTitle="Get a Free Local SEO Audit"
+  formSub="We will check your Google Business Profile and local rankings free."
+  formTypeLabel="What type of business?"
+  formTypeOptions={["Clinic / Doctor", "Restaurant / Cafe", "Retail Shop", "Professional Services (CA, Lawyer)", "Real Estate", "Other Local Business"]}
+
+  s2Title="What Our Local SEO Service Includes"
+  s2Subtitle="Everything it takes to rank in Ahmedabad's local search results, not just one or two tactics."
+
+  s3Title="Local SEO Problems We Solve Every Day"
+  s3Subtitle="If any of these sound familiar, we can fix it."
+
+  s4Title="Our Local SEO Process"
+  s4Subtitle="Systematic, month-by-month execution. Results compound over time."
+
+  s5Title="Your Monthly Local SEO Deliverables"
+  s5Subtitle="Every item you receive each month, with no hidden extras."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why Ahmedabad businesses choose DC technolabs for local SEO."
+
+  s7Title="Local SEO Packages"
+  s7Subtitle="Transparent monthly pricing. Cancel anytime after the minimum commitment."
+
+  s8Title="Local SEO Results"
+  s8Subtitle="Real results for Ahmedabad businesses across different industries."
+
+  s9Title="What Our Local SEO Clients Say"
+
+  s10Title="Local SEO Questions Answered"
+
+  s11Title="Services That Work Best With Local SEO"
+  s11Subtitle="Combine local SEO with these for compounding results."
+
+  comparisonStartingUs="₹25,000/mo"
+  comparisonStartingAgency="₹45,000+/mo"
+  comparisonStartingFreelancer="₹5–10K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Rank in Google Maps?"
+  ctaSubtitle="Get a free local SEO audit. We will check your Google Business Profile, map pack rankings, and citations and tell you exactly what is holding you back in Ahmedabad."
+  ctaAccentLabel="Get Your Free Local SEO Audit"
+  ctaAccentHref="#hero-form"
+/>

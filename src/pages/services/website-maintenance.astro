@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Website Maintenance Services",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Monthly website maintenance plans in Ahmedabad. Security monitoring, daily backups, speed optimization, content updates, and 24-hour support.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "8000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "Security Monitoring and Updates",
+    desc: "Daily malware scans, firewall monitoring, SSL certificate management, and CMS and plugin updates applied before attackers can exploit them."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>`,
+    title: "Daily Automated Backups",
+    desc: "Your website backed up every single day to secure off-site storage. If anything goes wrong, we restore it fast with minimal downtime and no data loss."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>`,
+    title: "Speed Optimization",
+    desc: "Monthly performance checks and optimizations. Image compression, cache management, database cleanup, and Core Web Vitals monitoring so your site stays fast."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+    title: "Content Updates",
+    desc: "Text changes, image swaps, new pages, product additions. Small content updates are included in every plan so you never need to chase a developer for a simple change."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    title: "Uptime Monitoring",
+    desc: "24x7 uptime monitoring with instant alerts. If your site goes down, we know before you do and we start fixing it immediately, day or night."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Monthly Health Reports",
+    desc: "A plain-English report every month showing uptime percentage, security scans completed, speed scores, updates applied, and any issues that were resolved."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "Our site got hacked", solution: "Outdated plugins and themes are the number one cause of WordPress hacks. We patch everything the moment updates are released, before attackers can exploit the vulnerability." },
+  { problem: "Our site is slow and we do not know why", solution: "Speed issues compound over time as databases fill up and images pile up. We do monthly speed audits, clean up databases, optimize images, and keep Core Web Vitals scores high." },
+  { problem: "We have no backup and something just went wrong", solution: "This is the situation every business owner dreads. We set up daily automated backups from day one and test restoration regularly so you are never exposed." },
+  { problem: "We have to wait weeks to get a small content change done", solution: "Our maintenance plans include a monthly hours allocation. Text changes, image updates, banner swaps, and small additions are handled within 24 hours of your request." },
+  { problem: "We do not know when our site goes down", solution: "Without uptime monitoring, your site could be down for hours before a customer tells you. We monitor every 5 minutes and respond immediately when something fails." },
+  { problem: "The agency that built our site does not respond anymore", solution: "We take over maintenance for websites built by anyone. A thorough handover audit first, then reliable monthly support with the same team every month." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Website Audit", desc: "We audit your site's current state: security vulnerabilities, speed scores, backup status, plugin versions, and any existing issues that need fixing before we start maintaining." },
+  { title: "Onboarding and Fixes", desc: "We fix critical issues from the audit and set up monitoring tools, backup systems, and our maintenance workflow tailored to your specific site and CMS." },
+  { title: "Monthly Maintenance", desc: "Scheduled monthly work: updates applied, backups verified, speed reviewed, content changes from your request queue handled, and health report delivered." },
+  { title: "Support On Demand", desc: "Outside of scheduled work, raise a ticket for urgent issues and get a response within your plan's SLA window. Priority plans get 4-hour emergency response." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Daily automated backups", desc: "Stored off-site, tested monthly, with 30-day retention so we can restore from any recent date." },
+  { title: "Security scans and firewall", desc: "Daily malware scans, WAF rules, and login protection configured and monitored." },
+  { title: "CMS and plugin updates", desc: "Applied and tested monthly on a staging environment before going live." },
+  { title: "Speed optimization", desc: "Monthly Core Web Vitals review, cache management, and image optimization." },
+  { title: "Uptime monitoring", desc: "24x7 monitoring with instant alerts and immediate response when your site goes down." },
+  { title: "Content update hours", desc: "Allocated monthly hours for text, image, and minor layout changes with next-day turnaround." },
+  { title: "SSL certificate management", desc: "Renewal monitoring and auto-renewal setup so your site never shows a security warning." },
+  { title: "Monthly health report", desc: "Uptime percentage, security scan results, speed scores, and all updates applied during the month." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Daily automated backups",        us: "✓", usClass: "check", agency: "Weekly at best", agencyClass: "cross", freelancer: "Often forgotten", freelancerClass: "cross" },
+  { feature: "24x7 uptime monitoring",         us: "✓", usClass: "check", agency: "✗",            agencyClass: "cross", freelancer: "✗",              freelancerClass: "cross" },
+  { feature: "Security scanning and firewall", us: "✓", usClass: "check", agency: "Plugin only",   agencyClass: "cross", freelancer: "Plugin only",    freelancerClass: "cross" },
+  { feature: "Content updates included",       us: "✓", usClass: "check", agency: "Extra cost",    agencyClass: "cross", freelancer: "Extra cost",     freelancerClass: "cross" },
+  { feature: "Monthly health report",          us: "✓", usClass: "check", agency: "✗",            agencyClass: "cross", freelancer: "✗",              freelancerClass: "cross" },
+  { feature: "Cancel anytime, no lock-in",     us: "✓", usClass: "check", agency: "Varies",        agencyClass: "cross", freelancer: "Varies",         freelancerClass: "cross" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Basic",
+    desc: "For WordPress and static sites",
+    price: "₹8,000",
+    priceSuffix: "/month",
+    note: "One-time onboarding fee of ₹3,000",
+    features: ["Weekly backups", "Security updates monthly", "Uptime monitoring", "1 hour content updates", "Monthly health report", "48-hour support response"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Standard",
+    desc: "For active business and e-commerce sites",
+    price: "₹15,000",
+    priceSuffix: "/month",
+    note: "Best for businesses where the site generates leads daily",
+    features: ["Daily automated backups", "Security monitoring and WAF", "Speed optimization monthly", "3 hours content updates", "Priority 24-hour response", "Staging environment for updates", "Full monthly dashboard"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Priority",
+    desc: "For high-traffic and e-commerce stores",
+    price: "₹25,000",
+    priceSuffix: "/month",
+    note: "For sites where every hour of downtime costs money",
+    features: ["Real-time monitoring and alerts", "4-hour emergency response", "6 hours content updates", "CDN management", "Monthly strategy call", "Database and query optimization", "Dedicated support contact"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e3a5f)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="30" width="160" height="60" rx="8" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.2)"/><text x="100" y="58" text-anchor="middle" font-size="11" fill="rgba(59,130,246,.9)" font-family="system-ui" font-weight="700">54 to 91</text><text x="100" y="73" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">PageSpeed Score</text></svg>`,
+    tag: "Healthcare · WordPress Maintenance",
+    title: "Lifecare Clinic Website, Ahmedabad",
+    desc: "Maintained since 2023. Zero downtime incidents, 3 security threats blocked, PageSpeed score improved from 54 to 91 on mobile.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="30" width="160" height="60" rx="8" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.2)"/><text x="100" y="58" text-anchor="middle" font-size="11" fill="rgba(16,185,129,.9)" font-family="system-ui" font-weight="700">99.98%</text><text x="100" y="73" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">Uptime over 12 months</text></svg>`,
+    tag: "E-commerce · WooCommerce Maintenance",
+    title: "FreshBasket Grocery Store, Ahmedabad",
+    desc: "Daily backups, WooCommerce updates, 6 hours of content updates per month. 99.98% uptime over 12 months of maintenance.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#4c1d95)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="30" width="160" height="60" rx="8" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.2)"/><text x="100" y="58" text-anchor="middle" font-size="10" fill="rgba(139,92,246,.9)" font-family="system-ui" font-weight="700">2 vulnerabilities</text><text x="100" y="73" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">Fixed on takeover</text></svg>`,
+    tag: "Professional Services · Site Takeover",
+    title: "NIS Consulting, Ahmedabad",
+    desc: "Migrated from an unresponsive agency. Fixed 2 critical vulnerabilities on day one, maintained cleanly for 18 months since.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Our old site got hacked twice in a year. Since DC technolabs took over maintenance 14 months ago, not a single security incident. Worth every rupee for the peace of mind alone.",
+    initials: "HP",
+    name: "Hitesh Patel",
+    role: "Clinic Owner, Satellite, Ahmedabad",
+  },
+  {
+    text: "I used to have to chase our developer for weeks just to change a phone number on the site. Now I raise a ticket and it is done the same day. The difference is enormous.",
+    initials: "KM",
+    name: "Kavita Mehta",
+    role: "Retail Business Owner, Navrangpura",
+  },
+  {
+    text: "They caught a plugin vulnerability and patched it before any damage was done. That is exactly what you are paying for. Protection before the problem, not cleanup after.",
+    initials: "RS",
+    name: "Rohan Shah",
+    role: "E-commerce Founder, Surat",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Do you maintain websites built by other agencies or developers?", a: "Yes. We take over maintenance for any website regardless of who built it. We start with a full audit, document everything we find, and then provide reliable ongoing support." },
+  { q: "What happens if my site gets hacked while on a maintenance plan?", a: "We respond immediately, clean the malware, restore from backup if needed, and identify and fix the entry point that was exploited. Emergency hack cleanup is included in all plans." },
+  { q: "How many content update hours are included each month?", a: "Basic: 1 hour. Standard: 3 hours. Priority: 6 hours. Unused hours do not roll over to the next month. Additional hours are billed at ₹2,000 per hour." },
+  { q: "Do you support Shopify websites?", a: "Yes. Shopify needs different maintenance than WordPress but we handle theme updates, app management, speed optimization, content updates, and uptime monitoring." },
+  { q: "What CMS platforms do you support?", a: "WordPress, Shopify, Wix, Webflow, and custom-coded sites. If your platform is not listed, contact us and we will assess it. Most platforms can be maintained." },
+  { q: "How quickly do you respond to urgent issues?", a: "Basic plan: 48 hours. Standard plan: 24 hours. Priority plan: 4 hours. For a site that is completely down, we respond immediately on all plans regardless of the SLA." },
+  { q: "Can I cancel anytime?", a: "Yes. Month-to-month with 30 days notice. No long-term contracts, no cancellation fees. We earn your business every month with good work." },
+  { q: "Is there a setup fee?", a: "There is a one-time onboarding fee of ₹3,000 that covers the initial audit, backup system setup, monitoring configuration, and documentation of your site." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/web-design", title: "Website Redesign", desc: "If your site needs more than maintenance, we can redesign it from scratch. Starting ₹25,000." },
+  { href: "/services/seo", title: "SEO Services", desc: "A well-maintained site ranks better. Add SEO alongside maintenance for compound results. Starting ₹30,000/month." },
+  { href: "/services/custom-web-development", title: "Custom Web Development", desc: "Need new features built into your site? We build custom functionality. Starting ₹75,000." },
+];
+---
+
+<ServicePageLayout
+  title="Website Maintenance Services in Ahmedabad | Monthly Support Plans | DC technolabs"
+  description="Website maintenance services in Ahmedabad starting ₹8,000/month. Security updates, backups, speed optimization, content updates, and 24hr support. Keep your site fast, secure, and updated."
+  canonical="https://dctechnolabs.in/services/website-maintenance"
+  schemaJson={schemaJson}
+
+  badge="🔧 Website Maintenance"
+  heroH1="Your Website, Always Running."
+  heroHighlight="Fast, Secure, and Updated Every Single Month."
+  heroDesc="Monthly website maintenance plans for Ahmedabad businesses. Security monitoring, plugin updates, speed optimization, backups, and content changes handled by the same team that built your site. Starting ₹8,000/month."
+  heroStats={[
+    { value: "24hr", label: "Support Response" },
+    { value: "99.9%", label: "Uptime Target" },
+    { value: "100+", label: "Sites Maintained" },
+  ]}
+  formTitle="Get a Free Website Health Check"
+  formSub="We will check your site's security, speed, and backup status for free."
+  formTypeLabel="What type of website do you have?"
+  formTypeOptions={["WordPress Site", "Shopify Store", "Custom / Coded Site", "Wix / Squarespace / Webflow", "Not Sure", "Need to Migrate from Old Agency"]}
+
+  s2Title="What Every Maintenance Plan Includes"
+  s2Subtitle="Proactive care that prevents problems rather than reacting to them."
+
+  s3Title="Maintenance Problems We Solve"
+  s3Subtitle="If any of these sound like your current situation, we can help."
+
+  s4Title="How Our Maintenance Works"
+  s4Subtitle="Predictable, monthly care with support when you need it most."
+
+  s5Title="Your Monthly Maintenance Deliverables"
+  s5Subtitle="Every item included in your plan, delivered every month without asking."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why Ahmedabad businesses choose a maintenance partner over DIY or freelancers."
+
+  s7Title="Maintenance Plans"
+  s7Subtitle="Simple monthly pricing. Cancel anytime with 30 days notice."
+
+  s8Title="Sites We Maintain"
+  s8Subtitle="A look at the results our maintenance clients see over time."
+
+  s9Title="What Our Maintenance Clients Say"
+
+  s10Title="Website Maintenance Questions Answered"
+
+  s11Title="Related Services"
+  s11Subtitle="Pair maintenance with these services for the best results."
+
+  comparisonStartingUs="₹8,000/mo"
+  comparisonStartingAgency="Freelancer"
+  comparisonStartingFreelancer="DIY"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Stop Worrying About Your Website?"
+  ctaSubtitle="Get a free website health check. We will review your security, speed, and backup status and tell you exactly what needs attention before it becomes a problem."
+  ctaAccentLabel="Get a Free Health Check"
+  ctaAccentHref="#hero-form"
+/>

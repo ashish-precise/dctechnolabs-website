@@ -1,0 +1,253 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Custom Web Application Development",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Custom web application development in Ahmedabad. CRMs, booking portals, dashboards, and business automation tools built for Indian businesses.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "75000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "CRM and Lead Management Systems",
+    desc: "Custom CRM built for how your sales team actually works. Lead tracking, pipeline management, automated follow-ups, and reporting that fits your exact business process."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+    title: "Booking and Appointment Portals",
+    desc: "Online booking systems for clinics, salons, consultants, and service businesses. Calendar management, Razorpay payment integration, and automated WhatsApp reminders."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
+    title: "Admin Dashboards and Reporting",
+    desc: "Turn your business data into a live dashboard. Sales metrics, operations reporting, inventory management, and KPI tracking built for the exact numbers you care about."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: "Business Process Automation",
+    desc: "Automate repetitive tasks: automated invoicing, WhatsApp notifications, data syncing between tools, and workflow triggers that save your team hours every single week."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
+    title: "API Integration and Third-Party Connections",
+    desc: "Connect your existing tools: Razorpay, Tally, WhatsApp Business API, Shiprocket, Zoho, and custom systems that need to share data with each other."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+    title: "Ongoing Support and Maintenance",
+    desc: "Post-launch support, bug fixes, feature additions, and performance monitoring. Your application grows as your business grows, with the same team that built it."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "Off-the-shelf software does not fit our process", solution: "Every business works differently. We build to your exact workflow so your team works the way they always have, just faster and with fewer errors." },
+  { problem: "We are managing everything in Excel and WhatsApp", solution: "Disconnected tools create errors, delays, and lost information. A custom system brings everything into one place with proper data integrity and access controls." },
+  { problem: "We tried a SaaS product but it had too many features we do not need", solution: "Custom means you pay for exactly what you use, nothing more. No unnecessary complexity, no monthly SaaS fees for features you will never touch." },
+  { problem: "Our team is manually doing things that should be automated", solution: "Manual processes are expensive and error-prone. We identify the repetitive tasks eating your team's time and automate them properly, with full audit trails." },
+  { problem: "We need our tools to talk to each other", solution: "We build custom integrations between Razorpay, Tally, your CRM, WhatsApp Business API, and any other system using their official APIs." },
+  { problem: "We got a quote and it was too expensive from a Mumbai agency", solution: "We are based in Ahmedabad. No inflated pricing from larger cities. Competitive rates, a full local team, and the same quality of work." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery Call", desc: "We understand your business process, current pain points, and exactly what the application needs to do. We ask the right questions so there are no assumptions before we start." },
+  { title: "Scope and Wireframes", desc: "Detailed scope document with feature list, user flows, and screen wireframes. You review and approve everything before we write a single line of code." },
+  { title: "Development Sprints", desc: "Agile development with 2-week sprint demos. You see real progress regularly and give feedback before the entire build is finished." },
+  { title: "Testing and QA", desc: "Full testing across devices and browsers. User acceptance testing with your own team before anything goes live." },
+  { title: "Launch and Handover", desc: "Deployment, team training, and complete technical documentation. Plus 30 days of post-launch support is included in every project." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Project scope document", desc: "Detailed feature list, user stories, and acceptance criteria signed off before development." },
+  { title: "UI/UX wireframes", desc: "Screen-by-screen wireframes showing every interaction before development begins." },
+  { title: "Fully functional web application", desc: "Built to spec, tested thoroughly, and deployed to your chosen hosting environment." },
+  { title: "Mobile-responsive design", desc: "Works correctly on desktop, tablet, and mobile browser without a separate app." },
+  { title: "Admin panel", desc: "Manage your own data, users, and settings without needing a developer for every change." },
+  { title: "API documentation", desc: "All integrations with third-party systems documented clearly for future reference." },
+  { title: "Deployment on your hosting", desc: "We deploy to your server, AWS, or recommend the right hosting plan for your scale." },
+  { title: "30-day post-launch support", desc: "Bug fixes and minor adjustments within 30 days of launch are included at no extra cost." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Built exactly to your requirements", us: "✓", usClass: "check", agency: "Partial",    agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "Sprint demos during development",   us: "✓", usClass: "check", agency: "Varies",    agencyClass: "cross", freelancer: "Rarely", freelancerClass: "cross" },
+  { feature: "Full documentation provided",       us: "✓", usClass: "check", agency: "Sometimes", agencyClass: "cross", freelancer: "✗",     freelancerClass: "cross" },
+  { feature: "Post-launch support included",      us: "✓", usClass: "check", agency: "Extra cost", agencyClass: "cross", freelancer: "✗",    freelancerClass: "cross" },
+  { feature: "Fixed price, no scope creep",       us: "✓", usClass: "check", agency: "Varies",    agencyClass: "cross", freelancer: "Common", freelancerClass: "cross" },
+  { feature: "Local Ahmedabad team, easy to meet",us: "✓", usClass: "check", agency: "Remote",    agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "Simple single-purpose applications",
+    price: "₹75,000",
+    priceSuffix: "",
+    note: "Best for: Booking systems, contact management, basic dashboards",
+    features: ["Up to 10 core features", "Single user type", "Mobile-responsive design", "Admin panel included", "4–6 week timeline", "30-day post-launch support"],
+    btnLabel: "Discuss Your Project",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Business",
+    desc: "Full business applications",
+    price: "₹1,75,000",
+    priceSuffix: "",
+    note: "Best for: CRMs, multi-user portals, payment integration, API connections",
+    features: ["Multi-user roles and permissions", "Third-party API integrations", "Razorpay / payment gateway", "Automated notifications", "8–12 week timeline", "60-day post-launch support", "Dedicated project manager"],
+    btnLabel: "Discuss Your Project",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    desc: "Complex platforms and marketplaces",
+    price: "₹4,00,000+",
+    priceSuffix: "",
+    note: "For marketplaces, ERP integrations, and large-scale automation",
+    features: ["Custom architecture planning", "Multi-tenant or marketplace structure", "ERP / Tally integrations", "Advanced reporting and analytics", "14–24 week timeline", "6-month support retainer", "Dedicated development team"],
+    btnLabel: "Request a Consultation",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e3a5f)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="20" width="160" height="80" rx="8" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.2)"/><rect x="30" y="30" width="60" height="12" rx="4" fill="rgba(59,130,246,.3)"/><rect x="30" y="50" width="140" height="8" rx="3" fill="rgba(255,255,255,.06)"/><rect x="30" y="64" width="100" height="8" rx="3" fill="rgba(255,255,255,.04)"/><text x="100" y="92" text-anchor="middle" font-size="8" fill="rgba(59,130,246,.7)" font-family="system-ui">Patient Booking Portal</text></svg>`,
+    tag: "Healthcare · Booking System",
+    title: "Lifecare Clinic Patient Portal, Ahmedabad",
+    desc: "Custom appointment booking, patient records, and WhatsApp reminders. 3x online appointments. Zero missed appointments since launch.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="20" width="160" height="80" rx="8" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.2)"/><rect x="30" y="30" width="80" height="12" rx="4" fill="rgba(16,185,129,.3)"/><text x="100" y="70" text-anchor="middle" font-size="10" fill="rgba(16,185,129,.8)" font-family="system-ui" font-weight="700">1,200+ orders/day</text><text x="100" y="86" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.4)" font-family="system-ui">Ops Dashboard</text></svg>`,
+    tag: "E-commerce · Operations Dashboard",
+    title: "FreshBasket Operations Dashboard, Ahmedabad",
+    desc: "Inventory management, order processing, and delivery tracking in one custom dashboard. Managing 1,200+ orders per day across Ahmedabad.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#4c1d95)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="20" y="20" width="160" height="80" rx="8" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.2)"/><rect x="30" y="30" width="70" height="12" rx="4" fill="rgba(139,92,246,.3)"/><text x="100" y="70" text-anchor="middle" font-size="9" fill="rgba(139,92,246,.8)" font-family="system-ui" font-weight="700">Replaced 4 tools</text><text x="100" y="84" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.4)" font-family="system-ui">Client Portal</text></svg>`,
+    tag: "B2B Services · Client Portal",
+    title: "NIS Consulting Project Portal, Ahmedabad",
+    desc: "Client portal with project tracking, document sharing, and invoice generation. Replaced 4 separate tools with one custom system.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We described a complex lead management system and DC technolabs built exactly that. Sprint demos every two weeks meant we could adjust as we went. No surprises at launch.",
+    initials: "HS",
+    name: "Hemant Shah",
+    role: "Real Estate Developer, SG Highway Ahmedabad",
+  },
+  {
+    text: "Our clinic was managing appointments in a WhatsApp group. Now we have an online booking system with automated reminders. No more missed appointments, ever.",
+    initials: "RP",
+    name: "Dr. Ritu Patel",
+    role: "Lifecare Clinic, Ahmedabad",
+  },
+  {
+    text: "They integrated our Razorpay, Tally, and WhatsApp all into one dashboard. What used to take 2 hours of manual work every morning is now automatic. Worth every rupee.",
+    initials: "AJ",
+    name: "Ankit Jain",
+    role: "E-commerce Founder, Ahmedabad",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "How long does a custom web application take to build?", a: "Simple applications take 4 to 6 weeks. Most business applications are 8 to 14 weeks. Complex platforms with multiple integrations take 16 to 24 weeks. We give you a detailed timeline after the discovery call before any commitment." },
+  { q: "What technology do you use?", a: "We choose technology based on your requirements. For web applications we commonly use React, Node.js, and PostgreSQL. We recommend what is best for your project, not just what is most convenient for us." },
+  { q: "Can you build mobile apps too?", a: "We specialize in web applications that work on mobile browsers. Native iOS or Android apps are a separate service. Often a responsive web app is faster, cheaper, and more maintainable than a native app for most business use cases." },
+  { q: "Who owns the code after the project?", a: "You own 100% of the source code. We provide full code handover including documentation, and can deploy it on your own servers or any hosting you choose." },
+  { q: "Can you add features after the initial launch?", a: "Absolutely. We offer monthly retainer support for ongoing feature development. Many Ahmedabad clients start with a core version and add features over time as they see what their users need." },
+  { q: "Do you integrate with Indian payment gateways?", a: "Yes. Razorpay, PayU, CCAvenue, and Cashfree are all integrations we have built for clients. We also integrate with Tally for accounting, Shiprocket for logistics, and WhatsApp Business API for notifications." },
+  { q: "What happens if there is a bug after launch?", a: "All bugs discovered within 30 days of launch are fixed free. After that, we offer a monthly support retainer for priority bug fixes and small enhancements at a predictable monthly cost." },
+  { q: "Can you take over an existing application that is broken or abandoned?", a: "Yes. We start with a code audit to understand what exists and what is broken, then provide a clear plan to fix or rebuild as needed. We have rescued several projects from abandoned freelancers." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/web-development", title: "Web Development", desc: "For business websites and CMS-powered sites rather than custom applications. Starting ₹40,000." },
+  { href: "/services/ecommerce", title: "E-commerce Development", desc: "For online stores built on Shopify or WooCommerce rather than custom platforms. Starting ₹45,000." },
+  { href: "/services/website-maintenance", title: "Website Maintenance", desc: "Keep your application running smoothly with our monthly support and maintenance plans. Starting ₹8,000/month." },
+];
+---
+
+<ServicePageLayout
+  title="Custom Web Application Development in Ahmedabad | DC technolabs"
+  description="Custom web application development in Ahmedabad. CRMs, portals, booking systems, dashboards, and automation tools built for Indian businesses. Starting ₹75,000. On-time delivery."
+  canonical="https://dctechnolabs.in/services/custom-web-development"
+  schemaJson={schemaJson}
+
+  badge="⚙️ Custom Web Development"
+  heroH1="Custom Web Apps"
+  heroHighlight="Built Exactly for Your Business."
+  heroDesc="Custom web applications, CRMs, booking portals, and business dashboards for Ahmedabad businesses. We build exactly what your workflow needs, not a templated product that sort-of fits. Starting ₹75,000."
+  heroStats={[
+    { value: "75+", label: "Custom Apps Delivered" },
+    { value: "On Time", label: "Delivery Record" },
+    { value: "3–16", label: "Weeks to Launch" },
+  ]}
+  formTitle="Describe Your Project"
+  formSub="Tell us what you need built. We will assess and respond within 24 hours."
+  formTypeLabel="What type of application do you need?"
+  formTypeOptions={["CRM / Customer Management", "Booking / Appointment System", "Admin Dashboard", "E-commerce / Marketplace", "Business Automation Tool", "API / Integration Work", "Not Sure Yet"]}
+
+  s2Title="What We Build for Ahmedabad Businesses"
+  s2Subtitle="From simple booking tools to complex business platforms, built to your exact requirements."
+
+  s3Title="Problems Custom Development Solves"
+  s3Subtitle="If your current tools are holding your business back, a custom solution is worth the conversation."
+
+  s4Title="Our Development Process"
+  s4Subtitle="Transparent, sprint-based development so you see progress every two weeks."
+
+  s5Title="What You Get at the End of Every Project"
+  s5Subtitle="Everything delivered, documented, and supported at no extra cost."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why Ahmedabad businesses trust DC technolabs for custom development."
+
+  s7Title="Project Pricing"
+  s7Subtitle="Fixed-price projects. No surprise invoices mid-development."
+
+  s8Title="Projects We Have Delivered"
+  s8Subtitle="A look at custom applications built for Ahmedabad businesses."
+
+  s9Title="What Our Clients Say"
+
+  s10Title="Custom Development Questions Answered"
+
+  s11Title="Related Services"
+  s11Subtitle="Other services that work alongside custom development."
+
+  comparisonStartingUs="₹75,000"
+  comparisonStartingAgency="₹2,00,000+"
+  comparisonStartingFreelancer="₹40,000 (risky)"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Build Your Custom Web Application?"
+  ctaSubtitle="Tell us what you need built and we will respond with a clear scope and timeline within 24 hours. No obligation, no pressure."
+  ctaAccentLabel="Discuss Your Project"
+  ctaAccentHref="#hero-form"
+/>

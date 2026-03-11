@@ -641,7 +641,7 @@ textarea.form-input{resize:vertical;min-height:80px}
       <h2 class="section-title">{s4Title}</h2>
       {s4Subtitle && <p class="section-subtitle">{s4Subtitle}</p>}
     </div>
-    <div class="process-steps">
+    <div class="process-steps" style={processSteps.length === 5 ? "grid-template-columns:repeat(5,1fr)" : ""}>
       {processSteps.map((step, i) => (
         <div class="process-step">
           <div class="process-number">{i + 1}</div>

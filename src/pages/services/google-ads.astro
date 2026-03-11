@@ -1,0 +1,252 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Google Ads Management",
+  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+  "areaServed": { "@type": "City", "name": "Ahmedabad" },
+  "description": "Google Ads management for Ahmedabad businesses. Search, Display, Shopping, and YouTube campaigns with average 8x ROAS and ₹833 cost per lead.",
+  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: "Google Search Ads",
+    desc: "Appear at the top of Google when customers search for exactly what you offer. Keyword-level targeting, match types, and bid strategies tuned for maximum ROI for your Ahmedabad market."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: "Google Shopping Ads",
+    desc: "For e-commerce businesses selling online. Product-level ads that show your price, photo, and store name. Higher-intent buyers and better ROAS than text ads for most product categories."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+    title: "Display and Remarketing",
+    desc: "Stay in front of visitors who did not convert on their first visit. Remarketing on Google's Display Network keeps your brand visible across 2 million+ websites until they are ready to buy."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+    title: "YouTube Ads",
+    desc: "Video advertising on YouTube for brand awareness and intent targeting. Reach Ahmedabad and Gujarat audiences by interest, demographics, and even competitor keyword searches."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    title: "Conversion Tracking Setup",
+    desc: "Full GA4 and Google Ads conversion tracking. We track every call, form fill, and purchase so you know exactly which keywords are making money and which are wasting budget."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Monthly Campaign Reports",
+    desc: "Detailed reporting on spend, impressions, clicks, conversions, ROAS, and CPA every month. You always know exactly where your money went and what it produced."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "We are spending lakhs on Ads but getting no leads", solution: "Wasted spend comes from wrong match types, broad keywords, and no negative keyword list. We audit every rupee and restructure campaigns around commercial-intent keywords only." },
+  { problem: "Our cost per lead is too high", solution: "High CPL means wrong targeting or weak landing pages. We fix both. Our average CPL across Ahmedabad service businesses is ₹833." },
+  { problem: "We do not know what is working", solution: "No conversion tracking means flying blind. We set up complete GA4 and Google Ads tracking so you know exactly which keyword sent which lead and what it cost." },
+  { problem: "Our previous agency kept increasing our budget but not our results", solution: "More budget without better targeting just burns more money. We optimise first, then scale only what is proven to work." },
+  { problem: "Our ads show but no one clicks", solution: "Low click-through rate means weak ad copy or wrong audience. We write ads that match search intent and test multiple versions every month to find what converts." },
+  { problem: "We tried Google Ads ourselves and it did not work", solution: "Self-managed campaigns almost always lose money. Google's automated suggestions are designed to spend your budget, not save it. Expert management typically reduces wasted spend by 40 to 60 percent." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Account Audit", desc: "We audit your existing Google Ads account or research your market fresh if you are starting out. Keyword analysis, competitor ads, landing page review, and budget assessment." },
+  { title: "Campaign Build", desc: "Full campaign structure with ad groups, match types, negative keywords, ad extensions, and conversion tracking configured and tested before spending a rupee." },
+  { title: "Launch and Optimise", desc: "First 30 days are active optimization: pausing poor performers, scaling winners, refining audiences, and improving Quality Scores to lower your cost per click." },
+  { title: "Scale and Report", desc: "Monthly reporting with ROAS, CPA, conversion data, and a clear plan for the next month. Budgets scale only when data supports it, not before." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Full account audit report", desc: "Wasted spend, keyword gaps, quality score issues, and competitor ad analysis." },
+  { title: "Campaign structure setup", desc: "Ad groups, match types, negative keyword list, and all ad extensions configured." },
+  { title: "Ad copywriting", desc: "3 to 5 ads per ad group, written for intent and tested every month." },
+  { title: "Conversion tracking", desc: "GA4 integration, call tracking, and form submit tracking fully configured." },
+  { title: "Landing page recommendations", desc: "CRO advice to improve your conversion rate from ad clicks to actual leads." },
+  { title: "Monthly bid management", desc: "Weekly bid adjustments based on performance data, not set-and-forget." },
+  { title: "Search term report review", desc: "Monthly negative keyword additions to cut waste from irrelevant searches." },
+  { title: "Performance dashboard", desc: "ROAS, spend, leads, and CPA reported clearly every month with next steps." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Conversion tracking setup included",   us: "✓", usClass: "check", agency: "Extra cost",    agencyClass: "cross", freelancer: "✗",     freelancerClass: "cross" },
+  { feature: "Landing page CRO advice",              us: "✓", usClass: "check", agency: "Extra cost",    agencyClass: "cross", freelancer: "✗",     freelancerClass: "cross" },
+  { feature: "Weekly bid management",                us: "✓", usClass: "check", agency: "Monthly only",  agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "Negative keyword management",          us: "✓", usClass: "check", agency: "Quarterly",     agencyClass: "cross", freelancer: "Rarely", freelancerClass: "cross" },
+  { feature: "Transparent spend reporting",          us: "✓", usClass: "check", agency: "Summary only",  agencyClass: "cross", freelancer: "Varies", freelancerClass: "cross" },
+  { feature: "No lock-in beyond 2 months",           us: "✓", usClass: "check", agency: "6–12 months",   agencyClass: "cross", freelancer: "✓",     freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For service businesses starting with Ads",
+    price: "₹35,000",
+    priceSuffix: "/month",
+    note: "Manages up to ₹50,000 ad spend. Ad spend paid directly to Google.",
+    features: ["Google Search campaigns", "Keyword and negative keyword setup", "Conversion tracking (GA4)", "Monthly performance report", "Bi-weekly bid management", "2-month minimum"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth",
+    desc: "For businesses ready to scale leads fast",
+    price: "₹60,000",
+    priceSuffix: "/month",
+    note: "Manages up to ₹1,50,000 ad spend. Best for competitive Ahmedabad markets.",
+    features: ["Search + Display + Remarketing", "Landing page CRO recommendations", "A/B ad copy testing", "Weekly bid management", "Call tracking setup", "Competitor ad monitoring", "Full monthly dashboard"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "E-commerce",
+    desc: "For Shopify and WooCommerce stores",
+    price: "₹90,000",
+    priceSuffix: "/month",
+    note: "Shopping + Search + YouTube. Manages up to ₹3,00,000 ad spend.",
+    features: ["Google Shopping campaigns", "Dynamic remarketing", "YouTube video ads", "Product feed management", "ROAS-focused bidding strategies", "Full funnel reporting"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f172a,#1e3a5f)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(59,130,246,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(59,130,246,.9)" font-family="system-ui" font-weight="800">12x ROAS</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">₹833 avg. cost per lead</text></svg>`,
+    tag: "SaaS · Google Search Ads",
+    title: "CloudSync Solutions, SG Highway Ahmedabad",
+    desc: "12x ROAS, ₹833 cost per lead, 300+ qualified leads in 6 months from Google Search Ads alone.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(16,185,129,.9)" font-family="system-ui" font-weight="800">6x ROAS</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">1,200+ orders/month</text></svg>`,
+    tag: "E-commerce · Google Shopping",
+    title: "FreshBasket Grocery, Prahlad Nagar Ahmedabad",
+    desc: "6x ROAS on Google Shopping Ads. 1,200+ orders per month, ₹45 average cost per click across product campaigns.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.2)"/><text x="100" y="55" text-anchor="middle" font-size="12" fill="rgba(139,92,246,.9)" font-family="system-ui" font-weight="800">₹1,200 CPL</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">45 appointments/month</text></svg>`,
+    tag: "Healthcare · Lead Generation",
+    title: "Dental Clinic, Satellite Road Ahmedabad",
+    desc: "₹1,200 cost per new patient appointment. Scaled from 10 to 45 new patients per month using Google Search and call-only campaigns.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were spending ₹80,000 per month on Google Ads and getting maybe 10 leads. DC technolabs restructured everything and now we get 45 leads for ₹60,000. The difference is remarkable.",
+    initials: "MP",
+    name: "Mihir Patel",
+    role: "IT Services Company, Ahmedabad",
+  },
+  {
+    text: "They set up proper conversion tracking for the first time and we realised half our budget was going to keywords that never converted. Fixed in the first week. Huge savings immediately.",
+    initials: "SJ",
+    name: "Sneha Joshi",
+    role: "E-commerce Store Owner, Surat",
+  },
+  {
+    text: "The transparency is what sold me. I get a weekly update showing exactly what was spent, what it produced, and what they are doing next. I have never had that level of visibility before.",
+    initials: "RM",
+    name: "Rajan Mehta",
+    role: "Real Estate Developer, Gandhinagar",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "What is the minimum Google Ads budget I need?", a: "We recommend a minimum of ₹30,000 per month in ad spend to generate meaningful data. Below that it is hard to optimise effectively. The management fee is separate from your ad spend, which you pay directly to Google." },
+  { q: "How quickly will I start getting leads?", a: "Search campaigns can start generating leads within 24 to 48 hours of launch. The first 2 weeks are used to collect performance data before making major optimizations and scaling what works." },
+  { q: "Do I pay Google directly or through you?", a: "You pay Google directly. Your billing card is on your own account. We never touch your ad spend. You have full transparency and complete control over your account at all times." },
+  { q: "What is ROAS and why does it matter?", a: "ROAS (Return on Ad Spend) measures how much revenue you earn per rupee spent on ads. A 5x ROAS means ₹5 earned for every ₹1 spent. We target 5x minimum and typically achieve 8x across our Ahmedabad client portfolio." },
+  { q: "Can you take over my existing Google Ads account?", a: "Yes. We start with a full audit, identify wasted spend, and restructure before making any changes. We do not delete your campaign history as it contains valuable data for optimization." },
+  { q: "Do you manage Facebook Ads too?", a: "Our Google Ads service is focused on Google's network. For social media advertising including Facebook and Instagram, ask about our social media marketing service." },
+  { q: "What industries work best with Google Ads?", a: "Services with clear purchase intent work best: clinics, lawyers, CAs, real estate, education, home services, and B2B. E-commerce works well with Shopping Ads. We assess your specific Ahmedabad market before recommending a strategy." },
+  { q: "What happens if my ads are not performing?", a: "We flag it in your weekly update, explain what we are testing, and adjust strategy. If performance does not improve after 60 days of optimization, we will tell you honestly and will not pressure you to continue." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/ppc", title: "Full PPC Management", desc: "Beyond Google Ads, our PPC service covers broader strategy and multi-platform campaign management. Starting ₹35,000/month." },
+  { href: "/services/local-seo", title: "Local SEO", desc: "Combine Google Ads with local SEO for maximum visibility in Ahmedabad. Paid and organic working together. Starting ₹25,000/month." },
+  { href: "/services/web-design", title: "Landing Page Design", desc: "Your ads are only as good as the page they send traffic to. We build high-converting landing pages. Starting ₹25,000." },
+];
+---
+
+<ServicePageLayout
+  title="Google Ads Management in Ahmedabad | Certified Google Ads Agency | DC technolabs"
+  description="Google Ads management in Ahmedabad from ₹35,000/month plus ad spend. Search, Display, Shopping, YouTube campaigns. Average 8x ROAS. No wasted budget. Get leads from Day 1."
+  canonical="https://dctechnolabs.in/services/google-ads"
+  schemaJson={schemaJson}
+
+  badge="🎯 Google Ads Management"
+  heroH1="Google Ads That Deliver Leads."
+  heroHighlight="Not Just Clicks. Actual Paying Customers."
+  heroDesc="Google Ads management for Ahmedabad businesses. We build, manage, and optimize Search, Display, and Shopping campaigns that convert. Average 8x ROAS across our client portfolio. Starting ₹35,000/month plus your ad spend paid directly to Google."
+  heroStats={[
+    { value: "8x", label: "Average ROAS" },
+    { value: "₹833", label: "Avg. Cost Per Lead" },
+    { value: "Day 1", label: "Leads Can Start" },
+  ]}
+  formTitle="Get a Free Google Ads Audit"
+  formSub="We will review your existing campaigns or build a strategy from scratch, completely free."
+  formTypeLabel="What do you want to advertise?"
+  formTypeOptions={["Lead Generation (Services)", "E-commerce / Shopping Ads", "Brand Awareness", "App Installs", "YouTube Ads", "Starting from Scratch"]}
+
+  s2Title="What Our Google Ads Management Includes"
+  s2Subtitle="Full-service campaign management, not just account access and a monthly invoice."
+
+  s3Title="Google Ads Problems We Fix Every Day"
+  s3Subtitle="If any of these sound like your situation, we can fix it."
+
+  s4Title="Our Google Ads Process"
+  s4Subtitle="Build right, launch fast, optimise relentlessly."
+
+  s5Title="Your Monthly Google Ads Deliverables"
+  s5Subtitle="Every item included in your management fee, with no surprises."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why Ahmedabad businesses choose DC technolabs for Google Ads."
+
+  s7Title="Google Ads Management Packages"
+  s7Subtitle="Flat monthly management fee. Your ad spend goes directly to Google."
+
+  s8Title="Google Ads Results"
+  s8Subtitle="Real results from real campaigns managed for Ahmedabad and Gujarat businesses."
+
+  s9Title="What Our Google Ads Clients Say"
+
+  s10Title="Google Ads Questions Answered"
+
+  s11Title="Services That Work Best With Google Ads"
+  s11Subtitle="Combine Ads with these for a complete lead generation system."
+
+  comparisonStartingUs="₹35,000/mo"
+  comparisonStartingAgency="₹60,000+/mo"
+  comparisonStartingFreelancer="₹8–15K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Get More Leads From Google Ads?"
+  ctaSubtitle="Get a free audit of your current campaigns or a fresh strategy if you are starting out. We will show you exactly where your budget is going and what to do about it."
+  ctaAccentLabel="Get Your Free Ads Audit"
+  ctaAccentHref="#hero-form"
+/>
