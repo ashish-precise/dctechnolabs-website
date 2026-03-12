@@ -1259,6 +1259,7 @@ select.nz-form-input { cursor: pointer; }
             msgEl.textContent = "Thank you! We've received your enquiry and will be in touch within 1 business day to confirm your discount.";
             form.reset();
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+            setTimeout(function() { window.location.href = '/thank-you/'; }, 1500);
           } else {
             msgEl.className = 'nz-form-msg error';
             msgEl.textContent = 'Something went wrong. Please try again or email hello@dctechnolabs.com';
