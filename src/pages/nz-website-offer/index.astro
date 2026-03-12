@@ -1,0 +1,1319 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Professional Website Design for NZD $500 | DC Technolabs"
+  description="Get a professional, mobile-ready website for your NZ business for just NZD $500. Save $150 — limited time offer. No GST. No hidden fees. Fast turnaround."
+  canonical="https://dctechnolabs.in/nz-website-offer"
+>
+
+<!-- Meta Pixel Base Code — replace YOUR_PIXEL_ID before going live -->
+<script is:inline>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1207505044881138');
+  fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1207505044881138&ev=PageView&noscript=1"/></noscript>
+
+<style>
+/* ── Page-specific styles (global.css is already loaded via BaseLayout) ── */
+
+/* ── Minimal Header ─────────────────────────────────────────── */
+.lp-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+}
+.lp-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lp-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--blue-600);
+}
+.lp-logo span { color: var(--gray-900); }
+.lp-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--blue-600);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  white-space: nowrap;
+}
+.lp-header-cta:hover { background: var(--blue-700); transform: translateY(-1px); }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.nz-hero {
+  background: linear-gradient(135deg, var(--blue-950) 0%, var(--gray-900) 60%, #1a1a2e 100%);
+  color: var(--white);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+.nz-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+.nz-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+}
+.nz-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(37,99,235,0.3);
+  color: var(--blue-300);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.nz-hero h1 { color: var(--white); margin-bottom: 1.25rem; font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
+.nz-hero h1 .highlight { color: var(--accent); }
+.nz-hero-sub {
+  font-size: 1.1rem;
+  color: var(--gray-300);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.offer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(245,158,11,0.12);
+  border: 1.5px solid rgba(245,158,11,0.35);
+  border-radius: var(--radius);
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.offer-badge .original {
+  font-size: 1rem;
+  color: var(--gray-400);
+  text-decoration: line-through;
+  font-family: var(--font-display);
+}
+.offer-badge .discounted {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.offer-badge .save-tag {
+  background: var(--accent);
+  color: var(--black);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+}
+.btn-hero-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 1rem 2.25rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 6px 20px rgba(245,158,11,0.35);
+  margin-bottom: 1rem;
+}
+.btn-hero-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(245,158,11,0.45); }
+.hero-trust-micro {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nz-hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.nz-hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+.nz-hero-stat-lbl { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.2rem; }
+
+/* ── Hero Form Card ─────────────────────────────────────────── */
+.hero-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  color: var(--gray-900);
+}
+.hero-form-card h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.3rem; }
+.hero-form-card > p { font-size: 0.9rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.35rem;
+}
+.nz-form-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  transition: all 0.2s;
+  appearance: none;
+}
+.nz-form-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+select.nz-form-input { cursor: pointer; }
+.btn-form-primary {
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background: var(--blue-600);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+  margin-top: 0.25rem;
+}
+.btn-form-primary:hover { background: var(--blue-700); transform: translateY(-1px); }
+.form-privacy {
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  text-align: center;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+.nz-form-msg {
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+.nz-form-msg.success { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+.nz-form-msg.error { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+
+/* ── Urgency Strip ──────────────────────────────────────────── */
+.urgency-strip {
+  background: linear-gradient(90deg, #d97706 0%, #f59e0b 100%);
+  padding: 0.9rem 0;
+  text-align: center;
+}
+.urgency-strip p {
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+/* ── Offer Comparison ───────────────────────────────────────── */
+.offer-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.compare-card {
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 2px solid;
+}
+.compare-card.them { background: var(--gray-50); border-color: var(--gray-200); }
+.compare-card.us {
+  background: linear-gradient(135deg, var(--blue-50) 0%, #dbeafe 100%);
+  border-color: var(--blue-400);
+  position: relative;
+  overflow: hidden;
+}
+.compare-card.us::after {
+  content: 'BEST VALUE';
+  position: absolute;
+  top: 0.85rem;
+  right: -2rem;
+  background: var(--blue-600);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  padding: 0.3rem 3rem;
+  transform: rotate(30deg);
+}
+.compare-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.compare-card.them .compare-label { color: var(--gray-500); }
+.compare-card.us .compare-label { color: var(--blue-600); }
+.compare-price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.compare-card.them .compare-price { color: var(--gray-400); text-decoration: line-through; }
+.compare-card.us .compare-price { color: var(--blue-700); }
+.compare-note { font-size: 0.85rem; }
+.compare-card.them .compare-note { color: var(--gray-500); }
+.compare-card.us .compare-note { color: var(--blue-600); font-weight: 600; }
+.compare-list { margin-top: 1rem; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.compare-list li { font-size: 0.85rem; }
+.saving-callout {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.saving-callout p {
+  color: #92400e;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ── Features Grid ──────────────────────────────────────────── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius);
+  transition: all 0.3s var(--ease);
+}
+.feature-item:hover { border-color: var(--blue-200); box-shadow: 0 4px 14px rgba(37,99,235,0.07); transform: translateY(-2px); }
+.feature-check {
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  box-shadow: 0 2px 6px rgba(16,185,129,0.3);
+}
+.feature-check svg { color: white; }
+.feature-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  line-height: 1.4;
+}
+
+/* ── Persona Cards ──────────────────────────────────────────── */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.persona-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.persona-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+.persona-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(15,23,42,0.1); }
+.persona-card:hover::before { transform: scaleX(1); }
+.persona-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--blue-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+.persona-card h4 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--gray-900); }
+.persona-divider {
+  width: 32px;
+  height: 2px;
+  background: var(--blue-200);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+}
+.persona-pain {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  margin-bottom: 0.75rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+.persona-win {
+  font-size: 0.875rem;
+  color: var(--blue-700);
+  font-weight: 600;
+  font-family: var(--font-display);
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.persona-win::before { content: '→'; flex-shrink: 0; }
+
+/* ── Lead Capture Form Section ──────────────────────────────── */
+.lead-form-section {
+  background: linear-gradient(135deg, var(--blue-950) 0%, var(--gray-900) 100%);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+.lead-form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 50%, rgba(37,99,235,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.lead-form-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.lead-form-inner h2 { color: var(--white); margin-bottom: 0.75rem; }
+.lead-form-inner > p { color: var(--gray-300); font-size: 1.05rem; margin-bottom: 2.5rem; }
+.lead-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.25rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  text-align: left;
+}
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.btn-lead {
+  width: 100%;
+  padding: 1.1rem 1.5rem;
+  background: var(--blue-600);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+  margin-top: 0.25rem;
+}
+.btn-lead:hover { background: var(--blue-700); transform: translateY(-1px); }
+
+/* ── Final CTA ──────────────────────────────────────────────── */
+.final-cta-dark {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1a1a2e 100%);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(37,99,235,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(245,158,11,0.07) 0%, transparent 50%);
+  pointer-events: none;
+}
+.final-cta-dark h2 { color: var(--white); margin-bottom: 0.75rem; position: relative; }
+.final-cta-dark p { color: var(--gray-300); font-size: 1.05rem; position: relative; }
+.final-cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+}
+.btn-cta-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 1rem 2.25rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 6px 20px rgba(245,158,11,0.35);
+}
+.btn-cta-accent:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 1rem 2.25rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  transition: all 0.3s var(--ease);
+}
+.btn-cta-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+/* ── Minimal Footer ─────────────────────────────────────────── */
+.lp-footer {
+  background: var(--gray-900);
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.lp-footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.lp-footer-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--blue-400); }
+.lp-footer-tagline { font-size: 0.85rem; color: var(--gray-500); }
+.lp-footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.lp-footer-links a { font-size: 0.8rem; color: var(--gray-500); transition: color 0.2s; text-decoration: none; }
+.lp-footer-links a:hover { color: var(--gray-300); }
+.lp-footer-copy { font-size: 0.78rem; color: var(--gray-600); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .persona-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nz-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .offer-compare { grid-template-columns: 1fr; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .nz-hero-stats { gap: 1.25rem; }
+  .lead-form-card { padding: 1.75rem 1.25rem; }
+  .process-steps { grid-template-columns: 1fr !important; }
+  .process-step::after { display: none !important; }
+}
+@media (max-width: 600px) {
+  .persona-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .final-cta-btns { flex-direction: column; align-items: center; }
+}
+@media (max-width: 380px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ─── MINIMAL HEADER ───────────────────────────────────────────── -->
+<header class="lp-header">
+  <div class="container">
+    <div class="lp-header-inner">
+      <div class="lp-logo">DC<span>Technolabs</span></div>
+      <a href="#claim-offer" class="lp-header-cta">
+        Claim $150 Off
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════════════════════════════════
+     SECTION 1: HERO
+═════════════════════════════════════════════ -->
+<section class="nz-hero">
+  <div class="container">
+    <div class="nz-hero-grid">
+
+      <!-- Left -->
+      <div>
+        <div class="nz-eyebrow">Exclusive Offer for New Zealand Businesses</div>
+
+        <h1>Get a Professional Website<br>for <span class="highlight">NZD $500</span></h1>
+
+        <p class="nz-hero-sub">Save $150 on a fast, mobile-ready website built for your NZ business. No GST. No hidden fees. Limited spots available this month.</p>
+
+        <div class="offer-badge">
+          <span class="original">NZD $650</span>
+          <span class="discounted">NZD $500</span>
+          <span class="save-tag">SAVE $150</span>
+        </div>
+
+        <div>
+          <a href="#claim-offer" class="btn-hero-accent">
+            Claim My $150 Discount
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <p class="hero-trust-micro">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No obligation. Free consultation. Response within 1 business day.
+        </p>
+
+        <div class="nz-hero-stats">
+          <div>
+            <div class="nz-hero-stat-num">150+</div>
+            <div class="nz-hero-stat-lbl">Websites Built</div>
+          </div>
+          <div>
+            <div class="nz-hero-stat-num">7+</div>
+            <div class="nz-hero-stat-lbl">Years Experience</div>
+          </div>
+          <div>
+            <div class="nz-hero-stat-num">100+</div>
+            <div class="nz-hero-stat-lbl">Clutch Awards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Hero Form -->
+      <div class="hero-form-card" id="claim-offer">
+        <h3>Get Your NZD $150 Discount</h3>
+        <p>Fill in your details and we'll lock in your spot today.</p>
+
+        <form id="heroNZForm">
+          <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
+          <input type="hidden" name="subject" value="NZ Website Offer — Hero Form Enquiry">
+
+          <div class="form-group">
+            <label for="hz-name">Full Name *</label>
+            <input type="text" id="hz-name" name="name" class="nz-form-input" placeholder="e.g. James Thompson" required>
+          </div>
+          <div class="form-group">
+            <label for="hz-biz">Business Name *</label>
+            <input type="text" id="hz-biz" name="business_name" class="nz-form-input" placeholder="e.g. Thompson Plumbing Ltd" required>
+          </div>
+          <div class="form-group">
+            <label for="hz-email">Email Address *</label>
+            <input type="email" id="hz-email" name="email" class="nz-form-input" placeholder="you@yourbusiness.co.nz" required>
+          </div>
+          <div class="form-group">
+            <label for="hz-phone">Phone (optional)</label>
+            <input type="tel" id="hz-phone" name="phone" class="nz-form-input" placeholder="+64 21 XXX XXXX">
+          </div>
+          <div class="form-group">
+            <label for="hz-type">Business Type *</label>
+            <select id="hz-type" name="business_type" class="nz-form-input" required>
+              <option value="" disabled selected>Select your business type</option>
+              <option>Trades and Services</option>
+              <option>Retail and eCommerce</option>
+              <option>Small Local Business</option>
+              <option>Professional Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-form-primary">
+            Yes, I Want a Website for NZD $500
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <p class="form-privacy">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your details are safe. No spam, ever.
+          </p>
+          <div id="heroNZFormMsg" class="nz-form-msg" style="display:none"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 2: URGENCY STRIP
+═════════════════════════════════════════════ -->
+<div class="urgency-strip">
+  <div class="container">
+    <p>⏳ Limited Time Offer — NZD $150 Off Ends Soon. Only a Few Spots Left This Month.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 3: OFFER BREAKDOWN
+═════════════════════════════════════════════ -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">The Offer</span>
+      <h2 class="section-title">What You Get for <span style="color:var(--blue-600)">NZD $500</span></h2>
+      <p class="section-subtitle">See exactly what NZ agencies charge versus what DC Technolabs charges. Same quality, real savings.</p>
+    </div>
+
+    <div class="offer-compare">
+      <div class="compare-card them">
+        <div class="compare-label">NZ Local Agencies</div>
+        <div class="compare-price">$899–$999</div>
+        <div class="compare-note">+ NZ GST (15%) on top</div>
+        <ul class="compare-list">
+          <li style="color:var(--gray-500)">❌ GST adds $135–$150 extra</li>
+          <li style="color:var(--gray-500)">❌ Total: $1,034–$1,149</li>
+          <li style="color:var(--gray-500)">❌ Same end result</li>
+        </ul>
+      </div>
+      <div class="compare-card us">
+        <div class="compare-label">DC Technolabs</div>
+        <div class="compare-price">$500 flat</div>
+        <div class="compare-note">No GST. No hidden fees.</div>
+        <ul class="compare-list">
+          <li style="color:var(--blue-700);font-weight:600">✓ GST-free (overseas agency)</li>
+          <li style="color:var(--blue-700);font-weight:600">✓ Total: $500 exactly</li>
+          <li style="color:var(--blue-700);font-weight:600">✓ Same professional quality</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="saving-callout">
+      <p>You save NZD $399–$499 compared to local NZ agencies, with zero compromise on quality.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Custom website design</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Mobile and tablet responsive</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">SEO-friendly structure built in</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Fast-loading pages</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Easy content editor</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Free domain setup assistance</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Dedicated account manager</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">Post-launch support included</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="feature-text">No NZ GST — genuine saving</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 4: WHO IS THIS FOR
+═════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Who This Is For</span>
+      <h2 class="section-title">Built for NZ Businesses Like Yours</h2>
+      <p class="section-subtitle">Whether you're a tradie, retailer, or professional service provider — this offer is for you.</p>
+    </div>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon-wrap">🔧</div>
+        <h4>Trades and Services</h4>
+        <div class="persona-divider"></div>
+        <p class="persona-pain">"Losing jobs to competitors who look more professional online?"</p>
+        <p class="persona-win">Get a site that brings in enquiries while you're on the tools.</p>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon-wrap">🛍️</div>
+        <h4>Retail and eCommerce</h4>
+        <div class="persona-divider"></div>
+        <p class="persona-pain">"Need an online store that actually converts browsers into buyers?"</p>
+        <p class="persona-win">Beautiful product pages that drive real sales.</p>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon-wrap">🏢</div>
+        <h4>Small Local Businesses</h4>
+        <div class="persona-divider"></div>
+        <p class="persona-pain">"Invisible online and relying 100% on word of mouth?"</p>
+        <p class="persona-win">A professional presence that works for you 24/7.</p>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon-wrap">💼</div>
+        <h4>Professional Services</h4>
+        <div class="persona-divider"></div>
+        <p class="persona-pain">"Does your current site reflect the quality of your work?"</p>
+        <p class="persona-win">A credible, clean website that wins high-value clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 5: STATS BAR
+═════════════════════════════════════════════ -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="150">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Websites Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="7">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="100">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Clutch Awards</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="50">0</span><span class="accent">+</span></div>
+        <div class="stat-label">In-House Talent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 6: TESTIMONIALS
+═════════════════════════════════════════════ -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Real results from businesses that trusted DC Technolabs with their online presence.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Our new website has already brought in new enquiries in the first month. Professional, fast, and exactly what we asked for. The process was smooth from start to finish."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JT</div>
+          <div>
+            <div class="testimonial-name">James Thompson</div>
+            <div class="testimonial-role">Owner, Thompson Plumbing, Auckland</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Incredibly smooth process. They delivered on time and the site looks fantastic on mobile. Our customers constantly compliment how easy it is to use and navigate."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SR</div>
+          <div>
+            <div class="testimonial-name">Sarah Robinson</div>
+            <div class="testimonial-role">Director, Robinson Electrical, Wellington</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Great value compared to what NZ agencies quoted us. We got more for less and the quality is excellent. Would highly recommend to any NZ business wanting a professional site."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MW</div>
+          <div>
+            <div class="testimonial-name">Mark Wilson</div>
+            <div class="testimonial-role">Founder, Wilson Legal, Christchurch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 7: HOW IT WORKS
+═════════════════════════════════════════════ -->
+<section class="process section" style="background:var(--gray-50);">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">The Process</span>
+      <h2 class="section-title">How It Works — 3 Simple Steps</h2>
+      <p class="section-subtitle">No complicated contracts. No confusing process. Just a simple path from enquiry to live website.</p>
+    </div>
+
+    <div class="process-steps" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <h3>Fill in the Form</h3>
+        <p>Tell us about your business in under 2 minutes. No commitment required and we won't call you without permission.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <h3>Free Consultation Call</h3>
+        <p>We connect to understand your needs and lock in your NZD $150 discount before spots run out for the month.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <h3>We Design and Build</h3>
+        <p>Fast turnaround with regular updates. You review and approve every stage before we go live. Your site, your approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 8: MAIN LEAD FORM
+═════════════════════════════════════════════ -->
+<section class="lead-form-section" id="main-form">
+  <div class="container">
+    <div class="lead-form-inner">
+
+      <div style="display:inline-block; background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:var(--blue-300); font-family:var(--font-display); font-size:0.85rem; font-weight:600; padding:0.4rem 1rem; border-radius:var(--radius-full); margin-bottom:1.25rem; letter-spacing:0.02em;">
+        Exclusive New Zealand Offer
+      </div>
+
+      <h2>Claim Your NZD $150 Discount</h2>
+      <p>Only a few spots left this month. Fill in the form and we'll be in touch within 1 business day.</p>
+
+      <div class="lead-form-card">
+        <form id="mainNZForm">
+          <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
+          <input type="hidden" name="subject" value="NZ Website Offer — Main Form Enquiry">
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="mz-name">Full Name *</label>
+              <input type="text" id="mz-name" name="name" class="nz-form-input" placeholder="e.g. James Thompson" required>
+            </div>
+            <div class="form-group">
+              <label for="mz-biz">Business Name *</label>
+              <input type="text" id="mz-biz" name="business_name" class="nz-form-input" placeholder="e.g. Thompson Plumbing" required>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="mz-email">Email Address *</label>
+              <input type="email" id="mz-email" name="email" class="nz-form-input" placeholder="you@yourbusiness.co.nz" required>
+            </div>
+            <div class="form-group">
+              <label for="mz-phone">Phone Number</label>
+              <input type="tel" id="mz-phone" name="phone" class="nz-form-input" placeholder="+64 21 XXX XXXX">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mz-type">Business Type *</label>
+            <select id="mz-type" name="business_type" class="nz-form-input" required>
+              <option value="" disabled selected>Select your business type</option>
+              <option>Trades and Services (Plumber, Electrician, Builder...)</option>
+              <option>Retail and eCommerce</option>
+              <option>Small Local Business</option>
+              <option>Professional Services (Legal, Accounting, Consulting...)</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mz-website">Do you currently have a website?</label>
+            <select id="mz-website" name="current_website" class="nz-form-input">
+              <option value="" disabled selected>Select an option</option>
+              <option>No, I don't have a website yet</option>
+              <option>Yes, but it needs a redesign</option>
+              <option>Yes, and I want a completely new one</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-lead">
+            Yes, I Want a Website for NZD $500
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <p class="form-privacy" style="margin-top:0.75rem;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your details are safe with us. No spam, ever. We respond within 1 business day.
+          </p>
+
+          <div id="mainNZFormMsg" class="nz-form-msg" style="display:none"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 9: FAQ
+═════════════════════════════════════════════ -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Questions Before You Enquire?</h2>
+    </div>
+
+    <div style="max-width:780px; margin:0 auto;">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Are you based in New Zealand?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We're a globally operating web design agency with a dedicated account manager for our NZ clients. All communication happens in English, during NZ-friendly business hours, and you'll have a direct point of contact throughout your project. Our international presence is precisely why we can offer NZD $500 websites when local agencies charge $899 or more.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Why is your pricing lower than NZ agencies?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Because we operate globally, our overhead costs are lower and we pass that saving directly to you. You get the same quality website — fast, mobile-ready, SEO-friendly — at a fraction of the local price. Plus, as an overseas agency, we don't charge NZ GST (15%), which is another genuine saving vs local agencies.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does a website take to build?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Typically 2 to 4 weeks from the time we receive your content and feedback. We keep the process simple and communicate every step of the way. You'll have a dedicated account manager keeping you updated throughout.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What if I want changes after the website goes live?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We offer ongoing support and maintenance. Any post-launch changes can be discussed during your free consultation call. We work in revisions during the build and remain available for support after launch.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I own my website?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">100% yes. You own the domain and all content. There are no lock-in contracts or recurring platform fees unless you choose a hosted CMS, which we'll explain clearly during your consultation call.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What if I'm not happy with the design?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">You review and approve the design before anything goes live. We work in revisions and you won't be stuck with something you don't love. Your sign-off is required at every stage before we move forward.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 10: FINAL CTA
+═════════════════════════════════════════════ -->
+<section class="final-cta-dark">
+  <div class="container">
+    <h2>Don't Miss Out — NZD $150 Off Ends Soon</h2>
+    <p>Professional website. NZD $500 flat. No GST. No hidden fees. Limited spots this month.</p>
+    <div class="final-cta-btns">
+      <a href="#claim-offer" class="btn-cta-accent">
+        Get My Free Quote Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#main-form" class="btn-cta-outline">Claim Your Discount</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     MINIMAL FOOTER
+═════════════════════════════════════════════ -->
+<footer class="lp-footer">
+  <div class="container">
+    <div class="lp-footer-inner">
+      <div class="lp-footer-logo">DC Technolabs</div>
+      <p class="lp-footer-tagline">Professional Web Design and Development — Serving NZ Businesses Globally</p>
+      <div class="lp-footer-links">
+        <a href="mailto:hello@dctechnolabs.com">hello@dctechnolabs.com</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="https://dctechnolabs.in" target="_blank" rel="noopener">Main Website</a>
+      </div>
+      <p class="lp-footer-copy">© 2025 DC Technolabs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+═════════════════════════════════════════════ -->
+<script is:inline>
+  (function() {
+    /* ── FAQ Accordion ─────────────────────── */
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ── Counter Animation ─────────────────── */
+    var countersRun = false;
+    function runCounters() {
+      if (countersRun) return;
+      countersRun = true;
+      document.querySelectorAll('.counter').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        if (isNaN(target)) return;
+        var inc = target / (1800 / 16);
+        var cur = 0;
+        var t = setInterval(function() {
+          cur += inc;
+          if (cur >= target) { el.textContent = target; clearInterval(t); }
+          else { el.textContent = Math.floor(cur); }
+        }, 16);
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var statsBar = document.querySelector('.stats-bar');
+      if (statsBar) {
+        new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(e) { if (e.isIntersecting) { runCounters(); obs.unobserve(e.target); } });
+        }, { threshold: 0.2 }).observe(statsBar);
+      }
+    } else { runCounters(); }
+
+    /* ── Web3Forms Handler ─────────────────── */
+    function handleForm(formId, msgId) {
+      var form = document.getElementById(formId);
+      if (!form) return;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var msgEl = document.getElementById(msgId);
+        var orig = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+          var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+          var json = await res.json();
+          msgEl.style.display = 'block';
+          if (json.success) {
+            msgEl.className = 'nz-form-msg success';
+            msgEl.textContent = "Thank you! We've received your enquiry and will be in touch within 1 business day to confirm your discount.";
+            form.reset();
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+          } else {
+            msgEl.className = 'nz-form-msg error';
+            msgEl.textContent = 'Something went wrong. Please try again or email hello@dctechnolabs.com';
+          }
+        } catch(err) {
+          msgEl.style.display = 'block';
+          msgEl.className = 'nz-form-msg error';
+          msgEl.textContent = 'Something went wrong. Please email hello@dctechnolabs.com';
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = orig;
+        }
+      });
+    }
+
+    handleForm('heroNZForm', 'heroNZFormMsg');
+    handleForm('mainNZForm', 'mainNZFormMsg');
+  })();
+</script>
+
+<!-- FAQ styles (not in global.css — page-specific) -->
+<style>
+.faq-item { border-bottom: 1px solid var(--gray-200); }
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--gray-900);
+  text-align: left;
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--blue-600); }
+.faq-icon {
+  width: 28px; height: 28px;
+  background: var(--blue-50);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s var(--ease);
+}
+.faq-icon svg { transition: transform 0.3s var(--ease); }
+.faq-item.open .faq-icon { background: var(--blue-600); }
+.faq-item.open .faq-icon svg { stroke: white; transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease); }
+.faq-answer-inner { padding-bottom: 1.25rem; font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; }
+.faq-item.open .faq-answer { max-height: 400px; }
+</style>
+
+</BaseLayout>

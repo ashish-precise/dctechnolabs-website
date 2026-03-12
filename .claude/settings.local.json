@@ -10,7 +10,8 @@
       "Bash(node --version)",
       "Bash(wc -l src/pages/locations/ahmedabad/*.astro)",
       "WebFetch(domain:pagespeed.web.dev)",
-      "WebFetch(domain:www.googleapis.com)"
+      "WebFetch(domain:www.googleapis.com)",
+      "WebSearch"
     ]
   }
 }
