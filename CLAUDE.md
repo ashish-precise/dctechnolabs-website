@@ -53,6 +53,12 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 | PPC / Google Ads | Done | 12+ sections |
 | E-commerce Development | Done | 12+ sections |
 | WordPress Development | Done | 12+ sections |
+| Social Media Marketing | Done | 12+ sections |
+| Shopify Development | Done | Sub-service page |
+| Custom Web Development | Done | Sub-service page |
+| Local SEO | Done | Sub-service page |
+| Google Ads Management | Done | Sub-service page |
+| Website Maintenance | Done | Sub-service page |
 | Locations Hub | Done | Balanced grid |
 | Ahmedabad | Done | 1,500+ words |
 | Gandhinagar | Done | 1,000+ words |
@@ -83,6 +89,9 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 | WhatsApp Business Marketing for Indian Small Businesses: Complete 2026 Guide | whatsapp-business-marketing-guide-india | Done |
 | How to Choose a Digital Marketing Agency in Ahmedabad: 7 Questions to Ask | how-to-choose-digital-marketing-agency-ahmedabad | Done |
 | How to Start Selling Online in India: Complete E-commerce Guide for 2026 | ecommerce-for-indian-businesses-2026 | Done |
+| Google Ads vs Facebook Ads: Which Works Better for Gujarat Businesses? | google-ads-vs-facebook-ads-gujarat | Done |
+| How to Choose a Web Design Company in Ahmedabad: 10 Questions to Ask | how-to-choose-web-design-company-ahmedabad | Done |
+| Local SEO Checklist: How to Rank #1 in Ahmedabad | local-seo-checklist-ahmedabad | Done |
 
 ### COMPLETED LANDING PAGES
 
@@ -90,6 +99,8 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 |---|---|---|
 | Free Website Audit | Done | 10 sections, colored checklist tiles, Web3Forms |
 | Free SEO Audit | Done | 9 sections, before/after case study panel, Web3Forms |
+| NZ Website Offer | Done | Meta Ads landing page, noindex, NOT in sitemap |
+| Thank You | Done | Post-form redirect page, noindex, NOT in sitemap |
 
 ### PENDING PAGES (build in this order as per roadmap)
 
@@ -180,6 +191,7 @@ Vadodara neighborhoods (with sub-pages): Alkapuri, Gotri, Manjalpur, Fatehgunj, 
 - Homepage and location pages need LocalBusiness schema
 - Target 90+ PageSpeed score on mobile
 - sitemap.xml and robots.txt must stay updated as new pages are added
+- Ad landing pages (Meta Ads, Google Ads) must have noindex and must NOT be added to sitemap.xml
 
 ---
 
@@ -351,4 +363,4 @@ Each section should have a clear purpose. No filler sections. Pattern:
 
 ---
 
-*Last updated: March 2026 (blog posts + header refactor). Update this file whenever a page is completed, a rule is added, or a decision is made.*
+*Last updated: March 2026 (new service sub-pages, 3 new blog posts, NZ ad landing page, thank-you page, noindex rule for ad pages). Update this file whenever a page is completed, a rule is added, or a decision is made.*
