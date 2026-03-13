@@ -229,33 +229,33 @@ const faqs = [
     a: 'Dedicated project manager as single point of contact. They coordinate with designers, developers, SEO specialists, content team.',
   },
 ];
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Digital Marketing Services",
+  "description": "Full-service digital marketing agency offering 8 specialized services",
+  "numberOfItems": 12,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Web Design", "url": "https://dctechnolabs.in/services/web-design" },
+    { "@type": "ListItem", "position": 2, "name": "Web Development", "url": "https://dctechnolabs.in/services/web-development" },
+    { "@type": "ListItem", "position": 3, "name": "SEO Services", "url": "https://dctechnolabs.in/services/seo" },
+    { "@type": "ListItem", "position": 4, "name": "PPC / Google Ads", "url": "https://dctechnolabs.in/services/ppc" },
+    { "@type": "ListItem", "position": 5, "name": "E-commerce Development", "url": "https://dctechnolabs.in/services/ecommerce" },
+    { "@type": "ListItem", "position": 6, "name": "WordPress Development", "url": "https://dctechnolabs.in/services/wordpress" },
+    { "@type": "ListItem", "position": 7, "name": "Shopify Development", "url": "https://dctechnolabs.in/services/shopify" },
+    { "@type": "ListItem", "position": 8, "name": "Social Media Marketing", "url": "https://dctechnolabs.in/services/social-media" },
+    { "@type": "ListItem", "position": 9, "name": "Local SEO", "url": "https://dctechnolabs.in/services/local-seo" },
+    { "@type": "ListItem", "position": 10, "name": "Google Ads Management", "url": "https://dctechnolabs.in/services/google-ads" },
+    { "@type": "ListItem", "position": 11, "name": "Custom Web Development", "url": "https://dctechnolabs.in/services/custom-web-development" },
+    { "@type": "ListItem", "position": 12, "name": "Website Maintenance", "url": "https://dctechnolabs.in/services/website-maintenance" }
+  ]
+});
 ---
 
 <PageLayout title={title} description={description}>
   <!-- SCHEMA MARKUP -->
-  <script type="application/ld+json" is:inline>{
-    JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Digital Marketing Services",
-      "description": "Full-service digital marketing agency offering 8 specialized services",
-      "numberOfItems": 12,
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Web Design", "url": "https://dctechnolabs.in/services/web-design" },
-        { "@type": "ListItem", "position": 2, "name": "Web Development", "url": "https://dctechnolabs.in/services/web-development" },
-        { "@type": "ListItem", "position": 3, "name": "SEO Services", "url": "https://dctechnolabs.in/services/seo" },
-        { "@type": "ListItem", "position": 4, "name": "PPC / Google Ads", "url": "https://dctechnolabs.in/services/ppc" },
-        { "@type": "ListItem", "position": 5, "name": "E-commerce Development", "url": "https://dctechnolabs.in/services/ecommerce" },
-        { "@type": "ListItem", "position": 6, "name": "WordPress Development", "url": "https://dctechnolabs.in/services/wordpress" },
-        { "@type": "ListItem", "position": 7, "name": "Shopify Development", "url": "https://dctechnolabs.in/services/shopify" },
-        { "@type": "ListItem", "position": 8, "name": "Social Media Marketing", "url": "https://dctechnolabs.in/services/social-media" },
-        { "@type": "ListItem", "position": 9, "name": "Local SEO", "url": "https://dctechnolabs.in/services/local-seo" },
-        { "@type": "ListItem", "position": 10, "name": "Google Ads Management", "url": "https://dctechnolabs.in/services/google-ads" },
-        { "@type": "ListItem", "position": 11, "name": "Custom Web Development", "url": "https://dctechnolabs.in/services/custom-web-development" },
-        { "@type": "ListItem", "position": 12, "name": "Website Maintenance", "url": "https://dctechnolabs.in/services/website-maintenance" }
-      ]
-    })
-  }</script>
+  <script type="application/ld+json" set:html={schemaJson}></script>
 
   <!-- ===================== SECTION 1: HERO ===================== -->
   <section class="svc-hub-hero">

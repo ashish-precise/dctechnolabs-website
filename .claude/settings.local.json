@@ -11,7 +11,12 @@
       "Bash(wc -l src/pages/locations/ahmedabad/*.astro)",
       "WebFetch(domain:pagespeed.web.dev)",
       "WebFetch(domain:www.googleapis.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(while read:*)",
+      "Bash(do if:*)",
+      "Bash(then echo:*)",
+      "Bash(find src:*)",
+      "Bash(grep -n JSON.stringify src/pages/services/*.astro src/pages/industries/*.astro)"
     ]
   }
 }
