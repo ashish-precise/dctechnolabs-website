@@ -4,15 +4,14 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
-  delayAnalytics?: boolean;
 }
 
-const { title, description, canonical, ogImage, delayAnalytics = false } = Astro.props;
+const { title, description, canonical, ogImage } = Astro.props;
 const rawCanonical = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const canonicalURL = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 const ogImageURL = ogImage || 'https://dctechnolabs.in/og-image.webp';
-const currentYear = new Date().getFullYear();
 import "../styles/global.css";
+import CookieBanner from "../components/CookieBanner.astro";
 ---
 
 <!DOCTYPE html>
@@ -20,15 +19,15 @@ import "../styles/global.css";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Favicon - Inline SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563EB'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='800' font-size='14' fill='white'%3EDC%3C/text%3E%3C/svg%3E">
-  
+
   <!-- SEO Meta Tags -->
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalURL}>
-  
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content={canonicalURL}>
@@ -43,47 +42,13 @@ import "../styles/global.css";
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImageURL}>
-  
+
   <!-- Fonts - Plus Jakarta Sans + DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-  
-  <!-- Google Analytics -->
-  {!delayAnalytics && (
-    <>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ"></script>
-      <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1XC3TWJ2NJ');
-      </script>
-    </>
-  )}
-  {delayAnalytics && (
-    <script is:inline>
-      function _loadGA() {
-        if (window._gaLoaded) return;
-        window._gaLoaded = true;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ';
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-1XC3TWJ2NJ');
-      }
-      setTimeout(_loadGA, 3000);
-      ['mousedown','touchstart','scroll','keydown'].forEach(function(e) {
-        window.addEventListener(e, _loadGA, {once: true, passive: true});
-      });
-    </script>
-  )}
-  
+
   <!-- Schema.org Markup -->
   <script type="application/ld+json">
     {
@@ -190,11 +155,12 @@ import "../styles/global.css";
       }
     }
   </script>
-  
+
   <!-- Global Styles -->
   <slot name="head" />
 </head>
 <body>
   <slot />
+  <CookieBanner />
 </body>
 </html>

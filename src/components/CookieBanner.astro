@@ -1,0 +1,150 @@
+<!-- Cookie Consent Banner — pure Astro/vanilla JS, no third-party library -->
+<!-- Stores consent in localStorage as 'dct_cookie_consent' = 'accepted' | 'declined' -->
+<!-- Only loads Google Analytics after user accepts -->
+
+<div id="dct-cookie-banner" aria-live="polite" aria-label="Cookie consent" style="display:none">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>We use cookies</strong>
+      <p>We use Google Analytics to understand how visitors use our site. No personal data is sold or shared with third parties.</p>
+    </div>
+    <div class="cookie-actions">
+      <button id="dct-cookie-decline" class="cookie-btn-decline" type="button">Decline</button>
+      <button id="dct-cookie-accept" class="cookie-btn-accept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  #dct-cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #0f172a;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.3);
+    padding: 1rem 1.5rem;
+  }
+  .cookie-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .cookie-text {
+    flex: 1;
+    min-width: 200px;
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .cookie-text strong {
+    color: #fff;
+    font-size: 0.9375rem;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .cookie-text p {
+    margin: 0;
+    color: #94a3b8;
+  }
+  .cookie-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  .cookie-btn-accept,
+  .cookie-btn-decline {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #2563eb;
+    color: #fff;
+  }
+  .cookie-btn-accept:hover {
+    background: #1d4ed8;
+  }
+  .cookie-btn-decline {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid rgba(148,163,184,0.3);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    .cookie-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .cookie-actions {
+      width: 100%;
+    }
+    .cookie-btn-accept,
+    .cookie-btn-decline {
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var CONSENT_KEY = 'dct_cookie_consent';
+
+    function loadGA() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-1XC3TWJ2NJ');
+    }
+
+    var consent = localStorage.getItem(CONSENT_KEY);
+
+    if (consent === 'accepted') {
+      loadGA();
+      return;
+    }
+
+    if (consent === 'declined') {
+      return;
+    }
+
+    // No decision yet — show the banner
+    var banner = document.getElementById('dct-cookie-banner');
+    if (banner) banner.style.display = 'block';
+
+    document.getElementById('dct-cookie-accept').addEventListener('click', function () {
+      localStorage.setItem(CONSENT_KEY, 'accepted');
+      if (banner) banner.style.display = 'none';
+      loadGA();
+      window.dispatchEvent(new Event('dct:consent-accepted'));
+    });
+
+    document.getElementById('dct-cookie-decline').addEventListener('click', function () {
+      localStorage.setItem(CONSENT_KEY, 'declined');
+      if (banner) banner.style.display = 'none';
+    });
+  })();
+</script>

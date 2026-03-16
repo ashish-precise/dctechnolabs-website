@@ -6,7 +6,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   title="Professional Website Design for NZD $500 | DC Technolabs"
   description="Get a professional, mobile-ready website for your NZ business for just NZD $500. Save $150 — limited time offer. No GST. No hidden fees. Fast turnaround."
   canonical="https://dctechnolabs.in/nz-website-offer"
-  delayAnalytics={true}
 >
 <meta name="robots" content="noindex, nofollow" slot="head">
 
@@ -1267,12 +1266,13 @@ select.nz-form-input { cursor: pointer; }
   })();
 </script>
 
-<!-- Meta Pixel — deferred: loads after 3s or first user interaction -->
+<!-- Meta Pixel — consent-gated: only loads after cookie consent accepted -->
 <script is:inline>
   (function() {
     var fbLoaded = false;
     function loadFBPixel() {
       if (fbLoaded) return;
+      if (localStorage.getItem('dct_cookie_consent') !== 'accepted') return;
       fbLoaded = true;
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -1282,10 +1282,15 @@ select.nz-form-input { cursor: pointer; }
       fbq('init','1207505044881138');
       fbq('track','PageView');
     }
-    setTimeout(loadFBPixel, 3000);
-    ['mousedown','touchstart','scroll','keydown'].forEach(function(e) {
-      window.addEventListener(e, loadFBPixel, {once: true, passive: true});
-    });
+    // If already accepted, load after 3s or first interaction (performance)
+    if (localStorage.getItem('dct_cookie_consent') === 'accepted') {
+      setTimeout(loadFBPixel, 3000);
+      ['mousedown','touchstart','scroll','keydown'].forEach(function(e) {
+        window.addEventListener(e, loadFBPixel, {once: true, passive: true});
+      });
+    }
+    // If not yet accepted, load when user accepts via cookie banner
+    window.addEventListener('dct:consent-accepted', loadFBPixel);
   })();
 </script>
 <noscript><img height="1" width="1" style="display:none"
