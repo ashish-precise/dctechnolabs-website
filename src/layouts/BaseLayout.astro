@@ -4,9 +4,10 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  delayAnalytics?: boolean;
 }
 
-const { title, description, canonical, ogImage } = Astro.props;
+const { title, description, canonical, ogImage, delayAnalytics = false } = Astro.props;
 const rawCanonical = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const canonicalURL = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 const ogImageURL = ogImage || 'https://dctechnolabs.in/og-image.webp';
@@ -50,13 +51,38 @@ import "../styles/global.css";
   <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1XC3TWJ2NJ');
-  </script>
+  {!delayAnalytics && (
+    <>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ"></script>
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1XC3TWJ2NJ');
+      </script>
+    </>
+  )}
+  {delayAnalytics && (
+    <script is:inline>
+      function _loadGA() {
+        if (window._gaLoaded) return;
+        window._gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-1XC3TWJ2NJ';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-1XC3TWJ2NJ');
+      }
+      setTimeout(_loadGA, 3000);
+      ['mousedown','touchstart','scroll','keydown'].forEach(function(e) {
+        window.addEventListener(e, _loadGA, {once: true, passive: true});
+      });
+    </script>
+  )}
   
   <!-- Schema.org Markup -->
   <script type="application/ld+json">
