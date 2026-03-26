@@ -192,6 +192,7 @@ Vadodara neighborhoods (with sub-pages): Alkapuri, Gotri, Manjalpur, Fatehgunj, 
 - Target 90+ PageSpeed score on mobile
 - sitemap.xml and robots.txt must stay updated as new pages are added
 - ALL internal `href` links must include a trailing slash (e.g. `/about/` not `/about`). This applies to Header.astro, Footer.astro, and all page content. Missing trailing slashes cause 301 redirects that block Google indexing.
+- The canonical domain is `https://dctechnolabs.in/` (no www). Never use www in canonical tags, sitemap URLs, or astro.config.mjs site setting. Vercel is configured with dctechnolabs.in as primary and www redirecting to it.
 - Ad landing pages (Meta Ads, Google Ads) must have noindex and must NOT be added to sitemap.xml
 
 ---
@@ -333,6 +334,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 | ServicePageLayout and LocationPageLayout had inline GA bypassing consent | Removed inline GA from both layouts. Now use CookieBanner for consent-gated GA. |
 | Sitemap had no lastmod dates | Added lastmod dates to all 100 URLs in sitemap.xml — signals freshness to Google crawlers |
 | Header.astro and Footer.astro had ALL internal links without trailing slashes | Fixed: all internal hrefs now include trailing slash (e.g. /pricing/ not /pricing). This was causing every page on the site to serve redirect errors to Googlebot via the nav and footer links. |
+| Vercel primary domain was www.dctechnolabs.in — entire site was 307-redirecting | Fixed: dctechnolabs.in is now the primary Production domain. www.dctechnolabs.in redirects to dctechnolabs.in. This was the root cause of ALL redirect errors in GSC. |
 
 ---
 
@@ -372,7 +374,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 9. ✅ Fix GSC redirect errors for /about/ and /portfolio/ — DONE (March 2026) — canonical tags corrected
 10. ✅ Added lastmod dates to all sitemap URLs — DONE (March 2026)
 11. ✅ GA removed from ServicePageLayout and LocationPageLayout — DONE (March 2026) — now consent-gated via CookieBanner
-12. Indexing: 96 pages discovered but not yet crawled by Google (as of March 2026). Technical issues fixed. Google needs time + backlinks to crawl the remaining pages. Use GSC URL Inspection to manually request indexing for priority pages (10/day limit).
+12. Indexing: All technical redirect issues now resolved (March 2026). Root causes were: (a) Vercel primary domain was www instead of non-www, (b) Header/Footer internal links missing trailing slashes, (c) portfolio.astro canonical had no trailing slash. After deploying fixes, use GSC to Start New Validation on redirect errors and request indexing for 10 priority pages per day.
 
 ---
 
