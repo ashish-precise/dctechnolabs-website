@@ -325,6 +325,12 @@ Each section should have a clear purpose. No filler sections. Pattern:
 | Pricing page used single flat layout | Rebuilt as tabbed interface with multiple service categories |
 | Content felt generic and thin | All content has specific Ahmedabad/Gujarat local context |
 | Header HTML/CSS/JS duplicated across 4 layout files | Refactored to single shared Header.astro component with activePage and ctaHref props |
+| GA loaded unconditionally on all pages (GDPR violation) | Removed all inline GA scripts. GA now loads ONLY after cookie consent via CookieBanner.astro |
+| Cookie banner missing — analytics fired without user consent | Built CookieBanner.astro (pure vanilla JS, no third-party library). Consent stored in localStorage as dct_cookie_consent. Banner added to BaseLayout, ServicePageLayout, LocationPageLayout, portfolio.astro |
+| portfolio.astro had hardcoded canonical without trailing slash | Fixed: canonical now uses trailing slash. GSC redirect error resolved. |
+| about.astro passed canonical without trailing slash to PageLayout | Fixed: canonical prop now includes trailing slash. |
+| ServicePageLayout and LocationPageLayout had inline GA bypassing consent | Removed inline GA from both layouts. Now use CookieBanner for consent-gated GA. |
+| Sitemap had no lastmod dates | Added lastmod dates to all 100 URLs in sitemap.xml — signals freshness to Google crawlers |
 
 ---
 
@@ -360,7 +366,29 @@ Each section should have a clear purpose. No filler sections. Pattern:
 5. ✅ Build Free SEO Audit landing page — DONE (March 2026)
 6. ✅ Pre-deployment check: sitemap (@astrojs/sitemap), robots.txt, Twitter Card meta tags — DONE (March 2026)
 7. ✅ Deploy v2 to replace current live dctechnolabs.in — LIVE (March 2026)
+8. ✅ Cookie consent banner — DONE (March 2026) — CookieBanner.astro, consent-gated GA across all layouts
+9. ✅ Fix GSC redirect errors for /about/ and /portfolio/ — DONE (March 2026) — canonical tags corrected
+10. ✅ Added lastmod dates to all sitemap URLs — DONE (March 2026)
+11. ✅ GA removed from ServicePageLayout and LocationPageLayout — DONE (March 2026) — now consent-gated via CookieBanner
+12. Indexing: 96 pages discovered but not yet crawled by Google (as of March 2026). Technical issues fixed. Google needs time + backlinks to crawl the remaining pages. Use GSC URL Inspection to manually request indexing for priority pages (10/day limit).
 
 ---
 
-*Last updated: March 2026 (new service sub-pages, 3 new blog posts, NZ ad landing page, thank-you page, noindex rule for ad pages). Update this file whenever a page is completed, a rule is added, or a decision is made.*
+## Cookie Consent Architecture
+
+**Component**: `src/components/CookieBanner.astro`
+**Storage key**: `localStorage.dct_cookie_consent` = `'accepted'` | `'declined'`
+**Event fired on accept**: `window.dispatchEvent(new Event('dct:consent-accepted'))`
+
+**Where it is included** (all standalone layouts must import it):
+- `src/layouts/BaseLayout.astro` — covers: PageLayout, NeighborhoodPageLayout, IndustryPageLayout, blog pages, about, contact, pricing, faq, industries
+- `src/layouts/ServicePageLayout.astro` — covers all service pages
+- `src/layouts/LocationPageLayout.astro` — covers all city pages (ahmedabad, gandhinagar, surat, vadodara)
+- `src/pages/portfolio.astro` — standalone page
+- `src/pages/nz-website-offer/index.astro` — FB Pixel also consent-gated via dct:consent-accepted event
+
+**Rule**: Any new standalone layout (one that has its own `<!DOCTYPE html>` and does NOT wrap BaseLayout) MUST import and include `<CookieBanner />` before `</body>` and must NOT include inline GA scripts.
+
+---
+
+*Last updated: March 2026 (cookie consent, GSC redirect fixes, sitemap lastmod, GA consent-gating across all layouts). Update this file whenever a page is completed, a rule is added, or a decision is made.*
