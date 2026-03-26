@@ -4,7 +4,7 @@ interface Props {
   activePage?: string;
   ctaHref?: string;
 }
-const { activePage, ctaHref = '/contact' } = Astro.props;
+const { activePage, ctaHref = '/contact/' } = Astro.props;
 ---
 
 <header class="header" id="header">
@@ -17,12 +17,12 @@ const { activePage, ctaHref = '/contact' } = Astro.props;
 
       <!-- Desktop Nav -->
       <nav class="nav-desktop">
-        <a href="/services" class:list={[{ active: activePage === 'services' }]}>Services</a>
-        <a href="/portfolio" class:list={[{ active: activePage === 'portfolio' }]}>Portfolio</a>
-        <a href="/pricing" class:list={[{ active: activePage === 'pricing' }]}>Pricing</a>
-        <a href="/locations" class:list={[{ active: activePage === 'locations' }]}>Locations</a>
-        <a href="/blog" class:list={[{ active: activePage === 'blog' }]}>Blog</a>
-        <a href="/contact" class:list={[{ active: activePage === 'contact' }]}>Contact</a>
+        <a href="/services/" class:list={[{ active: activePage === 'services' }]}>Services</a>
+        <a href="/portfolio/" class:list={[{ active: activePage === 'portfolio' }]}>Portfolio</a>
+        <a href="/pricing/" class:list={[{ active: activePage === 'pricing' }]}>Pricing</a>
+        <a href="/locations/" class:list={[{ active: activePage === 'locations' }]}>Locations</a>
+        <a href="/blog/" class:list={[{ active: activePage === 'blog' }]}>Blog</a>
+        <a href="/contact/" class:list={[{ active: activePage === 'contact' }]}>Contact</a>
       </nav>
 
       <!-- Header Actions -->
@@ -48,12 +48,12 @@ const { activePage, ctaHref = '/contact' } = Astro.props;
 
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/services">Services</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/pricing">Pricing</a>
-  <a href="/locations">Locations</a>
-  <a href="/blog">Blog</a>
-  <a href="/contact">Contact</a>
+  <a href="/services/">Services</a>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/pricing/">Pricing</a>
+  <a href="/locations/">Locations</a>
+  <a href="/blog/">Blog</a>
+  <a href="/contact/">Contact</a>
   <a href="tel:+919662608986" class="mobile-menu-phone">+91 9662608986</a>
   <div class="mobile-menu-cta">
     <a href={ctaHref} class="btn btn-primary">Get Free Quote</a>

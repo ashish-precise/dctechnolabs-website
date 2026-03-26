@@ -191,6 +191,7 @@ Vadodara neighborhoods (with sub-pages): Alkapuri, Gotri, Manjalpur, Fatehgunj, 
 - Homepage and location pages need LocalBusiness schema
 - Target 90+ PageSpeed score on mobile
 - sitemap.xml and robots.txt must stay updated as new pages are added
+- ALL internal `href` links must include a trailing slash (e.g. `/about/` not `/about`). This applies to Header.astro, Footer.astro, and all page content. Missing trailing slashes cause 301 redirects that block Google indexing.
 - Ad landing pages (Meta Ads, Google Ads) must have noindex and must NOT be added to sitemap.xml
 
 ---
@@ -331,6 +332,7 @@ Each section should have a clear purpose. No filler sections. Pattern:
 | about.astro passed canonical without trailing slash to PageLayout | Fixed: canonical prop now includes trailing slash. |
 | ServicePageLayout and LocationPageLayout had inline GA bypassing consent | Removed inline GA from both layouts. Now use CookieBanner for consent-gated GA. |
 | Sitemap had no lastmod dates | Added lastmod dates to all 100 URLs in sitemap.xml — signals freshness to Google crawlers |
+| Header.astro and Footer.astro had ALL internal links without trailing slashes | Fixed: all internal hrefs now include trailing slash (e.g. /pricing/ not /pricing). This was causing every page on the site to serve redirect errors to Googlebot via the nav and footer links. |
 
 ---
 
