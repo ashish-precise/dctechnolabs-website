@@ -384,6 +384,10 @@ Each section should have a clear purpose. No filler sections. Pattern:
 **Storage key**: `localStorage.dct_cookie_consent` = `'accepted'` | `'declined'`
 **Event fired on accept**: `window.dispatchEvent(new Event('dct:consent-accepted'))`
 
+**Analytics tools loaded via this component:**
+- Google Analytics: `G-1XC3TWJ2NJ`
+- Microsoft Clarity: `wq71ys325j` (heatmaps + session recordings)
+
 **Where it is included** (all standalone layouts must import it):
 - `src/layouts/BaseLayout.astro` — covers: PageLayout, NeighborhoodPageLayout, IndustryPageLayout, blog pages, about, contact, pricing, faq, industries
 - `src/layouts/ServicePageLayout.astro` — covers all service pages
