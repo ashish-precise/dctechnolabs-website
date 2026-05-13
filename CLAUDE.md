@@ -35,7 +35,7 @@
 
 This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every page, every section is defined in that document. Always refer to it when building or expanding anything.
 
-**Current Phase:** Phase 1 complete, transitioning into Phase 3 and deployment prep.
+**Current Phase:** Phase 1 and Phase 2 blog content complete. Now in ongoing SEO optimisation phase (meta titles, meta descriptions, indexing fixes).
 
 ---
 
@@ -92,6 +92,12 @@ This project follows **dctechnolabs-roadmap-v2.md** exactly. Every task, every p
 | Google Ads vs Facebook Ads: Which Works Better for Gujarat Businesses? | google-ads-vs-facebook-ads-gujarat | Done |
 | How to Choose a Web Design Company in Ahmedabad: 10 Questions to Ask | how-to-choose-web-design-company-ahmedabad | Done |
 | Local SEO Checklist: How to Rank #1 in Ahmedabad | local-seo-checklist-ahmedabad | Done |
+| Top Digital Marketing Agencies in Ahmedabad | top-digital-marketing-agencies-ahmedabad | Done (May 2026) |
+| How Long Does SEO Take to Work? | how-long-does-seo-take | Done (May 2026) |
+| In-House Marketing vs Agency: Which is Better for Indian SMEs? | in-house-vs-agency-marketing | Done (May 2026) |
+| Web Design Pricing in India 2026: Complete Guide | web-design-pricing-india-2026 | Done (May 2026) |
+| Website Redesign Checklist for Ahmedabad Businesses | website-redesign-checklist | Done (May 2026) |
+| How to Get More Leads From Your Website | how-to-get-more-leads-from-website | Done (May 2026) |
 
 ### COMPLETED LANDING PAGES
 
@@ -191,6 +197,8 @@ Vadodara neighborhoods (with sub-pages): Alkapuri, Gotri, Manjalpur, Fatehgunj, 
 - Homepage and location pages need LocalBusiness schema
 - Target 90+ PageSpeed score on mobile
 - sitemap.xml and robots.txt must stay updated as new pages are added
+- Meta descriptions must be under 160 characters. Always check character count after writing. Do not start with the brand name — start with the primary keyword or a strong benefit statement.
+- Schema JSON `@id` in `mainEntityOfPage` must match the canonical URL exactly, including the trailing slash. Mismatch causes Google to treat the schema as pointing to a different URL.
 - ALL internal `href` links must include a trailing slash (e.g. `/about/` not `/about`). This applies to Header.astro, Footer.astro, and all page content. Missing trailing slashes cause 301 redirects that block Google indexing.
 - The canonical domain is `https://dctechnolabs.in/` (no www). Never use www in canonical tags, sitemap URLs, or astro.config.mjs site setting. Vercel is configured with dctechnolabs.in as primary and www redirecting to it.
 - Ad landing pages (Meta Ads, Google Ads) must have noindex and must NOT be added to sitemap.xml
@@ -335,6 +343,9 @@ Each section should have a clear purpose. No filler sections. Pattern:
 | Sitemap had no lastmod dates | Added lastmod dates to all 100 URLs in sitemap.xml — signals freshness to Google crawlers |
 | Header.astro and Footer.astro had ALL internal links without trailing slashes | Fixed: all internal hrefs now include trailing slash (e.g. /pricing/ not /pricing). This was causing every page on the site to serve redirect errors to Googlebot via the nav and footer links. |
 | Vercel primary domain was www.dctechnolabs.in — entire site was 307-redirecting | Fixed: dctechnolabs.in is now the primary Production domain. www.dctechnolabs.in redirects to dctechnolabs.in. This was the root cause of ALL redirect errors in GSC. |
+| Meta descriptions on Ahmedabad (207 chars) and Vadodara (199 chars) were way over the 160-char limit | Fixed: all location and service page meta descriptions trimmed to 155-160 chars. Meta description character limit added to ABSOLUTE RULES. |
+| Portfolio case study schema @id in mainEntityOfPage had no trailing slash (e.g. /portfolio/edupro-academy) while canonical had one | Fixed in edupro-academy.astro and taste-of-gujarat.astro. Rule added to ABSOLUTE RULES. |
+| Neighborhood pages (cg-road, maninagar, dumas-road) had only 3 short paragraphs in s2Body — the only prose content on each page | Fixed: expanded each s2Body to 7 detailed paragraphs with specific local context. Thin prose on template-driven pages triggers "Crawled not indexed" in GSC. |
 
 ---
 
@@ -374,7 +385,11 @@ Each section should have a clear purpose. No filler sections. Pattern:
 9. ✅ Fix GSC redirect errors for /about/ and /portfolio/ — DONE (March 2026) — canonical tags corrected
 10. ✅ Added lastmod dates to all sitemap URLs — DONE (March 2026)
 11. ✅ GA removed from ServicePageLayout and LocationPageLayout — DONE (March 2026) — now consent-gated via CookieBanner
-12. Indexing: All technical redirect issues now resolved (March 2026). Root causes were: (a) Vercel primary domain was www instead of non-www, (b) Header/Footer internal links missing trailing slashes, (c) portfolio.astro canonical had no trailing slash. After deploying fixes, use GSC to Start New Validation on redirect errors and request indexing for 10 priority pages per day.
+12. ✅ Indexing: All technical redirect issues now resolved (March 2026). Root causes were: (a) Vercel primary domain was www instead of non-www, (b) Header/Footer internal links missing trailing slashes, (c) portfolio.astro canonical had no trailing slash. After deploying fixes, use GSC to Start New Validation on redirect errors and request indexing for 10 priority pages per day.
+13. ✅ Meta title optimisation across 16 priority pages — DONE (May 2026) — keyword-first titles for all service pages, homepage, locations hub, industries hub, and 5 blog posts updated 2025 to 2026.
+14. ✅ Phase 2 blog content — DONE (May 2026) — 6 new blog posts published: top-digital-marketing-agencies-ahmedabad, how-long-does-seo-take, in-house-vs-agency-marketing, web-design-pricing-india-2026, website-redesign-checklist, how-to-get-more-leads-from-website. Blog index updated to 3 pages (21 total cards). Sitemap updated.
+15. ✅ "Crawled not indexed" fixes — DONE (May 2026) — expanded s2Body content (3 to 7 detailed paragraphs) for cg-road.astro, maninagar.astro, dumas-road.astro; fixed schema @id trailing slash mismatch in edupro-academy.astro and taste-of-gujarat.astro; added 2 highly specific FAQ items to restaurants.astro and legal.astro; updated sitemap lastmod for all 7 affected pages to 2026-05-13.
+16. ✅ Meta description optimisation across all priority pages — DONE (May 2026) — updated homepage, all 7 main service pages (web-design, seo, web-development, ppc, ecommerce, social-media, wordpress), all 5 sub-service pages (shopify, local-seo, google-ads, website-maintenance, custom-web-development), and all 4 location pages (ahmedabad, gandhinagar, surat, vadodara). Fixed over-limit descriptions on Ahmedabad (207 chars) and Vadodara (199 chars) pages.
 
 ---
 
@@ -399,4 +414,4 @@ Each section should have a clear purpose. No filler sections. Pattern:
 
 ---
 
-*Last updated: March 2026 (cookie consent, GSC redirect fixes, sitemap lastmod, GA consent-gating across all layouts). Update this file whenever a page is completed, a rule is added, or a decision is made.*
+*Last updated: May 2026 (Phase 2 blog posts, meta title optimisation across 16 pages, "Crawled not indexed" content fixes for 7 pages, meta description optimisation across all priority service and location pages). Update this file whenever a page is completed, a rule is added, or a decision is made.*
