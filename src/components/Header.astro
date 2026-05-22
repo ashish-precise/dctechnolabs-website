@@ -279,7 +279,7 @@ const { activePage, ctaHref = '/contact/' } = Astro.props;
     }
   }
 
-  /* Self-contained utilities — ensures header renders correctly on any layout */
+  /* Self-contained utilities, ensures header renders correctly on any layout */
   a {
     text-decoration: none;
     color: inherit;
@@ -320,7 +320,7 @@ const { activePage, ctaHref = '/contact/' } = Astro.props;
 </style>
 
 <style is:global>
-  /* CSS variables for Header.astro — ensures these are always globally available
+  /* CSS variables for Header.astro, ensures these are always globally available
      regardless of whether the parent layout scopes its own :root block */
   :root {
     --blue-400: #60A5FA;
