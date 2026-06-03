@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /blog?cat=
+Disallow: /blog/?cat=
 
 Sitemap: https://dctechnolabs.in/sitemap.xml
