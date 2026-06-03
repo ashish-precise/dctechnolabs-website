@@ -3,82 +3,20 @@ import PageLayout from '../layouts/PageLayout.astro';
 
 const title = "Pricing & Packages | Transparent Digital Marketing Prices | DC technolabs Ahmedabad";
 const description = "Transparent pricing for web design, SEO, PPC, and e-commerce services. No hidden fees, no vague 'contact us for pricing'. Fixed prices for every package.";
-const canonical = "https://dctechnolabs.in/pricing";
+const canonical = "https://dctechnolabs.in/pricing/";
 
-const faqSchema = {
+const breadcrumbSchema = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Are these prices all-inclusive or are there additional costs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The prices listed are our management/delivery fees. For PPC, ad spend is paid directly to Google. For Social Media Authority package, Meta Ads spend is separate. No hidden setup fees or onboarding charges."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer discounts for bundling multiple services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Clients taking 2 or more services get bundled pricing with shared onboarding and unified reporting. Ask us for a bundled quote."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I upgrade or downgrade my package?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Upgrade anytime (effective next billing month). Downgrade with 30 days notice once your minimum commitment period is complete."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What payment terms do you offer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "One-time projects: 50% upfront, 50% on delivery. Monthly retainers: full month in advance, due on the 1st. Bank transfer and UPI accepted. GST invoice provided immediately."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer a money-back guarantee?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For one-time projects, unlimited revisions within agreed scope. For monthly services, if we don't deliver what's promised, next month is at 50% fee."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are prices the same for Surat and Vadodara clients?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. No out-of-city premium, no travel surcharge. Same price regardless of your city."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's included in the post-launch support period?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bug fixes, minor content updates (text changes, image swaps), and technical questions. Major new features or pages are scoped separately."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I pay in installments for larger projects?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Projects above Rs. 1 lakh get 3-part payment: 40% on start, 30% at design approval, 30% on delivery."
-      }
-    }
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dctechnolabs.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://dctechnolabs.in/pricing/" }
   ]
-};
+});
 ---
 
 <PageLayout title={title} description={description} canonical={canonical}>
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
 
   <style>
     /* PRICING PAGE v3 */

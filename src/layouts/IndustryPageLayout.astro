@@ -122,14 +122,17 @@ const {
   ctaTitle, ctaSubtitle,
 } = Astro.props;
 
-const faqSchema = JSON.stringify({
+// BreadcrumbList: extract industry name from canonical URL
+const _indSlug = canonical.replace(/\/$/, '').split('/').pop() ?? '';
+const _indName = _indSlug.charAt(0).toUpperCase() + _indSlug.slice(1).replace(/-/g, ' ');
+const breadcrumbSchema = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqItems.map(f => ({
-    "@type": "Question",
-    "name": f.q,
-    "acceptedAnswer": { "@type": "Answer", "text": f.a }
-  }))
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dctechnolabs.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://dctechnolabs.in/industries/" },
+    { "@type": "ListItem", "position": 3, "name": _indName, "item": canonical }
+  ]
 });
 ---
 
@@ -137,7 +140,7 @@ const faqSchema = JSON.stringify({
 
   <!-- Schema -->
   <script type="application/ld+json" set:html={schemaJson} slot="head" />
-  <script type="application/ld+json" set:html={faqSchema} slot="head" />
+  <script type="application/ld+json" set:html={breadcrumbSchema} slot="head" />
 
   <!-- ═══════════════════════════════════════════════
        S1: HERO + FORM
