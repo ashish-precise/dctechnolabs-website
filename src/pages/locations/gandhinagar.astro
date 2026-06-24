@@ -13,7 +13,7 @@ const schemaJson = JSON.stringify({
       "@type": "LocalBusiness",
       "name": "DC technolabs",
       "description": "Digital marketing agency serving Gandhinagar, web design, SEO, PPC, and e-commerce for GIFT City, Infocity, and state government sector businesses.",
-      "url": "https://dctechnolabs.in/locations/gandhinagar",
+      "url": "https://dctechnolabs.in/locations/gandhinagar/",
       "telephone": "+919662608986",
       "email": "hello@dctechnolabs.com",
       "address": {
@@ -44,6 +44,51 @@ const schemaJson = JSON.stringify({
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dctechnolabs.in/" },
         { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://dctechnolabs.in/locations/" },
         { "@type": "ListItem", "position": 3, "name": "Gandhinagar", "item": "https://dctechnolabs.in/locations/gandhinagar/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best digital marketing agency in Gandhinagar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DC technolabs is a top-rated digital marketing agency serving Gandhinagar from our Ahmedabad base, just 30 minutes away. We specialize in web design, SEO, and Google Ads for GIFT City fintech firms, Infocity IT companies, and professional services businesses across Gandhinagar's sectors. 100+ Gandhinagar projects completed since 2017."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer SEO services in Gandhinagar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We offer full SEO services for Gandhinagar businesses including local SEO, Google Business Profile optimisation, Gandhinagar-specific keyword targeting, and technical SEO. We have helped Gandhinagar IT firms, clinics, and professional services companies rank on page 1 for local searches."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does digital marketing cost for a Gandhinagar business?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At DC technolabs, web design starts at Rs. 25,000, SEO from Rs. 30,000/month, and Google Ads management from Rs. 35,000/month. There are no travel surcharges or premium rates for Gandhinagar clients. Same pricing as Ahmedabad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with GIFT City companies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We work with fintech startups, financial services firms, and IT companies based in GIFT City, Gandhinagar. We understand the compliance-conscious, globally-oriented positioning these businesses need and can build websites and campaigns that reflect their professional stature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you meet Gandhinagar clients in person?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our Ahmedabad office is 30 minutes from central Gandhinagar. We visit GIFT City, Infocity, Sector 21, and other areas regularly for client meetings, design reviews, and strategy sessions at no extra charge."
+          }
+        }
       ]
     }
   ]
@@ -145,6 +190,8 @@ const testimonials: Testimonial[] = [
 
 // ── §10 FAQ ───────────────────────────────────────────────────────────────────
 const faqItems: FaqItem[] = [
+  { q: "Which is the best digital marketing agency in Gandhinagar?",        a: "DC technolabs is a top-rated digital marketing agency serving Gandhinagar from our Ahmedabad base, just 30 minutes away. We specialize in web design, SEO, and Google Ads for GIFT City fintech firms, Infocity IT companies, and professional services businesses. 100+ Gandhinagar projects completed since 2017." },
+  { q: "Do you offer SEO services in Gandhinagar?",                         a: "Yes. We offer full SEO services for Gandhinagar businesses: local SEO, Google Business Profile optimisation, Gandhinagar-specific keyword targeting, and technical SEO. We have helped Gandhinagar IT firms, clinics, and professional services businesses rank on page 1 for local searches." },
   { q: "Do you serve Gandhinagar businesses from your Ahmedabad office?",   a: "Yes. Our Vatva office is roughly 30 minutes from central Gandhinagar. We visit Gandhinagar regularly for client meetings and consider it part of our primary service area, same priority response as Ahmedabad clients." },
   { q: "Do you work with GIFT City companies?",                              a: "Yes. We work with fintech startups, financial services firms, and IT companies based in GIFT City. We understand the compliance-conscious, globally-oriented tone these businesses need and can build websites and campaigns that reflect their positioning." },
   { q: "Do you handle government or institutional projects?",                a: "Yes. We've worked with NGOs, educational institutions, and professional services firms operating in Gandhinagar's government and civic sectors. We understand the approval process and formal communication requirements." },
@@ -168,8 +215,8 @@ const mapInfo: MapInfo = {
 ---
 
 <LocationPageLayout
-  title="Digital Marketing Agency in Gandhinagar, Web Design, SEO & PPC | DC technolabs"
-  description="Digital marketing for Gandhinagar businesses. Web design, SEO & Google Ads for GIFT City, Infocity & all sectors. Ahmedabad-based, 30 mins away. 100+ projects. Free quote."
+  title="Digital Marketing Agency in Gandhinagar | GIFT City & Infocity | DC technolabs"
+  description="Digital marketing agency in Gandhinagar. Web design, SEO & Google Ads for GIFT City, Infocity & all sectors. 30 mins from Ahmedabad. 100+ projects."
   canonical="https://dctechnolabs.in/locations/gandhinagar/"
   schemaJson={schemaJson}
 
