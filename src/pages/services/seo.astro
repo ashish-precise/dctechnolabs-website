@@ -8,12 +8,66 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "SEO Services",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "SEO services in Ahmedabad, local SEO, technical SEO, content strategy. Page 1 rankings for Ahmedabad businesses.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "30000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "SEO Services in Ahmedabad",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "description": "SEO services in Ahmedabad. Local SEO, technical audits, content strategy and link building. Page 1 rankings for Gujarat businesses.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "30000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best SEO company in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DC technolabs is one of Ahmedabad's leading SEO companies, with 200+ campaigns managed and a track record of page 1 rankings for businesses across the city. We specialize in local SEO for Ahmedabad markets, technical SEO, and content-driven strategies that deliver measurable results within 3 to 6 months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does SEO cost in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO in Ahmedabad costs Rs 30,000 to Rs 1,00,000 per month depending on the scope. At DC technolabs, Local SEO starts at Rs 30,000/month for local businesses like clinics and restaurants, Growth SEO is Rs 55,000/month for competitive industries, and Authority SEO is Rs 1,00,000/month for market leaders. All plans include monthly reporting with no hidden extras."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does SEO take for a business in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For local Ahmedabad searches, most businesses see meaningful ranking improvements within 3 to 4 months. Appearing in the Google Maps 3-pack for competitive terms typically takes 6 to 10 weeks with consistent Google Business Profile optimisation. Competitive organic rankings for terms like 'digital marketing agency Ahmedabad' can take 4 to 6 months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer local SEO services in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Local SEO is our most popular service for Ahmedabad businesses. We optimise your Google Business Profile, build local citations, target neighbourhood-specific keywords (Satellite, SG Highway, Prahlad Nagar, etc.), and work to get you into the Google Maps 3-pack for your service category."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in your SEO service in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our SEO service includes a full technical audit, keyword research and mapping, on-page optimisation, technical fixes, Google Business Profile management, 2 content pieces per month, 5 quality backlinks per month, and a detailed monthly report showing rankings, traffic, and leads generated. Everything is included in the monthly retainer — no surprise extras."
+          }
+        }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [
@@ -165,6 +219,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const faqItems: FaqItem[] = [
+  { q: "Which is the best SEO company in Ahmedabad?", a: "DC technolabs is one of Ahmedabad's top SEO companies with 200+ campaigns managed and a strong track record of page 1 rankings across the city. We specialise in local SEO for Ahmedabad markets — from Satellite and SG Highway to Navrangpura and Maninagar — as well as national and e-commerce SEO. Our monthly reports show exactly what your budget is achieving, every single month." },
+  { q: "How much does SEO cost in Ahmedabad?", a: "SEO in Ahmedabad costs Rs 30,000 to Rs 1,00,000 per month depending on scope. At DC technolabs: Local SEO starts at Rs 30,000/month for clinics, restaurants, and local service businesses. Growth SEO is Rs 55,000/month for competitive industries. Authority SEO is Rs 1,00,000/month for market leaders. All plans include full monthly reporting with no hidden extras." },
   { q: "How long does SEO take to show results?", a: "Technical fixes and on-page improvements show results in 4–8 weeks. Competitive keyword rankings typically take 3–6 months. Local SEO (Google Maps) is faster, often 6–10 weeks. SEO compounds over time, the longer we work together, the stronger your results." },
   { q: "What's included in your monthly SEO retainer?", a: "Keyword tracking, on-page optimization, technical audits, content creation (2 pieces), link building (5 links), Google Business Profile management, and a detailed monthly report. Everything is included, no à la carte surprises." },
   { q: "Do you guarantee page 1 rankings?", a: "No ethical SEO agency guarantees rankings, Google controls that. What we guarantee is best-practice execution, transparent reporting, and measurable progress month-over-month. We have a strong track record of page 1 results across dozens of Ahmedabad businesses." },
@@ -183,12 +239,12 @@ const relatedServices: RelatedService[] = [
 ---
 
 <ServicePageLayout
-  title="SEO Company in Ahmedabad | Page 1 Google Rankings | DC technolabs"
-  description="SEO company in Ahmedabad with 200+ campaigns delivered. Local SEO, technical audits, content marketing & link building. Page 1 rankings in 90 days. Free SEO audit."
+  title="SEO Company in Ahmedabad | Page 1 Rankings for Gujarat Businesses | DC technolabs"
+  description="SEO company in Ahmedabad. 200+ campaigns, page 1 results in 3 to 6 months. Local SEO, technical audits, content and link building. Free audit."
   canonical="https://dctechnolabs.in/services/seo/"
   schemaJson={schemaJson}
 
-  badge="🔍 SEO Services"
+  badge="🔍 SEO Company — Ahmedabad"
   heroH1="Rank on Page 1."
   heroHighlight="Get Found by Customers Who Are Already Searching."
   heroDesc="Local SEO, technical optimization, and content strategy for Ahmedabad businesses. We've taken 200+ campaigns to page 1. If your customers can't find you on Google, your competitors are getting those leads. Starting ₹30,000/month."

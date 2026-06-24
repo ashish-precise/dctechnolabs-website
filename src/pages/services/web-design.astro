@@ -9,21 +9,75 @@ import type {
 // ── SCHEMA ────────────────────────────────────────────────────────────────────
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Web Design Services",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DC technolabs",
-    "telephone": "+919662608986"
-  },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "Custom web design services starting ₹25,000. Mobile-first, conversion-focused websites.",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "INR",
-    "price": "25000",
-    "priceSpecification": { "@type": "PriceSpecification", "minPrice": "25000" }
-  }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Web Design Services in Ahmedabad",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "DC technolabs",
+        "telephone": "+919662608986"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "description": "Custom web design in Ahmedabad starting Rs 25,000. Mobile-first, conversion-focused websites built from scratch.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": "25000",
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "25000" }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best web design company in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DC technolabs is one of Ahmedabad's leading web design companies, with 500+ websites built for businesses across the city. We specialize in custom, mobile-first websites that load fast and generate leads. Unlike template-based agencies, every site we build is designed from scratch to match your brand and business goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does web design cost in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Web design in Ahmedabad costs Rs 25,000 to Rs 1,00,000 depending on the type of site. At DC technolabs, a 5-page business website starts at Rs 25,000, a full professional site with CMS is Rs 50,000, and enterprise or e-commerce sites start at Rs 1,00,000. All prices are one-time with no hidden monthly fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a website in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At DC technolabs, simple business websites take 2 weeks, full business sites with custom design take 3 to 4 weeks, and e-commerce stores take 4 to 6 weeks. We provide a detailed timeline in our proposal and keep you updated at every stage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you build websites for small businesses in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Most of our clients are small and medium businesses across Ahmedabad, from clinics in Satellite and Prahlad Nagar to manufacturing companies on the Ahmedabad-Gandhinagar highway. Our Starter package at Rs 25,000 is specifically designed for small businesses needing a professional online presence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in your web design service in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our web design service includes custom design (no templates), mobile-responsive layout, contact forms, basic SEO setup, SSL certificate, speed optimization, CMS access (WordPress or Shopify), Google Analytics setup, and 30 days of post-launch support. All for a fixed one-time price with no hidden extras."
+          }
+        }
+      ]
+    }
+  ]
 });
 
 // ── SECTION 2: FEATURE CARDS ─────────────────────────────────────────────────
@@ -184,6 +238,8 @@ const testimonials: Testimonial[] = [
 
 // ── SECTION 10: FAQ ──────────────────────────────────────────────────────────
 const faqItems: FaqItem[] = [
+  { q: "Which is the best web design company in Ahmedabad?", a: "DC technolabs is one of Ahmedabad's leading web design companies with 500+ websites built across the city. We specialise in custom, mobile-first websites built from scratch — not templates. Every site is designed specifically for your business, with SEO foundations, speed optimisation, and lead capture included. Clients across Satellite, SG Highway, Prahlad Nagar, and Navrangpura trust us for professional web design." },
+  { q: "How much does web design cost in Ahmedabad?", a: "Web design in Ahmedabad costs Rs 25,000 to Rs 1,00,000 depending on your requirements. At DC technolabs: a 5-page Starter site is Rs 25,000, a full Professional site with CMS is Rs 50,000, and Enterprise sites start at Rs 1,00,000. All prices are one-time with no hidden monthly fees. We provide a detailed, itemised quote after a free 30-minute call." },
   { q: "How much does a website cost?", a: "Our web design starts at ₹25,000 for a 5-page site. Most businesses invest ₹50,000–₹1,00,000 for a full custom site with CMS, forms, and SEO. We provide exact pricing after understanding your needs." },
   { q: "How long does it take?", a: "Simple sites: 2 weeks. Full business sites: 3–4 weeks. E-commerce: 4–6 weeks. We provide a detailed timeline in our proposal." },
   { q: "Do you use templates?", a: "No. Every site is custom designed from scratch. We don't use pre-made templates. Your site will be unique to your brand and business goals." },
@@ -203,12 +259,12 @@ const relatedServices: RelatedService[] = [
 ---
 
 <ServicePageLayout
-  title="Web Design Company in Ahmedabad | Professional Websites Starting Rs 25,000 | DC technolabs"
-  description="Custom website design in Ahmedabad for SMEs, clinics, retailers & manufacturers. 500+ sites built. Mobile-first, fast-loading & WhatsApp-ready. Quote in 24 hours."
+  title="Web Design Company in Ahmedabad | Custom Websites from Rs 25,000 | DC technolabs"
+  description="Web design company in Ahmedabad. 500+ custom sites built. Mobile-first, fast-loading, SEO-ready. Starting Rs 25,000. Free quote in 24 hours."
   canonical="https://dctechnolabs.in/services/web-design/"
   schemaJson={schemaJson}
 
-  badge="🎨 Web Design Services"
+  badge="🎨 Web Design Company — Ahmedabad"
   heroH1="Websites That"
   heroHighlight="Convert Visitors Into Customers"
   heroDesc="Custom, mobile-first web design for Ahmedabad businesses. Not templates, every site is built from scratch to match your brand, impress your customers, and generate leads. Starting at ₹25,000."
