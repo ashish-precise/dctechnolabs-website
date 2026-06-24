@@ -8,12 +8,66 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "PPC and Google Ads Services",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "Google Ads and PPC management for Ahmedabad businesses. 6x average ROI. Campaigns live within 48 hours.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "PPC Management Services in Ahmedabad",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "description": "PPC management company in Ahmedabad offering Google Ads, Display, Remarketing, and Performance Max campaigns. 150+ campaigns managed. 6x average ROI.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does PPC management cost in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PPC management fees in Ahmedabad typically range from Rs. 15,000 to Rs. 1,20,000 per month depending on scope. At DC technolabs, management starts at Rs. 35,000/month. This is separate from your ad spend, which we recommend starting at Rs. 30,000/month minimum for Search campaigns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I choose a PPC management company in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Look for three things: (1) you own your Google Ads account, not the agency, (2) they track conversions, not just clicks, and (3) they report cost-per-lead, not just impressions. Avoid agencies that bundle your ad spend into their fee or cannot show you campaign-level data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can Google Ads campaigns go live in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DC technolabs launches campaigns within 48 hours of onboarding. This includes keyword research, ad copywriting, campaign structure, conversion tracking setup, and landing page alignment. Leads can start the same day campaigns go live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum ad budget for Google Ads in Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We recommend a minimum monthly ad spend of Rs. 30,000 for Search campaigns in most Ahmedabad industries. Competitive niches like real estate and healthcare typically need Rs. 75,000 or more to generate meaningful lead volume."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I own my Google Ads account if I hire a PPC agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, always. DC technolabs works inside your Google Ads account, not ours. If you ever stop working with us, you keep everything: campaign history, audiences, conversion data, and all creative assets."
+          }
+        }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [
@@ -165,6 +219,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const faqItems: FaqItem[] = [
+  { q: "How do I choose a PPC management company in Ahmedabad?", a: "Look for three things: you own your Google Ads account (not the agency), they track conversions not just clicks, and they report cost-per-lead not just impressions. Avoid agencies that bundle your ad spend into their fee or cannot show you campaign-level data." },
+  { q: "How much does PPC management cost in Ahmedabad?", a: "PPC management fees in Ahmedabad range from Rs. 15,000 to Rs. 1,20,000/month depending on scope. At DC technolabs, management starts at Rs. 35,000/month, separate from your ad spend. We recommend starting ad spend at Rs. 30,000/month minimum for Search campaigns." },
   { q: "How quickly can my ads go live?", a: "Campaigns are typically live within 48 hours of onboarding. This includes keyword research, ad copy, campaign structure, and conversion tracking setup. Leads can start the same day campaigns go live." },
   { q: "What's the minimum ad budget I need?", a: "We recommend a minimum monthly ad spend of ₹30,000 for Search campaigns in most Ahmedabad industries. Competitive niches (real estate, healthcare) typically need ₹75,000+ to generate meaningful volume. Our management fee is separate from your ad spend." },
   { q: "Do I own my Google Ads account?", a: "Yes. Always. We work inside your account, not ours. If you ever leave, you take everything with you, campaign history, data, audiences. We don't hold accounts hostage." },
@@ -183,15 +239,15 @@ const relatedServices: RelatedService[] = [
 ---
 
 <ServicePageLayout
-  title="Google Ads Agency in Ahmedabad | PPC Management Starting Rs 35,000/mo | DC technolabs"
-  description="Google Ads agency in Ahmedabad. 150+ campaigns managed. 6x average ROI across industries. Campaigns live in 48 hours. Starting Rs. 35,000/month. Free account audit."
+  title="PPC Management Company in Ahmedabad | Google Ads Agency | DC technolabs"
+  description="PPC management company in Ahmedabad. 150+ campaigns managed, 6x avg ROI. Google Ads, Display & Remarketing. Campaigns live in 48 hrs. Free audit."
   canonical="https://dctechnolabs.in/services/ppc/"
   schemaJson={schemaJson}
 
-  badge="📊 PPC / Google Ads"
-  heroH1="Google Ads That Generate"
-  heroHighlight="Leads From Day One"
-  heroDesc="Targeted Google Ads campaigns for Ahmedabad businesses, set up, managed, and optimized by certified specialists. 150+ campaigns managed. Average 6x ROI. Leads can start within 48 hours of launch. Starting ₹35,000/month."
+  badge="📊 PPC Management Company — Ahmedabad"
+  heroH1="PPC Management Company"
+  heroHighlight="That Gets You Leads From Day One"
+  heroDesc="Ahmedabad's trusted PPC management company for Google Ads, Display, and Remarketing. 150+ campaigns managed. Average 6x ROI. Campaigns built, launched, and optimised by certified specialists. Starting ₹35,000/month."
   heroStats={[
     { value: "150+", label: "Campaigns Managed" },
     { value: "6x",   label: "Avg. ROI" },
