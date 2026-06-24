@@ -6,8 +6,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
 ---
 
 <PageLayout
-  title="Setting up Razorpay on your Shopify store: complete guide | DC technolabs"
-  description="Step-by-step guide to integrating Razorpay with Shopify in India. Accept UPI, credit cards, EMI, and net banking from Indian customers without platform fees."
+  title="Razorpay Shopify Integration: Step-by-Step Setup Guide for India (2026)"
+  description="Razorpay Shopify setup for Indian merchants: API keys, test mode, UPI, EMI setup and common errors fixed. Complete step-by-step guide updated for 2026."
   canonical="https://dctechnolabs.in/blog/razorpay-shopify-setup-guide/"
 >
 
@@ -15,10 +15,10 @@ import PageLayout from '../../layouts/PageLayout.astro';
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Setting up Razorpay on your Shopify store: complete guide",
-  "description": "Step-by-step guide to integrating Razorpay with Shopify in India. Accept UPI, credit cards, EMI, and net banking from Indian customers without platform fees.",
+  "headline": "Razorpay Shopify Integration: Step-by-Step Setup Guide for India (2026)",
+  "description": "Razorpay Shopify setup for Indian merchants: API keys, test mode, UPI, EMI setup and common errors fixed. Complete step-by-step guide updated for 2026.",
   "datePublished": "2025-01-05",
-  "dateModified": "2026-05-13",
+  "dateModified": "2026-06-25",
   "author": { "@type": "Person", "name": "Ashish", "url": "https://dctechnolabs.in/about" },
   "publisher": { "@type": "Organization", "name": "DC technolabs", "logo": { "@type": "ImageObject", "url": "https://dctechnolabs.in/logo.png" } },
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://dctechnolabs.in/blog/razorpay-shopify-setup-guide/" },
@@ -26,16 +26,65 @@ import PageLayout from '../../layouts/PageLayout.astro';
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Razorpay work with Shopify in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Razorpay is officially integrated with Shopify through the Shopify App Store. It supports UPI, credit and debit cards, net banking, wallets, and EMI. Since Shopify Payments is not available in India, Razorpay is the most popular payment gateway for Indian Shopify merchants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Razorpay charge on Shopify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Razorpay charges a 2% processing fee per transaction. Shopify also adds its own transaction fee for third-party gateways: 2% on the Basic plan, 1% on the Shopify plan, and 0.5% on the Advanced plan. You can eliminate Shopify's fee entirely on the Shopify Plus plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does Razorpay KYC take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Razorpay KYC takes 2 to 5 business days after you submit your PAN card, bank account details, and business registration documents. You can use Razorpay in test mode and complete your Shopify integration while KYC is still pending."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Razorpay API keys and where do I find them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Razorpay API keys (Key ID and Key Secret) are found in your Razorpay Dashboard under Settings, then API Keys. You need separate test keys (for testing) and live keys (for real payments). Paste these into your Shopify Payments settings under the Razorpay section."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I accept international payments through Razorpay on Shopify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Razorpay supports international Visa and Mastercard payments. You need to enable international payments in your Razorpay Dashboard under Settings, then Payment Methods. Ensure your business category is approved for international transactions before enabling this."
+      }
+    }
+  ]
+}
+</script>
+
 <section class="post-header">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><span>Razorpay Shopify setup guide</span>
+      <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Razorpay Shopify Setup Guide</span>
     </nav>
     <div class="post-meta-top">
       <span class="post-category">E-commerce</span>
       <span class="post-read-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 min read</span>
     </div>
-    <h1 class="post-title">Setting up Razorpay on your Shopify store: complete guide</h1>
+    <h1 class="post-title">Razorpay Shopify Integration: Complete Setup Guide for India (2026)</h1>
     <p class="post-excerpt">Shopify Payments is not available in India. Razorpay is the most popular alternative for Indian merchants, supporting UPI, all major cards, net banking, wallets, and EMI. Here is exactly how to set it up correctly.</p>
     <div class="post-author-row">
       <div class="post-author">
@@ -215,6 +264,33 @@ import PageLayout from '../../layouts/PageLayout.astro';
         </p>
         <p>
           <strong>KYC stuck in processing:</strong> Contact Razorpay support directly through their dashboard chat. KYC delays are usually due to document clarity or category mismatch.
+        </p>
+
+        <h2 id="faq">Frequently asked questions</h2>
+
+        <h3 id="faq-does-razorpay-work-shopify">Does Razorpay work with Shopify in India?</h3>
+        <p>
+          Yes. Razorpay is officially integrated with Shopify through the Shopify App Store. It supports UPI (PhonePe, Google Pay, BHIM), credit and debit cards, net banking, wallets, and EMI. Since Shopify Payments is not available in India, Razorpay is the most common payment solution for Indian Shopify merchants.
+        </p>
+
+        <h3 id="faq-razorpay-fees-shopify">How much does Razorpay charge on Shopify?</h3>
+        <p>
+          Razorpay charges a flat 2% processing fee on every transaction. On top of that, Shopify adds its own third-party transaction fee: 2% on the Basic plan, 1% on the Shopify plan, and 0.5% on Advanced. On Shopify Plus, the transaction fee is eliminated entirely. For most small businesses on the Basic plan, total payment processing cost is around 4% per order.
+        </p>
+
+        <h3 id="faq-razorpay-kyc-time">How long does Razorpay KYC take for a new account?</h3>
+        <p>
+          Razorpay KYC typically takes 2 to 5 business days after you submit your PAN card, cancelled cheque, and business registration documents. You can complete the Shopify integration and run test transactions while KYC is pending. Live payments only activate once your account is approved.
+        </p>
+
+        <h3 id="faq-razorpay-api-keys">Where do I find Razorpay API keys?</h3>
+        <p>
+          Log in to your Razorpay Dashboard, go to Settings, then API Keys. Generate test keys first, then live keys after KYC approval. Copy the Key ID and Key Secret into your Shopify Payments settings under the Razorpay provider section. Never share your Key Secret publicly or commit it to version control.
+        </p>
+
+        <h3 id="faq-international-payments">Can I accept international payments through Razorpay on Shopify?</h3>
+        <p>
+          Yes. Razorpay supports international Visa and Mastercard. Enable it in your Razorpay Dashboard under Settings, then Payment Methods, then International. Some business categories require additional documentation. International cards are particularly useful if you are selling to NRI customers in the UAE, UK, USA, or Australia.
         </p>
 
         <div class="post-tags">
