@@ -78,6 +78,8 @@ const {
   citySlug = 'ahmedabad',
 } = Astro.props;
 const canonical = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
+const emailSubject = `New Lead: ${title.split('|')[0].trim()} — DC technolabs`;
+const fromPage = Astro.url.pathname;
 import Header from '../components/Header.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import TawkChat from '../components/TawkChat.astro';
@@ -260,7 +262,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
         <p class="hero-form-sub">{formSub}</p>
         <form id="heroForm">
           <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
-          <input type="hidden" name="subject" value="New Inquiry from DCTechnoLabs Website">
+          <input type="hidden" name="subject" value={emailSubject}>
+          <input type="hidden" name="from_page" value={fromPage}>
           <div class="form-group"><label>Your Name</label><input type="text" name="name" class="form-input" placeholder="Your name" required></div>
           <div class="form-group"><label>Phone</label><input type="tel" name="phone" class="form-input" placeholder="+91 9662608986" required></div>
           <div class="form-group"><label>Email</label><input type="email" name="email" class="form-input" placeholder="you@company.com" required></div>

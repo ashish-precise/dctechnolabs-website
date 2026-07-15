@@ -127,6 +127,8 @@ const {
   cityName = 'Ahmedabad',
   ctaTitle, ctaSubtitle,
 } = Astro.props;
+const emailSubject = `New Lead: ${title.split('|')[0].trim()} — DC technolabs`;
+const fromPage = Astro.url.pathname;
 ---
 
 <PageLayout {title} {description} {canonical}>
@@ -635,7 +637,8 @@ textarea.nb-form-input { resize: vertical; min-height: 80px; }
         <p class="nb-form-sub">{formSub}</p>
         <form id="nbHeroForm">
           <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
-          <input type="hidden" name="subject" value="New Inquiry from DCTechnoLabs Website">
+          <input type="hidden" name="subject" value={emailSubject}>
+          <input type="hidden" name="from_page" value={fromPage}>
           <div class="nb-form-group">
             <label>Your Name</label>
             <input type="text" name="name" class="nb-form-input" placeholder="Your name" required>
@@ -895,7 +898,8 @@ textarea.nb-form-input { resize: vertical; min-height: 80px; }
         <div class="nb-cta-form-title">Get a Free Quote for Your {badge.replace('📍 ', '')} Business</div>
         <form id="nbCtaForm">
           <input type="hidden" name="access_key" value="0141be72-7ed9-4e67-bd38-e0154c164ba6">
-          <input type="hidden" name="subject" value="New Inquiry from DCTechnoLabs Website">
+          <input type="hidden" name="subject" value={emailSubject}>
+          <input type="hidden" name="from_page" value={fromPage}>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
             <div class="nb-form-group">
               <label style="color:rgba(255,255,255,.7)">Name</label>
