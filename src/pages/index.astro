@@ -1,11 +1,73 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DC technolabs",
+  "url": "https://dctechnolabs.in/",
+  "logo": "https://dctechnolabs.in/images/logo.webp",
+  "image": "https://dctechnolabs.in/images/og-image.webp",
+  "description": "Digital marketing agency in Ahmedabad offering web design, SEO, Google Ads, and social media marketing. 8+ years, 945+ projects delivered.",
+  "telephone": "+91-9999999999",
+  "email": "hello@dctechnolabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ahmedabad",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "postalCode": "380001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "23.0225",
+    "longitude": "72.5714"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Ahmedabad" },
+    { "@type": "City", "name": "Gandhinagar" },
+    { "@type": "City", "name": "Surat" },
+    { "@type": "City", "name": "Vadodara" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/dctechnolabs",
+    "https://www.linkedin.com/company/dctechnolabs",
+    "https://twitter.com/dctechnolabs"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "09:00",
+    "closes": "19:00"
+  },
+  "priceRange": "₹₹"
+});
+
+const websiteSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DC technolabs",
+  "url": "https://dctechnolabs.in/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://dctechnolabs.in/?s={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+});
 ---
 
-<PageLayout 
+<PageLayout
   title="Top Digital Marketing Agency in Ahmedabad | DCTechnoLabs"
   description="Digital marketing agency in Ahmedabad. 8+ years, 945+ projects. SEO, web design & Google Ads from Rs. 25,000. Get a free strategy call today."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={localBusinessSchema} />
+    <script type="application/ld+json" set:html={websiteSchema} />
+  </Fragment>
 
 <!-- HERO SECTION -->
 <section class="hero" id="hero">
