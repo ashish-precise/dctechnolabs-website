@@ -13,7 +13,7 @@ const schemaJson = JSON.stringify({
       "@type": "LocalBusiness",
       "name": "DC technolabs",
       "description": "Digital marketing agency serving Vadodara, web design, SEO, PPC, and e-commerce for manufacturing, education, and professional services businesses across Baroda.",
-      "url": "https://dctechnolabs.in/locations/vadodara",
+      "url": "https://dctechnolabs.in/locations/vadodara/",
       "telephone": "+919662608986",
       "email": "hello@dctechnolabs.com",
       "address": {
@@ -44,6 +44,36 @@ const schemaJson = JSON.stringify({
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dctechnolabs.in/" },
         { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://dctechnolabs.in/locations/" },
         { "@type": "ListItem", "position": 3, "name": "Vadodara", "item": "https://dctechnolabs.in/locations/vadodara/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best digital marketing agency in Vadodara?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DC technolabs is a trusted digital marketing agency serving Vadodara businesses with 40+ projects delivered for manufacturing firms, educational institutions, and professional services across Baroda. We offer web design, SEO, Google Ads, and social media management." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does digital marketing cost in Vadodara?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Digital marketing for Vadodara businesses starts at Rs 25,000 for web design, Rs 30,000 per month for SEO, and Rs 35,000 per month for Google Ads. There is no out-of-city premium or travel surcharge for Vadodara clients." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer web design services in Vadodara?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design and develop websites for Vadodara businesses including manufacturers, engineering firms, educational institutions, and professional services companies. All projects are delivered remotely with regular video calls and progress updates." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help manufacturing or industrial businesses in Vadodara with digital marketing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have experience with industrial manufacturers, engineering firms, and chemical companies from Makarpura GIDC and Waghodia Road. We understand procurement-focused B2B marketing and how to position Vadodara manufacturers for national and international buyers." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to see results from digital marketing in Vadodara?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Google Ads campaigns can start delivering leads within 48 hours of launch. SEO shows meaningful keyword movement in 60 to 90 days and significant traffic growth by month 4 to 6. Local SEO and Google Maps rankings for Vadodara searches improve within 6 to 8 weeks." }
+        }
       ]
     }
   ]
@@ -143,6 +173,8 @@ const testimonials: Testimonial[] = [
 
 // ── §10 FAQ ───────────────────────────────────────────────────────────────────
 const faqItems: FaqItem[] = [
+  { q: "Which is the best digital marketing agency in Vadodara?", a: "DC technolabs is a trusted digital marketing agency serving Vadodara businesses with 40+ projects delivered for manufacturing firms, educational institutions, and professional services across Baroda. We offer web design, SEO, Google Ads, and social media management." },
+  { q: "How much does digital marketing cost in Vadodara?", a: "Digital marketing for Vadodara businesses starts at Rs 25,000 for web design, Rs 30,000 per month for SEO, and Rs 35,000 per month for Google Ads. There is no out-of-city premium or travel surcharge for Vadodara clients." },
   { q: "Do you serve Vadodara businesses remotely?",                       a: "Yes. Almost all our Vadodara projects are delivered remotely, video strategy calls, shared project dashboards, and WhatsApp for quick communication. We also visit Vadodara quarterly for clients who prefer in-person reviews. Distance is simply not a barrier to great work." },
   { q: "Do you have experience with Vadodara's manufacturing sector?",     a: "Yes. We've worked with industrial manufacturers, engineering firms, and chemical companies from Makarpura GIDC and Waghodia Road. We understand procurement-focused B2B marketing, industrial website design, and how to position Vadodara manufacturers for national and international buyers." },
   { q: "Can you help our educational institution in Vadodara?",             a: "Absolutely. We've worked with coaching institutes, private schools, and colleges across Vadodara's educational corridor. Local SEO, Google Ads for admissions, and social media strategies tailored to student audiences are our speciality for education businesses." },
@@ -167,7 +199,7 @@ const mapInfo: MapInfo = {
 
 <LocationPageLayout
   title="Digital Marketing Agency in Vadodara, Web Design, SEO & PPC | DC technolabs"
-  description="Web design, SEO & Google Ads for Vadodara businesses. Manufacturing, education & professional services expertise. 40+ projects delivered. Remote delivery. Free quote."
+  description="Web design, SEO & Google Ads for Vadodara businesses. Manufacturing, education & professional services. 40+ projects delivered. Free quote today."
   canonical="https://dctechnolabs.in/locations/vadodara/"
   schemaJson={schemaJson}
 

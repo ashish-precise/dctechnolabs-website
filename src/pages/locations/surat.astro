@@ -13,7 +13,7 @@ const schemaJson = JSON.stringify({
       "@type": "LocalBusiness",
       "name": "DC technolabs",
       "description": "Digital marketing agency serving Surat, web design, SEO, PPC, and e-commerce for diamond, textile, and IT businesses across Surat.",
-      "url": "https://dctechnolabs.in/locations/surat",
+      "url": "https://dctechnolabs.in/locations/surat/",
       "telephone": "+919662608986",
       "email": "hello@dctechnolabs.com",
       "address": {
@@ -44,6 +44,36 @@ const schemaJson = JSON.stringify({
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dctechnolabs.in/" },
         { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://dctechnolabs.in/locations/" },
         { "@type": "ListItem", "position": 3, "name": "Surat", "item": "https://dctechnolabs.in/locations/surat/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best digital marketing agency in Surat?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DC technolabs is a trusted digital marketing agency serving Surat businesses since 2019. We have delivered 50+ projects for diamond traders, textile manufacturers, and IT firms across Surat, covering web design, SEO, Google Ads, and social media." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does digital marketing cost in Surat?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Digital marketing for Surat businesses starts at Rs 25,000 for web design, Rs 30,000 per month for SEO, and Rs 35,000 per month for Google Ads management. There is no out-of-city premium or travel surcharge for Surat clients." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer web design services in Surat?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design and develop websites for Surat businesses including diamond exporters, textile wholesalers, and service firms. All projects are delivered remotely with video calls, WhatsApp updates, and shared dashboards." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help diamond or textile businesses in Surat with digital marketing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have specific experience with diamond trading firms, polished diamond exporters, textile manufacturers, and fabric wholesalers in Surat. We understand B2B trade marketing, export-audience SEO, and how to build credibility with international buyers." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to see results from digital marketing in Surat?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Google Ads campaigns can generate leads within 48 hours of launch. SEO shows meaningful keyword movement in 60 to 90 days and significant traffic growth by month 4 to 6. Local SEO and Google Maps rankings for Surat searches typically improve within 6 to 8 weeks." }
+        }
       ]
     }
   ]
@@ -143,6 +173,8 @@ const testimonials: Testimonial[] = [
 
 // ── §10 FAQ ───────────────────────────────────────────────────────────────────
 const faqItems: FaqItem[] = [
+  { q: "Which is the best digital marketing agency in Surat?", a: "DC technolabs is a trusted digital marketing agency serving Surat businesses since 2019. We have delivered 50+ projects for diamond traders, textile manufacturers, and IT firms across Surat, covering web design, SEO, Google Ads, and social media." },
+  { q: "How much does digital marketing cost in Surat?", a: "Digital marketing for Surat businesses starts at Rs 25,000 for web design, Rs 30,000 per month for SEO, and Rs 35,000 per month for Google Ads. There is no out-of-city premium or travel surcharge for Surat clients." },
   { q: "Do you work with Surat businesses remotely?",                       a: "Yes. Most of our Surat projects are delivered entirely remotely, video strategy calls, shared project dashboards, WhatsApp for quick approvals, and email for formal sign-offs. The process is seamless and most clients prefer it. We also visit Surat quarterly for clients who want in-person sessions." },
   { q: "Do you have experience with diamond or textile industry marketing?", a: "Yes. We've worked with diamond trading firms, polished diamond exporters, textile manufacturers, and fabric wholesalers in Surat. We understand B2B trade marketing, export-audience SEO, and how to communicate credibility to international buyers." },
   { q: "Can you build an export-oriented website for our Surat business?",  a: "Absolutely. We design websites targeted at international buyers, English-first content, professional design standards, global trust signals, and SEO targeting international search queries relevant to your product." },
@@ -167,7 +199,7 @@ const mapInfo: MapInfo = {
 
 <LocationPageLayout
   title="Digital Marketing Agency in Surat, Web Design, SEO & PPC | DC technolabs"
-  description="Web design, SEO & Google Ads for Surat's diamond, textile & IT businesses. 50+ projects delivered. Remote delivery with dedicated account manager. Free quote today."
+  description="Web design, SEO & Google Ads for Surat's diamond, textile & IT businesses. 50+ projects delivered. Dedicated account manager. Free quote today."
   canonical="https://dctechnolabs.in/locations/surat/"
   schemaJson={schemaJson}
 
