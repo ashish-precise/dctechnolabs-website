@@ -8,12 +8,52 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Web Development Services",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "Custom web development services in Ahmedabad, React, Node.js, Laravel, APIs, SaaS apps and portals.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "50000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Web Development Services in Ahmedabad",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "url": "https://dctechnolabs.in/" },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "url": "https://dctechnolabs.in/services/web-development/",
+      "description": "Custom web development in Ahmedabad. React, Node.js, Laravel, SaaS platforms and APIs. 300+ projects delivered with fixed-price quotes and full code handover.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "50000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best web development company in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DC technolabs is one of Ahmedabad's leading web development companies with 300+ projects delivered. We build custom web applications, SaaS platforms, and APIs using React, Node.js, and Laravel with fixed-price quotes and zero lock-in." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does web development cost in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Custom web development in Ahmedabad starts at Rs 50,000 for simpler apps and goes up to Rs 5,00,000+ for complex SaaS platforms. We provide a fixed-price quote after a free scoping call so there are no surprises." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a web application in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "MVPs take 6 to 10 weeks. Full business apps take 12 to 20 weeks. We use 2-week sprints so you see working software continuously, not just at the end." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I own the code after the project is complete?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, 100%. You own all source code, databases, and intellectual property from day one. No lock-in, no monthly ransom. Full handover documentation is included." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you take over an existing web application project in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We frequently rescue abandoned or messy projects. We start with a code audit, create a remediation plan, and take it forward from there. It almost always costs less than starting over." }
+        }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [
@@ -165,6 +205,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const faqItems: FaqItem[] = [
+  { q: "Which is the best web development company in Ahmedabad?", a: "DC technolabs is one of Ahmedabad's leading web development companies with 300+ projects delivered. We build custom web applications, SaaS platforms, and APIs using React, Node.js, and Laravel with fixed-price quotes and zero lock-in." },
+  { q: "How much does web development cost in Ahmedabad?", a: "Custom web development in Ahmedabad starts at Rs 50,000 for simpler apps and goes up to Rs 5,00,000+ for complex SaaS platforms. We provide a fixed-price quote after a free scoping call so there are no surprises." },
   { q: "How much does custom web development cost?", a: "Projects start at ₹50,000 for simple apps and go up to ₹5,00,000+ for complex SaaS platforms. We scope every project individually and provide a fixed-price quote so there are no surprises." },
   { q: "What tech stack do you use?", a: "Frontend: React, Next.js, Vue. Backend: Node.js, Laravel, Python/Django. Database: PostgreSQL, MySQL, MongoDB. Cloud: AWS, GCP, Vercel. We choose the best fit for your specific project." },
   { q: "How long does development take?", a: "MVPs take 6–10 weeks. Full business apps take 12–20 weeks. Enterprise platforms are scoped individually. We use 2-week sprints so you see progress continuously." },
@@ -184,7 +226,7 @@ const relatedServices: RelatedService[] = [
 
 <ServicePageLayout
   title="Website Development Company in Ahmedabad | Custom Web Apps & SaaS | DC technolabs"
-  description="Custom web development in Ahmedabad. React, Node.js, Laravel, SaaS platforms & APIs. 300+ projects delivered with fixed-price quotes and full code handover. Get your estimate."
+  description="Custom web development in Ahmedabad. React, Node.js, Laravel, SaaS & APIs. 300+ projects, fixed-price quotes, full code handover. Free estimate."
   canonical="https://dctechnolabs.in/services/web-development/"
   schemaJson={schemaJson}
 

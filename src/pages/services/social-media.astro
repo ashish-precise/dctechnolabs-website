@@ -8,12 +8,52 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Social Media Marketing Services",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "Social media marketing in Ahmedabad, Instagram, Facebook, LinkedIn content and paid campaigns. 50+ brands managed. Starting ₹20,000/month.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "20000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Social Media Marketing Services in Ahmedabad",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "url": "https://dctechnolabs.in/" },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "url": "https://dctechnolabs.in/services/social-media/",
+      "description": "Social media marketing agency in Ahmedabad. Instagram, Facebook and LinkedIn management plus Meta Ads. 50+ brands grown. Starting Rs 20,000 per month.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "20000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best social media marketing agency in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DC technolabs manages social media for 50+ brands across Ahmedabad and Gujarat. We handle content creation, Reels, Meta Ads, and community management for Instagram, Facebook, and LinkedIn starting from Rs 20,000 per month." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does social media marketing cost in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Social media management in Ahmedabad starts at Rs 20,000 per month with DC technolabs. This includes content creation for 2 platforms, 12 posts per month, a monthly content calendar, and basic community management." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which social media platforms work best for Ahmedabad businesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Instagram and Facebook work for almost every B2C business in Ahmedabad. LinkedIn is essential for B2B services and professional firms. YouTube Shorts is growing fast for reach. We recommend starting with 2 platforms done well rather than 5 done poorly." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long before social media marketing shows results in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Organic reach and follower growth show meaningful results in 60 to 90 days of consistent posting. Meta Ads can generate leads from week one. We share a growth forecast based on your industry benchmarks before starting." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you run Meta Ads (Facebook and Instagram Ads) for Ahmedabad businesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Paid social is included in our Growth and Authority plans. We handle audience targeting, creative design, ad copy, A/B testing, and daily monitoring. You set the ad budget and we manage the campaigns for your Ahmedabad audience." }
+        }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [
@@ -165,6 +205,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const faqItems: FaqItem[] = [
+  { q: "Which is the best social media marketing agency in Ahmedabad?", a: "DC technolabs manages social media for 50+ brands across Ahmedabad and Gujarat. We handle content creation, Reels, Meta Ads, and community management for Instagram, Facebook, and LinkedIn starting from Rs 20,000 per month." },
+  { q: "How much does social media marketing cost in Ahmedabad?", a: "Social media management in Ahmedabad starts at Rs 20,000 per month with DC technolabs. This includes content creation for 2 platforms, 12 posts per month, a monthly content calendar, and basic community management." },
   { q: "Which social media platforms should I be on?", a: "Depends on your business. Instagram and Facebook work for almost every B2C business in Ahmedabad. LinkedIn is essential for B2B services. YouTube Shorts is growing fast for reach. We recommend starting with 2 platforms done well rather than 5 done poorly." },
   { q: "How many posts per month do I get?", a: "Starter: 12 posts across 2 platforms. Growth: 20 posts across 3 platforms plus 4 Reels and Stories. Authority: 30+ posts across all platforms plus video content. All plans include a monthly content calendar submitted for your approval." },
   { q: "Do I need to provide photos and videos?", a: "For most industries, we design static posts using graphics. For Reels and video, we work with your existing footage or shoot concepts you can film easily on your phone. For premium clients, we can arrange professional photo/video shoots." },
@@ -184,7 +226,7 @@ const relatedServices: RelatedService[] = [
 
 <ServicePageLayout
   title="Social Media Marketing Agency in Ahmedabad | Instagram, Facebook & LinkedIn | DC technolabs"
-  description="Social media marketing agency in Ahmedabad. Instagram Reels, Facebook & LinkedIn management + Meta Ads. 50+ brands grown. Starting Rs. 20,000/month. Free content plan."
+  description="Social media marketing agency in Ahmedabad. Instagram, Facebook & LinkedIn + Meta Ads. 50+ brands grown. Starting Rs 20,000/month. Free content plan."
   canonical="https://dctechnolabs.in/services/social-media/"
   schemaJson={schemaJson}
 

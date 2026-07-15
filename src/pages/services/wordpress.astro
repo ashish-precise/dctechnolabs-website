@@ -8,12 +8,52 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "WordPress Development Services",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "WordPress development in Ahmedabad, custom themes, plugins, WooCommerce, and migrations. 300+ WordPress sites built.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "25000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "WordPress Development Services in Ahmedabad",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "url": "https://dctechnolabs.in/" },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "url": "https://dctechnolabs.in/services/wordpress/",
+      "description": "WordPress development in Ahmedabad. Custom themes, plugins, WooCommerce, and migrations. 300+ WordPress sites built starting at Rs 25,000.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "25000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best WordPress development company in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DC technolabs is a leading WordPress development company in Ahmedabad with 300+ sites built. We offer custom themes, plugin development, WooCommerce stores, speed optimisation, and security hardening starting from Rs 25,000." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does WordPress development cost in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "WordPress websites in Ahmedabad start at Rs 25,000 for a business site and go up to Rs 1,50,000+ for complex custom builds with WooCommerce or membership features. All quotes are fixed-price with no hidden costs." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you fix a slow or hacked WordPress site in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We remove all malware, close security vulnerabilities, implement WP Rocket caching, Cloudflare CDN, and image optimisation. Sub-3-second load times are guaranteed. Most cleanup jobs are done within 24 to 48 hours." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a WordPress website take to build in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A standard business WordPress site takes 2 to 4 weeks. WooCommerce stores take 4 to 6 weeks. Custom plugin builds are scoped individually. Timeline depends on the number of pages and features required." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer ongoing WordPress maintenance for Ahmedabad businesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our monthly maintenance plans cover plugin and theme updates, security scans, backups, uptime monitoring, and content updates. Many Ahmedabad businesses use us as their dedicated WordPress team." }
+        }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [
@@ -165,6 +205,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const faqItems: FaqItem[] = [
+  { q: "Which is the best WordPress development company in Ahmedabad?", a: "DC technolabs is a leading WordPress development company in Ahmedabad with 300+ sites built. We offer custom themes, plugin development, WooCommerce stores, speed optimisation, and security hardening starting from Rs 25,000." },
+  { q: "How much does WordPress development cost in Ahmedabad?", a: "WordPress websites in Ahmedabad start at Rs 25,000 for a business site and go up to Rs 1,50,000+ for complex custom builds with WooCommerce or membership features. All quotes are fixed-price with no hidden costs." },
   { q: "Do you use page builders like Elementor?", a: "Only if you specifically want Elementor for easy self-editing. For performance, we prefer custom Gutenberg blocks or hand-coded themes, they're significantly faster and cleaner than page builders. We'll recommend the right approach for your needs." },
   { q: "Can you fix my hacked WordPress site?", a: "Yes. We remove all malware, identify and close the entry point, clean the database, harden security settings, and set up Wordfence monitoring. Most cleanups are done within 24–48 hours." },
   { q: "Why is my WordPress site so slow?", a: "Usually: too many plugins, unoptimized images, no caching, shared hosting, or a bloated theme. We audit all of these and implement WP Rocket, Cloudflare CDN, image optimization, and database cleanup. Sub-3-second loads guaranteed." },
@@ -184,7 +226,7 @@ const relatedServices: RelatedService[] = [
 
 <ServicePageLayout
   title="WordPress Development Company in Ahmedabad | Custom Themes & Plugins | DC technolabs"
-  description="WordPress developer in Ahmedabad for custom themes, WooCommerce, plugin builds & speed optimisation. 300+ sites built. Starting Rs. 25,000. Get a free site audit."
+  description="WordPress developer in Ahmedabad. Custom themes, WooCommerce, plugin builds & speed optimisation. 300+ sites built. Starting Rs 25,000. Free site audit."
   canonical="https://dctechnolabs.in/services/wordpress/"
   schemaJson={schemaJson}
 

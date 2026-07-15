@@ -8,12 +8,52 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "E-commerce Development Services",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "E-commerce development in Ahmedabad, Shopify, WooCommerce, custom stores. 100+ stores built. Average 40% sales lift.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "50000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "E-commerce Development Services in Ahmedabad",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "url": "https://dctechnolabs.in/" },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "City", "name": "Gandhinagar" },
+        { "@type": "City", "name": "Surat" },
+        { "@type": "City", "name": "Vadodara" }
+      ],
+      "url": "https://dctechnolabs.in/services/ecommerce/",
+      "description": "E-commerce development in Ahmedabad. Shopify, WooCommerce and custom stores with Razorpay integration. 100+ stores built with an average 40% sales lift.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "50000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best e-commerce development company in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DC technolabs has built 100+ online stores for Ahmedabad businesses on Shopify, WooCommerce, and custom platforms. Our stores average a 40% sales lift post-launch through conversion-optimised design and seamless Razorpay integration." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does an e-commerce website cost in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "E-commerce websites in Ahmedabad start at Rs 50,000 for a basic Shopify or WooCommerce store and go up to Rs 2,00,000+ for a custom multi-vendor marketplace. We provide a fixed-price quote after a free consultation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use Shopify or WooCommerce for my Ahmedabad business?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Shopify is better for straightforward product stores — faster to launch and easier to manage. WooCommerce is better if you need tight WordPress integration or want to avoid Shopify transaction fees. We recommend the right fit after understanding your catalog." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build an e-commerce website in Ahmedabad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Starter stores take 3 to 4 weeks. Business stores take 5 to 7 weeks. Marketplace projects take 10 to 14 weeks. Timeline depends on catalog size, custom features, and how quickly product content is provided." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you integrate Razorpay and Indian payment gateways with e-commerce stores?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We integrate Razorpay, Paytm, PhonePe, BillDesk, CCAvenue, and Cashfree. We also set up UPI QR codes, EMI options, and COD with automated reconciliation for Indian businesses." }
+        }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [
@@ -165,6 +205,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const faqItems: FaqItem[] = [
+  { q: "Which is the best e-commerce development company in Ahmedabad?", a: "DC technolabs has built 100+ online stores for Ahmedabad businesses on Shopify, WooCommerce, and custom platforms. Our stores average a 40% sales lift post-launch through conversion-optimised design and seamless Razorpay integration." },
+  { q: "How much does an e-commerce website cost in Ahmedabad?", a: "E-commerce websites in Ahmedabad start at Rs 50,000 for a basic Shopify or WooCommerce store and go up to Rs 2,00,000+ for a custom multi-vendor marketplace. We provide a fixed-price quote after a free consultation." },
   { q: "Should I use Shopify or WooCommerce?", a: "Shopify is better for straightforward product stores, faster to launch, easier to manage, and hosted. WooCommerce is better if you need tight WordPress integration, more customization, or want to avoid Shopify's transaction fees. We'll recommend the right fit after understanding your catalog and technical requirements." },
   { q: "Can you migrate my existing store?", a: "Yes. We migrate stores from Wix, Squarespace, Magento, or any other platform, including all products, customer data, order history, and SEO redirects, with zero data loss." },
   { q: "Do you integrate with Indian payment gateways?", a: "Yes. Razorpay, Paytm, PhonePe, BillDesk, CCAvenue, Cashfree, we've integrated them all. We also set up EMI options, UPI QR codes, and COD with automated reconciliation." },
@@ -184,7 +226,7 @@ const relatedServices: RelatedService[] = [
 
 <ServicePageLayout
   title="Ecommerce Website Development in Ahmedabad | Shopify & WooCommerce | DC technolabs"
-  description="E-commerce development in Ahmedabad. Shopify, WooCommerce & custom stores with Razorpay integration. 100+ stores built, 40% avg sales lift. Get your quote in 24 hours."
+  description="E-commerce development in Ahmedabad. Shopify, WooCommerce & custom stores with Razorpay. 100+ stores built, 40% avg sales lift. Free quote in 24 hours."
   canonical="https://dctechnolabs.in/services/ecommerce/"
   schemaJson={schemaJson}
 
