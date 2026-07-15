@@ -12,6 +12,7 @@ const canonicalURL = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + 
 const ogImageURL = ogImage || 'https://dctechnolabs.in/og-image.webp';
 import "../styles/global.css";
 import CookieBanner from "../components/CookieBanner.astro";
+import TawkChat from "../components/TawkChat.astro";
 ---
 
 <!DOCTYPE html>
@@ -166,5 +167,6 @@ import CookieBanner from "../components/CookieBanner.astro";
 <body>
   <slot />
   <CookieBanner />
+  <TawkChat />
 </body>
 </html>

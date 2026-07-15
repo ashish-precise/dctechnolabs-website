@@ -80,6 +80,7 @@ const {
 const canonical = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 import Header from '../components/Header.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import TawkChat from '../components/TawkChat.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -652,5 +653,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.
   }
 </style>
 <CookieBanner />
+<TawkChat />
 </body>
 </html>

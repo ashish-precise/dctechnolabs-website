@@ -201,6 +201,7 @@ const plusSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" str
 const canonical = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 import Header from '../components/Header.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import TawkChat from '../components/TawkChat.astro';
 ---
 
 <!DOCTYPE html>
@@ -1092,5 +1093,6 @@ textarea.form-input{resize:vertical;min-height:80px}
   }
 </style>
 <CookieBanner />
+<TawkChat />
 </body>
 </html>
