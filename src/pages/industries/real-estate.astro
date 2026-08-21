@@ -4,22 +4,36 @@ import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyC
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Real Estate Website Design and Digital Marketing in Ahmedabad",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DC technolabs",
-    "url": "https://dctechnolabs.in",
-    "telephone": "+91 9662608986",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ahmedabad",
-      "addressRegion": "Gujarat",
-      "addressCountry": "IN"
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Real Estate Website Design and Digital Marketing in Ahmedabad",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "DC technolabs",
+        "url": "https://dctechnolabs.in",
+        "telephone": "+91 9662608986",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "addressCountry": "IN"
+        }
+      },
+      "areaServed": "Ahmedabad, Gujarat",
+      "description": "DC technolabs provides specialised website design, property listing portals, Google Ads, and digital marketing services for builders, developers, and property consultants in Ahmedabad and Gujarat."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do you ensure RERA compliance in the website content and ads you create?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every property website we build prominently displays the RERA registration number for each project. Our ad copy and content avoid making promises that would violate RERA regulations on property advertising, such as guaranteed returns or possession date commitments without proper disclaimers." } },
+        { "@type": "Question", "name": "Can you build a property listing portal with multiple projects under one brand?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We build custom real estate portals where builders can list multiple projects, each with their own gallery, floor plans, unit configurations, pricing, and lead capture. The admin panel lets you update project details, mark units as sold, and download leads without needing a developer." } },
+        { "@type": "Question", "name": "How do Google Ads work for real estate in Ahmedabad? What is a realistic cost per lead?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads for real estate in Ahmedabad typically cost between Rs 200 and Rs 800 per genuine enquiry depending on project type, location, and competition. Luxury projects near Prahlad Nagar tend to have higher cost per lead than mid-income projects in Bopal or Sanand." } },
+        { "@type": "Question", "name": "Can you target NRI buyers from the US, UK, and Middle East for GIFT City projects?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run international targeting campaigns on Google and Facebook reaching NRI audiences interested in Gujarat real estate. GIFT City in particular attracts NRI investment interest. We tailor messaging and follow-up communication to address NRI buyer concerns." } },
+        { "@type": "Question", "name": "What makes your real estate marketing different from generic digital agencies in Ahmedabad?", "acceptedAnswer": { "@type": "Answer", "text": "We understand the Ahmedabad property market deeply. We know which localities are seeing buyer interest, what price points are realistic in each micromarket, how buyers in Gujarat research property, and what RERA requires. Generic agencies apply templates that ignore all of this local context." } }
+      ]
     }
-  },
-  "areaServed": "Ahmedabad, Gujarat",
-  "description": "DC technolabs provides specialised website design, property listing portals, Google Ads, and digital marketing services for builders, developers, and property consultants in Ahmedabad and Gujarat."
+  ]
 });
 
 const overviewPoints: OverviewPoint[] = [

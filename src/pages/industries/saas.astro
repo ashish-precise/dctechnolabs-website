@@ -4,24 +4,38 @@ import type { OverviewPoint, Challenge, ServiceCard, ProcessStep, StatItem, WhyC
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Digital Marketing for SaaS and Tech Companies in Ahmedabad",
-  "description": "Inbound lead generation, SaaS landing page design, demo request optimisation, and content marketing for software companies and tech startups in Ahmedabad, Gujarat.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DCTechnoLabs",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ahmedabad",
-      "addressRegion": "Gujarat",
-      "addressCountry": "IN"
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Digital Marketing for SaaS and Tech Companies in Ahmedabad",
+      "description": "Inbound lead generation, SaaS landing page design, demo request optimisation, and content marketing for software companies and tech startups in Ahmedabad, Gujarat.",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "DCTechnoLabs",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "addressCountry": "IN"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Gujarat"
+      },
+      "serviceType": "SaaS and Tech Company Digital Marketing"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Can content marketing actually generate leads for a B2B SaaS product?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it is often the most cost-effective channel for B2B SaaS over time. Buyers of software products research extensively before purchasing. Blog posts comparing alternatives, explaining integrations, or solving specific problems attract buyers who are already in evaluation mode. These leads come with high intent and convert at much better rates than cold outreach." } },
+        { "@type": "Question", "name": "What is the typical cost per demo request from Google Ads for a SaaS product in India?", "acceptedAnswer": { "@type": "Answer", "text": "This varies significantly by product category and competition. For most B2B SaaS verticals in India, a cost per demo request of Rs 800 to Rs 2,500 is achievable with well-optimised campaigns and landing pages. We provide category-specific benchmarks before starting any campaign." } },
+        { "@type": "Question", "name": "How long does it take for content SEO to start generating demo requests?", "acceptedAnswer": { "@type": "Answer", "text": "Content SEO is a longer-term channel. Meaningful organic traffic typically builds over 3 to 6 months. However, high-quality content can generate featured snippets and appear in answer boxes much faster for specific low-competition queries. We combine content SEO with Google Ads so you have immediate inbound while organic builds." } },
+        { "@type": "Question", "name": "Our product is very technical. Can your team write content about it accurately?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our content team has written for HR software, ERP systems, logistics SaaS, EdTech platforms, and IT services companies. We do a thorough product briefing session before writing anything. All content goes through your technical review before publishing." } },
+        { "@type": "Question", "name": "Should we focus on LinkedIn Ads or Google Ads for a B2B SaaS product?", "acceptedAnswer": { "@type": "Answer", "text": "Both serve different moments in the buyer journey. Google Ads captures buyers who are actively searching for a solution right now. LinkedIn reaches your ideal customer profile before they are searching, building awareness and familiarity. For most B2B SaaS products we recommend running both." } }
+      ]
     }
-  },
-  "areaServed": {
-    "@type": "State",
-    "name": "Gujarat"
-  },
-  "serviceType": "SaaS and Tech Company Digital Marketing"
+  ]
 });
 
 const overviewPoints: OverviewPoint[] = [

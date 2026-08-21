@@ -8,12 +8,26 @@ import type {
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Google Ads Management",
-  "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
-  "areaServed": { "@type": "City", "name": "Ahmedabad" },
-  "description": "Google Ads management for Ahmedabad businesses. Search, Display, Shopping, and YouTube campaigns with average 8x ROAS and ₹833 cost per lead.",
-  "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Google Ads Management",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+      "areaServed": { "@type": "City", "name": "Ahmedabad" },
+      "description": "Google Ads management for Ahmedabad businesses. Search, Display, Shopping, and YouTube campaigns with average 8x ROAS and ₹833 cost per lead.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is the minimum Google Ads budget I need?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend a minimum of Rs. 30,000 per month in ad spend to generate meaningful data. Below that it is hard to optimise effectively. The management fee is separate from your ad spend, which you pay directly to Google." } },
+        { "@type": "Question", "name": "How quickly will I start getting leads from Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Search campaigns can start generating leads within 24 to 48 hours of launch. The first 2 weeks are used to collect performance data before making major optimizations and scaling what works." } },
+        { "@type": "Question", "name": "Do I pay Google directly or through the agency?", "acceptedAnswer": { "@type": "Answer", "text": "You pay Google directly. Your billing card is on your own account. We never touch your ad spend, so you have full transparency and complete control over your account at all times." } },
+        { "@type": "Question", "name": "What is ROAS and why does it matter for Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "ROAS, Return on Ad Spend, measures how much revenue you earn per rupee spent on ads. A 5x ROAS means Rs. 5 earned for every Rs. 1 spent. We target 5x minimum and typically achieve 8x across our Ahmedabad client portfolio." } },
+        { "@type": "Question", "name": "Can you take over my existing Google Ads account?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We start with a full audit, identify wasted spend, and restructure before making any changes. We do not delete your campaign history since it contains valuable data for optimization." } }
+      ]
+    }
+  ]
 });
 
 const featureCards: FeatureCard[] = [

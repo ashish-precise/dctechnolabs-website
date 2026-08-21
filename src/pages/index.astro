@@ -59,6 +59,21 @@ const websiteSchema = JSON.stringify({
     "query-input": "required name=search_term_string"
   }
 });
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How long does it take to build a website?", "acceptedAnswer": { "@type": "Answer", "text": "Most websites are designed and launched within 2-4 weeks depending on complexity. Simple business sites can go live in 10 days. E-commerce takes 4-6 weeks." } },
+    { "@type": "Question", "name": "How much does SEO cost per month?", "acceptedAnswer": { "@type": "Answer", "text": "SEO starts at Rs 30,000/month. Exact cost depends on competition, target keywords, and aggressiveness. We recommend a plan during our discovery call." } },
+    { "@type": "Question", "name": "How long until I see SEO results?", "acceptedAnswer": { "@type": "Answer", "text": "Ranking improvements typically appear within 60-90 days. Significant traffic increases by month 4-6. SEO compounds, the longer you invest, the stronger the returns." } },
+    { "@type": "Question", "name": "Do you work with small businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Small and medium businesses are our specialty. We've helped hundreds of Ahmedabad SMBs establish their online presence. Pricing is designed to be accessible." } },
+    { "@type": "Question", "name": "Can I update the website myself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. WordPress and Shopify builds come with full access. We provide training and documentation. For custom builds, we offer affordable maintenance packages." } },
+    { "@type": "Question", "name": "What makes you different from others?", "acceptedAnswer": { "@type": "Answer", "text": "Three things: we're local (Ahmedabad based, understand the Gujarat market), cost-effective (premium work at fair prices), and we guarantee our work. 100+ Clutch awards don't lie." } },
+    { "@type": "Question", "name": "Do you require long-term contracts?", "acceptedAnswer": { "@type": "Answer", "text": "Web design is one-time, no obligation. SEO and PPC need a minimum 3-month commitment because results take time. No year-long contracts, our work keeps you, not a contract." } },
+    { "@type": "Question", "name": "Will my website be mobile-friendly?", "acceptedAnswer": { "@type": "Answer", "text": "Every website is mobile-first, designed for phones first, then scaled up. Over 70% of Indian web traffic is mobile. Your site will look perfect on every screen." } }
+  ]
+});
 ---
 
 <PageLayout
@@ -68,6 +83,7 @@ const websiteSchema = JSON.stringify({
   <Fragment slot="head">
     <script type="application/ld+json" set:html={localBusinessSchema} />
     <script type="application/ld+json" set:html={websiteSchema} />
+    <script type="application/ld+json" set:html={faqSchema} />
   </Fragment>
 
 <!-- HERO SECTION -->
