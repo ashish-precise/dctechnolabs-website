@@ -1,0 +1,266 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Instagram Ads Management",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+      "areaServed": { "@type": "City", "name": "Ahmedabad" },
+      "description": "Instagram Ads management for Ahmedabad businesses. Feed, Story, and Reels campaigns with creative testing and audience targeting built for Gujarat's shopping and service audience.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "25000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much budget do I need for Instagram Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend a minimum ad spend of Rs. 20,000 per month, paid directly to Meta. This is separate from our management fee and gives enough volume to test creatives and find your best-performing audience." } },
+        { "@type": "Question", "name": "How is Instagram Ads different from your social media marketing service?", "acceptedAnswer": { "@type": "Answer", "text": "Our social media marketing service covers organic content, posting, and community management. This service is dedicated paid advertising on Instagram, that is, Feed, Story, and Reels ads with a media budget, built for lead generation and sales rather than general brand presence." } },
+        { "@type": "Question", "name": "Do you create the ad creatives or do I need to provide them?", "acceptedAnswer": { "@type": "Answer", "text": "We design and edit all ad creatives including static images, carousels, and short-form Reels ads. If you have existing product photos or videos we use those, otherwise our team shoots and edits new creative for the campaign." } },
+        { "@type": "Question", "name": "How quickly can Instagram Ads start generating leads?", "acceptedAnswer": { "@type": "Answer", "text": "Campaigns can go live within 3 to 5 business days including creative production and audience setup. Meta's algorithm typically needs 5 to 7 days of learning phase after launch before performance stabilises." } },
+        { "@type": "Question", "name": "Do you manage Facebook Ads along with Instagram?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Instagram and Facebook share the same Meta Ads Manager and audience pool, so every campaign we build runs across both placements by default unless you want Instagram-only creative for a specific launch." } }
+      ]
+    }
+  ]
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+    title: "Instagram Feed Ads",
+    desc: "Native-looking image and carousel ads placed directly in the Feed. Built to stop the scroll for Ahmedabad audiences browsing during commute or evening hours."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="2" width="18" height="20" rx="3"/><line x1="9" y1="22" x2="15" y2="22"/></svg>`,
+    title: "Instagram Story Ads",
+    desc: "Full-screen vertical ads between Stories with swipe-up links. High completion rates and cheaper cost per impression than Feed placements in most categories."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
+    title: "Reels Ads",
+    desc: "Short-form video ads placed inside the Reels feed, Instagram's fastest-growing placement. Ideal for demonstrating products and services in a native, entertaining format."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: "Audience Targeting",
+    desc: "Detailed targeting by interest, behavior, location, and lookalike audiences built from your existing customers. We narrow to buyers, not just people who like Instagram."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`,
+    title: "Creative Design and Editing",
+    desc: "In-house creative team producing scroll-stopping static ads and short video edits, tested in multiple variations every month to keep costs from creeping up."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Performance Reporting",
+    desc: "Monthly reports on reach, cost per result, click-through rate, and return on ad spend, mapped clearly to the leads or sales the campaign actually produced."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "We boosted a few posts but got no real leads", solution: "Boosted posts optimise for likes, not leads. We build dedicated campaigns with the right objective (leads, messages, or purchases) and a proper Meta Pixel and Conversions API setup so Instagram actually optimises for results that matter." },
+  { problem: "Our ad creative feels like an ad and gets ignored", solution: "We design creative that matches native Instagram content style, Reels-first and caption-led, so it earns attention instead of getting scrolled past." },
+  { problem: "Our cost per result keeps climbing every month", solution: "Ad fatigue sets in when the same creative runs too long. We rotate 4 to 6 fresh creative variations monthly and rebuild audiences before performance drops." },
+  { problem: "We do not know who is actually seeing our ads", solution: "Vague 'everyone in Ahmedabad' targeting wastes budget on people who will never buy. We build layered audiences from interests, past customers, and website visitors." },
+  { problem: "We tried running ads ourselves and the budget disappeared fast", solution: "Self-managed campaigns often default to broad reach instead of conversion-focused delivery. Expert setup with correct event tracking typically cuts wasted spend significantly in the first month alone." },
+  { problem: "Our competitors seem to be everywhere on Instagram and we are nowhere", solution: "Consistent paid presence compounds. We build always-on campaigns at a sustainable budget so your brand shows up as often as, or more than, your competitors." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Account and Pixel Setup", desc: "We configure or audit your Meta Business Suite, install the Meta Pixel and Conversions API on your site, and confirm every lead or purchase event fires correctly before spending a rupee." },
+  { title: "Creative Production", desc: "Our team designs static ads, carousels, and Reels-style video edits tailored to your product or service, each built in 3 to 4 variations for testing." },
+  { title: "Campaign Launch", desc: "Campaigns go live with layered audience targeting across Feed, Story, and Reels placements, with budget allocated toward the objective that matches your goal." },
+  { title: "Optimise and Scale", desc: "We monitor daily during the learning phase, cut underperforming creative and audiences within the first two weeks, and scale budget only on what is proven to convert." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Meta Pixel and Conversions API setup", desc: "Full event tracking so every lead and sale is attributed correctly to the ad that produced it." },
+  { title: "Ad creative production", desc: "4 to 6 static, carousel, or Reels-style video ad variations produced and refreshed monthly." },
+  { title: "Audience research and targeting", desc: "Interest, behavior, lookalike, and retargeting audiences built and refined from real campaign data." },
+  { title: "Campaign structure setup", desc: "Objective-based campaigns across Feed, Story, and Reels placements configured for your specific goal." },
+  { title: "Weekly budget and bid monitoring", desc: "Active adjustments based on cost per result, not a set-and-forget monthly check-in." },
+  { title: "A/B creative testing", desc: "Structured testing of hooks, captions, and visuals to find what your specific audience responds to." },
+  { title: "Landing page or WhatsApp funnel advice", desc: "Guidance on where traffic should land, whether that is a landing page, WhatsApp, or Instagram DM automation." },
+  { title: "Monthly performance dashboard", desc: "Reach, cost per result, CTR, and ROAS clearly reported with a plan for the next month's budget." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Meta Pixel and Conversions API setup", us: "✓", usClass: "check", agency: "Extra cost",   agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "Custom creative production included",  us: "✓", usClass: "check", agency: "Extra cost",   agencyClass: "cross", freelancer: "Limited", freelancerClass: "cross" },
+  { feature: "Weekly optimisation",                   us: "✓", usClass: "check", agency: "Monthly only", agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "Reels-first ad strategy",               us: "✓", usClass: "check", agency: "Rarely",       agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "Transparent spend reporting",           us: "✓", usClass: "check", agency: "Summary only", agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "No lock-in beyond 2 months",            us: "✓", usClass: "check", agency: "6–12 months",  agencyClass: "cross", freelancer: "✓",      freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For businesses new to Instagram Ads",
+    price: "₹25,000",
+    priceSuffix: "/month",
+    note: "Manages up to ₹30,000 ad spend. Ad spend paid directly to Meta.",
+    features: ["Feed and Story ad campaigns", "Meta Pixel setup", "3 creative variations/month", "Monthly performance report", "Bi-weekly optimisation", "2-month minimum"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth",
+    desc: "For businesses ready to scale leads and sales",
+    price: "₹45,000",
+    priceSuffix: "/month",
+    note: "Manages up to ₹1,00,000 ad spend. Best for competitive Ahmedabad categories.",
+    features: ["Feed + Story + Reels campaigns", "Conversions API setup", "6 creative variations/month", "Weekly optimisation", "Retargeting audience setup", "Lookalike audience building", "Full monthly dashboard"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "E-commerce",
+    desc: "For Shopify and WooCommerce stores",
+    price: "₹70,000",
+    priceSuffix: "/month",
+    note: "Catalog and dynamic ads. Manages up to ₹2,00,000 ad spend.",
+    features: ["Product catalog ads", "Dynamic remarketing", "Reels shopping ads", "Abandoned cart retargeting", "ROAS-focused bidding", "Full funnel reporting"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#2a1a3e,#c026d3)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(236,72,153,.06)" stroke="rgba(236,72,153,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(236,72,153,.9)" font-family="system-ui" font-weight="800">7x ROAS</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">₹38 avg. cost per click</text></svg>`,
+    tag: "Fashion · Reels Ads",
+    title: "Ethnic Wear Boutique, C.G. Road Ahmedabad",
+    desc: "7x ROAS on Reels ads for a festive collection launch. 900+ website visits and 180 orders in a 3-week campaign window.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a2e2a,#059669)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(5,150,105,.06)" stroke="rgba(5,150,105,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(5,150,105,.9)" font-family="system-ui" font-weight="800">₹410 CPL</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">120 enquiries/month</text></svg>`,
+    tag: "Fitness Studio · Lead Generation",
+    title: "Fitness Studio, Bodakdev Ahmedabad",
+    desc: "₹410 cost per membership enquiry. Scaled from 20 to 120 monthly enquiries using Story ads and a free trial class offer.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#f97316)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(249,115,22,.06)" stroke="rgba(249,115,22,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(249,115,22,.9)" font-family="system-ui" font-weight="800">5.2x ROAS</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">₹52 avg. cost per click</text></svg>`,
+    tag: "Home Decor · Carousel Ads",
+    title: "Home Decor Store, Vastrapur Ahmedabad",
+    desc: "5.2x ROAS on carousel product ads. 850+ orders in the first quarter of running always-on Instagram campaigns.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "We were posting daily but nothing translated into sales. Once DC technolabs set up proper conversion campaigns with the Pixel working correctly, orders started coming in from people we never would have reached organically.",
+    initials: "PK",
+    name: "Priyanka Kapadia",
+    role: "Boutique Owner, Ahmedabad",
+  },
+  {
+    text: "The Reels ads they made looked nothing like typical ads, which is exactly why they worked. Our cost per enquiry dropped by more than half in the second month.",
+    initials: "VT",
+    name: "Vikram Thakkar",
+    role: "Fitness Studio Owner, Ahmedabad",
+  },
+  {
+    text: "What I appreciate is the monthly creative refresh. Our ads never feel stale because they are always testing new angles instead of running the same post for months.",
+    initials: "ND",
+    name: "Nisha Desai",
+    role: "E-commerce Founder, Gandhinagar",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "How much budget do I need for Instagram Ads?", a: "We recommend a minimum ad spend of ₹20,000 per month, paid directly to Meta. This is separate from our management fee and gives enough volume to test creatives and find your best-performing audience." },
+  { q: "How is this different from your social media marketing service?", a: "Our social media marketing service covers organic content, posting, and community management. This service is dedicated paid advertising, that is, Feed, Story, and Reels ads with a media budget, built for lead generation and sales." },
+  { q: "Do you create the ad creatives?", a: "Yes. We design and edit all ad creatives including static images, carousels, and short-form Reels ads. If you have existing product photos or videos we use those, otherwise our team shoots and edits new creative." },
+  { q: "How quickly can campaigns start generating leads?", a: "Campaigns can go live within 3 to 5 business days including creative production and audience setup. Meta's algorithm typically needs 5 to 7 days of learning phase after launch before performance stabilises." },
+  { q: "Do you manage Facebook Ads along with Instagram?", a: "Yes. Instagram and Facebook share the same Meta Ads Manager and audience pool, so every campaign we build runs across both placements by default unless you want Instagram-only creative for a specific launch." },
+  { q: "Do I need a large following for ads to work?", a: "No. Paid ads reach people outside your existing followers entirely. A small or new account can still run effective ads since targeting is based on audience data, not follower count." },
+  { q: "Can you help with WhatsApp or DM-based lead capture?", a: "Yes. We can route ad traffic directly into WhatsApp or Instagram DM automation instead of a landing page, which works especially well for local service businesses." },
+  { q: "What happens if the ads are not performing?", a: "We flag it in your reporting, explain what we are testing next, and adjust creative or targeting. If performance does not improve after 60 days of active optimisation, we will tell you honestly rather than asking you to keep spending." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/linkedin-ads/", title: "LinkedIn Ads", desc: "For B2B lead generation, LinkedIn reaches decision-makers directly. Sponsored Content, InMail, and Lead Gen Forms. Starting ₹35,000/month." },
+  { href: "/services/social-media/", title: "Social Media Marketing", desc: "Combine paid ads with organic content and community management for a complete Instagram presence. Starting ₹20,000/month." },
+  { href: "/services/web-design/", title: "Landing Page Design", desc: "Your ads are only as good as the page they send traffic to. We build high-converting landing pages. Starting ₹25,000." },
+];
+---
+
+<ServicePageLayout
+  title="Instagram Ads Management in Ahmedabad | Meta Ads Agency | DC technolabs"
+  description="Instagram Ads management in Ahmedabad. Feed, Story & Reels campaigns with creative production and audience targeting. Starting Rs. 25,000/month."
+  canonical="https://dctechnolabs.in/services/instagram-ads/"
+  schemaJson={schemaJson}
+
+  badge="📸 Instagram Ads Management"
+  heroH1="Instagram Ads That Turn Scrollers."
+  heroHighlight="Into Customers, Not Just Followers."
+  heroDesc="Instagram Ads management for Ahmedabad businesses. We build, design, and manage Feed, Story, and Reels campaigns that convert, backed by proper Pixel tracking so every rupee is accounted for. Starting ₹25,000/month plus your ad spend paid directly to Meta."
+  heroStats={[
+    { value: "7x", label: "Average ROAS" },
+    { value: "₹410", label: "Avg. Cost Per Lead" },
+    { value: "3-5 Days", label: "To Campaign Launch" },
+  ]}
+  formTitle="Get a Free Instagram Ads Strategy"
+  formSub="We will review your existing ads or build a strategy from scratch, completely free."
+  formTypeLabel="What do you want to promote?"
+  formTypeOptions={["Lead Generation (Services)", "E-commerce / Product Sales", "Brand Awareness", "Store Footfall", "App Installs", "Starting from Scratch"]}
+
+  s2Title="What Our Instagram Ads Management Includes"
+  s2Subtitle="Full-service campaign management, from creative production to daily optimisation."
+
+  s3Title="Instagram Ads Problems We Fix Every Day"
+  s3Subtitle="If any of these sound like your situation, we can fix it."
+
+  s4Title="Our Instagram Ads Process"
+  s4Subtitle="Track right, create sharp, launch fast, optimise relentlessly."
+
+  s5Title="Your Monthly Instagram Ads Deliverables"
+  s5Subtitle="Every item included in your management fee, with no surprises."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why Ahmedabad businesses choose DC technolabs for Instagram Ads."
+
+  s7Title="Instagram Ads Management Packages"
+  s7Subtitle="Flat monthly management fee. Your ad spend goes directly to Meta."
+
+  s8Title="Instagram Ads Results"
+  s8Subtitle="Real results from real campaigns managed for Ahmedabad and Gujarat businesses."
+
+  s9Title="What Our Instagram Ads Clients Say"
+
+  s10Title="Instagram Ads Questions Answered"
+
+  s11Title="Services That Work Best With Instagram Ads"
+  s11Subtitle="Combine paid ads with these for a complete demand generation system."
+
+  comparisonStartingUs="₹25,000/mo"
+  comparisonStartingAgency="₹50,000+/mo"
+  comparisonStartingFreelancer="₹6–12K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Turn Instagram Into a Lead Source?"
+  ctaSubtitle="Get a free review of your current ads or a fresh strategy if you are starting out. We will show you exactly where your budget should go."
+  ctaAccentLabel="Get Your Free Ads Strategy"
+  ctaAccentHref="#hero-form"
+/>

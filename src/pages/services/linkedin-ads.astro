@@ -1,0 +1,266 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type {
+  FeatureCard, ProblemCard, ProcessStep, Deliverable,
+  ComparisonRow, PricingTier, PortfolioCard, Testimonial,
+  FaqItem, RelatedService
+} from '../../layouts/ServicePageLayout.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "LinkedIn Ads Management",
+      "provider": { "@type": "LocalBusiness", "name": "DC technolabs", "telephone": "+919662608986" },
+      "areaServed": { "@type": "City", "name": "Ahmedabad" },
+      "description": "LinkedIn Ads management for B2B and IT companies in Ahmedabad and GIFT City. Sponsored Content, InMail, and Lead Gen Forms built to reach decision-makers directly.",
+      "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "35000" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why is LinkedIn Ads more expensive than Facebook or Instagram Ads?", "acceptedAnswer": { "@type": "Answer", "text": "LinkedIn's cost per click is higher because you are paying to reach a professional audience by job title, company, and seniority rather than general interest. For B2B and enterprise sales, the quality of the lead usually justifies the higher cost per click." } },
+        { "@type": "Question", "name": "What is a good budget to start with on LinkedIn Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend a minimum of Rs. 40,000 per month in ad spend, paid directly to LinkedIn. Budgets below that struggle to generate enough impressions for reliable targeting data, especially for niche B2B audiences." } },
+        { "@type": "Question", "name": "What is a Lead Gen Form on LinkedIn?", "acceptedAnswer": { "@type": "Answer", "text": "A Lead Gen Form is a native LinkedIn ad format where a prospect's profile details, name, email, job title, and company, are pre-filled automatically. This removes friction from the sign-up and typically improves conversion rates compared to sending traffic to an external landing page." } },
+        { "@type": "Question", "name": "Is LinkedIn Ads worth it for a small or mid-size company?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, if your buyer is a business decision-maker rather than a consumer. IT services, SaaS, consulting, manufacturing, and B2B companies in GIFT City and across Ahmedabad see strong results because LinkedIn lets you target by exact job title and company size." } },
+        { "@type": "Question", "name": "How long before LinkedIn Ads start producing leads?", "acceptedAnswer": { "@type": "Answer", "text": "Sponsored Content campaigns typically start generating impressions and clicks within 24 to 48 hours. B2B sales cycles are longer than consumer purchases, so we track both immediate Lead Gen Form submissions and longer-term engagement from target accounts." } }
+      ]
+    }
+  ]
+});
+
+const featureCards: FeatureCard[] = [
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+    title: "Sponsored Content",
+    desc: "Native ads that appear directly in the LinkedIn feed of your target job titles and companies. Built to look like organic posts so they earn engagement instead of being skipped."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: "Message and Conversation Ads",
+    desc: "Direct, personalised messages delivered straight to your prospect's LinkedIn inbox. Effective for demo requests, event invites, and account-based outreach to specific decision-makers."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+    title: "Lead Gen Forms",
+    desc: "Native forms that pre-fill with the prospect's LinkedIn profile data. Removes friction from filling a form on mobile and typically improves conversion rates over external landing pages."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: "Job Title and Account-Based Targeting",
+    desc: "Target by exact job title, seniority, company size, or industry. Build account-based campaigns aimed at a specific list of target companies for enterprise sales motions."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`,
+    title: "B2B Creative and Copywriting",
+    desc: "Ad copy and creative written for a professional buyer, focused on business outcomes and credibility rather than consumer-style visuals that fall flat on LinkedIn."
+  },
+  {
+    iconPath: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    title: "Pipeline-Focused Reporting",
+    desc: "Monthly reporting on cost per lead, Lead Gen Form conversion rate, and which job titles and industries are engaging, not just clicks and impressions."
+  },
+];
+
+const problemCards: ProblemCard[] = [
+  { problem: "We are getting clicks on LinkedIn but no real leads", solution: "Sending clicks to a slow external landing page loses B2B prospects fast. We use native Lead Gen Forms that pre-fill profile data, which typically lifts conversion rates significantly over external pages." },
+  { problem: "Our cost per lead on LinkedIn feels too high", solution: "LinkedIn costs more per click than Facebook, but targeting the wrong seniority or job title wastes that spend entirely. We narrow to decision-makers only, which improves lead quality per rupee spent." },
+  { problem: "We cannot reach the exact decision-makers we want", solution: "Generic 'IT professionals in Ahmedabad' targeting is too broad. We build layered targeting by exact job title, seniority, company size, and even specific named target accounts." },
+  { problem: "Our ads look like consumer ads and get ignored on LinkedIn", solution: "LinkedIn is a professional context. We write and design creative around business outcomes and credibility signals, which performs very differently from Instagram-style visuals." },
+  { problem: "Sales says the leads from LinkedIn are not qualified", solution: "This usually means the Lead Gen Form or targeting is too loose. We tighten job title and company filters and add qualifying questions directly into the form to pre-screen leads before they reach sales." },
+  { problem: "We tried LinkedIn Ads ourselves and burned budget fast", solution: "Self-managed LinkedIn campaigns often default to broad audience expansion, which drains budget on irrelevant profiles. Expert account-based targeting keeps spend focused on your actual buyer." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Audience and Account Research", desc: "We define your ideal buyer by job title, seniority, industry, and company size, and build a target account list if you are running account-based campaigns." },
+  { title: "Creative and Form Build", desc: "B2B-focused ad copy and creative production, plus Lead Gen Form setup with qualifying questions to pre-screen leads before they reach your sales team." },
+  { title: "Campaign Launch", desc: "Campaigns go live across Sponsored Content, Message Ads, and Lead Gen Forms, with budget allocated toward the format producing the best cost per qualified lead." },
+  { title: "Optimise and Report", desc: "Weekly monitoring of cost per lead and form conversion rate, with monthly reporting tied to actual pipeline impact, not just clicks and impressions." },
+];
+
+const deliverables: Deliverable[] = [
+  { title: "Target account and audience research", desc: "Job title, seniority, industry, and company size targeting built around your actual buyer profile." },
+  { title: "Lead Gen Form setup", desc: "Native forms with pre-filled profile data and qualifying questions to filter unqualified leads before sales sees them." },
+  { title: "B2B ad copywriting and creative", desc: "3 to 5 ad variations per campaign written for a professional buyer and business outcomes." },
+  { title: "Campaign structure setup", desc: "Sponsored Content, Message Ads, and Lead Gen Form campaigns configured around your funnel stage." },
+  { title: "Conversion tracking", desc: "LinkedIn Insight Tag installed and lead events tracked back to your CRM wherever possible." },
+  { title: "Weekly bid and budget management", desc: "Active adjustments based on cost per qualified lead, not a set-and-forget monthly check-in." },
+  { title: "Target account list refinement", desc: "Monthly review of which companies and job titles are engaging, with the list adjusted accordingly." },
+  { title: "Monthly performance dashboard", desc: "Cost per lead, form conversion rate, and engagement by job title reported clearly every month." },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  { feature: "Lead Gen Form setup included",          us: "✓", usClass: "check", agency: "Extra cost",   agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "Account-based targeting",               us: "✓", usClass: "check", agency: "Rarely",       agencyClass: "cross", freelancer: "✗",      freelancerClass: "cross" },
+  { feature: "B2B-specific ad copywriting",            us: "✓", usClass: "check", agency: "Generic copy", agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "Weekly optimisation",                    us: "✓", usClass: "check", agency: "Monthly only", agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "Transparent spend reporting",            us: "✓", usClass: "check", agency: "Summary only", agencyClass: "cross", freelancer: "Varies",  freelancerClass: "cross" },
+  { feature: "No lock-in beyond 2 months",             us: "✓", usClass: "check", agency: "6–12 months",  agencyClass: "cross", freelancer: "✓",      freelancerClass: "check" },
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    desc: "For companies new to LinkedIn Ads",
+    price: "₹35,000",
+    priceSuffix: "/month",
+    note: "Manages up to ₹50,000 ad spend. Ad spend paid directly to LinkedIn.",
+    features: ["Sponsored Content campaigns", "Lead Gen Form setup", "Job title and industry targeting", "Monthly performance report", "Bi-weekly optimisation", "2-month minimum"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+  {
+    name: "Growth",
+    desc: "For B2B companies ready to build a pipeline",
+    price: "₹55,000",
+    priceSuffix: "/month",
+    note: "Manages up to ₹1,25,000 ad spend. Best for competitive B2B and IT categories.",
+    features: ["Sponsored Content + Message Ads", "Account-based target list building", "Lead qualifying form questions", "Weekly bid management", "CRM lead handoff setup", "Full monthly dashboard"],
+    btnLabel: "Get Started",
+    btnClass: "btn-primary",
+    featured: true,
+  },
+  {
+    name: "Enterprise ABM",
+    desc: "For account-based sales motions",
+    price: "₹90,000",
+    priceSuffix: "/month",
+    note: "Named account targeting. Manages up to ₹2,50,000 ad spend.",
+    features: ["Named target account campaigns", "Multi-format ad sequencing", "Sales team lead alerts", "Quarterly account list refresh", "Dedicated account strategist", "Full funnel pipeline reporting"],
+    btnLabel: "Get Started",
+    btnClass: "btn-secondary",
+  },
+];
+
+const portfolioCards: PortfolioCard[] = [
+  {
+    thumbBg: "linear-gradient(135deg,#0f1f3d,#1d4ed8)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(29,78,216,.06)" stroke="rgba(29,78,216,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(59,130,246,.9)" font-family="system-ui" font-weight="800">₹1,850 CPL</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">32 qualified leads/month</text></svg>`,
+    tag: "IT Consulting · Lead Gen Forms",
+    title: "IT Consulting Firm, GIFT City Gandhinagar",
+    desc: "₹1,850 cost per qualified lead using Lead Gen Forms targeted at CTOs and IT Heads. 32 qualified enterprise leads per month, up from near zero via outbound alone.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#7c3aed)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(139,92,246,.9)" font-family="system-ui" font-weight="800">18 Meetings</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">from 40 target accounts</text></svg>`,
+    tag: "SaaS · Account-Based Marketing",
+    title: "SaaS Company, SG Highway Ahmedabad",
+    desc: "18 sales meetings booked from a 40-company account-based campaign targeting VP and Director-level titles across 2 quarters.",
+  },
+  {
+    thumbBg: "linear-gradient(135deg,#0c1a2e,#065f46)",
+    thumbSvg: `<svg viewBox="0 0 200 120" fill="none"><rect x="15" y="25" width="170" height="70" rx="8" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.2)"/><text x="100" y="55" text-anchor="middle" font-size="14" fill="rgba(16,185,129,.9)" font-family="system-ui" font-weight="800">4.1x Pipeline</text><text x="100" y="72" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-family="system-ui">value to ad spend</text></svg>`,
+    tag: "Manufacturing · B2B Lead Generation",
+    title: "Industrial Manufacturing, Vatva GIDC Ahmedabad",
+    desc: "4.1x pipeline value to ad spend targeting procurement heads and plant managers across Western India with Sponsored Content campaigns.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    text: "Facebook and Instagram never made sense for us since our buyers are IT decision-makers, not consumers. DC technolabs built LinkedIn campaigns that actually reach CTOs, and we finally have a real inbound pipeline.",
+    initials: "AS",
+    name: "Amit Shah",
+    role: "IT Services Company, GIFT City",
+  },
+  {
+    text: "The Lead Gen Forms made a real difference. Prospects fill it in seconds on mobile instead of abandoning a slow landing page, and our sales team gets pre-qualified leads directly.",
+    initials: "RK",
+    name: "Ritu Kothari",
+    role: "SaaS Founder, Ahmedabad",
+  },
+  {
+    text: "What stood out was the account-based approach. Instead of spraying budget broadly, they built a list of our actual target companies and focused spend only there. Meetings booked went up immediately.",
+    initials: "JP",
+    name: "Jayesh Patel",
+    role: "Manufacturing Company, Ahmedabad",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  { q: "Why is LinkedIn Ads more expensive than Facebook or Instagram Ads?", a: "LinkedIn's cost per click is higher because you are paying to reach a professional audience by job title, company, and seniority rather than general interest. For B2B and enterprise sales, the quality of the lead usually justifies the higher cost per click." },
+  { q: "What is a good budget to start with?", a: "We recommend a minimum of ₹40,000 per month in ad spend, paid directly to LinkedIn. Budgets below that struggle to generate enough impressions for reliable targeting data, especially for niche B2B audiences." },
+  { q: "What is a Lead Gen Form?", a: "A Lead Gen Form is a native LinkedIn ad format where a prospect's profile details, name, email, job title, and company, are pre-filled automatically. This removes friction and typically improves conversion rates compared to sending traffic to an external landing page." },
+  { q: "Is LinkedIn Ads worth it for a small or mid-size company?", a: "Yes, if your buyer is a business decision-maker rather than a consumer. IT services, SaaS, consulting, manufacturing, and B2B companies in GIFT City and across Ahmedabad see strong results because LinkedIn lets you target by exact job title and company size." },
+  { q: "How long before LinkedIn Ads start producing leads?", a: "Sponsored Content campaigns typically start generating impressions and clicks within 24 to 48 hours. B2B sales cycles are longer than consumer purchases, so we track both immediate Lead Gen Form submissions and longer-term engagement from target accounts." },
+  { q: "Can you target specific companies, not just job titles?", a: "Yes. Account-based campaigns let us upload a list of named target companies and show ads only to employees at those companies, which works well for enterprise and named-account sales motions." },
+  { q: "Do you handle the sales handoff after a lead comes in?", a: "We set up the lead notification and CRM integration so your sales team gets qualified leads immediately, but the sales conversation itself stays with your team since they know the deal context best." },
+  { q: "What happens if the ads are not performing?", a: "We flag it in your reporting, explain what we are testing next, and adjust targeting, creative, or the target account list. If cost per qualified lead does not improve after 60 days, we will tell you honestly rather than asking you to keep spending." },
+];
+
+const relatedServices: RelatedService[] = [
+  { href: "/services/instagram-ads/", title: "Instagram Ads", desc: "For consumer-facing brands, Instagram reaches buyers through Feed, Story, and Reels ads. Starting ₹25,000/month." },
+  { href: "/services/social-media/", title: "Social Media Marketing", desc: "Build organic authority on LinkedIn alongside paid campaigns for a complete B2B presence. Starting ₹20,000/month." },
+  { href: "/services/web-design/", title: "Landing Page Design", desc: "Your ads are only as good as the page or form they send prospects to. We build high-converting B2B pages. Starting ₹25,000." },
+];
+---
+
+<ServicePageLayout
+  title="LinkedIn Ads Management in Ahmedabad | B2B Lead Generation | DC technolabs"
+  description="LinkedIn Ads management for B2B and IT companies in Ahmedabad and GIFT City. Sponsored Content, InMail & Lead Gen Forms. Starting Rs. 35,000/month."
+  canonical="https://dctechnolabs.in/services/linkedin-ads/"
+  schemaJson={schemaJson}
+
+  badge="💼 LinkedIn Ads Management"
+  heroH1="LinkedIn Ads That Reach."
+  heroHighlight="The Decision-Maker, Not Just an Audience."
+  heroDesc="LinkedIn Ads management for B2B and IT companies in Ahmedabad and GIFT City. We build Sponsored Content, Message Ads, and Lead Gen Form campaigns targeted at the exact job titles and companies that make buying decisions. Starting ₹35,000/month plus your ad spend paid directly to LinkedIn."
+  heroStats={[
+    { value: "₹1,850", label: "Avg. Cost Per Qualified Lead" },
+    { value: "4.1x", label: "Avg. Pipeline to Spend" },
+    { value: "24-48h", label: "To Campaign Launch" },
+  ]}
+  formTitle="Get a Free LinkedIn Ads Strategy"
+  formSub="We will review your existing campaigns or build a targeting strategy from scratch, completely free."
+  formTypeLabel="Who are you trying to reach?"
+  formTypeOptions={["IT / Technology Decision-Makers", "Enterprise / Named Accounts", "SME Business Owners", "HR / Recruitment Leads", "Event or Webinar Registrations", "Starting from Scratch"]}
+
+  s2Title="What Our LinkedIn Ads Management Includes"
+  s2Subtitle="Full-service B2B campaign management, from targeting to sales handoff."
+
+  s3Title="LinkedIn Ads Problems We Fix Every Day"
+  s3Subtitle="If any of these sound like your situation, we can fix it."
+
+  s4Title="Our LinkedIn Ads Process"
+  s4Subtitle="Target right, build sharp, launch fast, optimise for pipeline."
+
+  s5Title="Your Monthly LinkedIn Ads Deliverables"
+  s5Subtitle="Every item included in your management fee, with no surprises."
+
+  s6Title="How We Compare"
+  s6Subtitle="Why B2B companies in Ahmedabad and GIFT City choose DC technolabs for LinkedIn Ads."
+
+  s7Title="LinkedIn Ads Management Packages"
+  s7Subtitle="Flat monthly management fee. Your ad spend goes directly to LinkedIn."
+
+  s8Title="LinkedIn Ads Results"
+  s8Subtitle="Real results from real B2B campaigns managed for Ahmedabad and Gujarat companies."
+
+  s9Title="What Our LinkedIn Ads Clients Say"
+
+  s10Title="LinkedIn Ads Questions Answered"
+
+  s11Title="Services That Work Best With LinkedIn Ads"
+  s11Subtitle="Combine LinkedIn with these for a complete B2B demand generation system."
+
+  comparisonStartingUs="₹35,000/mo"
+  comparisonStartingAgency="₹65,000+/mo"
+  comparisonStartingFreelancer="₹10–18K/mo"
+
+  featureCards={featureCards}
+  problemCards={problemCards}
+  processSteps={processSteps}
+  deliverables={deliverables}
+  comparisonRows={comparisonRows}
+  pricingTiers={pricingTiers}
+  portfolioCards={portfolioCards}
+  testimonials={testimonials}
+  faqItems={faqItems}
+  relatedServices={relatedServices}
+
+  ctaTitle="Ready to Build a Real B2B Pipeline on LinkedIn?"
+  ctaSubtitle="Get a free review of your current campaigns or a fresh targeting strategy if you are starting out. We will show you exactly who you should be reaching."
+  ctaAccentLabel="Get Your Free Ads Strategy"
+  ctaAccentHref="#hero-form"
+/>
